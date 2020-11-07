@@ -299,6 +299,7 @@
         }
 
         .page-4-1 .luxe-pro-info {
+            background-image: url("{{$page_4_1_img_1}}");
             background-size: cover;
             height: 100%;
             position: absolute;
@@ -350,7 +351,7 @@
           position: absolute;
           width: 100%;
           height: 100%;
-          z-index: -1;
+          z-index: 1;
         }
 
         .page-4-2 .luxe-pro-info {
@@ -856,6 +857,7 @@
 
 <body>
     <!-- <a href="http://127.0.0.1:8000/create-pdf-file">Download PDF</a> -->
+
     <div class="page page-1 page-1-2">
         <div class="text-wrap">
             <h1 class="subtitle-top">{{ $page_1_1_text_1}}</h1>
@@ -955,7 +957,6 @@
 
     <div class="page-4 page-4-1">
         <div class="luxe-pro-info">
-            <img src="{{ $page_4_1_img_1 }}" id="imageBackground">
             <div class="text">
                 <h2>The</h2>
                 <h1>Power</h1>

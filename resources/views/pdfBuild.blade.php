@@ -592,7 +592,7 @@
                 <div class="row-image">
                     <div class="page-4 page-4-1">
                         <div class="luxe-pro-info">
-                            <img src="" id="imageBackground">
+                            <img src="" id="imageBackground" style="display: none">
                             <input hidden name="page_4_1_img_1">
                             <div class="text">
                                 <h2 class="page-4-1-text-1">The</h2>
@@ -669,7 +669,7 @@
              success: function(output){
                $("#imageBackground").attr('src', 'uploadedimages/' + output)
                getBase64Image(document.getElementById("imageBackground"),function(base64){
-                  $("#imageBackground").attr('src', base64)
+                  $(".page-4-1 .luxe-pro-info").css('background-image', 'url(' + base64 + ')')
                   $("input[name=page_4_1_img_1]").val(base64);
                });
              }
@@ -695,7 +695,7 @@
                cropper.destroy();
                $("#imageBackground").attr('src', 'uploadedimages/' + output)
                getBase64Image(document.getElementById("imageBackground"),function(base64){
-                  $("#imageBackground").attr('src', base64)
+                  $(".page-4-1 .luxe-pro-info").css('background-image', 'url(' + base64 + ')')
                   $("input[name=page_4_1_img_1]").val(base64);
                });
                $(".page-4.page-4-1 .text").css("display", "block");
