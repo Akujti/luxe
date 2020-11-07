@@ -13,7 +13,7 @@
 
     * {
         font-family: "Lato";
-    } 
+    }
 
     label {
         background-color: #FFCF40;
@@ -328,11 +328,12 @@
     }
 
     .page-4-1 .luxe-pro-info {
-        background-image: url("images/home-selling/Asset 8.png");
+        background-imagee: url("images/home-selling/Asset 8.png");
         background-size: cover;
         height: 100%;
         bottom: 0px;
         width: 100%;
+        position: relative;
     }
 
     .page-4-1 .luxe-pro-info .text {
@@ -370,6 +371,13 @@
         margin-top: 50px !important;
         padding-bottom: 100px !important;
         font-weight: 300;
+    }
+
+    .page-4-1 img{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     .page-5 img{
@@ -584,6 +592,7 @@
                 <div class="row-image">
                     <div class="page-4 page-4-1">
                         <div class="luxe-pro-info">
+                            <img src="" id="imageBackground">
                             <div class="text">
                                 <h2 class="page-4-1-text-1">The</h2>
                                 <h1 class="page-4-1-text-2">Power</h1>
@@ -606,35 +615,13 @@
                     <div class="button">
                         <button type="submit" name="action" value="Generate"class="generate">Generate</button>
                         <button type="submit" name="action" value="Save" class="generate">Save</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row-divider"></div>
-            <div class="row">
-                <div class="row-image">
-                    <div class="page-5 page-5-1">
-                        <img src="" id="imageBackground">
-                    </div>
-                </div>
-                <div class="column-divider"></div>
-                <div class="row-input">
-                    <!-- <label for="page-4-1-text-1">First Title</label>
-                    <input type="text" id="page-4-1-text-1" name="page_4_1_text_1" value="The">
-
-                    <label for="page-4-1-text-2">Second Title</label>
-                    <input type="text" id="page-4-1-text-2" name="page_4_1_text_2" value="Power">
-
-                    <label for="page-4-1-text-2">Third Title</label>
-                    <input type="text" id="page-4-1-text-3" name="page_4_1_text_3" value="of Our Brand"> -->
-
-                    <div class="button">
                         <input type="file" id="imageBackgroundInput" onchange="imageBackgroundInputChanged()">
                         <button type="button" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="cropImage()">Save Crop</button>
                     </div>
                 </div>
             </div>
+
     </div>
     </form>
       {{ csrf_field() }}
