@@ -646,8 +646,9 @@
     var cropper;
     function startCropper(){
       var image = document.getElementById("imageBackground");
+      $(".page-4.page-4-1 .text").css("display", "none");
       cropper = new Cropper(image, {
-
+        minContainerHeight: 500
       });
     }
 
@@ -688,6 +689,7 @@
              success: function(output){
                cropper.destroy();
                $("#imageBackground").attr('src', 'uploadedimages/' + output)
+               $(".page-4.page-4-1 .text").css("display", "block");
              }
         });
 
