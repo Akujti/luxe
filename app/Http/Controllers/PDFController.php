@@ -40,6 +40,8 @@ class PDFController extends Controller
             'page_3_2_text_7' => $request['page_3_2_text_7'],
             'page_3_2_text_8' => $request['page_3_2_text_8'],
             'page_3_2_text_9' => $request['page_3_2_text_9'],
+            'page_4_1_img_1' => $request['page_4_1_img_1'],
+
             // 'page_4_1_text_1' => $request['page_4_1_text_1'],
             // 'page_4_1_text_2' => $request['page_4_1_text_2'],
             // 'page_4_1_text_3' => $request['page_4_1_text_3']
@@ -56,7 +58,6 @@ class PDFController extends Controller
         } else {
 
             $pdf = PDF::loadView('testPDF', $data);
-
             return $pdf->download('Home Selling Guide.pdf');
         }
     }
