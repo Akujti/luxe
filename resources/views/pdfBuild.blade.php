@@ -593,6 +593,7 @@
                     <div class="page-4 page-4-1">
                         <div class="luxe-pro-info">
                             <img src="" id="imageBackground">
+                            <input hidden name="page_4_1_img_1">
                             <div class="text">
                                 <h2 class="page-4-1-text-1">The</h2>
                                 <h1 class="page-4-1-text-2">Power</h1>
@@ -667,6 +668,10 @@
              },
              success: function(output){
                $("#imageBackground").attr('src', 'uploadedimages/' + output)
+               getBase64Image(document.getElementById("imageBackground"),function(base64){
+                  $("#imageBackground").attr('src', base64)
+                  $("input[name=page_4_1_img_1]").val(base64);
+               });
              }
         });
     }
@@ -689,11 +694,35 @@
              success: function(output){
                cropper.destroy();
                $("#imageBackground").attr('src', 'uploadedimages/' + output)
+               getBase64Image(document.getElementById("imageBackground"),function(base64){
+                  $("#imageBackground").attr('src', base64)
+                  $("input[name=page_4_1_img_1]").val(base64);
+               });
                $(".page-4.page-4-1 .text").css("display", "block");
              }
         });
 
       }/*, 'image/png' */);
+    }
+
+    function convert(oldImag, callback) {
+        var img = new Image();
+        img.onload = function(){
+            callback(img)
+        }
+        img.setAttribute('crossorigin', 'anonymous');
+        img.src = oldImag.src;
+    }
+    function getBase64Image(img,callback) {
+        convert(img, function(newImg){
+            var canvas = document.createElement("canvas");
+            canvas.width = newImg.width;
+            canvas.height = newImg.height;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(newImg, 0, 0);
+            var base64=canvas.toDataURL("image/png");
+            callback(base64)
+        })
     }
 </script>
 

@@ -299,12 +299,12 @@
         }
 
         .page-4-1 .luxe-pro-info {
-            background-image: url("images/home-selling/Asset 8.png");
             background-size: cover;
             height: 100%;
             position: absolute;
             bottom: 0px;
             width: 100%;
+            position: relative;
         }
 
         .page-4-1 .luxe-pro-info .text {
@@ -344,6 +344,13 @@
             z-index: 100;
             margin-top: 165px !important;
             font-weight: 300;
+        }
+
+        .page-4-1 img{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
         }
 
         .page-4-2 .luxe-pro-info {
@@ -948,6 +955,7 @@
 
     <div class="page-4 page-4-1">
         <div class="luxe-pro-info">
+            <img src="{{ $page_4_1_img_1 }}" id="imageBackground">
             <div class="text">
                 <h2>The</h2>
                 <h1>Power</h1>
