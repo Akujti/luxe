@@ -582,7 +582,7 @@
                         <input type="text" id="page-3-2-text-8" name="page_3_2_text_8" value="With The Least Hassle">
 
                         <label for="page-3-2-text-3">Third Text</label>
-                        <textarea id="page-3-2-text-9" name="page_3_2_text_9" rows="4">Once you list with LUXE, you can sit back and relax. Our specialized departments cover all aspects of the home sale process from marketing your home all the way up to closing. Our company has a “let us handle that for you” approach to the sale. We’ve redefined our process so precisely that nothing falls through the cracks.</textarea>
+                        <textarea id="page-3-2-text-9" name="page_3_2_text_9" rows="4" data-replace-attribute="VAL" data-name-replace="page_3_2_text_9">Once you list with LUXE, you can sit back and relax. Our specialized departments cover all aspects of the home sale process from marketing your home all the way up to closing. Our company has a “let us handle that for you” approach to the sale. We’ve redefined our process so precisely that nothing falls through the cracks.</textarea>
                     </div>
                 </div>
             </div>
@@ -592,7 +592,7 @@
                 <div class="row-image">
                     <div class="page-4 page-4-1">
                         <div class="luxe-pro-info">
-                            <img src="" id="imageBackground" style="display: none">
+                            <img src="" id="imageBackground" data-replace-attribute="src" data-name-replace="page_4_1_img_1">
                             <input hidden name="page_4_1_img_1">
                             <div class="text">
                                 <h2 class="page-4-1-text-1">The</h2>
@@ -619,6 +619,9 @@
                         <input type="file" id="imageBackgroundInput" onchange="imageBackgroundInputChanged()">
                         <button type="button" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="cropImage()">Save Crop</button>
+                        <br>
+                        JSON Upload:
+                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
                     </div>
                 </div>
             </div>
@@ -675,6 +678,31 @@
              }
         });
     }
+
+    function jsonFileUploaded(){
+        var reader = new FileReader();
+        reader.onload = onJsonFileLoad;
+        reader.readAsText(document.getElementById("jsonFileUpload").files[0]);
+    }
+
+    function onJsonFileLoad(event){
+        console.log(event.target.result);
+        var obj = JSON.parse(event.target.result);
+        console.log(obj);
+        jQuery.each(obj, function(i, val) {
+            var item = $("[data-name-replace=" + i + "]");
+            var itemAttributeToReplace = $(item).attr("data-replace-attribute");
+            console.log(item, itemAttributeToReplace);
+            if(itemAttributeToReplace == "HTML"){
+              $(item).html(val);
+            } else if(itemAttributeToReplace == "VAL"){
+              $(item).val(val);
+            } else {
+              $(item).attr(itemAttributeToReplace, val)
+            }
+        });
+    }
+
 
     function cropImage(){
       cropper.getCroppedCanvas().toBlob((blob) => {
