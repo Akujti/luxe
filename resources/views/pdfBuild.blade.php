@@ -593,7 +593,7 @@
                     <div class="page-4 page-4-1">
                         <div class="luxe-pro-info">
                             <img src="" id="imageBackground" data-replace-attribute="src" data-name-replace="page_4_1_img_1">
-                            <input hidden name="page_4_1_img_1">
+                            <input hidden name="page_4_1_img_1" id="page_4_1_img_1">
                             <div class="text">
                                 <h2 class="page-4-1-text-1">The</h2>
                                 <h1 class="page-4-1-text-2">Power</h1>
@@ -693,6 +693,7 @@
             var item = $("[data-name-replace=" + i + "]");
             var itemAttributeToReplace = $(item).attr("data-replace-attribute");
             console.log(item, itemAttributeToReplace);
+            $("#" + i).val(val);
             if(itemAttributeToReplace == "HTML"){
               $(item).html(val);
             } else if(itemAttributeToReplace == "VAL"){
@@ -700,6 +701,7 @@
             } else {
               $(item).attr(itemAttributeToReplace, val)
             }
+            $(item).trigger("change");
         });
     }
 
