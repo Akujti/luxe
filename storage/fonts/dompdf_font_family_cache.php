@@ -92,4 +92,9 @@
   'fontawesome' => array(
     'normal' => $fontDir . '/fontawesome-normal_7ea195556637d817f455524c7885b526',
   ),
+  'montserrat' => array(
+    'normal' => $fontDir . '/montserrat-normal_d7b9f5e95298c71fecec5dd1831abcb5',
+    'bold' => $fontDir . '/montserrat-bold_6beb6e27cd8907eec374534ce0d119ec',
+    '800' => $fontDir . '/montserrat-800_3593059443dde0e05fef2d4793944645',
+  ),
 ) ?>
