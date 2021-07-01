@@ -308,7 +308,7 @@
         var form_data = new FormData();
         form_data.append("file", $("#img-4-input")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -333,7 +333,7 @@
         const form_data = new FormData();
         form_data.append('file', blob, 'example.png');
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -360,7 +360,7 @@
         var form_data = new FormData();
         form_data.append("file", $("#img-3-input")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -385,7 +385,7 @@
         const form_data = new FormData();
         form_data.append('file', blob, 'example.png');
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -412,7 +412,7 @@
         var form_data = new FormData();
         form_data.append("file", $("#img-2-input")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -437,7 +437,7 @@
         const form_data = new FormData();
         form_data.append('file', blob, 'example.png');
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -464,7 +464,7 @@
         var form_data = new FormData();
         form_data.append("file", $("#img-1-input")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -490,7 +490,7 @@
         const form_data = new FormData();
         form_data.append('file', blob, 'example.png');
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,

@@ -413,8 +413,8 @@
             </div>
         </div>
         <script>
-            
-          </script>
+
+        </script>
 
         <div class="row-divider"></div>
 
@@ -521,7 +521,7 @@
                                 assist with follow up from contract to closing.</li>
                         </ul>
                         <h2 class="gold page-4-text-5">Negotiator</h2>
-                        <ul class="page-4-text-6"id="result-4-6"
+                        <ul class="page-4-text-6" id="result-4-6"
                             style="list-style-image: url('images/home-buying/check.png');width:80%;">
                             <li class="font-thin">We are expert negotiators and will always negotiate on your behalf
                                 along with
@@ -601,7 +601,7 @@
             </div>
         </div>
         <script>
-         
+
         </script>
 
         <div class="row-divider"></div>
@@ -633,8 +633,8 @@
             </div>
         </div>
         <script>
-           
-          </script>
+
+        </script>
 
         <div class="row-divider"></div>
 
@@ -658,8 +658,8 @@
             </div>
         </div>
         <script>
-            
-          </script>
+
+        </script>
 
         <div class="row-divider"></div>
 
@@ -783,8 +783,8 @@
             </div>
         </div>
         <script>
-          
-          </script>
+
+        </script>
 
 
         <div class="row-divider"></div>
@@ -805,7 +805,8 @@
                             for you.</p>
 
                         <h2 class="gold page-11-text-3" style="margin-bottom: -20px;">FHA</h2>
-                        <ul class="page-11-text-4" style="list-style-image: url('images/home-buying/check.png');" id="result-11-4">
+                        <ul class="page-11-text-4" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-11-4">
                             <li class="font-thin">Max Loan Amount - $345,000</li>
                             <li class="font-thin">This is a low down payment option, sometimes only 3.5% down</li>
                             <li class="font-thin">Accepts lower credit scores and high qualifying ratios allowing you to
@@ -819,7 +820,8 @@
                         </ul>
 
                         <h2 class="gold page-11-text-5" style="margin-bottom: -20px;margin-top: -10px;">VA</h2>
-                        <ul class="page-11-text-6" style="list-style-image: url('images/home-buying/check.png');"id="result-11-6">
+                        <ul class="page-11-text-6" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-11-6">
                             <li class="font-thin">This loan has the same guidelines as FHA for the property.</li>
                             <li class="font-thin">The borrower must be a veteran and receive special financing
                                 incentives.</li>
@@ -829,7 +831,8 @@
 
                         <h2 class="gold page-11-text-7" style="margin-bottom: -20px;margin-top: -10px;">Conventional
                         </h2>
-                        <ul class="page-11-text-8" style="list-style-image: url('images/home-buying/check.png');"id="result-11-8">
+                        <ul class="page-11-text-8" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-11-8">
                             <li class="font-thin">Max Loan Amount - $453,100</li>
                             <li class="font-thin">These loans can be used for investment loans or owner occupants.</li>
                             <li class="font-thin">Lower down payments allowed in this program as well.</li>
@@ -839,7 +842,8 @@
                         </ul>
 
                         <h2 class="gold page-11-text-9" style="margin-bottom: -20px;margin-top: -10px;">Jumbo</h2>
-                        <ul class="page-11-text-10" style="list-style-image: url('images/home-buying/check.png');" id="result-11-10">
+                        <ul class="page-11-text-10" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-11-10">
                             <li class="font-thin">These are loans over Fannie Mae limit of $450,000</li>
                             <li class="font-thin">Sometimes there are special programs, which have conventional first
                                 mortgage and
@@ -851,7 +855,8 @@
                         <h2 class="gold page-11-text-11" style="margin-bottom: -20px;margin-top: -10px;">Hard
                             Money/Private Financing
                         </h2>
-                        <ul class="page-11-text-12" style="list-style-image: url('images/home-buying/check.png');"id="result-11-12">
+                        <ul class="page-11-text-12" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-11-12">
                             <li class="font-thin">These are loans, which do not necessarily require good credit from
                                 borrower in
                                 exchange for a higher interest rate and down payment</li>
@@ -864,7 +869,8 @@
 
                         <h2 class="gold page-11-text-13" style="margin-bottom: -20px;margin-top: -10px;">Seller
                             Financing</h2>
-                        <ul class="page-11-text-14" style="list-style-image: url('images/home-buying/check.png');"id="result-11-14">
+                        <ul class="page-11-text-14" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-11-14">
                             <li class="font-thin">In some instances albeit rare, the seller can offer to extend a loan
                                 to you out of
                                 their equity</li>
@@ -1006,8 +1012,8 @@
             </div>
         </div>
         <script>
-            
-          </script>
+
+        </script>
 
 
         <div class="row-divider"></div>
@@ -1052,10 +1058,10 @@
                             areas.
                             High
                             technology usually included.</p>
-                        <ul style="list-style-image: url('images/home-buying/check.png');" >
+                        <ul style="list-style-image: url('images/home-buying/check.png');">
                             <li class="gold page-13-text-10" style="font-size:25px;margin-bottom:-18px;">Cons -</li>
                         </ul>
-                        <ul class="golden-list page-13-text-11"id="result-13-11">
+                        <ul class="golden-list page-13-text-11" id="result-13-11">
                             <li class="font-thin">Mostly in communities with HOA</li>
                             <li class="font-thin">Limited options for design; builder fees</li>
                             <li class="font-thin">Some new areas can have high taxes due to community
@@ -1176,8 +1182,8 @@
             </div>
         </div>
         <script>
-           
-          </script>
+
+        </script>
 
         <div class="row-divider"></div>
 
@@ -1191,7 +1197,8 @@
                             homes and
                             condos have associations</p>
                         <h1 class="gold page-15-text-2" style="font-size:35px;">Homeowners Association</h1>
-                        <ul class="page-15-text-3" style="list-style-image: url('images/home-buying/check.png');" id="result-15-3">
+                        <ul class="page-15-text-3" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-15-3">
                             <li class="font-thin">These associations set rules, regulations and typically
                                 appearance guidelines for homes within the association</li>
                             <li class="font-thin">They create yearly budgets to cover these services
@@ -1204,7 +1211,8 @@
                         </ul>
 
                         <h1 class="gold page-15-text-4" style="font-size:35px;">Condo Association</h1>
-                        <ul class="page-15-text-6" style="list-style-image: url('images/home-buying/check.png');"id="result-15-6">
+                        <ul class="page-15-text-6" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-15-6">
                             <li class="font-thin">Condos are similar to HOA’s but are more
                                 comprehensive in service</li>
                             <li class="font-thin">Condos typically share insurance costs and have limited common
@@ -1297,8 +1305,8 @@
             </div>
         </div>
         <script>
-           
-          </script>
+
+        </script>
 
         <div class="row-divider"></div>
 
@@ -1308,7 +1316,8 @@
                     style="background-image:url('images/home-buying/page-16.jpg');background-position:-600px;">
                     <div class="container" style="margin-left:175px;">
                         <h1 class="gold page-17-text-1" style="font-size:35px;padding-top:30px;">Short Sale</h1>
-                        <ul class="page-17-text-2" style="list-style-image: url('images/home-buying/check.png');" id="result-17-2">
+                        <ul class="page-17-text-2" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-17-2">
                             <li class="font-thin">When an owner has ﬁnancial difﬁculty and falls into
                                 “pre-foreclosure”,
                                 the owner
@@ -1328,7 +1337,8 @@
                         </ul>
 
                         <h1 class="gold page-17-text-3" style="font-size:35px;">Foreclosures</h1>
-                        <ul class="page-17-text-4" style="list-style-image: url('images/home-buying/check.png');" id="result-17-4">
+                        <ul class="page-17-text-4" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-17-4">
                             <li class="font-thin">Repossessed homes which the bank is trying to liquidate</li>
                             <li class="font-thin">It is considered a foreclosure once the bank owns it</li>
                             <li class="font-thin">Also known as reo, bank-owned, foreclosed home</li>
@@ -1341,7 +1351,8 @@
                         </ul>
 
                         <h1 class="gold page-17-text-5" style="font-size:35px;">Foreclosure Court Auctions</h1>
-                        <ul class="page-17-text-6" style="list-style-image: url('images/home-buying/check.png');" id="result-17-6">
+                        <ul class="page-17-text-6" style="list-style-image: url('images/home-buying/check.png');"
+                            id="result-17-6">
                             <li class="font-thin">These are court ordered sales in an auction format</li>
                             <li class="font-thin">Properties must be purchased in cash and paid in full within
                                 24 hours
@@ -1434,8 +1445,8 @@
             </div>
         </div>
         <script>
-         
-          </script>
+
+        </script>
 
         <div class="row-divider"></div>
 
@@ -1630,8 +1641,8 @@
             </div>
         </div>
         <script>
-            
-          </script>
+
+        </script>
 
         <div class="row-divider"></div>
 
@@ -1775,8 +1786,8 @@
             </div>
         </div>
         <script>
-           
-          </script>
+
+        </script>
 
         <div class="row-divider"></div>
 
@@ -1785,11 +1796,13 @@
                 <div class="page page-23 page-background"
                     style="background-image:url('images/home-buying/page-22.jpg');background-position:-550px 650px; background-size:contain;">
                     <div class="container" style="margin-left:175px;">
-                        <p class="font-thin mb-50 page-23-text-1" style="font-size:40px;width:500px;margin-top:0px;">Benefits
+                        <p class="font-thin mb-50 page-23-text-1" style="font-size:40px;width:500px;margin-top:0px;">
+                            Benefits
                             of
                             Signing a
                             <strong>Buyer’s</strong> <span class="gold">Representation Agreement</span></p>
-                        <p class="font-thin mb-50 page-23-text-2" style="font-size: 20px;">While the fiduciary duty really is
+                        <p class="font-thin mb-50 page-23-text-2" style="font-size: 20px;">While the fiduciary duty
+                            really is
                             the main
                             reason to
                             sign a
@@ -1797,7 +1810,8 @@
                             during
                             your home
                             search & purchase</p>
-                        <ul class="page-23-text-3" id="result-23-3" style="list-style-image: url('images/home-buying/check.png');">
+                        <ul class="page-23-text-3" id="result-23-3"
+                            style="list-style-image: url('images/home-buying/check.png');">
                             <li class="font-thin" style="font-size: 20px;">You are able to get a better idea of
                                 the
                                 scope of
@@ -1888,9 +1902,9 @@
             </div>
         </div>
         <script>
-           
-          </script>
-        
+
+        </script>
+
 
         <div class="row-divider"></div>
 
@@ -1989,8 +2003,8 @@
             </div>
         </div>
         <script>
-          
-          </script>
+
+        </script>
 
         <div class="row-divider"></div>
 
@@ -2014,8 +2028,8 @@
                         <div class="absolute" style="top:30px;">
                             <div style="background-color: #C6A467;padding:5px;width:176px;border-radius: 600%;">
                                 <div style="background-color:white;padding:5px;border-radius: 550%;">
-                                    <img id="page-27-img-1" src="images/home-buying/page-27-1.jpg" alt="" width="166" height="166"
-                                        style="border-radius: 500%;">
+                                    <img id="page-27-img-1" src="images/home-buying/page-27-1.jpg" alt="" width="166"
+                                        height="166" style="border-radius: 500%;">
                                 </div>
                             </div>
                         </div>
@@ -2030,8 +2044,8 @@
                         <div class="absolute" style="top: -130px;left: -130px;">
                             <div style="background-color: black;padding:5px;width:176px;border-radius: 600%;">
                                 <div style="background-color:white;padding:5px;border-radius: 550%;">
-                                    <img id="page-27-img-2" src="images/home-buying/page-27-2.jpg" alt="" width="166" height="166"
-                                        style="border-radius: 500%;">
+                                    <img id="page-27-img-2" src="images/home-buying/page-27-2.jpg" alt="" width="166"
+                                        height="166" style="border-radius: 500%;">
                                 </div>
                             </div>
                         </div>
@@ -2046,8 +2060,8 @@
                         <div class="absolute" style="top: -290px;">
                             <div style="background-color: #C6A467;padding:5px;width:176px;border-radius: 600%;">
                                 <div style="background-color:white;padding:5px;border-radius: 550%;">
-                                    <img id="page-27-img-3" src="images/home-buying/page-27-3.jpg" alt="" width="166" height="166"
-                                        style="border-radius: 500%;">
+                                    <img id="page-27-img-3" src="images/home-buying/page-27-3.jpg" alt="" width="166"
+                                        height="166" style="border-radius: 500%;">
                                 </div>
                             </div>
                         </div>
@@ -2062,8 +2076,8 @@
                         <div class="absolute" style="top: -475px;left: -130px;">
                             <div style="background-color: black;padding:5px;width:176px;border-radius: 600%;">
                                 <div style="background-color:white;padding:5px;border-radius: 550%;">
-                                    <img id="page-27-img-4" src="images/home-buying/page-27-2.jpg" alt="" width="166" height="166"
-                                        style="border-radius: 500%;">
+                                    <img id="page-27-img-4" src="images/home-buying/page-27-2.jpg" alt="" width="166"
+                                        height="166" style="border-radius: 500%;">
                                 </div>
                             </div>
                         </div>
@@ -2094,7 +2108,7 @@
                     <label for="page-27-text-5">LOT SIZE</label>
                     <input type="text" id="page-27-text-5" name="page_27_text_5" value="LOT SIZE: 38,768 SQ FT">
                 </div>
-                
+
                 <div class="button">
                     <label>Image 1</label>
                     <input type="file" id="imageBackgroundInput-page-27-1"
@@ -2117,9 +2131,9 @@
                     <input type="text" id="page-27-text-9" name="page_27_text_9" value="LIVING AREA: 6,395 SQ FT">
                     <label for="page-27-text-5">LOT SIZE</label>
                     <input type="text" id="page-27-text-10" name="page_27_text_10" value="LOT SIZE: 38,768 SQ FT">
-                </div> 
-               
-               
+                </div>
+
+
 
                 <label for="page-27-text-11">Title</label>
                 <input type="text" id="page-27-text-11" name="page_27_text_11" value="6495 SW 15 TERRACE"
@@ -2136,7 +2150,7 @@
                     <label for="page-27-text-5">LOT SIZE</label>
                     <input type="text" id="page-27-text-15" name="page_27_text_15" value="LOT SIZE: 38,768 SQ FT">
                 </div>
-                 
+
                 <div class="button">
                     <label>Image 2</label>
                     <input type="file" id="imageBackgroundInput-page-27-2"
@@ -2151,7 +2165,7 @@
                     <button type="button" onclick="startCropper_page_27_3()">Crop</button>
                     <button type="button" onclick="cropImage_page_27_3()">Save Crop</button>
                 </div>
-               
+
 
                 <label for="page-27-text-16">Title</label>
                 <input type="text" id="page-27-text-16" name="page_27_text_16" value="6495 SW 15 TERRACE"
@@ -2206,18 +2220,18 @@
             </div>
         </div>
         <script>
-           
-            
-          </script>
-       
+
+
+        </script>
+
 
 
 
 
         <script>
-            
-          </script>
-          
+
+        </script>
+
 
         <div class="row-divider"></div>
 
@@ -2225,7 +2239,7 @@
             <div class="row-image">
                 <div class="page page-29 page-background"
                     style="background-image:url('images/home-buying/page-28.jpg');background-position:-600px;">
-                    
+
                     <img src="" id="imageBackground-page-29-1" style="display: none">
                     <input hidden name="page_29_img_1" value="images/home-buying/page-27-1.jpg">
                     <img src="" id="imageBackground-page-29-2" style="display: none">
@@ -2238,11 +2252,11 @@
                     <div class="container">
                         <div class="mb-20 golden-radius" style="background-color: #C6A467;padding:5px;">
                             <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                                <img id="page-29-img-1" src="images/home-buying/page-27-1.jpg" alt="" width="166" height="166"
-                                    style="border-radius: 500%;">
+                                <img id="page-29-img-1" src="images/home-buying/page-27-1.jpg" alt="" width="166"
+                                    height="166" style="border-radius: 500%;">
                             </div>
                         </div>
-                        
+
                         <div class="absolute" style="top: -205px;left: 275px;width:450px;">
                             <p class="white page-29-text-1" style="font-size:24px;">6495 SW 15 TERRACE</p>
                             <p class="page-29-text-2">PRICE: $2,375,000</p>
@@ -2254,8 +2268,8 @@
                         <div class="mb-20 golden-radius"
                             style="background-color: #C6A467;padding:5px;margin-top: -135px;">
                             <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                                <img id="page-29-img-2" src="images/home-buying/page-27-2.jpg" alt="" width="166" height="166"
-                                    style="border-radius: 500%;">
+                                <img id="page-29-img-2" src="images/home-buying/page-27-2.jpg" alt="" width="166"
+                                    height="166" style="border-radius: 500%;">
                             </div>
                         </div>
                         <div class="absolute" style="top: -210px;left: 275px;width:450px;">
@@ -2269,8 +2283,8 @@
                         <div class="mb-20 golden-radius"
                             style="background-color: #C6A467;padding:5px;margin-top: -135px;">
                             <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                                <img id="page-29-img-3" src="images/home-buying/page-27-3.jpg" alt="" width="166" height="166"
-                                    style="border-radius: 500%;">
+                                <img id="page-29-img-3" src="images/home-buying/page-27-3.jpg" alt="" width="166"
+                                    height="166" style="border-radius: 500%;">
                             </div>
                         </div>
                         <div class="absolute" style="top: -210px;left: 275px;width:450px;">
@@ -2283,8 +2297,8 @@
 
                         <div class="golden-radius" style="background-color: #C6A467;padding:5px;margin-top: -135px;">
                             <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                                <img id="page-29-img-4" src="images/home-buying/page-27-4.jpg" alt="" width="166" height="166"
-                                    style="border-radius: 500%;">
+                                <img id="page-29-img-4" src="images/home-buying/page-27-4.jpg" alt="" width="166"
+                                    height="166" style="border-radius: 500%;">
                             </div>
                         </div>
                         <div class="absolute" style="top: -205px;left: 275px;width:450px;">
@@ -2393,10 +2407,10 @@
             </div>
         </div>
         <script>
-            
-          </script>
-        
-        
+
+        </script>
+
+
         <div class="row-divider"></div>
 
         <div class="row">
@@ -2417,7 +2431,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="column-divider"></div>
             <div class="row-input">
                 <div class="button">
@@ -2430,8 +2444,8 @@
             </div>
         </div>
         <script>
-           
-          </script>
+
+        </script>
         <div class="row-divider"></div>
 
         <div class="row">
@@ -2448,8 +2462,8 @@
                     <input hidden name="page_31_img_3" value="images/home-selling/Asset 27.png">
                     <div class="container" style="margin-left:70px;padding-top:30px;margin-right:50px;">
                         <div class="section" style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;">
-                            <img id="page31-1" src="images/home-selling/Asset 27.png" alt="" style="float: left;margin-bottom:-30px;"
-                                height="230px">
+                            <img id="page31-1" src="images/home-selling/Asset 27.png" alt=""
+                                style="float: left;margin-bottom:-30px;" height="230px">
                             <img src="images/home-selling/divider-1.png" alt="" height="230px"
                                 style="margin-left:-114px;z-index:100;margin-top:0;">
                             <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;top: 0px;left: 255px;
@@ -2468,8 +2482,8 @@
                         </div>
 
                         <div class="section" style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;">
-                            <img  id="page31-2" src="images/home-selling/Asset 27.png" alt=""  style="float: left;margin-bottom:-30px;"
-                                height="230px">
+                            <img id="page31-2" src="images/home-selling/Asset 27.png" alt=""
+                                style="float: left;margin-bottom:-30px;" height="230px">
                             <img src="images/home-selling/divider-1.png" alt="" height="230px"
                                 style="margin-left:-114px;z-index:100;margin-top:0;">
                             <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;top:265px;left: 255px;
@@ -2488,8 +2502,8 @@
                         </div>
 
                         <div class="section" style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;">
-                            <img id="page31-3" id="section15" src="images/home-selling/Asset 27.png" alt="" style="float: left;margin-bottom:-30px;"
-                                height="230px">
+                            <img id="page31-3" id="section15" src="images/home-selling/Asset 27.png" alt=""
+                                style="float: left;margin-bottom:-30px;" height="230px">
                             <img src="images/home-selling/divider-1.png" alt="" height="230px"
                                 style="margin-left:-114px;z-index:100;margin-top:0;">
                             <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;top:520px;left: 255px;
@@ -2560,9 +2574,9 @@
             </div>
         </div>
 
-<script>
-    
-</script>
+        <script>
+
+        </script>
         <div class="row-divider"></div>
 
         <div class="row">
@@ -2576,8 +2590,8 @@
             <div class="column-divider"></div>
             <div class="row-input" style="margin:0;">
                 <div class="button">
-                    <button style="" type="submit" name="action" value="Generate"
-                        class="generate" style="">Generate</button>
+                    <button style="" type="submit" name="action" value="Generate" class="generate"
+                        style="">Generate</button>
                     <button type="submit" name="action" value="Save" class="generate">Save</button>
 
                     <br />
@@ -3041,8 +3055,6 @@
 </script>
 
 <script>
-    
-
     var cropper;
 
     function startCropper_page_2() {
@@ -3057,7 +3069,7 @@
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-2")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3070,7 +3082,7 @@
                       var imageurl="uploadedimages/";
                       $("#imageBackground-page-2").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-2"), function (base64) {
-                        $(".page-2").css("background-image", "url(" +imageurl + output + ")");
+                        $(".page-2").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_2_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3084,7 +3096,7 @@
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3098,7 +3110,7 @@
                               cropper.destroy();
                               $("#imageBackground-page-2").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-2"), function (base64) {
-                                $(".page-2").css("background-image", "url(" +imageurl + output + ")");
+                                $(".page-2").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_2_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-2 .absolute").css("display", "block");
@@ -3120,7 +3132,7 @@
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-5")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -3133,7 +3145,7 @@
                     var imageurl="uploadedimages/";
                     $("#imageBackground-page-5").attr("src", "uploadedimages/" + output);
                     getBase64Image(document.getElementById("imageBackground-page-5"), function (base64) {
-                        $(".page-5").css("background-image", "url(" +imageurl + output + ")");
+                        $(".page-5").css("background-image", "url("+imageurl + output + ")");
                         $("input[name=page_5_img_1]").val("uploadedimages/" + output);
                     });
                 },
@@ -3147,7 +3159,7 @@
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -3161,7 +3173,7 @@
                             cropper.destroy();
                             $("#imageBackground-page-5").attr("src", "uploadedimages/" + output);
                             getBase64Image(document.getElementById("imageBackground-page-5"), function (base64) {
-                                $(".page-5").css("background-image", "url(" +imageurl + output + ")");
+                                $(".page-5").css("background-image", "url("+imageurl + output + ")");
                                 $("input[name=page_5_img_1]").val("uploadedimages/" + output);
                             });
                             $(".page-5 .absolute").css("display", "block");
@@ -3183,7 +3195,7 @@
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-6")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3196,7 +3208,7 @@
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-6").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-6"), function (base64) {
-                          $(".page-6").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-6").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_6_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3210,7 +3222,7 @@
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3224,7 +3236,7 @@
                               var imageurl="uploadedimages/";
                               $("#imageBackground-page-6").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-6"), function (base64) {
-                                  $(".page-6").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-6").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_6_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-6 .absolute").css("display", "block");
@@ -3246,7 +3258,7 @@ function startCropper_page_7() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-7")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3259,7 +3271,7 @@ function startCropper_page_7() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-7").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-7"), function (base64) {
-                          $(".page-7").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-7").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_7_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3273,7 +3285,7 @@ function startCropper_page_7() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3287,7 +3299,7 @@ function startCropper_page_7() {
                               cropper.destroy();
                               $("#imageBackground-page-7").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-7"), function (base64) {
-                                  $(".page-7").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-7").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_7_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-7 .absolute").css("display", "block");
@@ -3309,7 +3321,7 @@ function startCropper_page_7() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-10")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3322,7 +3334,7 @@ function startCropper_page_7() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-10").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-10"), function (base64) {
-                          $(".page-10").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-10").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_10_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3336,7 +3348,7 @@ function startCropper_page_7() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3350,7 +3362,7 @@ function startCropper_page_7() {
                               cropper.destroy();
                               $("#imageBackground-page-10").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-10"), function (base64) {
-                                  $(".page-10").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-10").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_10_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-10 .absolute").css("display", "block");
@@ -3372,7 +3384,7 @@ function startCropper_page_7() {
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-12-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -3400,7 +3412,7 @@ function startCropper_page_7() {
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -3435,7 +3447,7 @@ function startCropper_page_7() {
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-12-2")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -3463,7 +3475,7 @@ function startCropper_page_7() {
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -3500,7 +3512,7 @@ function startCropper_page_7() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-14")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3513,8 +3525,8 @@ function startCropper_page_7() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-14").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-14"), function (base64) {
-                          $(".page-14").css("background-image", "url(" +imageurl + output + ")");
-                          $(".page-15").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-14").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-15").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_14_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3528,7 +3540,7 @@ function startCropper_page_7() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3542,8 +3554,8 @@ function startCropper_page_7() {
                               cropper.destroy();
                               $("#imageBackground-page-14").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-14"), function (base64) {
-                                  $(".page-14").css("background-image", "url(" +imageurl + output + ")");
-                                  $(".page-15").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-14").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-15").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_14_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-10 .absolute").css("display", "block");
@@ -3565,7 +3577,7 @@ function startCropper_page_7() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-16")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3578,8 +3590,8 @@ function startCropper_page_7() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-16").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-16"), function (base64) {
-                          $(".page-16").css("background-image", "url(" +imageurl + output + ")");
-                          $(".page-17").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-16").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-17").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_16_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3593,7 +3605,7 @@ function startCropper_page_7() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3607,9 +3619,9 @@ function startCropper_page_7() {
                               cropper.destroy();
                               $("#imageBackground-page-16").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-16"), function (base64) {
-                                  $(".page-16").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-16").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_16_img_1]").val("uploadedimages/" + output);
-                                  $(".page-17").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-17").css("background-image", "url("+imageurl + output + ")");
                               });
                               $(".page-16 .absolute").css("display", "block");
                           },
@@ -3630,7 +3642,7 @@ function startCropper_page_7() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-18")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3643,8 +3655,8 @@ function startCropper_page_7() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-18").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-18"), function (base64) {
-                          $(".page-18").css("background-image", "url(" +imageurl + output + ")");
-                          $(".page-19").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-18").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-19").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_18_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3658,7 +3670,7 @@ function startCropper_page_7() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3672,8 +3684,8 @@ function startCropper_page_7() {
                               var imageurl="uploadedimages/";
                               $("#imageBackground-page-18").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-18"), function (base64) {
-                                  $(".page-18").css("background-image", "url(" +imageurl + output + ")");
-                                  $(".page-19").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-18").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-19").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_18_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-18 .absolute").css("display", "block");
@@ -3695,7 +3707,7 @@ function startCropper_page_20() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-20")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3708,8 +3720,8 @@ function startCropper_page_20() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-20").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-20"), function (base64) {
-                          $(".page-20").css("background-image", "url(" +imageurl + output + ")");
-                          $(".page-21").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-20").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-21").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_20_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3723,7 +3735,7 @@ function startCropper_page_20() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3737,8 +3749,8 @@ function startCropper_page_20() {
                               var imageurl="uploadedimages/";
                               $("#imageBackground-page-20").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-20"), function (base64) {
-                                  $(".page-20").css("background-image", "url(" +imageurl + output + ")");
-                                  $(".page-21").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-20").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-21").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_20_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-20 .absolute").css("display", "block");
@@ -3760,7 +3772,7 @@ function startCropper_page_20() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-22")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3774,7 +3786,7 @@ function startCropper_page_20() {
                       $("#imageBackground-page-22").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-22"), function (base64) {
                              $("#section-22").attr("src", "uploadedimages/" + output);
-                             $(".page-23").css("background-image", "url(" +imageurl + output + ")");
+                             $(".page-23").css("background-image", "url("+imageurl + output + ")");
                             $("input[name=page_22_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3788,7 +3800,7 @@ function startCropper_page_20() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3803,7 +3815,7 @@ function startCropper_page_20() {
                               $("#imageBackground-page-22").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-22"), function (base64) {
                                 $("#section-22").attr("src", "uploadedimages/" + output);
-                                $(".page-23").css("background-image", "url(" +imageurl + output + ")");
+                                $(".page-23").css("background-image", "url("+imageurl + output + ")");
                                $("input[name=page_22_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-22 .absolute").css("display", "block");
@@ -3825,7 +3837,7 @@ function startCropper_page_20() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-24")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3838,8 +3850,8 @@ function startCropper_page_20() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-24").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-24"), function (base64) {
-                          $(".page-24").css("background-image", "url(" +imageurl + output + ")");
-                          $(".page-25").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-24").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-25").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_24_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3853,7 +3865,7 @@ function startCropper_page_20() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3867,8 +3879,8 @@ function startCropper_page_20() {
                               cropper.destroy();
                               $("#imageBackground-page-24").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-24"), function (base64) {
-                                  $(".page-24").css("background-image", "url(" +imageurl + output + ")");
-                                  $(".page-25").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-24").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-25").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_24_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-24 .absolute").css("display", "block");
@@ -3890,7 +3902,7 @@ function startCropper_page_20() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-26")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3903,8 +3915,8 @@ function startCropper_page_20() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-26").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-26"), function (base64) {
-                          $(".page-26").css("background-image", "url(" +imageurl + output + ")");
-                          $(".page-27").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-26").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-27").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_26_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3918,7 +3930,7 @@ function startCropper_page_20() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3932,8 +3944,8 @@ function startCropper_page_20() {
                               cropper.destroy();
                               $("#imageBackground-page-26").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-26"), function (base64) {
-                                  $(".page-26").css("background-image", "url(" +imageurl + output + ")");
-                                  $(".page-27").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-26").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-27").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_26_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-26 .absolute").css("display", "block");
@@ -3956,7 +3968,7 @@ function startCropper_page_28() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-28")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -3969,8 +3981,8 @@ function startCropper_page_28() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-28").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-28"), function (base64) {
-                          $(".page-28").css("background-image", "url(" +imageurl + output + ")");
-                          $(".page-29").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-28").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-29").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_28_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3984,7 +3996,7 @@ function startCropper_page_28() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -3998,8 +4010,8 @@ function startCropper_page_28() {
                               cropper.destroy();
                               $("#imageBackground-page-28").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-28"), function (base64) {
-                                  $(".page-28").css("background-image", "url(" +imageurl + output + ")");
-                                  $(".page-29").css("background-image", "url(" +imageurl + output + ")");
+                                  $(".page-28").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-29").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_28_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-28 .absolute").css("display", "block");
@@ -4021,7 +4033,7 @@ function startCropper_page_27_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-27-1")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4048,7 +4060,7 @@ function startCropper_page_27_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4084,7 +4096,7 @@ function startCropper_page_27_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-27-2")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4111,7 +4123,7 @@ function startCropper_page_27_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4146,7 +4158,7 @@ function startCropper_page_27_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-27-3")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4173,7 +4185,7 @@ function startCropper_page_27_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4208,7 +4220,7 @@ function startCropper_page_27_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-27-4")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4235,7 +4247,7 @@ function startCropper_page_27_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4271,7 +4283,7 @@ function startCropper_page_29_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-29-1")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4298,7 +4310,7 @@ function startCropper_page_29_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4333,7 +4345,7 @@ function startCropper_page_29_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-29-2")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4360,7 +4372,7 @@ function startCropper_page_29_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4395,7 +4407,7 @@ function startCropper_page_29_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-29-3")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4422,7 +4434,7 @@ function startCropper_page_29_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4457,7 +4469,7 @@ function startCropper_page_29_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-29-4")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4484,7 +4496,7 @@ function startCropper_page_29_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4520,7 +4532,7 @@ function startCropper_page_29_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-30")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4533,8 +4545,8 @@ function startCropper_page_29_1() {
                     var imageurl="uploadedimages/";
                       $("#imageBackground-page-30").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-30"), function (base64) {
-                          $(".page-30").css("background-image", "url(" +imageurl + output + ")");
-                          $(".page-31").css("background-image", "url(" +imageurl + output + ")");
+                          $(".page-30").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-31").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_30_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -4548,7 +4560,7 @@ function startCropper_page_29_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4562,8 +4574,8 @@ function startCropper_page_29_1() {
                               var imageurl="uploadedimages/";
                               $("#imageBackground-page-30").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-30"), function (base64) {
-                                  $(".page-30").css("background-image", "url(" + base64 + ")");
-                                  $(".page-31").css("background-image", "url(" + base64 + ")");
+                                  $(".page-30").css("background-image", "url("+ base64 + ")");
+                                  $(".page-31").css("background-image", "url("+ base64 + ")");
                                   $("input[name=page_30_img_1]").val("uploadedimages/" + output);
                               });
                               $(".page-30 .absolute").css("display", "block");
@@ -4585,7 +4597,7 @@ function startCropper_page_29_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-31-1")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4612,7 +4624,7 @@ function startCropper_page_29_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4647,7 +4659,7 @@ function startCropper_page_29_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-31-2")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4674,7 +4686,7 @@ function startCropper_page_29_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,
@@ -4709,7 +4721,7 @@ function startCropper_page_29_1() {
               var form_data = new FormData();
               form_data.append("file", $("#imageBackgroundInput-page-31-3")[0].files[0]);
               $.ajax({
-                  url: '/project/public/uploadimage',
+                  url: '/uploadimage',
                   data: form_data,
                   type: "post",
                   cache: false,
@@ -4736,7 +4748,7 @@ function startCropper_page_29_1() {
                       const form_data = new FormData();
                       form_data.append("file", blob, "example.png");
                       $.ajax({
-                          url: '/project/public/uploadimage',
+                          url: '/uploadimage',
                           data: form_data,
                           type: "post",
                           cache: false,

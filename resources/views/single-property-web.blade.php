@@ -3612,7 +3612,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -3639,7 +3639,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -3726,7 +3726,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-2-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -3752,7 +3752,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -3786,7 +3786,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-4-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -3812,7 +3812,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -3847,7 +3847,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-6-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -3873,7 +3873,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -3908,7 +3908,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-8-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -3936,7 +3936,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -3972,7 +3972,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-9-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -3998,7 +3998,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4032,7 +4032,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-10-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4060,7 +4060,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4096,7 +4096,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-11-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4122,7 +4122,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4157,7 +4157,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-12-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4183,7 +4183,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4218,7 +4218,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-14-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4244,7 +4244,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4278,7 +4278,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-14-2")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4304,7 +4304,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4339,7 +4339,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-14-3")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4365,7 +4365,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4400,7 +4400,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-15-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4426,7 +4426,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4460,7 +4460,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-15-2")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4486,7 +4486,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4520,7 +4520,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-18-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4547,7 +4547,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4582,7 +4582,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-18-2")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4609,7 +4609,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4644,7 +4644,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-19-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4670,7 +4670,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4705,7 +4705,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-20-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4731,7 +4731,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4766,7 +4766,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-20-2")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4792,7 +4792,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4826,7 +4826,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-20-3")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4852,7 +4852,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4887,7 +4887,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-22-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4913,7 +4913,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -4947,7 +4947,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-22-2")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -4974,7 +4974,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5009,7 +5009,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-22-3")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5036,7 +5036,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5071,7 +5071,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-22-4")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5098,7 +5098,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5133,7 +5133,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-22-5")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5160,7 +5160,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5194,7 +5194,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-22-6")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5221,7 +5221,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5256,7 +5256,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-22-7")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5283,7 +5283,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5318,7 +5318,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-24-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5346,7 +5346,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5383,7 +5383,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-25-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5409,7 +5409,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5444,7 +5444,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-26-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5471,7 +5471,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5506,7 +5506,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-28-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5533,7 +5533,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5569,7 +5569,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-29-5")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5595,7 +5595,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5630,7 +5630,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-29-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5657,7 +5657,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5692,7 +5692,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-29-2")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5719,7 +5719,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5753,7 +5753,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-29-3")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5780,7 +5780,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5815,7 +5815,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-29-4")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5842,7 +5842,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5877,7 +5877,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-30-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5904,7 +5904,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -5940,7 +5940,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-31-5")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -5966,7 +5966,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6001,7 +6001,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-31-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6027,7 +6027,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6062,7 +6062,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-31-2")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6088,7 +6088,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6123,7 +6123,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-31-3")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6149,7 +6149,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6184,7 +6184,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-31-4")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6210,7 +6210,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6245,7 +6245,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-32-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6272,7 +6272,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6307,7 +6307,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-33-4")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6334,7 +6334,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6369,7 +6369,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-33-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6396,7 +6396,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6430,7 +6430,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-33-2")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6456,7 +6456,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6491,7 +6491,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-33-3")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6518,7 +6518,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,
@@ -6553,7 +6553,7 @@ Personalized email marketing campaigns to contact database
             var form_data = new FormData();
             form_data.append("file", $("#imageBackgroundInput-page-34-1")[0].files[0]);
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: "post",
                 cache: false,
@@ -6579,7 +6579,7 @@ Personalized email marketing campaigns to contact database
                     const form_data = new FormData();
                     form_data.append("file", blob, "example.png");
                     $.ajax({
-                        url: '/project/public/uploadimage',
+                        url: '/uploadimage',
                         data: form_data,
                         type: "post",
                         cache: false,

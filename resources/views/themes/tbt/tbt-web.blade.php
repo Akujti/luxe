@@ -168,10 +168,12 @@
                         <h1 class="font-800 page-1-text-1" style="font-size:34px;">THROWBACK</h1>
                         <h1 class="font-800 gold page-1-text-2" style="font-size:34px;line-height: 20px;">THURSDAY</h1>
                     </div>
-                    <div class="absolute" style="left: -0.5%;font-size: 8px;top: 169px;transform: rotate(-90deg);width: 100px;">
+                    <div class="absolute"
+                        style="left: -0.5%;font-size: 8px;top: 169px;transform: rotate(-90deg);width: 100px;">
                         <h1 class="font-400 page-1-text-4" style="">#TBT</h1>
                     </div>
-                    <div class="absolute" style="left: -12.5%;font-size: 8px;top: 564px;transform: rotate(-90deg);width: 300px;">
+                    <div class="absolute"
+                        style="left: -12.5%;font-size: 8px;top: 564px;transform: rotate(-90deg);width: 300px;">
                         <h1 class="font-400 page-1-text-3" style="">WWW.LUXEKNOWS.COM</h1>
                     </div>
                     <div class="absolute"
@@ -248,7 +250,7 @@
         var form_data = new FormData();
         form_data.append("file", $("#img-4-input")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -273,7 +275,7 @@
         const form_data = new FormData();
         form_data.append('file', blob, 'example.png');
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -300,7 +302,7 @@
         var form_data = new FormData();
         form_data.append("file", $("#img-3-input")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -325,7 +327,7 @@
         const form_data = new FormData();
         form_data.append('file', blob, 'example.png');
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -352,7 +354,7 @@
         var form_data = new FormData();
         form_data.append("file", $("#img-2-input")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -377,7 +379,7 @@
         const form_data = new FormData();
         form_data.append('file', blob, 'example.png');
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -404,7 +406,7 @@
         var form_data = new FormData();
         form_data.append("file", $("#img-1-input")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -430,7 +432,7 @@
         const form_data = new FormData();
         form_data.append('file', blob, 'example.png');
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,

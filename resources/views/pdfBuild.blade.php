@@ -3446,7 +3446,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -3472,7 +3472,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -3560,7 +3560,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-2-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -3585,7 +3585,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -3620,7 +3620,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-3-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -3645,7 +3645,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -3680,7 +3680,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-5-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -3706,7 +3706,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -3741,7 +3741,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-6-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -3767,7 +3767,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -3802,7 +3802,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-7-1-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -3828,7 +3828,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -3863,7 +3863,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-7-1-2")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -3889,7 +3889,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -3924,7 +3924,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-7-1-3")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -3950,7 +3950,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -3986,7 +3986,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-9-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4012,7 +4012,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4047,7 +4047,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-10-1-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4072,7 +4072,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4107,7 +4107,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-10-1-2")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4132,7 +4132,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4167,7 +4167,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-11-1-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4192,7 +4192,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4227,7 +4227,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-11-1-2")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4252,7 +4252,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4287,7 +4287,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-11-1-3")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4312,7 +4312,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4347,7 +4347,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-11-1-4")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4372,7 +4372,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4407,7 +4407,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-11-1-5")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4432,7 +4432,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4467,7 +4467,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-11-1-6")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4492,7 +4492,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4527,7 +4527,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-11-1-7")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4552,7 +4552,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4587,7 +4587,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-12-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4613,7 +4613,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4648,7 +4648,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-13-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4674,7 +4674,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4709,7 +4709,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-14-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4734,7 +4734,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4769,7 +4769,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-15-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4795,7 +4795,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4830,7 +4830,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-16-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4856,7 +4856,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4891,7 +4891,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-17-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4917,7 +4917,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -4952,7 +4952,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-18-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -4978,7 +4978,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5013,7 +5013,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-19-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5038,7 +5038,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5073,7 +5073,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-19-2")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5098,7 +5098,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5133,7 +5133,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-19-3")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5158,7 +5158,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5193,7 +5193,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-16-2-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5218,7 +5218,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5253,7 +5253,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-16-2-2")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5278,7 +5278,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5313,7 +5313,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-16-2-3")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5338,7 +5338,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5373,7 +5373,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-16-2-4")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5398,7 +5398,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5434,7 +5434,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-17-2-1")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5459,7 +5459,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5494,7 +5494,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-17-2-2")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5519,7 +5519,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5554,7 +5554,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-17-2-3")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5579,7 +5579,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
@@ -5614,7 +5614,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput-page-17-2-4")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -5639,7 +5639,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,

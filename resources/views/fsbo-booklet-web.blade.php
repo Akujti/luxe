@@ -648,7 +648,7 @@
         var form_data = new FormData();
         form_data.append("file", $("#imageBackgroundInput")[0].files[0]);
         $.ajax({
-            url: '/project/public/uploadimage',
+            url: '/uploadimage',
             data: form_data,
             type: 'post',
             cache: false,
@@ -673,7 +673,7 @@
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             $.ajax({
-                url: '/project/public/uploadimage',
+                url: '/uploadimage',
                 data: form_data,
                 type: 'post',
                 cache: false,
