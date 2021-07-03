@@ -133,7 +133,7 @@
 <body>
     <div class="page">
         <div>
-            <img src="images/themes/joined-luxe/main.png" alt="" style="width: 4000px;height:4000px;">
+            <img src="images/themes/joined-luxe/main-new.png" alt="" style="width: 4000px;height:4000px;">
         </div>
         <div class="absolute" style="left:200px;top:1035px;">
             <h1 class="font-800 bold white page-1-text-11 {{$page_1_text_11_select}}" style="margin-left:20px;">

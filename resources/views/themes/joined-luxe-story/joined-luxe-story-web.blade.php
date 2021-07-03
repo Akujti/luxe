@@ -216,7 +216,7 @@
                 <input hidden name="img_1_input" id="img_1_input" value="images/themes/joined-luxe/person.jpg">
                 <div class="page">
                     <div>
-                        <img id="img1" src="images/themes/joined-luxe-story/main.png" alt="" width="900px">
+                        <img id="img1" src="images/themes/joined-luxe-story/main-new.png" alt="" width="900px">
                     </div>
                     <div class="absolute" style="right:48px;top: 600px;text-align:right;">
                         <h1 class="font-800 bold white page-1-text-11 normal" style="margin-right:5px;">I

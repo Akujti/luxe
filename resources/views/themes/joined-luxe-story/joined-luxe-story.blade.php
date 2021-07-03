@@ -138,7 +138,7 @@
 <body>
     <div class="page">
         <div>
-            <img src="images/themes/joined-luxe-story/main.png" alt="" style="width: 4000px;height:7100px;">
+            <img src="images/themes/joined-luxe-story/main-new.png" alt="" style="width: 4000px;height:7100px;">
         </div>
         @php
         $text_1_multiply = 270;
