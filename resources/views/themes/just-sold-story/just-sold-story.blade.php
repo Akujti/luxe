@@ -124,7 +124,7 @@
                     {{ $page_1_text_13 }}</h1>
             </div>
         </div>
-        <div class="absolute" style="bottom:2%;left:1480px;">
+        <div class="absolute" style="bottom:2%;left:1120px;width: 2700px;text-align: center;">
             <ul>
                 <li>{{ $page_1_text_1 }}</li>
                 <li>|</li>

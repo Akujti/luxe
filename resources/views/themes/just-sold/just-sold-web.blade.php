@@ -189,7 +189,7 @@
                             <h1 class="bold white title page-1-text-12 normal" style="line-height:50px;">SOLD</h1>
                         </div>
                     </div>
-                    <div class="absolute" style="bottom: 0.4%;right: 105px;">
+                    <div class="absolute" style="bottom: 0.4%;right: 65px;width: 450px;text-align: center;">
                         <ul>
                             <li class="page-1-text-1">3 BEDS</li>
                             <li>|</li>

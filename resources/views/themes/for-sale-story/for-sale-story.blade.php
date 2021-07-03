@@ -82,12 +82,12 @@
         <div>
             <img src="images/themes/for-sale-story/main.png" alt="">
         </div>
-        <div class="absolute" style="top:45.7%;left:210px;">
+        <div class="absolute" style="top:44.7%;left:210px;">
             <h1 class="bold white page-1-text-11" style="font-size: 380px;">{{ $page_1_text_11 }}</h1>
-            <h1 class="bold page-1-text-12" style="font-size: 605px;line-height: 275px;letter-spacing: -40px;">
+            <h1 class="bold page-1-text-12" style="font-size: 605px;line-height: 330px;letter-spacing: -40px;">
                 {{ $page_1_text_12 }}</h1>
         </div>
-        <div class="absolute" style="top:58.5%;left:330px;">
+        <div class="absolute" style="top:58.5%;left:100px;width: 2000px;text-align: center;">
             <ul>
                 <li>{{ $page_1_text_1 }}</li>
                 <li>|</li>

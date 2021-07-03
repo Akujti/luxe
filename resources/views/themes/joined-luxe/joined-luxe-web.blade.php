@@ -185,6 +185,18 @@
     .page-1-text-2.large {
         font-size: 75px;
     }
+
+    .page-1-text-1 {
+        width: max-content;
+        background: white;
+        padding: 10px 60px 10px 20px;
+    }
+
+    .page-1-text-2 {
+        width: max-content;
+        background: #C5A467;
+        padding: 0px 50px 0px 20px;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -210,11 +222,12 @@
                         <h1 class="font-800 bold white page-1-text-11 normal" style="margin-left:5px;">I
                             JOINED
                         </h1>
-                        <h1 class="font-800 bold gold page-1-text-12 normal" style="line-height: 70px;">
+                        <h1 class="font-800 bold gold page-1-text-12 normal"
+                            style="line-height: 80px;max-width: 282px;">
                             LUXE
                         </h1>
                     </div>
-                    <div class="absolute" style="bottom: 24.5%;left: 75px;">
+                    <div class="absolute" style="bottom: 24.5%;left: 60px;">
                         <h1 class="page-1-text-1 bold normal" style="line-height: 35px;">
                             YOUR
                         </h1>

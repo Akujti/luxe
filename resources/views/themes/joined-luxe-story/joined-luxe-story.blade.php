@@ -121,6 +121,18 @@
         font-size: 792px;
         line-height: 450px;
     }
+
+    .page-1-text-1 {
+        width: max-content;
+        background: white;
+        padding: 100px 60px 0px 30px;
+    }
+
+    .page-1-text-2 {
+        width: max-content;
+        background: #C5A467;
+        padding: 10px 50px 10px 20px;
+    }
 </style>
 
 <body>
@@ -128,11 +140,36 @@
         <div>
             <img src="images/themes/joined-luxe-story/main.png" alt="" style="width: 4000px;height:7100px;">
         </div>
-        <div class="absolute" style="top:72%;left:420px;">
-            <h1 class="bold page-1-text-1 {{ $page_1_text_1_select }}" style="line-height:140px;margin-bottom:30px;">
-                {{ $page_1_text_1 }}</h1>
-            <h1 class="bold page-1-text-2 {{ $page_1_text_2_select }}" style="line-height:320px;">
-                {{ $page_1_text_2 }}</h1>
+        @php
+        $text_1_multiply = 270;
+        if($page_1_text_1_select == 'small')
+        $text_1_multiply = 225;
+        else if($page_1_text_1_select == 'large')
+        $text_1_multiply = 310;
+
+        $narrow_letter_text_1 = substr_count($page_1_text_1, 'I');
+        $page_1_text_1_length =
+        (strlen($page_1_text_1)-$narrow_letter_text_1)*$text_1_multiply+$narrow_letter_text_1*50;
+
+        $text_2_multiply = 360;
+        if($page_1_text_2_select == 'small')
+        $text_2_multiply = 320;
+        else if($page_1_text_2_select == 'large')
+        $text_2_multiply = 400;
+
+        $narrow_letter_text_2 = substr_count($page_1_text_2, 'I');
+        $page_1_text_2_length =
+        (strlen($page_1_text_2)-$narrow_letter_text_2)*$text_2_multiply+$narrow_letter_text_2*50;
+        @endphp
+        <div class="absolute" style="top:70.7%;left:250px;">
+            <div class="" style="width:{{$page_1_text_1_length}}px">
+                <h1 class="bold page-1-text-1 {{ $page_1_text_1_select }}" style="line-height:140px;">
+                    {{ $page_1_text_1 }}</h1>
+            </div>
+            <div class="" style="width:{{$page_1_text_2_length}}px">
+                <h1 class="bold page-1-text-2 {{ $page_1_text_2_select }}" style="line-height:360px;">
+                    {{ $page_1_text_2 }}</h1>
+            </div>
         </div>
         <div class="absolute" style="top:81.5%;left: 200px;">
             <ul>
@@ -144,7 +181,7 @@
             <h1 class="gold bold" style="font-size: 150px;line-height:105px;">{{ $page_1_text_5 }}</h1>
         </div>
     </div>
-    <div class="" style="margin-top:3000px;margin-right:150px;text-align:right;z-index:1000;">
+    <div class="absolute" style="top:2350px;right:150px;text-align:right;z-index:1000;">
         <h1 class="font-800 bold white page-1-text-11 {{ $page_1_text_11_select }}" style="margin-right:20px;">
             {{ $page_1_text_11 }}
         </h1>

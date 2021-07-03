@@ -209,7 +209,7 @@
                             <h1 class="white page-1-text-5" style="font-size: 21px;line-height:20px;">CORAL GABLES, FL
                                 33134</h1>
                         </div>
-                        <div class="relative" style="margin-top: 36px;left: 320px;">
+                        <div class="relative" style="margin-top: 36px;left: 283px; width: 510px;text-align: center;">
                             <ul>
                                 <li class="page-1-text-1">3 BEDS</li>
                                 <li>|</li>

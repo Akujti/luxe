@@ -104,7 +104,7 @@
     }
 
     .page-1-text-1.large {
-        font-size: 230px;
+        font-size: 276px;
     }
 
     .page-1-text-2.small {
@@ -118,6 +118,16 @@
     .page-1-text-2.large {
         font-size: 330px;
     }
+
+    .page-1-text-1 {
+        background: white;
+        padding: 70px 60px 10px 20px;
+    }
+
+    .page-1-text-2 {
+        background: #C5A467;
+        padding: 0px 50px 0px 20px;
+    }
 </style>
 
 <body>
@@ -129,15 +139,41 @@
             <h1 class="font-800 bold white page-1-text-11 {{$page_1_text_11_select}}" style="margin-left:20px;">
                 {{ $page_1_text_11 }}
             </h1>
-            <h1 class="font-800 bold gold page-1-text-12 {{$page_1_text_12_select}}" style="line-height: 260px;">
+            <h1 class="font-800 bold gold page-1-text-12 {{$page_1_text_12_select}}"
+                style="line-height: 260px;width:500px;">
                 {{ $page_1_text_12 }}
             </h1>
         </div>
-        <div class="absolute" style="top:62.7%;left:290px;">
-            <h1 class="bold page-1-text-1 {{ $page_1_text_1_select }}" style="line-height:140px;">
-                {{ $page_1_text_1 }}</h1>
-            <h1 class="bold page-1-text-2 {{ $page_1_text_2_select }}" style="line-height:250px;">
-                {{ $page_1_text_2 }}</h1>
+        <div class="absolute" style="top:60.7%;left:250px;">
+            @php
+            $text_1_multiply = 200;
+            if($page_1_text_1_select == 'small')
+            $text_1_multiply = 154;
+            else if($page_1_text_1_select == 'large')
+            $text_1_multiply = 246;
+
+            $narrow_letter_text_1 = substr_count($page_1_text_1, 'I');
+            $page_1_text_1_length =
+            (strlen($page_1_text_1)-$narrow_letter_text_1)*$text_1_multiply+$narrow_letter_text_1*50;
+
+            $text_2_multiply = 242;
+            if($page_1_text_2_select == 'small')
+            $text_2_multiply = 180;
+            else if($page_1_text_2_select == 'large')
+            $text_2_multiply = 292;
+
+            $narrow_letter_text_2 = substr_count($page_1_text_2, 'I');
+            $page_1_text_2_length =
+            (strlen($page_1_text_2)-$narrow_letter_text_2)*$text_2_multiply+$narrow_letter_text_2*50;
+            @endphp
+            <div style="width: {{ $page_1_text_1_length }}px;">
+                <h1 class="bold page-1-text-1 {{ $page_1_text_1_select }}" style="line-height:140px;">
+                    {{ $page_1_text_1 }}</h1>
+            </div>
+            <div style="width: {{ $page_1_text_2_length }}px;">
+                <h1 class="bold page-1-text-2 {{ $page_1_text_2_select }}" style="line-height:250px;">
+                    {{ $page_1_text_2 }}</h1>
+            </div>
         </div>
         <div class="absolute" style="top:75%;left: 200px;">
             <ul>

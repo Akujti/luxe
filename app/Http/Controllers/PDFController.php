@@ -976,7 +976,7 @@ class PDFController extends Controller
 
             'page_25_img_1' => $request['page_25_img_1'],
 
-            'page_26_img_1' => $request['age_26_img_1'],
+            'page_26_img_1' => $request['page_26_img_1'],
 
             'page_28_img_1' => $request['page_28_img_1'],
 
@@ -1002,7 +1002,7 @@ class PDFController extends Controller
 
             'page_34_img_1' => $request['page_34_img_1'],
 
-            //images
+            //text
             'page_7_text_1' => $request['page_7_text_1'],
             'page_7_text_2' => $request['page_7_text_2'],
             'page_7_text_3' => $request['page_7_text_3'],
@@ -1057,6 +1057,7 @@ class PDFController extends Controller
             'page_19_text_2' => $request['page_19_text_2'],
             'page_19_text_3' => $request['page_19_text_3'],
             'page_19_text_4' => $request['page_19_text_4'],
+            'page_19_text_5' => $request['page_19_text_5'],
 
             'page_22_text_1' => $request['page_22_text_1'],
             'page_22_text_2' => $request['page_22_text_2'],

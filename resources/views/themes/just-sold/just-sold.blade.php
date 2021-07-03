@@ -107,7 +107,7 @@
             <h1 class="bold white title {{ $page_1_text_12_select }}" style="line-height:280px;letter-spacing:-25px;">
                 {{ $page_1_text_12 }}</h1>
         </div>
-        <div class="absolute" style="bottom:0.8%;left:1950px;">
+        <div class="absolute" style="bottom:0.8%;left:1720px;width: 2000px;text-align: center;">
             <ul>
                 <li>{{ $page_1_text_1 }}</li>
                 <li>|</li>

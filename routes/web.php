@@ -112,5 +112,4 @@ Route::post('uploadimage', [PDFController::class, 'uploadimage'])->name('pdf.upl
 Route::post('create-pdf-file-home', [PDFController::class, 'index'])->name('pdf.store');
 Route::post('create-pdf-file-fsbo', [PDFController::class, 'fsbo_index'])->name('pdf.fsbo.store');
 Route::post('create-pdf-file-single', [PDFController::class, 'single_property'])->name('pdf.single.property');
-
 Route::post('create-pdf-file-home-buying', [PDFController::class, 'home_buying'])->name('pdf.home.buying');

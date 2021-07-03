@@ -164,12 +164,12 @@
                     <div>
                         <img id="" src="images/themes/for-sale-story/main.png" alt="" width="900px">
                     </div>
-                    <div class="absolute" style="top:46.2%;left:48px;">
+                    <div class="absolute" style="top:45.2%;left:48px;">
                         <h1 class="bold white page-1-text-11" style="font-size: 90px;">For</h1>
                         <h1 class="bold page-1-text-12"
-                            style="font-size: 145px;line-height: 50px;letter-spacing: -10px;">Sale</h1>
+                            style="font-size: 145px;line-height: 75px;letter-spacing: -10px;">Sale</h1>
                     </div>
-                    <div class="absolute" style="top:58.1%;left:48px;">
+                    <div class="absolute" style="top:58.1%;left:13px;width: 450px;text-align: center;">
                         <ul>
                             <li class="page-1-text-1">3 BEDS</li>
                             <li>|</li>

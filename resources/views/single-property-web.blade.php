@@ -380,7 +380,7 @@
 
         .page-5-2 .heading .title {
             margin-top: -55px;
-            margin-left: 10px;
+            margin-left: -6px;
             margin-bottom: -10px;
             font-weight: 300;
             font-size: 148px;
@@ -440,6 +440,19 @@
 
         .abs {
             position: absolute;
+        }
+
+        .page-bg-image {
+            top: 0;
+            bottom: 0;
+            right: 500px;
+            position: absolute;
+            background-size:
+                cover;
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -842,12 +855,14 @@ Once you list with LUXE, you can sit back and relax. Our specialized departments
 
         <div class="row-divider"></div>
 
-        <div class="row">
+        <div class="row" style="min-height: 855px;">
             <div class="row-image">
                 <div class="page page-9 page-4-2"
-                    style="position: relative; background-image: url('images/single-property/page-8.png'); background-size: cover; background-position: -520px -5px; background-repeat: no-repeat; width: 800px; margin-left: -100px;height:800px;">
-                    <div class="luxe-pro-info" style="margin-left:40px;">
-                        <div class="spacer"></div>
+                    style="position: relative; overflow:hidden;background-size: cover; background-position: -520px -5px; background-repeat: no-repeat; width: 800px; margin-left: -100px;height:855px;">
+                    <div class="page-bg-image" style="background-image: url('images/single-property/page-8.png');">
+                        <h1></h1>
+                    </div>
+                    <div class="luxe-pro-info" style="margin-left:40px;position: absolute;">
                         <img src="" id="imageBackground-page-9-1" style="display: none;" />
                         <input hidden name="page_9_img_1" value="images/single-property/page-8.png" />
                         <div class="content">
@@ -990,11 +1005,14 @@ The LUXE Properties team has unparalleled history with successful home sales in 
         <div class="row" style="height: 1200px;">
             <div class="row-image">
                 <div class="page page-11 page-5-2"
-                    style="background-image: url('images/single-property/page-10.png'); background-size: cover; background-position: -615px -5px; background-repeat: no-repeat;height:1005px;">
+                    style="overflow: hidden;position:relative;background-size: cover; background-position: -615px -5px; background-repeat: no-repeat;height:1005px;">
                     <img src="" id="imageBackground-page-11-1" style="display: none;" />
                     <input hidden name="page_11_img_1" value="images/single-property/page-10.png" />
+                    <div class="page-bg-image" style="background-image: url('images/single-property/page-10.png');">
+                        <h1></h1>
+                    </div>
                     <div class="container">
-                        <div class="heading">
+                        <div class="heading" style="position: relative;">
                             <h2 class="subtitle-top my-0">Tailored Listing</h2>
                             <h1 class="title my-0"><span style="color: white;">Ex</span>posure</h1>
                             <h1 class="subtitle-bottom my-0">Strategy</h1>
@@ -1433,20 +1451,6 @@ Our marketing will maximize interest through our personalized campaigns created 
             <div class="column-divider"></div>
             <div class="row-input">
                 <div class="flex">
-                    {{-- <div class="button">
-                        <label>Image 1</label>
-                        <input type="file" id="imageBackgroundInput-page-15-1"
-                            onchange="imageBackgroundInputChanged_page_15_1()" />
-                        <button type="button" onclick="startCropper_page_15_1()">Crop</button>
-                        <button type="button" onclick="cropImage_page_15_1()">Save Crop</button>
-                    </div> --}}
-                    {{-- <div class="button">
-                        <label>Image 2</label>
-                        <input type="file" id="imageBackgroundInput-page-15-2"
-                            onchange="imageBackgroundInputChanged_page_15_2()" />
-                        <button type="button" onclick="startCropper_page_15_2()">Crop</button>
-                        <button type="button" onclick="cropImage_page_15_2()">Save Crop</button>
-                    </div> --}}
                 </div>
 
                 <div class="flex">
@@ -1652,12 +1656,12 @@ Through the use of drone footage combined with high-definition videography, we a
         <div class="row-divider"></div>
         <div class="row">
             <div class="page page-19 page-9-2"
-                style="background-image: url('images/single-property/page-18-1.png'); background-size: cover; background-position: -760px -5px; background-repeat: no-repeat;height:1005px;">
+                style="background-image: url('images/single-property/page-18-1.png'); background-size: cover; background-position: -760px -5px; background-repeat: no-repeat;height:1005px;max-width: 802px;">
                 <div style="margin-left: 540px;">
                     <img src="" id="imageBackground-page-19-1" style="display: none;" />
                     <input hidden name="page_19_img_1" value="images/single-property/page-18-1.png" />
                     <div class="content">
-                        <div class="heading" style="z-index: 100;">
+                        <div class="heading" style="z-index: 100;margin-top: -65px;">
                             <h2 class="subtitle-top"
                                 style="font-weight: 100; font-size: 70px; margin-left: -300px; margin-bottom: -150px;">
                                 Exclusive
@@ -1739,7 +1743,7 @@ Pushing for unparalleled exposure for every LUXE Property client, each home list
                     </textarea>
 
                 <label for="page-19-text-2">Desc</label>
-                <textarea id="page-19-text-2" name="page_19_text_1" rows="4">These striking sites include all of the most important marketing features of your home and the latest online
+                <textarea id="page-19-text-2" name="page_19_text_2" rows="4">These striking sites include all of the most important marketing features of your home and the latest online
                 capabilities including: </textarea>
 
                 <label for="page-19-text-3">Features</label>
@@ -1867,7 +1871,7 @@ This powerful online marketing tool impresses buyers and when  advertised in pri
 
         <div class="row" style="height: 1025px;">
             <div class="row-image">
-                <div class="page page-21 page-10-2" style="margin-left: 190px;">
+                <div class="page page-21 page-10-2">
                     <div class="heading">
                         <h2 class="subtitle-top"
                             style="font-weight: 300; font-size: 70px; margin-left: 380px; margin-bottom: -195px;">Our
@@ -2262,20 +2266,23 @@ Once a home is listed with LUXE Properties, our in-house marketing specialists g
         <div class="row-divider"></div>
 
         <div class="row">
-            <div class="row-image" style="margin-left: -40px;">
+            <div class="row-image" style="margin-left: -40px;height:1055px;">
                 <div class="page page-25 page-12-2" style="
-                            top: -155px;
                             left: 20px;
                             bottom: 0;
                             right: 500px;
-                            background-image: url('images/single-property/page-24.jpg');
                             background-size: cover;
                             background-position: -600px -5px;
                             background-repeat: no-repeat;
-                            margin-left: 220px;
+                            position: relative;
+                            overflow:hidden;
+                            height:1055px;
                         ">
                     <img src="" id="imageBackground-page-25-1" style="display: none;" />
                     <input hidden name="page_25_img_1" value="images/single-property/page-24.jpg" />
+                    <div class="page-bg-image" style="background-image: url('images/single-property/page-24.jpg');">
+                        <h1></h1>
+                    </div>
                     <div class="content" style="margin-left: -95px; margin-top: 50px;">
                         <p class="page-25-text-1" style="font-weight: 300; margin-left: 300px; width: 350px;">
                             Social media influence has continuously become one of our greatest assets. Whether it is
@@ -2378,7 +2385,7 @@ Once a home is listed with LUXE Properties, our in-house marketing specialists g
                         </div>
                     </div>
                     <div class="page-number"
-                        style="background-image: url('images/single-property/24.png'); bottom: -45%; margin-right: -100px;">
+                        style="background-image: url('images/single-property/24.png'); top: 75px;background-position: top right;">
                         <div class="text" style="margin-top: -80px; margin-right: 150px;">
                             <h3 class="font-thin gold">THE</h3>
                             <h2 class="font-thin">HOME</h2>
@@ -2419,10 +2426,10 @@ Once a home is listed with LUXE Properties, our in-house marketing specialists g
 
         <div class="row">
             <div class="row-image" style="margin-left: -190px;">
+                <img src="" id="imageBackground-page-26-1" style="display: none;" />
+                <input hidden name="page_26_img_1" value="images/single-property/page-26.jpg" />
                 <div class="page page-26 page-background"
                     style="background-image: url('images/single-property/page-26.jpg');margin-left:215px;">
-                    <img src="" id="imageBackground-page-26-1" style="display: none;" />
-                    <input hidden name="page_26_img_1" value="images/single-property/page-26.jpg" />
                     <div class="container">
                         <div class="absolute" style="position: absolute; bottom: 280px;">
                             <h2 class="font-thin white mb-40" style="font-size: 80px; margin-bottom: -160px;">Strategic
@@ -2449,8 +2456,11 @@ Once a home is listed with LUXE Properties, our in-house marketing specialists g
         <div class="row" style="height:1100px;">
             <div class="row-image">
                 <div class="page page-27"
-                    style="background-image: url('images/single-property/page-26.jpg'); background-size: cover; background-position: -605px -5px; background-repeat: no-repeat; margin-right: 100px;width:700px;height:1005px;">
+                    style="background-size: cover; background-position: -605px -5px; background-repeat: no-repeat; margin-right: 100px;width:700px;height:1018px;position:relative;overflow:hidden;">
                     <div class="container">
+                        <div class="page-bg-image" style="background-image: url('images/single-property/page-26.jpg');">
+                            <h1></h1>
+                        </div>
                         <div class="content" style="margin-top: 50px; margin-left: 200px;">
                             <h3 class="page-27-text-1" style="color: #c5a367; font-size: 35px; font-weight: 900;">
                                 Broker’s Open</h3>
@@ -2581,7 +2591,7 @@ Personalized email marketing campaigns to contact database
         <div class="row">
             <div class="row-image">
                 <div class="page page-29"
-                    style="position: absolute; background-image: url('images/single-property/page-28.png'); background-size: cover; background-position: -550px -5px; background-repeat: no-repeat; margin-left: -75px;">
+                    style="overflow: hidden;position: relative; background-size: cover; background-position: -550px -5px; background-repeat: no-repeat;">
                     <img src="" id="imageBackground-page-29-1" style="display: none;" />
                     <input hidden name="page_29_img_1" value="images/single-property/page-29-1.jpg" />
                     <img src="" id="imageBackground-page-29-2" style="display: none;" />
@@ -2592,10 +2602,14 @@ Personalized email marketing campaigns to contact database
                     <input hidden name="page_29_img_4" value="images/single-property/page-29-1.jpg" />
                     <img src="" id="imageBackground-page-29-5" style="display: none;" />
                     <input hidden name="page_29_img_5" value="images/single-property/page-28.png" />
-
                     <div class="content1" style="margin-top: 80px;">
+                        <div class="page-bg-image"
+                            style="background-image: url('images/single-property/page-28.png');right: 400px;">
+                            <h1></h1>
+                        </div>
                         <div class="section1"
-                            style="margin-left: 120px; background-color: #c5a367; padding-top: -e20px; padding-bottom: 15px; margin-bottom: 30px; width: 500px; height: 180px; border-radius: 100px;">
+                            style="position: relative;
+    margin-left: 80px;background-color: #c5a367; padding-top: -e20px; padding-bottom: 15px; margin-bottom: 30px; width: 500px; height: 180px; border-radius: 100px;">
                             <div style="padding-top: 0px; padding-bottom: 10px;">
                                 <div class="circle" style="float: left; border-radius: 50%; margin-bottom: 10px;">
                                     <div class="inner-section" style="">
@@ -2627,7 +2641,8 @@ Personalized email marketing campaigns to contact database
                         </div>
                         <div class="content" style="margin-top: 10px;">
                             <div class="section"
-                                style="margin-left: 120px; background-color: #c5a367; padding-top: -e20px; padding-bottom: 15px; margin-bottom: 30px; width: 500px; height: 180px; border-radius: 100px;">
+                                style="position: relative;
+    margin-left: 80px;background-color: #c5a367; padding-top: -e20px; padding-bottom: 15px; margin-bottom: 30px; width: 500px; height: 180px; border-radius: 100px;">
                                 <div style="padding-top: 0px; padding-bottom: 10px;">
                                     <div class="circle" style="float: left; border-radius: 50%; margin-bottom: 10px;">
                                         <div class="inner-section" style="">
@@ -2661,7 +2676,8 @@ Personalized email marketing campaigns to contact database
                             </div>
                             <div class="content" style="margin-top: 10px;">
                                 <div class="section"
-                                    style="margin-left: 120px; background-color: #c5a367; padding-top: -e20px; padding-bottom: 15px; margin-bottom: 30px; width: 500px; height: 180px; border-radius: 100px;">
+                                    style="position: relative;
+    margin-left: 80px;background-color: #c5a367; padding-top: -e20px; padding-bottom: 15px; margin-bottom: 30px; width: 500px; height: 180px; border-radius: 100px;">
                                     <div style="padding-top: 0px; padding-bottom: 10px;">
                                         <div class="circle"
                                             style="float: left; border-radius: 50%; margin-bottom: 10px;">
@@ -2697,7 +2713,8 @@ Personalized email marketing campaigns to contact database
                                 </div>
                                 <div class="content" style="margin-top: 10px;">
                                     <div class="section"
-                                        style="margin-left: 120px; background-color: #c5a367; padding-top: -e20px; padding-bottom: 15px; margin-bottom: 0px; width: 500px; height: 180px; border-radius: 100px;">
+                                        style="position: relative;
+    margin-left: 80px;background-color: #c5a367; padding-top: -e20px; padding-bottom: 15px; margin-bottom: 0px; width: 500px; height: 180px; border-radius: 100px;">
                                         <div style="padding-top: 0px; padding-bottom: 10px;">
                                             <div class="circle"
                                                 style="float: left; border-radius: 50%; margin-bottom: 10px;">
@@ -2737,13 +2754,13 @@ Personalized email marketing campaigns to contact database
                 </div>
             </div>
             <div class="column-divider"></div>
-            <div class="row-input" style="margin-left: 560px;">
+            <div class="row-input" style="">
                 <div class="flex">
                     <label for="page-29-text-1">Address</label>
                     <input type="text" id="page-29-text-1" name="page_29_text_1" value="6495 SW 25 Terrace" />
 
                     <label for="page-29-text-2">Price</label>
-                    <input type="text" id="page-29-text-2" name="page-_29-_text-_2" value="PRICE: $2,375,000" />
+                    <input type="text" id="page-29-text-2" name="page_29_text_2" value="PRICE: $2,375,000" />
                 </div>
                 <div class="flex">
                     <label for="page-29-text-3">Bathroom/Bedroom</label>
@@ -2847,7 +2864,7 @@ Personalized email marketing campaigns to contact database
                     <input type="text" id="page-29-text-19" name="page_29_text_19" value="6495 SW 25 Terrace" />
 
                     <label for="page-29-text-20">Price</label>
-                    <input type="text" id="page-9-text-2" name="page_29_text_20" value="PRICE: $2,375,000" />
+                    <input type="text" id="page-9-text-20" name="page_29_text_20" value="PRICE: $2,375,000" />
                 </div>
                 <div class="flex">
                     <label for="page-29-text-21">Bathroom/Bedroom</label>
@@ -2901,7 +2918,7 @@ Personalized email marketing campaigns to contact database
         <div class="row">
             <div class="row-image">
                 <div class="page page-31"
-                    style="position: absolute; background-image: url('images/single-property/page-30.png'); background-size: cover; background-position: -550px -5px; background-repeat: no-repeat; margin-left: -55px;">
+                    style="height: 1000px;overflow:hidden;position: absolute; background-size: cover; background-position: -550px -5px; background-repeat: no-repeat; margin-left: -55px;">
                     <img src="" id="imageBackground-page-31-1" style="display: none;" />
                     <input hidden name="page_31_img_1" value="images/home-selling/listing_one.jpg" />
                     <img src="" id="imageBackground-page-31-2" style="display: none;" />
@@ -2914,7 +2931,10 @@ Personalized email marketing campaigns to contact database
                     <input hidden name="page_31_img_5" value="images/home-selling/listing_one.jpg" />
 
                     <div class="content" style="margin-top: 70px;">
-                        <div class="section1" style="margin-left: 170px;">
+                        <div class="page-bg-image" style="background-image: url('images/single-property/page-30.png')">
+                            <h1></h1>
+                        </div>
+                        <div class="section1" style="margin-left: 170px;position:relative;">
                             <div style="padding-top: 0px;">
                                 <div class="circle"
                                     style="background-color: #c5a367; padding: 10px; border-radius: 600%; margin-top: -20px; width: 175px;">
@@ -2938,7 +2958,7 @@ Personalized email marketing campaigns to contact database
                                         FT</span></p>
                             </div>
                         </div>
-                        <div class="section" style="margin-top: 100px; margin-left: 120px;">
+                        <div class="section" style="margin-top: 100px; margin-left: 120px;position:relative;">
                             <div style="padding-top: 0px;">
                                 <div class="circle"
                                     style="background-color: black; padding: 10px; border-radius: 600%; margin-top: -20px; width: 175px;">
@@ -2958,7 +2978,7 @@ Personalized email marketing campaigns to contact database
                                 <p style="">LOT SIZE: <span class="page-31-text-10">38,768 SQ FT</span></p>
                             </div>
                         </div>
-                        <div class="section" style="margin-top: 100px; margin-left: 170px;">
+                        <div class="section" style="margin-top: 100px; margin-left: 170px;position:relative;">
                             <div style="padding-top: 0px;">
                                 <div class="circle"
                                     style="background-color: #c5a367; padding: 10px; border-radius: 600%; margin-top: -20px; width: 175px;">
@@ -2978,7 +2998,7 @@ Personalized email marketing campaigns to contact database
                                 <p style="">LOT SIZE: <span class="page-31-text-15">38,768 SQ FT</span></p>
                             </div>
                         </div>
-                        <div class="section" style="margin-top: 100px; margin-left: 120px;">
+                        <div class="section" style="margin-top: 100px; margin-left: 120px;position:relative;">
                             <div style="padding-top: 0px;">
                                 <div class="circle"
                                     style="background-color: black; padding: 10px; border-radius: 600%; margin-top: -20px; width: 175px;">
@@ -3164,14 +3184,18 @@ Personalized email marketing campaigns to contact database
                 <img src="" id="imageBackground-page-33-4" style="display: none;" />
                 <input hidden name="page_33_img_4" value="images/single-property/page-32.png" />
                 <div class="page page-33"
-                    style="position: absolute; background-image: url('images/single-property/page-32.png'); background-size: cover; background-position: -600px -5px; background-repeat: no-repeat;">
+                    style="overflow:hidden;position: absolute; background-size: cover; background-position: -600px -5px; background-repeat: no-repeat;">
                     <div class="content" style="">
+                        <div class="page-bg-image" style="background-image: url('images/single-property/page-32.png')">
+                            <h1></h1>
+                        </div>
                         <div class="section"
-                            style="border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px;">
+                            style="position: relative;border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px;">
                             <img id="section4" src="images/single-property/testimonial.png" alt=""
                                 style="float: left; margin-bottom: -30px;" width="230px" height="230px" />
-                            <div class="text"
-                                style="position: absolute; padding: 90px; margin-left: 150px; bottom: 400px;">
+                            <div class="text" style="left: 237px;
+                                        padding-right: 20px;    
+                                        position: absolute;">
                                 <p class="page-33-text-1"
                                     style="font-weight: 300; font-size: 16px; margin-bottom: -10px;">
                                     "Awesomeness Customer Services!!! Dedication and Total commitment to his client's,
@@ -3186,11 +3210,12 @@ Personalized email marketing campaigns to contact database
                             style="position: absolute; z-index: 100; left: 190px; top: 52px;" />
 
                         <div class="section"
-                            style="border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px; width: 540px;">
+                            style="position: relative;border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px; width: 498px;">
                             <img id="section5" src="images/single-property/testimonial.png" alt=""
                                 style="float: left; margin-bottom: -30px;" width="230px" height="230px" />
-                            <div class="text"
-                                style="position: absolute; padding: 90px; margin-left: 150px; bottom: 130px;">
+                            <div class="text" style="left: 237px;
+                                            padding-right: 20px;    
+                                            position: absolute;">
                                 <p class="page-33-text-2"
                                     style="font-weight: 300; font-size: 16px; margin-bottom: -10px;">
                                     "Awesomeness Customer Services!!! Dedication and Total commitment to his client's,
@@ -3205,11 +3230,12 @@ Personalized email marketing campaigns to contact database
                             style="position: absolute; z-index: 100; left: 190px; top: 333px;" />
 
                         <div class="section"
-                            style="border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px;">
+                            style="position: relative;border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px;">
                             <img id="section6" src="images/single-property/testimonial.png" alt=""
                                 style="float: left; margin-bottom: -30px;" width="230px" height="230px" />
-                            <div class="text"
-                                style="position: absolute; padding: 90px; margin-left: 150px; bottom: 10px;">
+                            <div class="text" style="left: 237px;
+                                                    padding-right: 20px;    
+                                                    position: absolute;">
                                 <p class="page-33-text-5"
                                     style="font-weight: 300; font-size: 16px; margin-bottom: -10px;">
                                     "Awesomeness Customer Services!!! Dedication and Total commitment to his client's,
@@ -3922,7 +3948,7 @@ Personalized email marketing campaigns to contact database
                     getBase64Image(document.getElementById("imageBackground-page-8-1"), function (base64) {
                         $(".page-8").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_8_img_1]").val("uploadedimages/" + output);
-                        $(".page-9 ").css("background-image", "url(uploadedimages/"+ output + ")");
+                        $(".page-9 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_9_img_1]").val("uploadedimages/" + output);
                     });
                 },
@@ -3951,7 +3977,7 @@ Personalized email marketing campaigns to contact database
                             getBase64Image(document.getElementById("imageBackground-page-8-1"), function (base64) {
                                 $(".page-8").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_8_img_1]").val("uploadedimages/" + output);
-                                $(".page-9 ").css("background-image", "url(uploadedimages/"+ output + ")");
+                                $(".page-9 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_9_img_1]").val("uploadedimages/" + output);
                             });
                             $(".page-8 .absolute").css("display", "block");
@@ -4044,9 +4070,9 @@ Personalized email marketing campaigns to contact database
                 success: function (output) {
                     $("#imageBackground-page-10-1").attr("src", "uploadedimages/" + output);
                     getBase64Image(document.getElementById("imageBackground-page-10-1"), function (base64) {
-                        $(".page-10 ").css("background-image", "url(uploadedimages/"+ output + ")");
+                        $(".page-10").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_10_img_1]").val("uploadedimages/" + output);
-                        $(".page-11").css("background-image", "url(uploadedimages/"+ output + ")");
+                        $(".page-11 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_11_img_1]").val("uploadedimages/" + output);
                     });
                 },
@@ -5332,7 +5358,7 @@ Personalized email marketing campaigns to contact database
                     getBase64Image(document.getElementById("imageBackground-page-24-1"), function (base64) {
                         $(".page-24 ").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_24_img_1]").val("uploadedimages/" + output);
-                        $(".page-25 ").css("background-image", "url(uploadedimages/"+ output + ")");
+                        $(".page-25 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_25_img_1]").val("uploadedimages/" + output);
                     });
                 },
@@ -5361,7 +5387,7 @@ Personalized email marketing campaigns to contact database
                             getBase64Image(document.getElementById("imageBackground-page-24-1"), function (base64) {
                                 $(".page-24 ").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_24_img_1]").val("uploadedimages/" + output);
-                                $(".page-25 ").css("background-image", "url(uploadedimages/"+ output + ")");
+                                $(".page-25 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_25_img_1]").val("uploadedimages/" + output);
                             });
                             $(".page-24 .absolute ").css("display", "block");
@@ -5458,7 +5484,7 @@ Personalized email marketing campaigns to contact database
                     getBase64Image(document.getElementById("imageBackground-page-26-1"), function (base64) {
                         $(".page-26 ").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_26_img_1]").val("uploadedimages/" + output);
-                        $(".page-27").css("background-image", "url(uploadedimages/"+ output + ")");
+                        $(".page-27 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                     });
                 },
             });
@@ -5486,7 +5512,7 @@ Personalized email marketing campaigns to contact database
                             getBase64Image(document.getElementById("imageBackground-page-26-1"), function (base64) {
                                 $(".page-26 ").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_26_img_1]").val("uploadedimages/" + output);
-                                $(".page-27").css("background-image", "url(uploadedimages/"+ output + ")");
+                                $(".page-27 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                             });
                             $(".page-26 .absolute ").css("display", "block");
                         },
@@ -5520,7 +5546,7 @@ Personalized email marketing campaigns to contact database
                     getBase64Image(document.getElementById("imageBackground-page-28-1"), function (base64) {
                         $(".page-28 ").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_28_img_1]").val("uploadedimages/" + output);
-                        $(".page-29").css("background-image", "url(uploadedimages/"+ output + ")");
+                        $(".page-29 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                     });
                 },
             });
@@ -5548,7 +5574,7 @@ Personalized email marketing campaigns to contact database
                             getBase64Image(document.getElementById("imageBackground-page-28-1"), function (base64) {
                                 $(".page-28 ").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_28_img_1]").val("uploadedimages/" + output);
-                                $(".page-29").css("background-image", "url(uploadedimages/"+ output + ")");
+                                $(".page-29 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                             });
                             $(".page-28 .absolute ").css("display", "block");
                         },
@@ -5890,7 +5916,7 @@ Personalized email marketing campaigns to contact database
                     $("#imageBackground-page-30-1").attr("src", "uploadedimages/" + output);
                     getBase64Image(document.getElementById("imageBackground-page-30-1"), function (base64) {
                         $(".page-30 ").css("background-image", "url(uploadedimages/"+ output + ")");
-                        $(".page-31 ").css("background-image", "url(uploadedimages/"+ output + ")");
+                        $(".page-31 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_30_img_1]").val("uploadedimages/" + output);
                     });
                 },
@@ -5918,7 +5944,7 @@ Personalized email marketing campaigns to contact database
                             $("#imageBackground-page-30-1").attr("src", "uploadedimages/" + output);
                             getBase64Image(document.getElementById("imageBackground-page-30-1"), function (base64) {
                                 $(".page-30 ").css("background-image", "url(uploadedimages/"+ output + ")");
-                                $(".page-31 ").css("background-image", "url(uploadedimages/"+ output + ")");
+                                $(".page-31 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_30_img_1]").val("uploadedimages/" + output);
                             });
                             $(".page-30 .absolute ").css("display", "block");
@@ -6258,7 +6284,7 @@ Personalized email marketing campaigns to contact database
                     $("#imageBackground-page-32-1").attr("src", "uploadedimages/" + output);
                     getBase64Image(document.getElementById("imageBackground-page-32-1"), function (base64) {
                         $(".page-32 ").css("background-image", "url(uploadedimages/"+ output + ")");
-                        $(".page-33").css("background-image", "url(uploadedimages/"+ output + ")");
+                        $(".page-33 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                         $("input[name=page_32_img_1]").val("uploadedimages/" + output);
                     });
                 },
@@ -6286,7 +6312,7 @@ Personalized email marketing campaigns to contact database
                             $("#imageBackground-page-32-1").attr("src", "uploadedimages/" + output);
                             getBase64Image(document.getElementById("imageBackground-page-32-1"), function (base64) {
                                 $(".page-32 ").css("background-image", "url(uploadedimages/"+ output + ")");
-                                $(".page-33").css("background-image", "url(uploadedimages/"+ output + ")");
+                                $(".page-33 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_32_img_1]").val("uploadedimages/" + output);
                             });
                             $(".page-32 .absolute ").css("display", "block");

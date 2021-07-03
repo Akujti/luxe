@@ -185,6 +185,18 @@
     .page-1-text-2.large {
         font-size: 100px;
     }
+
+    .page-1-text-1 {
+        width: max-content;
+        background: white;
+        padding: 0px 60px 0px 20px;
+    }
+
+    .page-1-text-2 {
+        width: max-content;
+        background: #C5A467;
+        padding: 10px 50px 10px 20px;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -206,15 +218,16 @@
                     <div>
                         <img id="img1" src="images/themes/joined-luxe-story/main.png" alt="" width="900px">
                     </div>
-                    <div class="absolute" style="right:48px;top: 700px;text-align:right;">
+                    <div class="absolute" style="right:48px;top: 600px;text-align:right;">
                         <h1 class="font-800 bold white page-1-text-11 normal" style="margin-right:5px;">I
                             JOINED
                         </h1>
-                        <h1 class="font-800 bold gold page-1-text-12 large" style="line-height: 105px;">LUXE
+                        <h1 class="font-800 bold gold page-1-text-12 large" style="line-height: 105px; width:500px;">
+                            LUXE
                         </h1>
                     </div>
-                    <div class="absolute" style="bottom: 19.8%;left: 100px;">
-                        <h1 class="page-1-text-1 bold normal" style="line-height: 89px;">
+                    <div class="absolute" style="bottom: 18.8%;left: 60px;">
+                        <h1 class="page-1-text-1 bold normal" style="">
                             YOUR
                         </h1>
                         <h1 class="page-1-text-2 bold normal" style="line-height: 77px;">

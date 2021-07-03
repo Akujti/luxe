@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fsbo-Booklet</title>
+    <title>Single Property</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
@@ -428,7 +428,7 @@
             <div class="absolute" style="top:18%;left:250px;width:450px;">
                 <p class="font-thin text-20">{{ $page_3_text_4 }}</p>
                 <br>
-                 <p class="font-thin text-20">{{ $page_3_text_5 }}</p> 
+                <p class="font-thin text-20">{{ $page_3_text_5 }}</p>
             </div>
 
             <div class="page-number" style="background-image: url('images/single-property/02.png');top:37%;">
@@ -464,7 +464,7 @@
                 <div style="max-width: 650px">
                     <?php $page_5_text_3 = explode("\n", $page_5_text_3); ?>
                     @foreach ($page_5_text_3 as $page_5_text_3)
-                        <p class="font-thin mb-20">{{ $page_5_text_3 }}</p>
+                    <p class="font-thin mb-20">{{ $page_5_text_3 }}</p>
                     @endforeach
                     <br>
                     <h2 class="font-thin">-{{ $page_5_text_1 }} {{ $page_5_text_2 }}</h2>
@@ -544,8 +544,12 @@
 
     <div class="page_break"></div>
 
+    <div
+        style="top:0;bottom:0;right:630px;position:absolute;background-image: url('{{$page_9_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
     <div class="page page-9 page-4-2"
-        style="top:0;bottom:0;right:0;position:absolute;background-image: url('{{ $page_9_img_1 }}');background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
+        style="top:0;bottom:0;right:0;position:absolute;background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
         <div class="luxe-pro-info">
             <div class="spacer"></div>
             <div class="content">
@@ -600,8 +604,12 @@
 
     <div class="page_break"></div>
 
+    <div
+        style="top:0;bottom:0;right:630px;position:absolute;background-image: url('{{$page_11_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
     <div class="page page-11 page-5-2"
-        style="top:0;bottom:0;right:0;position:absolute;background-image: url('{{ $page_11_img_1 }}');background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
+        style="top:0;bottom:0;right:0;position:absolute;background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
         <div class="container">
             <div class="heading">
                 <h2 class="subtitle-top">Tailored Listing</h2>
@@ -652,8 +660,11 @@
 
     <div class="page_break"></div>
 
-    <div class="page page-13 page-6-2"
-        style="background-image: url('images/single-property/page-12.png');background-size: cover;">
+    <div
+        style="top:0;bottom:0;right:630px;position:absolute;background-image: url('{{$page_12_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
+    <div class="page page-13 page-6-2" style="background-size: cover;top:0;bottom:0;right:0;position:absolute;">
         <div class="container">
             <div class="week" style="z-index:50;position:absolute;top:150px;">
                 <img class="" src="images/home-selling/yellow-fade.png" alt="" style="width:45%;">
@@ -891,9 +902,13 @@
 
     <div class="page_break"></div>
 
+    <div
+        style="top:0;bottom:0;right:630px;position:absolute;background-image: url('images/single-property/page-18-1.png');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
     <div class="page page-19 page-9-2"
-        style="top:0;left:-500px;bottom:0;right:0;position:absolute;background-image: url('{{ $page_19_img_1 }}');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
-        <div style="margin-left:540px;">
+        style="top:0;left:-500px;bottom:0;right:0;position:absolute;background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+        <div style="margin-left:520px;padding-right:35px;">
             <div class="heading" style="z-index:1000;">
                 <h2 class="subtitle-top" style="font-weight: 300;font-size:70px;margin-left:170px;margin-bottom:20px;">
                     Exclusive</h2>
@@ -902,15 +917,14 @@
                 <h1 class="subtitle-bottom" style="font-weight: 300;font-size: 75px;margin-left:250px;">Sites</h1>
             </div>
             <div class="content" style="margin-left:165px;">
-                <p style="font-weight: 300;padding-right:100px;">{{ $page_19_text_1 }}</p>
+                <p style="font-weight: 300;">{{ $page_19_text_1 }}</p>
                 <br>
-                <p style="font-weight: 300;padding-right:100px;">These striking sites include all of the most important
-                    marketing features of your home and the latest online capabilities including:</p>
+                <p style="font-weight: 300;">{{ $page_19_text_2 }}</p>
                 <h3 style="color: #C5A367;font-size: 35px;font-weight: 900;margin-bottom:-20px;">Features</h3>
                 <ul style="list-style-image: url('images/home-selling/check-large.png');">
-                    <?php $page_19_text_2 = explode("\n", $page_19_text_2); ?>
-                    @foreach ($page_19_text_2 as $page_19_text_2)
-                    <li style="margin-bottom: 5px;font-weight: 400;">{{ $page_19_text_2 }}</li>
+                    <?php $page_19_text_3 = explode("\n", $page_19_text_3); ?>
+                    @foreach ($page_19_text_3 as $page_19_text_3)
+                    <li style="margin-bottom: 5px;font-weight: 400;">{{ $page_19_text_3 }}</li>
                     {{-- <li style="margin-bottom: 5px;font-weight: 400;">Schools in Area</li>
                     <li style="margin-bottom: 5px;font-weight: 400;">Video and Photo Showcase</li>
                     <li style="margin-bottom: 5px;font-weight: 400;">Map</li> --}}
@@ -918,15 +932,15 @@
                 </ul>
                 <h3 style="color: #C5A367;font-size: 35px;font-weight: 900;margin-bottom:-20px;">Capabilities</h3>
                 <ul style="list-style-image: url('images/home-selling/check-large.png');">
-                    <?php $page_19_text_3 = explode("\n", $page_19_text_3); ?>
-                    @foreach ($page_19_text_3 as $page_19_text_3)
-                    <li style="margin-bottom: 5px;font-weight: 400;">{{ $page_19_text_3 }}</li>
+                    <?php $page_19_text_4 = explode("\n", $page_19_text_4); ?>
+                    @foreach ($page_19_text_4 as $page_19_text_4)
+                    <li style="margin-bottom: 5px;font-weight: 400;">{{ $page_19_text_4 }}</li>
                     {{-- <li style="margin-bottom: 5px;font-weight: 400;">Search Engine Optimization</li>
                     <li style="margin-bottom: 5px;font-weight: 400;">Lead Capture Tools</li>
                     <li style="margin-bottom: 5px;font-weight: 400;">Mobile Optimization</li> --}}
                     @endforeach
                 </ul>
-                <p style="font-weight: 300;">{{ $page_19_text_4 }}</p>
+                <p style="font-weight: 300;">{{ $page_19_text_5 }}</p>
             </div>
         </div>
     </div>
@@ -1071,8 +1085,12 @@
 
     <div class="page_break"></div>
 
+    <div
+        style="top:0;bottom:0;right:630px;position:absolute;background-image: url('{{$page_25_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
     <div class="page page-12 page-12-2"
-        style="top:0;left:-500px;bottom:0;right:0;position:absolute;background-image: url('{{ $page_25_img_1 }}');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+        style="top:0;left:-500px;bottom:0;right:0;position:absolute;background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
         <div class="content" style="margin-left:280px;margin-top:50px;">
             <p style="font-weight: 300;margin-left:450px;width:350px;">{{ $page_25_text_1 }}</p>
             <br>
@@ -1153,7 +1171,7 @@
 
     <div class="page_break"></div>
 
-    <div class="page page-26 page-background" style="background-image:url('{{$page_26_img_1}}');">
+    <div class="page page-26 page-background" style="background-image:url('{{ $page_26_img_1 }}');">
         <div class="container">
             <div class="absolute" style="top:30%;left:30px;">
                 <h2 class="font-thin white mb-40" style="margin-left:10px;margin-bottom:50px;font-size:80px;">Strategic
@@ -1166,8 +1184,12 @@
 
     <div class="page_break"></div>
 
+    <div
+        style="top:0;bottom:0;right:630px;position:absolute;background-image: url('{{$page_26_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
     <div class="page page-27"
-        style="position:absolute;background-image: url('images/single-property/page-26.jpg');background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
+        style="position:absolute;background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
         <div class="container">
             <div class="content" style="margin-top: 50px;margin-left:200px;margin-right:150px;">
                 <h3 style="color: #C5A367;font-size: 35px;font-weight: 900;">{{ $page_27_text_1 }}</h3>
@@ -1216,11 +1238,15 @@
 
     <div class="page_break"></div>
 
+    <div
+        style="top:0;bottom:0;right:630px;position:absolute;background-image: url('{{$page_28_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
     <div class="page page-29"
-        style="position:absolute;background-image: url('{{$page_28_img_1 }}');background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
+        style="position:absolute;background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
         <div class="content" style="margin-top:120px;">
             <div class="section"
-                style="margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:700%;margin-bottom:20px;">
+                style="margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:90px;margin-bottom:20px;">
                 <div style="padding-top:0px;padding-bottom:20px;">
                     <div class="circle" style="float:left;border-radius: 600%;margin-bottom:30px;">
                         <div class="inner-section" style="border-radius: 550%;">
@@ -1231,15 +1257,15 @@
                 </div>
                 <div class="circle-text" style="margin-left: 30px;">
                     <p style="color:white;font-size: 26px;">{{ $page_29_text_1 }}</p>
-                    <p style="font-size:14px;">Price:{{ $page_29_text_2 }}</p>
-                    <p style="font-size:14px;">Bathroom/Bedroom:{{ $page_29_text_3 }}</p>
-                    <p style="font-size:14px;">Living Area:{{ $page_29_text_4 }}</p>
-                    <p style="font-size:14px;">Lot Size:{{ $page_29_text_5 }}</p>
-                    <p style="font-size:14px;">Days on Market:{{ $page_29_text_6 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_2 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_3 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_4 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_5 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_6 }}</p>
                 </div>
             </div>
             <div class="section"
-                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:700%;margin-bottom:20px;">
+                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:90px;margin-bottom:20px;">
                 <div style="padding-top:0px;padding-bottom:20px;">
                     <div class="circle" style="float:left;border-radius: 600%;margin-bottom:30px;">
                         <div class="inner-section" style="border-radius: 550%;">
@@ -1251,14 +1277,14 @@
                 <div class="circle-text" style="margin-left: 30px;">
                     <p style="color:white;font-size: 26px;">{{ $page_29_text_7 }}</p>
                     <p style="font-size:14px;">{{ $page_29_text_8 }}</p>
-                    <p style="font-size:14px;">Bathroom/Bedroom:{{ $page_29_text_9 }}</p>
-                    <p style="font-size:14px;">Living Area:{{ $page_29_text_10 }}</p>
-                    <p style="font-size:14px;">Lot Size:{{ $page_29_text_11 }}</p>
-                    <p style="font-size:14px;">Days on Market:{{ $page_29_text_12 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_9 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_10 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_11 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_12 }}</p>
                 </div>
             </div>
             <div class="section"
-                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:700%;margin-bottom:20px;">
+                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:90px;">
                 <div style="padding-top:0px;padding-bottom:20px;">
                     <div class="circle" style="float:left;border-radius: 600%;margin-bottom:30px;">
                         <div class="inner-section" style="border-radius: 550%;">
@@ -1270,14 +1296,14 @@
                 <div class="circle-text" style="margin-left: 30px;">
                     <p style="color:white;font-size: 26px;">{{ $page_29_text_13 }}</p>
                     <p style="font-size:14px;">{{ $page_29_text_14 }}</p>
-                    <p style="font-size:14px;">Bathroom/Bedroom:{{ $page_29_text_15 }}</p>
-                    <p style="font-size:14px;">Living Area:{{ $page_29_text_16 }}</p>
-                    <p style="font-size:14px;">Lot Size:{{ $page_29_text_17 }}</p>
-                    <p style="font-size:14px;">Days on Market:{{ $page_29_text_18 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_15 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_16 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_17 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_18 }}</p>
                 </div>
             </div>
             <div class="section"
-                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:700%;margin-bottom:20px;">
+                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:90px;margin-bottom:20px;">
                 <div style="padding-top:0px;padding-bottom:20px;">
                     <div class="circle" style="float:left;border-radius: 600%;margin-bottom:30px;">
                         <div class="inner-section" style="border-radius: 550%;">
@@ -1289,10 +1315,10 @@
                 <div class="circle-text" style="margin-left: 30px;">
                     <p style="color:white;font-size: 26px;">{{ $page_29_text_19 }}</p>
                     <p style="font-size:14px;">{{ $page_29_text_20 }}</p>
-                    <p style="font-size:14px;">Bathroom/Bedroom:{{ $page_29_text_21 }}</p>
-                    <p style="font-size:14px;">Living Area:{{ $page_29_text_22 }}</p>
-                    <p style="font-size:14px;">Lot Size:{{ $page_29_text_23 }}</p>
-                    <p style="font-size:14px;">Days on Market:{{ $page_29_text_24 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_21 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_22 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_23 }}</p>
+                    <p style="font-size:14px;">{{ $page_29_text_24 }}</p>
                 </div>
             </div>
         </div>
@@ -1312,8 +1338,12 @@
 
     <div class="page_break"></div>
 
+    <div
+        style="top:0;bottom:0;right:630px;position:absolute;background-image: url('{{$page_30_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
     <div class="page page-31"
-        style="position:absolute;background-image: url('{{ $page_30_img_1 }}');background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
+        style="position:absolute;background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
         <div class="content" style="margin-top:70px;">
             <div class="section" style="margin-left:170px;">
                 <div style="padding-top:0px;">
@@ -1327,9 +1357,9 @@
                 </div>
                 <div class="circle-text" style="margin-left:220px;margin-top:-250px;">
                     <p style="color: #C5A367;font-size: 26px;">{{ $page_31_text_1 }}</p>
-                    <p style="">Price:{{ $page_31_text_2 }}</p>
+                    <p style="">PRICE:{{ $page_31_text_2 }}</p>
                     <p style="">BEDS/BATHS:{{ $page_31_text_3 }}</p>
-                    <p style="">Living Area:{{ $page_31_text_4 }}</p>
+                    <p style="">LIVING AREA:{{ $page_31_text_4 }}</p>
                     <p style="">LOT SIZE:{{ $page_31_text_5 }}</p>
                 </div>
             </div>
@@ -1345,9 +1375,9 @@
                 </div>
                 <div class="circle-text" style="margin-left:220px;margin-top:-250px;">
                     <p style="color: #C5A367;font-size: 26px;">{{ $page_31_text_6 }}</p>
-                    <p style="">Price:{{ $page_31_text_7 }}</p>
+                    <p style="">PRICE:{{ $page_31_text_7 }}</p>
                     <p style="">BEDS/BATHS:{{ $page_31_text_8 }}</p>
-                    <p style="">Living Area:{{ $page_31_text_9 }}</p>
+                    <p style="">LIVING AREA:{{ $page_31_text_9 }}</p>
                     <p style="">LOT SIZE:{{ $page_31_text_10 }}</p>
                 </div>
             </div>
@@ -1363,9 +1393,9 @@
                 </div>
                 <div class="circle-text" style="margin-left:220px;margin-top:-250px;">
                     <p style="color: #C5A367;font-size: 26px;">{{ $page_31_text_11 }}</p>
-                    <p style="">Price:{{ $page_31_text_12 }}</p>
+                    <p style="">PRICE:{{ $page_31_text_12 }}</p>
                     <p style="">BEDS/BATHS:{{ $page_31_text_13 }}</p>
-                    <p style="">Living Area:{{ $page_31_text_14 }}</p>
+                    <p style="">LIVING AREA:{{ $page_31_text_14 }}</p>
                     <p style="">LOT SIZE:{{ $page_31_text_15 }}</p>
                 </div>
             </div>
@@ -1383,7 +1413,7 @@
                     <p style="color: #C5A367;font-size: 26px;">{{ $page_31_text_16 }}</p>
                     <p style="">PRICE:{{ $page_31_text_17 }}</p>
                     <p style="">BEDS/BATHS:{{ $page_31_text_18 }}</p>
-                    <p style="">Living Area:{{ $page_31_text_19 }}</p>
+                    <p style="">LIVING AREA:{{ $page_31_text_19 }}</p>
                     <p style="">LOT SIZE:{{ $page_31_text_20 }}</p>
                 </div>
             </div>
@@ -1404,8 +1434,12 @@
 
     <div class="page_break"></div>
 
+    <div
+        style="top:0;bottom:0;right:630px;position:absolute;background-image: url('{{$page_32_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
     <div class="page page-33"
-        style="position:absolute;background-image: url('{{ $page_32_img_1 }}');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+        style="position:absolute;background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
         <div class="content" style="">
             <div class="section" style="border:1px solid gray;height:230px;min-height:230px;margin:50px 75px;">
                 <img src="{{ $page_33_img_1 }}" alt="" style="float: left;margin-bottom:-30px;" width="230px"
