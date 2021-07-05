@@ -1246,7 +1246,7 @@
         style="position:absolute;background-size: cover;background-position: -700px -5px;background-repeat: no-repeat;">
         <div class="content" style="margin-top:120px;">
             <div class="section"
-                style="margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:90px;margin-bottom:20px;">
+                style="margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:100px;margin-bottom:20px;">
                 <div style="padding-top:0px;padding-bottom:20px;">
                     <div class="circle" style="float:left;border-radius: 600%;margin-bottom:30px;">
                         <div class="inner-section" style="border-radius: 550%;">
@@ -1265,7 +1265,7 @@
                 </div>
             </div>
             <div class="section"
-                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:90px;margin-bottom:20px;">
+                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:100px;margin-bottom:20px;">
                 <div style="padding-top:0px;padding-bottom:20px;">
                     <div class="circle" style="float:left;border-radius: 600%;margin-bottom:30px;">
                         <div class="inner-section" style="border-radius: 550%;">
@@ -1284,7 +1284,7 @@
                 </div>
             </div>
             <div class="section"
-                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:90px;">
+                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:100px;">
                 <div style="padding-top:0px;padding-bottom:20px;">
                     <div class="circle" style="float:left;border-radius: 600%;margin-bottom:30px;">
                         <div class="inner-section" style="border-radius: 550%;">
@@ -1303,7 +1303,7 @@
                 </div>
             </div>
             <div class="section"
-                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:90px;margin-bottom:20px;">
+                style="margin-top:30px;margin-left:120px;background-color: #C5A367;padding-top:20px;padding-bottom:35px;border-radius:100px;margin-bottom:20px;">
                 <div style="padding-top:0px;padding-bottom:20px;">
                     <div class="circle" style="float:left;border-radius: 600%;margin-bottom:30px;">
                         <div class="inner-section" style="border-radius: 550%;">

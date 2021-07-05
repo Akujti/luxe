@@ -477,7 +477,7 @@
                             <h1 class="page-1-text-2  big-title gold font-thin my-0">LODGE DR</h1>
                             <h1 class="page-1-text-3 font-thin my-0 mb-40" style="font-size: 60px;">MIAMI • FLORIDA</h1>
                         </div>
-                        <div class="page-bottom text-center" style="position: absolute; bottom: 8px; right: 16px;">
+                        <div class="text-center" style="margin-top:180px;">
                             <img src="images/Asset 1.png" alt="" />
                         </div>
                     </div>
@@ -654,7 +654,8 @@ At LUXE Properties, we take pride in building relationships based on the premise
                                     Thank you for the opportunity to earn your trust. I
                                     am eager to serve you.
                                 </p>
-                                <h2 class="font-thin">-Roger Cabrera</h2>
+                                <h2 class="font-thin">-<span class="page-5-text-1">Roger</span> <span
+                                        class="page-5-text-2">Cabrera</span></h2>
                             </div>
                         </div>
                         <div class="page-number"
@@ -1614,13 +1615,13 @@ Through the use of drone footage combined with high-definition videography, we a
 
         <div class="row">
             <div class="row-image" style="margin-left: -130px;">
+                <img src="" id="imageBackground-page-18-1" style="display: none;" />
+                <input hidden name="page_18_img_1" value="images/single-property/pc-content.png" />
+                <img src="" id="imageBackground-page-18-2" style="display: none;" />
+                <input hidden name="page_18_img_2" value="images/single-property/tablet-content.jpg" />
                 <div class="page page-18"
                     style="background-image: url('images/single-property/page-18.png'); height: 100%; top: ; background-size: cover; background-position: left; width: 627px;">
-                    <img src="" id="imageBackground-page-18-1" style="display: none;" />
-                    <input hidden name="page_18_img_1" value="images/single-property/pc-content.png" />
 
-                    <img src="" id="imageBackground-page-18-2" style="display: none;" />
-                    <input hidden name="page_18_img_2" value="images/single-property/tablet-content.jpg" />
 
                     <div class="pc" style="margin-top: 40px; margin-left: 180px;">
                         <img id="section18-1" src="images/single-property/pc-content.png" alt=""
@@ -1775,27 +1776,29 @@ This powerful online marketing tool impresses buyers and when  advertised in pri
         <div class="row-divider"></div>
 
         <div class="row">
+            <div class="" style="max-width:600px;">
+                <img src="" id="imageBackground-page-20-1" style="display: none;" />
+                <input hidden name="page_20_img_1" value="images/single-property/page-20-1.png" />
+                <img src="" id="imageBackground-page-20-2" style="display: none;" />
+                <input hidden name="page_20_img_2" value="images/single-property/page-20-2.png" />
+                <img src="" id="imageBackground-page-20-3" style="display: none;" />
+                <input hidden name="page_20_img_3" value="images/single-property/page-20-3.png" />
+            </div>
             <div class="page page-20 page-10-1" style="margin-left: -05px;">
                 <div class="row-1"
                     style="background-image: url('images/single-property/page-20-1.png'); height: 30%; top: 0; background-size: cover; margin-bottom: -30px;">
                     <h1></h1>
                 </div>
-                <img src="" id="imageBackground-page-20-1" style="display: none;" />
-                <input hidden name="page_20_img_1" value="images/single-property/page-20-1.png" />
 
                 <div class="row-2"
                     style="background-image: url('images/single-property/page-20-2.png'); height: 30%; top: 153%; background-size: cover; margin-bottom: -30px;">
                     <h1></h1>
                 </div>
-                <img src="" id="imageBackground-page-20-2" style="display: none;" />
-                <input hidden name="page_20_img_2" value="images/single-property/page-20-2.png" />
 
                 <div class="row-3"
                     style="background-image: url('images/single-property/page-20-3.png'); height: 30%; bottom: 0; background-size: cover;">
                     <h1></h1>
                 </div>
-                <img src="" id="imageBackground-page-20-3" style="display: none;" />
-                <input hidden name="page_20_img_3" value="images/single-property/page-20-3.png" />
                 <div class="content">
                     <div class="absolute" style="bottom: 840px;width: 640px;">
                         <h1 style="
@@ -1963,44 +1966,23 @@ Having a strong online presence has widely become one of the most important tool
 
         <div class="row-divider"></div>
 
-        <div class="row">
+        <div class="row" style="height: 1240px;overflow:hidden;">
             <div class="row-image">
+                <img src="" id="imageBackground-page-22-1" style="display: none;" />
+                <input hidden name="page_22_img_1" value="images/home-selling/Asset 17.jpg" />
+                <img src="" id="imageBackground-page-22-2" style="display: none;" />
+                <input hidden name="page_22_img_2" value="images/home-selling/Asset 18-1.jpg" />
+                <img src="" id="imageBackground-page-22-3" style="display: none;" />
+                <input hidden name="page_22_img_3" value="images/home-selling/Asset 18-2.jpg" />
+                <img src="" id="imageBackground-page-22-4" style="display: none;" />
+                <input hidden name="page_22_img_4" value="images/home-selling/Asset 18-3.jpg" />
+                <img src="" id="imageBackground-page-22-5" style="display: none;" />
+                <input hidden name="page_22_img_5" value="images/home-selling/Asset 18-4.jpg" />
+                <img src="" id="imageBackground-page-22-6" style="display: none;" />
+                <input hidden name="page_22_img_6" value="images/home-selling/Asset 18-5.jpg" />
+                <img src="" id="imageBackground-page-22-7" style="display: none;" />
+                <input hidden name="page_22_img_7" value="images/home-selling/Asset 18-6.jpg" />
                 <div class="page page-22" style="max-width:800px;">
-                    <img src="" id="imageBackground-page-22-1" style="display: none;" />
-                    <input hidden name="page_22_img_1" value="images/home-selling/Asset 17.jpg" />
-                    <img src="" id="imageBackground-page-22-2" style="display: none;" />
-                    <input hidden name="page_22_img_2" value="images/home-selling/Asset 18-1.jpg" />
-                    <img src="" id="imageBackground-page-22-3" style="display: none;" />
-                    <input hidden name="page_22_img_3" value="images/home-selling/Asset 18-2.jpg" />
-                    <img src="" id="imageBackground-page-22-4" style="display: none;" />
-                    <input hidden name="page_22_img_4" value="images/home-selling/Asset 18-3.jpg" />
-                    <img src="" id="imageBackground-page-22-5" style="display: none;" />
-                    <input hidden name="page_22_img_5" value="images/home-selling/Asset 18-4.jpg" />
-                    <img src="" id="imageBackground-page-22-6" style="display: none;" />
-                    <input hidden name="page_22_img_6" value="images/home-selling/Asset 18-5.jpg" />
-                    <img src="" id="imageBackground-page-22-7" style="display: none;" />
-                    <input hidden name="page_22_img_7" value="images/home-selling/Asset 18-6.jpg" />
-
-                    {{-- <img src="" id="imageBackground-page-22-1" style="display: none;" />
-                        <input hidden name="page_22_img_1" value="images/home-selling/Asset 17.jpg" />
-
-                        <img src="" id="imageBackground-page-11-2" style="display: none;" />
-                        <input hidden name="page_22_img_2" value="images/home-selling/Asset 18-1.jpg" />
-
-                        <img src="" id="imageBackground-page-11-1-3" style="display: none;" />
-                        <input hidden name="page_22_img_3" value="images/home-selling/Asset 18-2.jpg" />
-
-                        <img src="" id="imageBackground-page-11-4" style="display: none;" />
-                        <input hidden name="page_22_img_4" value="images/home-selling/Asset 18-3.jpg" />
-
-                        <img src="" id="imageBackground-page-11-5" style="display: none;" />
-                        <input hidden name="page_22_img_5" value="images/home-selling/Asset 18-4.jpg" />
-
-                        <img src="" id="imageBackground-page-11-1-6" style="display: none;" />
-                        <input hidden name="page_22_img_6" value="images/home-selling/Asset 18-5.jpg" />
-
-                        <img src="" id="imageBackground-page-11-7" style="display: none;" />
-                        <input hidden name="page_22_img_7" value="images/home-selling/Asset 18-6.jpg" /> --}}
                     <div class="text" style="max-width: 780px;">
                         <div class="section1" style="
                                     margin-top: -140px;
@@ -2094,49 +2076,63 @@ This is a single family home that contains 7,178 sq ft and was built in 2008. It
                 </div>
                 <div class="flex">
                     <div class="button" style="margin-top: 0; margin-bottom: 50px;">
-                        <label>Left Top</label>
-                        <input type="file" id="imageBackgroundInput-page-22-2"
-                            onchange="imageBackgroundInputChanged_page_22_2()" />
+                        <div class="flex">
+                            <label>Left Top</label>
+                            <input type="file" id="imageBackgroundInput-page-22-2"
+                                onchange="imageBackgroundInputChanged_page_22_2()" />
+                        </div>
                         <button type="button" onclick="startCropper_page_22_2()">Crop</button>
                         <button type="button" onclick="cropImage_page_22_2()">Save Crop</button>
                     </div>
                     <div class="button" style="margin-top: 0; margin-bottom: 50px;">
-                        <label>Right 1</label>
-                        <input type="file" id="imageBackgroundInput-page-22-3"
-                            onchange="imageBackgroundInputChanged_page_22_3()" />
+                        <div class="flex">
+                            <label>Right 1</label>
+                            <input type="file" id="imageBackgroundInput-page-22-3"
+                                onchange="imageBackgroundInputChanged_page_22_3()" />
+                        </div>
                         <button type="button" onclick="startCropper_page_22_3()">Crop</button>
                         <button type="button" onclick="cropImage_page_22_3()">Save Crop</button>
                     </div>
                 </div>
                 <div class="flex">
                     <div class="button" style="margin-top: 0; margin-bottom: 50px;">
-                        <label>Right 2</label>
-                        <input type="file" id="imageBackgroundInput-page-22-4"
-                            onchange="imageBackgroundInputChanged_page_22_4()" />
+                        <div class="flex">
+                            <label>Right 2</label>
+                            <input type="file" id="imageBackgroundInput-page-22-4"
+                                onchange="imageBackgroundInputChanged_page_22_4()" />
+                        </div>
                         <button type="button" onclick="startCropper_page_22_4()">Crop</button>
                         <button type="button" onclick="cropImage_page_22_4()">Save Crop</button>
                     </div>
                     <div class="button" style="margin-top: 0; margin-bottom: 50px;">
-                        <label>Right 3</label>
-                        <input type="file" id="imageBackgroundInput-page-22-5"
-                            onchange="imageBackgroundInputChanged_page_22_5()" />
+                        <div class="flex">
+                            <label>Right 3</label>
+                            <input type="file" id="imageBackgroundInput-page-22-5"
+                                onchange="imageBackgroundInputChanged_page_22_5()" />
+                        </div>
                         <button type="button" onclick="startCropper_page_22_5()">Crop</button>
                         <button type="button" onclick="cropImage_page_22_5()">Save Crop</button>
                     </div>
                 </div>
-                <div class="button" style="margin-top: 0; margin-bottom: 50px;">
-                    <label>Right 4</label>
-                    <input type="file" id="imageBackgroundInput-page-22-6"
-                        onchange="imageBackgroundInputChanged_page_22_6()" />
-                    <button type="button" onclick="startCropper_page_22_6()">Crop</button>
-                    <button type="button" onclick="cropImage_page_22_6()">Save Crop</button>
-                </div>
-                <div class="button" style="margin-top: 0; margin-bottom: 50px;">
-                    <label>Bottom</label>
-                    <input type="file" id="imageBackgroundInput-page-22-7"
-                        onchange="imageBackgroundInputChanged_page_22_7()" />
-                    <button type="button" onclick="startCropper_page_22_7()">Crop</button>
-                    <button type="button" onclick="cropImage_page_22_7()">Save Crop</button>
+                <div class="flex">
+                    <div class="button" style="margin-top: 0; margin-bottom: 50px;">
+                        <div class="flex">
+                            <label>Right 4</label>
+                            <input type="file" id="imageBackgroundInput-page-22-6"
+                                onchange="imageBackgroundInputChanged_page_22_6()" />
+                        </div>
+                        <button type="button" onclick="startCropper_page_22_6()">Crop</button>
+                        <button type="button" onclick="cropImage_page_22_6()">Save Crop</button>
+                    </div>
+                    <div class="button" style="margin-top: 0; margin-bottom: 50px;">
+                        <div class="flex">
+                            <label>Bottom</label>
+                            <input type="file" id="imageBackgroundInput-page-22-7"
+                                onchange="imageBackgroundInputChanged_page_22_7()" />
+                        </div>
+                        <button type="button" onclick="startCropper_page_22_7()">Crop</button>
+                        <button type="button" onclick="cropImage_page_22_7()">Save Crop</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2847,7 +2843,7 @@ Personalized email marketing campaigns to contact database
                 </div>
                 <div class="flex">
                     <label for="page-29-text-15">Bathroom/Bedroom</label>
-                    <input type="text" id="page-29-text-15" name="page_19_text_15" value="BEDS/BATHS: 6/6" />
+                    <input type="text" id="page-29-text-15" name="page_29_text_15" value="BEDS/BATHS: 6/6" />
 
                     <label for="page-29-text-16">Living Area</label>
                     <input type="text" id="page-29-text-16" name="page_29_text_16" value="LIVING AREA: 6,395 SQ FT" />
@@ -3174,7 +3170,7 @@ Personalized email marketing campaigns to contact database
         <div class="row-divider"></div>
 
         <div class="row">
-            <div class="row-image" style="margin-left: -20px;">
+            <div class="row-image" style="margin-left: -20px;width:800px;">
                 <img src="" id="imageBackground-page-33-1" style="display: none;" />
                 <input hidden name="page_33_img_1" value="images/single-property/testimonial.png" />
                 <img src="" id="imageBackground-page-33-2" style="display: none;" />
@@ -3190,7 +3186,7 @@ Personalized email marketing campaigns to contact database
                             <h1></h1>
                         </div>
                         <div class="section"
-                            style="position: relative;border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px;">
+                            style="position: relative;border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px;width:573px;">
                             <img id="section4" src="images/single-property/testimonial.png" alt=""
                                 style="float: left; margin-bottom: -30px;" width="230px" height="230px" />
                             <div class="text" style="left: 237px;
@@ -3210,7 +3206,7 @@ Personalized email marketing campaigns to contact database
                             style="position: absolute; z-index: 100; left: 190px; top: 52px;" />
 
                         <div class="section"
-                            style="position: relative;border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px; width: 498px;">
+                            style="position: relative;border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px; width:573px;">
                             <img id="section5" src="images/single-property/testimonial.png" alt=""
                                 style="float: left; margin-bottom: -30px;" width="230px" height="230px" />
                             <div class="text" style="left: 237px;
@@ -3230,7 +3226,7 @@ Personalized email marketing campaigns to contact database
                             style="position: absolute; z-index: 100; left: 190px; top: 333px;" />
 
                         <div class="section"
-                            style="position: relative;border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px;">
+                            style="position: relative;border: 1px solid gray; height: 230px; min-height: 230px; margin: 50px 75px;width:573px;">
                             <img id="section6" src="images/single-property/testimonial.png" alt=""
                                 style="float: left; margin-bottom: -30px;" width="230px" height="230px" />
                             <div class="text" style="left: 237px;
@@ -3250,7 +3246,7 @@ Personalized email marketing campaigns to contact database
                     </div>
                 </div>
             </div>
-            <div class="row-input" style="margin-left: 800px;">
+            <div class="row-input">
                 <div class="flex">
                     <label for="page-33-text-1">Content 1</label>
                     <textarea id="page-33-text-1" name="page_33_text_1" rows="4">
@@ -3272,16 +3268,20 @@ Personalized email marketing campaigns to contact database
                 </div>
                 <div class="flex">
                     <div class="button">
-                        <label>Image 1 </label>
-                        <input type="file" id="imageBackgroundInput-page-33-1"
-                            onchange="imageBackgroundInputChanged_page_33_1()" />
+                        <div class="flex">
+                            <label>Image 1 </label>
+                            <input type="file" id="imageBackgroundInput-page-33-1"
+                                onchange="imageBackgroundInputChanged_page_33_1()" />
+                        </div>
                         <button type="button" onclick="startCropper_page_33_1()">Crop</button>
                         <button type="button" onclick="cropImage_page_33_1()">Save Crop</button>
                     </div>
                     <div class="button">
-                        <label>Image 2 </label>
-                        <input type="file" id="imageBackgroundInput-page-33-2"
-                            onchange="imageBackgroundInputChanged_page_33_2()" />
+                        <div class="flex">
+                            <label>Image 2 </label>
+                            <input type="file" id="imageBackgroundInput-page-33-2"
+                                onchange="imageBackgroundInputChanged_page_33_2()" />
+                        </div>
                         <button type="button" onclick="startCropper_page_33_2()">Crop</button>
                         <button type="button" onclick="cropImage_page_33_2()">Save Crop</button>
                     </div>
@@ -3298,7 +3298,7 @@ Personalized email marketing campaigns to contact database
                     " />
                 </div>
                 <div class="button" style="">
-                    <label>Image 4</label>
+                    <label>Image 3</label>
                     <input type="file" id="imageBackgroundInput-page-33-3"
                         onchange="imageBackgroundInputChanged_page_33_3()" />
                     <button type="button" onclick="startCropper_page_33_3()">Crop</button>
@@ -4233,9 +4233,9 @@ Personalized email marketing campaigns to contact database
         }
 
         function startCropper_page_14_1() {
-            var image = document.getElementById("imageBackground-page-4-1");
-            $(".page-4 .luxe-pro-info").css("display", "none");
-            cropper = new Cropper(image, {
+            var image = document.getElementById("imageBackground-page-14-1");
+            $(".page-14 .absolute").css("display", "none");
+                cropper = new Cropper(image, {
                 minContainerHeight: 500,
             });
         }
@@ -4536,9 +4536,10 @@ Personalized email marketing campaigns to contact database
         }
         function startCropper_page_18_1() {
             var image = document.getElementById("imageBackground-page-18-1");
-            $(".section1 .absolute").css("display", "none");
+            $(".page-18").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -4589,7 +4590,7 @@ Personalized email marketing campaigns to contact database
                                 $("#section18-1").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_18_img_1]").val("uploadedimages/" + output);
                             });
-                            $(".content1 .absolute ").css("display", "block");
+                            $(".page-18").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -4598,9 +4599,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_18_2() {
             var image = document.getElementById("imageBackground-page-18-2");
-            $(".section1 .absolute").css("display", "none");
+            $(".page-18").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -4651,7 +4653,7 @@ Personalized email marketing campaigns to contact database
                                 $("#section18-2").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_18_img_2]").val("uploadedimages/" + output);
                             });
-                            $(".content1 .absolute ").css("display", "block");
+                            $(".page-18").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -4721,9 +4723,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_20_1() {
             var image = document.getElementById("imageBackground-page-20-1");
-            $(".page-20 .row-1").css("display", "none");
+            $(".page-20").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -4773,7 +4776,7 @@ Personalized email marketing campaigns to contact database
                                 $(".row-1 ").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_20_img_1]").val("uploadedimages/" + output);
                             });
-                            $(".page-20 .row-1").css("display", "block");
+                            $(".page-20").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -4782,9 +4785,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_20_2() {
             var image = document.getElementById("imageBackground-page-20-2");
-            $("page-20 .row-2").css("display", "none");
+            $(".page-20").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -4834,7 +4838,7 @@ Personalized email marketing campaigns to contact database
                                 $(".row-2 ").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_20_img_2").val("uploadedimages/" + output);
                             });
-                            $("page-20 .row-2").css("display", "block");
+                            $(".page-20").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -4842,9 +4846,10 @@ Personalized email marketing campaigns to contact database
         }
         function startCropper_page_20_3() {
             var image = document.getElementById("imageBackground-page-20-3");
-            $("page-20 .row-3").css("display", "none");
+            $(".page-20").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -4894,7 +4899,7 @@ Personalized email marketing campaigns to contact database
                                 $(".row-3 ").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_20_img_3").val("uploadedimages/" + output);
                             });
-                            $("page-20 .row-3").css("display", "block");
+                            $(".page-20").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -4903,9 +4908,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_22_1() {
             var image = document.getElementById("imageBackground-page-22-1");
-            $(".page22 .absolute").css("display", "none");
+            $(".page-22").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -4955,7 +4961,7 @@ Personalized email marketing campaigns to contact database
                                 $(".section1").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_22_img_1]").val("uploadedimages/" + output);
                             });
-                            $(".page-22 .absolute").css("display", "block");
+                            $(".page-22").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -4963,9 +4969,10 @@ Personalized email marketing campaigns to contact database
         }
         function startCropper_page_22_2() {
             var image = document.getElementById("imageBackground-page-22-2");
-            $(".page-22 .section2").css("display", "none");
+            $(".page-22").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5016,7 +5023,7 @@ Personalized email marketing campaigns to contact database
                                 $("#page-22-img-2").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_22_img_2]").val("uploadedimages/" + output);
                             });
-                            $(".page-22 .section2").css("display", "block");
+                            $(".page-22").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5025,9 +5032,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_22_3() {
             var image = document.getElementById("imageBackground-page-22-3");
-            $(".page-22 .section1").css("display", "none");
+            $(".page-22").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5078,7 +5086,7 @@ Personalized email marketing campaigns to contact database
                                 $("#page-22-img-3").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_22_img_3]").val("uploadedimages/" + output);
                             });
-                            $(".page-22 .section1").css("display", "block");
+                            $(".page-22").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5087,9 +5095,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_22_4() {
             var image = document.getElementById("imageBackground-page-22-4");
-            $(".page-22 .section1").css("display", "none");
+            $(".page-22").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5140,7 +5149,7 @@ Personalized email marketing campaigns to contact database
                                 $("#page-22-img-4").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_22_img_4]").val("uploadedimages/" + output);
                             });
-                            $(".page-22 .section1").css("display", "block");
+                            $(".page-22").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5149,9 +5158,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_22_5() {
             var image = document.getElementById("imageBackground-page-22-5");
-            $(".page-22 .section1").css("display", "none");
+            $(".page-22").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5202,7 +5212,7 @@ Personalized email marketing campaigns to contact database
                                 $("#page-22-img-5").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_22_img_5]").val("uploadedimages/" + output);
                             });
-                            $(".page-22 .section1").css("display", "block");
+                            $(".page-22").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5210,9 +5220,10 @@ Personalized email marketing campaigns to contact database
         }
         function startCropper_page_22_6() {
             var image = document.getElementById("imageBackground-page-22-6");
-            $(".page-22 .section1").css("display", "none");
+            $(".page-22").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5263,7 +5274,7 @@ Personalized email marketing campaigns to contact database
                                 $("#page-22-img-6").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_22_img_6]").val("uploadedimages/" + output);
                             });
-                            $(".page-22 .section1").css("display", "block");
+                            $(".page-22").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5272,9 +5283,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_22_7() {
             var image = document.getElementById("imageBackground-page-22-7");
-            $(".page-22 .section1").css("display", "none");
+            $(".page-22").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5325,7 +5337,7 @@ Personalized email marketing campaigns to contact database
                                 $("#page-22-img-7").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_22_img_6]").val("uploadedimages/" + output);
                             });
-                            $(".page-22 .section1").css("display", "block");
+                            $(".page-22").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5460,9 +5472,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_26_1() {
             var image = document.getElementById("imageBackground-page-26-1");
-            $(".page-26 .absolute").css("display", "none");
+            $(".page-26").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5514,7 +5527,7 @@ Personalized email marketing campaigns to contact database
                                 $("input[name=page_26_img_1]").val("uploadedimages/" + output);
                                 $(".page-27 .page-bg-image").css("background-image", "url(uploadedimages/"+ output + ")");
                             });
-                            $(".page-26 .absolute ").css("display", "block");
+                            $(".page-26").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5646,9 +5659,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_29_1() {
             var image = document.getElementById("imageBackground-page-29-1");
-            $(".content1 .absolute").css("display", "none");
+            $(".page-29 .content1").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5699,7 +5713,7 @@ Personalized email marketing campaigns to contact database
                                 $("#inner-section1 ").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_29_img_1]").val("uploadedimages/" + output);
                             });
-                            $(".content1 .absolute ").css("display", "block");
+                            $(".page-29 .content1").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5708,9 +5722,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_29_2() {
             var image = document.getElementById("imageBackground-page-29-2");
-            $(".section1 .absolute").css("display", "none");
+            $(".page-29 .content1").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5761,7 +5776,7 @@ Personalized email marketing campaigns to contact database
                                 $("#inner-section2").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_29_img_2]").val("uploadedimages/" + output);
                             });
-                            $(".content1 .absolute ").css("display", "block");
+                            $(".page-29 .content1").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5769,9 +5784,10 @@ Personalized email marketing campaigns to contact database
         }
         function startCropper_page_29_3() {
             var image = document.getElementById("imageBackground-page-29-3");
-            $(".section1 .absolute").css("display", "none");
+            $(".page-29 .content1").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5822,7 +5838,7 @@ Personalized email marketing campaigns to contact database
                                 $("#inner-section3").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_29_img_3]").val("uploadedimages/" + output);
                             });
-                            $(".content1 .absolute ").css("display", "block");
+                            $(".page-29 .content1").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -5831,9 +5847,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_29_4() {
             var image = document.getElementById("imageBackground-page-29-4");
-            $(".section1 .absolute").css("display", "none");
+            $(".page-29 .content1").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -5884,7 +5901,7 @@ Personalized email marketing campaigns to contact database
                                 $("#inner-section4 ").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_29_img_4]").val("uploadedimages/" + output);
                             });
-                            $(".content1 .absolute ").css("display", "block");
+                            $(".page-29 .content1").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -6017,9 +6034,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_31_1() {
             var image = document.getElementById("imageBackground-page-31-1");
-            $(".inner-section1 .absolute").css("display", "none");
+            $(".page-31 .content").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -6069,7 +6087,7 @@ Personalized email marketing campaigns to contact database
                                 $("#page-31-img-1").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_31_img_1]").val("uploadedimages/" + output);
                             });
-                            $(".inner-section1 .absolute ").css("display", "block");
+                            $(".page-31 .content").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -6078,9 +6096,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_31_2() {
             var image = document.getElementById("imageBackground-page-31-2");
-            $(".inner-section1 .absolute").css("display", "none");
+            $(".page-31 .content").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -6126,11 +6145,11 @@ Personalized email marketing campaigns to contact database
                         success: function (output) {
                             cropper.destroy();
                             $("#imageBackground-page-31-2").attr("src", "uploadedimages/" + output);
-                            getBase64Image(document.getElementById("imageBackground-page-32-1"), function (base64) {
-                                $(".inner-section1").css("background-image", "url(uploadedimages/"+ output + ")");
-                                $("input[name=page_31_img_1]").val("uploadedimages/" + output);
+                            getBase64Image(document.getElementById("imageBackground-page-31-2"), function (base64) {
+                                $("#page-31-img-2").attr("src", "uploadedimages/" + output);
+                                $("input[name=page_31_img_2]").val("uploadedimages/" + output);
                             });
-                            $(".inner-section1 .absolute ").css("display", "block");
+                            $(".page-31 .content").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -6139,9 +6158,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_31_3() {
             var image = document.getElementById("imageBackground-page-31-3");
-            $(".inner-section1 .absolute").css("display", "none");
+            $(".page-31 .content").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -6187,11 +6207,11 @@ Personalized email marketing campaigns to contact database
                         success: function (output) {
                             cropper.destroy();
                             $("#imageBackground-page-31-3").attr("src", "uploadedimages/" + output);
-                            getBase64Image(document.getElementById("imageBackground-page-32-3"), function (base64) {
+                            getBase64Image(document.getElementById("imageBackground-page-31-3"), function (base64) {
                                 $("#page-31-img-3").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_31_img_3]").val("uploadedimages/" + output);
                             });
-                            $(".inner-section1 .absolute ").css("display", "block");
+                            $(".page-31 .content").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -6200,9 +6220,10 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_31_4() {
             var image = document.getElementById("imageBackground-page-31-4");
-            $(".inner-section1 .absolute").css("display", "none");
+            $(".page-31 .content").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -6248,11 +6269,11 @@ Personalized email marketing campaigns to contact database
                         success: function (output) {
                             cropper.destroy();
                             $("#imageBackground-page-31-4").attr("src", "uploadedimages/" + output);
-                            getBase64Image(document.getElementById("imageBackground-page-32-4"), function (base64) {
+                            getBase64Image(document.getElementById("imageBackground-page-31-4"), function (base64) {
                                 $("#page-31-img-4").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_31_img_4]").val("uploadedimages/" + output);
                             });
-                            $(".inner-section1 .absolute ").css("display", "block");
+                            $(".page-31 .content").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -6388,6 +6409,7 @@ Personalized email marketing campaigns to contact database
             $(".page-33 .content").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -6449,6 +6471,7 @@ Personalized email marketing campaigns to contact database
             $(".page-33 .content").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
@@ -6510,6 +6533,7 @@ Personalized email marketing campaigns to contact database
             $(".page-33 .content").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 500,
             });
         }
 
