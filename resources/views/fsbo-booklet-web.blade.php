@@ -138,6 +138,10 @@
             height: 1000px;
             background-image: url("images/fsbo-booklet/page-6.png");
         }
+
+        .abs {
+            position: absolute;
+        }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -208,7 +212,7 @@
                             </p>
                         </div>
 
-                        <div class="absolute" style="margin-top:200px;left:40px;z-index:1000;">
+                        <div class="absolute" style="margin-top:200px;left:40px;z-index:1000;width:610px">
                             <h1 class="font-bold white page-5-text-1" style="margin-bottom:-45px;font-size:55px;">Hello!
                             </h1>
                             <h4 class="font-thin page-5-text-2" style="font-size:30px;">I’m Wesley Ulloa</h4>
@@ -253,14 +257,14 @@
         <div class="row-divider"></div>
         <div class="row">
             <div class="row-image">
-                <div class="page page-6 page-background background-right">
-                    <div class="absolute" style="top:5.5%;right:90px;">
+                <div class="page page-6 page-background background-right" style="position: relative">
+                    <div class="abs" style="top:5.5%;right:90px;">
                         <p class="font-thin" style="text-align: right">
                             FOR SALE BY OWNER<br>FSBO GUIDE
                         </p>
                     </div>
 
-                    <div class="absolute" style="top:6%;left:100px;width:600px;">
+                    <div class="abs" style="top:14%;left:135px;width:600px;">
                         <p style="font-size:13px;text-align:justify;" class="page-6-text-1">With the recent appreciation
                             in home prices, this
                             spring might
@@ -278,7 +282,7 @@
                             legal.</p>
                     </div>
 
-                    <div class="absolute" style="top:22%;left:130px;width:250px;">
+                    <div class="abs" style="top:37%;left:130px;width:250px;">
                         <p style="font-size:13px;text-align:justify;" class="page-6-text-2">FSBO listings are more
                             common today than in 2007,
                             thanks to
@@ -287,7 +291,7 @@
                             (MLS) for non-agents.</p>
                     </div>
 
-                    <div class="absolute" style="top:12.7%;left:400px;width:350px;">
+                    <div class="abs" style="top:37%;left:400px;width:350px;">
                         <p style="font-size:13px;text-align:justify;" class="page-6-text-3">But FSBO is no walk in the
                             park. A 2017 Zillow
                             report found
@@ -296,7 +300,7 @@
                             sales themselves. In other words, more than two-thirds of sellers who try FSBO fail.</p>
                     </div>
 
-                    <div class="absolute" style="top:23%;left:100px;width:250px;">
+                    <div class="abs" style="top:55%;left:100px;width:250px;">
                         <p class="gold page-6-text-4" style="text-align:justify;font-style: italic;font-size:20px;">Many
                             Real Estate
                             Agents are protective of our
@@ -308,7 +312,7 @@
                             anytime.</p>
                     </div>
 
-                    <div class="absolute" style="top:-55px;left:500px;">
+                    <div class="abs" style="top:625px;left:500px;">
                         <h4 class="font-bold page-6-text-5" style="margin-bottom: -55px;font-size:30px;">Let's Get</h4>
                         <h4 class="font-bold white page-6-text-6" style="margin-bottom: 10px;font-size:40px;">Started!
                         </h4>
@@ -582,9 +586,9 @@
                     <button type="submit" name="action" value="Generate" class="generate" style="">Generate</button>
                     <button type="submit" name="action" value="Save" class="generate">Save</button>
 
-                    <br>
+                    {{-- <br>
                     JSON Upload:
-                    <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
+                    <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()"> --}}
                 </div>
             </div>
         </div>
@@ -640,7 +644,8 @@
         var image = document.getElementById("imageBackground");
         $(".page-5 .content").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 500
+            minContainerHeight: 500,
+            minContainerWidth: 500
         });
     }
 
@@ -685,11 +690,11 @@
                 success: function(output) {
                     cropper.destroy();
                     $("#imageBackground").attr('src', 'uploadedimages/' + output)
-                    getBase64Image(document.getElementById("imageBackground"), function(output) {
+                    getBase64Image(document.getElementById("imageBackground"), function(base64) {
                         $("#page-5-img-1").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_5_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-5 .content").css("display", "inherit");
+                    $(".page-5 .content").css("display", "block");
                 }
             });
 
