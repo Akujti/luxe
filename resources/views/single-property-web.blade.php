@@ -3370,7 +3370,7 @@ Personalized email marketing campaigns to contact database
             </div>
             <div class="column-divider"></div>
             <div class="row-input" style="margin:0;">
-                <div class="button" style="position: fixed;top: 0;left: 0;">
+                <div class="button">
                     <button type="submit" name="action" value="Generate" class="generate" style="">Generate</button>
                     <button type="submit" name="action" value="Save" class="generate">Save</button>
 
