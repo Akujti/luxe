@@ -1158,7 +1158,7 @@
         <div class="pc" style="margin-top:440px;margin-left:180px;">
             <img src="{{ $page_9_img_1 }}" alt="" width="620px" height="360px" style="object-fit: cover">
         </div>
-        <div class="tablet" style="margin-top:-140px;z-index:100;margin-left:35px;">
+        <div class="tablet" style="margin-top:-125px;z-index:100;margin-left:35px;">
             <img src="images/single-property/tablet.png" alt="">
             <div style="margin-top:-415px;margin-left:7px;">
                 <img src="{{ $page_9_img_2 }}" alt="" width="232px" height="310px" style="object-fit: cover">
