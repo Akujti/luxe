@@ -1153,15 +1153,27 @@
 
     <div class="page_break"></div>
 
-    <div class="page-9 page-9-1"
-        style="background-image: url('{{$page_9_1_img_1}}');height:100%;position:absolute;top:0;background-size: cover;background-position: left;">
-        <h1></h1>
+    <div class="page-18"
+        style="background-image: url('images/single-property/page-18.png');height:100%;position:absolute;top:0;background-size: cover;background-position: left;">
+        <div class="pc" style="margin-top:440px;margin-left:180px;">
+            <img src="{{ $page_9_img_1 }}" alt="" width="620px" height="360px" style="object-fit: cover">
+        </div>
+        <div class="tablet" style="margin-top:-140px;z-index:100;margin-left:35px;">
+            <img src="images/single-property/tablet.png" alt="">
+            <div style="margin-top:-415px;margin-left:7px;">
+                <img src="{{ $page_9_img_2 }}" alt="" width="232px" height="310px" style="object-fit: cover">
+            </div>
+        </div>
     </div>
 
     <div class="page_break"></div>
 
+    <div
+        style="top:0;bottom:0;right:600px;position:absolute;background-image: url('images/home-selling/Asset 15.png');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
     <div class="page page-9 page-9-2"
-        style="top:0;left:-500px;bottom:0;right:0;position:absolute;background-image: url('{{$page_9_1_img_1}}');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+        style="top:0;left:-500px;bottom:0;right:0;position:absolute;background-size: cover;background-position: center right;background-repeat: no-repeat;">
         <div style="margin-left:515px;">
             <div class="heading" style="z-index:1000;">
                 <h2 class="subtitle-top"

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Selling</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
@@ -405,7 +405,7 @@
         height: 90%;
         background-repeat: no-repeat;
         margin-left: 45px;
-        padding-bottom: 22px;
+        padding-bottom: 35px;
     }
 
     .page-4-2 .content .section {
@@ -446,7 +446,7 @@
     }
 
     .page-4-2 .content .section-5 {
-        margin-top: -125px;
+        margin-top: -118px;
         margin-left: 335px;
     }
 
@@ -818,6 +818,27 @@
         background-position: right;
         text-align: right;
     }
+
+    .page-bg-image {
+        top: 0;
+        bottom: 0;
+        right: 500px;
+        position: absolute;
+        background-size: cover;
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+    }
+
+    .page-with-side-image {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pos-relative {
+        position: relative;
+    }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
@@ -1068,7 +1089,7 @@
 
             <div class="row-divider"></div>
             <div class="row">
-                <div class="row-image">
+                <div class="row-image" style="height: 1210px;">
                     <div class="page-4 page-4-1">
                         <div class="luxe-pro-info">
                             <img src="" id="imageBackground" style="display: none">
@@ -1094,9 +1115,13 @@
             <div class="row-divider"></div>
             <div class="row">
                 <div class="row-image">
-                    <div class="page page-4 page-4-2"
-                        style="background-image: url('images/home-selling/Asset 8.png');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
-                        <div class="luxe-pro-info">
+                    <div class="page page-4 page-4-2 page-with-side-image"
+                        style="background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+                        <div class="page-bg-image"
+                            style="background-image: url('images/home-selling/Asset 8.png');right: 610px;">
+                            <h1></h1>
+                        </div>
+                        <div class="luxe-pro-info pos-relative">
                             <div class="content">
                                 <div class="section section-1">
                                     <span class="section-content-top page-4-2-text-1">4</span>
@@ -1193,7 +1218,7 @@
 
             <div class="row-divider"></div>
             <div class="row">
-                <div class="row-image">
+                <div class="row-image" style="height: 1210px;">
                     <div class="page-5 page-5-1">
                         <div class="luxe-pro-info">
                             <img src="" id="imageBackground-page-5-1" style="display: none">
@@ -1219,9 +1244,13 @@
             <div class="row-divider"></div>
             <div class="row">
                 <div class="row-image">
-                    <div class="page page-5 page-5-2"
-                        style="min-height:1160px;background-image: url('images/home-selling/Asset 10.png');background-size: cover;background-position: -705px -5px;background-repeat: no-repeat;">
-                        <div class="luxe-pro-info">
+                    <div class="page page-5 page-5-2 page-with-side-image"
+                        style="min-height:1160px;background-size: cover;background-position: -705px -5px;background-repeat: no-repeat;">
+                        <div class="page-bg-image"
+                            style="background-image: url('images/home-selling/Asset 10.png');right: 602px;">
+                            <h1></h1>
+                        </div>
+                        <div class="luxe-pro-info pos-relative">
                             <div class="content">
                                 <div class="heading">
                                     <h2 class="subtitle-top">Tailored Listing</h2>
@@ -1306,7 +1335,7 @@ Signage including web domain riders</textarea>
 
     <div class="row-divider"></div>
     <div class="row">
-        <div class="row-image">
+        <div class="row-image" style="height: 1210px;">
             <div class="page-6 page-6-1">
                 <div class="luxe-pro-info">
                     <img src="" id="imageBackground-page-6-1" style="display: none">
@@ -1331,33 +1360,37 @@ Signage including web domain riders</textarea>
     <div class="row-divider"></div>
     <div class="row">
         <div class="row-image">
-            <div class="page page-6 page-6-2"
-                style="padding-top: 100px;background-image: url('images/home-selling/Asset 11.png');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
-                <div class="week" style="z-index:50;top:150px;">
+            <div class="page page-6 page-6-2 page-with-side-image"
+                style="padding-top: 100px;background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+                <div class="page-bg-image"
+                    style="background-image: url('images/home-selling/Asset 11.png');right: 560px;">
+                    <h1></h1>
+                </div>
+                <div class="week pos-relative" style="z-index:50;top:15px;">
                     <img class="" src="images/home-selling/yellow-fade.png" alt="" style="width:45%;">
                     <h2 class="page-6-2-text-1-1"
                         style="color:white;font-weight:300;font-size:40px;margin-top:-55px;margin-left:180px;">Week 1
                     </h2>
                 </div>
-                <div class="week" style="z-index:50;top:300px;margin-top: 100px;">
+                <div class="week pos-relative" style="z-index:50;top:20px;margin-top: 100px;">
                     <img class="" src="images/home-selling/yellow-fade.png" alt="" style="width:45%;">
                     <h2 class="page-6-2-text-1-2"
                         style="color:white;font-weight:300;font-size:40px;margin-top:-55px;margin-left:180px;">Week 3
                     </h2>
                 </div>
-                <div class="week" style="z-index:50;top:450px;margin-top: 100px;">
+                <div class="week pos-relative" style="z-index:50;top:20px;margin-top: 100px;">
                     <img class="" src="images/home-selling/yellow-fade.png" alt="" style="width:45%;">
                     <h2 class="page-6-2-text-1-3"
                         style="color:white;font-weight:300;font-size:40px;margin-top:-55px;margin-left:180px;">Week 5
                     </h2>
                 </div>
-                <div class="week" style="z-index:50;top:600px;margin-top: 100px;">
+                <div class="week pos-relative" style="z-index:50;top:20px;margin-top: 100px;">
                     <img class="" src="images/home-selling/yellow-fade.png" alt="" style="width:45%;">
                     <h2 class="page-6-2-text-1-4"
                         style="color:white;font-weight:300;font-size:40px;margin-top:-55px;margin-left:180px;">Week 7
                     </h2>
                 </div>
-                <div class="week" style="z-index:50;top:750px;margin-top: 100px;">
+                <div class="week pos-relative" style="z-index:50;top:20px;margin-top: 100px;">
                     <img class="" src="images/home-selling/yellow-fade.png" alt="" style="width:45%;">
                     <h2 class="page-6-2-text-1-5"
                         style="color:white;font-weight:300;font-size:40px;margin-top:-55px;margin-left:180px;">Week 9
@@ -1488,14 +1521,13 @@ Review with client to make adjustments if needed</textarea>
     <div class="row-divider"></div>
     <div class="row">
         <div class="row-image">
+            <img src="" id="imageBackground-page-7-1-1" style="display: none">
+            <input hidden name="page_7_1_1_img_1" value="images/home-selling/Asset 13-1.png">
+            <img src="" id="imageBackground-page-7-1-2" style="display: none">
+            <input hidden name="page_7_1_2_img_1" value="images/home-selling/Asset 13-2.png">
+            <img src="" id="imageBackground-page-7-1-3" style="display: none">
+            <input hidden name="page_7_1_3_img_1" value="images/home-selling/Asset 13-3.png">
             <div class="page-7 page-7-1">
-                <img src="" id="imageBackground-page-7-1-1" style="display: none">
-                <input hidden name="page_7_1_1_img_1" value="images/home-selling/Asset 13-1.png">
-                <img src="" id="imageBackground-page-7-1-2" style="display: none">
-                <input hidden name="page_7_1_2_img_1" value="images/home-selling/Asset 13-2.png">
-                <img src="" id="imageBackground-page-7-1-3" style="display: none">
-                <input hidden name="page_7_1_3_img_1" value="images/home-selling/Asset 13-3.png">
-
                 <div class="luxe-pro-info">
                     <div class="row-1"
                         style="background-image: url('images/home-selling/Asset 13-1.png');padding:20%;top:0;background-size: cover;">
@@ -1539,75 +1571,105 @@ Review with client to make adjustments if needed</textarea>
     </div>
 
     <div class="row-divider"></div>
+
     <div class="row">
-        <div class="row-image" style="height: 1025px;">
-            <div class="page-7 page-7-2 page-7-2-1"
-                style="background-image: url('images/home-selling/Asset 13-1.png');padding:20%;top:0;background-size: cover;background-position: center;background-position: -900px 0px;background-repeat:no-repeat;">
-                <h1></h1>
-            </div>
-            <div class="page-7 page-7-2 page-7-2-2"
-                style="background-image: url('images/home-selling/Asset 13-2.png');padding:20%;top:33%;background-size: cover;background-position: center;background-position: -930px 0px;background-repeat:no-repeat;">
-                <h1></h1>
-            </div>
-            <div class="page-7 page-7-2 page-7-2-3"
-                style="background-image: url('images/home-selling/Asset 13-3.png');padding:20%;bottom:0;background-size: cover;background-position: center;background-position: -908px 0px;background-repeat:no-repeat;">
-                <h1></h1>
-            </div>
-            <div class="page-7 page-7-2" style="z-index:100;margin-top: -1000px;margin-bottom: 145px;">
-                <div class="section" style="top:50px;left:10px;position:relative;">
-                    <img src="images/home-selling/Asset 13-4.png" alt="" style="">
-                    <div class="text"
-                        style="position:absolute;margin-top: -30px;z-index:1000;margin-left:70px;margin-top: -145px;">
-                        <p class="page-7-2-text-1" style="font-size: 46px;line-height:20px;color:white;">Professional
-                        </p>
-                        <p class="page-7-2-text-2" style="font-size: 50px;font-weight:900;line-height:0px;">Photography
-                        </p>
-                    </div>
+        <div class="row-image" style="height: 1050px;">
+            <div class="page-7-0 page-with-side-image" style="height: 1050px;">
+                <div class="page-7 page-7-2 page-7-2-1"
+                    style="padding:20%;top:0;background-size: cover;background-position: center;background-position: -900px 0px;background-repeat:no-repeat;">
+                    <h1></h1>
                 </div>
-                <div class="section" style="top:60px;left:10px;margin-top:300px;position:relative;">
-                    <img src="images/home-selling/Asset 13-4.png" alt="" style="">
-                    <div class="text"
-                        style="position:absolute;margin-top: -30px;z-index:1000;margin-left:70px;margin-top: -145px;">
-                        <p class="page-7-2-text-3" style="font-size: 46px;line-height:20px;color:white;">Professional
-                        </p>
-                        <p class="page-7-2-text-4" style="font-size: 50px;font-weight:900;line-height:0px;">Videography
-                        </p>
-                    </div>
+                <div class="page-7 page-7-2 page-7-2-2"
+                    style="padding:20%;top:33%;background-size: cover;background-position: center;background-position: -930px 0px;background-repeat:no-repeat;">
+                    <h1></h1>
                 </div>
-                <div class="section" style="top:255px;position:relative;">
-                    <img src="images/home-selling/Asset 13-4.png" alt="" style="">
-                    <div class="text"
-                        style="position:absolute;margin-top: -30px;z-index:1000;margin-left:70px;margin-top: -145px;">
-                        <p class="page-7-2-text-5" style="font-size: 46px;line-height:20px;color:white;">Optional Drone
-                        </p>
-                        <p class="page-7-2-text-6" style="font-size: 50px;font-weight:900;line-height:0px;">Videography
-                        </p>
-                    </div>
+                <div class="page-7 page-7-2 page-7-2-3"
+                    style="padding:20%;bottom:0;background-size: cover;background-position: center;background-position: -908px 0px;background-repeat:no-repeat;">
+                    <h1></h1>
                 </div>
-                <div class="text" style="top:-550px;margin-left: 410px;position:relative;">
-                    <div class="section" style="top:-55px;position:absolute;">
-                        <p class="page-7-2-text-7" style="font-weight: 300;">LUXE listings receive the luxury treatment
-                            from beginning to end. It is proven that listings with professional real estate photographs
-                            sell 32% faster and at a higher price. All homes listed with LUXE include professional
-                            photography along with staging recommendations from our agents. These stunning high quality
-                            images of the interior/exterior of your property will be the cornerstone of our marketing
-                            materials, inviting homebuyers to want to see more of your home.</p>
+                <div class="page-bg-image page-bg-image-1"
+                    style="top:0;background-image: url('images/home-selling/Asset 13-1.png');right: 610px;height: 33%;background-position: center left;">
+                    <h1></h1>
+                </div>
+                <div class="page-bg-image page-bg-image-2"
+                    style="top:33%;background-image: url('images/home-selling/Asset 13-2.png');right: 610px;height: 33%;background-position: center left;">
+                    <h1></h1>
+                </div>
+                <div class="page-bg-image page-bg-image-3"
+                    style="top:66%;background-image: url('images/home-selling/Asset 13-3.png');right: 610px;height: 33%;background-position: center left;">
+                    <h1></h1>
+                </div>
+                <div class="page-7 page-7-2" style="z-index:100;margin-top: -1000px;margin-bottom: 145px;">
+                    <div class="section" style="top:50px;left:10px;position:relative;">
+                        <img src="images/home-selling/Asset 13-4.png" alt="" style="">
+                        <div class="text"
+                            style="position:absolute;margin-top: -30px;z-index:1000;margin-left:70px;margin-top: -145px;">
+                            <p class="page-7-2-text-1" style="font-size: 46px;line-height:20px;color:white;">
+                                Professional
+                            </p>
+                            <p class="page-7-2-text-2" style="font-size: 50px;font-weight:900;line-height:0px;">
+                                Photography
+                            </p>
+                        </div>
                     </div>
-                    <div class="section" style="top: 365px;position:absolute;">
-                        <p class="page-7-2-text-8" style="font-weight: 300;">As we continuously seek to maximize
-                            awareness of your home, we have incorporated virtual tours for the buyer on the go or
-                            international buyers. YouTube has rapidly become the number one online video site making our
-                            channel the perfect online video destination for limitless exposure of the properties
-                            represented by our team. With video being 53% more likely to generate a first-page Google
-                            ranking, we optimize each tour towards its target market based on location and demographics.
-                        </p>
+                    <div class="section" style="top:60px;left:10px;margin-top:300px;position:relative;">
+                        <img src="images/home-selling/Asset 13-4.png" alt="" style="">
+                        <div class="text"
+                            style="position:absolute;margin-top: -30px;z-index:1000;margin-left:70px;margin-top: -145px;">
+                            <p class="page-7-2-text-3" style="font-size: 46px;line-height:20px;color:white;">
+                                Professional
+                            </p>
+                            <p class="page-7-2-text-4" style="font-size: 50px;font-weight:900;line-height:0px;">
+                                Videography
+                            </p>
+                        </div>
                     </div>
-                    <div class="section" style="top:673px;position:absolute;">
-                        <p class="page-7-2-text-9" style="font-weight: 300;">Through the use of drone footage combined
-                            with high-definition videography, we are able to create stunning aerial tours for each of
-                            our exclusive listings. Our drone videography offers panoramic views of a property to
-                            showcase its exterior amenities such as pools, the footprint of the home and surrounding
-                            areas of interest.</p>
+                    <div class="section" style="top:255px;position:relative;">
+                        <img src="images/home-selling/Asset 13-4.png" alt="" style="">
+                        <div class="text"
+                            style="position:absolute;margin-top: -30px;z-index:1000;margin-left:70px;margin-top: -145px;">
+                            <p class="page-7-2-text-5" style="font-size: 46px;line-height:20px;color:white;">Optional
+                                Drone
+                            </p>
+                            <p class="page-7-2-text-6" style="font-size: 50px;font-weight:900;line-height:0px;">
+                                Videography
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text" style="top:-550px;margin-left: 410px;position:relative;">
+                        <div class="section" style="top:-55px;position:absolute;">
+                            <p class="page-7-2-text-7" style="font-weight: 300;">LUXE listings receive the luxury
+                                treatment
+                                from beginning to end. It is proven that listings with professional real estate
+                                photographs
+                                sell 32% faster and at a higher price. All homes listed with LUXE include professional
+                                photography along with staging recommendations from our agents. These stunning high
+                                quality
+                                images of the interior/exterior of your property will be the cornerstone of our
+                                marketing
+                                materials, inviting homebuyers to want to see more of your home.</p>
+                        </div>
+                        <div class="section" style="top: 365px;position:absolute;">
+                            <p class="page-7-2-text-8" style="font-weight: 300;">As we continuously seek to maximize
+                                awareness of your home, we have incorporated virtual tours for the buyer on the go or
+                                international buyers. YouTube has rapidly become the number one online video site making
+                                our
+                                channel the perfect online video destination for limitless exposure of the properties
+                                represented by our team. With video being 53% more likely to generate a first-page
+                                Google
+                                ranking, we optimize each tour towards its target market based on location and
+                                demographics.
+                            </p>
+                        </div>
+                        <div class="section" style="top:673px;position:absolute;">
+                            <p class="page-7-2-text-9" style="font-weight: 300;">Through the use of drone footage
+                                combined
+                                with high-definition videography, we are able to create stunning aerial tours for each
+                                of
+                                our exclusive listings. Our drone videography offers panoramic views of a property to
+                                showcase its exterior amenities such as pools, the footprint of the home and surrounding
+                                areas of interest.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1757,7 +1819,7 @@ Saved Searches</textarea>
     </div>
 
     <div class="row-divider"></div>
-    <div class="row">
+    {{-- <div class="row">
         <div class="row-image">
             <img src="" id="imageBackground-page-9-1" style="display: none">
             <input hidden name="page_9_1_img_1" value="images/home-selling/Asset 15.png">
@@ -1772,6 +1834,49 @@ Saved Searches</textarea>
                 <input type="file" id="imageBackgroundInput-page-9-1" onchange="imageBackgroundInputChanged_page_9_1()">
                 <button type="button" onclick="startCropper_page_9_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_9_1()">Save Crop</button>
+            </div>
+        </div>
+    </div> --}}
+
+    <div class="row">
+        <div class="row-image" style="height: 1115px;">
+            <img src="" id="imageBackground-page-9-1" style="display: none;" />
+            <input hidden name="page_9_img_1" value="images/single-property/pc-content.png" />
+            <img src="" id="imageBackground-page-9-2" style="display: none;" />
+            <input hidden name="page_9_img_2" value="images/single-property/tablet-content.jpg" />
+
+            <div class="page page-9-1" style="background-image: url(images/single-property/page-18.png);
+                background-size: contain;
+                background-position: left;
+                width: 804px;
+                background-repeat: no-repeat;">
+                <div class="pc" style="margin-left: 161px;padding-top: 390px;">
+                    <img id="section18-1" src="images/single-property/pc-content.png" alt=""
+                        style="width: 556px;height: 313px;" style="margin-top: 391px; margin-left: -50px;" />
+                </div>
+                <div class="tablet" style="margin-top: -160px; z-index: 100; margin-left: 25px;">
+                    <img src="images/single-property/tablet.png" alt="" style="" />
+                    <div style="margin-top: -415px; margin-left: 8px;">
+                        <img id="section18-2" src="images/single-property/tablet-content.jpg" alt="" width="229px"
+                            height="310px" style="margin-top: 70px;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-input">
+            <div class="button" style="margin-left: 164px;">
+                <label>Image 1</label>
+                <input type="file" id="imageBackgroundInput-page-9-1"
+                    onchange="imageBackgroundInputChanged_page_9_1()" />
+                <button type="button" onclick="startCropper_page_9_1()">Crop</button>
+                <button type="button" onclick="cropImage_page_9_1()">Save Crop</button>
+            </div>
+            <div class="button" style="margin-left: 164px;">
+                <label>Image 2</label>
+                <input type="file" id="imageBackgroundInput-page-9-2"
+                    onchange="imageBackgroundInputChanged_page_9_2()" />
+                <button type="button" onclick="startCropper_page_9_2()">Crop</button>
+                <button type="button" onclick="cropImage_page_9_2()">Save Crop</button>
             </div>
         </div>
     </div>
@@ -1870,21 +1975,23 @@ Mobile Optimization </textarea>
 
             <img src="" id="imageBackground-page-10-1-2" style="display: none">
             <input hidden name="page_10_1_img_2" value="images/home-selling/high-res/Asset 16-2.png">
+            <div class="page-10-1">
 
-            <div class="page-10 page-10-1">
-                <div class="section1"
-                    style="background-image: url('images/home-selling/Asset 16-1.png');padding-top:50%;top:0;background-size: cover;background-position: left;">
+                <div class="page-10 page-10-1">
+                    <div class="section1"
+                        style="background-image: url('images/home-selling/Asset 16-1.png');padding-top:50%;top:0;background-size: cover;background-position: left;">
 
-                </div>
-                <div class="section2"
-                    style="background-image: url('images/home-selling/Asset 16-2.png');padding-top:53%;top:50%;background-size: cover;background-position: left;">
+                    </div>
+                    <div class="section2"
+                        style="background-image: url('images/home-selling/Asset 16-2.png');padding-top:53%;top:50%;background-size: cover;background-position: left;">
 
-                </div>
-                <h1 class="page-10-1-text-1" style="margin-top: -500px;
+                    </div>
+                    <h1 class="page-10-1-text-1" style="margin-top: -500px;
     margin-bottom: 400px;z-index: 100;background-image: url('images/home-selling/Asset 16-3.png');background-position: right;background-repeat: no-repeat;text-align:right;    color: #fff;padding-bottom:5px;
     font-size: 28px;">www.LUXEknows.com</h1>
-                <h1 class="page-10-1-text-2" style="bottom:3%;right:0;z-index: 100;background-image: url('images/home-selling/Asset 16-3.png');background-position: right;background-repeat: no-repeat;text-align:right;    color: #fff;padding-bottom:5px;
+                    <h1 class="page-10-1-text-2" style="bottom:3%;right:0;z-index: 100;background-image: url('images/home-selling/Asset 16-3.png');background-position: right;background-repeat: no-repeat;text-align:right;    color: #fff;padding-bottom:5px;
     font-size: 28px;">www.allmiamihouseforsale.com</h1>
+                </div>
             </div>
         </div>
         <div class="column-divider"></div>
@@ -2231,11 +2338,10 @@ Mobile Optimization </textarea>
 
     <div class="row-divider"></div>
     <div class="row">
-        <div class="row-image">
+        <div class="row-image" style="height: 1016px;">
+            <img src="" id="imageBackground-page-12-1" style="display: none">
+            <input hidden name="page_12_img_1" value="images/home-selling/Asset 19.png">
             <div class="page-12 page-12-1">
-                <img src="" id="imageBackground-page-12-1" style="display: none">
-                <input hidden name="page_12_img_1" value="images/home-selling/Asset 19.png">
-
                 <div class="luxe-pro-info">
                     <div class="text">
                         <h2>Social</h2>
@@ -2259,9 +2365,13 @@ Mobile Optimization </textarea>
     <div class="row-divider"></div>
     <div class="row">
         <div class="row-image">
-            <div class="page page-12 page-12-2"
-                style="top:0;left:-500px;bottom:0;right:0;background-image: url('images/home-selling/Asset 19.png');background-size: cover;background-position: -740px -5px;background-repeat: no-repeat;    min-height: 1000px;">
-                <div class="content" style="margin-left:0px;">
+            <div class="page page-12 page-12-2 page-with-side-image"
+                style="top:0;bottom:0;right:0;background-size: cover;background-position: -740px -5px;background-repeat: no-repeat;    min-height: 1000px;">
+                <div class="page-bg-image"
+                    style="background-image: url('images/home-selling/Asset 19.png');right: 610px;">
+                    <h1></h1>
+                </div>
+                <div class="content pos-relative" style="">
                     <p class="page-12-2-text-1" style="font-weight: 300;margin-left:250px;">Social media influence has
                         continuously become one of our great-est assets. Whether it is through promotion of our newest
                         listings or interaction with our followers, our connection to social media elicits another
@@ -2396,14 +2506,14 @@ Mobile Optimization </textarea>
 
     <div class="row-divider"></div>
     <div class="row">
-        <div class="row-image">
+        <div class="row-image" style="height:1200px;">
+            <img src="" id="imageBackground-page-13-1" style="display: none">
+            <input hidden name="page_13_img_1" value="images/home-selling/Asset 20.png">
             <div class="page-13 page-13-1" style="background-image: url('images/home-selling/Asset 20.png');
             background-size: cover;
             padding-top: 100%;
             bottom: 0px;
             width: 100%;">
-                <img src="" id="imageBackground-page-13-1" style="display: none">
-                <input hidden name="page_13_img_1" value="images/home-selling/Asset 20.png">
                 <div class="content" style="bottom: 50%;">
                     <h2 style="font-weight: 300;color:white;font-size:90px;margin-bottom:-135px;">Strategic</h2>
                     <h1 style="font-weight: 300;color:#C5A367;font-size:140px;margin-bottom:-65px;">Property</h1>
@@ -2425,8 +2535,12 @@ Mobile Optimization </textarea>
     <div class="row-divider"></div>
     <div class="row">
         <div class="row-image">
-            <div class="page page-13 page-13-2"
-                style="min-height: 100%;top:0;left:-500px;bottom:0;right:0;background-image: url('images/home-selling/Asset 20.png');background-size: cover;background-position: -720px -5px;background-repeat: no-repeat;">
+            <div class="page page-13 page-13-2 page-with-side-image"
+                style="height: 900px;top:0;bottom:0;right:0;background-size: cover;background-position: -720px -5px;background-repeat: no-repeat;">
+                <div class="page-bg-image"
+                    style="background-image: url('images/home-selling/Asset 20.png');right: 610px;">
+                    <h1></h1>
+                </div>
                 <div class="content" style="margin-left:0px;">
                     <h1 class="page-13-2-text-1"
                         style="font-size: 35px;color: #C5A367;font-weight:900;margin-bottom:-5px;margin-left:250px;">
@@ -2517,14 +2631,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     <div class="row-divider"></div>
     <div class="row">
-        <div class="row-image">
-            <div class="page-14 page-14-1" style="background-image: url('images/home-selling/Asset 21.png');
-            background-size: cover;
-            padding-top: 100%;
-            bottom: 0px;
-            width: 100%;">
-                <img src="" id="imageBackground-page-14-1" style="display: none">
-                <input hidden name="page_14_img_1" value="images/home-selling/Asset 21.png">
+        <div class="row-image" style="height: 1100px">
+            <img src="" id="imageBackground-page-14-1" style="display: none">
+            <input hidden name="page_14_img_1" value="images/home-selling/Asset 21.png">
+            <div class="page-14 page-14-1" style="background-image: url('images/home-selling/Asset 21.png');background-size: cover;
+            padding-top: 100%;bottom: 0px;width: 100%;">
                 <div class="content" style="bottom: 55%;">
                     <h2 style="font-weight: 300;color:white;font-size:90px;margin-bottom:-135px;margin-left:250px;">LUXE
                     </h2>
@@ -2558,11 +2669,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     <div class="row-divider"></div>
     <div class="row">
-        <div class="row-image">
+        <div class="row-image" style="height:1050px;">
+            <img src="" id="imageBackground-page-15-1" style="display: none">
+            <input hidden name="page_15_img_1" value="images/home-selling/Asset 23.png">
             <div class="page-15 page-15-1"
                 style="background-image: url('images/home-selling/Asset 23.png');background-size: cover;padding-top: 100%;bottom: 0px;width: 100%;">
-                <img src="" id="imageBackground-page-15-1" style="display: none">
-                <input hidden name="page_15_img_1" value="images/home-selling/Asset 23.png">
                 <div class="content" style="bottom: 55%;">
                     <h2 style="font-weight: 300;color:white;font-size:50px;margin-bottom:-145px;margin-left:240px;">Meet
                     </h2>
@@ -2585,9 +2696,13 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
     <div class="row-divider"></div>
     <div class="row">
         <div class="row-image">
-            <div class="page page-15 page-15-2"
-                style="min-height:1000xp;top:0;left:-500px;bottom:0;right:0;background-image: url('images/home-selling/Asset 23.png');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
-                <div class="content" style="margin-left:-195px;margin-bottom: 200px;">
+            <div class="page page-15 page-15-2 page-with-side-image"
+                style="min-height:1000xp;top:0;bottom:0;right:0;background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+                <div class="page-bg-image"
+                    style="background-image: url('images/home-selling/Asset 23.png');right: 600px;">
+                    <h1></h1>
+                </div>
+                <div class="content pos-relative" style="margin-left:-195px;margin-bottom: 200px;">
                     <h1 class="page-15-2-text-1"
                         style="font-size: 135px;color:#C5A367;font-weight:300;margin-bottom:-55px;margin-top:0px;margin-left:250px;">
                         <span style="color: white;">Fe</span>rnando</h1>
@@ -2649,14 +2764,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     <div class="row-divider"></div>
     <div class="row">
-        <div class="row-image">
+        <div class="row-image" style="height: 1125px;">
+            <img src="" id="imageBackground-page-16-1" style="display: none">
+            <input hidden name="page_16_img_1" value="images/home-selling/Asset 24.png">
             <div class="page-16 page-16-1" style="background-image: url('images/home-selling/Asset 24.png');
-            background-size: cover;
-            padding-top: 100%;
-            bottom: 0px;
-            width: 100%;">
-                <img src="" id="imageBackground-page-16-1" style="display: none">
-                <input hidden name="page_16_img_1" value="images/home-selling/Asset 24.png">
+            background-size: cover;padding-top: 100%;bottom: 0px;width: 100%;">
                 <div class="content" style="bottom: 55%;">
                     <h2 style="font-weight: 300;color:white;font-size:100px;margin-bottom:-140px;margin-left:120px;">
                         Recent</h2>
@@ -2679,19 +2791,23 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
     <div class="row-divider"></div>
     <div class="row">
         <div class="row-image">
-            <div class="page page-16 page-16-2"
-                style="top:0;left:-500px;bottom:0;right:0;background-image: url('images/home-selling/Asset 24.png');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+            <img src="" id="imageBackground-page-16-2-1" style="display: none">
+            <input hidden name="page_16_2_img_1" value="images/home-selling/Asset 24-1.jpg">
+            <img src="" id="imageBackground-page-16-2-2" style="display: none">
+            <input hidden name="page_16_2_img_2" value="images/home-selling/Asset 24-2.jpg">
+            <img src="" id="imageBackground-page-16-2-3" style="display: none">
+            <input hidden name="page_16_2_img_3" value="images/home-selling/Asset 24-3.jpg">
+            <img src="" id="imageBackground-page-16-2-4" style="display: none">
+            <input hidden name="page_16_2_img_4" value="images/home-selling/Asset 24-4.jpg">
+            <div class="page page-16 page-16-2 page-with-side-image"
+                style="top:0;bottom:0;right:0;background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
 
-                <img src="" id="imageBackground-page-16-2-1" style="display: none">
-                <input hidden name="page_16_2_img_1" value="images/home-selling/Asset 24-1.jpg">
-                <img src="" id="imageBackground-page-16-2-2" style="display: none">
-                <input hidden name="page_16_2_img_2" value="images/home-selling/Asset 24-2.jpg">
-                <img src="" id="imageBackground-page-16-2-3" style="display: none">
-                <input hidden name="page_16_2_img_3" value="images/home-selling/Asset 24-3.jpg">
-                <img src="" id="imageBackground-page-16-2-4" style="display: none">
-                <input hidden name="page_16_2_img_4" value="images/home-selling/Asset 24-4.jpg">
 
-                <div class="content" style="margin-left:0px;padding-bottom: 100px;">
+                <div class="page-bg-image"
+                    style="background-image: url('images/home-selling/Asset 24.png');right: 610px;">
+                    <h1></h1>
+                </div>
+                <div class="content pos-relative" style="margin-left:0px;padding-bottom: 100px;">
                     <div class="section" style="margin-left:170px;">
                         <div style="padding-top:0px;">
                             <div class="circle"
@@ -2712,7 +2828,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                             <p class="page-16-2-text-5" style="margin-bottom:-10px;">LOT SIZE: 38,768 SQ FT</p>
                         </div>
                     </div>
-                    <div class="section" style="margin-left:120px;margin-top:10px;">
+                    <div class="section" style="margin-left:120px;margin-top:50px;">
                         <div style="padding-top:0px;">
                             <div class="circle"
                                 style="margin-left: -255px;background-color: black;float:left;padding:10px;border-radius: 600%;margin-top:20px;">
@@ -2732,7 +2848,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                             <p class="page-16-2-text-10" style="margin-bottom:-10px;">LOT SIZE: 38,768 SQ FT</p>
                         </div>
                     </div>
-                    <div class="section" style="margin-left:170px;margin-top:10px;">
+                    <div class="section" style="margin-left:170px;margin-top:50px;">
                         <div style="padding-top:0px;">
                             <div class="circle"
                                 style="margin-left: 0px;background-color: #C5A367;float:left;padding:10px;border-radius: 600%;margin-top:20px;">
@@ -2752,7 +2868,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                             <p class="page-16-2-text-15" style="margin-bottom:-10px;">LOT SIZE: 38,768 SQ FT</p>
                         </div>
                     </div>
-                    <div class="section" style="margin-left:120px;margin-top:10px;">
+                    <div class="section" style="margin-left:120px;margin-top:50px;">
                         <div style="padding-top:0px;">
                             <div class="circle"
                                 style="margin-left: -255px;background-color: black;float:left;padding:10px;border-radius: 600%;margin-top:20px;">
@@ -2873,14 +2989,14 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     <div class="row-divider"></div>
     <div class="row">
-        <div class="row-image">
+        <div class="row-image" style="height:1125px;">
+            <img src="" id="imageBackground-page-17-1" style="display: none">
+            <input hidden name="page_17_img_1" value="images/home-selling/Asset 25.png">
             <div class="page-17 page-17-1" style="background-image: url('images/home-selling/Asset 25.png');
             background-size: cover;
             padding-top: 100%;
             bottom: 0px;
             width: 100%;">
-                <img src="" id="imageBackground-page-17-1" style="display: none">
-                <input hidden name="page_17_img_1" value="images/home-selling/Asset 25.png">
                 <div class="content" style="bottom: 55%;">
                     <h2 style="font-weight: 300;color:white;font-size:100px;margin-bottom:-140px;margin-left:120px;">
                         Recent</h2>
@@ -2903,19 +3019,23 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
     <div class="row-divider"></div>
     <div class="row">
         <div class="row-image">
-            <div class="page page-17 page-17-2"
-                style="min-height: 1000px;top:0;left:-500px;bottom:0;right:0;background-image: url('images/home-selling/Asset 25.png');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+            <img src="" id="imageBackground-page-17-2-1" style="display: none">
+            <input hidden name="page_17_2_img_1" value="images/home-selling/Asset 24-1.jpg">
+            <img src="" id="imageBackground-page-17-2-2" style="display: none">
+            <input hidden name="page_17_2_img_2" value="images/home-selling/Asset 24-1.jpg">
+            <img src="" id="imageBackground-page-17-2-3" style="display: none">
+            <input hidden name="page_17_2_img_3" value="images/home-selling/Asset 24-1.jpg">
+            <img src="" id="imageBackground-page-17-2-4" style="display: none">
+            <input hidden name="page_17_2_img_4" value="images/home-selling/Asset 24-1.jpg">
+            <div class="page page-17 page-17-2 page-with-side-image"
+                style="min-height: 1000px;top:0;bottom:0;right:0;background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
 
-                <img src="" id="imageBackground-page-17-2-1" style="display: none">
-                <input hidden name="page_17_2_img_1" value="images/home-selling/Asset 24-1.jpg">
-                <img src="" id="imageBackground-page-17-2-2" style="display: none">
-                <input hidden name="page_17_2_img_2" value="images/home-selling/Asset 24-1.jpg">
-                <img src="" id="imageBackground-page-17-2-3" style="display: none">
-                <input hidden name="page_17_2_img_3" value="images/home-selling/Asset 24-1.jpg">
-                <img src="" id="imageBackground-page-17-2-4" style="display: none">
-                <input hidden name="page_17_2_img_4" value="images/home-selling/Asset 24-1.jpg">
 
-                <div class="content" style="margin-left:0px;">
+                <div class="page-bg-image"
+                    style="background-image: url('images/home-selling/Asset 25.png');right: 610px;">
+                    <h1></h1>
+                </div>
+                <div class="content pos-relative" style="margin-left:0px;">
                     <div class="section"
                         style="margin-left:170px;background-color: #C5A367;padding-bottom:55px;border-radius:129px;margin-bottom:20px;">
                         <div style="padding-top:0px;padding-bottom:20px;">
@@ -3044,7 +3164,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 <label for="page-17-2-text-6">Days on Market </label>
                 <input type="text" id="page-17-2-text-6" name="page_17_2_text_6" value="DAYS ON MARKET: 7">
             </div>
-            <div class="button" style="margin-top: 0;margin-bottom:50px;">
+            <div class="button" style="margin-top: 0">
                 <input type="file" id="imageBackgroundInput-page-17-2-1"
                     onchange="imageBackgroundInputChanged_page_17_2_1()">
                 <button type="button" onclick="startCropper_page_17_2_1()">Crop</button>
@@ -3071,7 +3191,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 <label for="page-17-2-text-12">Days on Market </label>
                 <input type="text" id="page-17-2-text-12" name="page_17_2_text_12" value="DAYS ON MARKET: 7">
             </div>
-            <div class="button" style="margin-top: 0;margin-bottom:50px;">
+            <div class="button" style="margin-top: 0">
                 <input type="file" id="imageBackgroundInput-page-17-2-2"
                     onchange="imageBackgroundInputChanged_page_17_2_2()">
                 <button type="button" onclick="startCropper_page_17_2_2()">Crop</button>
@@ -3098,7 +3218,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 <label for="page-17-2-text-18">Days on Market </label>
                 <input type="text" id="page-17-2-text-18" name="page_17_2_text_18" value="DAYS ON MARKET: 7">
             </div>
-            <div class="button" style="margin-top: 0;margin-bottom:50px;">
+            <div class="button" style="margin-top: 0">
                 <input type="file" id="imageBackgroundInput-page-17-2-3"
                     onchange="imageBackgroundInputChanged_page_17_2_3()">
                 <button type="button" onclick="startCropper_page_17_2_3()">Crop</button>
@@ -3125,7 +3245,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 <label for="page-17-2-text-24">Days on Market </label>
                 <input type="text" id="page-17-2-text-24" name="page_17_2_text_24" value="DAYS ON MARKET: 7">
             </div>
-            <div class="button" style="margin-top: 0;margin-bottom:50px;">
+            <div class="button" style="margin-top: 0">
                 <input type="file" id="imageBackgroundInput-page-17-2-4"
                     onchange="imageBackgroundInputChanged_page_17_2_4()">
                 <button type="button" onclick="startCropper_page_17_2_4()">Crop</button>
@@ -3136,14 +3256,14 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     <div class="row-divider"></div>
     <div class="row">
-        <div class="row-image">
+        <div class="row-image" style="height: 1200px">
+            <img src="" id="imageBackground-page-18-1" style="display: none">
+            <input hidden name="page_18_img_1" value="images/home-selling/Asset 26.png">
             <div class="page-18 page-18-1" style="background-image: url('images/home-selling/Asset 26.png');
             background-size: cover;
             padding-top: 100%;
             bottom: 0px;
             width: 100%;">
-                <img src="" id="imageBackground-page-18-1" style="display: none">
-                <input hidden name="page_18_img_1" value="images/home-selling/Asset 26.png">
                 <div class="content" style="bottom: 55%;">
                     <h2 style="font-weight: 300;color:white;font-size:80px;margin-bottom:-130px;margin-left:150px;">
                         Happy</h2>
@@ -3168,15 +3288,20 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
     <div class="row-divider"></div>
     <div class="row">
         <div class="row-image">
-            <div class="page page-18 page-18-2"
-                style="top:0;left:-500px;bottom:0;right:0;background-image: url('images/home-selling/Asset 26.png');background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
-                <img src="" id="imageBackground-page-19-1" style="display: none">
-                <input hidden name="page_19_img_1" value="images/home-selling/Asset 27.png">
-                <img src="" id="imageBackground-page-19-2" style="display: none">
-                <input hidden name="page_19_img_2" value="images/home-selling/Asset 27.png">
-                <img src="" id="imageBackground-page-19-3" style="display: none">
-                <input hidden name="page_19_img_3" value="images/home-selling/Asset 27.png">
-                <div class="content" style="margin-left:100px;">
+            <img src="" id="imageBackground-page-19-1" style="display: none">
+            <input hidden name="page_19_img_1" value="images/home-selling/Asset 27.png">
+            <img src="" id="imageBackground-page-19-2" style="display: none">
+            <input hidden name="page_19_img_2" value="images/home-selling/Asset 27.png">
+            <img src="" id="imageBackground-page-19-3" style="display: none">
+            <input hidden name="page_19_img_3" value="images/home-selling/Asset 27.png">
+            <div class="page page-18 page-18-2 page-with-side-image"
+                style="top:0;bottom:0;right:0;background-size: cover;background-position: -600px -5px;background-repeat: no-repeat;">
+
+                <div class="page-bg-image"
+                    style="background-image: url('images/home-selling/Asset 26.png');right: 610px;">
+                    <h1></h1>
+                </div>
+                <div class="content pos-relative" style="margin-left:100px;">
                     <div class="section"
                         style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;min-height:230px;">
                         <img id="testimonial-1-img" src="images/home-selling/Asset 27.png" alt=""
@@ -3438,7 +3563,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground");
         $(".page-4.page-4-1 .text").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 500
+            minContainerHeight: 800
         });
     }
 
@@ -3459,7 +3584,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground"), function(base64) {
                     $(".page-4-1 .luxe-pro-info").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $(".page-4-2").css('background-image', 'url(uploadedimages/' + output + ')')
+                    $(".page-4-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                     $("input[name=page_4_1_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -3486,6 +3611,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground"), function(base64) {
                         $(".page-4-1 .luxe-pro-info").css('background-image', 'url(uploadedimages/' + output + ')')
+                        $(".page-4-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_4_1_img_1]").val('uploadedimages/' + output);
                     });
                     $(".page-4.page-4-1 .text").css("display", "block");
@@ -3693,7 +3819,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-5-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-5-1"), function(base64) {
                     $(".page-5-1 .luxe-pro-info").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $(".page-5-2").css('background-image', 'url(uploadedimages/' + output + ')')
+                    $(".page-5-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                     $("input[name=page_5_1_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -3720,6 +3846,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-5-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-5-1"), function(base64) {
                         $(".page-5-1 .luxe-pro-info").css('background-image', 'url(uploadedimages/' + output + ')')
+                        $(".page-5-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_5_1_img_1]").val('uploadedimages/' + output);
                     });
                     $(".page-5.page-5-1 .text").css("display", "block");
@@ -3731,7 +3858,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_6_1() {
         var image = document.getElementById("imageBackground-page-6-1");
-        $(".page-5.page-6-1 .text").css("display", "none");
+        $(".page-6-1 .text").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -3754,7 +3881,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-6-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-6-1"), function(base64) {
                     $(".page-6-1 .luxe-pro-info").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $(".page-6-2").css('background-image', 'url(uploadedimages/' + output + ')')
+                    $(".page-6-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                     $("input[name=page_6_1_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -3781,6 +3908,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-6-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-6-1"), function(base64) {
                         $(".page-6-1 .luxe-pro-info").css('background-image', 'url(uploadedimages/' + output + ')')
+                        $(".page-6-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_6_1_img_1]").val('uploadedimages/' + output);
                     });
                     $(".page-6.page-6-1 .text").css("display", "block");
@@ -3792,7 +3920,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_7_1_1() {
         var image = document.getElementById("imageBackground-page-7-1-1");
-        $(".page-7.page-7-1-1 .text").css("display", "none");
+        $(".page-7-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -3815,7 +3943,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-7-1-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-7-1-1"), function(base64) {
                     $(".page-7-1 .luxe-pro-info .row-1").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $(".page-7-2-1").css('background-image', 'url(uploadedimages/' + output + ')')
+                    $(".page-7-0 .page-bg-image-1").css('background-image', 'url(uploadedimages/' + output + ')')
                     $("input[name=page_7_1_1_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -3842,9 +3970,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-7-1-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-7-1-1"), function(base64) {
                         $(".page-7-1 .luxe-pro-info .row-1").css('background-image', 'url(uploadedimages/' + output + ')')
+                        $(".page-7-0 .page-bg-image-1").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_7_1_1_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-7.page-7-1-1 .text").css("display", "block");
+                    $(".page-7-1").css("display", "block");
                 }
             });
 
@@ -3853,7 +3982,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_7_1_2() {
         var image = document.getElementById("imageBackground-page-7-1-2");
-        $(".page-7.page-7-1-2 .text").css("display", "none");
+        $(".page-7-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -3876,7 +4005,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-7-1-2").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-7-1-2"), function(base64) {
                     $(".page-7-1 .luxe-pro-info .row-2").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $(".page-7-2-2").css('background-image', 'url(uploadedimages/' + output + ')')
+                    $(".page-7-0 .page-bg-image-2").css('background-image', 'url(uploadedimages/' + output + ')')
                     $("input[name=page_7_1_2_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -3903,9 +4032,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-7-1-2").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-7-1-2"), function(base64) {
                         $(".page-7-1 .luxe-pro-info .row-2").css('background-image', 'url(uploadedimages/' + output + ')')
+                        $(".page-7-0 .page-bg-image-2").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_7_1_2_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-7.page-7-1-2 .text").css("display", "block");
+                    $(".page-7-1").css("display", "block");
                 }
             });
 
@@ -3914,7 +4044,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_7_1_3() {
         var image = document.getElementById("imageBackground-page-7-1-3");
-        $(".page-7.page-7-1-3 .text").css("display", "none");
+        $(".page-7-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -3937,7 +4067,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-7-1-3").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-7-1-3"), function(base64) {
                     $(".page-7-1 .luxe-pro-info .row-3").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $(".page-7-2-3").css('background-image', 'url(uploadedimages/' + output + ')')
+                    $(".page-7-0 .page-bg-image-3").css('background-image', 'url(uploadedimages/' + output + ')')
                     $("input[name=page_7_1_3_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -3964,10 +4094,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-7-1-3").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-7-1-3"), function(base64) {
                         $(".page-7-1 .luxe-pro-info .row-3").css('background-image', 'url(uploadedimages/' + output + ')')
-                        $(".page-7-2-3").css('background-image', 'url(uploadedimages/' + output + ')')
+                        $(".page-7-0 .page-bg-image-3").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_7_1_3_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-7.page-7-1-3 .text").css("display", "block");
+                    $(".page-7-1").css("display", "block");
                 }
             });
 
@@ -3976,7 +4106,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_9_1() {
         var image = document.getElementById("imageBackground-page-9-1");
-        $(".page-9.page-9-1 .text").css("display", "none");
+        $(".page-9-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -3998,9 +4128,8 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             success: function(output) {
                 $("#imageBackground-page-9-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-9-1"), function(base64) {
-                    $(".page-9-1").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $(".page-9-2").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $("input[name=page_9_1_img_1]").val('uploadedimages/' + output);
+                    $("#section18-1").attr('src', 'uploadedimages/' + output)
+                    $("input[name=page_9_img_1]").val('uploadedimages/' + output);
                 });
             }
         });
@@ -4025,10 +4154,70 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     cropper.destroy();
                     $("#imageBackground-page-9-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-9-1"), function(base64) {
-                        $(".page-9-1").css('background-image', 'url(uploadedimages/' + output + ')')
-                        $("input[name=page_9_1_img_1]").val('uploadedimages/' + output);
+                        $("#section18-1").attr('src', 'uploadedimages/' + output)
+                        $("input[name=page_9_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-9.page-9-1 .text").css("display", "block");
+                    $(".page-9-1").css("display", "block");
+                }
+            });
+
+        } /*, 'image/png' */ );
+    }
+
+    function startCropper_page_9_2() {
+        var image = document.getElementById("imageBackground-page-9-1");
+        $(".page-9-1").css("display", "none");
+        cropper = new Cropper(image, {
+            minContainerHeight: 500
+        });
+    }
+
+    function imageBackgroundInputChanged_page_9_2() {
+        var form_data = new FormData();
+        form_data.append("file", $("#imageBackgroundInput-page-9-1")[0].files[0]);
+        $.ajax({
+            url: '/uploadimage',
+            data: form_data,
+            type: 'post',
+            cache: false,
+            contentType: false,
+            processData: false,
+            headers: {
+                'X-CSRF-Token': $('[name="_token"]').val()
+            },
+            success: function(output) {
+                $("#imageBackground-page-9-1").attr('src', 'uploadedimages/' + output)
+                getBase64Image(document.getElementById("imageBackground-page-9-2"), function(base64) {
+                    $("#section18-2").attr('src', 'uploadedimages/' + output)
+                    $("input[name=page_9_img_2]").val('uploadedimages/' + output);
+                });
+            }
+        });
+    }
+
+    function cropImage_page_9_2() {
+        cropper.getCroppedCanvas().toBlob((blob) => {
+            console.log("getCroppedCanvas")
+            const form_data = new FormData();
+            form_data.append('file', blob, 'example.png');
+            $.ajax({
+                url: '/uploadimage',
+                data: form_data,
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function(output) {
+                    cropper.destroy();
+                    $("#imageBackground-page-9-2").attr('src', 'uploadedimages/' + output)
+                    getBase64Image(document.getElementById("imageBackground-page-9-2"), function(base64) {
+                        $("#section18-2").attr('src', 'uploadedimages/' + output)
+                        $("input[name=page_9_img_2]").val('uploadedimages/' + output);
+                    });
+                    $(".page-9-1").css("display", "block");
                 }
             });
 
@@ -4037,7 +4226,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_10_1_1() {
         var image = document.getElementById("imageBackground-page-10-1-1");
-        $(".page-9.page-10-1-1 .text").css("display", "none");
+        $(".page-10-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -4088,7 +4277,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $(".page-10-1 .section1").css('background-image', 'url(uploadedimages/' + output + ')');
                         $("input[name=page_10_1_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-10.page-10-1-1 .text").css("display", "block");
+                    $(".page-10-1").css("display", "block");
                 }
             });
 
@@ -4097,7 +4286,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_10_1_2() {
         var image = document.getElementById("imageBackground-page-10-1-2");
-        $(".page-9.page-10-1-2 .text").css("display", "none");
+        $(".page-10-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -4148,7 +4337,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $(".page-10-1 .section2").css('background-image', 'url(uploadedimages/' + output + ')');
                         $("input[name=page_10_1_img_2]").val('uploadedimages/' + output);
                     });
-                    $(".page-10.page-10-1-2 .text").css("display", "block");
+                    $(".page-10-1").css("display", "block");
                 }
             });
 
@@ -4577,7 +4766,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_12_1() {
         var image = document.getElementById("imageBackground-page-12-1");
-        $(".page-12.page-12-1 .text").css("display", "none");
+        $(".page-12-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -4600,7 +4789,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-12-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-12-1"), function(base64) {
                     $(".page-12-1 .luxe-pro-info").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $(".page-12-2").css('background-image', 'url(uploadedimages/' + output + ')')
+                    $(".page-12-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                     $("input[name=page_12_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -4627,9 +4816,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-12-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-12-1"), function(base64) {
                         $(".page-12-1 .luxe-pro-info").css('background-image', 'url(uploadedimages/' + output + ')');
+                        $(".page-12-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_12_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-12.page-12-1 .text").css("display", "block");
+                    $(".page-12-1").css("display", "block");
                 }
             });
 
@@ -4638,7 +4828,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_13_1() {
         var image = document.getElementById("imageBackground-page-13-1");
-        $(".page-12.page-13-1 .text").css("display", "none");
+        $(".page-13-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -4661,7 +4851,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-13-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-13-1"), function(base64) {
                     $(".page-13-1").css('background-image', 'url(uploadedimages/' + output + ')');
-                    $(".page-13-2").css('background-image', 'url(uploadedimages/' + output + ')');
+                    $(".page-13-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                     $("input[name=page_13_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -4688,9 +4878,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-13-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-13-1"), function(base64) {
                         $(".page-13-1").css('background-image', 'url(uploadedimages/' + output + ')');
+                        $(".page-13-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                         $("input[name=page_13_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-13.page-13-1 .text").css("display", "block");
+                    $(".page-13-1").css("display", "block");
                 }
             });
 
@@ -4699,7 +4890,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_14_1() {
         var image = document.getElementById("imageBackground-page-14-1");
-        $(".page-12.page-14-1 .text").css("display", "none");
+        $(".page-14-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -4750,7 +4941,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $(".page-14-1").css('background-image', 'url(uploadedimages/' + output + ')');
                         $("input[name=page_14_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-14.page-14-1 .text").css("display", "block");
+                    $(".page-14-1").css("display", "block");
                 }
             });
 
@@ -4759,7 +4950,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_15_1() {
         var image = document.getElementById("imageBackground-page-15-1");
-        $("page-15-1 .text").css("display", "none");
+        $(".page-15-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -4782,7 +4973,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-15-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-15-1"), function(base64) {
                     $(".page-15-1").css('background-image', 'url(uploadedimages/' + output + ')');
-                    $(".page-15-2").css('background-image', 'url(uploadedimages/' + output + ')');
+                    $(".page-15-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                     $("input[name=page_15_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -4809,9 +5000,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-15-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-15-1"), function(base64) {
                         $(".page-15-1").css('background-image', 'url(uploadedimages/' + output + ')');
+                        $(".page-15-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                         $("input[name=page_15_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-15.page-15-1 .text").css("display", "block");
+                    $(".page-15-1").css("display", "block");
                 }
             });
 
@@ -4820,7 +5012,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_16_1() {
         var image = document.getElementById("imageBackground-page-16-1");
-        $(".page-16-1 .text").css("display", "none");
+        $(".page-16-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -4843,7 +5035,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-16-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-16-1"), function(base64) {
                     $(".page-16-1").css('background-image', 'url(uploadedimages/' + output + ')');
-                    $(".page-16-2").css('background-image', 'url(uploadedimages/' + output + ')');
+                    $(".page-16-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                     $("input[name=page_16_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -4869,10 +5061,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     cropper.destroy();
                     $("#imageBackground-page-16-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-16-1"), function(base64) {
-                        $(".page-16-1").css('background-image', 'url(uploadedimages/' + base64 + ')');
+                        $(".page-16-1").css('background-image', 'url(uploadedimages/' + output + ')');
+                        $(".page-16-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                         $("input[name=page_16_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-16.page-16-1 .text").css("display", "block");
+                    $(".page-16-1").css("display", "block");
                 }
             });
 
@@ -4881,7 +5074,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_17_1() {
         var image = document.getElementById("imageBackground-page-17-1");
-        $("page-17-1 .text").css("display", "none");
+        $(".page-17-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -4904,7 +5097,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-17-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-17-1"), function(base64) {
                     $(".page-17-1").css('background-image', 'url(uploadedimages/' + output + ')');
-                    $(".page-17-2").css('background-image', 'url(uploadedimages/' + output + ')');
+                    $(".page-17-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                     $("input[name=page_17_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -4931,9 +5124,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-17-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-17-1"), function(base64) {
                         $(".page-17-1").css('background-image', 'url(uploadedimages/' + output + ')');
+                        $(".page-17-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                         $("input[name=page_17_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-17.page-17-1 .text").css("display", "block");
+                    $(".page-17-1").css("display", "block");
                 }
             });
 
@@ -4942,7 +5136,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_18_1() {
         var image = document.getElementById("imageBackground-page-18-1");
-        $(".page-18-1 .text").css("display", "none");
+        $(".page-18-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -4965,7 +5159,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 $("#imageBackground-page-18-1").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-18-1"), function(base64) {
                     $(".page-18-1").css('background-image', 'url(uploadedimages/' + output + ')');
-                    $(".page-18-2").css('background-image', 'url(uploadedimages/' + output + ')');
+                    $(".page-18-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                     $("input[name=page_18_img_1]").val('uploadedimages/' + output);
                 });
             }
@@ -4992,9 +5186,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                     $("#imageBackground-page-18-1").attr('src', 'uploadedimages/' + output)
                     getBase64Image(document.getElementById("imageBackground-page-18-1"), function(base64) {
                         $(".page-18-1").css('background-image', 'url(uploadedimages/' + output + ')');
+                        $(".page-18-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')');
                         $("input[name=page_18_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-18.page-18-1 .text").css("display", "block");
+                    $(".page-18-1").css("display", "block");
                 }
             });
 
@@ -5003,7 +5198,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_19_1() {
         var image = document.getElementById("imageBackground-page-19-1");
-        $("page-19-1 .content").css("display", "none");
+        $(".page-18").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5054,7 +5249,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#testimonial-1-img").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_19_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-19-1 .content").css("display", "block");
+                    $(".page-18").css("display", "block");
                 }
             });
 
@@ -5063,7 +5258,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_19_2() {
         var image = document.getElementById("imageBackground-page-19-2");
-        $("page-19-2 .content").css("display", "none");
+        $(".page-18").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5114,7 +5309,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#testimonial-2-img").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_19_img_2]").val('uploadedimages/' + output);
                     });
-                    $(".page-19-2 .content").css("display", "block");
+                    $(".page-18").css("display", "block");
                 }
             });
 
@@ -5123,7 +5318,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_19_3() {
         var image = document.getElementById("imageBackground-page-19-3");
-        $("page-19-3 .content").css("display", "none");
+        $(".page-18").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5174,7 +5369,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#testimonial-3-img").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_19_img_3]").val('uploadedimages/' + output);
                     });
-                    $(".page-19-3 .content").css("display", "block");
+                    $(".page-18").css("display", "block");
                 }
             });
 
@@ -5183,7 +5378,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_16_2_1() {
         var image = document.getElementById("imageBackground-page-16-2-1");
-        $("page-16-2 .content").css("display", "none");
+        $(".page-16-2 ").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5234,7 +5429,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#page-16-2-img-1").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_16_2_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-16-2 .content").css("display", "block");
+                    $(".page-16-2").css("display", "block");
                 }
             });
 
@@ -5243,7 +5438,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_16_2_2() {
         var image = document.getElementById("imageBackground-page-16-2-2");
-        $("page-16-2 .content").css("display", "none");
+        $(".page-16-2").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5294,7 +5489,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#page-16-2-img-2").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_16_2_img_2]").val('uploadedimages/' + output);
                     });
-                    $(".page-16-2 .content").css("display", "block");
+                    $(".page-16-2").css("display", "block");
                 }
             });
 
@@ -5303,7 +5498,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_16_2_3() {
         var image = document.getElementById("imageBackground-page-16-2-3");
-        $("page-16-2 .content").css("display", "none");
+        $(".page-16-2").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5354,7 +5549,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#page-16-2-img-3").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_16_2_img_3]").val('uploadedimages/' + output);
                     });
-                    $(".page-16-2 .content").css("display", "block");
+                    $(".page-16-2").css("display", "block");
                 }
             });
 
@@ -5363,7 +5558,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_16_2_4() {
         var image = document.getElementById("imageBackground-page-16-2-4");
-        $("page-16-2 .content").css("display", "none");
+        $(".page-16-2").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5414,7 +5609,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#page-16-2-img-4").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_16_2_img_4]").val('uploadedimages/' + output);
                     });
-                    $(".page-16-2 .content").css("display", "block");
+                    $(".page-16-2").css("display", "block");
                 }
             });
 
@@ -5424,7 +5619,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_17_2_1() {
         var image = document.getElementById("imageBackground-page-17-2-1");
-        $("page-17-2 .content").css("display", "none");
+        $(".page-17-2").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5475,7 +5670,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#page-17-2-img-1").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_17_2_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-17-2 .content").css("display", "block");
+                    $(".page-17-2").css("display", "block");
                 }
             });
 
@@ -5484,7 +5679,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_17_2_2() {
         var image = document.getElementById("imageBackground-page-17-2-2");
-        $("page-17-2 .content").css("display", "none");
+        $(".page-17-2").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5535,7 +5730,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#page-17-2-img-2").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_17_2_img_2]").val('uploadedimages/' + output);
                     });
-                    $(".page-17-2 .content").css("display", "block");
+                    $(".page-17-2").css("display", "block");
                 }
             });
 
@@ -5544,7 +5739,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_17_2_3() {
         var image = document.getElementById("imageBackground-page-17-2-3");
-        $("page-17-2 .content").css("display", "none");
+        $(".page-17-2").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5595,7 +5790,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#page-17-2-img-3").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_17_2_img_3]").val('uploadedimages/' + output);
                     });
-                    $(".page-17-2 .content").css("display", "block");
+                    $(".page-17-2").css("display", "block");
                 }
             });
 
@@ -5604,7 +5799,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_17_2_4() {
         var image = document.getElementById("imageBackground-page-17-2-4");
-        $("page-17-2 .content").css("display", "none");
+        $(".page-17-2").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
         });
@@ -5655,7 +5850,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $("#page-17-2-img-4").attr('src', 'uploadedimages/' + output)
                         $("input[name=page_17_2_img_4]").val('uploadedimages/' + output);
                     });
-                    $(".page-17-2 .content").css("display", "block");
+                    $(".page-17-2").css("display", "block");
                 }
             });
 
