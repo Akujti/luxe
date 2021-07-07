@@ -349,6 +349,27 @@
             border-bottom-left-radius: 129px;
             margin-left: 75px;
         }
+
+        .page-bg-image {
+            top: 0;
+            bottom: 0;
+            right: 500px;
+            position: absolute;
+            background-size: cover;
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+        }
+
+        .side-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .relative {
+            position: relative;
+        }
     </style>
 </head>
 
@@ -488,7 +509,8 @@
             <div class="row-image">
                 <div class="page page-4">
                     <div class="container" style="margin-left: 50px;">
-                        <h2 class="cover-page-thin font-thin mb-0 " style="margin-top:10px;">Our</h2>
+                        <h2 class="cover-page-thin font-thin mb-0 " style="margin-top:10px;margin-bottom: -50px;">Our
+                        </h2>
                         <h1 class="cover-page-thin font-thin gold">Commitment</h1>
                         <hr class="gold">
                         <h2 class="gold page-4-text-1">We Are Your Advisor</h2>
@@ -614,7 +636,7 @@
                         <input hidden name="page_6_img_1" value="images/home-buying/page-6.jpg">
                         <div class="absolute" style="top:700px;">
                             <h2 class="cover-page-thin font-thin"
-                                style="font-size: 40px;margin-left:158px;margin-bottom:9px;margin-top: 0;">The
+                                style="font-size: 40px;margin-left:158px;margin-top: 0;">The
                                 Home</h2>
                             <h1 class="big-title gold" style="margin-top: -65px;margin-bottom: -50px;">Buying</h1>
                             <h1 class="font-thin" style="margin-left: 250px;margin-top:10px;">Process</h1>
@@ -760,7 +782,7 @@
                     <input hidden name="page_10_img_1" value="images/home-buying/page-10.jpg">
                     <div class="container">
                         <div class="absolute" style="width: 85%;top: 650px;left:50px;">
-                            <h2 class="font-thin white" style="font-size:80px;margin-top: 0;">Type Of</h2>
+                            <h2 class="font-thin white" style="font-size:80px;margin-top: 0;">Types Of</h2>
                             <h1 class="font-thin gold" style="font-size:150px;margin-top:-120px;">Loans</h1>
                             <hr class="gold">
                             <p class="white">**Some homes in poor condition, with title issues or in need of a fast sale
@@ -795,7 +817,8 @@
                     style="background-image:url('images/single-property/page-3.png')">
 
                     <div class="container" style="padding-left:10px;">
-                        <h2 class="font-thin page-11-text-1 " style="font-size:40px;margin-top:0;">The Most Common Loans
+                        <h2 class="font-thin page-11-text-1 " style="font-size:40px;margin-bottom:0;">The Most Common
+                            Loans
                         </h2>
                         <hr>
                         <p class="font-thin page-11-text-2">There is no easy answer to which loan is the best. You
@@ -983,12 +1006,16 @@
                     <input hidden name="page_12_img_1" value="images/home-buying/page-12-1.jpg">
                     <img src="" id="imageBackground-page-12-2" style="display: none">
                     <input hidden name="page_12_img_2" value="images/home-buying/page-12-2.jpg">
-                    <div class="container">
+                    <div class="container" style="position: relative">
                         <div>
                             <img class="half-page-img" id="section12-1" src="images/home-buying/page-12-1.jpg" alt="">
                         </div>
                         <div>
                             <img class="half-page-img" id="section12-2" src="images/home-buying/page-12-2.jpg" alt="">
+                        </div>
+                        <div style="position: absolute;top: 255px;left: 200px;">
+                            <img class="half-page-img" id="section12-2" style="width: 250px;"
+                                src="images/home-buying/page-12-3.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -1023,8 +1050,10 @@
                 <div class="page page-13">
                     <div class="container">
                         <p class="font-thin page-13-text-1" style="font-size:30px;">While both older and newer homes
-                            have <span class="gold">pros
-                                &</span> <b>cons,</b> considering them at the start of your search can help
+                            have <span class="gold" style="font-weight: 900">pros
+                                &</span> <span class="" style="font-weight: 900">cons,</span> considering them at the
+                            start
+                            of your search can help
                             guide you in the right direction</p>
                         <h1 class="gold page-13-text-2" style="font-size:35px;">Older Homes</h1>
                         <p class="page-13-text-3">Usually located in centralized, urban locations. Within more
@@ -1085,7 +1114,7 @@
             <div class="row-input">
                 <label for="page-13-text-1">Title</label>
                 <textarea id="page-13-text-1" name="page_13_text_1" rows="4">While both older and newer homes have 
-                    <span class="gold">pros &</span> <b>cons,</b> considering them at the start of your search can help
+                    <span class="gold" style="font-weight: 900">pros &</span> <span style="font-weight: 900">cons,</span> considering them at the start of your search can help
                 guide you in the right direction</textarea>
 
                 <label for="page-13-text-2">Title</label>
@@ -1189,8 +1218,10 @@
 
         <div class="row">
             <div class="row-image">
-                <div class="page page-15 page-background"
-                    style="background-image:url('images/home-buying/page-14.jpg');background-position:-600px;">
+                <div class="page page-15 page-background side-image" style="background-position:-600px;">
+                    <div class="page-bg-image" style="background-image: url('images/home-buying/page-14.jpg');">
+                        <h1></h1>
+                    </div>
                     <div class="container" style="margin-left:175px;">
                         <p class="font-thin page-15-text-1" style="font-size:22px;margin-top:0;padding-top:10px;">Some
                             single-family
@@ -1276,7 +1307,7 @@
                     <img src="" id="imageBackground-page-16" style="display: none">
                     <input hidden name="page_16_img_1" value="images/home-buying/page-16.jpg">
                     <div class="container">
-                        <div class="absolute" style="top:10px;">
+                        <div class="absolute" style="top:742px;">
                             <h2 class="white font-thin"
                                 style="font-size:50px;margin-left:110px;margin-bottom:15px;text-align:right;margin-top:0;">
                                 What are
@@ -1312,8 +1343,10 @@
 
         <div class="row">
             <div class="row-image">
-                <div class="page page-17 page-background"
-                    style="background-image:url('images/home-buying/page-16.jpg');background-position:-600px;">
+                <div class="page page-17 page-background side-image" style="background-position:-600px;">
+                    <div class="page-bg-image" style="background-image: url('images/home-buying/page-16.jpg');">
+                        <h1></h1>
+                    </div>
                     <div class="container" style="margin-left:175px;">
                         <h1 class="gold page-17-text-1" style="font-size:35px;padding-top:30px;">Short Sale</h1>
                         <ul class="page-17-text-2" style="list-style-image: url('images/home-buying/check.png');"
@@ -1416,12 +1449,12 @@
 
         <div class="row">
             <div class="row-image">
-                <div class="page page-18 page-background"
+                <div class="page page-18 page-background "
                     style="background-image:url('images/home-buying/page-16.jpg')">
                     <img src="" id="imageBackground-page-18" style="display: none">
                     <input hidden name="page_18_img_1" value="images/home-buying/page-16.jpg">
                     <div class="container">
-                        <div class="absolute" style="top:10px;">
+                        <div class="absolute" style="top:750px;">
                             <h2 class="white font-thin"
                                 style="font-size:50px;margin-left:140px;margin-bottom:15px;margin-top:0;">The
                             </h2>
@@ -1452,8 +1485,10 @@
 
         <div class="row">
             <div class="row-image">
-                <div class="page page-19 page-background"
-                    style="background-image:url('images/home-buying/page-16.jpg');background-position:-600px;">
+                <div class="page page-19 page-background side-image" style="background-position:-600px;">
+                    <div class="page-bg-image" style="background-image: url('images/home-buying/page-16.jpg');">
+                        <h1></h1>
+                    </div>
                     <div class="container" style="margin-left:175px;">
                         <h1 class="gold font-bold page-19-text-1" style="font-size:25px;">Things to Keep in
                             Consideration:</h1>
@@ -1626,6 +1661,13 @@
                     <img src="" id="imageBackground-page-20" style="display: none">
                     <input hidden name="page_20_img_1" value="images/home-buying/page-20.jpg">
                     <div class="container">
+                        <div class="absolute" style="top:750px;">
+                            <h2 class="white font-thin"
+                                style="font-size: 32px;margin-left: 55px;margin-bottom: 32px;margin-top: 0;">Inspection,
+                                Seller Disclosures &
+                                Insurances</h2>
+                            <h1 class="gold font-thin" style="font-size: 141px;margin-top: -95px;">Insurances</h1>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1648,9 +1690,11 @@
 
         <div class="row">
             <div class="row-image">
-                <div class="page page-21 page-background"
-                    style="background-image:url('images/home-buying/page-20.jpg');background-position:-600px;">
-                    <div class="container" style="margin-left:175px;">
+                <div class="page page-21 page-background side-image" style="background-position:-600px;">
+                    <div class="page-bg-image" style="background-image: url('images/home-buying/page-20.jpg');">
+                        <h1></h1>
+                    </div>
+                    <div class="container" style="margin-left:175px;position:relative;">
                         <p class="font-thin page-21-text-1" style="font-size: 25px;margin-top:0;padding-top:20px;">So
                             you found
                             the
@@ -1663,7 +1707,7 @@
                             identify
                             issues
                             that need to be addressed. One of three things can happen:.</p>
-                        <div class="mb-40">
+                        <div class="mb-40" style="position: absolute;top: 240px;">
                             <img src="images/home-buying/1.png" alt="">
                             <p class="font-thin mb-40 absolute page-21-text-3" style="width:250px;left: 55px;
                             margin-top: -110px;page-21-text-3">You are happy
@@ -1671,7 +1715,7 @@
                                 condition of the home and decide to proceed to the
                                 next step of continuing with financing or to closing.</p>
                         </div>
-                        <div class="mb-40" style="margin-left: 50px;">
+                        <div class="mb-40" style="margin-left: 50px;position: absolute;top: 405px;">
                             <img src="images/home-buying/2.png" alt="">
                             <p class="font-thin mb-40 absolute page-21-text-4 " style="width:250px;left: 90px;
                             margin-top: -110px;">You are happy
@@ -1679,7 +1723,7 @@
                                 condition of the home and decide to proceed to the
                                 next step of continuing with financing or to closing.</p>
                         </div>
-                        <div class="mb-40" style="margin-left: 100px;">
+                        <div class="mb-40" style="margin-left: 100px;position: absolute;top: 585px;">
                             <img src="images/home-buying/3.png" alt="">
                             <p class="font-thin mb-40 absolute page-21-text-5" style="width:250px;left: 90px;
                             margin-top: -110px;">You are happy
@@ -1794,13 +1838,14 @@
         <div class="row">
             <div class="row-image">
                 <div class="page page-23 page-background"
-                    style="background-image:url('images/home-buying/page-22.jpg');background-position:-550px 650px; background-size:contain;">
+                    style="background-image:url('images/home-buying/page-22.jpg');background-position:-550px 650px; background-size:contain;display: flex;align-items: center;">
                     <div class="container" style="margin-left:175px;">
                         <p class="font-thin mb-50 page-23-text-1" style="font-size:40px;width:500px;margin-top:0px;">
                             Benefits
                             of
                             Signing a
-                            <strong>Buyer’s</strong> <span class="gold">Representation Agreement</span></p>
+                            <strong>Buyer’s</strong> <span class="gold" style="font-weight:900;">Representation
+                                Agreement</span></p>
                         <p class="font-thin mb-50 page-23-text-2" style="font-size: 20px;">While the fiduciary duty
                             really is
                             the main
@@ -1840,7 +1885,7 @@
                         </ul>
 
                         <div class="page-number absolute"
-                            style="background-image: url('images/home-buying/22.png');top:850px; right:20px;;">
+                            style="background-image: url('images/home-buying/22.png');right:20px;;">
                             <div class="text" style="margin-top: 100px;margin-right: 150px;">
                                 <h4 class="font-thin">THE HOME</h4>
                                 <h3 class="font-thin gold">BUYING</h3>
@@ -1853,10 +1898,11 @@
             <div class="column-divider"></div>
             <div class="row-input">
                 <label for="page-23-text-1">Text 1</label>
-                <textarea id="page-23-text-1" name="page_23_text_1" rows="4">Benefits
+                <textarea id="page-23-text-1" name="page_23_text_1"
+                    rows="4">Benefits
                     of
                     Signing a
-                    <strong>Buyer’s</strong> <span class="gold">Representation Agreement</span></textarea>
+                    <strong>Buyer’s</strong> <span class="gold" style="font-weight:900;">Representation Agreement</span></textarea>
 
                 <label for="page-23-text-2">Text 2</label>
                 <textarea id="page-23-text-2" name="page_23_text_2" rows="4">While the fiduciary duty really is the main reason to sign a Bey’s Rep Agreement, having one in place will also provide you with many benefits during your home search & purchase
@@ -1910,11 +1956,13 @@
 
         <div class="row">
             <div class="row-image">
-                <div class="page page-25 page-background"
-                    style="background-image:url('images/home-buying/page-24.jpg');background-position:-600px;">
+                <div class="page page-25 page-background side-image" style="background-position:-600px;">
+                    <div class="page-bg-image" style="background-image: url('images/home-buying/page-24.jpg');">
+                        <h1></h1>
+                    </div>
                     <div class="container" style="margin-left:186px;">
-                        <p class="font-thin gold page-25-text-1"
-                            style="font-size:120px;margin-left:-135px;margin-bottom:-60px;margin-top:0;padding-top:20px;">
+                        <p class="font-thin gold page-25-text-1 relative"
+                            style="font-size:120px;margin-left:-165px;margin-bottom:-60px;margin-top:0;padding-top:20px;">
                             Fernando
                         </p>
                         <p class="font-thin page-25-text-2" style="font-size:70px;margin-top:30px;">J. Grullon</p>
@@ -2010,8 +2058,7 @@
 
         <div class="row">
             <div class="row-image">
-                <div class="page page-27 page-background"
-                    style="background-image:url('images/home-buying/page-26.jpg');background-position:-600px;">
+                <div class="page page-27 page-background side-image" style="background-position:-600px;">
                     <img src="" id="imageBackground-page-27-1" style="display: none">
                     <input hidden name="page_27_img_1" value="images/home-buying/page-27-1.jpg">
 
@@ -2023,8 +2070,10 @@
 
                     <img src="" id="imageBackground-page-27-4" style="display: none">
                     <input hidden name="page_27_img_4" value="images/home-buying/page-27-4.jpg">
-
                     <div class="container" style="margin-left:200px;">
+                        <div class="page-bg-image" style="background-image: url('images/home-buying/page-26.jpg');">
+                            <h1></h1>
+                        </div>
                         <div class="absolute" style="top:30px;">
                             <div style="background-color: #C6A467;padding:5px;width:176px;border-radius: 600%;">
                                 <div style="background-color:white;padding:5px;border-radius: 550%;">
@@ -2219,27 +2268,12 @@
                 </div>
             </div>
         </div>
-        <script>
-
-
-        </script>
-
-
-
-
-
-        <script>
-
-        </script>
-
 
         <div class="row-divider"></div>
 
         <div class="row">
             <div class="row-image">
-                <div class="page page-29 page-background"
-                    style="background-image:url('images/home-buying/page-28.jpg');background-position:-600px;">
-
+                <div class="page page-29 page-background side-image" style="background-position:-600px;height: 1040px;">
                     <img src="" id="imageBackground-page-29-1" style="display: none">
                     <input hidden name="page_29_img_1" value="images/home-buying/page-27-1.jpg">
                     <img src="" id="imageBackground-page-29-2" style="display: none">
@@ -2249,64 +2283,70 @@
                     <img src="" id="imageBackground-page-29-4" style="display: none">
                     <input hidden name="page_29_img_4" value="images/home-buying/page-27-4.jpg">
 
-                    <div class="container">
-                        <div class="mb-20 golden-radius" style="background-color: #C6A467;padding:5px;">
-                            <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                                <img id="page-29-img-1" src="images/home-buying/page-27-1.jpg" alt="" width="166"
-                                    height="166" style="border-radius: 500%;">
+                    <div class="container relative">
+                        <div class="page-bg-image" style="background-image: url('images/home-buying/page-28.jpg');">
+                            <h1></h1>
+                        </div>
+                        <div class="relative">
+                            <div class="mb-20 golden-radius" style="background-color: #C6A467;padding:5px;">
+                                <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
+                                    <img id="page-29-img-1" src="images/home-buying/page-27-1.jpg" alt="" width="166"
+                                        height="166" style="border-radius: 500%;">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="absolute" style="top: -205px;left: 275px;width:450px;">
-                            <p class="white page-29-text-1" style="font-size:24px;">6495 SW 15 TERRACE</p>
-                            <p class="page-29-text-2">PRICE: $2,375,000</p>
-                            <p class="page-29-text-3">BEDS/BATHS: 6/6</p>
-                            <p class="page-29-text-4">LIVING AREA: 6,395 SQ FT</p>
-                            <p class="page-29-text-5">LOT SIZE: 38,768 SQ FT</p>
-                        </div>
-
-                        <div class="mb-20 golden-radius"
-                            style="background-color: #C6A467;padding:5px;margin-top: -135px;">
-                            <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                                <img id="page-29-img-2" src="images/home-buying/page-27-2.jpg" alt="" width="166"
-                                    height="166" style="border-radius: 500%;">
+                            <div class="absolute" style="top: -205px;left: 275px;width:450px;">
+                                <p class="white page-29-text-1" style="font-size:24px;">6495 SW 15 TERRACE</p>
+                                <p class="page-29-text-2">PRICE: $2,375,000</p>
+                                <p class="page-29-text-3">BEDS/BATHS: 6/6</p>
+                                <p class="page-29-text-4">LIVING AREA: 6,395 SQ FT</p>
+                                <p class="page-29-text-5">LOT SIZE: 38,768 SQ FT</p>
                             </div>
-                        </div>
-                        <div class="absolute" style="top: -210px;left: 275px;width:450px;">
-                            <p class="white page-29-text-6" style="font-size:24px;">6495 SW 15 TERRACE</p>
-                            <p class="page-29-text-7">PRICE: $2,375,000</p>
-                            <p class="page-29-text-8">BEDS/BATHS: 6/6</p>
-                            <p class="page-29-text-9">LIVING AREA: 6,395 SQ FT</p>
-                            <p class="page-29-text-10">LOT SIZE: 38,768 SQ FT</p>
-                        </div>
 
-                        <div class="mb-20 golden-radius"
-                            style="background-color: #C6A467;padding:5px;margin-top: -135px;">
-                            <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                                <img id="page-29-img-3" src="images/home-buying/page-27-3.jpg" alt="" width="166"
-                                    height="166" style="border-radius: 500%;">
+                            <div class="mb-20 golden-radius"
+                                style="background-color: #C6A467;padding:5px;margin-top: -135px;">
+                                <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
+                                    <img id="page-29-img-2" src="images/home-buying/page-27-2.jpg" alt="" width="166"
+                                        height="166" style="border-radius: 500%;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="absolute" style="top: -210px;left: 275px;width:450px;">
-                            <p class="white page-29-text-11" style="font-size:24px;">6495 SW 15 TERRACE</p>
-                            <p class="page-29-text-12">PRICE: $2,375,000</p>
-                            <p class="page-29-text-13">BEDS/BATHS: 6/6</p>
-                            <p class="page-29-text-14">LIVING AREA: 6,395 SQ FT</p>
-                            <p class="page-29-text-15">LOT SIZE: 38,768 SQ FT</p>
-                        </div>
+                            <div class="absolute" style="top: -210px;left: 275px;width:450px;">
+                                <p class="white page-29-text-6" style="font-size:24px;">6495 SW 15 TERRACE</p>
+                                <p class="page-29-text-7">PRICE: $2,375,000</p>
+                                <p class="page-29-text-8">BEDS/BATHS: 6/6</p>
+                                <p class="page-29-text-9">LIVING AREA: 6,395 SQ FT</p>
+                                <p class="page-29-text-10">LOT SIZE: 38,768 SQ FT</p>
+                            </div>
 
-                        <div class="golden-radius" style="background-color: #C6A467;padding:5px;margin-top: -135px;">
-                            <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                                <img id="page-29-img-4" src="images/home-buying/page-27-4.jpg" alt="" width="166"
-                                    height="166" style="border-radius: 500%;">
+                            <div class="mb-20 golden-radius"
+                                style="background-color: #C6A467;padding:5px;margin-top: -135px;">
+                                <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
+                                    <img id="page-29-img-3" src="images/home-buying/page-27-3.jpg" alt="" width="166"
+                                        height="166" style="border-radius: 500%;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="absolute" style="top: -205px;left: 275px;width:450px;">
-                            <p class="white page-29-text-16" style="font-size:24px;">6495 SW 15 TERRACE</p>
-                            <p class="page-29-text-17">PRICE: $2,375,000</p>
-                            <p class="page-29-text-18">BEDS/BATHS: 6/6</p>
-                            <p class="page-29-text-19">LIVING AREA: 6,395 SQ FT</p>
-                            <p class="page-29-text-20">LOT SIZE: 38,768 SQ FT</p>
+                            <div class="absolute" style="top: -210px;left: 275px;width:450px;">
+                                <p class="white page-29-text-11" style="font-size:24px;">6495 SW 15 TERRACE</p>
+                                <p class="page-29-text-12">PRICE: $2,375,000</p>
+                                <p class="page-29-text-13">BEDS/BATHS: 6/6</p>
+                                <p class="page-29-text-14">LIVING AREA: 6,395 SQ FT</p>
+                                <p class="page-29-text-15">LOT SIZE: 38,768 SQ FT</p>
+                            </div>
+
+                            <div class="golden-radius"
+                                style="background-color: #C6A467;padding:5px;margin-top: -135px;">
+                                <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
+                                    <img id="page-29-img-4" src="images/home-buying/page-27-4.jpg" alt="" width="166"
+                                        height="166" style="border-radius: 500%;">
+                                </div>
+                            </div>
+                            <div class="absolute" style="top: -205px;left: 275px;width:450px;">
+                                <p class="white page-29-text-16" style="font-size:24px;">6495 SW 15 TERRACE</p>
+                                <p class="page-29-text-17">PRICE: $2,375,000</p>
+                                <p class="page-29-text-18">BEDS/BATHS: 6/6</p>
+                                <p class="page-29-text-19">LIVING AREA: 6,395 SQ FT</p>
+                                <p class="page-29-text-20">LOT SIZE: 38,768 SQ FT</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2406,10 +2446,6 @@
                 </div>
             </div>
         </div>
-        <script>
-
-        </script>
-
 
         <div class="row-divider"></div>
 
@@ -2450,8 +2486,7 @@
 
         <div class="row">
             <div class="row-image">
-                <div class="page page-31 page-background"
-                    style="background-image:url('images/home-buying/page-30.jpg');background-position:-600px;">
+                <div class="page page-31 page-background side-image" style="background-position:-600px;">
                     <img src="" id="imageBackground-page-31-1" style="display: none">
                     <input hidden name="page_31_img_1" value="images/home-selling/Asset 27.png">
 
@@ -2461,63 +2496,74 @@
                     <img src="" id="imageBackground-page-31-3" style="display: none">
                     <input hidden name="page_31_img_3" value="images/home-selling/Asset 27.png">
                     <div class="container" style="margin-left:70px;padding-top:30px;margin-right:50px;">
-                        <div class="section" style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;">
-                            <img id="page31-1" src="images/home-selling/Asset 27.png" alt=""
-                                style="float: left;margin-bottom:-30px;" height="230px">
-                            <img src="images/home-selling/divider-1.png" alt="" height="230px"
-                                style="margin-left:-114px;z-index:100;margin-top:0;">
-                            <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;top: 0px;left: 255px;
-                            width: 300px;">
-                                <p class="page-31-text-2" style="font-weight: 300;font-size:16px;">"Awesomeness Customer
-                                    Services!!!
-                                    Dedication
-                                    and Total
-                                    commitment to his client's, He help us with care to ﬁnd us our Home. We
-                                    highly
-                                    recommend Mrs.
-                                    Fernando Grullon"</p>
-                                <p class="page-31-text-1" style="font-size: 22px;color: #C5A367;margin-left:25px;">-
-                                    Mrs. Mercy</p>
-                            </div>
+                        <div class="page-bg-image" style="background-image: url('images/home-buying/page-30.jpg');">
+                            <h1></h1>
                         </div>
-
-                        <div class="section" style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;">
-                            <img id="page31-2" src="images/home-selling/Asset 27.png" alt=""
-                                style="float: left;margin-bottom:-30px;" height="230px">
-                            <img src="images/home-selling/divider-1.png" alt="" height="230px"
-                                style="margin-left:-114px;z-index:100;margin-top:0;">
-                            <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;top:265px;left: 255px;
+                        <div class="relative">
+                            <div class="section"
+                                style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;width: 578px;">
+                                <img id="page31-1" src="images/home-selling/Asset 27.png" alt=""
+                                    style="float: left;margin-bottom:-30px;" height="230px" width="230px">
+                                <img src="images/home-selling/divider-1.png" alt="" height="230px"
+                                    style="margin-left:-114px;z-index:100;margin-top:0;">
+                                <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;top: 0px;left: 255px;
                             width: 300px;">
-                                <p class="page-31-text-4" style="font-weight: 300;font-size:16px;">"Awesomeness Customer
-                                    Services!!!
-                                    Dedication
-                                    and Total
-                                    commitment to his client's, He help us with care to ﬁnd us our Home. We
-                                    highly
-                                    recommend Mrs.
-                                    Fernando Grullon"</p>
-                                <p class="page-31-text-3" style="font-size: 22px;color: #C5A367;margin-left:25px;">-
-                                    Mrs. Mercy</p>
+                                    <p class="page-31-text-2" style="font-weight: 300;font-size:16px;">"Awesomeness
+                                        Customer
+                                        Services!!!
+                                        Dedication
+                                        and Total
+                                        commitment to his client's, He help us with care to ﬁnd us our Home. We
+                                        highly
+                                        recommend Mrs.
+                                        Fernando Grullon"</p>
+                                    <p class="page-31-text-1" style="font-size: 22px;color: #C5A367;margin-left:25px;">-
+                                        Mrs. Mercy</p>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="section" style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;">
-                            <img id="page31-3" id="section15" src="images/home-selling/Asset 27.png" alt=""
-                                style="float: left;margin-bottom:-30px;" height="230px">
-                            <img src="images/home-selling/divider-1.png" alt="" height="230px"
-                                style="margin-left:-114px;z-index:100;margin-top:0;">
-                            <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;top:520px;left: 255px;
+                            <div class="section"
+                                style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;width: 578px;">
+                                <img id="page31-2" src="images/home-selling/Asset 27.png" alt=""
+                                    style="float: left;margin-bottom:-30px;" height="230px" width="230px">
+                                <img src="images/home-selling/divider-1.png" alt="" height="230px"
+                                    style="margin-left:-114px;z-index:100;margin-top:0;">
+                                <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;top:265px;left: 255px;
                             width: 300px;">
-                                <p class="page-31-text-6" style="font-weight: 300;font-size:16px;">"Awesomeness Customer
-                                    Services!!!
-                                    Dedication
-                                    and Total
-                                    commitment to his client's, He help us with care to ﬁnd us our Home. We
-                                    highly
-                                    recommend Mrs.
-                                    Fernando Grullon"</p>
-                                <p class="page-31-text-5" style="font-size: 22px;color: #C5A367;margin-left:25px;">-
-                                    Mrs. Mercy</p>
+                                    <p class="page-31-text-4" style="font-weight: 300;font-size:16px;">"Awesomeness
+                                        Customer
+                                        Services!!!
+                                        Dedication
+                                        and Total
+                                        commitment to his client's, He help us with care to ﬁnd us our Home. We
+                                        highly
+                                        recommend Mrs.
+                                        Fernando Grullon"</p>
+                                    <p class="page-31-text-3" style="font-size: 22px;color: #C5A367;margin-left:25px;">-
+                                        Mrs. Mercy</p>
+                                </div>
+                            </div>
+
+                            <div class="section"
+                                style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;width: 578px;">
+                                <img id="page31-3" id="section15" src="images/home-selling/Asset 27.png" alt=""
+                                    style="float: left;margin-bottom:-30px;" height="230px" width="230px">
+                                <img src="images/home-selling/divider-1.png" alt="" height="230px"
+                                    style="margin-left:-114px;z-index:100;margin-top:0;">
+                                <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;top:520px;left: 255px;
+                            width: 300px;">
+                                    <p class="page-31-text-6" style="font-weight: 300;font-size:16px;">"Awesomeness
+                                        Customer
+                                        Services!!!
+                                        Dedication
+                                        and Total
+                                        commitment to his client's, He help us with care to ﬁnd us our Home. We
+                                        highly
+                                        recommend Mrs.
+                                        Fernando Grullon"</p>
+                                    <p class="page-31-text-5" style="font-size: 22px;color: #C5A367;margin-left:25px;">-
+                                        Mrs. Mercy</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -3500,13 +3546,13 @@ function startCropper_page_7() {
         }
         
 
- function startCropper_page_14() {
+        function startCropper_page_14() {
               var image = document.getElementById("imageBackground-page-14");
-              $(".page-10 .absolute").css("display", "none");
+              $(".page-14 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
-          }
+        }
   
           function imageBackgroundInputChanged_page_14() {
               var form_data = new FormData();
@@ -3526,7 +3572,7 @@ function startCropper_page_7() {
                       $("#imageBackground-page-14").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-14"), function (base64) {
                           $(".page-14").css("background-image", "url("+imageurl + output + ")");
-                          $(".page-15").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-15 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_14_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3555,19 +3601,19 @@ function startCropper_page_7() {
                               $("#imageBackground-page-14").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-14"), function (base64) {
                                   $(".page-14").css("background-image", "url("+imageurl + output + ")");
-                                  $(".page-15").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-15 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_14_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-10 .absolute").css("display", "block");
+                              $(".page-14 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }   
 
- function startCropper_page_16() {
+        function startCropper_page_16() {
               var image = document.getElementById("imageBackground-page-16");
-              $(".page-16 .absolute").css("display", "none");
+              $(".page-17 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -3591,7 +3637,7 @@ function startCropper_page_7() {
                       $("#imageBackground-page-16").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-16"), function (base64) {
                           $(".page-16").css("background-image", "url("+imageurl + output + ")");
-                          $(".page-17").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-17 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_16_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3620,19 +3666,19 @@ function startCropper_page_7() {
                               $("#imageBackground-page-16").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-16"), function (base64) {
                                   $(".page-16").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-17 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_16_img_1]").val("uploadedimages/" + output);
-                                  $(".page-17").css("background-image", "url("+imageurl + output + ")");
                               });
-                              $(".page-16 .absolute").css("display", "block");
+                              $(".page-17 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }   
 
-   function startCropper_page_18() {
+        function startCropper_page_18() {
               var image = document.getElementById("imageBackground-page-18");
-              $(".page-18 .absolute").css("display", "none");
+              $(".page-19 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -3656,7 +3702,7 @@ function startCropper_page_7() {
                       $("#imageBackground-page-18").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-18"), function (base64) {
                           $(".page-18").css("background-image", "url("+imageurl + output + ")");
-                          $(".page-19").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-19 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_18_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3685,19 +3731,19 @@ function startCropper_page_7() {
                               $("#imageBackground-page-18").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-18"), function (base64) {
                                   $(".page-18").css("background-image", "url("+imageurl + output + ")");
-                                  $(".page-19").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-19 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_18_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-18 .absolute").css("display", "block");
+                              $(".page-19 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }   
 
-function startCropper_page_20() {
+        function startCropper_page_20() {
               var image = document.getElementById("imageBackground-page-20");
-              $(".page-20 .absolute").css("display", "none");
+              $(".page-20 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -3721,7 +3767,7 @@ function startCropper_page_20() {
                       $("#imageBackground-page-20").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-20"), function (base64) {
                           $(".page-20").css("background-image", "url("+imageurl + output + ")");
-                          $(".page-21").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-21 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_20_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3750,21 +3796,22 @@ function startCropper_page_20() {
                               $("#imageBackground-page-20").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-20"), function (base64) {
                                   $(".page-20").css("background-image", "url("+imageurl + output + ")");
-                                  $(".page-21").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-21 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_20_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-20 .absolute").css("display", "block");
+                              $(".page-20 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }   
 
- function startCropper_page_22() {
+        function startCropper_page_22() {
               var image = document.getElementById("imageBackground-page-22");
-              $(".page-22 .absolute").css("display", "none");
+              $(".page-22 .container").css("display", "none");
               cropper = new Cropper(image, {
-                  minContainerHeight: 500,
+                  minContainerHeight: 800,
+                  minContainerWidth: 500,
               });
           }
   
@@ -3818,16 +3865,16 @@ function startCropper_page_20() {
                                 $(".page-23").css("background-image", "url("+imageurl + output + ")");
                                $("input[name=page_22_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-22 .absolute").css("display", "block");
+                              $(".page-22 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }   
 
- function startCropper_page_24() {
+        function startCropper_page_24() {
               var image = document.getElementById("imageBackground-page-24");
-              $(".page-24 .absolute").css("display", "none");
+              $(".page-24 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -3851,7 +3898,7 @@ function startCropper_page_20() {
                       $("#imageBackground-page-24").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-24"), function (base64) {
                           $(".page-24").css("background-image", "url("+imageurl + output + ")");
-                          $(".page-25").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-25 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_24_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3880,19 +3927,19 @@ function startCropper_page_20() {
                               $("#imageBackground-page-24").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-24"), function (base64) {
                                   $(".page-24").css("background-image", "url("+imageurl + output + ")");
-                                  $(".page-25").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-25 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_24_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-24 .absolute").css("display", "block");
+                              $(".page-24 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }   
 
-  function startCropper_page_26() {
+        function startCropper_page_26() {
               var image = document.getElementById("imageBackground-page-26");
-              $(".page-26 .absolute").css("display", "none");
+              $(".page-26 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -3916,7 +3963,7 @@ function startCropper_page_20() {
                       $("#imageBackground-page-26").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-26"), function (base64) {
                           $(".page-26").css("background-image", "url("+imageurl + output + ")");
-                          $(".page-27").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-27 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_26_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -3945,10 +3992,10 @@ function startCropper_page_20() {
                               $("#imageBackground-page-26").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-26"), function (base64) {
                                   $(".page-26").css("background-image", "url("+imageurl + output + ")");
-                                  $(".page-27").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-27 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_26_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-26 .absolute").css("display", "block");
+                              $(".page-26 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -3956,9 +4003,9 @@ function startCropper_page_20() {
           }   
 
 
-function startCropper_page_28() {
+        function startCropper_page_28() {
               var image = document.getElementById("imageBackground-page-28");
-              $(".page-28 .absolute").css("display", "none");
+              $(".page-28 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -3982,7 +4029,7 @@ function startCropper_page_28() {
                       $("#imageBackground-page-28").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-28"), function (base64) {
                           $(".page-28").css("background-image", "url("+imageurl + output + ")");
-                          $(".page-29").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-29 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_28_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -4011,19 +4058,19 @@ function startCropper_page_28() {
                               $("#imageBackground-page-28").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-28"), function (base64) {
                                   $(".page-28").css("background-image", "url("+imageurl + output + ")");
-                                  $(".page-29").css("background-image", "url("+imageurl + output + ")");
+                                  $(".page-29 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_28_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-28 .absolute").css("display", "block");
+                              $(".page-28 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }   
 
-function startCropper_page_27_1() {
+        function startCropper_page_27_1() {
               var image = document.getElementById("imageBackground-page-27-1");
-              $(".page-27 .absolute").css("display", "none");
+              $(".page-27 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4077,7 +4124,7 @@ function startCropper_page_27_1() {
                                 $("#page-27-img-1").attr("src", "uploadedimages/" + output);
                                $("input[name=page_27_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-27 .absolute").css("display", "block");
+                              $(".page-27 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4086,7 +4133,7 @@ function startCropper_page_27_1() {
 
           function startCropper_page_27_2() {
               var image = document.getElementById("imageBackground-page-27-2");
-              $(".page-27 .absolute").css("display", "none");
+              $(".page-27 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4140,7 +4187,7 @@ function startCropper_page_27_1() {
                                 $("#page-27-img-2").attr("src", "uploadedimages/" + output);
                                $("input[name=page_27_img_2]").val("uploadedimages/" + output);
                               });
-                              $(".page-27 .absolute").css("display", "block");
+                              $(".page-27 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4148,7 +4195,7 @@ function startCropper_page_27_1() {
           }   
           function startCropper_page_27_3() {
               var image = document.getElementById("imageBackground-page-27-3");
-              $(".page-27 .absolute").css("display", "none");
+              $(".page-27 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4202,7 +4249,7 @@ function startCropper_page_27_1() {
                                 $("#page-27-img-3").attr("src", "uploadedimages/" + output);
                                $("input[name=page_27_img_3]").val("uploadedimages/" + output);
                               });
-                              $(".page-27 .absolute").css("display", "block");
+                              $(".page-27 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4210,7 +4257,7 @@ function startCropper_page_27_1() {
           } 
           function startCropper_page_27_4() {
               var image = document.getElementById("imageBackground-page-27-4");
-              $(".page-27 .absolute").css("display", "none");
+              $(".page-27 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4262,18 +4309,18 @@ function startCropper_page_27_1() {
                               $("#imageBackground-page-27-4").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-27-4"), function (base64) {
                                 $("#page-27-img-4").attr("src", "uploadedimages/" + output);
-                               $("input[name=page_27_img_4]").val("uploadedimages/" + output);
+                                $("input[name=page_27_img_4]").val("uploadedimages/" + output);
                               });
-                              $(".page-27 .absolute").css("display", "block");
+                              $(".page-27 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }     
 
-function startCropper_page_29_1() {
+        function startCropper_page_29_1() {
               var image = document.getElementById("imageBackground-page-29-1");
-              $(".page-29 .absolute").css("display", "none");
+              $(".page-29 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4327,7 +4374,7 @@ function startCropper_page_29_1() {
                                 $("#page-29-img-1").attr("src", "uploadedimages/" + output);
                             $("input[name=page_29_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-29 .absolute").css("display", "block");
+                              $(".page-29 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4335,7 +4382,7 @@ function startCropper_page_29_1() {
           }   
           function startCropper_page_29_2() {
               var image = document.getElementById("imageBackground-page-29-2");
-              $(".page-29 .absolute").css("display", "none");
+              $(".page-29 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4389,7 +4436,7 @@ function startCropper_page_29_1() {
                                 $("#page-29-img-2").attr("src", "uploadedimages/" + output);
                                $("input[name=page_29_img_2]").val("uploadedimages/" + output);
                               });
-                              $(".page-29 .absolute").css("display", "block");
+                              $(".page-29 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4397,7 +4444,7 @@ function startCropper_page_29_1() {
           }   
           function startCropper_page_29_3() {
               var image = document.getElementById("imageBackground-page-29-3");
-              $(".page-29 .absolute").css("display", "none");
+              $(".page-29 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4451,7 +4498,7 @@ function startCropper_page_29_1() {
                                 $("#page-29-img-3").attr("src", "uploadedimages/" + output);
                             $("input[name=page_29_img_3]").val("uploadedimages/" + output);
                               });
-                              $(".page-29 .absolute").css("display", "block");
+                              $(".page-29 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4459,7 +4506,7 @@ function startCropper_page_29_1() {
           }  
           function startCropper_page_29_4() {
               var image = document.getElementById("imageBackground-page-29-4");
-              $(".page-29 .absolute").css("display", "none");
+              $(".page-29 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4511,18 +4558,18 @@ function startCropper_page_29_1() {
                               $("#imageBackground-page-29-4").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-29-4"), function (base64) {
                                 $("#page-29-img-4").attr("src", "uploadedimages/" + output);
-                            $("input[name=page_29_img_4]").val("uploadedimages/" + output);
+                                $("input[name=page_29_img_4]").val("uploadedimages/" + output);
                               });
-                              $(".page-29 .absolute").css("display", "block");
+                              $(".page-29 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }    
 
- function startCropper_page_30() {
+        function startCropper_page_30() {
               var image = document.getElementById("imageBackground-page-30");
-              $(".page-30 .absolute").css("display", "none");
+              $(".page-30 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4546,7 +4593,7 @@ function startCropper_page_29_1() {
                       $("#imageBackground-page-30").attr("src", "uploadedimages/" + output);
                       getBase64Image(document.getElementById("imageBackground-page-30"), function (base64) {
                           $(".page-30").css("background-image", "url("+imageurl + output + ")");
-                          $(".page-31").css("background-image", "url("+imageurl + output + ")");
+                          $(".page-31 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                           $("input[name=page_30_img_1]").val("uploadedimages/" + output);
                       });
                   },
@@ -4575,19 +4622,19 @@ function startCropper_page_29_1() {
                               $("#imageBackground-page-30").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-30"), function (base64) {
                                   $(".page-30").css("background-image", "url("+ base64 + ")");
-                                  $(".page-31").css("background-image", "url("+ base64 + ")");
+                                  $(".page-31 .page-bg-image").css("background-image", "url("+ base64 + ")");
                                   $("input[name=page_30_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-30 .absolute").css("display", "block");
+                              $(".page-30 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }   
 
- function startCropper_page_31_1() {
+        function startCropper_page_31_1() {
               var image = document.getElementById("imageBackground-page-31-1");
-              $(".page-31 .flex").css("display", "none");
+              $(".page-31 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4641,7 +4688,7 @@ function startCropper_page_29_1() {
                                 $("#page31-1").attr("src", "uploadedimages/" + output);
                             $("input[name=page_31_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-31 .flex").css("display", "block");
+                              $(".page-31 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4649,7 +4696,7 @@ function startCropper_page_29_1() {
           }  
           function startCropper_page_31_2() {
               var image = document.getElementById("imageBackground-page-31-2");
-              $(".page-31 .flex").css("display", "none");
+              $(".page-31 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4701,9 +4748,9 @@ function startCropper_page_29_1() {
                               $("#imageBackground-page-31-2").attr("src", "uploadedimages/" + output);
                               getBase64Image(document.getElementById("imageBackground-page-31-2"), function (base64) {
                                 $("#page31-2").attr("src", "uploadedimages/" + output);
-                            $("input[name=page_31_img_2]").val("uploadedimages/" + output);
+                                $("input[name=page_31_img_2]").val("uploadedimages/" + output);
                               });
-                              $(".page-31 .flex").css("display", "block");
+                              $(".page-31 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4711,7 +4758,7 @@ function startCropper_page_29_1() {
           }   
           function startCropper_page_31_3() {
               var image = document.getElementById("imageBackground-page-31-3");
-              $(".page-31 .flex").css("display", "none");
+              $(".page-31 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
               });
@@ -4765,7 +4812,7 @@ function startCropper_page_29_1() {
                                 $("#page31-3").attr("src", "uploadedimages/" + output);
                             $("input[name=page_31_img_3]").val("uploadedimages/" + output);
                               });
-                              $(".page-31 .flex").css("display", "block");
+                              $(".page-31 .container").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */

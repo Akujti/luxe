@@ -259,17 +259,29 @@
             object-fit: cover;
             width: 100%;
         }
+
+        img.half-page-img-2 {
+            object-fit: cover;
+            width: 100%;
+            height: 560px;
+        }
+
+        .absolute {
+            position: absolute;
+        }
     </style>
 </head>
 
 <body>
     <div class="page page-1">
         <div class="container">
-            <div class="absolute" style="top:30%">
+            <div class="absolute" style="top:30%;left:20px;">
                 <h1 class="big-title font-thin mb-40">{{$page_1_text_1}}</h1>
-                <h1 class="big-title gold font-thin mb-40">{{$page_1_text_2}} </h1>
-                <h1 class="big-title gold font-thin mb-20">{{$page_1_text_3}}</h1>
-                <h1 class="font-thin">{{$page_1_text_4}}</h1>
+                <h1 class="big-title gold font-thin mb-40" style="font-size: 160px;line-height:70px;">
+                    {{$page_1_text_2}} </h1>
+                <h1 class="big-title gold font-thin mb-20" style="font-size: 160px;line-height:70px;">{{$page_1_text_3}}
+                </h1>
+                <h1 class="font-thin" style="letter-spacing: 50px;">{{$page_1_text_4}}</h1>
             </div>
             <div class="page-bottom text-center">
                 <img src="images/Asset 1.png" alt="">
@@ -289,6 +301,7 @@
     </div>
 
     <div class="page_break"></div>
+
 
     <div class="page page-3 page-background" style="background-image:url('images/single-property/page-3.png')">
         <div class="container">
@@ -363,7 +376,7 @@
     <div class="page page-6 page-background" style="background-image:url('{{$page_6_img_1}}')">
         <div class="container">
             <div class="absolute" style="top:37%;">
-                <h2 class="cover-page-thin font-thin" style="font-size: 40px;margin-left:152px;margin-bottom:10px;">The
+                <h2 class="cover-page-thin font-thin" style="font-size: 40px;margin-left:152px;margin-bottom:30px;">The
                     Home</h2>
                 <h1 class="big-title gold">Buying</h1>
                 <h1 class="font-thin" style="margin-left: 250px;margin-top:10px;">Process</h1>
@@ -416,7 +429,7 @@
     <div class="page page-10 page-background" style="background-image:url('{{$page_10_img_1}}');">
         <div class="container">
             <div class="absolute" style="top:35%;left:50px;right:100px;">
-                <h2 class="font-thin white" style="font-size:80px;">Type Of</h2>
+                <h2 class="font-thin white" style="font-size:80px;">Types Of</h2>
                 <h1 class="font-thin gold" style="font-size:150px;margin-top:60px;">Loans</h1>
                 <hr class="gold">
                 <p class="white">**Some homes in poor condition, with title issues or in need of a fast sale may be
@@ -494,11 +507,14 @@
 
     <div class="page page-12">
         <div class="container">
-            <div>
-                <img class="half-page-img" src="{{$page_12_img_1}}" alt="">
+            <div class="absolute" style="top: 0">
+                <img class="half-page-img-2" src="{{$page_12_img_1}}" alt="">
             </div>
-            <div>
-                <img class="half-page-img" src="{{$page_12_img_2}}" alt="">
+            <div class="absolute" style="bottom: 0">
+                <img class="half-page-img-2" src="{{$page_12_img_2}}" alt="">
+            </div>
+            <div class="absolute" style="top: 350px;left:250px;">
+                <img src="images/home-buying/page-12-3.png" alt="" width="300px">
             </div>
         </div>
     </div>
@@ -568,12 +584,15 @@
     </div>
 
     <div class="page_break"></div>
+    <div
+        style="top:0;bottom:0;right:550px;position:absolute;background-image: url('{{$page_14_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
 
-    <div class="page page-15 page-background"
-        style="background-image:url('{{$page_14_img_1}}');background-position:-600px;">
+    <div class="page page-15 page-background" style="background-position:-600px;">
         <div class="container" style="margin-left:300px;margin-top:30px;">
             <p class="font-thin" style="font-size:22px;">{{$page_15_text_1}}</p>
-            <h1 class="gold" style="font-size:35px;">{{$page_15_text_2}}</h1>
+            <h1 class="gold" style="font-size:35px;font-weight:900;">{{$page_15_text_2}}</h1>
             <ul style="list-style-image: url('images/home-buying/check.png');">
                 <?php $page_15_text_3_array = explode("\n", $page_15_text_3); ?>
                 @foreach ($page_15_text_3_array as $string_array)
@@ -581,7 +600,7 @@
                 @endforeach
             </ul>
 
-            <h1 class="gold" style="font-size:35px;">{{$page_15_text_4}}</h1>
+            <h1 class="gold" style="font-size:35px;font-weight:900;">{{$page_15_text_4}}</h1>
             <ul style="list-style-image: url('images/home-buying/check.png');">
                 <?php $page_15_text_5_array = explode("\n", $page_15_text_6); ?>
                 @foreach ($page_15_text_5_array as $string_array)
@@ -603,7 +622,7 @@
 
     <div class="page page-16 page-background" style="background-image:url('{{$page_16_img_1}}')">
         <div class="container">
-            <div class="absolute" style="top:10px;">
+            <div class="absolute" style="top:800px;">
                 <h2 class="white font-thin"
                     style="font-size:50px;margin-left:110px;margin-bottom:15px;text-align:right;">What are</h2>
                 <h1 class="gold font-thin" style="font-size:90px;text-align:right;">Foreclosures</h1>
@@ -616,10 +635,13 @@
 
     <div class="page_break"></div>
 
-    <div class="page page-17 page-background"
-        style="background-image:url('{{$page_16_img_1}}');background-position:-600px;">
+    <div
+        style="top:0;bottom:0;right:550px;position:absolute;background-image: url('{{$page_16_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
+    <div class="page page-17 page-background" style="background-position:-600px;">
         <div class="container" style="margin-left:300px;margin-top:30px;">
-            <h1 class="gold" style="font-size:35px;">{{$page_17_text_1}}</h1>
+            <h1 class="gold" style="font-size:35px;font-weight:900;">{{$page_17_text_1}}</h1>
             <ul style="list-style-image: url('images/home-buying/check.png');">
                 <?php $page_17_text_2_array = explode("\n", $page_17_text_2); ?>
                 @foreach ($page_17_text_2_array as $string_array)
@@ -627,7 +649,7 @@
                 @endforeach
             </ul>
 
-            <h1 class="gold" style="font-size:35px;">{{$page_17_text_3}}</h1>
+            <h1 class="gold" style="font-size:35px;font-weight:900;">{{$page_17_text_3}}</h1>
             <ul style="list-style-image: url('images/home-buying/check.png');">
                 <?php $page_17_text_4_array = explode("\n", $page_17_text_4); ?>
                 @foreach ($page_17_text_4_array as $string_array)
@@ -635,7 +657,7 @@
                 @endforeach
             </ul>
 
-            <h1 class="gold" style="font-size:35px;">{{$page_17_text_5}}</h1>
+            <h1 class="gold" style="font-size:35px;font-weight:900;">{{$page_17_text_5}}</h1>
             <ul style="list-style-image: url('images/home-buying/check.png');">
                 <?php $page_17_text_6_array = explode("\n", $page_17_text_6); ?>
                 @foreach ($page_17_text_6_array as $string_array)
@@ -643,7 +665,7 @@
                 @endforeach
             </ul>
 
-            <div class="page-number" style="background-image: url('images/single-property/16.png');top:37%;">
+            <div class="page-number" style="background-image: url('images/home-buying/16.png');top:37%;">
                 <div class="text" style="margin-top: 150px;margin-right: 150px;">
                     <h4 class="font-thin">THE HOME</h4>
                     <h3 class="font-thin gold">BUYING</h3>
@@ -657,7 +679,7 @@
 
     <div class="page page-18 page-background" style="background-image:url('{{$page_18_img_1}}')">
         <div class="container">
-            <div class="absolute" style="top:10px;">
+            <div class="absolute" style="top:800px;">
                 <h2 class="white font-thin" style="font-size:50px;margin-left:140px;margin-bottom:15px;">The</h2>
                 <h1 class="gold font-thin" style="font-size:150px;">Contract</h1>
                 <h2 class="white font-thin" style="font-size:70px;margin-left:110px;margin-top:-15px;text-align:right;">
@@ -668,8 +690,11 @@
 
     <div class="page_break"></div>
 
-    <div class="page page-19 page-background"
-        style="background-image:url('{{$page_18_img_1}}');background-position:-600px;">
+    <div
+        style="top:0;bottom:0;right:550px;position:absolute;background-image: url('{{$page_18_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
+    <div class="page page-19 page-background" style="background-position:-600px;">
         <div class="container" style="margin-left:300px;margin-top:30px;">
             <h1 class="gold font-bold" style="font-size:25px;">{{$page_19_text_1}}</h1>
             <ul style="list-style-image: url('images/home-buying/check.png');">
@@ -712,13 +737,22 @@
     <div class="page page-20 page-background"
         style="background-image:url('{{$page_20_img_1}}');background-position:center;">
         <div class="container">
+            <div class="absolute" style="top:800px;">
+                <h2 class="white font-thin" style="font-size:40px;margin-left:40px;margin-bottom:30px;">Inspection,
+                    Seller Disclosures &
+                    Insurances</h2>
+                <h1 class="gold font-thin" style="font-size:150px;margin-left:10px;">Insurances</h1>
+            </div>
         </div>
     </div>
 
     <div class="page_break"></div>
 
-    <div class="page page-21 page-background"
-        style="background-image:url('{{$page_20_img_1}}');background-position:-600px;">
+    <div
+        style="top:0;bottom:0;right:550px;position:absolute;background-image: url('{{$page_20_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
+    <div class="page page-21 page-background" style="background-position:-600px;">
         <div class="container" style="margin-left:300px;margin-top:30px;">
             <p class="font-thin" style="font-size: 25px;">{{$page_21_text_1}}</p>
             <p class="font-thin mb-40" style="font-size: 25px;">{{$page_21_text_2}}</p>
@@ -760,7 +794,7 @@
 
     <div class="page page-23 page-background"
         style="background-image:url('{{$page_22_img_1}}');background-position:-600px 650px; background-size:contain;">
-        <div class="container" style="margin-left:250px;margin-top:30px;margin-right:30px;">
+        <div class="container" style="margin-left:250px;margin-top:80px;margin-right:30px;">
             <p class="font-thin mb-50" style="font-size:40px;width:500px;"><?php echo $page_23_text_1?></p>
             <p class="font-thin mb-50" style="font-size: 20px;">{{$page_23_text_2}}</p>
             <ul style="list-style-image: url('images/home-buying/check.png');">
@@ -795,11 +829,15 @@
 
     <div class="page_break"></div>
 
-    <div class="page page-25 page-background"
-        style="background-image:url('{{$page_24_img_1}}');background-position:-600px;">
-        <div class="container" style="margin-left:300px;margin-top:30px;">
+    <div
+        style="top:0;bottom:0;right:550px;position:absolute;background-image: url('{{$page_24_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
+    <div class="page page-25 page-background" style="background-position:-600px;">
+        <div class="container" style="margin-left:280px;margin-top:30px;">
             <p class="font-thin gold"
-                style="font-size:120px;margin-left:-155px;margin-bottom:-60px;white-space: nowrap">{{$page_25_text_1}}</p>
+                style="font-size:120px;margin-left:-165px;margin-bottom:-60px;white-space: nowrap">{{$page_25_text_1}}
+            </p>
             <p class="font-thin" style="font-size:70px;">{{$page_25_text_2}}</p>
             <p class="font-thin mb-50" style="font-size:16px;"><?php echo $page_25_text_3;?></p>
             <div class="page-number absolute"
@@ -827,14 +865,16 @@
 
     <div class="page_break"></div>
 
-    <div class="page page-27 page-background"
-        style="background-image:url('{{$page_26_img_1}}');background-position:-600px;">
+    <div
+        style="top:0;bottom:0;right:550px;position:absolute;background-image: url('{{$page_26_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
+    <div class="page page-27 page-background" style="background-position:-600px;">
         <div class="container" style="margin-left:300px;margin-top:30px;">
             <div class="absolute" style="top:30px;left:270px;">
                 <div style="background-color: #C6A467;padding:5px;width:176px;border-radius: 600%;">
                     <div style="background-color:white;padding:5px;border-radius: 550%;">
-                        <img src="{{$page_27_img_1}}" alt="" width="166" height="166"
-                            style="border-radius: 500%;">
+                        <img src="{{$page_27_img_1}}" alt="" width="166" height="166" style="border-radius: 500%;">
                     </div>
                 </div>
             </div>
@@ -849,8 +889,7 @@
             <div class="absolute" style="top:230px;left:170px;">
                 <div style="background-color: black;padding:5px;width:176px;border-radius: 600%;">
                     <div style="background-color:white;padding:5px;border-radius: 550%;">
-                        <img src="{{$page_27_img_2}}" alt="" width="166" height="166"
-                            style="border-radius: 500%;">
+                        <img src="{{$page_27_img_2}}" alt="" width="166" height="166" style="border-radius: 500%;">
                     </div>
                 </div>
             </div>
@@ -865,8 +904,7 @@
             <div class="absolute" style="top:450px;left:270px;">
                 <div style="background-color: #C6A467;padding:5px;width:176px;border-radius: 600%;">
                     <div style="background-color:white;padding:5px;border-radius: 550%;">
-                        <img src="{{$page_27_img_3}}" alt="" width="166" height="166"
-                            style="border-radius: 500%;">
+                        <img src="{{$page_27_img_3}}" alt="" width="166" height="166" style="border-radius: 500%;">
                     </div>
                 </div>
             </div>
@@ -881,8 +919,7 @@
             <div class="absolute" style="top:650px;left:170px;">
                 <div style="background-color: black;padding:5px;width:176px;border-radius: 600%;">
                     <div style="background-color:white;padding:5px;border-radius: 550%;">
-                        <img src="{{$page_27_img_4}}" alt="" width="166" height="166"
-                            style="border-radius: 500%;">
+                        <img src="{{$page_27_img_4}}" alt="" width="166" height="166" style="border-radius: 500%;">
                     </div>
                 </div>
             </div>
@@ -910,17 +947,19 @@
 
     <div class="page_break"></div>
 
-    <div class="page page-29 page-background"
-        style="background-image:url('{{$page_28_img_1}}');background-position:-600px;">
-        <div class="container" style="margin-left:300px;margin-top:30px;">
+    <div
+        style="top:0;bottom:0;right:550px;position:absolute;background-image: url('{{$page_28_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
+    <div class="page page-29 page-background" style="background-position:-600px;">
+        <div class="container" style="margin-left:170px;margin-top:30px;">
 
             <div class="mb-20" style="background-color: #C6A467;padding:5px;border-radius:600%;">
                 <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                    <img src="{{$page_29_img_1}}" alt="" width="166" height="166"
-                        style="border-radius: 500%;">
+                    <img src="{{$page_29_img_1}}" alt="" width="166" height="166" style="border-radius: 500%;">
                 </div>
             </div>
-            <div class="absolute" style="top:40px;left:490px;width:450px;">
+            <div class="absolute" style="top:40px;left:390px;width:450px;">
                 <p class="white" style="font-size:24px;">{{$page_29_text_1}}</p>
                 <p>{{$page_29_text_2}}</p>
                 <p>{{$page_29_text_3}}</p>
@@ -930,11 +969,10 @@
 
             <div class="mb-20" style="background-color: #C6A467;padding:5px;border-radius:600%;">
                 <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                    <img src="{{$page_29_img_2}}" alt="" width="166" height="166"
-                        style="border-radius: 500%;">
+                    <img src="{{$page_29_img_2}}" alt="" width="166" height="166" style="border-radius: 500%;">
                 </div>
             </div>
-            <div class="absolute" style="top:250px;left:490px;width:450px;">
+            <div class="absolute" style="top:250px;left:390px;width:450px;">
                 <p class="white" style="font-size:24px;">{{$page_29_text_6}}</p>
                 <p>{{$page_29_text_7}}</p>
                 <p>{{$page_29_text_8}}</p>
@@ -944,11 +982,10 @@
 
             <div class="mb-20" style="background-color: #C6A467;padding:5px;border-radius:600%;">
                 <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                    <img src="{{$page_29_img_3}}" alt="" width="166" height="166"
-                        style="border-radius: 500%;">
+                    <img src="{{$page_29_img_3}}" alt="" width="166" height="166" style="border-radius: 500%;">
                 </div>
             </div>
-            <div class="absolute" style="top:460px;left:490px;width:450px;">
+            <div class="absolute" style="top:460px;left:390px;width:450px;">
                 <p class="white" style="font-size:24px;">{{$page_29_text_11}}</p>
                 <p>{{$page_29_text_12}}</p>
                 <p>{{$page_29_text_13}}</p>
@@ -958,11 +995,10 @@
 
             <div style="background-color: #C6A467;padding:5px;border-radius:600%;">
                 <div style="background-color:white;padding:5px;border-radius: 550%;width:169px;">
-                    <img src="{{$page_29_img_4}}" alt="" width="166" height="166"
-                        style="border-radius: 500%;">
+                    <img src="{{$page_29_img_4}}" alt="" width="166" height="166" style="border-radius: 500%;">
                 </div>
             </div>
-            <div class="absolute" style="top:660px;left:490px;width:450px;">
+            <div class="absolute" style="top:660px;left:390px;width:450px;">
                 <p class="white" style="font-size:24px;">{{$page_29_text_16}}</p>
                 <p>{{$page_29_text_17}}</p>
                 <p>{{$page_29_text_18}}</p>
@@ -985,13 +1021,15 @@
 
     <div class="page_break"></div>
 
-    <div class="page page-31 page-background"
-        style="background-image:url('{{$page_30_img_1}}');background-position:-600px;">
+    <div
+        style="top:0;bottom:0;right:550px;position:absolute;background-image: url('{{$page_30_img_1}}');background-size: cover;background-position:bottom right;background-repeat: no-repeat;height:100%">
+        <h1></h1>
+    </div>
+    <div class="page page-31 page-background" style="background-position:-600px;">
         <div class="container" style="margin-left:70px;margin-top:30px;margin-right:50px;">
 
             <div class="section" style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;">
-                <img src="{{$page_31_img_1}}" alt="" style="float: left;margin-bottom:-30px;"
-                    height="230px">
+                <img src="{{$page_31_img_1}}" alt="" style="float: left;margin-bottom:-30px;" height="230px">
                 <img src="images/home-selling/divider-1.png" alt="" height="230px"
                     style="margin-left:-114px;z-index:100;margin-top:47px;margin-bottom:-50px;">
                 <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;">
@@ -1001,8 +1039,7 @@
             </div>
 
             <div class="section" style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;">
-                <img src="{{$page_31_img_2}}" alt="" style="float: left;margin-bottom:-30px;"
-                    height="230px">
+                <img src="{{$page_31_img_2}}" alt="" style="float: left;margin-bottom:-30px;" height="230px">
                 <img src="images/home-selling/divider-1.png" alt="" height="230px"
                     style="margin-left:-114px;z-index:100;margin-top:47px;margin-bottom:-50px;">
                 <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;">
@@ -1012,8 +1049,7 @@
             </div>
 
             <div class="section" style="border:1px solid gray;margin-bottom:20px;padding-bottom:0px;">
-                <img src="{{$page_31_img_3}}" alt="" style="float: left;margin-bottom:-30px;"
-                    height="230px">
+                <img src="{{$page_31_img_3}}" alt="" style="float: left;margin-bottom:-30px;" height="230px">
                 <img src="images/home-selling/divider-1.png" alt="" height="230px"
                     style="margin-left:-114px;z-index:100;margin-top:47px;margin-bottom:-50px;">
                 <div class="text" style="position: absolute;padding-left:30px;padding-top:30px;">
