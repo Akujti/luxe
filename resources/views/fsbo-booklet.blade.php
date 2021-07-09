@@ -370,12 +370,12 @@
             </p>
         </div>
 
-        <div class="absolute" style="top:14%;left:40px;z-index:1000;">
+        <div class="absolute" style="top:14%;left:40px;z-index:1000;width:240px;">
             <h1 class="font-bold white" style="margin-bottom:15px;">{{$page_5_text_1}}</h1>
-            <h4 class="font-thin" style="">{{$page_5_text_2}}</h4>
+            <h4 class="font-thin" style="font-size:32px;">{{$page_5_text_2}}</h4>
         </div>
 
-        <div class="absolute" style="top:20%;left:40px;z-index:1000;width:200px;">
+        <div class="absolute" style="top:21%;left:40px;z-index:1000;width:200px;">
             <p style="font-size:13px;">{{$page_5_text_3}}</p>
         </div>
 

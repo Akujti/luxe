@@ -212,13 +212,13 @@
                             </p>
                         </div>
 
-                        <div class="absolute" style="margin-top:200px;left:40px;z-index:1000;width:610px">
+                        <div class="absolute" style="margin-top: 200px;left: 30px;z-index: 1000;width: 215px;">
                             <h1 class="font-bold white page-5-text-1" style="margin-bottom:-45px;font-size:55px;">Hello!
                             </h1>
                             <h4 class="font-thin page-5-text-2" style="font-size:30px;">I’m Wesley Ulloa</h4>
                         </div>
 
-                        <div class="absolute" style="top:20%;left:40px;z-index:1000;width:200px;">
+                        <div class="absolute" style="top:20%;left:30px;z-index:1000;width:200px;">
                             <p style="font-size:13px;" class="page-5-text-3">There are many reasons that folks choose to
                                 go the
                                 FSBO route
@@ -230,7 +230,7 @@
                                 aloud, and the concept most definitely has some serious pros.</p>
                         </div>
 
-                        <div class="absolute" style="margin-top:-410px;left:247px;width:200px;">
+                        <div class="absolute" style="left:247px;width:200px;position: absolute;top: 141px;">
                             <img id="page-5-img-1" src="images/fsbo-booklet/woman.png" alt="" width="500px;">
                         </div>
                     </div>
@@ -606,7 +606,7 @@
         });
     $("textarea").change(function(event) {
         var event_id = event.target.id;
-        if (event_id == "page-5-text-2") {
+        if (event_id == "page-5-text-3") {
             var text = $("#page-5-text-3").val();
             var array = document.getElementsByClassName("page-5-text-3");
             var textarea = array[0];
