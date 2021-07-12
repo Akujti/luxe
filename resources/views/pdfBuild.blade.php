@@ -405,7 +405,7 @@
         height: 90%;
         background-repeat: no-repeat;
         margin-left: 45px;
-        padding-bottom: 35px;
+        padding-bottom: 540px;
     }
 
     .page-4-2 .content .section {
@@ -415,44 +415,48 @@
     }
 
     .page-4-2 .content .section .section-content-top {
-        font-size: 60px;
+        font-size: 55px;
         font-weight: 300;
     }
 
     .page-4-2 .content .section .section-content-bottom {
-        font-size: 23px;
+        font-size: 19px;
         text-transform: uppercase;
-        font-weight: 300;
     }
 
     .page-4-2 .content .section-1 {
+        top: 7px;
         margin-left: 170px;
         padding-top: 10px;
-        margin-bottom: -10px;
+        width: 150px;
     }
 
     .page-4-2 .content .section-2 {
-        top: 260px;
-        left: 83px;
+        top: 110px;
+        left: 52px;
+        width: 150px;
     }
 
     .page-4-2 .content .section-3 {
-        margin-top: -125px;
+        top: 110px;
         margin-left: 335px;
+        width: 150px;
     }
 
     .page-4-2 .content .section-4 {
-        margin-top: 65px;
+        top: 300px;
+        width: 150px;
     }
 
     .page-4-2 .content .section-5 {
-        margin-top: -118px;
+        top: 300px;
         margin-left: 335px;
+        width: 150px;
     }
 
     .page-4-2 .content .section-6 {
         margin-left: 170px;
-        margin-top: -10px;
+        top: 395px;
     }
 
     .page-4-2 .bg-image {
@@ -839,6 +843,14 @@
     .pos-relative {
         position: relative;
     }
+
+    .abs {
+        position: absolute;
+    }
+
+    .bold {
+        font-weight: 500 !important;
+    }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
@@ -1123,35 +1135,36 @@
                         </div>
                         <div class="luxe-pro-info pos-relative">
                             <div class="content">
-                                <div class="section section-1">
+                                <div class="section section-1 abs">
                                     <span class="section-content-top page-4-2-text-1">4</span>
                                     <br>
-                                    <span class="section-content-bottom page-4-2-text-2">Locations</span>
+                                    <span class="section-content-bottom page-4-2-text-2 bold">Locations</span>
                                 </div>
-                                <div class="section section-2">
+                                <div class="section section-2 abs">
                                     <span class="section-content-top page-4-2-text-3">325</span>
                                     <br>
-                                    <span class="section-content-bottom page-4-2-text-4">Real Estate Agents</span>
+                                    <span class="section-content-bottom page-4-2-text-4 bold">Real Estate Agents</span>
                                 </div>
-                                <div class="section section-3">
+                                <div class="section section-3 abs">
                                     <span class="section-content-top page-4-2-text-5">61</span>
                                     <br>
-                                    <span class="section-content-bottom page-4-2-text-6">% Growth 2019</span>
+                                    <span class="section-content-bottom page-4-2-text-6 bold">% Growth 2019</span>
                                 </div>
-                                <div class="section section-4">
+                                <div class="section section-4 abs">
                                     <span class="section-content-top page-4-2-text-7">67</span>
                                     <br>
-                                    <span class="section-content-bottom page-4-2-text-8">Days On Market</span>
+                                    <span class="section-content-bottom page-4-2-text-8 bold">Days On Market</span>
                                 </div>
-                                <div class="section section-5">
+                                <div class="section section-5 abs">
                                     <span class="section-content-top page-4-2-text-9">3500</span>
                                     <br>
-                                    <span class="section-content-bottom page-4-2-text-10">Homes Sold</span>
+                                    <span class="section-content-bottom page-4-2-text-10 bold">Homes Sold</span>
                                 </div>
-                                <div class="section section-6">
+                                <div class="section section-6 abs">
                                     <span class="section-content-top page-4-2-text-11">98</span>
                                     <br>
-                                    <span class="section-content-bottom page-4-2-text-12">% List To Sale Price</span>
+                                    <span class="section-content-bottom page-4-2-text-12 bold">% List To Sale
+                                        Price</span>
                                 </div>
                             </div>
                             <div class="text ">
@@ -2259,12 +2272,12 @@ Mobile Optimization </textarea>
             <div class="page page-11 page-11-2">
                 <div class="heading">
                     <h2 class="subtitle-top"
-                        style="font-weight: 300;font-size:70px;margin-bottom:-230px;margin-left:350px;">Your</h2>
+                        style="font-weight: 300;font-size:70px;margin-bottom:-230px;margin-left:200px;">Your</h2>
                     <h1 class="title"
                         style="padding-left: 50px;font-size: 190px;color:#C6A467;font-weight:300;margin-bottom:-100px;">
                         Home</h1>
                     <h1 class="subtitle-bottom"
-                        style="font-weight: 300;font-size: 75px;margin-left:220px;margin-bottom:-10px;">In Print</h1>
+                        style="font-weight: 300;font-size: 75px;margin-left:305px;margin-bottom:-10px;">In Print</h1>
                 </div>
                 <div class="content" style="padding-left: 50px;">
                     <h1 class="page-11-2-text-1"
@@ -4165,7 +4178,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
     }
 
     function startCropper_page_9_2() {
-        var image = document.getElementById("imageBackground-page-9-1");
+        var image = document.getElementById("imageBackground-page-9-2");
         $(".page-9-1").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500
@@ -4174,7 +4187,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function imageBackgroundInputChanged_page_9_2() {
         var form_data = new FormData();
-        form_data.append("file", $("#imageBackgroundInput-page-9-1")[0].files[0]);
+        form_data.append("file", $("#imageBackgroundInput-page-9-2")[0].files[0]);
         $.ajax({
             url: '/uploadimage',
             data: form_data,
@@ -4186,7 +4199,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 'X-CSRF-Token': $('[name="_token"]').val()
             },
             success: function(output) {
-                $("#imageBackground-page-9-1").attr('src', 'uploadedimages/' + output)
+                $("#imageBackground-page-9-2").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("imageBackground-page-9-2"), function(base64) {
                     $("#section18-2").attr('src', 'uploadedimages/' + output)
                     $("input[name=page_9_img_2]").val('uploadedimages/' + output);

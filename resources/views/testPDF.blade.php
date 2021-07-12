@@ -88,7 +88,7 @@
 
         .page-2-1 .luxe-pro-info .text {
             position: absolute;
-            bottom: 25%;
+            bottom: 17%;
         }
 
         .page-2-1 .luxe-pro-info h1 {
@@ -1278,7 +1278,7 @@
                         <h2 style="text-align: center;font-weight: 400;font-size: 12px;margin:0;color:white;">
                             INTRODUCING</h2>
                         <h2
-                            style="text-align: center;font-weight: 400;font-size: 12px;margin:0;color:white;border-bottom:1px solid white;">
+                            style="text-align: center;font-weight:700;font-size: 12px;margin:0;color:white;border-bottom:1px solid white;">
                             {{ $page_11_1_text_1}}</h2>
                         <p style="color: #fff;font-size: 12px;">{{ $page_11_1_text_2}}</p>
                         <h2 style="text-align: center;color: #fff;font-size: 22px;font-weight: 300;">
@@ -1308,7 +1308,7 @@
 
     <div class="page page-11 page-11-2" style="padding-left:150px;padding-right:150px;">
         <div class="heading">
-            <h2 class="subtitle-top" style="font-weight: 300;font-size:60px;position: absolute;top:80px;left:300px;">
+            <h2 class="subtitle-top" style="font-weight: 300;font-size:60px;position: absolute;top:80px;left:330px;">
                 Your
             </h2>
             <h1 class="title"
