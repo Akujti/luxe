@@ -284,6 +284,7 @@
                         <input type="file" id="img-3-input" onchange="img_3_change()">
                         <button type="button" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="img_3_crop()">Save Crop</button>
+                        <p style="font-size: 12px;"><i>Use portrait images for better results</i></p>
                     </div>
                     <div class="">
                         <label for="page-1-img-2">Background Image</label>

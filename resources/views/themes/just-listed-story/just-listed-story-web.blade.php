@@ -272,6 +272,7 @@
                         <input type="file" id="img-1-input" onchange="img_1_change()">
                         <button type="button" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="img_1_crop()">Save Crop</button>
+                        <p style="font-size: 12px;"><i>Use portrait images for better results</i></p>
                     </div>
                     <div class="file-input-width">
                         <label for="page-1-img-2">First Image</label>

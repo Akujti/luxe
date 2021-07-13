@@ -220,6 +220,7 @@
                         <input type="file" id="img-2-input" onchange="img_2_change()">
                         <button type="button" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="img_2_crop()">Save Crop</button>
+                        <p style="font-size: 12px;"><i>Use portrait images for better results</i></p>
                     </div>
                 </div>
                 <div class="flex">
