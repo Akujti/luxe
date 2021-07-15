@@ -357,6 +357,7 @@ class PDFController extends Controller
             'page_1_text_3' => $request['page_1_text_3'],
             'page_1_text_4' => $request['page_1_text_4'],
             'page_1_text_5' => $request['page_1_text_5'],
+            'page_1_text_13' => $request['page_1_text_13'],
 
             'page_1_text_11_select' => $request['page_1_text_11_select'],
             'page_1_text_12_select' => $request['page_1_text_12_select'],

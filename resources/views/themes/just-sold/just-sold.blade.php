@@ -120,6 +120,13 @@
             <h1 class="gold bold" style="font-size: 100px;line-height:100px;">{{ $page_1_text_4 }}</h1>
             <h1 class="white" style="font-size: 80px;line-height:80px;">{{ $page_1_text_5 }}</h1>
         </div>
+        <div class="absolute" style="top: 2120px;width: 2500px;">
+            <div style="position: relative;left:2640px;text-align:center;">
+                <h1 class="font-400 white" style="transform: rotate(-90deg);text-align: center;font-size: 80px;">
+                    {{$page_1_text_13}}
+                </h1>
+            </div>
+        </div>
     </div>
 </body>
 

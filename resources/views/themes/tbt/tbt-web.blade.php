@@ -90,7 +90,7 @@
     .page {
         position: absolute;
         left: 0;
-        background-image: url('images/themes/tbt/main.png');
+        background-image: url('/images/themes/tbt/main.png');
         background-position: top right;
         background-repeat: no-repeat;
         background-size: 800px;
@@ -182,7 +182,7 @@
                     </div>
                     <div>
                         <img id="img2" class="absolute" style="top:19.2%;left:11.4%;object-fit:cover;"
-                            src="images/themes/tbt/team.jpg" alt="" width="620px" height="620px">
+                            src="/images/themes/tbt/team.jpg" alt="" width="620px" height="620px">
                     </div>
                 </div>
             </div>
