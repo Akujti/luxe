@@ -1061,6 +1061,10 @@ class PDFController extends Controller
             'page_19_text_4' => $request['page_19_text_4'],
             'page_19_text_5' => $request['page_19_text_5'],
 
+            'page_20_text_1' => $request['page_20_text_1'],
+            'page_20_text_2' => $request['page_20_text_2'],
+            'page_20_text_3' => $request['page_20_text_3'],
+
             'page_22_text_1' => $request['page_22_text_1'],
             'page_22_text_2' => $request['page_22_text_2'],
             'page_22_text_3' => $request['page_22_text_3'],

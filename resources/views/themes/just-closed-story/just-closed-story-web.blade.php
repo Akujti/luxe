@@ -7,9 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Just Closed Story</title>
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-</style>
+@include('includes.fonts')
 <style>
     * {
         font-family: 'Montserrat';
@@ -86,10 +84,10 @@
     .page {
         position: absolute;
         left: 0;
-        background-image: url('images/themes/just-listed/img-1.jpg');
+        background-image: url('images/themes/just-listed/img-rec.jpg');
         background-position: center bottom;
         background-repeat: no-repeat;
-        background-size: 1800px 1200px;
+        background-size: 900px;
     }
 
     .absolute {
@@ -167,7 +165,7 @@
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-                <input hidden name="img_1_input" id="img_1_input" value="images/themes/just-listed/img-1.jpg">
+                <input hidden name="img_1_input" id="img_1_input" value="images/themes/just-listed/img-rec.jpg">
                 <div class="page">
                     <div>
                         <img id="img1" src="images/themes/just-closed-story/main.png" alt="" width="900px">
@@ -517,6 +515,7 @@
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio: 9/16,
             minContainerHeight: 500
         });
     }

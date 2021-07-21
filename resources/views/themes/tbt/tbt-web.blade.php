@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Throwback Thursday</title>
 </head>
-
+@include('includes.fonts')
 <style>
     .font-400 {
         font-weight: 400;
@@ -460,6 +460,7 @@
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio: 1,
             minContainerHeight: 500
         });
     }

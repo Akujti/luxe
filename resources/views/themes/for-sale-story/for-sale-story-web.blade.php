@@ -7,10 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>For Sale Story</title>
 </head>
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-</style>
+@include('includes.fonts')
 <style>
     * {
         font-family: 'Montserrat';
@@ -89,7 +86,7 @@
         background-image: url('images/themes/for-sale/bg.png');
         background-position: top right;
         background-repeat: no-repeat;
-        background-size: 900px;
+        background-size: 104%;
     }
 
     .absolute {
@@ -522,6 +519,7 @@
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio: 1,
             minContainerHeight: 500
         });
     }

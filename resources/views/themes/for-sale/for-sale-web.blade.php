@@ -7,9 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>For Sale</title>
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-</style>
+@include('includes.fonts')
 <style>
     * {
         font-family: 'Montserrat';
@@ -520,7 +518,8 @@
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 500
+            minContainerHeight: 500,
+            aspectRatio: 1,
         });
     }
 

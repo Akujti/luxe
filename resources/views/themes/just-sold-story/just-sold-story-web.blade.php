@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Just Sold Story</title>
 </head>
-
+@include('includes.fonts')
 <style>
     * {
         font-family: "Montserrat";
@@ -546,6 +546,7 @@
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio: 1,
             minContainerHeight: 500
         });
     }

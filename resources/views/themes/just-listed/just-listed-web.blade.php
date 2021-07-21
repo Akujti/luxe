@@ -7,11 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Just Listed</title>
 </head>
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-</style>
-
+@include('includes.fonts')
 <style>
     * {
         font-family: "Montserrat";
@@ -270,7 +266,7 @@
                     <div class="file-input-width">
                         <label for="page-1-img-1">Main Image</label>
                         <input type="file" id="img-1-input" onchange="img_1_change()">
-                        <button type="button" onclick="startCropper()">Crop</button>
+                        <button type="button" onclick="startCropper_main()">Crop</button>
                         <button type="button" onclick="img_1_crop()">Save Crop</button>
                     </div>
                     <div class="file-input-width">
@@ -529,10 +525,19 @@
     }
 
     var cropper;
+    function startCropper_main(){
+        var image = document.getElementById("image");
+        $(".page").css("display", "none");
+        cropper = new Cropper(image, {
+            aspectRatio: 16/9,
+            minContainerHeight: 500
+        });
+    }
     function startCropper(){
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio: 1,
             minContainerHeight: 500
         });
     }

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Joined LUXE</title>
 </head>
+@include('includes.fonts')
 <style>
     * {
         font-family: 'Montserrat';
@@ -86,7 +87,7 @@
         background-image: url('images/themes/joined-luxe/person.jpg');
         background-position: top right;
         background-repeat: no-repeat;
-        background-size: 615px;
+        background-size: 80%;
     }
 
     .absolute {
@@ -577,7 +578,8 @@
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 500
+            minContainerHeight: 500,
+            aspectRatio: 1,
         });
     }
 

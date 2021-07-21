@@ -896,6 +896,8 @@
             <div class="row-divider"></div>
             <div class="row">
                 <div class="row-image">
+                    <img src="" id="imageBackground-page-2-1" style="display: none">
+                    <input hidden name="page_2_1_img_1" value="images/home-selling/listing_one.jpg">
                     <div class="page-2 page-2-1" style="background-image: url(images/home-selling/listing_one.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -903,8 +905,6 @@
     position: inherit;
     bottom: 0px;
     width: 100%;">
-                        <img src="" id="imageBackground-page-2-1" style="display: none">
-                        <input hidden name="page_2_1_img_1" value="images/home-selling/listing_one.jpg">
                         <div class="luxe-pro-info">
                             <div class="text">
                                 <h1 class="page-2-1-text-1">LUXE</h1>
@@ -981,11 +981,11 @@
                 </div>
             </div>
             <div class="row-divider"></div>
-            <div class="row">
+            <div class="row" style="height: 1010px">
                 <div class="row-image">
+                    <img src="" id="imageBackground-page-3-1" style="display: none">
+                    <input hidden name="page_3_1_img_1" value="images/home-selling/page-3.png">
                     <div class="page-3 page-3-1">
-                        <img src="" id="imageBackground-page-3-1" style="display: none">
-                        <input hidden name="page_3_1_img_1" value="images/home-selling/page-3.png">
                         <div class="luxe-pro-info">
                             <div class="text">
                                 <h2 class="page-3-1-text-1">Our</h2>
@@ -1102,10 +1102,10 @@
             <div class="row-divider"></div>
             <div class="row">
                 <div class="row-image" style="height: 1210px;">
+                    <img src="" id="imageBackground" style="display: none">
+                    <input hidden name="page_4_1_img_1" value="images/home-selling/Asset 8.png">
                     <div class="page-4 page-4-1">
                         <div class="luxe-pro-info">
-                            <img src="" id="imageBackground" style="display: none">
-                            <input hidden name="page_4_1_img_1" value="images/home-selling/Asset 8.png">
                             <div class="text">
                                 <h2 class="page-4-1-text-1">The</h2>
                                 <h1 class="page-4-1-text-2">Power</h1>
@@ -1232,10 +1232,10 @@
             <div class="row-divider"></div>
             <div class="row">
                 <div class="row-image" style="height: 1210px;">
+                    <img src="" id="imageBackground-page-5-1" style="display: none">
+                    <input hidden name="page_5_1_img_1" value="images/home-selling/Asset 10.png">
                     <div class="page-5 page-5-1">
                         <div class="luxe-pro-info">
-                            <img src="" id="imageBackground-page-5-1" style="display: none">
-                            <input hidden name="page_5_1_img_1" value="images/home-selling/Asset 10.png">
                             <div class="text">
                                 <h1>Marketing</h1>
                                 <h2>Showcase</h2>
@@ -1349,10 +1349,10 @@ Signage including web domain riders</textarea>
     <div class="row-divider"></div>
     <div class="row">
         <div class="row-image" style="height: 1210px;">
+            <img src="" id="imageBackground-page-6-1" style="display: none">
+            <input hidden name="page_6_1_img_1" value="images/home-selling/Asset 11.png">
             <div class="page-6 page-6-1">
                 <div class="luxe-pro-info">
-                    <img src="" id="imageBackground-page-6-1" style="display: none">
-                    <input hidden name="page_6_1_img_1" value="images/home-selling/Asset 11.png">
                     <div class="text">
                         <h1>Marketing</h1>
                         <h2>Timeframe</h2>
@@ -2219,14 +2219,14 @@ Mobile Optimization </textarea>
             </div>
             <div class="flex">
                 <div class="button" style="margin-top: 0;margin-bottom:50px;">
-                    <label>Left Top</label>
+                    <label style="margin: 0 !important">Left Top</label>
                     <input type="file" id="imageBackgroundInput-page-11-1-2"
                         onchange="imageBackgroundInputChanged_page_11_1_2()">
                     <button type="button" onclick="startCropper_page_11_1_2()">Crop</button>
                     <button type="button" onclick="cropImage_page_11_1_2()">Save Crop</button>
                 </div>
                 <div class="button" style="margin-top: 0;margin-bottom:50px;">
-                    <label>Right 1</label>
+                    <label style="margin: 0 !important">Right 1</label>
                     <input type="file" id="imageBackgroundInput-page-11-1-3"
                         onchange="imageBackgroundInputChanged_page_11_1_3()">
                     <button type="button" onclick="startCropper_page_11_1_3()">Crop</button>
@@ -2235,14 +2235,14 @@ Mobile Optimization </textarea>
             </div>
             <div class="flex">
                 <div class="button" style="margin-top: 0;margin-bottom:50px;">
-                    <label>Right 2</label>
+                    <label style="margin: 0 !important">Right 2</label>
                     <input type="file" id="imageBackgroundInput-page-11-1-4"
                         onchange="imageBackgroundInputChanged_page_11_1_4()">
                     <button type="button" onclick="startCropper_page_11_1_4()">Crop</button>
                     <button type="button" onclick="cropImage_page_11_1_4()">Save Crop</button>
                 </div>
                 <div class="button" style="margin-top: 0;margin-bottom:50px;">
-                    <label>Right 3</label>
+                    <label style="margin: 0 !important">Right 3</label>
                     <input type="file" id="imageBackgroundInput-page-11-1-5"
                         onchange="imageBackgroundInputChanged_page_11_1_5()">
                     <button type="button" onclick="startCropper_page_11_1_5()">Crop</button>
@@ -3574,9 +3574,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper() {
         var image = document.getElementById("imageBackground");
-        $(".page-4.page-4-1 .text").css("display", "none");
+        $(".page-4-1").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 800
+            aspectRatio:0.71,
+            minContainerHeight: 1000
         });
     }
 
@@ -3627,7 +3628,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $(".page-4-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_4_1_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-4.page-4-1 .text").css("display", "block");
+                    $(".page-4-1").css("display", "block");
                 }
             });
 
@@ -3689,9 +3690,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_2_1() {
         var image = document.getElementById("imageBackground-page-2-1");
-        $("page-2-1 .text").css("display", "none");
+        $(".page-2-1").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 500
+            aspectRatio:0.71,
+            minContainerHeight: 1000
         });
     }
 
@@ -3740,7 +3742,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $(".page-2-1").css('background-image', 'url(uploadedimages/' + output+')')
                         $("input[name=page_2_1_img_1]").val('uploadedimages/' + output);
                     });
-                    $("page-2-1 .text").css("display", "block");
+                    $(".page-2-1").css("display", "block");
                 }
             });
 
@@ -3749,9 +3751,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_3_1() {
         var image = document.getElementById("imageBackground-page-3-1");
-        $(".page-3-1 .text").css("display", "none");
+        $(".page-3-1").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 500
+            aspectRatio:0.71,
+            minContainerHeight: 1000
         });
     }
 
@@ -3800,7 +3803,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $(".page-3-1 .luxe-pro-info").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_3_1_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-3.page-3-1 .text").css("display", "block");
+                    $(".page-3-1").css("display", "block");
                 }
             });
 
@@ -3809,8 +3812,9 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_5_1() {
         var image = document.getElementById("imageBackground-page-5-1");
-        $(".page-5.page-5-1 .text").css("display", "none");
+        $(".page-5-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.71,
             minContainerHeight: 500
         });
     }
@@ -3862,7 +3866,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $(".page-5-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_5_1_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-5.page-5-1 .text").css("display", "block");
+                    $(".page-5-1").css("display", "block");
                 }
             });
 
@@ -3871,8 +3875,9 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
 
     function startCropper_page_6_1() {
         var image = document.getElementById("imageBackground-page-6-1");
-        $(".page-6-1 .text").css("display", "none");
+        $(".page-6-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.71,
             minContainerHeight: 500
         });
     }
@@ -3924,7 +3929,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                         $(".page-6-2 .page-bg-image").css('background-image', 'url(uploadedimages/' + output + ')')
                         $("input[name=page_6_1_img_1]").val('uploadedimages/' + output);
                     });
-                    $(".page-6.page-6-1 .text").css("display", "block");
+                    $(".page-6-1").css("display", "block");
                 }
             });
 
@@ -3935,7 +3940,8 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-7-1-1");
         $(".page-7-1").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 500
+            aspectRatio:16/9,
+            minContainerHeight: 1000
         });
     }
 
@@ -3997,7 +4003,8 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-7-1-2");
         $(".page-7-1").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 500
+            aspectRatio:16/9,
+            minContainerHeight: 1000
         });
     }
 
@@ -4059,7 +4066,8 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-7-1-3");
         $(".page-7-1").css("display", "none");
         cropper = new Cropper(image, {
-            minContainerHeight: 500
+            aspectRatio:16/9,
+            minContainerHeight: 1000
         });
     }
 
@@ -4121,6 +4129,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-9-1");
         $(".page-9-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:16/9,
             minContainerHeight: 500
         });
     }
@@ -4181,6 +4190,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-9-2");
         $(".page-9-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:11/16,
             minContainerHeight: 500
         });
     }
@@ -4241,6 +4251,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-10-1-1");
         $(".page-10-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:16/9,
             minContainerHeight: 500
         });
     }
@@ -4301,6 +4312,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-10-1-2");
         $(".page-10-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:16/9,
             minContainerHeight: 500
         });
     }
@@ -4361,6 +4373,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-11-1-1");
         $(".page-11 .text").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:16/11,
             minContainerHeight: 500
         });
     }
@@ -4421,6 +4434,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-11-1-2");
         $(".page-11-1 .text").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1.5,
             minContainerHeight: 500
         });
     }
@@ -4481,6 +4495,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-11-1-3");
         $(".page-11-1 .text").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1.6,
             minContainerHeight: 500
         });
     }
@@ -4541,6 +4556,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-11-1-4");
         $(".page-11-1 .text").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1.6,
             minContainerHeight: 500
         });
     }
@@ -4601,6 +4617,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-11-1-5");
         $(".page-11-1 .text").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1.6,
             minContainerHeight: 500
         });
     }
@@ -4661,6 +4678,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-11-1-6");
         $(".page-11-1 .text").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1.6,
             minContainerHeight: 500
         });
     }
@@ -4721,6 +4739,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-11-1-7");
         $(".page-11-1 .text").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:2.66,
             minContainerHeight: 500
         });
     }
@@ -4781,6 +4800,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-12-1");
         $(".page-12-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.71,
             minContainerHeight: 500
         });
     }
@@ -4843,6 +4863,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-13-1");
         $(".page-13-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.71,
             minContainerHeight: 500
         });
     }
@@ -4905,6 +4926,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-14-1");
         $(".page-14-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.71,
             minContainerHeight: 500
         });
     }
@@ -4965,6 +4987,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-15-1");
         $(".page-15-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.71,
             minContainerHeight: 500
         });
     }
@@ -5027,6 +5050,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-16-1");
         $(".page-16-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.71,
             minContainerHeight: 500
         });
     }
@@ -5089,6 +5113,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-17-1");
         $(".page-17-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.71,
             minContainerHeight: 500
         });
     }
@@ -5151,6 +5176,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-18-1");
         $(".page-18-1").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.71,
             minContainerHeight: 500
         });
     }
@@ -5213,6 +5239,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-19-1");
         $(".page-18").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5273,6 +5300,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-19-2");
         $(".page-18").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5333,6 +5361,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-19-3");
         $(".page-18").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5393,6 +5422,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-16-2-1");
         $(".page-16-2 ").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5453,6 +5483,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-16-2-2");
         $(".page-16-2").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5513,6 +5544,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-16-2-3");
         $(".page-16-2").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5573,6 +5605,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-16-2-4");
         $(".page-16-2").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5634,6 +5667,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-17-2-1");
         $(".page-17-2").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5694,6 +5728,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-17-2-2");
         $(".page-17-2").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5754,6 +5789,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-17-2-3");
         $(".page-17-2").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }
@@ -5814,6 +5850,7 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         var image = document.getElementById("imageBackground-page-17-2-4");
         $(".page-17-2").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:1,
             minContainerHeight: 500
         });
     }

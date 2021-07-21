@@ -245,8 +245,9 @@
                 <input type="text" id="page-5-text-2" name="page_5_text_2" value="I’m Wesley Ulloa">
 
                 <label for="page-5-text-3">Description</label>
-                <textarea id="page-5-text-3" name="page_5_text_3"
+                <textarea id="page-5-text-3" name="page_5_text_3" maxlength="500" style="margin-bottom:0 "
                     rows="4">There are many reasons that folks choose to go the FSBO route when selling their homes. FSBO means 'For Sale by Owner' in the world of real estate. It sounds like 'fizbo' when said aloud, and the concept most definitely has some serious pros.</textarea>
+                <i style="font-size: 12px">The description is limited to 500 characters</i>
                 <div class="button">
                     <input type="file" id="imageBackgroundInput" onchange="imageBackgroundInputChanged()">
                     <button type="button" onclick="startCropper()">Crop</button>
@@ -644,6 +645,7 @@
         var image = document.getElementById("imageBackground");
         $(".page-5 .content").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio:0.9,
             minContainerHeight: 500,
             minContainerWidth: 500
         });

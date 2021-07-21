@@ -412,9 +412,9 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-2" style="display: none">
+                <input hidden name="page_2_img_1" value="images/home-buying/page-1.jpg">
                 <div class="page page-2 page-background" style="background-image:url('images/home-buying/page-1.jpg')">
-                    <img src="" id="imageBackground-page-2" style="display: none">
-                    <input hidden name="page_2_img_1" value="images/home-buying/page-1.jpg">
                     <div class="container">
                         <div class="absolute" style="top:760px;">
                             <h1 class="cover-page gold">LUXE</h1>
@@ -630,10 +630,10 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-6" style="display: none">
+                <input hidden name="page_6_img_1" value="images/home-buying/page-6.jpg">
                 <div class="page page-6 page-background" style="background-image:url('images/home-buying/page-6.jpg')">
                     <div class="container">
-                        <img src="" id="imageBackground-page-6" style="display: none">
-                        <input hidden name="page_6_img_1" value="images/home-buying/page-6.jpg">
                         <div class="absolute" style="top:700px;">
                             <h2 class="cover-page-thin font-thin"
                                 style="font-size: 40px;margin-left:158px;margin-top: 0;">The
@@ -776,10 +776,10 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-10" style="display: none">
+                <input hidden name="page_10_img_1" value="images/home-buying/page-10.jpg">
                 <div class="page page-10 page-background"
                     style="background-image:url('images/home-buying/page-10.jpg');">
-                    <img src="" id="imageBackground-page-10" style="display: none">
-                    <input hidden name="page_10_img_1" value="images/home-buying/page-10.jpg">
                     <div class="container">
                         <div class="absolute" style="width: 85%;top: 650px;left:50px;">
                             <h2 class="font-thin white" style="font-size:80px;margin-top: 0;">Types Of</h2>
@@ -1001,11 +1001,11 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-12-1" style="display: none">
+                <input hidden name="page_12_img_1" value="images/home-buying/page-12-1.jpg">
+                <img src="" id="imageBackground-page-12-2" style="display: none">
+                <input hidden name="page_12_img_2" value="images/home-buying/page-12-2.jpg">
                 <div class="page page-12">
-                    <img src="" id="imageBackground-page-12-1" style="display: none">
-                    <input hidden name="page_12_img_1" value="images/home-buying/page-12-1.jpg">
-                    <img src="" id="imageBackground-page-12-2" style="display: none">
-                    <input hidden name="page_12_img_2" value="images/home-buying/page-12-2.jpg">
                     <div class="container" style="position: relative">
                         <div>
                             <img class="half-page-img" id="section12-1" src="images/home-buying/page-12-1.jpg" alt="">
@@ -1302,10 +1302,10 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-16" style="display: none">
+                <input hidden name="page_16_img_1" value="images/home-buying/page-16.jpg">
                 <div class="page page-16 page-background"
                     style="background-image:url('images/home-buying/page-16.jpg')">
-                    <img src="" id="imageBackground-page-16" style="display: none">
-                    <input hidden name="page_16_img_1" value="images/home-buying/page-16.jpg">
                     <div class="container">
                         <div class="absolute" style="top:742px;">
                             <h2 class="white font-thin"
@@ -1449,10 +1449,10 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-18" style="display: none">
+                <input hidden name="page_18_img_1" value="images/home-buying/page-16.jpg">
                 <div class="page page-18 page-background "
                     style="background-image:url('images/home-buying/page-16.jpg')">
-                    <img src="" id="imageBackground-page-18" style="display: none">
-                    <input hidden name="page_18_img_1" value="images/home-buying/page-16.jpg">
                     <div class="container">
                         <div class="absolute" style="top:750px;">
                             <h2 class="white font-thin"
@@ -1656,10 +1656,10 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-20" style="display: none">
+                <input hidden name="page_20_img_1" value="images/home-buying/page-20.jpg">
                 <div class="page page-20 page-background"
                     style="background-image:url('images/home-buying/page-20.jpg');background-position:center;">
-                    <img src="" id="imageBackground-page-20" style="display: none">
-                    <input hidden name="page_20_img_1" value="images/home-buying/page-20.jpg">
                     <div class="container">
                         <div class="absolute" style="top:750px;">
                             <h2 class="white font-thin"
@@ -1922,10 +1922,10 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-24" style="display: none">
+                <input hidden name="page_24_img_1" value="images/home-buying/page-24.jpg">
                 <div class="page page-24 page-background"
                     style="background-image:url('images/home-buying/page-24.jpg');background-position:center;">
-                    <img src="" id="imageBackground-page-24" style="display: none">
-                    <input hidden name="page_24_img_1" value="images/home-buying/page-24.jpg">
                     <div class="container" style="padding-top: 100%;">
                         <div class="absolute" style="left:70px;">
                             <h2 class="white font-thin"
@@ -2027,10 +2027,10 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-26" style="display: none">
+                <input hidden name="page_26_img_1" value="images/home-buying/page-26.jpg">
                 <div class="page page-26 page-background"
                     style="background-image:url('images/home-buying/page-26.jpg');background-position:center;">
-                    <img src="" id="imageBackground-page-26" style="display: none">
-                    <input hidden name="page_26_img_1" value="images/home-buying/page-26.jpg">
                     <div class="container">
                         <div class="absolute" style="top:30%;left:70px;padding-top: 100%;">
                             <h2 class="font-thin white mb-0" style="font-size:100px;margin-top:0;">Recent</h2>
@@ -2245,10 +2245,10 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-28" style="display: none">
+                <input hidden name="page_28_img_1" value="images/home-buying/page-28.jpg">
                 <div class="page page-28 page-background"
                     style="background-image:url('images/home-buying/page-28.jpg');background-position:center;">
-                    <img src="" id="imageBackground-page-28" style="display: none">
-                    <input hidden name="page_28_img_1" value="images/home-buying/page-28.jpg">
                     <div class="container">
                         <div class="absolute" style="top:30%;left:70px;padding-top: 105%;">
                             <h2 class="font-thin white mb-0" style="font-size:100px;margin-top: 0;">Recent</h2>
@@ -2451,10 +2451,10 @@
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-30" style="display: none">
+                <input hidden name="page_30_img_1" value="images/home-buying/page-30.jpg">
                 <div class="page page-30 page-background"
                     style="background-image:url('images/home-buying/page-30.jpg');background-position:center;">
-                    <img src="" id="imageBackground-page-30" style="display: none">
-                    <input hidden name="page_30_img_1" value="images/home-buying/page-30.jpg">
                     <div class="container" style="position: absolute;bottom: 0;">
                         <h2 class="mb-30"
                             style="font-weight: 300;color:white;font-size:80px;margin-left:150px;margin-bottom: 0;">
@@ -3103,11 +3103,13 @@
 <script>
     var cropper;
 
-    function startCropper_page_2() {
+        function startCropper_page_2() {
               var image = document.getElementById("imageBackground-page-2");
-              $(".page-2 .absolute").css("display", "none");
+              $(".page-2").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 500,
+                  aspectRatio:0.71
               });
           }
   
@@ -3159,7 +3161,7 @@
                                 $(".page-2").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_2_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-2 .absolute").css("display", "block");
+                              $(".page-2").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -3171,6 +3173,7 @@
             $(".page-5 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -3231,9 +3234,11 @@
 
  function startCropper_page_6() {
               var image = document.getElementById("imageBackground-page-6");
-              $(".page-6 .absolute").css("display", "none");
+              $(".page-6").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 600,
+                  aspectRatio:0.71
               });
           }
   
@@ -3285,7 +3290,7 @@
                                   $(".page-6").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_6_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-6 .absolute").css("display", "block");
+                              $(".page-6").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -3297,6 +3302,7 @@ function startCropper_page_7() {
               $(".page-7 .absolute").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:0.71
               });
           }
   
@@ -3357,9 +3363,11 @@ function startCropper_page_7() {
 
   function startCropper_page_10() {
               var image = document.getElementById("imageBackground-page-10");
-              $(".page-10 .absolute").css("display", "none");
+              $(".page-10").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 600,
+                  aspectRatio:0.71
               });
           }
   
@@ -3411,18 +3419,20 @@ function startCropper_page_7() {
                                   $(".page-10").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_10_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-10 .absolute").css("display", "block");
+                              $(".page-10").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
               );
           }   
 
-   function startCropper_page_12_1() {
+        function startCropper_page_12_1() {
             var image = document.getElementById("imageBackground-page-12-1");
-            $(".page-12 #section12-1").css("display", "none");
+            $(".page-12 .container").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 600,
+                aspectRatio:1.54
             });
         }
 
@@ -3475,7 +3485,7 @@ function startCropper_page_7() {
                                 $("#section12-1").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_12_img_1]").val("uploadedimages/" + output);
                             });
-                            $("#section12-1").css("display", "block");
+                            $(".page-12 .container").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -3483,9 +3493,11 @@ function startCropper_page_7() {
         }
         function startCropper_page_12_2() {
             var image = document.getElementById("imageBackground-page-12-2");
-            $(".page-12 #section12-2").css("display", "none");
+            $(".page-12 .container").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 600,
+                aspectRatio:1.54
             });
         }
 
@@ -3538,7 +3550,7 @@ function startCropper_page_7() {
                                 $("#section12-2").attr("src", "uploadedimages/" + output);
                                 $("input[name=page_12_img_2]").val("uploadedimages/" + output);
                             });
-                            $("#section12-2").css("display", "block");
+                            $(".page-12 .container").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -3551,6 +3563,7 @@ function startCropper_page_7() {
               $(".page-14 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:0.71
               });
         }
   
@@ -3613,9 +3626,11 @@ function startCropper_page_7() {
 
         function startCropper_page_16() {
               var image = document.getElementById("imageBackground-page-16");
-              $(".page-17 .container").css("display", "none");
+              $(".page-16").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 600,
+                  aspectRatio:0.71
               });
           }
   
@@ -3669,7 +3684,7 @@ function startCropper_page_7() {
                                   $(".page-17 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_16_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-17 .container").css("display", "block");
+                              $(".page-16").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -3678,9 +3693,11 @@ function startCropper_page_7() {
 
         function startCropper_page_18() {
               var image = document.getElementById("imageBackground-page-18");
-              $(".page-19 .container").css("display", "none");
+              $(".page-18").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 600,
+                  aspectRatio:0.71
               });
           }
   
@@ -3734,7 +3751,7 @@ function startCropper_page_7() {
                                   $(".page-19 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_18_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-19 .container").css("display", "block");
+                              $(".page-18").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -3743,9 +3760,11 @@ function startCropper_page_7() {
 
         function startCropper_page_20() {
               var image = document.getElementById("imageBackground-page-20");
-              $(".page-20 .container").css("display", "none");
+              $(".page-20").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 600,
+                  aspectRatio:0.71
               });
           }
   
@@ -3799,7 +3818,7 @@ function startCropper_page_7() {
                                   $(".page-21 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_20_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-20 .container").css("display", "block");
+                              $(".page-20").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -3812,6 +3831,7 @@ function startCropper_page_7() {
               cropper = new Cropper(image, {
                   minContainerHeight: 800,
                   minContainerWidth: 500,
+                  aspectRatio:1.58
               });
           }
   
@@ -3874,9 +3894,11 @@ function startCropper_page_7() {
 
         function startCropper_page_24() {
               var image = document.getElementById("imageBackground-page-24");
-              $(".page-24 .container").css("display", "none");
+              $(".page-24").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 600,
+                  aspectRatio:0.71
               });
           }
   
@@ -3930,7 +3952,7 @@ function startCropper_page_7() {
                                   $(".page-25 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_24_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-24 .container").css("display", "block");
+                              $(".page-24").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -3939,9 +3961,11 @@ function startCropper_page_7() {
 
         function startCropper_page_26() {
               var image = document.getElementById("imageBackground-page-26");
-              $(".page-26 .container").css("display", "none");
+              $(".page-26").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 600,
+                  aspectRatio:0.71
               });
           }
   
@@ -3995,7 +4019,7 @@ function startCropper_page_7() {
                                   $(".page-27 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_26_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-26 .container").css("display", "block");
+                              $(".page-26").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4005,9 +4029,11 @@ function startCropper_page_7() {
 
         function startCropper_page_28() {
               var image = document.getElementById("imageBackground-page-28");
-              $(".page-28 .container").css("display", "none");
+              $(".page-28").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 600,
+                  aspectRatio:0.71
               });
           }
   
@@ -4061,7 +4087,7 @@ function startCropper_page_7() {
                                   $(".page-29 .page-bg-image").css("background-image", "url("+imageurl + output + ")");
                                   $("input[name=page_28_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-28 .container").css("display", "block");
+                              $(".page-28").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4073,6 +4099,7 @@ function startCropper_page_7() {
               $(".page-27 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4136,6 +4163,7 @@ function startCropper_page_7() {
               $(".page-27 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4198,6 +4226,7 @@ function startCropper_page_7() {
               $(".page-27 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4260,6 +4289,7 @@ function startCropper_page_7() {
               $(".page-27 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4323,6 +4353,7 @@ function startCropper_page_7() {
               $(".page-29 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4385,6 +4416,7 @@ function startCropper_page_7() {
               $(".page-29 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4447,6 +4479,7 @@ function startCropper_page_7() {
               $(".page-29 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4509,6 +4542,7 @@ function startCropper_page_7() {
               $(".page-29 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4569,9 +4603,11 @@ function startCropper_page_7() {
 
         function startCropper_page_30() {
               var image = document.getElementById("imageBackground-page-30");
-              $(".page-30 .container").css("display", "none");
+              $(".page-30").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  minContainerWidth: 600,
+                  aspectRatio:0.71
               });
           }
   
@@ -4625,7 +4661,7 @@ function startCropper_page_7() {
                                   $(".page-31 .page-bg-image").css("background-image", "url("+ base64 + ")");
                                   $("input[name=page_30_img_1]").val("uploadedimages/" + output);
                               });
-                              $(".page-30 .container").css("display", "block");
+                              $(".page-30").css("display", "block");
                           },
                       });
                   } /*, 'image/png' */
@@ -4637,6 +4673,7 @@ function startCropper_page_7() {
               $(".page-31 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4699,6 +4736,7 @@ function startCropper_page_7() {
               $(".page-31 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   
@@ -4761,6 +4799,7 @@ function startCropper_page_7() {
               $(".page-31 .container").css("display", "none");
               cropper = new Cropper(image, {
                   minContainerHeight: 500,
+                  aspectRatio:1
               });
           }
   

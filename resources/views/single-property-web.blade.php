@@ -1271,13 +1271,13 @@ Our marketing will maximize interest through our personalized campaigns created 
 
         <div class="row">
             <div class="row-image">
+                <img src="" id="imageBackground-page-14-1" style="display: none;" />
+                <input hidden name="page_14_img_1" value="images/single-property/Asset 8.jpg" />
+                <img src="" id="imageBackground-page-14-2" style="display: none;" />
+                <input hidden name="page_14_img_2" value="images/single-property/Asset 9.jpg" />
+                <img src="" id="imageBackground-page-14-3" style="display: none;" />
+                <input hidden name="page_14_img_3" value="images/single-property/Asset 10.jpg" />
                 <div class="page page-14 page-7-1" style="margin-right: 60px;">
-                    <img src="" id="imageBackground-page-14-1" style="display: none;" />
-                    <input hidden name="page_14_img_1" value="images/single-property/Asset 8.jpg" />
-                    <img src="" id="imageBackground-page-14-2" style="display: none;" />
-                    <input hidden name="page_14_img_2" value="images/single-property/Asset 9.jpg" />
-                    <img src="" id="imageBackground-page-14-3" style="display: none;" />
-                    <input hidden name="page_14_img_3" value="images/single-property/Asset 10.jpg" />
                     <div class="luxe-pro-info">
                         <div class="row-14-1"
                             style="background-image: url('images/single-property/Asset 8.jpg'); padding-top: 43%; height: 33%; top: 0; background-size: cover; margin-bottom: -22px;">
@@ -1811,9 +1811,9 @@ This powerful online marketing tool impresses buyers and when  advertised in pri
                                     margin-bottom: -80px;
                                     font-size: 28px;
                                 ">
-                            <div style="">www.LUXEknows.com</div>
+                            <div class="page-20-text-1" style="">www.LUXEknows.com</div>
                         </h1>
-                        <h1 style="
+                        <h1 class="page-20-text-2" style="
                                     margin-top: 320px;
                                     z-index: 100;
                                     background-image: url('images/home-selling/Asset 16-3.png');
@@ -1829,7 +1829,7 @@ This powerful online marketing tool impresses buyers and when  advertised in pri
                                 ">
                             www.allmiamihousesforsale.com
                         </h1>
-                        <h1 style="
+                        <h1 class="page-20-text-3" style="
                                     margin-top: 320px;
                                     z-index: 100;
                                     background-image: url('images/home-selling/Asset 16-3.png');
@@ -1852,6 +1852,8 @@ This powerful online marketing tool impresses buyers and when  advertised in pri
                         onchange="imageBackgroundInputChanged_page_20_1()" />
                     <button type="button" onclick="startCropper_page_20_1()">Crop</button>
                     <button type="button" onclick="cropImage_page_20_1()">Save Crop</button>
+                    <label for="page-20-text-1">Title 1</label>
+                    <input type="text" id="page-20-text-1" name="page_20_text_1" value="www.LUXEknows.com" />
                 </div>
                 <div class="button">
                     <label>Image 2</label>
@@ -1859,13 +1861,18 @@ This powerful online marketing tool impresses buyers and when  advertised in pri
                         onchange="imageBackgroundInputChanged_page_20_2()" />
                     <button type="button" onclick="startCropper_page_20_2()">Crop</button>
                     <button type="button" onclick="cropImage_page_20_2()">Save Crop</button>
+                    <label for="page-20-text-2">Title 2</label>
+                    <input type="text" id="page-20-text-2" name="page_20_text_2"
+                        value="www.allmiamihousesforsale.com" />
                 </div>
                 <div class="button">
-                    <label>Image 4</label>
+                    <label>Image 3</label>
                     <input type="file" id="imageBackgroundInput-page-20-3"
                         onchange="imageBackgroundInputChanged_page_20_3()" />
                     <button type="button" onclick="startCropper_page_20_3()">Crop</button>
                     <button type="button" onclick="cropImage_page_20_3()">Save Crop</button>
+                    <label for="page-20-text-3">Title 3</label>
+                    <input type="text" id="page-20-text-3" name="page_20_text_3" value="www.RogerCabrera.com" />
                 </div>
             </div>
         </div>
@@ -3745,6 +3752,7 @@ Personalized email marketing campaigns to contact database
             $(".page-2 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -3805,6 +3813,7 @@ Personalized email marketing campaigns to contact database
             $(".page-4 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -3866,6 +3875,7 @@ Personalized email marketing campaigns to contact database
             $(".page-6 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -3927,6 +3937,7 @@ Personalized email marketing campaigns to contact database
             $(".page-8 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -4051,6 +4062,7 @@ Personalized email marketing campaigns to contact database
             $(".page-10 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -4176,6 +4188,7 @@ Personalized email marketing campaigns to contact database
             $(".page-12 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -4234,9 +4247,11 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_14_1() {
             var image = document.getElementById("imageBackground-page-14-1");
-            $(".page-14 .absolute").css("display", "none");
+            $(".page-14").css("display", "none");
                 cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 600,
+                aspectRatio:2.32
             });
         }
 
@@ -4286,7 +4301,7 @@ Personalized email marketing campaigns to contact database
                                 $(".row-14-1").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_14_img_1]").val("uploadedimages/" + output);
                             });
-                            $(".page-4 .luxe-pro-info").css("display", "block");
+                            $(".page-14").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -4294,9 +4309,11 @@ Personalized email marketing campaigns to contact database
         }
         function startCropper_page_14_2() {
             var image = document.getElementById("imageBackground-page-14-2");
-            $(".page-14 .absolute").css("display", "none");
+            $(".page-14").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 600,
+                aspectRatio:2.32
             });
         }
 
@@ -4346,7 +4363,7 @@ Personalized email marketing campaigns to contact database
                                 $(".row-14-2").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_14_img_2]").val("uploadedimages/" + output);
                             });
-                            $(".page-14 .absolute ").css("display", "block");
+                            $(".page-14").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -4355,9 +4372,11 @@ Personalized email marketing campaigns to contact database
 
         function startCropper_page_14_3() {
             var image = document.getElementById("imageBackground-page-14-3");
-            $(".page-14 .absolute").css("display", "none");
+            $(".page-14").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                minContainerWidth: 600,
+                aspectRatio:2.32
             });
         }
 
@@ -4407,7 +4426,7 @@ Personalized email marketing campaigns to contact database
                                 $(".row-14-3").css("background-image", "url(uploadedimages/"+ output + ")");
                                 $("input[name=page_14_img_3]").val("uploadedimages/" + output);
                             });
-                            $(".page-14 .absolute ").css("display", "block");
+                            $(".page-14").css("display", "block");
                         },
                     });
                 } /*, 'image/png' */
@@ -4540,6 +4559,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1.57
             });
         }
 
@@ -4603,6 +4623,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:0.74
             });
         }
 
@@ -4727,6 +4748,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:2.13
             });
         }
 
@@ -4789,6 +4811,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:2.13
             });
         }
 
@@ -4850,6 +4873,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:2.13
             });
         }
 
@@ -4912,6 +4936,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1.54
             });
         }
 
@@ -4973,6 +4998,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1.61
             });
         }
 
@@ -5036,6 +5062,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1.61
             });
         }
 
@@ -5099,6 +5126,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1.61
             });
         }
 
@@ -5162,6 +5190,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1.61
             });
         }
 
@@ -5224,6 +5253,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1.61
             });
         }
 
@@ -5287,6 +5317,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:2.3
             });
         }
 
@@ -5349,6 +5380,7 @@ Personalized email marketing campaigns to contact database
             $(".page-24 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -5476,6 +5508,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -5538,6 +5571,7 @@ Personalized email marketing campaigns to contact database
             $(".page-28 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -5663,6 +5697,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1
             });
         }
 
@@ -5726,6 +5761,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1
             });
         }
 
@@ -5788,6 +5824,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1
             });
         }
 
@@ -5851,6 +5888,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1
             });
         }
 
@@ -5913,6 +5951,7 @@ Personalized email marketing campaigns to contact database
             $(".page-30 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -6285,6 +6324,7 @@ Personalized email marketing campaigns to contact database
             $(".page-32 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 
@@ -6410,6 +6450,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1
             });
         }
 
@@ -6472,6 +6513,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1
             });
         }
 
@@ -6534,6 +6576,7 @@ Personalized email marketing campaigns to contact database
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
                 minContainerWidth: 500,
+                aspectRatio:1
             });
         }
 
@@ -6596,6 +6639,7 @@ Personalized email marketing campaigns to contact database
             $(".page-34 .absolute").css("display", "none");
             cropper = new Cropper(image, {
                 minContainerHeight: 500,
+                aspectRatio:0.71
             });
         }
 

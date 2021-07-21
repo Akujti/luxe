@@ -524,6 +524,7 @@
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
+            aspectRatio: 1,
             minContainerHeight: 500
         });
     }

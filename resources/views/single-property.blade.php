@@ -962,11 +962,11 @@
         </div>
         <div class="absolute">
             <h1 style="z-index: 100;background-image: url('images/home-selling/Asset 16-3.png');background-position: right;background-repeat: no-repeat;text-align:right;    color: #fff;padding-bottom:15px;
-    font-size: 28px;">www.LUXEknows.com</h1>
+    font-size: 28px;">{{ $page_20_text_1 }}</h1>
             <h1 style="margin-top:320px;z-index: 100;background-image: url('images/home-selling/Asset 16-3.png');background-position: right;background-repeat: no-repeat;text-align:right;    color: #fff;padding-bottom:15px;
-    font-size: 28px;">www.allmiamihousesforsale.com</h1>
+    font-size: 28px;">{{ $page_20_text_2 }}</h1>
             <h1 style="margin-top:320px;z-index: 100;background-image: url('images/home-selling/Asset 16-3.png');background-position: right;background-repeat: no-repeat;text-align:right;    color: #fff;padding-bottom:15px;
-    font-size: 28px;">www.RogerCabrera.com</h1>
+    font-size: 28px;">{{ $page_20_text_3 }}</h1>
         </div>
     </div>
 

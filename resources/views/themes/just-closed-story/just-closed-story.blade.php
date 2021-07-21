@@ -32,7 +32,7 @@
         position: absolute;
         background-position: center bottom;
         background-repeat: no-repeat;
-        background-size: 9200px 5280px;
+        background-size: 4000px;
     }
 
     .absolute {
