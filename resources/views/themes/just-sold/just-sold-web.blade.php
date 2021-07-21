@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Just Sold</title>
 </head>
-
+@include('includes.fonts')
 <style>
     * {
         font-family: "Montserrat";
