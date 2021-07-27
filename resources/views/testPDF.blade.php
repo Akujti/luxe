@@ -605,7 +605,11 @@
             width: 100%;
         }
 
-        .page-12-1 .luxe-pro-info .text,
+        .page-12-1 .luxe-pro-info .text {
+            position: absolute;
+            top: 75%;
+        }
+
         .page-13-1 .luxe-pro-info .text {
             z-index: 100;
             position: absolute;

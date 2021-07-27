@@ -376,7 +376,7 @@
         </div>
 
         <div class="absolute" style="top:21%;left:40px;z-index:1000;width:200px;">
-            <p style="font-size:13px;">{{$page_5_text_3}}</p>
+            <p style="font-size:13px;line-height:13px;">{{$page_5_text_3}}</p>
         </div>
 
         <div class="absolute" style="top:7.1%;left:270px;width:200px;">
