@@ -5,6 +5,8 @@
 /public/uploadedimages
 /storage/*.key
 /vendor
+/public/pdfConvert
+/public/imageConvert
 .env
 .phpunit.result.cache
 Homestead.json

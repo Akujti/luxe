@@ -17,6 +17,18 @@ class PDFController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public $headers = [
+        'Content-Type' => 'application/jpg',
+    ];
+
+    public function image($file)
+    {
+        $pdf = new \Spatie\PdfToImage\Pdf($file);
+        $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
+        $pdf->saveImage($filePath);
+        return $filePath;
+    }
+
     public function theme_just_listed_story(Request $request)
     {
         $data = [
@@ -47,7 +59,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.just-listed-story.just-listed-story', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Just Listed Story.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Just Listed Story.jpg', $this->headers);
         }
     }
 
@@ -78,8 +92,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.coming-soon.coming-soon', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            // $pdf->setOptions(['isFontSubsettingEnabled' => true]);
-            return $pdf->download('Coming Soon.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Coming Soon.jpg', $this->headers);
         }
     }
 
@@ -114,7 +129,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.just-closed-story.just-closed-story', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Just Closed Story.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Just Closed Story.jpg', $this->headers);
         }
     }
 
@@ -141,7 +158,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.tbt-story.tbt-story', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Throwback Thursday.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Throwback Thursday Story.jpg', $this->headers);
         }
     }
 
@@ -176,7 +195,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.joined-luxe-story.joined-luxe-story', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Joined LUXE Story.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Joined Luxe Story.jpg', $this->headers);
         }
     }
 
@@ -211,7 +232,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.joined-luxe.joined-luxe', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Joined LUXE.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Joined Luxe.jpg', $this->headers);
         }
     }
 
@@ -245,7 +268,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.just-closed.just-closed', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Just Closed.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Just Closed.jpg', $this->headers);
         }
     }
 
@@ -279,7 +304,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.just-listed.just-listed', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Just Listed.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Just Listed.jpg', $this->headers);
         }
     }
 
@@ -306,7 +333,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.tbt.tbt', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Throwback Thursday.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Throwback Thursday.jpg', $this->headers);
         }
     }
 
@@ -343,7 +372,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.just-sold-story.just-sold-story', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Just Sold Story.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Just Sold Story.jpg', $this->headers);
         }
     }
 
@@ -376,7 +407,9 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('themes.just-sold.just-sold', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('Just Sold.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'Just Sold.jpg', $this->headers);
         }
     }
 
@@ -411,7 +444,9 @@ class PDFController extends Controller
 
             $pdf = PDF::loadView('themes.for-sale.for-sale', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
-            return $pdf->download('For Sale.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'For Sale.jpg', $this->headers);
         }
     }
 
@@ -446,7 +481,9 @@ class PDFController extends Controller
 
             $pdf = PDF::loadView('themes.for-sale-story.for-sale-story', $data);
             $pdf->setPaper(0, 0, 4000, 8000);
-            return $pdf->download('For Sale Story.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->image($fileName), 'For Sale Story.jpg', $this->headers);
         }
     }
 

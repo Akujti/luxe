@@ -15,7 +15,7 @@ use App\Http\Controllers\PDFController;
 */
 
 //Themes
-
+Route::get('test', [PDFController::class, 'image']);
 Route::get('/just-listed-story', function () {
     return view('themes.just-listed-story.just-listed-story-web');
 });
