@@ -331,10 +331,10 @@
                         <p class="text-17">wesley@Luxeknows.com</p>
                     </div>
 
-                    <div class="absolute" style="text-align: center;top:79.5%;left:220px;">
+                    <div class="absolute" style="width:100%;text-align: center;top:79.5%;left:-160px;">
                         <h1 class="white text-18" style="font-size:33px;">CALL WESLEY</h1>
                     </div>
-                    <div class="absolute" style="text-align: center;top:79.5%;left:525px;">
+                    <div class="absolute" style="width:100%;text-align: center;top:79.5%;left:165px;">
                         <h1 class="gold text-19" style="font-size:33px;">EMAIL WESLEY</h1>
                     </div>
                     <div class="absolute personal" style="top:82%;">
@@ -352,10 +352,10 @@
                     <div class="absolute info-size" style="top:87.2%;">
                         <p class="text-24">wesley@Luxeknows.com</p>
                     </div>
-                    <div class="absolute" style="text-align: center;top:89.9%;left:220px;">
+                    <div class="absolute" style="width:100%;text-align: center;top:89.9%;left:-160px;">
                         <h1 class="white text-25" style="font-size:33px;">CALL WESLEY</h1>
                     </div>
-                    <div class="absolute" style="text-align: center;top:89.9%;left:525px;">
+                    <div class="absolute" style="width:100%;text-align: center;top:89.9%;left:165px;">
                         <h1 class="gold text-26" style="font-size:33px;">EMAIL WESLEY</h1>
                     </div>
                     <div class="absolute" style="text-align: center;top:97%;width: 100%;">
