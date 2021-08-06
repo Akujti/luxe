@@ -224,7 +224,7 @@
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-                <input hidden name="img_1_input" id="img_1_input" value="images/emails/template2/main.png">
+                <input hidden name="img_1_input" id="img_1_input" value="images/emails/template2/bg.jpg">
                 <input hidden name="img_2_input" id="img_2_input" value="images/emails/template2/map1.jpg">
                 <input hidden name="img_3_input" id="img_3_input" value="images/emails/template2/map2.jpg">
                 <input hidden name="img_4_input" id="img_4_input" value="images/emails/template2/map3.jpg">
