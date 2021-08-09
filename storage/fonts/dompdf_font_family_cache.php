@@ -96,11 +96,21 @@
     'normal' => $fontDir . '/montserrat-normal_d7b9f5e95298c71fecec5dd1831abcb5',
     'bold' => $fontDir . '/montserrat-bold_6beb6e27cd8907eec374534ce0d119ec',
     '800' => $fontDir . '/montserrat-800_3593059443dde0e05fef2d4793944645',
+    '900' => $fontDir . '/montserrat-900_112533be530cce45147fe268f78174dc',
   ),
   'gochi hand' => array(
     'normal' => $fontDir . '/gochi-hand-normal_95d4ede7972d8166612d4a9d2482935b',
   ),
   'roboto' => array(
     'normal' => $fontDir . '/roboto-normal_b7834828abc03e1e6aa6b18153302986',
+  ),
+  'oswald' => array(
+    'normal' => $fontDir . '/oswald-normal_4678833a4e47d055531c4fcb3917fde4',
+    '500' => $fontDir . '/oswald-500_fb3d30db95e3ad325a9ea2f2378d987e',
+    '600' => $fontDir . '/oswald-600_865a7216f026030fda6cfda94dd8d7c5',
+  ),
+  'ibm plex sans' => array(
+    'normal' => $fontDir . '/ibm-plex-sans-normal_418393f837d7f46144b07a22c28b3b92',
+    '500' => $fontDir . '/ibm-plex-sans-500_a3133f3ede91c3821eab0fdefd9bcb78',
   ),
 ) ?>

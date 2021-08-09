@@ -14,13 +14,21 @@ use App\Http\Controllers\PDFController;
 |
 */
 
-//Themes
+//Flyers
+Route::view('flyer-template-2', 'flyers.template2.web');
+Route::post('flyer-template-2', [PDFController::class, 'flyer_template_2'])->name('flyer-template-2');
+
+Route::view('flyer-template-1', 'flyers.template1.web');
+Route::post('flyer-template-1', [PDFController::class, 'flyer_template_1'])->name('flyer-template-1');
+
+//Emails
 Route::view('email-template-1', 'emails.template1.web');
 Route::post('email-template-1', [PDFController::class, 'email_template_1'])->name('email-template-1');
 
 Route::view('email-template-2', 'emails.template2.web');
 Route::post('email-template-2', [PDFController::class, 'email_template_2'])->name('email-template-2');
 
+//Themes
 Route::get('/just-listed-story', function () {
     return view('themes.just-listed-story.just-listed-story-web');
 });
