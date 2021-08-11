@@ -236,6 +236,12 @@
         top: -400px !important;
         z-index: 100;
     }
+
+    @media(max-width:1280px) {
+        .page {
+            zoom: 87% !important;
+        }
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
