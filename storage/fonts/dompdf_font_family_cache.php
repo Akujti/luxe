@@ -81,8 +81,8 @@
     'normal' => $fontDir . '/lato-regular-normal_3a6ce22796916dc1af95ef41eff8f888',
   ),
   'lato' => array(
-    'normal' => $fontDir . '/lato-normal_3a6ce22796916dc1af95ef41eff8f888',
-    'bold' => $fontDir . '/lato-bold_3a6ce22796916dc1af95ef41eff8f888',
+    'normal' => $fontDir . '/lato-normal_74ff5cee88f1fe435fef13fd8d255d28',
+    'bold' => $fontDir . '/lato-bold_8297c6567077ba29f107792a3a0184b4',
     '300' => $fontDir . '/lato-300_dc52991881b98bbc9b3c8b8ab171576e',
     '900' => $fontDir . '/lato-900_b0313240e1032353db66dc2f769fc0e4',
   ),

@@ -13,6 +13,9 @@ use App\Http\Controllers\PDFController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Door Hangers
+Route::view('door-hanger-template-1', 'door-hangers.template1.web');
+Route::post('door-hanger-template-1', [PDFController::class, 'door_hanger_template_1'])->name('door-hanger-template-1');
 
 //Flyers
 Route::view('flyer-template-4', 'flyers.template4.web');

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flyer</title>
+    <title>Door Hanger Template 1</title>
 </head>
 @include('includes.fonts')
 <style>
@@ -138,6 +138,7 @@
         width: 1000px;
         position: relative;
         height: 1286px;
+        /* background-image: url('images/themes/just-listed/img-1.jpg'); */
         background-position: center bottom;
         background-repeat: no-repeat;
         background-size: 1140px;
@@ -230,38 +231,6 @@
         border: 5px solid white;
     }
 
-    .agent-info {
-        left: 560px;
-    }
-
-    .text-splitter {
-        margin-left: 8px;
-        margin-right: 8px;
-        margin-top: -15px;
-    }
-
-    .list-inline {
-        list-style: none;
-        padding: 0;
-    }
-
-    ul li {
-        display: inline;
-        font-size: 40px;
-        margin-right: 10px;
-        letter-spacing: -1px;
-    }
-
-    .text-border {
-        margin: 0;
-        padding: 0;
-        line-height: 35px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 20px;
-        background: white;
-    }
-
     .cropper-container {
         position: fixed !important;
         top: -400px !important;
@@ -284,270 +253,18 @@
     crossorigin="anonymous" />
 
 <body>
-    <form action="{{ route('flyer-template-2') }}" method="POST">
+    <form action="{{ route('door-hanger-template-1') }}" method="POST">
         @csrf
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-                <input hidden name="img_1_input" id="img_1_input" value="images/flyers/template2/bg.jpg">
-                <input hidden name="img_2_input" id="img_2_input" value="images/flyers/template2/side.jpg">
-                <input hidden name="img_3_input" id="img_3_input" value="images/flyers/template2/house1.jpg">
-                <input hidden name="img_4_input" id="img_4_input" value="images/flyers/template2/house2.jpg">
-                <input hidden name="img_5_input" id="img_5_input" value="images/flyers/template1/person.png">
-                <div class="page">
-                    {{-- Images --}}
-                    <div class="absolute" style="top:0;left:0;">
-                        <img id="img_1" src="images/flyers/template2/bg.jpg" alt="" style="width:700px;height:700px">
-                    </div>
-                    <div class="absolute" style="top:570px;right:0;">
-                        <img id="img_2" src="images/flyers/template2/side.jpg" alt="" style="width:465px;height:200px">
-                    </div>
-                    <div class="absolute">
-                        <img src="images/flyers/template2/main.png" alt="" style="width: 1000px;height:1286px;">
-                    </div>
-                    <div class="absolute" style="top:760px;left:0;">
-                        <img id="img_3" src="images/flyers/template2/house1.jpg" alt=""
-                            style="width:215px;height:220px">
-                    </div>
-                    <div class="absolute" style="top:995px;left:0;">
-                        <img id="img_4" src="images/flyers/template2/house2.jpg" alt=""
-                            style="width:215px;height:220px">
-                    </div>
-                    <div class="absolute" style="bottom:100px;right:453px;">
-                        <img src="images/flyers/template1/social.png" alt="" style="height:150px;">
-                    </div>
-                    <div class="absolute" style="bottom:0;right:0;">
-                        <img id="img_5" src="images/flyers/template1/person.png" alt=""
-                            style="height:288px;width:209px;">
-                    </div>
-
-                    {{-- Text --}}
-                    <div class="absolute" style="top:70px;right:50px;text-align:right;">
-                        <p class="gochi gold text-1" style="font-size: 90px;letter-spacing:-1px;">Open</p>
-                        <p class="extra-bold text-2"
-                            style="color:#231f20;font-size: 110px;margin-top:-40px;letter-spacing:-3px">
-                            House</p>
-                    </div>
-                    <div class="absolute" style="top:250px;left:350px;">
-                        <ul>
-                            <li class="bold gold text-3">Sat</li>
-                            <li class="bold gold">|</li>
-                            <li class="bold text-4">July 31</li>
-                        </ul>
-                    </div>
-                    <div class="absolute" style="top:250px;left:670px;">
-                        <ul>
-                            <li class="bold white text-5">12PM - 4PM</li>
-                        </ul>
-                    </div>
-                    <div class="absolute" style="top:335px;left:440px;">
-                        <ul>
-                            <li class="gold">
-                                <div class="text-border oswald-med text-6">12625 SW 78th AVENUE</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="absolute" style="top:500px;right:350px;text-align:right;">
-                        <p class="gochi gold" style="font-size: 50px;letter-spacing:-1px;">Asking Price</p>
-                        <p class="oswald-med white text-11"
-                            style="font-size: 75px;margin-top:-25px;letter-spacing:-3px">
-                            $5,865,989
-                        </p>
-                    </div>
-                    <div class="absolute" style="top:435px;left:435px;">
-                        <p class="oswald-med white" style="font-size: 30px;letter-spacing:-1px;">
-                            <span class="oswald-med text-7">6 BEDS</span>
-                            <span class="oswald-med text-splitter">|</span>
-                            <span style="color:#231f20;" class="oswald-med text-8">6
-                                BATHS
-                            </span>
-                            <span class="oswald-med text-splitter">|</span>
-                            <span class="oswald-med text-9">2 HALF BATHS</span>
-                            <span class="oswald-med text-splitter">|</span>
-                            <span style="color:#231f20;" class="oswald-med text-10">POOL</span>
-                        </p>
-                    </div>
-                    <div class="absolute" style="top:500px;left:742px;">
-                        <p class="oswald-med text-12" style="font-size: 37px;letter-spacing:-1px;">6,288 SQFT</p>
-                    </div>
-                    <div class="absolute" style="top:800px;left:250px;right:70px;">
-                        <p class="ibm text-13" style="font-size: 14px;text-align:justify;line-height: 22px;">Casa de El
-                            Roble is
-                            a hidden
-                            masterpiece
-                            located
-                            in the heart of
-                            Pinecrest that will epitomises everything you have come
-                            to expect. Designed by acclaimed architect Roney J. Mateu, this exquisite contemporary
-                            residence
-                            with
-                            double-height
-                            ceilings and walls of glass creates a seamless blending between its interior and fabulous
-                            exterior
-                            landscape. With a
-                            beautiful lap pool and a shallow lounge area for kids, the outdoor area provides a wonderful
-                            relaxing
-                            and entertaining
-                            space. Surrounded by many prestigious A+ schools, and its proximity to many shopping centers
-                            this
-                            property provides a
-                            timeless work of art for a perfect family.</p>
-                    </div>
-                    <div class="absolute agent-info" style="bottom:215px;">
-                        <p class="text-14" style="font-size: 30px;"><strong>Wesley</strong> Ulloa</p>
-                        <p class="text-15" style="font-size: 12px;margin-top:-2px;letter-spacing:1px;">LICENSED
-                            REAL ESTATE BROKER</p>
-                    </div>
-                    <div class="absolute agent-info" style="bottom:155px;">
-                        <p class="ibm text-16" style="letter-spacing:1px;">C: (305) 986-7041</p>
-                        <p class="ibm text-17" style="margin-top:-2px;letter-spacing:1px;">O: (305) 809-7650</p>
-                    </div>
-                    <div class="absolute agent-info" style="bottom:105px;">
-                        <p class="ibm social text-18" style="letter-spacing:1px;">wesley@luxeknows.com</p>
-                        <p class="ibm social text-19" style="margin-top:-2px;letter-spacing:1px;">
-                            www.<strong>luxeknows</strong>.com</p>
-                    </div>
-                </div>
+                <input hidden name="img_1_input" id="img_1_input" value="images/flyers/template1/bg.jpg">
+                <div class="page"></div>
             </div>
             <div class="column-divider"></div>
             <div class="row-input" style="max-width: 350px;">
                 <div class="flex">
-                    <div class="pr-10">
-                        <label for="text-1">Title 1</label>
-                        <input type="text" id="text-1" name="text_1" value="Open">
-                    </div>
-                    <div>
-                        <label for="text-2">Title 2</label>
-                        <input type="text" id="text-2" name="text_2" value="House">
-                    </div>
-                </div>
-                <div class="file-input-width">
-                    <label for="page-1-img-1">Main Image</label>
-                    <input type="file" id="img-1-input" onchange="img_1_change()">
-                    <button type="button" onclick="startCropper(1)">Crop</button>
-                    <button type="button" onclick="img_1_crop()">Save Crop</button>
-                </div>
-                <div class="flex">
-                    <div class="pr-10">
-                        <label for="text-3">Day</label>
-                        <input type="text" id="text-3" name="text_3" value="Sat">
-                    </div>
-                    <div>
-                        <label for="text-4">Date</label>
-                        <input type="text" id="text-4" name="text_4" value="July 31">
-                    </div>
-                </div>
-                <i style="font-size: 14px;">Use day and month abbreviations for better results i.e SAT, SUN, JAN, AUG
-                    etc</i>
-                <div class="flex">
-                    <div class="pr-10">
-                        <label for="text-5">Time</label>
-                        <input type="text" id="text-5" name="text_5" value="12PM - 4PM">
-                    </div>
-                    <div>
-                        <label for="text-6">Address</label>
-                        <input type="text" id="text-6" name="text_6" value="12625 SW 78th AVENUE">
-                    </div>
-                </div>
-                <div class="file-input-width">
-                    <label for="page-1-img-1">Side Image</label>
-                    <input type="file" id="img-2-input" onchange="img_2_change()">
-                    <button type="button" onclick="startCropper(2.31)">Crop</button>
-                    <button type="button" onclick="img_2_crop()">Save Crop</button>
-                </div>
-                <div class="flex">
-                    <div class="pr-10">
-                        <label for="text-7">Option 1</label>
-                        <input type="text" id="text-7" name="text_7" value="6 BEDS">
-                    </div>
-                    <div>
-                        <label for="text-8">Option 2</label>
-                        <input type="text" id="text-8" name="text_8" value="6 BATHS">
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="pr-10">
-                        <label for="text-9">Option 3</label>
-                        <input type="text" id="text-9" name="text_9" value="2 HALF BATHS">
-                    </div>
-                    <div>
-                        <label for="text-10">Option 4</label>
-                        <input type="text" id="text-10" name="text_10" value="POOL">
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="pr-10">
-                        <label for="text-11">Price</label>
-                        <input type="text" id="text-11" name="text_11" value="$5,865,989">
-                    </div>
-                    <div>
-                        <label for="text-12">Surface</label>
-                        <input type="text" id="text-12" name="text_12" value="6,288 SQFT">
-                    </div>
-                </div>
-                <div class="">
-                    <div>
-                        <label for="text-13">Text</label>
-                        <textarea name="text_13" id="text-13" cols="30" rows="10">Casa de El Roble is a hidden masterpiece located in the heart of Pinecrest that will epitomises everything you have come
-                        to expect. Designed by acclaimed architect Roney J. Mateu, this exquisite contemporary residence with double-height
-                        ceilings and walls of glass creates a seamless blending between its interior and fabulous exterior landscape. With a
-                        beautiful lap pool and a shallow lounge area for kids, the outdoor area provides a wonderful relaxing and entertaining
-                        space. Surrounded by many prestigious A+ schools, and its proximity to many shopping centers this property provides a
-                        timeless work of art for a perfect family.</textarea>
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="file-input-width">
-                        <label for="page-1-img-1">House 1</label>
-                        <input type="file" id="img-3-input" onchange="img_3_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
-                        <button type="button" onclick="img_3_crop()">Save Crop</button>
-                    </div>
-                    <div class="file-input-width">
-                        <label for="page-1-img-1">House 2</label>
-                        <input type="file" id="img-4-input" onchange="img_4_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
-                        <button type="button" onclick="img_4_crop()">Save Crop</button>
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="pr-10">
-                        <label for="text-14">Info 1</label>
-                        <input type="text" id="text-14" name="text_14" value="<strong>Wesley</strong> Ulloa">
-                    </div>
-                    <div>
-                        <label for="text-15">Info 2</label>
-                        <input type="text" id="text-15" name="text_15" value="LICENSED REAL ESTATE BROKER">
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="pr-10">
-                        <label for="text-16">Info 3</label>
-                        <input type="text" id="text-16" name="text_16" value="C: (305) 986-7041">
-                    </div>
-                    <div>
-                        <label for="text-17">Info 4</label>
-                        <input type="text" id="text-17" name="text_17" value="O: (305) 809-7650">
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="pr-10">
-                        <label for="text-18">Info 5</label>
-                        <input type="text" id="text-18" name="text_18" value="wesley@luxeknows.com">
-                    </div>
-                    <div>
-                        <label for="text-19">Info 6</label>
-                        <input type="text" id="text-19" name="text_19" value="www.<strong>luxeknows</strong>.com">
-                    </div>
-                </div>
-                <div class="file-input-width">
-                    <label for="page-1-img-1">Agent</label>
-                    <input type="file" id="img-5-input" onchange="img_5_change()">
-                    <button type="button" onclick="startCropper(0.71)">Crop</button>
-                    <button type="button" onclick="img_5_crop()">Save Crop</button>
-                </div>
-                <div class="flex">
-                    <div class="" style="width: 345px;">
+                    <div class="" style="width: 345px;margin-top:20px;">
                         <button type="submit" name="action" value="Generate" class="generate">Generate</button>
                         <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>

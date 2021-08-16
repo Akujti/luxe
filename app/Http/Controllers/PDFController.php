@@ -29,6 +29,26 @@ class PDFController extends Controller
         return $filePath;
     }
 
+    // Door Hangers
+
+    public function door_hanger_template_1(Request $request)
+    {
+        $data = [];
+        if ($_POST['action'] == 'Save') {
+            $data_json = json_encode($data);
+            $file = time() . '_file.json';
+            $destinationPath = public_path() . "/upload/json/";
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            File::put($destinationPath . $file, $data_json);
+            return response()->download($destinationPath . $file);
+        } else {
+            $pdf = PDF::loadView('door-hangers.template1.pdf', $data);
+            return $pdf->download('Door Hanger Template 1.pdf');
+        }
+    }
+
     //Flyers
 
     public function flyer_template_4(Request $request)
