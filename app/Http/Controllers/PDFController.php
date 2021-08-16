@@ -31,6 +31,73 @@ class PDFController extends Controller
 
     //Flyers
 
+    public function flyer_template_4(Request $request)
+    {
+        $data = [
+            "text_1" => $request['text_1'],
+            "text_2" => $request['text_2'],
+            "text_3" => $request['text_3'],
+            "text_4" => $request['text_4'],
+            "text_5" => $request['text_5'],
+            "text_6" => $request['text_6'],
+            "text_7" => $request['text_7'],
+            "text_8" => $request['text_8'],
+            "text_9" => $request['text_9'],
+            "text_10" => $request['text_10'],
+            "text_11" => $request['text_11'],
+
+            "img_1" => $request['img_1_input'],
+            "img_2" => $request['img_2_input'],
+            "img_3" => $request['img_3_input'],
+            "img_5" => $request['img_5_input'],
+        ];
+        if ($_POST['action'] == 'Save') {
+            $data_json = json_encode($data);
+            $file = time() . '_file.json';
+            $destinationPath = public_path() . "/upload/json/";
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            File::put($destinationPath . $file, $data_json);
+            return response()->download($destinationPath . $file);
+        } else {
+            $pdf = PDF::loadView('flyers.template4.pdf', $data);
+            return $pdf->download('Flyer Template 4.pdf');
+        }
+    }
+
+    public function flyer_template_3(Request $request)
+    {
+        $data = [
+            "text_1" => $request['text_1'],
+            "text_2" => $request['text_2'],
+            "text_3" => $request['text_3'],
+            "text_4" => $request['text_4'],
+            "text_5" => $request['text_5'],
+            "text_6" => $request['text_6'],
+            "text_7" => $request['text_7'],
+            "text_8" => $request['text_8'],
+            "text_9" => $request['text_9'],
+            "text_10" => $request['text_10'],
+
+            "img_1" => $request['img_1_input'],
+            "img_2" => $request['img_2_input'],
+        ];
+        if ($_POST['action'] == 'Save') {
+            $data_json = json_encode($data);
+            $file = time() . '_file.json';
+            $destinationPath = public_path() . "/upload/json/";
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            File::put($destinationPath . $file, $data_json);
+            return response()->download($destinationPath . $file);
+        } else {
+            $pdf = PDF::loadView('flyers.template3.pdf', $data);
+            return $pdf->download('Flyer Template 3.pdf');
+        }
+    }
+
     public function flyer_template_2(Request $request)
     {
         $data = [
@@ -916,6 +983,24 @@ class PDFController extends Controller
         }
     }
 
+    public function home_didnt_sell(Request $request)
+    {
+        $data = [];
+
+        if ($_POST['action'] == 'Save') {
+            $data_json = json_encode($data);
+            $file = time() . '_file.json';
+            $destinationPath = public_path() . "/upload/json/";
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            File::put($destinationPath . $file, $data_json);
+            return response()->download($destinationPath . $file);
+        } else {
+            $pdf = PDF::loadView('home-didnt-sell', $data);
+            return $pdf->download('Home Didn\'t Sell.pdf');
+        }
+    }
 
     public function fsbo_index(Request $request)
     {

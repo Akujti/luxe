@@ -15,6 +15,12 @@ use App\Http\Controllers\PDFController;
 */
 
 //Flyers
+Route::view('flyer-template-4', 'flyers.template4.web');
+Route::post('flyer-template-4', [PDFController::class, 'flyer_template_4'])->name('flyer-template-4');
+
+Route::view('flyer-template-3', 'flyers.template3.web');
+Route::post('flyer-template-3', [PDFController::class, 'flyer_template_3'])->name('flyer-template-3');
+
 Route::view('flyer-template-2', 'flyers.template2.web');
 Route::post('flyer-template-2', [PDFController::class, 'flyer_template_2'])->name('flyer-template-2');
 
@@ -119,6 +125,8 @@ Route::get('/home-buying', function () {
     return view('home-buying-guide-web');
 });
 
+Route::view('/home-didnt-sell', 'home-didnt-sell-web');
+
 
 Route::post('uploadimage', [PDFController::class, 'uploadimage'])->name('pdf.uploadimage');
 
@@ -126,3 +134,4 @@ Route::post('create-pdf-file-home', [PDFController::class, 'index'])->name('pdf.
 Route::post('create-pdf-file-fsbo', [PDFController::class, 'fsbo_index'])->name('pdf.fsbo.store');
 Route::post('create-pdf-file-single', [PDFController::class, 'single_property'])->name('pdf.single.property');
 Route::post('create-pdf-file-home-buying', [PDFController::class, 'home_buying'])->name('pdf.home.buying');
+Route::post('home-didnt-sell', [PDFController::class, 'home_didnt_sell'])->name('pdf.home.didnt.sell');
