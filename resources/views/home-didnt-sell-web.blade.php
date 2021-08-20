@@ -2619,10 +2619,17 @@ I’m the neighborhood specialist.
                 </div>
             </div>
             <div class="column-divider"></div>
-            <div class="row-input"></div>
+            <div class="row-input">
+                <div class="button">
+                    <button type="submit" name="action" value="Generate" class="generate" style="">Generate</button>
+                    <button type="submit" name="action" value="Save" class="generate">Save</button>
+
+                    <br />
+                    JSON Upload:
+                    <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()" />
+                </div>
+            </div>
         </div>
-        <button type="submit" name="action" value="Generate" class="generate"
-            style="position: fixed;top: 0;">Generate</button>
     </form>
 </body>
 
