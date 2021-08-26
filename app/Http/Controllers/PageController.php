@@ -10,4 +10,14 @@ class PageController extends Controller
     {
         return view('pages.links');
     }
+
+    public function videos()
+    {
+        return view('pages.videos');
+    }
+
+    public function calendar()
+    {
+        return view('pages.calendar');
+    }
 }

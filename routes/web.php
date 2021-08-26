@@ -145,3 +145,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/links', [PageController::class, 'links'])->name('links');
+Route::get('/videos', [PageController::class, 'videos'])->name('videos');
+Route::get('/calendar', [PageController::class, 'calendar'])->name('calendar');

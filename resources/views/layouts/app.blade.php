@@ -20,14 +20,15 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @yield('js')
+    @yield('css')
 </head>
 <style>
     footer {
         position: fixed;
         bottom: 0;
-        border-bottom: 5px solid #FFCF40;
+        border-bottom: 10px solid #FFCF40;
         height: 5px;
         width: 100%;
     }
