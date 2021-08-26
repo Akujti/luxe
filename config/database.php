@@ -63,6 +63,22 @@ return [
             ]) : [],
         ],
 
+        'wp-mysql' => [
+            'driver' => 'mysql',
+            'host' => env('WP_DB_HOST', '107.180.2.54'),
+            'port' => env('WP_DB_PORT', '3306'),
+            'database' => env('WP_DB_DATABASE', 'i7174985_wp3'),
+            'username' => env('WP_DB_USERNAME', 'i7174985_wp3'),
+            'password' => env('WP_DB_PASSWORD', 'D.0w3FS4De3k9dhWgaI47'),
+            'unix_socket' => env('WP_DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => 'wp_',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
@@ -123,7 +139,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [

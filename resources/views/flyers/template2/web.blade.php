@@ -340,7 +340,7 @@
                             <li class="bold white text-5">12PM - 4PM</li>
                         </ul>
                     </div>
-                    <div class="absolute" style="top:335px;left:440px;">
+                    <div class="absolute" style="top:335px;left:440px;height: 85px;">
                         <ul>
                             <li class="gold">
                                 <div class="text-border oswald-med text-6">12625 SW 78th AVENUE</div>

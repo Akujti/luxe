@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
 
@@ -138,3 +140,8 @@ Route::post('create-pdf-file-fsbo', [PDFController::class, 'fsbo_index'])->name(
 Route::post('create-pdf-file-single', [PDFController::class, 'single_property'])->name('pdf.single.property');
 Route::post('create-pdf-file-home-buying', [PDFController::class, 'home_buying'])->name('pdf.home.buying');
 Route::post('home-didnt-sell', [PDFController::class, 'home_didnt_sell'])->name('pdf.home.didnt.sell');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/links', [PageController::class, 'links'])->name('links');

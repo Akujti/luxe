@@ -1260,7 +1260,7 @@ I’m the neighborhood specialist.
                             Agreement<br>on Price
                             and Terms</p>
                     </div>
-                    <div class="absolute" style="top:30px;left:145px;">
+                    <div class="absolute" style="top:299px;left:145px;">
                         <p class="font-thin table-list">LUXE Pre-Launch Campaign</p>
                         <p class="font-thin table-list">Quick-Shot Photos Pre-MLS push to Social Media</p>
                         <p class="font-thin table-list">Pre-MLS invitation to preview to email mailing list</p>

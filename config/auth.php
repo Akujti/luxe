@@ -41,8 +41,13 @@ return [
             'provider' => 'users',
         ],
 
+        'wordpress' => [
+            'driver' => 'session',
+            'provider' => 'wordpress',
+        ],
+
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
             'hash' => false,
         ],
@@ -69,6 +74,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'wordpress' => [
+            'driver' => 'eloquent.wordpress',
+            'model' => MrShan0\WordpressAuth\Models\WordpressUser::class,
         ],
 
         // 'users' => [
@@ -98,6 +108,11 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'wordpress' => [
+            'provider' => 'wordpress',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 
