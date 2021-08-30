@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Folder;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
+        // $this->call([
+        //     FolderSeed::class,
+        //     FileSeed::class,
+        // ]);
+        User::create([
+            'name' => 'Luxe Admin',
+            'email' => 'email@company.com',
+            'password' => bcrypt('password'),
+        ]);
     }
 }

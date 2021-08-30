@@ -20,8 +20,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    @yield('js')
+    @toastr_css
     @yield('css')
 </head>
 <style>
@@ -50,6 +49,11 @@
         margin-right: 5px;
         max-height: 20px;
     }
+
+    .btn-luxe {
+        background: #FFCF40;
+        color: black;
+    }
 </style>
 
 <body>
@@ -71,7 +75,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 text-center">
-                        <img src="images/logo.png" alt="" height="80px">
+                        <img src="/images/logo.png" alt="" height="80px">
                     </div>
                     <div class="col-12 col-lg-4"></div>
                 </div>
@@ -84,6 +88,17 @@
 
         <footer></footer>
     </div>
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+    @php
+    toastr()->error($error);
+    @endphp
+    @endforeach
+    @endif
+    @jquery
+    @toastr_js
+    @toastr_render
 </body>
+@yield('js')
 
 </html>

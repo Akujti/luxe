@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\FolderController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -143,7 +147,17 @@ Route::post('home-didnt-sell', [PDFController::class, 'home_didnt_sell'])->name(
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/links', [PageController::class, 'links'])->name('links');
-Route::get('/videos', [PageController::class, 'videos'])->name('videos');
-Route::get('/calendar', [PageController::class, 'calendar'])->name('calendar');
+Route::group(
+    ['prefix' => 'user', 'middleware' => ['auth']],
+    function () {
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
+        Route::get('/links', [PageController::class, 'links'])->name('links');
+        Route::get('/videos', [PageController::class, 'videos'])->name('videos');
+        Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
+        Route::resource('events', EventController::class);
+        Route::resource('files', FolderController::class);
+        Route::delete('folder-destory/{id}', [FolderController::class, 'folder_destroy'])->name('folder.destroy');
+        Route::delete('file-destory/{id}', [FolderController::class, 'file_destroy'])->name('file.destroy');
+        Route::post('files/new-directory', [FolderController::class, 'create_directory'])->name('files.new.directory');
+    }
+);
