@@ -20,7 +20,9 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    @toastr_css
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    {{-- @toastr_css --}}
     @yield('css')
 </head>
 <style>
@@ -95,10 +97,53 @@
     @endphp
     @endforeach
     @endif
-    @jquery
+    {{-- @jquery
     @toastr_js
-    @toastr_render
+    @toastr_render --}}
+
 </body>
 @yield('js')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript">
+    toastr.options = {"closeButton":false,"debug":false,"newestOnTop":false,"progressBar":false,"positionClass":"toast-top-right","preventDuplicates":false,"onclick":null,"showDuration":"300","hideDuration":"1000","timeOut":"5000","extendedTimeOut":"1000","showEasing":"swing","hideEasing":"linear","showMethod":"fadeIn","hideMethod":"fadeOut"};
+</script>
+<script>
+    @if(Session::has('message'))
+toastr.options =
+{
+"closeButton" : true,
+"progressBar" : true
+}
+toastr.success("{{ session('message') }}");
+@endif
+
+@if(Session::has('error'))
+toastr.options =
+{
+"closeButton" : true,
+"progressBar" : true
+}
+toastr.error("{{ session('error') }}");
+@endif
+
+@if(Session::has('info'))
+toastr.options =
+{
+"closeButton" : true,
+"progressBar" : true
+}
+toastr.info("{{ session('info') }}");
+@endif
+
+@if(Session::has('warning'))
+toastr.options =
+{
+"closeButton" : true,
+"progressBar" : true
+}
+toastr.warning("{{ session('warning') }}");
+@endif
+</script>
 
 </html>

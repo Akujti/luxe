@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -62,11 +63,7 @@ class EventController extends Controller
         }
         $event->user_id = Auth::id();
         $event->save();
-        if ($event)
-            toastr()->success('Event has been created');
-        else
-            toastr()->error('Something went wrong');
-        return redirect()->route('events.index');
+        return redirect()->route('events.index')->with('message', 'Event has been created');
     }
 
     /**
@@ -114,10 +111,8 @@ class EventController extends Controller
         $event = Event::find($request->event_id);
         if (Auth::id() == $event->user_id) {
             $event->delete();
-            toastSuccess("Deleted Successfully");
-        } else {
-            toastError("You don't have access");
+            return redirect()->route('events.index')->with('message', 'Deleted Successfully');
         }
-        return redirect()->route('events.index');
+        return redirect()->route('events.index')->with('warning', 'You don\'t have access');
     }
 }

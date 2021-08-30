@@ -69,25 +69,21 @@ class FolderController extends Controller
             $file->file = $path;
             $file->save();
         }
-
-        toastr()->success('File has been uploaded');
-        return redirect()->route('files.index', ['id' => $request->folder_id]);
+        return redirect()->route('files.index', ['id' => $request->folder_id])->with('message', 'File has been uploaded');
     }
 
     public function folder_destroy($id)
     {
         $folder = Folder::find($id);
         $folder->delete();
-        toastr()->success('Directory has been deleted!');
-        return back();
+        return back()->with('message', 'Directory has been deleted!');
     }
 
     public function file_destroy($id)
     {
         $file = File::find($id);
         $file->delete();
-        toastr()->success('File has been deleted!');
-        return back();
+        return back()->with('message', 'File has been deleted!');
     }
 
     public function create_directory(Request $request)
