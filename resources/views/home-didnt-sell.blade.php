@@ -767,7 +767,7 @@
             <img src="images/home-didnt-sell/page-14.png" alt="">
         </div>
         <div class="absolute w-100" style="top:222px;text-align:center">
-            <img src="{images/home-didnt-sell/page-20-img-1.png}" alt="" height="120px">
+            <img src="images/home-didnt-sell/page-20-img-1.png" alt="" height="120px">
         </div>
         <div class="absolute" style="top:650px;left:200px;">
             <img src="images/home-didnt-sell/page-14-box.png" alt="" height="230px">
