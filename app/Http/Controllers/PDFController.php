@@ -587,8 +587,8 @@ class PDFController extends Controller
             $pdf = PDF::loadView('themes.just-closed.just-closed', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
             $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
-            dd('image');
             $pdf->save($fileName);
+            dd('image');
             return response()->download($this->image($fileName), 'Just Closed.jpg', $this->headers);
         }
     }
