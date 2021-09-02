@@ -24,9 +24,9 @@ class PDFController extends Controller
 
     public function image($file)
     {
+
         $imgExtension = new Imagick($file);
         $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-        dd('image');
         $imgExtension->writeImages($filePath, true);
         return $filePath;
     }
@@ -587,6 +587,7 @@ class PDFController extends Controller
             $pdf = PDF::loadView('themes.just-closed.just-closed', $data);
             $pdf->setPaper(0, 0, 4000, 4000);
             $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            dd('image');
             $pdf->save($fileName);
             return response()->download($this->image($fileName), 'Just Closed.jpg', $this->headers);
         }
