@@ -24,10 +24,9 @@ class PDFController extends Controller
 
     public function image($file)
     {
-        $pdf = new \Spatie\PdfToImage\Pdf($file);
         $imgExtension = new Imagick($file);
         $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-        // $pdf->saveImage($filePath);
+        dd('image');
         $imgExtension->writeImages($filePath, true);
         return $filePath;
     }
