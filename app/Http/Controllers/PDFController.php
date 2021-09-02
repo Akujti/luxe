@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use PDF;
 use File;
 use Str;
+use Imagick;
 use Dompdf\Dompdf;
 
 class PDFController extends Controller
@@ -24,8 +25,10 @@ class PDFController extends Controller
     public function image($file)
     {
         $pdf = new \Spatie\PdfToImage\Pdf($file);
+        $imgExtension = new Imagick($file);
         $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-        $pdf->saveImage($filePath);
+        // $pdf->saveImage($filePath);
+        $imgExtension->writeImages($filePath, true);
         return $filePath;
     }
 
