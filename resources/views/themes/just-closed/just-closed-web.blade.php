@@ -236,7 +236,7 @@
                         <input type="text" id="page-1-text-3" name="page_1_text_3" value="1,700 SQFT">
                     </div>
                     <div class="">
-                        <div class="pr-10">
+                        <div class="">
                             <label for="page-1-text-13">WEBSITE</label>
                             <input type="text" id="page-1-text-13" name="page_1_text_13" value="WWW.LUXEKNOWS.COM">
                         </div>
@@ -460,6 +460,7 @@
     function img_1_change(){
         var form_data = new FormData();
         form_data.append("file", $("#img-1-input")[0].files[0]);
+        encodeBase64($("#img-1-input")[0],false,'page');
         $.ajax({
             url: '/uploadimage',
             data: form_data,
@@ -473,7 +474,6 @@
             success: function(output){
                 $("#image").attr('src', 'uploadedimages/' + output)
                 getBase64Image(document.getElementById("image"),function(base64){
-                    $(".page").css('background-image', 'url(uploadedimages/' + output + ')')
                     $("input[name=img_1_input]").val('uploadedimages/' + output);
                 });
                 $(".page").css("display", "block");
@@ -481,33 +481,61 @@
         });
     }
 
+    function encodeBase64(elm,is_id,element) {
+        var file = elm.files[0];
+        var imgReader = new FileReader();
+        imgReader.onloadend = function() {
+            if(is_id){
+                $("#"+element).attr('src', imgReader.result);
+            }
+            else{
+                $("."+element).css('background-image', 'url(' + imgReader.result + ')');
+            }
+        }
+        imgReader.readAsDataURL(file);
+        return imgReader.result;
+    }
+
+    function encodeBase64_crop(elm,is_id,element) {
+        var file = elm;
+        var imgReader = new FileReader();
+        imgReader.onloadend = function() {
+            if(is_id){
+                $("#"+element).attr('src', imgReader.result);
+            }
+            else{
+                $("."+element).css('background-image', 'url(' + imgReader.result + ')');
+            }
+        }
+        imgReader.readAsDataURL(file);
+        return imgReader.result;
+    }
+
     function img_1_crop(){
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $(".page").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $("input[name=img_1_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("display", "block");
-            }
+            const form_data = new FormData();
+            form_data.append('file', blob, 'example.png');
+            encodeBase64_crop(blob,false,'page');
+            $.ajax({
+                url: '/uploadimage',
+                data: form_data,
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function(output){
+                    cropper.destroy();
+                    $("#image").attr('src', 'uploadedimages/' + output)
+                    getBase64Image(document.getElementById("image"),function(base64){
+                        $("input[name=img_1_input]").val('uploadedimages/' + output);
+                    });
+                    $(".page").css("display", "block");
+                }
+            });        
         });
-        
-        }/*, 'image/png' */);
     }
 
     var cropper;
