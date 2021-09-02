@@ -477,6 +477,9 @@
                     $("input[name=img_1_input]").val('uploadedimages/' + output);
                 });
                 $(".page").css("display", "block");
+            },
+            error: function (output) {
+                console.log(output);
             }
         });
     }
