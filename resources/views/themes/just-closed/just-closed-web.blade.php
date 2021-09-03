@@ -149,6 +149,11 @@
     span.large {
         font-size: 66px;
     }
+
+    .img-upload {
+        display: none;
+        margin-top: 10px;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -261,6 +266,9 @@
                         <button type="button" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="img_1_crop()">Save Crop</button>
                     </div>
+                    <div id="img-1-input-disclaimer" class="img-upload">
+                        <i>Image is being uploaded...</i>
+                    </div>
                 </div>
 
                 <div class="flex">
@@ -301,166 +309,21 @@
         });    
     });
 
-    function img_4_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-4-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img4").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_4_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
+    function enable_buttons(disclaimer){
+        $("#"+disclaimer).css('display','none');
+        $('button').prop("disabled",false);
     }
 
-    function img_4_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img4").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_4_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("display", "block");
-            }
-        });
-        
-        }/*, 'image/png' */);
-    }
-
-    function img_3_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-3-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img3").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_3_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_3_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img3").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_3_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("display", "block");
-            }
-        });
-        
-        }/*, 'image/png' */);
-    }
-
-    function img_2_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-2-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img2").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_2_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_2_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img2").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_2_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("display", "block");
-            }
-        });
-        
-        }/*, 'image/png' */);
+    function disable_buttons(disclaimer){
+        $("#"+disclaimer).css('display','block');
+        $('button').prop("disabled",true);
     }
 
     function img_1_change(){
         var form_data = new FormData();
         form_data.append("file", $("#img-1-input")[0].files[0]);
         encodeBase64($("#img-1-input")[0],false,'page');
+        disable_buttons('img-1-input-disclaimer');
         $.ajax({
             url: '/uploadimage',
             data: form_data,
@@ -477,6 +340,7 @@
                     $("input[name=img_1_input]").val('uploadedimages/' + output);
                 });
                 $(".page").css("display", "block");
+                enable_buttons('img-1-input-disclaimer');
             },
             error: function (output) {
                 console.log(output);
