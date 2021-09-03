@@ -503,13 +503,13 @@
             </div>
             <div class="absolute" style="top:25%;left:100px;">
                 <div class="mb-50">
-                    <img src="images/single-property/Asset 5.png" alt="" width="200px">
+                    <img src="images/home-selling/high-res/Asset 5.png" alt="" width="200px">
                 </div>
                 <div class="mb-50">
-                    <img src="images/single-property/Asset 6.png" alt="" width="200px">
+                    <img src="images/home-selling/high-res/Asset 6.png" alt="" width="200px">
                 </div>
                 <div class="mb-50">
-                    <img src="images/single-property/Asset 7.png" alt="" width="200px">
+                    <img src="images/home-selling/high-res/Asset 7.png" alt="" width="200px">
                 </div>
             </div>
             <div class="absolute" style="top:24%;left:320px;">
@@ -834,43 +834,37 @@
     <div class="page_break"></div>
 
     <div class="page-16 page-8-1"
-        style="background-image: url('images/home-selling/Asset 14.png');height:100%;position:absolute;top:0;background-size: cover;background-position: center;">
+        style="background-image: url('images/home-selling/high-res/Asset 14.png');height:100%;position:absolute;top:0;background-size: 100.5% 1130px;background-position: center;">
         <h1></h1>
     </div>
 
     <div class="page_break"></div>
 
     <div class="page page-17 page-8-2">
-        <div class="container" style="margin-left:50px;">
+        <div class="container" style="margin-left:100px;">
             <div class="heading">
                 <h2 class="subtitle-top" style="font-weight: 300;font-size:70px;margin-left:10px;">Our</h2>
-                <h1 class="title" style="font-size: 190px;color:#C6A467;font-weight:300;line-height:130px;">Digital</h1>
-                <h1 class="subtitle-bottom" style="font-weight: 300;font-size: 75px;margin-left:280px;">
+                <h1 class="title" style="font-size: 160px;color:#C6A467;font-weight:300;line-height:100px;">Digital</h1>
+                <h1 class="subtitle-bottom" style="font-weight: 300;font-size: 60px;margin-left:250px;">
                     Advantage</h1>
             </div>
             <div class="content">
-                <p style="font-weight: 300;padding-right:100px;">{{$page_17_text_2}}</p>
-                {{-- <p style="font-weight: 300;padding-right:100px;">All our syndication portals display your home with:</p> --}}
+                <p style="font-weight: 300;padding-right:200px;">{{$page_17_text_1}}</p>
+                <p style="font-weight: 300;padding-right:200px;margin-top:10px;">All our syndication portals display
+                    your home with:</p>
                 <ul style="list-style-image: url('images/home-selling/check-large.png');">
                     <?php $page_17_text_2 = explode("\n", $page_17_text_2); ?>
                     @foreach ($page_17_text_2 as $page_17_text_2)
                     <li style="margin-bottom: 15px;font-weight: 400;">{{$page_17_text_2}}</li>
-                    {{-- <li style="margin-bottom: 15px;font-weight: 400;">Daily Updates</li>
-                    <li style="margin-bottom: 15px;font-weight: 400;">Local Information on Area</li>
-                    <li style="margin-bottom: 15px;font-weight: 400;">Property Information</li> --}}
                     @endforeach
                 </ul>
-                <p style="font-weight: 300;padding-right:100px;">{{$page_17_text_3}}</p>
-                <p style="font-weight: 300;padding-right:100px;">Custom reporting includes:</p>
+                <p style="font-weight: 300;padding-right:200px;">{{$page_17_text_3}}</p>
+                <p style="font-weight: 300;padding-right:200px;margin-top:10px;">Custom reporting includes:</p>
                 <ul style="list-style-image: url('images/home-selling/check-large.png');">
                     <?php $page_17_text_4 = explode("\n", $page_17_text_4); ?>
                     @foreach($page_17_text_4 as $key => $value)
                     <li style="margin-bottom: 15px;font-weight: 400;">{{$value}}</li>
                     @endforeach
-                    {{-- <li style="margin-bottom: 15px;font-weight: 400;">Search List Views</li>
-                    <li style="margin-bottom: 15px;font-weight: 400;">Property Details Views</li>
-                    <li style="margin-bottom: 15px;font-weight: 400;">Saved Searches</li> --}}
-                    {{-- @endforeach --}}
                 </ul>
             </div>
             <div class="page-number" style="background-image: url('images/single-property/06.png');bottom:1%;">
@@ -1490,9 +1484,40 @@
 
     <div class="page_break"></div>
 
-    <div class="page-35"
+    {{-- <div class="page-35"
         style="background-image: url('images/single-property/page-35.jpg');height:100%;position:absolute;top:0;background-size: cover;background-position: center;">
         <h1></h1>
+    </div> --}}
+
+    <div class="page page-14 page-14-2" style="background-image: url('images/home-selling/high-res/Asset 22.png');
+            background-size: contain;
+            height: 100%;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            width: 100%;
+            background-repeat: no-repeat;">
+        <p style="position: absolute;top:300px; width:480px;font-weight:300;left:80px;">Satisfying the client
+            is the minimum
+            goal for staying in business. We constantly tweak and embrace change in order to improve our systems,
+            processes and services to go beyond the expected.
+            <br><br>
+            Here are just a few of our wonderful clients showing some client love!</p>
+        <p style="position: absolute;top:490px; width:300px;font-weight:300;left:180px;font-size:14px;">
+            I thank the whole organization for their professionalism in doing business, and wish you the very best of
+            success for the years to come! Keep up the GREAT WORK!”
+        </p>
+        <p style="position: absolute;top:630px; width:280px;font-weight:300;left:265px;font-size:14px;">
+            I am very happy with the results obtained. Definitely, I would recommend LUXE Properties to my friends, and
+            family!”
+        </p>
+        <p style="position: absolute;top:760px; width:350px;font-weight:300;left:350px;font-size:14px;">
+            LUXE realtors are truly committed to selling/leasing your property; they are passionate about finding
+            solutions and display throughout the journey utmost ethical behavior in all of their transactions. With LUXE
+            on your side, you know that your home is in great hands which takes the worry off the customer making the
+            process stress free.”
+        </p>
     </div>
 
     <div class="page_break"></div>

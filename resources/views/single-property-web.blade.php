@@ -1527,10 +1527,11 @@ Through the use of drone footage combined with high-definition videography, we a
                     <div class="content">
                         <p class="page-17-text-1" style="font-weight: 300; margin-left: 200px;">
                             Our clients benefit from property exposure through shared listing syndication on a carefully
-                            chosen list of top real estate websites syndication on a carefully chosen list of top real
-                            estate websites and
-                            desired neighborhood websites where potential buyers frequently gather real estate
-                            information when looking for a home aided in choosing these distinct portals.
+                            chosen list of top real estate websites worldwide. Researching potential buyer’s lifestyle,
+                            specific demographics
+                            and desired neighborhood websites where potential buyers frequently gather real estate
+                            information when looking for a
+                            home aided in choosing these distinct portals.
                         </p>
                         <p style="font-weight: 300; margin-left: 200px;">All our syndication
                             portals display your home with:</p>
@@ -1545,12 +1546,12 @@ Through the use of drone footage combined with high-definition videography, we a
                             </li>
                             {{-- @endforeach --}}
                         </ul>
-                        <p class="page-17-text-3" style="font-weight: 300;margin-left: 200px;">
-                            In addition to listing syndication, custom reporting will be provided for every channel to
-                            show how much exposure each listing is receiving from every channel to show how much
-                            exposure each listing is
-                            receiving from featured when possible on each of these online channels to ensure featured
-                            when possible on each of these online channels to ensure
+                        <p class="page-17-text-3" style="font-weight: 300;margin-left: 200px;">In addition to listing
+                            syndication, custom reporting will be provided for every channel to show how much exposure
+                            each
+                            listing is receiving from each online portal. Targeted display ads and premium placement
+                            will be featured when possible
+                            on each of these online channels to ensure maximum exposure for our home listings.
                         </p>
                         <p style="font-weight: 300; margin-left: 200px;">Custom reporting
                             includes:</p>
@@ -1583,8 +1584,10 @@ Through the use of drone footage combined with high-definition videography, we a
             <div class="column-divider"></div>
             <div class="row-input" style="margin-right: 150px;">
                 <label for="page_17_text_1">Content </label>
-                <textarea id="page-17-text-1" name="page_17_text_1" rows="4">Our clients benefit from property exposure through shared listing syndication on a carefully chosen list of top real estate websites syndication on a carefully chosen list of top real estate websites and desired neighborhood websites where potential buyers frequently gather real estate information when looking for a home aided in choosing these distinct portals.
-                    </textarea>
+                <textarea id="page-17-text-1" name="page_17_text_1" rows="4">Our clients benefit from property exposure through shared listing syndication on a carefully chosen list of top real
+                estate websites worldwide. Researching potential buyer’s lifestyle, specific demographics and desired neighborhood
+                websites where potential buyers frequently gather real estate information when looking for a home aided in choosing
+                these distinct portals.</textarea>
                 <label for="page-17-text-2">Content </label>
                 <textarea id="page-17-text-2" name="page_17_text_2" rows="4">
                         Mobile Optimization
@@ -1594,19 +1597,15 @@ Through the use of drone footage combined with high-definition videography, we a
     
                     </textarea>
                 <label for="page-17-text_3">Content</label>
-                <textarea id="page-17-text-3" name="page_17_text_3" rows="4">In addition to listing syndication, custom reporting will be provided for every channel to show how much exposure each listing is receiving from every channel to show how much exposure each listing is receiving from featured when possible on each of these online channels to ensure featured when possible on each of these online channels to ensure
-
-    
-                    </textarea>
+                <textarea id="page-17-text-3" name="page_17_text_3" rows="4">In addition to listing syndication, custom reporting will be provided for every channel to show how much exposure each
+                listing is receiving from each online portal. Targeted display ads and premium placement will be featured when possible
+                on each of these online channels to ensure maximum exposure for our home listings.</textarea>
                 <label for="page-17-text-4">Content</label>
                 <textarea id="page-17-text-4" name="page_17_text_4" rows="4">
                         Listing Views
                         Search List Views
                         Property Details Views
                         Saved Searches
-   
-       
-
                     </textarea>
             </div>
         </div>

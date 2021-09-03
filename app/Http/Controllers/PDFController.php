@@ -588,7 +588,6 @@ class PDFController extends Controller
             $pdf->setPaper(0, 0, 4000, 4000);
             $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
             $pdf->save($fileName);
-            dd('image');
             return response()->download($this->image($fileName), 'Just Closed.jpg', $this->headers);
         }
     }
