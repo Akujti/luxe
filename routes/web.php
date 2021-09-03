@@ -153,6 +153,7 @@ Route::group(
         Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/links', [PageController::class, 'links'])->name('links');
         Route::get('/videos', [PageController::class, 'videos'])->name('videos');
+        Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::resource('events', EventController::class);
         Route::resource('files', FolderController::class);

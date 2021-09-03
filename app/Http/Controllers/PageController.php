@@ -17,4 +17,9 @@ class PageController extends Controller
     {
         return view('pages.videos');
     }
+
+    public function video_folder($folder)
+    {
+        return view('pages.videos.' . $folder);
+    }
 }

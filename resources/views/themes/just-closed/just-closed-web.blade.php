@@ -383,6 +383,7 @@
             const form_data = new FormData();
             form_data.append('file', blob, 'example.png');
             encodeBase64_crop(blob,false,'page');
+            disable_buttons('img-1-input-disclaimer');
             $.ajax({
                 url: '/uploadimage',
                 data: form_data,
@@ -400,6 +401,7 @@
                         $("input[name=img_1_input]").val('uploadedimages/' + output);
                     });
                     $(".page").css("display", "block");
+                    enable_buttons('img-1-input-disclaimer');
                 }
             });        
         });
