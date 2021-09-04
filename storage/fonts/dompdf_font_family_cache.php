@@ -110,7 +110,7 @@
     '600' => $fontDir . '/oswald-600_01bddfb0b3c91888925894a2fb53b46b',
   ),
   'ibm plex sans' => array(
-    'normal' => $fontDir . '/ibm-plex-sans-normal_418393f837d7f46144b07a22c28b3b92',
-    '500' => $fontDir . '/ibm-plex-sans-500_a3133f3ede91c3821eab0fdefd9bcb78',
+    'normal' => $fontDir . '/ibm-plex-sans-normal_ce60a5625c0559a35982dda17f12a84d',
+    '500' => $fontDir . '/ibm-plex-sans-500_8bd3e82e249bf69fd493e2614b1b0454',
   ),
 ) ?>
