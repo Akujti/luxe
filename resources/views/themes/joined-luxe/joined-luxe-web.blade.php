@@ -87,7 +87,8 @@
         background-image: url('images/themes/joined-luxe/person.jpg');
         background-position: top right;
         background-repeat: no-repeat;
-        background-size: 80%;
+        /* background-size: 80%; */
+        background-size: 510px 710px;
     }
 
     .absolute {
@@ -579,7 +580,7 @@
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
             minContainerHeight: 500,
-            aspectRatio: 1,
+            aspectRatio: 0.718,
         });
     }
 

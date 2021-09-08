@@ -29,7 +29,7 @@
         position: absolute;
         background-position: right top;
         background-repeat: no-repeat;
-        background-size: 2700px 3750px;
+        background-size: 2250px 3150px;
     }
 
     .absolute {
