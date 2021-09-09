@@ -97,6 +97,7 @@
         <h1>LUXE FILES</h1>
         <button id="back" class="btn"><a href="{{route('files.index')}}">Back</a></button>
     </div>
+    @if (Auth::user()->isAdmin)
     <div class="row">
         <div class="col-12">
             <form action="{{route('files.new.directory')}}" method="post">
@@ -113,7 +114,9 @@
             </form>
         </div>
     </div>
+    @endif
     <div class="row">
+        @if (Auth::user()->isAdmin)
         <div class="col-12 col-lg-2">
             <div class="folder mb-2">
                 <a onclick="show_modal()">
@@ -122,6 +125,7 @@
                 </a>
             </div>
         </div>
+        @endif
         @foreach ($folders as $folder)
         <div class="col-12 col-lg-2">
             <div class="folder mb-2">
@@ -131,6 +135,7 @@
                         {{$folder->title}}
                     </p>
                 </a>
+                @if (Auth::user()->isAdmin)
                 <div class="delete-form">
                     <form action="{{ route('folder.destroy',$folder->id) }}" method="post">
                         @csrf
@@ -138,6 +143,7 @@
                         <button class="delete-button" type="submit">X</button>
                     </form>
                 </div>
+                @endif
             </div>
         </div>
         @endforeach

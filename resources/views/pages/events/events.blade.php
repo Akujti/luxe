@@ -21,6 +21,7 @@
     <div class="row my-4">
         <div id='calendar' style="width: 100%; display: inline-block;"></div>
     </div>
+    @if (Auth::user()->isAdmin)
     <div class="create-event modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -43,6 +44,12 @@
                             <label for="start">{{ __('Location') }}</label>
                             <div class='input-group date'>
                                 <input type="text" id="location" name="location" class="w-100 form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="start">{{ __('RSVP') }}</label>
+                            <div class='input-group date'>
+                                <input type="text" id="rsvp" name="rsvp" class="w-100 form-control" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -75,6 +82,7 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
+    @endif
     <div class="single-event modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -121,6 +129,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="start">{{ __('RVSP') }}</label>
+                            <div class='input-group date'>
+                                <a id="rsvp" href="" target="_blank" rel="noopener noreferrer" class="btn btn-luxe">Open
+                                    Link</a>
+                            </div>
+                        </div>
                         <div class="form-group event-image">
                             <label for="start">{{ __('Event Image') }}</label>
                             <div class="img-wrapper">
@@ -128,9 +143,11 @@
                             </div>
                         </div>
                     </div>
+                    @if (Auth::user()->isAdmin)
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-danger" id="delete_event">Delete</button>
                     </div>
+                    @endif
                 </form>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -157,6 +174,7 @@
                 $('.single-event').find('#start_time').val(event.extendedProps.start_time);
                 $('.single-event').find('#end_time').val(event.extendedProps.end_time);
                 $('.single-event').find('#user_id').val(event.extendedProps.user_id);
+                $('.single-event').find('#rsvp').attr('href',event.extendedProps.rsvp);
                 $('.single-event').find('.modal-footer').css('display','none');
                 if(event.extendedProps.user_id == {{Auth::id()}}){
                     $('.single-event').find('.modal-footer').css('display','flex');

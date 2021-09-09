@@ -14,4 +14,19 @@ class UserController extends Controller
         $user = User::find($user_id);
         return $user;
     }
+
+    public function login()
+    {
+        $user_wp = Auth::guard('wordpress')->attempt([
+            'user_email' => 'art.kujtimi@hotmail.com',
+            'user_pass' => 'artartart'
+        ]);
+        if ($user_wp) {
+            $user = Auth::guard('wordpress')->user();
+            dd($user);
+            $user->save();
+            $user->login();
+            return redirect()->intended('/user/links');
+        }
+    }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\FolderController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -115,7 +116,7 @@ Route::post('create-theme-just-sold-story', [PDFController::class, 'theme_just_s
 //End
 
 Route::get('/', function () {
-    return view('single-property-web');
+    return redirect('http://myluxehub.com/');
 });
 
 Route::get('/single-property', function () {
@@ -162,3 +163,5 @@ Route::group(
         Route::post('files/new-directory', [FolderController::class, 'create_directory'])->name('files.new.directory');
     }
 );
+
+Route::get('loginTest', [UserController::class, 'login']);

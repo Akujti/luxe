@@ -45,6 +45,9 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Auth::user()->isAdmin) {
+            return back()->with('error', 'You cannot create events');
+        }
         $validated = $request->validate([
             'title' => 'required',
             'location' => 'required',
@@ -52,6 +55,7 @@ class EventController extends Controller
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
             'start_time' => 'required',
             'end_time' => 'required',
+            'rsvp' => 'required',
         ], [
             'image.image' => 'The chosen file must be an image type'
         ]);
