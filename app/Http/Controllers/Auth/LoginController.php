@@ -75,12 +75,6 @@ class LoginController extends Controller
             return redirect()->route('links');
         }
 
-        // dd(Auth::attempt(['user_email' => $email, 'user_pass' => $password], $remember_me));
-
-        return redirect()->back()
-            ->withInput()
-            ->withErrors([
-                'login_error' => 'These credentials do not match our records.',
-            ]);
+        return redirect()->back()->with('error', 'These credentials do not match our records.');
     }
 }
