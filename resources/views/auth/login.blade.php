@@ -130,7 +130,7 @@
         </div>
 
         <div class="form-group row mb-0">
-            <div class="col-md-8 offset-md-4 text-center">
+            <div class="col-md-9 offset-md-3 text-center">
                 <input type="submit" class="submit-button"
                     value="{{ __('Login') }}">
             </div>
