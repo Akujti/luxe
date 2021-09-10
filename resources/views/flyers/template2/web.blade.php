@@ -547,7 +547,7 @@
                     <button type="button" onclick="img_5_crop()">Save Crop</button>
                 </div>
                 <div class="flex">
-                    <div class="" style="width: 345px;">
+                    <div class="" style="width: 345px;margin-top:30px">
                         <button type="submit" name="action" value="Generate" class="generate">Generate</button>
                         <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
