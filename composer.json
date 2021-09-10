@@ -17,10 +17,8 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "3",
+        "spatie/pdf-to-image": "^2.1",
         "yoeunes/toastr": "^1.2"
-    },
-    "replace": {
-        "hautelook/phpass": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
