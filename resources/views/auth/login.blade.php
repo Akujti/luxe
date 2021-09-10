@@ -134,7 +134,6 @@
                                             href="https://designsbyluxe.com/my-account/lost-password/">Forgot your
                                             password?</a>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

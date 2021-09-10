@@ -20,3 +20,4 @@ composer.json
 *.xml
 composer.json
 config/app.php
+composer.lock
