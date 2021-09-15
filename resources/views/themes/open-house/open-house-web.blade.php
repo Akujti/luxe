@@ -89,7 +89,8 @@
         background-repeat: no-repeat;
         width: 1080px;
         height: 1080px;
-        background-size: 1080px;
+        background-size: 985px;
+        zoom: 80%;
     }
 
     * {
@@ -130,13 +131,11 @@
         color: white;
     }
 
-
     .top ul, .left-panel ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
     }
-
 
     .left-panel ul li {
         float: left;
@@ -153,6 +152,10 @@
 
     .top ul li:last-child, .left-panel ul li:last-child {
         border: none;
+    }
+
+    b {
+        font-weight: bold;
     }
 </style>
 
@@ -172,7 +175,7 @@
             <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
             <input hidden name="bg_image" id="bg_image" value="images/themes/new/bg.png">
             <div class="page">
-                <div class="absolute" style="top:0px;left:0px;">
+                <div class="absolute" style="top:0px;left:0px; z-index: -1">
                     <img src="images/themes/new/ellipse.png" alt="">
                 </div>
                 <div class="absolute" style="width: 320px; height: 120px; background: white; font-size: 81px">
@@ -210,16 +213,19 @@
                     <img src="images/themes/new/Logo.png" alt="" style="padding: 16px 0 0 16px; ">
                 </div>
 
-                <div class="left-panel"
-                     style="position: absolute;left: -185px;bottom: 507px;">
-                    <ul style="transform: rotate(-90deg);">
-                        <li><span class="bold beds_text">3</span> BEDS</li>
-                        <li><span class="gold">|</span></li>
-                        <li><span class="bold bath_text">2</span> BATHS</li>
-                        <li><span class="gold">|</span></li>
-                        <li><span class="bold sqft_text">1,700</span> SQFT</li>
-                    </ul>
+                <div class="absolute" style="transform: rotate(-90deg); left: -247px">
+                    <div class="left-panel"
+                         style="position: relative;z-index: 1;width: 600px;height: 50px;right: 516px;text-align: center;justify-content: center;display: flex;">
+                        <ul style="height: 50px">
+                            <li><span class="beds_text"><b>3</b> BEDS</span></li>
+                            <li><span class="gold">|</span></li>
+                            <li><span class="bath_text"><b>2</b> BATHS</span></li>
+                            <li><span class="gold">|</span></li>
+                            <li><span class="sqft_text"><b>1,700</b> SQFT</span></li>
+                        </ul>
+                    </div>
                 </div>
+
 
             </div>
         </div>
@@ -248,18 +254,18 @@
             <div class="flex">
                 <div class="pr-10">
                     <label for="beds_text">BEDS</label>
-                    <input type="text" id="beds_text" name="beds_text" value="3">
+                    <input type="text" id="beds_text" name="beds_text" value="<b>3</b> BEDS">
                 </div>
                 <div>
                     <label for="bath_text">BATHS</label>
-                    <input type="text" id="bath_text" name="bath_text" value="2">
+                    <input type="text" id="bath_text" name="bath_text" value="<b>2</b> BATHS">
                 </div>
             </div>
 
             <div class="flex">
                 <div class="pr-10">
                     <label for="sqft_text">SURFACE</label>
-                    <input type="text" id="sqft_text" name="sqft_text" value="1,700">
+                    <input type="text" id="sqft_text" name="sqft_text" value="<b>1,700</b> SQFT">
                 </div>
             </div>
 
@@ -320,7 +326,7 @@
             console.log(event_id);
             var event_element = $("#" + event_id)
             var export_var = $("." + event_id);
-            export_var.text(event_element.val());
+            export_var.html(event_element.val());
         });
     });
 
@@ -373,7 +379,6 @@
                     $(".page").css("display", "block");
                 }
             });
-
         }/*, 'image/png' */);
     }
 

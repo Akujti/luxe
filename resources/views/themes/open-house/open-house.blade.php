@@ -116,7 +116,8 @@
 
 
     <div class="absolute" style="top:60px; right: 55px; width: 260px">
-        <p class="text-white" style="font-size: 18px; font-weight: 600">WWW.LUXEKNOWS.COM</p>
+        <span class="text-white" style="font-size: 18px; font-weight: bold; font-family: 'Montserrat', sans-serif;">
+            WWW.LUXEKNOWS.COM</span>
     </div>
 
     <div class="absolute"
@@ -126,18 +127,18 @@
     <div class="absolute"
          style="height: 100px; background: white; bottom: 51px; left: 281px; padding-right: 20px;">
         <span class="bold gold"
-              style="font-size: 25.71px; padding-left: 27px; padding-top: 30px;">{{$address_1}}</span>
+              style="font-size: 25.71px; padding-left: 27px; padding-top: 18px;">{{$address_1}}</span>
         <br>
         <span class="bold" style="font-size: 22px; padding-left: 27px;">{{$address_2}}</span>
     </div>
     <div class="left-panel"
          style="position: absolute;left: -1030px;top: -250px;">
         <ul style="transform: rotate(-90deg);">
-            <li><span class="bold">{{$beds_text}}</span> BEDS</li>
+            <li><span class="">{!! $beds_text !!}</span></li>
             <li><span class="gold">|</span></li>
-            <li><span class="bold">{{$bath_text}}</span> BATHS</li>
+            <li><span class="">{!! $bath_text!!}</span></li>
             <li><span class="gold">|</span></li>
-            <li><span class="bold">{{$sqft_text}}</span> SQFT</li>
+            <li><span class="">{!! $sqft_text!!}</span></li>
         </ul>
     </div>
 
