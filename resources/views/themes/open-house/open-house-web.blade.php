@@ -262,9 +262,9 @@
                 </div>
             </div>
 
-            <div class="flex">
+            <div class="">
                 <div class="pr-10">
-                    <label for="sqft_text">SURFACE</label>
+                    <label for="sqft_text" style="width: 94%">SURFACE</label>
                     <input type="text" id="sqft_text" name="sqft_text" value="<b>1,700</b> SQFT">
                 </div>
             </div>
