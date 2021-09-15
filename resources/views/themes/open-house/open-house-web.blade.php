@@ -388,7 +388,7 @@
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
-            aspectRatio: 1,
+            aspectRatio: 0.912,
             minContainerHeight: 500
         });
     }
