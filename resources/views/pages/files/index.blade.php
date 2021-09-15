@@ -100,7 +100,7 @@
     @if (Auth::user()->isAdmin)
     <div class="row">
         <div class="col-12">
-            <form action="{{route('files.new.directory')}}" method="post">
+            <form action="{{route('files.open-house.directory')}}" method="post">
                 @csrf
                 <input type="hidden" name="current_directory" value="{{$folder_id}}">
                 <div class="form-group">

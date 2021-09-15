@@ -307,7 +307,7 @@
             var event_element = $("#" + event_id)
             var export_var = $("." + event_id);
             export_var.text(event_element.val());
-        });    
+        });
     });
 
     function img_4_change(){
@@ -358,7 +358,7 @@
                 $(".page").css("display", "block");
             }
         });
-        
+
         }/*, 'image/png' */);
     }
 
@@ -410,7 +410,7 @@
                 $(".page").css("display", "block");
             }
         });
-        
+
         }/*, 'image/png' */);
     }
 
@@ -462,7 +462,7 @@
                 $(".page").css("display", "block");
             }
         });
-        
+
         }/*, 'image/png' */);
     }
 
@@ -515,7 +515,7 @@
                 $(".page").css("display", "block");
             }
         });
-        
+
         }/*, 'image/png' */);
     }
 

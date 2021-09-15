@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\GuideController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::post('door-hanger-template-1', [PDFController::class, 'door_hanger_templa
 //Flyers
 Route::view('flyer-template-4', 'flyers.template4.web');
 Route::post('flyer-template-4', [PDFController::class, 'flyer_template_4'])->name('flyer-template-4');
+
 
 Route::view('flyer-template-3', 'flyers.template3.web');
 Route::post('flyer-template-3', [PDFController::class, 'flyer_template_3'])->name('flyer-template-3');
@@ -69,6 +71,13 @@ Route::get('/joined-luxe-story', function () {
     return view('themes.joined-luxe-story.joined-luxe-story-web');
 });
 Route::post('create-theme-joined-luxe-story', [PDFController::class, 'theme_just_joined_story'])->name('theme-joined-luxe-story');
+
+
+//New Theme
+Route::get('/open-house-theme', function () {
+    return view('themes.open-house.open-house-web');
+});
+Route::post('create-theme-open-house', [PDFController::class, 'theme_open_house'])->name('theme-open-house');
 
 ////
 
@@ -160,7 +169,9 @@ Route::group(
         Route::resource('files', FolderController::class);
         Route::delete('folder-destory/{id}', [FolderController::class, 'folder_destroy'])->name('folder.destroy');
         Route::delete('file-destory/{id}', [FolderController::class, 'file_destroy'])->name('file.destroy');
-        Route::post('files/new-directory', [FolderController::class, 'create_directory'])->name('files.new.directory');
+        Route::post('files/open-house-directory', [FolderController::class, 'create_directory'])->name('files.open-house.directory');
+
+        Route::resource('guides', GuideController::class);
     }
 );
 

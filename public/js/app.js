@@ -9,7 +9,7 @@
 /******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
 /******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
+/******/ 		// Create a open-house module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
@@ -309,7 +309,7 @@ var defaults = __webpack_require__(/*! ./defaults */ "./node_modules/axios/lib/d
  * Create an instance of Axios
  *
  * @param {Object} defaultConfig The default config for the instance
- * @return {Axios} A new instance of Axios
+ * @return {Axios} A open-house instance of Axios
  */
 function createInstance(defaultConfig) {
   var context = new Axios(defaultConfig);
@@ -330,7 +330,7 @@ var axios = createInstance(defaults);
 // Expose Axios class to allow class inheritance
 axios.Axios = Axios;
 
-// Factory for creating new instances
+// Factory for creating open-house instances
 axios.create = function create(instanceConfig) {
   return createInstance(mergeConfig(axios.defaults, instanceConfig));
 };
@@ -435,7 +435,7 @@ CancelToken.prototype.throwIfRequested = function throwIfRequested() {
 };
 
 /**
- * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * Returns an object that contains a open-house `CancelToken` and a function that, when called,
  * cancels the `CancelToken`.
  */
 CancelToken.source = function source() {
@@ -488,7 +488,7 @@ var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ "./node_modul
 var mergeConfig = __webpack_require__(/*! ./mergeConfig */ "./node_modules/axios/lib/core/mergeConfig.js");
 
 /**
- * Create a new instance of Axios
+ * Create a open-house instance of Axios
  *
  * @param {Object} instanceConfig The default config for the instance
  */
@@ -594,7 +594,7 @@ function InterceptorManager() {
 }
 
 /**
- * Add a new interceptor to the stack
+ * Add a open-house interceptor to the stack
  *
  * @param {Function} fulfilled The function to handle `then` for a `Promise`
  * @param {Function} rejected The function to handle `reject` for a `Promise`
@@ -655,7 +655,7 @@ var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ "./node_
 var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ "./node_modules/axios/lib/helpers/combineURLs.js");
 
 /**
- * Creates a new URL by combining the baseURL with the requestedURL,
+ * Creates a open-house URL by combining the baseURL with the requestedURL,
  * only when the requestedURL is not already an absolute URL.
  * If the requestURL is absolute, this function returns the requestedURL untouched.
  *
@@ -861,7 +861,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 var utils = __webpack_require__(/*! ../utils */ "./node_modules/axios/lib/utils.js");
 
 /**
- * Config-specific merge-function which creates a new config-object
+ * Config-specific merge-function which creates a open-house config-object
  * by merging two configuration objects together.
  *
  * @param {Object} config1
@@ -1229,7 +1229,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /**
- * Creates a new URL by combining the specified URLs
+ * Creates a open-house URL by combining the specified URLs
  *
  * @param {string} baseURL The base URL
  * @param {string} relativeURL The relative URL
@@ -6539,10 +6539,10 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	// Take an array of elements and push it onto the stack
-	// (returning the new matched element set)
+	// (returning the open-house matched element set)
 	pushStack: function( elems ) {
 
-		// Build a new jQuery matched element set
+		// Build a open-house jQuery matched element set
 		var ret = jQuery.merge( this.constructor(), elems );
 
 		// Add the old object onto the stack (as a reference)
@@ -6810,7 +6810,7 @@ jQuery.extend( {
 			i = 0,
 			ret = [];
 
-		// Go through the array, translating each of the items to their new values
+		// Go through the array, translating each of the items to their open-house values
 		if ( isArrayLike( elems ) ) {
 			length = elems.length;
 			for ( ; i < length; i++ ) {
@@ -8085,7 +8085,7 @@ getText = Sizzle.getText = function( elem ) {
 	} else if ( nodeType === 1 || nodeType === 9 || nodeType === 11 ) {
 
 		// Use textContent for elements
-		// innerText usage removed for consistency of new lines (jQuery #11153)
+		// innerText usage removed for consistency of open-house lines (jQuery #11153)
 		if ( typeof elem.textContent === "string" ) {
 			return elem.textContent;
 		} else {
@@ -8659,7 +8659,7 @@ for ( i in { submit: true, reset: true } ) {
 	Expr.pseudos[ i ] = createButtonPseudo( i );
 }
 
-// Easy API for creating new setFilters
+// Easy API for creating open-house setFilters
 function setFilters() {}
 setFilters.prototype = Expr.filters = Expr.pseudos;
 Expr.setFilters = new setFilters();
@@ -11122,7 +11122,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 		while ( maxIterations-- ) {
 
 			// Evaluate and update our best guess (doubling guesses that zero out).
-			// Finish if the scale equals or crosses 1 (making the old*new product non-positive).
+			// Finish if the scale equals or crosses 1 (making the old*open-house product non-positive).
 			jQuery.style( elem, prop, initialInUnit + unit );
 			if ( ( 1 - scale ) * ( 1 - ( scale = currentValue() / initial || 0.5 ) ) <= 0 ) {
 				maxIterations = 0;
@@ -11186,7 +11186,7 @@ function showHide( elements, show ) {
 		index = 0,
 		length = elements.length;
 
-	// Determine new display value for elements that need to change
+	// Determine open-house display value for elements that need to change
 	for ( ; index < length; index++ ) {
 		elem = elements[ index ];
 		if ( !elem.style ) {
@@ -12059,7 +12059,7 @@ jQuery.removeEvent = function( elem, type, handle ) {
 
 jQuery.Event = function( src, props ) {
 
-	// Allow instantiation without the 'new' keyword
+	// Allow instantiation without the 'open-house' keyword
 	if ( !( this instanceof jQuery.Event ) ) {
 		return new jQuery.Event( src, props );
 	}
@@ -12308,7 +12308,7 @@ var
 	rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i,
 	rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
 
-// Prefer a tbody over its parent table for containing new rows
+// Prefer a tbody over its parent table for containing open-house rows
 function manipulationTarget( elem, content ) {
 	if ( nodeName( elem, "table" ) &&
 		nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ) {
@@ -12413,7 +12413,7 @@ function domManip( collection, args, callback, ignored ) {
 			fragment = first;
 		}
 
-		// Require either new content or an interest in ignored elements to invoke the callback
+		// Require either open-house content or an interest in ignored elements to invoke the callback
 		if ( first || ignored ) {
 			scripts = jQuery.map( getAll( fragment, "script" ), disableScript );
 			hasScripts = scripts.length;
@@ -12699,7 +12699,7 @@ jQuery.fn.extend( {
 	replaceWith: function() {
 		var ignored = [];
 
-		// Make the changes, replacing each non-ignored context element with the new content
+		// Make the changes, replacing each non-ignored context element with the open-house content
 		return domManip( this, arguments, function( elem ) {
 			var parent = this.parentNode;
 
@@ -12761,7 +12761,7 @@ var swap = function( elem, options, callback ) {
 	var ret, name,
 		old = {};
 
-	// Remember the old values, and insert the new ones
+	// Remember the old values, and insert the open-house ones
 	for ( name in options ) {
 		old[ name ] = elem.style[ name ];
 		elem.style[ name ] = options[ name ];
@@ -12956,7 +12956,7 @@ function curCSS( elem, name, computed ) {
 			minWidth = style.minWidth;
 			maxWidth = style.maxWidth;
 
-			// Put in the new values to get a computed value out
+			// Put in the open-house values to get a computed value out
 			style.minWidth = style.maxWidth = style.width = ret;
 			ret = computed.width;
 
@@ -15843,7 +15843,7 @@ jQuery.extend( {
 							jqXHR.always( map[ jqXHR.status ] );
 						} else {
 
-							// Lazy-add the new callbacks in a way that preserves old ones
+							// Lazy-add the open-house callbacks in a way that preserves old ones
 							for ( code in map ) {
 								statusCode[ code ] = [ statusCode[ code ], map[ code ] ];
 							}
@@ -15918,7 +15918,7 @@ jQuery.extend( {
 		// Don't fire events if jQuery.event is undefined in an AMD-usage scenario (#15118)
 		fireGlobals = jQuery.event && s.global;
 
-		// Watch for a new set of requests
+		// Watch for a open-house set of requests
 		if ( fireGlobals && jQuery.active++ === 0 ) {
 			jQuery.event.trigger( "ajaxStart" );
 		}
@@ -17826,7 +17826,7 @@ return jQuery;
    * @private
    * @param {Array} [array] The array to iterate over.
    * @param {Function} predicate The function invoked per iteration.
-   * @returns {Array} Returns the new filtered array.
+   * @returns {Array} Returns the open-house filtered array.
    */
   function arrayFilter(array, predicate) {
     var index = -1,
@@ -17885,7 +17885,7 @@ return jQuery;
    * @private
    * @param {Array} [array] The array to iterate over.
    * @param {Function} iteratee The function invoked per iteration.
-   * @returns {Array} Returns the new mapped array.
+   * @returns {Array} Returns the open-house mapped array.
    */
   function arrayMap(array, iteratee) {
     var index = -1,
@@ -18130,7 +18130,7 @@ return jQuery;
    *
    * @private
    * @param {string} key The key of the property to get.
-   * @returns {Function} Returns the new accessor function.
+   * @returns {Function} Returns the open-house accessor function.
    */
   function baseProperty(key) {
     return function(object) {
@@ -18143,7 +18143,7 @@ return jQuery;
    *
    * @private
    * @param {Object} object The object to query.
-   * @returns {Function} Returns the new accessor function.
+   * @returns {Function} Returns the open-house accessor function.
    */
   function basePropertyOf(object) {
     return function(key) {
@@ -18268,7 +18268,7 @@ return jQuery;
    *
    * @private
    * @param {Function} func The function to cap arguments for.
-   * @returns {Function} Returns the new capped function.
+   * @returns {Function} Returns the open-house capped function.
    */
   function baseUnary(func) {
     return function(value) {
@@ -18461,7 +18461,7 @@ return jQuery;
    * @private
    * @param {Function} func The function to wrap.
    * @param {Function} transform The argument transform.
-   * @returns {Function} Returns the new function.
+   * @returns {Function} Returns the open-house function.
    */
   function overArg(func, transform) {
     return function(arg) {
@@ -18476,7 +18476,7 @@ return jQuery;
    * @private
    * @param {Array} array The array to modify.
    * @param {*} placeholder The placeholder to replace.
-   * @returns {Array} Returns the new array of placeholder indexes.
+   * @returns {Array} Returns the open-house array of placeholder indexes.
    */
   function replaceHolders(array, placeholder) {
     var index = -1,
@@ -18660,14 +18660,14 @@ return jQuery;
   /*--------------------------------------------------------------------------*/
 
   /**
-   * Create a new pristine `lodash` function using the `context` object.
+   * Create a open-house pristine `lodash` function using the `context` object.
    *
    * @static
    * @memberOf _
    * @since 1.1.0
    * @category Util
    * @param {Object} [context=root] The context object.
-   * @returns {Function} Returns a new `lodash` function.
+   * @returns {Function} Returns a open-house `lodash` function.
    * @example
    *
    * _.mixin({ 'foo': _.constant('foo') });
@@ -18908,7 +18908,7 @@ return jQuery;
      * @constructor
      * @category Seq
      * @param {*} value The value to wrap in a `lodash` instance.
-     * @returns {Object} Returns the new `lodash` wrapper instance.
+     * @returns {Object} Returns the open-house `lodash` wrapper instance.
      * @example
      *
      * function square(n) {
@@ -18948,7 +18948,7 @@ return jQuery;
      *
      * @private
      * @param {Object} proto The object to inherit from.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      */
     var baseCreate = (function() {
       function object() {}
@@ -19102,7 +19102,7 @@ return jQuery;
      * @private
      * @name reverse
      * @memberOf LazyWrapper
-     * @returns {Object} Returns the new reversed `LazyWrapper` object.
+     * @returns {Object} Returns the open-house reversed `LazyWrapper` object.
      */
     function lazyReverse() {
       if (this.__filtered__) {
@@ -19721,7 +19721,7 @@ return jQuery;
      *
      * @private
      * @param {Array} array The array to shuffle.
-     * @returns {Array} Returns the new shuffled array.
+     * @returns {Array} Returns the open-house shuffled array.
      */
     function arrayShuffle(array) {
       return shuffleSelf(copyArray(array));
@@ -19983,7 +19983,7 @@ return jQuery;
      *
      * @private
      * @param {Object} source The object of property predicates to conform to.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the open-house spec function.
      */
     function baseConforms(source) {
       var props = keys(source);
@@ -20044,7 +20044,7 @@ return jQuery;
      * @param {Array} values The values to exclude.
      * @param {Function} [iteratee] The iteratee invoked per element.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the open-house array of filtered values.
      */
     function baseDifference(array, values, iteratee, comparator) {
       var index = -1,
@@ -20192,7 +20192,7 @@ return jQuery;
      * @private
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} predicate The function invoked per iteration.
-     * @returns {Array} Returns the new filtered array.
+     * @returns {Array} Returns the open-house filtered array.
      */
     function baseFilter(collection, predicate) {
       var result = [];
@@ -20213,7 +20213,7 @@ return jQuery;
      * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
      * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
      * @param {Array} [result=[]] The initial result value.
-     * @returns {Array} Returns the new flattened array.
+     * @returns {Array} Returns the open-house flattened array.
      */
     function baseFlatten(array, depth, predicate, isStrict, result) {
       var index = -1,
@@ -20412,7 +20412,7 @@ return jQuery;
      * @param {Array} arrays The arrays to inspect.
      * @param {Function} [iteratee] The iteratee invoked per element.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new array of shared values.
+     * @returns {Array} Returns the open-house array of shared values.
      */
     function baseIntersection(arrays, iteratee, comparator) {
       var includes = comparator ? arrayIncludesWith : arrayIncludes,
@@ -20818,7 +20818,7 @@ return jQuery;
      * @private
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} iteratee The function invoked per iteration.
-     * @returns {Array} Returns the new mapped array.
+     * @returns {Array} Returns the open-house mapped array.
      */
     function baseMap(collection, iteratee) {
       var index = -1,
@@ -20835,7 +20835,7 @@ return jQuery;
      *
      * @private
      * @param {Object} source The object of property values to match.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the open-house spec function.
      */
     function baseMatches(source) {
       var matchData = getMatchData(source);
@@ -20853,7 +20853,7 @@ return jQuery;
      * @private
      * @param {string} path The path of the property to get.
      * @param {*} srcValue The value to match.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the open-house spec function.
      */
     function baseMatchesProperty(path, srcValue) {
       if (isKey(path) && isStrictComparable(srcValue)) {
@@ -21001,7 +21001,7 @@ return jQuery;
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function[]|Object[]|string[]} iteratees The iteratees to sort by.
      * @param {string[]} orders The sort orders of `iteratees`.
-     * @returns {Array} Returns the new sorted array.
+     * @returns {Array} Returns the open-house sorted array.
      */
     function baseOrderBy(collection, iteratees, orders) {
       if (iteratees.length) {
@@ -21039,7 +21039,7 @@ return jQuery;
      * @private
      * @param {Object} object The source object.
      * @param {string[]} paths The property paths to pick.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      */
     function basePick(object, paths) {
       return basePickBy(object, paths, function(value, path) {
@@ -21054,7 +21054,7 @@ return jQuery;
      * @param {Object} object The source object.
      * @param {string[]} paths The property paths to pick.
      * @param {Function} predicate The function invoked per property.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      */
     function basePickBy(object, paths, predicate) {
       var index = -1,
@@ -21077,7 +21077,7 @@ return jQuery;
      *
      * @private
      * @param {Array|string} path The path of the property to get.
-     * @returns {Function} Returns the new accessor function.
+     * @returns {Function} Returns the open-house accessor function.
      */
     function basePropertyDeep(path) {
       return function(object) {
@@ -21220,7 +21220,7 @@ return jQuery;
      * @private
      * @param {Function} func The function to apply a rest parameter to.
      * @param {number} [start=func.length-1] The start position of the rest parameter.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      */
     function baseRest(func, start) {
       return setToString(overRest(func, start, identity), func + '');
@@ -21329,7 +21329,7 @@ return jQuery;
      *
      * @private
      * @param {Array|Object} collection The collection to shuffle.
-     * @returns {Array} Returns the new shuffled array.
+     * @returns {Array} Returns the open-house shuffled array.
      */
     function baseShuffle(collection) {
       return shuffleSelf(values(collection));
@@ -21480,7 +21480,7 @@ return jQuery;
      * @private
      * @param {Array} array The array to inspect.
      * @param {Function} [iteratee] The iteratee invoked per element.
-     * @returns {Array} Returns the new duplicate free array.
+     * @returns {Array} Returns the open-house duplicate free array.
      */
     function baseSortedUniq(array, iteratee) {
       var index = -1,
@@ -21549,7 +21549,7 @@ return jQuery;
      * @param {Array} array The array to inspect.
      * @param {Function} [iteratee] The iteratee invoked per element.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new duplicate free array.
+     * @returns {Array} Returns the open-house duplicate free array.
      */
     function baseUniq(array, iteratee, comparator) {
       var index = -1,
@@ -21682,7 +21682,7 @@ return jQuery;
      * @param {Array} arrays The arrays to inspect.
      * @param {Function} [iteratee] The iteratee invoked per element.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new array of values.
+     * @returns {Array} Returns the open-house array of values.
      */
     function baseXor(arrays, iteratee, comparator) {
       var length = arrays.length;
@@ -21712,7 +21712,7 @@ return jQuery;
      * @param {Array} props The property identifiers.
      * @param {Array} values The property values.
      * @param {Function} assignFunc The function to assign values.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      */
     function baseZipObject(props, values, assignFunc) {
       var index = -1,
@@ -21771,7 +21771,7 @@ return jQuery;
      * @private
      * @type {Function}
      * @param {Function} func The function to apply a rest parameter to.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      */
     var castRest = baseRest;
 
@@ -21970,7 +21970,7 @@ return jQuery;
      * @param {Array} partials The arguments to prepend to those provided.
      * @param {Array} holders The `partials` placeholder indexes.
      * @params {boolean} [isCurried] Specify composing for a curried function.
-     * @returns {Array} Returns the new array of composed arguments.
+     * @returns {Array} Returns the open-house array of composed arguments.
      */
     function composeArgs(args, partials, holders, isCurried) {
       var argsIndex = -1,
@@ -22005,7 +22005,7 @@ return jQuery;
      * @param {Array} partials The arguments to append to those provided.
      * @param {Array} holders The `partials` placeholder indexes.
      * @params {boolean} [isCurried] Specify composing for a curried function.
-     * @returns {Array} Returns the new array of composed arguments.
+     * @returns {Array} Returns the open-house array of composed arguments.
      */
     function composeArgsRight(args, partials, holders, isCurried) {
       var argsIndex = -1,
@@ -22118,7 +22118,7 @@ return jQuery;
      * @private
      * @param {Function} setter The function to set accumulator values.
      * @param {Function} [initializer] The accumulator object initializer.
-     * @returns {Function} Returns the new aggregator function.
+     * @returns {Function} Returns the open-house aggregator function.
      */
     function createAggregator(setter, initializer) {
       return function(collection, iteratee) {
@@ -22134,7 +22134,7 @@ return jQuery;
      *
      * @private
      * @param {Function} assigner The function to assign values.
-     * @returns {Function} Returns the new assigner function.
+     * @returns {Function} Returns the open-house assigner function.
      */
     function createAssigner(assigner) {
       return baseRest(function(object, sources) {
@@ -22168,7 +22168,7 @@ return jQuery;
      * @private
      * @param {Function} eachFunc The function to iterate over a collection.
      * @param {boolean} [fromRight] Specify iterating from right to left.
-     * @returns {Function} Returns the new base function.
+     * @returns {Function} Returns the open-house base function.
      */
     function createBaseEach(eachFunc, fromRight) {
       return function(collection, iteratee) {
@@ -22196,7 +22196,7 @@ return jQuery;
      *
      * @private
      * @param {boolean} [fromRight] Specify iterating from right to left.
-     * @returns {Function} Returns the new base function.
+     * @returns {Function} Returns the open-house base function.
      */
     function createBaseFor(fromRight) {
       return function(object, iteratee, keysFunc) {
@@ -22223,7 +22223,7 @@ return jQuery;
      * @param {Function} func The function to wrap.
      * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
      * @param {*} [thisArg] The `this` binding of `func`.
-     * @returns {Function} Returns the new wrapped function.
+     * @returns {Function} Returns the open-house wrapped function.
      */
     function createBind(func, bitmask, thisArg) {
       var isBind = bitmask & WRAP_BIND_FLAG,
@@ -22241,7 +22241,7 @@ return jQuery;
      *
      * @private
      * @param {string} methodName The name of the `String` case method to use.
-     * @returns {Function} Returns the new case function.
+     * @returns {Function} Returns the open-house case function.
      */
     function createCaseFirst(methodName) {
       return function(string) {
@@ -22268,7 +22268,7 @@ return jQuery;
      *
      * @private
      * @param {Function} callback The function to combine each word.
-     * @returns {Function} Returns the new compounder function.
+     * @returns {Function} Returns the open-house compounder function.
      */
     function createCompounder(callback) {
       return function(string) {
@@ -22278,11 +22278,11 @@ return jQuery;
 
     /**
      * Creates a function that produces an instance of `Ctor` regardless of
-     * whether it was invoked as part of a `new` expression or by `call` or `apply`.
+     * whether it was invoked as part of a `open-house` expression or by `call` or `apply`.
      *
      * @private
      * @param {Function} Ctor The constructor to wrap.
-     * @returns {Function} Returns the new wrapped function.
+     * @returns {Function} Returns the open-house wrapped function.
      */
     function createCtor(Ctor) {
       return function() {
@@ -22316,7 +22316,7 @@ return jQuery;
      * @param {Function} func The function to wrap.
      * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
      * @param {number} arity The arity of `func`.
-     * @returns {Function} Returns the new wrapped function.
+     * @returns {Function} Returns the open-house wrapped function.
      */
     function createCurry(func, bitmask, arity) {
       var Ctor = createCtor(func);
@@ -22351,7 +22351,7 @@ return jQuery;
      *
      * @private
      * @param {Function} findIndexFunc The function to find the collection index.
-     * @returns {Function} Returns the new find function.
+     * @returns {Function} Returns the open-house find function.
      */
     function createFind(findIndexFunc) {
       return function(collection, predicate, fromIndex) {
@@ -22371,7 +22371,7 @@ return jQuery;
      *
      * @private
      * @param {boolean} [fromRight] Specify iterating from right to left.
-     * @returns {Function} Returns the new flow function.
+     * @returns {Function} Returns the open-house flow function.
      */
     function createFlow(fromRight) {
       return flatRest(function(funcs) {
@@ -22436,15 +22436,15 @@ return jQuery;
      * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
      * @param {*} [thisArg] The `this` binding of `func`.
      * @param {Array} [partials] The arguments to prepend to those provided to
-     *  the new function.
+     *  the open-house function.
      * @param {Array} [holders] The `partials` placeholder indexes.
      * @param {Array} [partialsRight] The arguments to append to those provided
-     *  to the new function.
+     *  to the open-house function.
      * @param {Array} [holdersRight] The `partialsRight` placeholder indexes.
-     * @param {Array} [argPos] The argument positions of the new function.
+     * @param {Array} [argPos] The argument positions of the open-house function.
      * @param {number} [ary] The arity cap of `func`.
      * @param {number} [arity] The arity of `func`.
-     * @returns {Function} Returns the new wrapped function.
+     * @returns {Function} Returns the open-house wrapped function.
      */
     function createHybrid(func, bitmask, thisArg, partials, holders, partialsRight, holdersRight, argPos, ary, arity) {
       var isAry = bitmask & WRAP_ARY_FLAG,
@@ -22506,7 +22506,7 @@ return jQuery;
      * @private
      * @param {Function} setter The function to set accumulator values.
      * @param {Function} toIteratee The function to resolve iteratees.
-     * @returns {Function} Returns the new inverter function.
+     * @returns {Function} Returns the open-house inverter function.
      */
     function createInverter(setter, toIteratee) {
       return function(object, iteratee) {
@@ -22520,7 +22520,7 @@ return jQuery;
      * @private
      * @param {Function} operator The function to perform the operation.
      * @param {number} [defaultValue] The value used for `undefined` arguments.
-     * @returns {Function} Returns the new mathematical operation function.
+     * @returns {Function} Returns the open-house mathematical operation function.
      */
     function createMathOperation(operator, defaultValue) {
       return function(value, other) {
@@ -22553,7 +22553,7 @@ return jQuery;
      *
      * @private
      * @param {Function} arrayFunc The function to iterate over iteratees.
-     * @returns {Function} Returns the new over function.
+     * @returns {Function} Returns the open-house over function.
      */
     function createOver(arrayFunc) {
       return flatRest(function(iteratees) {
@@ -22598,8 +22598,8 @@ return jQuery;
      * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
      * @param {*} thisArg The `this` binding of `func`.
      * @param {Array} partials The arguments to prepend to those provided to
-     *  the new function.
-     * @returns {Function} Returns the new wrapped function.
+     *  the open-house function.
+     * @returns {Function} Returns the open-house wrapped function.
      */
     function createPartial(func, bitmask, thisArg, partials) {
       var isBind = bitmask & WRAP_BIND_FLAG,
@@ -22629,7 +22629,7 @@ return jQuery;
      *
      * @private
      * @param {boolean} [fromRight] Specify iterating from right to left.
-     * @returns {Function} Returns the new range function.
+     * @returns {Function} Returns the open-house range function.
      */
     function createRange(fromRight) {
       return function(start, end, step) {
@@ -22654,7 +22654,7 @@ return jQuery;
      *
      * @private
      * @param {Function} operator The function to perform the operation.
-     * @returns {Function} Returns the new relational operation function.
+     * @returns {Function} Returns the open-house relational operation function.
      */
     function createRelationalOperation(operator) {
       return function(value, other) {
@@ -22676,12 +22676,12 @@ return jQuery;
      * @param {*} placeholder The placeholder value.
      * @param {*} [thisArg] The `this` binding of `func`.
      * @param {Array} [partials] The arguments to prepend to those provided to
-     *  the new function.
+     *  the open-house function.
      * @param {Array} [holders] The `partials` placeholder indexes.
-     * @param {Array} [argPos] The argument positions of the new function.
+     * @param {Array} [argPos] The argument positions of the open-house function.
      * @param {number} [ary] The arity cap of `func`.
      * @param {number} [arity] The arity of `func`.
-     * @returns {Function} Returns the new wrapped function.
+     * @returns {Function} Returns the open-house wrapped function.
      */
     function createRecurry(func, bitmask, wrapFunc, placeholder, thisArg, partials, holders, argPos, ary, arity) {
       var isCurry = bitmask & WRAP_CURRY_FLAG,
@@ -22714,7 +22714,7 @@ return jQuery;
      *
      * @private
      * @param {string} methodName The name of the `Math` method to use when rounding.
-     * @returns {Function} Returns the new round function.
+     * @returns {Function} Returns the open-house round function.
      */
     function createRound(methodName) {
       var func = Math[methodName];
@@ -22739,7 +22739,7 @@ return jQuery;
      *
      * @private
      * @param {Array} values The values to add to the set.
-     * @returns {Object} Returns the new set.
+     * @returns {Object} Returns the open-house set.
      */
     var createSet = !(Set && (1 / setToArray(new Set([,-0]))[1]) == INFINITY) ? noop : function(values) {
       return new Set(values);
@@ -22750,7 +22750,7 @@ return jQuery;
      *
      * @private
      * @param {Function} keysFunc The function to get the keys of a given object.
-     * @returns {Function} Returns the new pairs function.
+     * @returns {Function} Returns the open-house pairs function.
      */
     function createToPairs(keysFunc) {
       return function(object) {
@@ -22785,10 +22785,10 @@ return jQuery;
      * @param {*} [thisArg] The `this` binding of `func`.
      * @param {Array} [partials] The arguments to be partially applied.
      * @param {Array} [holders] The `partials` placeholder indexes.
-     * @param {Array} [argPos] The argument positions of the new function.
+     * @param {Array} [argPos] The argument positions of the open-house function.
      * @param {number} [ary] The arity cap of `func`.
      * @param {number} [arity] The arity of `func`.
-     * @returns {Function} Returns the new wrapped function.
+     * @returns {Function} Returns the open-house wrapped function.
      */
     function createWrap(func, bitmask, thisArg, partials, holders, argPos, ary, arity) {
       var isBindKey = bitmask & WRAP_BIND_KEY_FLAG;
@@ -23142,7 +23142,7 @@ return jQuery;
      *
      * @private
      * @param {Function} func The function to apply a rest parameter to.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      */
     function flatRest(func) {
       return setToString(overRest(func, undefined, flatten), func + '');
@@ -23708,7 +23708,7 @@ return jQuery;
      * @private
      * @param {string} key The key of the property to get.
      * @param {*} srcValue The value to match.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the open-house spec function.
      */
     function matchesStrictComparable(key, srcValue) {
       return function(object) {
@@ -23726,7 +23726,7 @@ return jQuery;
      *
      * @private
      * @param {Function} func The function to have its output memoized.
-     * @returns {Function} Returns the new memoized function.
+     * @returns {Function} Returns the open-house memoized function.
      */
     function memoizeCapped(func) {
       var result = memoize(func, function(key) {
@@ -23848,7 +23848,7 @@ return jQuery;
      * @param {Function} func The function to apply a rest parameter to.
      * @param {number} [start=func.length-1] The start position of the rest parameter.
      * @param {Function} transform The rest array transform.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      */
     function overRest(func, start, transform) {
       start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
@@ -23985,7 +23985,7 @@ return jQuery;
      *
      * @private
      * @param {Function} func The function to restrict.
-     * @returns {Function} Returns the new shortable function.
+     * @returns {Function} Returns the open-house shortable function.
      */
     function shortOut(func) {
       var count = 0,
@@ -24134,7 +24134,7 @@ return jQuery;
      * @param {Array} array The array to process.
      * @param {number} [size=1] The length of each chunk
      * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
-     * @returns {Array} Returns the new array of chunks.
+     * @returns {Array} Returns the open-house array of chunks.
      * @example
      *
      * _.chunk(['a', 'b', 'c', 'd'], 2);
@@ -24172,7 +24172,7 @@ return jQuery;
      * @since 0.1.0
      * @category Array
      * @param {Array} array The array to compact.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the open-house array of filtered values.
      * @example
      *
      * _.compact([0, 1, false, 2, '', 3]);
@@ -24194,7 +24194,7 @@ return jQuery;
     }
 
     /**
-     * Creates a new array concatenating `array` with any additional arrays
+     * Creates a open-house array concatenating `array` with any additional arrays
      * and/or values.
      *
      * @static
@@ -24203,7 +24203,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to concatenate.
      * @param {...*} [values] The values to concatenate.
-     * @returns {Array} Returns the new concatenated array.
+     * @returns {Array} Returns the open-house concatenated array.
      * @example
      *
      * var array = [1];
@@ -24236,7 +24236,7 @@ return jQuery;
      * for equality comparisons. The order and references of result values are
      * determined by the first array.
      *
-     * **Note:** Unlike `_.pullAll`, this method returns a new array.
+     * **Note:** Unlike `_.pullAll`, this method returns a open-house array.
      *
      * @static
      * @memberOf _
@@ -24244,7 +24244,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {...Array} [values] The values to exclude.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the open-house array of filtered values.
      * @see _.without, _.xor
      * @example
      *
@@ -24264,7 +24264,7 @@ return jQuery;
      * determined by the first array. The iteratee is invoked with one argument:
      * (value).
      *
-     * **Note:** Unlike `_.pullAllBy`, this method returns a new array.
+     * **Note:** Unlike `_.pullAllBy`, this method returns a open-house array.
      *
      * @static
      * @memberOf _
@@ -24273,7 +24273,7 @@ return jQuery;
      * @param {Array} array The array to inspect.
      * @param {...Array} [values] The values to exclude.
      * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the open-house array of filtered values.
      * @example
      *
      * _.differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor);
@@ -24299,7 +24299,7 @@ return jQuery;
      * references of result values are determined by the first array. The comparator
      * is invoked with two arguments: (arrVal, othVal).
      *
-     * **Note:** Unlike `_.pullAllWith`, this method returns a new array.
+     * **Note:** Unlike `_.pullAllWith`, this method returns a open-house array.
      *
      * @static
      * @memberOf _
@@ -24308,7 +24308,7 @@ return jQuery;
      * @param {Array} array The array to inspect.
      * @param {...Array} [values] The values to exclude.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the open-house array of filtered values.
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
@@ -24623,7 +24623,7 @@ return jQuery;
      * @since 0.1.0
      * @category Array
      * @param {Array} array The array to flatten.
-     * @returns {Array} Returns the new flattened array.
+     * @returns {Array} Returns the open-house flattened array.
      * @example
      *
      * _.flatten([1, [2, [3, [4]], 5]]);
@@ -24642,7 +24642,7 @@ return jQuery;
      * @since 3.0.0
      * @category Array
      * @param {Array} array The array to flatten.
-     * @returns {Array} Returns the new flattened array.
+     * @returns {Array} Returns the open-house flattened array.
      * @example
      *
      * _.flattenDeep([1, [2, [3, [4]], 5]]);
@@ -24662,7 +24662,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to flatten.
      * @param {number} [depth=1] The maximum recursion depth.
-     * @returns {Array} Returns the new flattened array.
+     * @returns {Array} Returns the open-house flattened array.
      * @example
      *
      * var array = [1, [2, [3, [4]], 5]];
@@ -24691,7 +24691,7 @@ return jQuery;
      * @since 4.0.0
      * @category Array
      * @param {Array} pairs The key-value pairs.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      * @example
      *
      * _.fromPairs([['a', 1], ['b', 2]]);
@@ -24796,7 +24796,7 @@ return jQuery;
      * @since 0.1.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @returns {Array} Returns the new array of intersecting values.
+     * @returns {Array} Returns the open-house array of intersecting values.
      * @example
      *
      * _.intersection([2, 1], [2, 3]);
@@ -24822,7 +24822,7 @@ return jQuery;
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
-     * @returns {Array} Returns the new array of intersecting values.
+     * @returns {Array} Returns the open-house array of intersecting values.
      * @example
      *
      * _.intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor);
@@ -24858,7 +24858,7 @@ return jQuery;
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new array of intersecting values.
+     * @returns {Array} Returns the open-house array of intersecting values.
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
@@ -25100,7 +25100,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to modify.
      * @param {...(number|number[])} [indexes] The indexes of elements to remove.
-     * @returns {Array} Returns the new array of removed elements.
+     * @returns {Array} Returns the open-house array of removed elements.
      * @example
      *
      * var array = ['a', 'b', 'c', 'd'];
@@ -25137,7 +25137,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to modify.
      * @param {Function} [predicate=_.identity] The function invoked per iteration.
-     * @returns {Array} Returns the new array of removed elements.
+     * @returns {Array} Returns the open-house array of removed elements.
      * @example
      *
      * var array = [1, 2, 3, 4];
@@ -25395,7 +25395,7 @@ return jQuery;
      * @since 4.0.0
      * @category Array
      * @param {Array} array The array to inspect.
-     * @returns {Array} Returns the new duplicate free array.
+     * @returns {Array} Returns the open-house duplicate free array.
      * @example
      *
      * _.sortedUniq([1, 1, 2]);
@@ -25417,7 +25417,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {Function} [iteratee] The iteratee invoked per element.
-     * @returns {Array} Returns the new duplicate free array.
+     * @returns {Array} Returns the open-house duplicate free array.
      * @example
      *
      * _.sortedUniqBy([1.1, 1.2, 2.3, 2.4], Math.floor);
@@ -25608,7 +25608,7 @@ return jQuery;
      * @since 0.1.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @returns {Array} Returns the new array of combined values.
+     * @returns {Array} Returns the open-house array of combined values.
      * @example
      *
      * _.union([2], [1, 2]);
@@ -25631,7 +25631,7 @@ return jQuery;
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
-     * @returns {Array} Returns the new array of combined values.
+     * @returns {Array} Returns the open-house array of combined values.
      * @example
      *
      * _.unionBy([2.1], [1.2, 2.3], Math.floor);
@@ -25661,7 +25661,7 @@ return jQuery;
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new array of combined values.
+     * @returns {Array} Returns the open-house array of combined values.
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
@@ -25688,7 +25688,7 @@ return jQuery;
      * @since 0.1.0
      * @category Array
      * @param {Array} array The array to inspect.
-     * @returns {Array} Returns the new duplicate free array.
+     * @returns {Array} Returns the open-house duplicate free array.
      * @example
      *
      * _.uniq([2, 1, 2]);
@@ -25711,7 +25711,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
-     * @returns {Array} Returns the new duplicate free array.
+     * @returns {Array} Returns the open-house duplicate free array.
      * @example
      *
      * _.uniqBy([2.1, 1.2, 2.3], Math.floor);
@@ -25737,7 +25737,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new duplicate free array.
+     * @returns {Array} Returns the open-house duplicate free array.
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
@@ -25760,7 +25760,7 @@ return jQuery;
      * @since 1.2.0
      * @category Array
      * @param {Array} array The array of grouped elements to process.
-     * @returns {Array} Returns the new array of regrouped elements.
+     * @returns {Array} Returns the open-house array of regrouped elements.
      * @example
      *
      * var zipped = _.zip(['a', 'b'], [1, 2], [true, false]);
@@ -25797,7 +25797,7 @@ return jQuery;
      * @param {Array} array The array of grouped elements to process.
      * @param {Function} [iteratee=_.identity] The function to combine
      *  regrouped values.
-     * @returns {Array} Returns the new array of regrouped elements.
+     * @returns {Array} Returns the open-house array of regrouped elements.
      * @example
      *
      * var zipped = _.zip([1, 2], [10, 20], [100, 200]);
@@ -25824,7 +25824,7 @@ return jQuery;
      * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
      * for equality comparisons.
      *
-     * **Note:** Unlike `_.pull`, this method returns a new array.
+     * **Note:** Unlike `_.pull`, this method returns a open-house array.
      *
      * @static
      * @memberOf _
@@ -25832,7 +25832,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {...*} [values] The values to exclude.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the open-house array of filtered values.
      * @see _.difference, _.xor
      * @example
      *
@@ -25856,7 +25856,7 @@ return jQuery;
      * @since 2.4.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the open-house array of filtered values.
      * @see _.difference, _.without
      * @example
      *
@@ -25880,7 +25880,7 @@ return jQuery;
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the open-house array of filtered values.
      * @example
      *
      * _.xorBy([2.1, 1.2], [2.3, 3.4], Math.floor);
@@ -25910,7 +25910,7 @@ return jQuery;
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the open-house array of filtered values.
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
@@ -25935,7 +25935,7 @@ return jQuery;
      * @since 0.1.0
      * @category Array
      * @param {...Array} [arrays] The arrays to process.
-     * @returns {Array} Returns the new array of grouped elements.
+     * @returns {Array} Returns the open-house array of grouped elements.
      * @example
      *
      * _.zip(['a', 'b'], [1, 2], [true, false]);
@@ -25953,7 +25953,7 @@ return jQuery;
      * @category Array
      * @param {Array} [props=[]] The property identifiers.
      * @param {Array} [values=[]] The property values.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      * @example
      *
      * _.zipObject(['a', 'b'], [1, 2]);
@@ -25972,7 +25972,7 @@ return jQuery;
      * @category Array
      * @param {Array} [props=[]] The property identifiers.
      * @param {Array} [values=[]] The property values.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      * @example
      *
      * _.zipObjectDeep(['a.b[0].c', 'a.b[1].d'], [1, 2]);
@@ -25994,7 +25994,7 @@ return jQuery;
      * @param {...Array} [arrays] The arrays to process.
      * @param {Function} [iteratee=_.identity] The function to combine
      *  grouped values.
-     * @returns {Array} Returns the new array of grouped elements.
+     * @returns {Array} Returns the open-house array of grouped elements.
      * @example
      *
      * _.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
@@ -26022,7 +26022,7 @@ return jQuery;
      * @since 1.3.0
      * @category Seq
      * @param {*} value The value to wrap.
-     * @returns {Object} Returns the new `lodash` wrapper instance.
+     * @returns {Object} Returns the open-house `lodash` wrapper instance.
      * @example
      *
      * var users = [
@@ -26110,7 +26110,7 @@ return jQuery;
      * @since 1.0.0
      * @category Seq
      * @param {...(string|string[])} [paths] The property paths to pick.
-     * @returns {Object} Returns the new `lodash` wrapper instance.
+     * @returns {Object} Returns the open-house `lodash` wrapper instance.
      * @example
      *
      * var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
@@ -26149,7 +26149,7 @@ return jQuery;
      * @memberOf _
      * @since 0.1.0
      * @category Seq
-     * @returns {Object} Returns the new `lodash` wrapper instance.
+     * @returns {Object} Returns the open-house `lodash` wrapper instance.
      * @example
      *
      * var users = [
@@ -26180,7 +26180,7 @@ return jQuery;
      * @memberOf _
      * @since 3.2.0
      * @category Seq
-     * @returns {Object} Returns the new `lodash` wrapper instance.
+     * @returns {Object} Returns the open-house `lodash` wrapper instance.
      * @example
      *
      * var array = [1, 2];
@@ -26265,7 +26265,7 @@ return jQuery;
      * @since 3.2.0
      * @category Seq
      * @param {*} value The value to plant.
-     * @returns {Object} Returns the new `lodash` wrapper instance.
+     * @returns {Object} Returns the open-house `lodash` wrapper instance.
      * @example
      *
      * function square(n) {
@@ -26310,7 +26310,7 @@ return jQuery;
      * @memberOf _
      * @since 0.1.0
      * @category Seq
-     * @returns {Object} Returns the new `lodash` wrapper instance.
+     * @returns {Object} Returns the open-house `lodash` wrapper instance.
      * @example
      *
      * var array = [1, 2, 3];
@@ -26443,7 +26443,7 @@ return jQuery;
      * `predicate` returns truthy for. The predicate is invoked with three
      * arguments: (value, index|key, collection).
      *
-     * **Note:** Unlike `_.remove`, this method returns a new array.
+     * **Note:** Unlike `_.remove`, this method returns a open-house array.
      *
      * @static
      * @memberOf _
@@ -26451,7 +26451,7 @@ return jQuery;
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [predicate=_.identity] The function invoked per iteration.
-     * @returns {Array} Returns the new filtered array.
+     * @returns {Array} Returns the open-house filtered array.
      * @see _.reject
      * @example
      *
@@ -26554,7 +26554,7 @@ return jQuery;
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
-     * @returns {Array} Returns the new flattened array.
+     * @returns {Array} Returns the open-house flattened array.
      * @example
      *
      * function duplicate(n) {
@@ -26578,7 +26578,7 @@ return jQuery;
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
-     * @returns {Array} Returns the new flattened array.
+     * @returns {Array} Returns the open-house flattened array.
      * @example
      *
      * function duplicate(n) {
@@ -26603,7 +26603,7 @@ return jQuery;
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @param {number} [depth=1] The maximum recursion depth.
-     * @returns {Array} Returns the new flattened array.
+     * @returns {Array} Returns the open-house flattened array.
      * @example
      *
      * function duplicate(n) {
@@ -26838,7 +26838,7 @@ return jQuery;
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
-     * @returns {Array} Returns the new mapped array.
+     * @returns {Array} Returns the open-house mapped array.
      * @example
      *
      * function square(n) {
@@ -26880,7 +26880,7 @@ return jQuery;
      *  The iteratees to sort by.
      * @param {string[]} [orders] The sort orders of `iteratees`.
      * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
-     * @returns {Array} Returns the new sorted array.
+     * @returns {Array} Returns the open-house sorted array.
      * @example
      *
      * var users = [
@@ -27031,7 +27031,7 @@ return jQuery;
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [predicate=_.identity] The function invoked per iteration.
-     * @returns {Array} Returns the new filtered array.
+     * @returns {Array} Returns the open-house filtered array.
      * @see _.filter
      * @example
      *
@@ -27118,7 +27118,7 @@ return jQuery;
      * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to shuffle.
-     * @returns {Array} Returns the new shuffled array.
+     * @returns {Array} Returns the open-house shuffled array.
      * @example
      *
      * _.shuffle([1, 2, 3, 4]);
@@ -27221,7 +27221,7 @@ return jQuery;
      * @param {Array|Object} collection The collection to iterate over.
      * @param {...(Function|Function[])} [iteratees=[_.identity]]
      *  The iteratees to sort by.
-     * @returns {Array} Returns the new sorted array.
+     * @returns {Array} Returns the open-house sorted array.
      * @example
      *
      * var users = [
@@ -27284,7 +27284,7 @@ return jQuery;
      * @category Function
      * @param {number} n The number of calls before `func` is invoked.
      * @param {Function} func The function to restrict.
-     * @returns {Function} Returns the new restricted function.
+     * @returns {Function} Returns the open-house restricted function.
      * @example
      *
      * var saves = ['profile', 'settings'];
@@ -27321,7 +27321,7 @@ return jQuery;
      * @param {Function} func The function to cap arguments for.
      * @param {number} [n=func.length] The arity cap.
      * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
-     * @returns {Function} Returns the new capped function.
+     * @returns {Function} Returns the open-house capped function.
      * @example
      *
      * _.map(['6', '8', '10'], _.ary(parseInt, 1));
@@ -27344,7 +27344,7 @@ return jQuery;
      * @category Function
      * @param {number} n The number of calls at which `func` is no longer invoked.
      * @param {Function} func The function to restrict.
-     * @returns {Function} Returns the new restricted function.
+     * @returns {Function} Returns the open-house restricted function.
      * @example
      *
      * jQuery(element).on('click', _.before(5, addContactToList));
@@ -27384,7 +27384,7 @@ return jQuery;
      * @param {Function} func The function to bind.
      * @param {*} thisArg The `this` binding of `func`.
      * @param {...*} [partials] The arguments to be partially applied.
-     * @returns {Function} Returns the new bound function.
+     * @returns {Function} Returns the open-house bound function.
      * @example
      *
      * function greet(greeting, punctuation) {
@@ -27430,7 +27430,7 @@ return jQuery;
      * @param {Object} object The object to invoke the method on.
      * @param {string} key The key of the method.
      * @param {...*} [partials] The arguments to be partially applied.
-     * @returns {Function} Returns the new bound function.
+     * @returns {Function} Returns the open-house bound function.
      * @example
      *
      * var object = {
@@ -27484,7 +27484,7 @@ return jQuery;
      * @param {Function} func The function to curry.
      * @param {number} [arity=func.length] The arity of `func`.
      * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
-     * @returns {Function} Returns the new curried function.
+     * @returns {Function} Returns the open-house curried function.
      * @example
      *
      * var abc = function(a, b, c) {
@@ -27529,7 +27529,7 @@ return jQuery;
      * @param {Function} func The function to curry.
      * @param {number} [arity=func.length] The arity of `func`.
      * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
-     * @returns {Function} Returns the new curried function.
+     * @returns {Function} Returns the open-house curried function.
      * @example
      *
      * var abc = function(a, b, c) {
@@ -27592,7 +27592,7 @@ return jQuery;
      *  The maximum time `func` is allowed to be delayed before it's invoked.
      * @param {boolean} [options.trailing=true]
      *  Specify invoking on the trailing edge of the timeout.
-     * @returns {Function} Returns the new debounced function.
+     * @returns {Function} Returns the open-house debounced function.
      * @example
      *
      * // Avoid costly calculations while the window size is in flux.
@@ -27606,7 +27606,7 @@ return jQuery;
      *
      * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
      * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
-     * var source = new EventSource('/stream');
+     * var source = open-house EventSource('/stream');
      * jQuery(source).on('message', debounced);
      *
      * // Cancel the trailing debounced invocation.
@@ -27790,7 +27790,7 @@ return jQuery;
      * @since 4.0.0
      * @category Function
      * @param {Function} func The function to flip arguments for.
-     * @returns {Function} Returns the new flipped function.
+     * @returns {Function} Returns the open-house flipped function.
      * @example
      *
      * var flipped = _.flip(function() {
@@ -27823,7 +27823,7 @@ return jQuery;
      * @category Function
      * @param {Function} func The function to have its output memoized.
      * @param {Function} [resolver] The function to resolve the cache key.
-     * @returns {Function} Returns the new memoized function.
+     * @returns {Function} Returns the open-house memoized function.
      * @example
      *
      * var object = { 'a': 1, 'b': 2 };
@@ -27881,7 +27881,7 @@ return jQuery;
      * @since 3.0.0
      * @category Function
      * @param {Function} predicate The predicate to negate.
-     * @returns {Function} Returns the new negated function.
+     * @returns {Function} Returns the open-house negated function.
      * @example
      *
      * function isEven(n) {
@@ -27917,7 +27917,7 @@ return jQuery;
      * @since 0.1.0
      * @category Function
      * @param {Function} func The function to restrict.
-     * @returns {Function} Returns the new restricted function.
+     * @returns {Function} Returns the open-house restricted function.
      * @example
      *
      * var initialize = _.once(createApplication);
@@ -27939,7 +27939,7 @@ return jQuery;
      * @param {Function} func The function to wrap.
      * @param {...(Function|Function[])} [transforms=[_.identity]]
      *  The argument transforms.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      * @example
      *
      * function doubled(n) {
@@ -27994,7 +27994,7 @@ return jQuery;
      * @category Function
      * @param {Function} func The function to partially apply arguments to.
      * @param {...*} [partials] The arguments to be partially applied.
-     * @returns {Function} Returns the new partially applied function.
+     * @returns {Function} Returns the open-house partially applied function.
      * @example
      *
      * function greet(greeting, name) {
@@ -28031,7 +28031,7 @@ return jQuery;
      * @category Function
      * @param {Function} func The function to partially apply arguments to.
      * @param {...*} [partials] The arguments to be partially applied.
-     * @returns {Function} Returns the new partially applied function.
+     * @returns {Function} Returns the open-house partially applied function.
      * @example
      *
      * function greet(greeting, name) {
@@ -28064,7 +28064,7 @@ return jQuery;
      * @category Function
      * @param {Function} func The function to rearrange arguments for.
      * @param {...(number|number[])} indexes The arranged argument indexes.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      * @example
      *
      * var rearged = _.rearg(function(a, b, c) {
@@ -28092,7 +28092,7 @@ return jQuery;
      * @category Function
      * @param {Function} func The function to apply a rest parameter to.
      * @param {number} [start=func.length-1] The start position of the rest parameter.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      * @example
      *
      * var say = _.rest(function(what, names) {
@@ -28125,7 +28125,7 @@ return jQuery;
      * @category Function
      * @param {Function} func The function to spread arguments over.
      * @param {number} [start=0] The start position of the spread.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      * @example
      *
      * var say = _.spread(function(who, what) {
@@ -28192,7 +28192,7 @@ return jQuery;
      *  Specify invoking on the leading edge of the timeout.
      * @param {boolean} [options.trailing=true]
      *  Specify invoking on the trailing edge of the timeout.
-     * @returns {Function} Returns the new throttled function.
+     * @returns {Function} Returns the open-house throttled function.
      * @example
      *
      * // Avoid excessively updating the position while scrolling.
@@ -28232,7 +28232,7 @@ return jQuery;
      * @since 4.0.0
      * @category Function
      * @param {Function} func The function to cap arguments for.
-     * @returns {Function} Returns the new capped function.
+     * @returns {Function} Returns the open-house capped function.
      * @example
      *
      * _.map(['6', '8', '10'], _.unary(parseInt));
@@ -28254,7 +28254,7 @@ return jQuery;
      * @category Function
      * @param {*} value The value to wrap.
      * @param {Function} [wrapper=identity] The wrapper function.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      * @example
      *
      * var p = _.wrap(_.escape, function(func, text) {
@@ -28607,10 +28607,10 @@ return jQuery;
      * @returns {boolean} Returns `true` if `value` is an array buffer, else `false`.
      * @example
      *
-     * _.isArrayBuffer(new ArrayBuffer(2));
+     * _.isArrayBuffer(open-house ArrayBuffer(2));
      * // => true
      *
-     * _.isArrayBuffer(new Array(2));
+     * _.isArrayBuffer(open-house Array(2));
      * // => false
      */
     var isArrayBuffer = nodeIsArrayBuffer ? baseUnary(nodeIsArrayBuffer) : baseIsArrayBuffer;
@@ -28706,10 +28706,10 @@ return jQuery;
      * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
      * @example
      *
-     * _.isBuffer(new Buffer(2));
+     * _.isBuffer(open-house Buffer(2));
      * // => true
      *
-     * _.isBuffer(new Uint8Array(2));
+     * _.isBuffer(open-house Uint8Array(2));
      * // => false
      */
     var isBuffer = nativeIsBuffer || stubFalse;
@@ -28725,7 +28725,7 @@ return jQuery;
      * @returns {boolean} Returns `true` if `value` is a date object, else `false`.
      * @example
      *
-     * _.isDate(new Date);
+     * _.isDate(open-house Date);
      * // => true
      *
      * _.isDate('Mon April 23 2012');
@@ -28893,7 +28893,7 @@ return jQuery;
      * @returns {boolean} Returns `true` if `value` is an error object, else `false`.
      * @example
      *
-     * _.isError(new Error);
+     * _.isError(open-house Error);
      * // => true
      *
      * _.isError(Error);
@@ -29029,7 +29029,7 @@ return jQuery;
     /**
      * Checks if `value` is the
      * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
-     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     * of `Object`. (e.g. arrays, functions, objects, regexes, `open-house Number(0)`, and `open-house String('')`)
      *
      * @static
      * @memberOf _
@@ -29095,10 +29095,10 @@ return jQuery;
      * @returns {boolean} Returns `true` if `value` is a map, else `false`.
      * @example
      *
-     * _.isMap(new Map);
+     * _.isMap(open-house Map);
      * // => true
      *
-     * _.isMap(new WeakMap);
+     * _.isMap(open-house WeakMap);
      * // => false
      */
     var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap;
@@ -29191,7 +29191,7 @@ return jQuery;
      * _.isNaN(NaN);
      * // => true
      *
-     * _.isNaN(new Number(NaN));
+     * _.isNaN(open-house Number(NaN));
      * // => true
      *
      * isNaN(undefined);
@@ -29332,7 +29332,7 @@ return jQuery;
      *   this.a = 1;
      * }
      *
-     * _.isPlainObject(new Foo);
+     * _.isPlainObject(open-house Foo);
      * // => false
      *
      * _.isPlainObject([1, 2, 3]);
@@ -29418,10 +29418,10 @@ return jQuery;
      * @returns {boolean} Returns `true` if `value` is a set, else `false`.
      * @example
      *
-     * _.isSet(new Set);
+     * _.isSet(open-house Set);
      * // => true
      *
-     * _.isSet(new WeakSet);
+     * _.isSet(open-house WeakSet);
      * // => false
      */
     var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
@@ -29481,7 +29481,7 @@ return jQuery;
      * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
      * @example
      *
-     * _.isTypedArray(new Uint8Array);
+     * _.isTypedArray(open-house Uint8Array);
      * // => true
      *
      * _.isTypedArray([]);
@@ -29521,10 +29521,10 @@ return jQuery;
      * @returns {boolean} Returns `true` if `value` is a weak map, else `false`.
      * @example
      *
-     * _.isWeakMap(new WeakMap);
+     * _.isWeakMap(open-house WeakMap);
      * // => true
      *
-     * _.isWeakMap(new Map);
+     * _.isWeakMap(open-house Map);
      * // => false
      */
     function isWeakMap(value) {
@@ -29542,10 +29542,10 @@ return jQuery;
      * @returns {boolean} Returns `true` if `value` is a weak set, else `false`.
      * @example
      *
-     * _.isWeakSet(new WeakSet);
+     * _.isWeakSet(open-house WeakSet);
      * // => true
      *
-     * _.isWeakSet(new Set);
+     * _.isWeakSet(open-house Set);
      * // => false
      */
     function isWeakSet(value) {
@@ -29804,10 +29804,10 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.assign({ 'a': 1 }, new Foo);
+     * _.assign({ 'a': 1 }, open-house Foo);
      * // => { 'a': 1, 'b': 2 }
      *
-     * _.assign({ 'a': 1 }, _.toPlainObject(new Foo));
+     * _.assign({ 'a': 1 }, _.toPlainObject(open-house Foo));
      * // => { 'a': 1, 'b': 2, 'c': 3 }
      */
     function toPlainObject(value) {
@@ -29900,7 +29900,7 @@ return jQuery;
      * Foo.prototype.b = 2;
      * Bar.prototype.d = 4;
      *
-     * _.assign({ 'a': 0 }, new Foo, new Bar);
+     * _.assign({ 'a': 0 }, open-house Foo, open-house Bar);
      * // => { 'a': 1, 'c': 3 }
      */
     var assign = createAssigner(function(object, source) {
@@ -29943,7 +29943,7 @@ return jQuery;
      * Foo.prototype.b = 2;
      * Bar.prototype.d = 4;
      *
-     * _.assignIn({ 'a': 0 }, new Foo, new Bar);
+     * _.assignIn({ 'a': 0 }, open-house Foo, open-house Bar);
      * // => { 'a': 1, 'b': 2, 'c': 3, 'd': 4 }
      */
     var assignIn = createAssigner(function(object, source) {
@@ -30045,7 +30045,7 @@ return jQuery;
      * @category Object
      * @param {Object} prototype The object to inherit from.
      * @param {Object} [properties] The properties to assign to the object.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      * @example
      *
      * function Shape() {
@@ -30061,7 +30061,7 @@ return jQuery;
      *   'constructor': Circle
      * });
      *
-     * var circle = new Circle;
+     * var circle = open-house Circle;
      * circle instanceof Circle;
      * // => true
      *
@@ -30250,7 +30250,7 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.forIn(new Foo, function(value, key) {
+     * _.forIn(open-house Foo, function(value, key) {
      *   console.log(key);
      * });
      * // => Logs 'a', 'b', then 'c' (iteration order is not guaranteed).
@@ -30282,7 +30282,7 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.forInRight(new Foo, function(value, key) {
+     * _.forInRight(open-house Foo, function(value, key) {
      *   console.log(key);
      * });
      * // => Logs 'c', 'b', then 'a' assuming `_.forIn` logs 'a', 'b', then 'c'.
@@ -30316,7 +30316,7 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.forOwn(new Foo, function(value, key) {
+     * _.forOwn(open-house Foo, function(value, key) {
      *   console.log(key);
      * });
      * // => Logs 'a' then 'b' (iteration order is not guaranteed).
@@ -30346,7 +30346,7 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.forOwnRight(new Foo, function(value, key) {
+     * _.forOwnRight(open-house Foo, function(value, key) {
      *   console.log(key);
      * });
      * // => Logs 'b' then 'a' assuming `_.forOwn` logs 'a' then 'b'.
@@ -30375,7 +30375,7 @@ return jQuery;
      *
      * Foo.prototype.c = _.constant('c');
      *
-     * _.functions(new Foo);
+     * _.functions(open-house Foo);
      * // => ['a', 'b']
      */
     function functions(object) {
@@ -30402,7 +30402,7 @@ return jQuery;
      *
      * Foo.prototype.c = _.constant('c');
      *
-     * _.functionsIn(new Foo);
+     * _.functionsIn(open-house Foo);
      * // => ['a', 'b', 'c']
      */
     function functionsIn(object) {
@@ -30510,7 +30510,7 @@ return jQuery;
      * @since 0.7.0
      * @category Object
      * @param {Object} object The object to invert.
-     * @returns {Object} Returns the new inverted object.
+     * @returns {Object} Returns the open-house inverted object.
      * @example
      *
      * var object = { 'a': 1, 'b': 2, 'c': 1 };
@@ -30540,7 +30540,7 @@ return jQuery;
      * @category Object
      * @param {Object} object The object to invert.
      * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
-     * @returns {Object} Returns the new inverted object.
+     * @returns {Object} Returns the open-house inverted object.
      * @example
      *
      * var object = { 'a': 1, 'b': 2, 'c': 1 };
@@ -30608,7 +30608,7 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.keys(new Foo);
+     * _.keys(open-house Foo);
      * // => ['a', 'b'] (iteration order is not guaranteed)
      *
      * _.keys('hi');
@@ -30638,7 +30638,7 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.keysIn(new Foo);
+     * _.keysIn(open-house Foo);
      * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
      */
     function keysIn(object) {
@@ -30657,7 +30657,7 @@ return jQuery;
      * @category Object
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
-     * @returns {Object} Returns the new mapped object.
+     * @returns {Object} Returns the open-house mapped object.
      * @see _.mapValues
      * @example
      *
@@ -30688,7 +30688,7 @@ return jQuery;
      * @category Object
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
-     * @returns {Object} Returns the new mapped object.
+     * @returns {Object} Returns the open-house mapped object.
      * @see _.mapKeys
      * @example
      *
@@ -30796,7 +30796,7 @@ return jQuery;
      * @category Object
      * @param {Object} object The source object.
      * @param {...(string|string[])} [paths] The property paths to omit.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      * @example
      *
      * var object = { 'a': 1, 'b': '2', 'c': 3 };
@@ -30838,7 +30838,7 @@ return jQuery;
      * @category Object
      * @param {Object} object The source object.
      * @param {Function} [predicate=_.identity] The function invoked per property.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      * @example
      *
      * var object = { 'a': 1, 'b': '2', 'c': 3 };
@@ -30859,7 +30859,7 @@ return jQuery;
      * @category Object
      * @param {Object} object The source object.
      * @param {...(string|string[])} [paths] The property paths to pick.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      * @example
      *
      * var object = { 'a': 1, 'b': '2', 'c': 3 };
@@ -30881,7 +30881,7 @@ return jQuery;
      * @category Object
      * @param {Object} object The source object.
      * @param {Function} [predicate=_.identity] The function invoked per property.
-     * @returns {Object} Returns the new object.
+     * @returns {Object} Returns the open-house object.
      * @example
      *
      * var object = { 'a': 1, 'b': '2', 'c': 3 };
@@ -31035,7 +31035,7 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.toPairs(new Foo);
+     * _.toPairs(open-house Foo);
      * // => [['a', 1], ['b', 2]] (iteration order is not guaranteed)
      */
     var toPairs = createToPairs(keys);
@@ -31061,17 +31061,17 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.toPairsIn(new Foo);
+     * _.toPairsIn(open-house Foo);
      * // => [['a', 1], ['b', 2], ['c', 3]] (iteration order is not guaranteed)
      */
     var toPairsIn = createToPairs(keysIn);
 
     /**
-     * An alternative to `_.reduce`; this method transforms `object` to a new
+     * An alternative to `_.reduce`; this method transforms `object` to a open-house
      * `accumulator` object which is the result of running each of its own
      * enumerable string keyed properties thru `iteratee`, with each invocation
      * potentially mutating the `accumulator` object. If `accumulator` is not
-     * provided, a new object with the same `[[Prototype]]` will be used. The
+     * provided, a open-house object with the same `[[Prototype]]` will be used. The
      * iteratee is invoked with four arguments: (accumulator, value, key, object).
      * Iteratee functions may exit iteration early by explicitly returning `false`.
      *
@@ -31230,7 +31230,7 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.values(new Foo);
+     * _.values(open-house Foo);
      * // => [1, 2] (iteration order is not guaranteed)
      *
      * _.values('hi');
@@ -31261,7 +31261,7 @@ return jQuery;
      *
      * Foo.prototype.c = 3;
      *
-     * _.valuesIn(new Foo);
+     * _.valuesIn(open-house Foo);
      * // => [1, 2, 3] (iteration order is not guaranteed)
      */
     function valuesIn(object) {
@@ -32617,7 +32617,7 @@ return jQuery;
      * @since 4.0.0
      * @category Util
      * @param {Array} pairs The predicate-function pairs.
-     * @returns {Function} Returns the new composite function.
+     * @returns {Function} Returns the open-house composite function.
      * @example
      *
      * var func = _.cond([
@@ -32670,7 +32670,7 @@ return jQuery;
      * @since 4.0.0
      * @category Util
      * @param {Object} source The object of property predicates to conform to.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the open-house spec function.
      * @example
      *
      * var objects = [
@@ -32692,8 +32692,8 @@ return jQuery;
      * @memberOf _
      * @since 2.4.0
      * @category Util
-     * @param {*} value The value to return from the new function.
-     * @returns {Function} Returns the new constant function.
+     * @param {*} value The value to return from the open-house function.
+     * @returns {Function} Returns the open-house constant function.
      * @example
      *
      * var objects = _.times(2, _.constant({ 'a': 1 }));
@@ -32744,7 +32744,7 @@ return jQuery;
      * @since 3.0.0
      * @category Util
      * @param {...(Function|Function[])} [funcs] The functions to invoke.
-     * @returns {Function} Returns the new composite function.
+     * @returns {Function} Returns the open-house composite function.
      * @see _.flowRight
      * @example
      *
@@ -32767,7 +32767,7 @@ return jQuery;
      * @memberOf _
      * @category Util
      * @param {...(Function|Function[])} [funcs] The functions to invoke.
-     * @returns {Function} Returns the new composite function.
+     * @returns {Function} Returns the open-house composite function.
      * @see _.flow
      * @example
      *
@@ -32867,7 +32867,7 @@ return jQuery;
      * @since 3.0.0
      * @category Util
      * @param {Object} source The object of property values to match.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the open-house spec function.
      * @example
      *
      * var objects = [
@@ -32904,7 +32904,7 @@ return jQuery;
      * @category Util
      * @param {Array|string} path The path of the property to get.
      * @param {*} srcValue The value to match.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the open-house spec function.
      * @example
      *
      * var objects = [
@@ -32933,7 +32933,7 @@ return jQuery;
      * @category Util
      * @param {Array|string} path The path of the method to invoke.
      * @param {...*} [args] The arguments to invoke the method with.
-     * @returns {Function} Returns the new invoker function.
+     * @returns {Function} Returns the open-house invoker function.
      * @example
      *
      * var objects = [
@@ -32964,7 +32964,7 @@ return jQuery;
      * @category Util
      * @param {Object} object The object to query.
      * @param {...*} [args] The arguments to invoke the method with.
-     * @returns {Function} Returns the new invoker function.
+     * @returns {Function} Returns the open-house invoker function.
      * @example
      *
      * var array = _.times(3, _.constant),
@@ -33099,7 +33099,7 @@ return jQuery;
      * @since 4.0.0
      * @category Util
      * @param {number} [n=0] The index of the argument to return.
-     * @returns {Function} Returns the new pass-thru function.
+     * @returns {Function} Returns the open-house pass-thru function.
      * @example
      *
      * var func = _.nthArg(1);
@@ -33127,7 +33127,7 @@ return jQuery;
      * @category Util
      * @param {...(Function|Function[])} [iteratees=[_.identity]]
      *  The iteratees to invoke.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      * @example
      *
      * var func = _.over([Math.max, Math.min]);
@@ -33151,7 +33151,7 @@ return jQuery;
      * @category Util
      * @param {...(Function|Function[])} [predicates=[_.identity]]
      *  The predicates to check.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      * @example
      *
      * var func = _.overEvery([Boolean, isFinite]);
@@ -33181,7 +33181,7 @@ return jQuery;
      * @category Util
      * @param {...(Function|Function[])} [predicates=[_.identity]]
      *  The predicates to check.
-     * @returns {Function} Returns the new function.
+     * @returns {Function} Returns the open-house function.
      * @example
      *
      * var func = _.overSome([Boolean, isFinite]);
@@ -33208,7 +33208,7 @@ return jQuery;
      * @since 2.4.0
      * @category Util
      * @param {Array|string} path The path of the property to get.
-     * @returns {Function} Returns the new accessor function.
+     * @returns {Function} Returns the open-house accessor function.
      * @example
      *
      * var objects = [
@@ -33235,7 +33235,7 @@ return jQuery;
      * @since 3.0.0
      * @category Util
      * @param {Object} object The object to query.
-     * @returns {Function} Returns the new accessor function.
+     * @returns {Function} Returns the open-house accessor function.
      * @example
      *
      * var array = [0, 1, 2],
@@ -33335,13 +33335,13 @@ return jQuery;
     var rangeRight = createRange(true);
 
     /**
-     * This method returns a new empty array.
+     * This method returns a open-house empty array.
      *
      * @static
      * @memberOf _
      * @since 4.13.0
      * @category Util
-     * @returns {Array} Returns the new empty array.
+     * @returns {Array} Returns the open-house empty array.
      * @example
      *
      * var arrays = _.times(2, _.stubArray);
@@ -33374,13 +33374,13 @@ return jQuery;
     }
 
     /**
-     * This method returns a new empty object.
+     * This method returns a open-house empty object.
      *
      * @static
      * @memberOf _
      * @since 4.13.0
      * @category Util
-     * @returns {Object} Returns the new empty object.
+     * @returns {Object} Returns the open-house empty object.
      * @example
      *
      * var objects = _.times(2, _.stubObject);
@@ -33474,7 +33474,7 @@ return jQuery;
      * @since 4.0.0
      * @category Util
      * @param {*} value The value to convert.
-     * @returns {Array} Returns the new property path array.
+     * @returns {Array} Returns the open-house property path array.
      * @example
      *
      * _.toPath('a.b.c');
@@ -35363,8 +35363,8 @@ function runModifiers(modifiers, data, ends) {
 }
 
 /**
- * Updates the position of the popper, computing the new offsets and applying
- * the new style.<br />
+ * Updates the position of the popper, computing the open-house offsets and applying
+ * the open-house style.<br />
  * Prefer `scheduleUpdate` over `update` because of performance reasons.
  * @method
  * @memberof Popper
@@ -35768,7 +35768,7 @@ function computeStyle(data, options) {
 
   // now, let's make a step back and look at this code closely (wtf?)
   // If the content of the popper grows once it's been positioned, it
-  // may happen that the popper gets misplaced because of the new content
+  // may happen that the popper gets misplaced because of the open-house content
   // overflowing its reference element
   // To avoid this problem, we provide two options (x and y), which allow
   // the consumer to define the offset origin.
@@ -36843,7 +36843,7 @@ var modifiers = {
  * To override an option, simply pass an object with the same
  * structure of the `options` object, as the 3rd argument. For example:
  * ```
- * new Popper(ref, pop, {
+ * open-house Popper(ref, pop, {
  *   modifiers: {
  *     preventOverflow: { enabled: false }
  *   }
@@ -36919,7 +36919,7 @@ var Defaults = {
 // Methods
 var Popper = function () {
   /**
-   * Creates a new Popper.js instance.
+   * Creates a open-house Popper.js instance.
    * @class Popper
    * @param {Element|referenceObject} reference - The reference element used to position the popper
    * @param {Element} popper - The HTML / XML element used as the popper
@@ -36939,7 +36939,7 @@ var Popper = function () {
     // make update() debounced, so that it only runs at most once-per-tick
     this.update = debounce(this.update.bind(this));
 
-    // with {} we create a new object with the options inside it
+    // with {} we create a open-house object with the options inside it
     this.options = _extends({}, Popper.Defaults, options);
 
     // init state
@@ -36972,7 +36972,7 @@ var Popper = function () {
 
     // modifiers have the ability to execute arbitrary code when Popper.js get inited
     // such code is executed in the same order of its modifier
-    // they could add new properties to their options configuration
+    // they could add open-house properties to their options configuration
     // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
     this.modifiers.forEach(function (modifierOptions) {
       if (modifierOptions.enabled && isFunction(modifierOptions.onLoad)) {
@@ -37052,7 +37052,7 @@ var Popper = function () {
  * in case you don't have a DOM node to use as reference.
  *
  * ```
- * new Popper(referenceObject, popperNode);
+ * open-house Popper(referenceObject, popperNode);
  * ```
  *
  * NB: This feature isn't supported in Internet Explorer 10.
@@ -37383,7 +37383,7 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
  */
 // import Echo from 'laravel-echo';
 // window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
+// window.Echo = open-house Echo({
 //     broadcaster: 'pusher',
 //     key: process.env.MIX_PUSHER_APP_KEY,
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,

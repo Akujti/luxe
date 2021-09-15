@@ -28,7 +28,7 @@ class EventController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a open-house resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -74,7 +74,7 @@ class EventController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Event  $event
-     * @return \Illuminate\Http\Response 
+     * @return \Illuminate\Http\Response
      */
     public function show(Event $event)
     {

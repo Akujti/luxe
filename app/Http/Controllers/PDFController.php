@@ -24,11 +24,32 @@ class PDFController extends Controller
 
     public function image($file)
     {
-
         $imgExtension = new Imagick($file);
         $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
         $imgExtension->writeImages($filePath, true);
         return $filePath;
+    }
+
+    //added for 1080px issue
+    public function open_house_image($file)
+    {
+        $im = new imagick();
+        $im->setResolution(300, 300);
+        $im->readImage($file);
+        $im->setImageFormat('jpeg');
+        $im->setImageCompression(imagick::COMPRESSION_JPEG);
+        $im->setImageCompressionQuality(100);
+        $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
+        $im->writeImage($filePath);
+        return $filePath;
+
+
+//        $imgExtension = new Imagick($file);
+////        $imgExtension->thumbnailImage('', '', true);
+//        $imgExtension->scaleImage(1080, 1080, true);
+//        $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
+//        $imgExtension->writeImages($filePath, true);
+//        return $filePath;
     }
 
     // Door Hangers
@@ -151,6 +172,40 @@ class PDFController extends Controller
             return $pdf->download('Flyer Template 3.pdf');
         }
     }
+
+
+    public function flyer_template_5(Request $request)
+    {
+//        $data = [
+//            "text_1" => $request['text_1'],
+//            "text_2" => $request['text_2'],
+//            "text_3" => $request['text_3'],
+//            "text_4" => $request['text_4'],
+//            "text_5" => $request['text_5'],
+//            "text_6" => $request['text_6'],
+//            "text_7" => $request['text_7'],
+//            "text_8" => $request['text_8'],
+//            "text_9" => $request['text_9'],
+//            "text_10" => $request['text_10'],
+//
+//            "img_1" => $request['img_1_input'],
+//            "img_2" => $request['img_2_input'],
+//        ];
+//        if ($_POST['action'] == 'Save') {
+//            $data_json = json_encode($data);
+//            $file = time() . '_file.json';
+//            $destinationPath = public_path() . "/upload/json/";
+//            if (!is_dir($destinationPath)) {
+//                mkdir($destinationPath, 0777, true);
+//            }
+//            File::put($destinationPath . $file, $data_json);
+//            return response()->download($destinationPath . $file);
+//        } else {
+        $pdf = PDF::loadView('flyers.template5.pdf');
+        return $pdf->download('Flyer Template 5.pdf');
+//        }
+    }
+
 
     public function flyer_template_2(Request $request)
     {
@@ -657,8 +712,44 @@ class PDFController extends Controller
         }
     }
 
+    public function theme_open_house(Request $request)
+    {
+        $data = [
+            'day_text' => $request['day_text'],
+            'date_text' => $request['date_text'],
+            'from_text' => $request['from_text'],
+            'to_text' => $request['to_text'],
+            'beds_text' => $request['beds_text'],
+            'bath_text' => $request['bath_text'],
+            'sqft_text' => $request['sqft_text'],
+            'address_1' => $request['address_1'],
+            'address_2' => $request['address_2'],
 
-    ////
+            'bg_image' => $request['bg_image'],
+        ];
+        if ($_POST['action'] == 'Save') {
+            $data_json = json_encode($data);
+            $file = time() . '_file.json';
+            $destinationPath = public_path() . "/upload/json/";
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            File::put($destinationPath . $file, $data_json);
+            return response()->download($destinationPath . $file);
+        } else {
+            $pdf = PDF::loadView('themes.open-house.open-house', $data);
+//            return $pdf->download('Open House.pdf');
+            $pdf->setPaper(0, 0, 4000, 4000);
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->open_house_image($fileName), 'Open House.jpg', $this->headers);
+//        $pdf = PDF::loadView('themes.open-house.open-house');
+//        return $pdf->download('New Theme.pdf');
+        }
+    }
+
+
+////
 
     public function theme_just_sold_story(Request $request)
     {
@@ -805,7 +896,8 @@ class PDFController extends Controller
         }
     }
 
-    public function index(Request $request)
+    public
+    function index(Request $request)
     {
         $data = [
             'page_1_1_text_1' => $request['page_1_1_text_1'],
@@ -1037,7 +1129,8 @@ class PDFController extends Controller
         }
     }
 
-    public function home_didnt_sell(Request $request)
+    public
+    function home_didnt_sell(Request $request)
     {
         $data = [
             'text_1' => $request['text_1'],
@@ -1226,7 +1319,8 @@ class PDFController extends Controller
         }
     }
 
-    public function fsbo_index(Request $request)
+    public
+    function fsbo_index(Request $request)
     {
         $data = [
             'page_5_text_1' => $request['page_5_text_1'],
@@ -1256,7 +1350,8 @@ class PDFController extends Controller
         }
     }
 
-    public function home_buying(Request $request)
+    public
+    function home_buying(Request $request)
     {
         $data = [
             //TEXT
@@ -1453,7 +1548,8 @@ class PDFController extends Controller
         }
     }
 
-    public function single_property(Request $request)
+    public
+    function single_property(Request $request)
     {
 
 
@@ -1479,7 +1575,6 @@ class PDFController extends Controller
             'page_6_img_1' => $request['page_6_img_1'],
 
             'page_2_1_img_1' => $request['page_2_1_img_1'],
-
 
 
             'page_8_img_1' => $request['page_8_img_1'],
@@ -1715,8 +1810,8 @@ class PDFController extends Controller
     }
 
 
-
-    public function generate_data($data)
+    public
+    function generate_data($data)
     {
 
         $pdf = PDF::loadView('testPDF', $data);
@@ -1724,7 +1819,8 @@ class PDFController extends Controller
         return $pdf->download('Home Selling Guide.pdf');
     }
 
-    public function uploadimage(Request $request)
+    public
+    function uploadimage(Request $request)
     {
         $imageName = Str::uuid() . '.' . request()->file('file')->getClientOriginalExtension();
         $request->file('file')->move(public_path('uploadedimages'), $imageName);

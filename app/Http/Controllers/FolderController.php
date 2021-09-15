@@ -16,7 +16,7 @@ class FolderController extends Controller
         $filters = [
             'id' => $request->get('id'),
         ];
-        $folders = Folder::where(function ($query) use ($filters) {
+        $folders = Folder::where('title', '!=', 'XNvgkxNbjU')->where(function ($query) use ($filters) {
             if ($filters['id']) {
                 $query->where('parent_id', $filters['id']);
             } else {
@@ -34,7 +34,7 @@ class FolderController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a open-house resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -48,7 +48,7 @@ class FolderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
