@@ -714,6 +714,7 @@ class PDFController extends Controller
 
     public function theme_open_house(Request $request)
     {
+
         $data = [
             'day_text' => $request['day_text'],
             'date_text' => $request['date_text'],
@@ -724,6 +725,9 @@ class PDFController extends Controller
             'sqft_text' => $request['sqft_text'],
             'address_1' => $request['address_1'],
             'address_2' => $request['address_2'],
+            'web_text' => $request['web_text'],
+            'title_text' => $request['title_text'],
+            'title_text_class' => $request['title_text_select'],
 
             'bg_image' => $request['bg_image'],
         ];
@@ -789,6 +793,7 @@ class PDFController extends Controller
 
     public function theme_just_sold(Request $request)
     {
+
         $data = [
             'page_1_text_11' => $request['page_1_text_11'],
             'page_1_text_12' => $request['page_1_text_12'],

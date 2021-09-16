@@ -81,6 +81,45 @@
     .top ul li:last-child, .left-panel ul li:last-child {
         border: none;
     }
+
+    .first {
+        /*position: absolute;*/
+        margin-left: 90px;
+        font-weight: 700;
+        color: #c9a668;
+        font-family: 'Lato', sans-serif;
+        background-color: white;
+        height: 125px;
+        padding-right: 15px;
+        display: inline-block;
+        padding-top: 35px;
+    }
+
+    .second {
+        /*position: absolute;*/
+        font-weight: 700;
+        color: white;
+        padding-left: 15px;
+        display: inline-block;
+        height: 125px;
+        padding-top: 35px;
+    }
+
+    .small {
+        font-size: 70px;
+        position: absolute;
+        top: 10px;
+    }
+
+    .normal {
+        font-size: 81px;
+    }
+
+    .large {
+        font-size: 90px;
+        position: absolute;
+        top: -7px;
+    }
 </style>
 <style>
 
@@ -99,9 +138,9 @@
     {{--    <div class="absolute" style="top:0px;left:0px;">--}}
     {{--        <img style="padding: 0; margin: 0" src="images/themes/new/container.png" alt="">--}}
     {{--    </div>--}}
-    <div class="absolute" style="width: 320px; height: 120px; background: white; font-size: 81px">
-        <p class="gold lato" style="position: absolute; left: 90px; font-weight: 700">OPEN</p>
-        <p class="text-white lato" style="position: absolute; left: 335px; font-weight: 700">HOUSE</p>
+    <div class="absolute title_text {{$title_text_class}}"
+         style="height: 120px;">
+        {!! $title_text !!}
     </div>
     <div class="absolute top" style="width: 635px; height: 76px; background: black; font-size: 81px; top: 120px">
         <ul class="absolute" style="left: 90px; top: -55px; width: 100%">
@@ -115,9 +154,9 @@
     </div>
 
 
-    <div class="absolute" style="top:60px; right: 55px; width: 260px">
-        <span class="text-white" style="font-size: 18px; font-weight: bold; font-family: 'Montserrat', sans-serif;">
-            WWW.LUXEKNOWS.COM</span>
+    <div class="absolute" style="top:60px; right: 55px;">
+        <span class="text-white"
+              style="text-align: center;font-size: 18px; font-weight: bold; font-family: 'Montserrat', sans-serif;">{{$web_text}}</span>
     </div>
 
     <div class="absolute"

@@ -157,6 +157,44 @@
     b {
         font-weight: bold;
     }
+
+    .first {
+        /*position: absolute;*/
+        margin-left: 90px;
+        font-weight: 700;
+        color: #c9a668;
+        font-family: 'Lato', sans-serif;
+        background-color: white;
+        height: 100%;
+        padding-right: 15px;
+        padding-top: 50px;
+    }
+
+    .second {
+        /*position: absolute;*/
+        font-weight: 700;
+        color: white;
+        padding-left: 15px;
+        display: inline-block;
+        padding-top: 27px;
+    }
+
+
+    .small {
+        font-size: 70px;
+        position: absolute;
+        top: 10px;
+    }
+
+    .normal {
+        font-size: 81px;
+    }
+
+    .large {
+        font-size: 90px;
+        position: absolute;
+        top: -7px;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -178,9 +216,10 @@
                 <div class="absolute" style="top:0px;left:0px; z-index: -1">
                     <img src="images/themes/new/ellipse.png" alt="">
                 </div>
-                <div class="absolute" style="width: 320px; height: 120px; background: white; font-size: 81px">
-                    <p class="gold lato" style="position: absolute; left: 90px; font-weight: 700">OPEN</p>
-                    <p class="text-white lato" style="position: absolute; left: 335px; font-weight: 700">HOUSE</p>
+                <div class="absolute title-text normal"
+                     style="height: 120px;">
+                    <span class='first'>OPEN</span>
+                    <span class='second'>HOUSE</span>
                 </div>
                 <div class="absolute top"
                      style="width: 635px; height: 76px; background: black; font-size: 81px; top: 120px">
@@ -195,8 +234,9 @@
                 </div>
 
 
-                <div class="absolute" style="top:60px; right: 55px; width: 260px">
-                    <p class="text-white" style="font-size: 18px; font-weight: 600;">WWW.LUXEKNOWS.COM</p>
+                <div class="absolute" style="top:60px; right: 55px;">
+                    <p class="text-white web_text" style="font-size: 18px; font-weight: 600;">
+                        WWW.LUXEKNOWS.COM</p>
                 </div>
                 <div class="absolute"
                      style="height: 100px; background: white; bottom: 51px; left: 281px;padding-right: 20px">
@@ -231,6 +271,19 @@
         </div>
         <div class="column-divider"></div>
         <div class="row-input" style="max-width: 350px;">
+            <div class="">
+                <div class="pr-10">
+                    <label for="day_text" style="width: 94%">Title</label>
+                    <input type="text" id="title-text" name="title_text"
+                           value="<span class='first'>OPEN</span><span class='second'>HOUSE</span>">
+                    <select name="title_text_select" id="title_text"
+                            data-id-to-change="title-text" onchange="change_font_size(this)">
+                        <option value="small">Small</option>
+                        <option value="normal" selected>Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+            </div>
             <div class="flex">
                 <div class="pr-10">
                     <label for="day_text">DAY</label>
@@ -262,9 +315,13 @@
                 </div>
             </div>
 
-            <div class="">
+            <div class="flex">
                 <div class="pr-10">
-                    <label for="sqft_text" style="width: 94%">SURFACE</label>
+                    <label for="sqft_text">WEBSITE</label>
+                    <input type="text" id="web_text" name="web_text" value="WWW.LUXEKNOWS.COM">
+                </div>
+                <div class="pr-10">
+                    <label for="sqft_text">SURFACE</label>
                     <input type="text" id="sqft_text" name="sqft_text" value="<b>1,700</b> SQFT">
                 </div>
             </div>
@@ -308,6 +365,7 @@
         console.log(select_input);
         var select_id = select_input.id;
         var selector = $('#' + select_id);
+        console.log(selector);
         var element_to_edit = selector.attr('data-id-to-change');
         var font_size = selector.val();
         remove_classes(element_to_edit);
