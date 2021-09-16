@@ -167,7 +167,8 @@
         background-color: white;
         height: 100%;
         padding-right: 15px;
-        padding-top: 50px;
+        padding-top: 27px;
+        display: inline-block;
     }
 
     .second {
@@ -182,8 +183,6 @@
 
     .small {
         font-size: 70px;
-        position: absolute;
-        top: 10px;
     }
 
     .normal {
