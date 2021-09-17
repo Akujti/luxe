@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -167,14 +168,23 @@ Route::group(
         Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::resource('events', EventController::class);
+//        Route::get('bookings', [BookingController::class, 'index'])->name('bookings.index');
+
         Route::resource('files', FolderController::class);
         Route::delete('folder-destory/{id}', [FolderController::class, 'folder_destroy'])->name('folder.destroy');
         Route::delete('file-destory/{id}', [FolderController::class, 'file_destroy'])->name('file.destroy');
         Route::post('files/open-house-directory', [FolderController::class, 'create_directory'])->name('files.open-house.directory');
-        Route::resource('form', FormController::class);
+
 
         Route::resource('guides', GuideController::class);
     }
 );
+
+Route::resource('form', FormController::class);
+
+//Route::get('bookings/{room}', [BookingController::class, 'index'])->name('bookings.index');
+//Route::get('bookings', [BookingController::class, 'selectRoom'])->name('bookings.rooms');
+//Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
+//Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
 Route::get('loginTest', [UserController::class, 'login']);

@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call([
-        //     FolderSeed::class,
-        //     FileSeed::class,
-        // ]);
-        User::create([
-            'name' => 'Luxe Admin',
-            'email' => 'email@company.com',
-            'password' => bcrypt('password'),
+        $this->call([
+            RoomSeeder::class,
+//            FileSeed::class,
         ]);
+//        User::create([
+//            'name' => 'Luxe Admin',
+//            'email' => 'email@company.com',
+//            'password' => bcrypt('password'),
+//        ]);
     }
 }
