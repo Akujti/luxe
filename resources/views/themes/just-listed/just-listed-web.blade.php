@@ -473,7 +473,6 @@
 
     function img_1_change() {
         var form_data = new FormData();
-        zz
         form_data.append("file", $("#img-1-input")[0].files[0]);
         $.ajax({
             url: '/uploadimage',

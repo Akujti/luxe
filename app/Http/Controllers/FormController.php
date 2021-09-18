@@ -38,7 +38,7 @@ class FormController extends Controller
             ];
 
 
-            Mail::to('info@luxe.com')->send(new FormMail($details));
+            Mail::to('edin.vllaco@gmail.com')->send(new FormMail($details));
             return back()->with('message', 'Sent successfully.');
         } catch (\Throwable $th) {
             return back()->with('error', 'Ooops! Try again later!');
