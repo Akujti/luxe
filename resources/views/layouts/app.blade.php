@@ -119,7 +119,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-lg-2 text-center">
-                    <img src="/images/logo.png" alt="" height="80px">
+                    <a href="https://myluxehub.com/"><img src="/images/logo.png" alt="" height="80px"></a>
                 </div>
                 <div class="col-12 col-md-9">
                     <div class="contact-details">

@@ -18,6 +18,7 @@
 @section('content')
     <div class="container">
         <div class="row my-4">
+            <div class="alert alert-info w-100">NOTES: Max time for slot is 60 minutes.</div>
             <div id='calendar' style="width: 100%; display: inline-block;"></div>
         </div>
         <div class="create-booking modal fade" tabindex="-1" role="dialog">
