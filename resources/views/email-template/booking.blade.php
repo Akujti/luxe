@@ -64,7 +64,7 @@
         <p class="bold-text"><b>Start:</b> {{$details['start']}}</p>
         <p class="bold-text"><b>End:</b> {{$details['end']}}</p>
         <div class="link">
-            <a href="https://barviewguru.com">luxe.com</a>
+            <a href="https://myluxehub.com/">https://myluxehub.com/</a>
         </div>
     </div>
 </div>

@@ -46,7 +46,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Any other additional information may be provided below.</label>
-                                <input type="text" name="additional" class="form-control" required>
+                                <input type="text" name="additional" class="form-control">
                             </div>
                             <div class="form-group col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">

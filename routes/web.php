@@ -182,9 +182,9 @@ Route::group(
 
 Route::resource('form', FormController::class);
 
-//Route::get('bookings/{room}', [BookingController::class, 'index'])->name('bookings.index');
-//Route::get('bookings', [BookingController::class, 'selectRoom'])->name('bookings.rooms');
-//Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
-//Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+Route::get('bookings/{room}', [BookingController::class, 'index'])->name('bookings.index');
+Route::get('bookings', [BookingController::class, 'selectRoom'])->name('bookings.rooms');
+Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
+Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
 Route::get('loginTest', [UserController::class, 'login']);

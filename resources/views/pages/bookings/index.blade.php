@@ -215,7 +215,6 @@
                 }
             ];
         }
-
         const data = @json($bookings);
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -240,7 +239,6 @@
                     $('.single-booking').find('#phone').val(booking.extendedProps.phone);
                     $('.single-booking').find('.modal-footer').css('display', 'none');
                 }
-
                 {{--if (booking.extendedProps.user_id == {{Auth::id()}}) {--}}
                 {{--    $('.single-booking').find('.modal-footer').css('display', 'flex');--}}
                 {{--}--}}
@@ -255,6 +253,7 @@
             selectOverlap: function (event) {
                 return event.rendering === 'background';
             },
+            defaultTimedEventDuration: '01:00'
         });
         calendar.render();
     });

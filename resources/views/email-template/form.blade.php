@@ -57,17 +57,17 @@
         <img src="http://project.designsbyluxe.com/images/logo.png" alt="">
     </div>
     <div class="" style="width: 100%">
-        <p class="bold-text"><b>Name:</b> {{ $details['name'] }}</p>
-        <p class="bold-text"><b>Phone:</b> {{ $details['phone'] }}</p>
+        <p class="bold-text"><b>Full Name:</b> {{ $details['name'] }}</p>
+        <p class="bold-text"><b>Phone Number:</b> {{ $details['phone'] }}</p>
         <p class="bold-text"><b>E-Mail:</b> {{$details['email']}}</p>
-        <p class="bold-text"><b>Agent:</b> {{ $details['agent'] }}</p>
+        <p class="bold-text"><b>Referring Agent:</b> {{ $details['agent'] }}</p>
         <p class="bold-text"><b>Full Address:</b> {{ $details['full_address'] }}</p>
-        <p class="bold-text"><b>Time:</b> {{ $details['time'] }}</p>
+        <p class="bold-text"><b>Best Time To Be Reached:</b> {{ $details['time'] }}</p>
         <p class="bold-text"><b>Loan Officer:</b> {{ $details['loan_officer'] }}</p>
-        <p class="bold-text"><b>Additional:</b> {{ $details['additional'] }}</p>
+        <p class="bold-text"><b>Additional information:</b> {{ $details['additional'] }}</p>
         <hr>
         <div class="link">
-            <a href="https://barviewguru.com">luxe.com</a>
+            <a href="https://myluxehub.com">https://myluxehub.com/</a>
         </div>
     </div>
 </div>

@@ -20,10 +20,8 @@ class FormController extends Controller
             'phone' => 'required',
             'email' => 'required|email',
             'agent' => 'required',
-            'full_address' => 'required',
             'time' => 'required',
             'loan_officer' => 'required',
-            'additional' => 'required',
         ]);
         try {
             $details = [
@@ -31,17 +29,17 @@ class FormController extends Controller
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'agent' => $request->agent,
-                'full_address' => $request->full_address,
+                'full_address' => $request->full_address ?? 'None',
                 'time' => $request->time,
                 'loan_officer' => $request->loan_officer,
-                'additional' => $request->additional
+                'additional' => $request->additional ?? 'None'
             ];
-
-
-            Mail::to('edin.vllaco@gmail.com')->send(new FormMail($details));
-            return back()->with('message', 'Sent successfully.');
+            $to = ['wesley@luxehomeloan.com'];
+            $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com'];
+            Mail::to($to)->cc($cc)->send(new FormMail($details));
+            return back()->with('message', 'Sent successfully . ');
         } catch (\Throwable $th) {
-            return back()->with('error', 'Ooops! Try again later!');
+            return back()->with('error', 'Ooops! try again later!');
         }
     }
 }
