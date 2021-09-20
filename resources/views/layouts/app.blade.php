@@ -36,6 +36,9 @@
     }
 
     header {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: auto;
         z-index: 9;
@@ -93,7 +96,7 @@
     }
 
     .container {
-        padding-top: 20px;
+        padding-top: 155px;
     }
 
     @media screen and (max-width: 500px) {
@@ -109,6 +112,20 @@
 
         .right-contactsd a {
             justify-content: flex-start;
+        }
+
+        .container {
+            padding-top: 20px;
+        }
+
+        header {
+            position: relative;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px !important;
         }
     }
 </style>
@@ -204,7 +221,7 @@
                 </div>
                 <div class="col-12 col-lg-1 align-self-center">
                     @auth
-                        <form action="{{route('logout')}}" method="post" class="m-0">
+                        <form action="{{route('logout')}}" method="post" class="">
                             @csrf
                             <input type="submit" class="btn btn-luxe" value="Log Out">
                         </form>

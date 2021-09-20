@@ -54,7 +54,7 @@ class LoginController extends Controller
 
         $user_wp_attempt = Auth::guard('wordpress')->attempt([
             'user_email' => $user_email,
-            'user_pass' =>  $user_pass
+            'user_pass' => $user_pass
         ]);
 
         // dd($request, $user_email, $user_pass, $user_wp_attempt);
@@ -72,7 +72,7 @@ class LoginController extends Controller
                 $new_user->save();
                 Auth::login($new_user);
             }
-            return redirect()->route('links');
+            return redirect('https://myluxehub.com/');
         }
 
         return redirect()->back()->with('error', 'These credentials do not match our records.');
