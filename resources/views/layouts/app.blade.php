@@ -111,7 +111,15 @@
         }
 
         .right-contactsd a {
-            justify-content: flex-start;
+            justify-content: center;
+            font-size: 14px;
+            margin-top: 5px;
+            margin-left: 0 !important;
+        }
+
+        .right-contactsd a svg {
+            width: 30px !important;
+            margin-right: 5px;
         }
 
         .container {
@@ -127,6 +135,8 @@
             justify-content: center;
             margin-bottom: 10px !important;
         }
+
+
     }
 </style>
 
