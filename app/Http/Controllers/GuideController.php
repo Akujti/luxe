@@ -22,6 +22,9 @@ class GuideController extends Controller
     {
         $type = $request->file_type;
         $title = $request->title;
+        $request->validate([
+            'file' => 'required|max:204800',
+        ]);
         $file = File::create(
             [
                 'title' => $request->title,
