@@ -8,20 +8,61 @@
     <title>Flyer</title>
 </head>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap');
 </style>
 <style>
     * {
         font-family: 'Montserrat';
     }
 
-    .lato {
-        font-family: 'Lato', sans-serif;
+    .gochi {
+        font-family: 'Gochi Hand', cursive;
+        font-weight: 400;
     }
 
-    .flex {
-        display: flex;
+    .lato {
+        font-family: 'Lato';
+        font-weight: normal;
+    }
+
+    .ibm {
+        font-family: 'IBM Plex Sans';
+        font-weight: 400;
+    }
+
+    .ibm-med {
+        font-family: 'IBM Plex Sans';
+        font-weight: 500;
+    }
+
+    .oswald {
+        font-family: 'Oswald';
+        font-weight: 400;
+    }
+
+    .oswald-med {
+        font-family: 'Oswald';
+        font-weight: 500;
+    }
+
+    .oswald-bold {
+        font-family: 'Oswald';
+        font-weight: 600;
+    }
+
+    .roboto {
+        font-family: 'Roboto';
+        font-weight: 400;
+    }
+
+    @page {
+        padding: 0px;
+        margin: 0px;
+        size: 1000px 1286px;
     }
 
     body {
@@ -29,109 +70,183 @@
         margin: 0px;
     }
 
-    .bold {
-        font-weight: bold;
-    }
-
-    .gold {
-        color: #c9a668;
+    .page {
+        position: absolute;
     }
 
     .absolute {
         position: absolute;
     }
 
-    h1, h2, h3, p {
-        margin: 0;
+    .gold {
+        color: #C5A467;
     }
 
-    @page {
-        padding: 0px;
-        margin: 0px;
-        size: 1080px 1080px;
-    }
-
-    .text-white {
+    .white {
         color: white;
     }
 
+    .bold {
+        font-weight: bold;
+    }
 
-    .top ul, .left-panel ul {
-        list-style-type: none;
+    .extra-bold {
+        font-weight: 800;
+    }
+
+    ul li {
+        display: inline;
+        font-size: 100px;
+        margin-right: 30px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
         margin: 0;
+    }
+
+    div.circle {
+        top: 39%;
+        left: 35px;
+    }
+
+    img.circle {
+        border-radius: 145px;
+        width: 280px;
+        height: 280px;
+        object-fit: cover;
+        border: 10px solid #C9A668;
+    }
+
+    h1.small {
+        font-size: 273px;
+    }
+
+    h1.normal {
+        font-size: 370px;
+    }
+
+    h1.large {
+        font-size: 427px;
+    }
+
+    h1.main {
+        margin: 0;
+        line-height: 310px;
+        font-family: 'Lato';
+        font-weight: 900;
+    }
+
+    .list {
+        font-size: 23px;
+        letter-spacing: -1px;
+    }
+
+    .mr-3 {
+        margin-right: 8px;
+    }
+
+    .title {
+        font-size: 90px;
+    }
+
+    .social {
+        font-size: 14px;
+    }
+
+    .white-border {
+        border: 5px solid white;
+    }
+
+    .agent-info {
+        left: 460px;
+    }
+
+    .text-splitter {
+        margin-left: 8px;
+        margin-right: 8px;
+        margin-top: -15px;
+    }
+
+    .list-inline {
+        list-style: none;
         padding: 0;
     }
 
-
-    .left-panel ul li {
-        float: left;
-        border-right: 3px solid #c9a668;
-        padding: 0 15px;
-        font-size: 25.29px;
-    }
-
-    .top ul li {
-        font-size: 28px;
-        font-weight: bold;
-        padding-right: 15px;
-        border-right: 3px solid white;
+    ul li {
         display: inline;
+        font-size: 40px;
+        margin-right: 10px;
+        letter-spacing: -1px;
     }
 
-    .top ul li:last-child, .left-panel ul li:last-child {
-        border: none;
+    .text-border {
+        margin: 0;
+        padding: 0;
+        line-height: 35px;
+        padding-left: 20px;
+        background: white;
     }
-</style>
-<style>
-
 </style>
 
 <body>
-<div class="page">
-    <div class="absolute" style="top:0px;left:0px;">
-        <img src="https://i.ibb.co/x1HQTQZ/Luxe-Ellipse-4.png" alt="">
-    </div>
+    <div class="page">
+        {{-- Images --}}
+        <div class="absolute" style="top:220px;left:75px;">
+            <img id="img_1" src="images/flyers/template5/img-1.jpg" alt="" style="width: 400px;height:390px;">
+        </div>
+        <div class="absolute" style="top:220px;left:485px;">
+            <img id="img_1" src="images/flyers/template5/img-2.jpg" alt="" style="width: 400px;height:390px;">
+        </div>
+        <div class="absolute" style="top:620px;left:75px;">
+            <img id="img_1" src="images/flyers/template5/img-3.jpg" alt="" style="width: 400px;height:390px;">
+        </div>
+        <div class="absolute" style="top:620px;left:485px;">
+            <img id="img_1" src="images/flyers/template5/img-4.jpg" alt="" style="width: 400px;height:390px;">
+        </div>
+        <div class="absolute" style="top:0;left:0;">
+            <img src="images/flyers/template3/main.png" alt="">
+        </div>
+        <div class="absolute" style="bottom:0;left:75px;">
+            <img src="{{$img_2}}" alt="" height="400px">
+        </div>
+        <div class="absolute" style="bottom:80px;left:400px;">
+            <img src="images/flyers/template1/social.png" alt="" style="height:150px;">
+        </div>
 
-    <div class="absolute" style="top:0px;right:0px;">
-        <img src="https://i.ibb.co/dmL8gHM/Property-Image.png" alt="" style="width: 987px;height:1080px;">
-    </div>
-    <div class="absolute" style="width: 320px; height: 120px; background: white; font-size: 81px">
-        <p class="gold lato" style="position: absolute; left: 90px; font-weight: 700">OPEN</p>
-        <p class="text-white lato" style="position: absolute; left: 335px; font-weight: 700">HOUSE</p>
-    </div>
-    <div class="absolute top" style="width: 599px; height: 76px; background: black; font-size: 81px; top: 120px">
-        <ul class="absolute" style="left: 90px; top: -50px; width: 100%">
-            <li class="gold">SAT</li>
-            <li class="gold">SEP 11</li>
-            <li class="text-white">10:00AM -2:00PM</li>
-        </ul>
-    </div>
+        {{-- Text --}}
+        <div class="absolute" style="top:45px;left:75px;">
+            <p class="" style="font-size: 55px;letter-spacing:-1px;color:#6d6e71">{!! $text_1 !!}</p>
+        </div>
+        <div class="absolute" style="top:125px;left:75px;">
+            <p class="oswald" style="font-size: 20px;letter-spacing:-1px;color:#6d6e71">{!! $text_2 !!}</p>
+        </div>
+        <div class="absolute" style="top:57px;left:660px;">
+            <p class="white oswald" style="font-size: 50px;letter-spacing:-1px;">{{ $text_3 }}</p>
+        </div>
 
+        <div class="absolute" style="top: 300px;width: 1000px;">
+            <div style="position: relative;left:430px;">
+                <h1 class="oswald" style="color:#6d6e71;font-size:20px;transform: rotate(-90deg);letter-spacing:1px;">
+                    {!! $text_4 !!}</h1>
+            </div>
+        </div>
 
-    <div class="absolute" style="top:60px; right: 55px; width: 260px">
-        <p class="text-white" style="font-size: 18px">WWW.LUXEKNOWS.COM</p>
+        <div class="absolute agent-info" style="bottom:190px;width:100%;">
+            <p class="" style="font-size: 30px;">{!! $text_5 !!}</p>
+            <p class="" style="font-size: 12px;margin-top:-7px;letter-spacing:1px;">{!! $text_6 !!}</p>
+        </div>
+        <div class="absolute agent-info" style="bottom:135px;width:100%;">
+            <p class="ibm" style="letter-spacing:1px;">{!! $text_7 !!}</p>
+            <p class="ibm" style="margin-top:-7px;letter-spacing:1px;">{!! $text_8 !!}</p>
+        </div>
+        <div class="absolute agent-info" style="bottom:80px;width:100%;">
+            <p class="ibm social" style="letter-spacing:1px;">{!! $text_9 !!}</p>
+            <p class="ibm social" style="margin-top:-7px;letter-spacing:1px;">{!! $text_10 !!}</p>
+        </div>
     </div>
-
-
-    <div class="absolute"
-         style="width: 240px; height: 100px; background: black; left: 43px; bottom: 51px; border-radius: 50px 0 0 50px">
-        <img src="https://i.ibb.co/9gBh2NY/LogoLuxe.png" alt="" style="padding: 16px 0 0 16px; ">
-    </div>
-    <div class="absolute" style="height: 100px; background: white; bottom: 51px; left: 281px; width: 362px">
-        <p class="bold gold" style="font-size: 25.71px; padding-left: 27px; padding-top: 10px">55 MERRICK WAY
-            #402</p>
-        <p class="bold" style="font-size: 22px; padding-left: 27px;">CORAL GABLES, FL 33134</p>
-    </div>
-    <div class="left-panel"
-         style="position: relative;left: -514px;top: 230px;">
-        <ul style="transform: rotate(-90deg);">
-            <li><span class="bold">3</span> BEDS</li>
-            <li><span class="bold">2</span> BATHS</li>
-            <li><span class="bold">1,700</span> SQFT</li>
-        </ul>
-    </div>
-
-</div>
 </body>
 
 </html>
