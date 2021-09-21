@@ -24,19 +24,19 @@ class PDFController extends Controller
 
     public function image($file)
     {
-        // $imgExtension = new Imagick($file);
-        // $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-        // $imgExtension->writeImages($filePath, true);
-        // return $filePath;
-        $im = new imagick();
-        $im->setResolution(300, 300);
-        $im->readImage($file);
-        $im->setImageFormat('jpeg');
-        $im->setImageCompression(imagick::COMPRESSION_JPEG);
-        $im->setImageCompressionQuality(100);
+        $imgExtension = new Imagick($file);
         $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-        $im->writeImage($filePath);
+        $imgExtension->writeImages($filePath, true);
         return $filePath;
+        // $im = new imagick();
+        // $im->setResolution(300, 300);
+        // $im->readImage($file);
+        // $im->setImageFormat('jpeg');
+        // $im->setImageCompression(imagick::COMPRESSION_JPEG);
+        // $im->setImageCompressionQuality(100);
+        // $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
+        // $im->writeImage($filePath);
+        // return $filePath;
     }
 
     //added for 1080px issue
