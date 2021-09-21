@@ -44,12 +44,12 @@ class PDFController extends Controller
         return $filePath;
 
 
-//        $imgExtension = new Imagick($file);
-////        $imgExtension->thumbnailImage('', '', true);
-//        $imgExtension->scaleImage(1080, 1080, true);
-//        $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-//        $imgExtension->writeImages($filePath, true);
-//        return $filePath;
+        //        $imgExtension = new Imagick($file);
+        ////        $imgExtension->thumbnailImage('', '', true);
+        //        $imgExtension->scaleImage(1080, 1080, true);
+        //        $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
+        //        $imgExtension->writeImages($filePath, true);
+        //        return $filePath;
     }
 
     // Door Hangers
@@ -105,6 +105,38 @@ class PDFController extends Controller
     }
 
     //Flyers
+
+    public function flyer_template_5(Request $request)
+    {
+        $data = [
+            "text_1" => $request['text_1'],
+            "text_2" => $request['text_2'],
+            "text_3" => $request['text_3'],
+            "text_4" => $request['text_4'],
+            "text_5" => $request['text_5'],
+            "text_6" => $request['text_6'],
+            "text_7" => $request['text_7'],
+            "text_8" => $request['text_8'],
+            "text_9" => $request['text_9'],
+            "text_10" => $request['text_10'],
+
+            "img_1" => $request['img_1_input'],
+            "img_2" => $request['img_2_input'],
+        ];
+        if ($_POST['action'] == 'Save') {
+            $data_json = json_encode($data);
+            $file = time() . '_file.json';
+            $destinationPath = public_path() . "/upload/json/";
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            File::put($destinationPath . $file, $data_json);
+            return response()->download($destinationPath . $file);
+        } else {
+            $pdf = PDF::loadView('flyers.template5.pdf', $data);
+            return $pdf->download('Flyer Template 5.pdf');
+        }
+    }
 
     public function flyer_template_4(Request $request)
     {
@@ -172,40 +204,6 @@ class PDFController extends Controller
             return $pdf->download('Flyer Template 3.pdf');
         }
     }
-
-
-    public function flyer_template_5(Request $request)
-    {
-//        $data = [
-//            "text_1" => $request['text_1'],
-//            "text_2" => $request['text_2'],
-//            "text_3" => $request['text_3'],
-//            "text_4" => $request['text_4'],
-//            "text_5" => $request['text_5'],
-//            "text_6" => $request['text_6'],
-//            "text_7" => $request['text_7'],
-//            "text_8" => $request['text_8'],
-//            "text_9" => $request['text_9'],
-//            "text_10" => $request['text_10'],
-//
-//            "img_1" => $request['img_1_input'],
-//            "img_2" => $request['img_2_input'],
-//        ];
-//        if ($_POST['action'] == 'Save') {
-//            $data_json = json_encode($data);
-//            $file = time() . '_file.json';
-//            $destinationPath = public_path() . "/upload/json/";
-//            if (!is_dir($destinationPath)) {
-//                mkdir($destinationPath, 0777, true);
-//            }
-//            File::put($destinationPath . $file, $data_json);
-//            return response()->download($destinationPath . $file);
-//        } else {
-        $pdf = PDF::loadView('flyers.template5.pdf');
-        return $pdf->download('Flyer Template 5.pdf');
-//        }
-    }
-
 
     public function flyer_template_2(Request $request)
     {
@@ -742,18 +740,18 @@ class PDFController extends Controller
             return response()->download($destinationPath . $file);
         } else {
             $pdf = PDF::loadView('themes.open-house.open-house', $data);
-//            return $pdf->download('Open House.pdf');
+            //            return $pdf->download('Open House.pdf');
             $pdf->setPaper(0, 0, 4000, 4000);
             $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
             $pdf->save($fileName);
             return response()->download($this->open_house_image($fileName), 'Open House.jpg', $this->headers);
-//        $pdf = PDF::loadView('themes.open-house.open-house');
-//        return $pdf->download('New Theme.pdf');
+            //        $pdf = PDF::loadView('themes.open-house.open-house');
+            //        return $pdf->download('New Theme.pdf');
         }
     }
 
 
-////
+    ////
 
     public function theme_just_sold_story(Request $request)
     {
