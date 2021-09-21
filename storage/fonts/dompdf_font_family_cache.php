@@ -113,4 +113,9 @@
     'normal' => $fontDir . '/ibm-plex-sans-normal_ce60a5625c0559a35982dda17f12a84d',
     '500' => $fontDir . '/ibm-plex-sans-500_8bd3e82e249bf69fd493e2614b1b0454',
   ),
+  'poppins' => array(
+    'normal' => $fontDir . '/poppins-normal_c1b7381dfaadf37a84cf14d786076e6d',
+    'bold' => $fontDir . '/poppins-bold_7eb29046bc7eaf66b896ec27702d038b',
+    '600' => $fontDir . '/poppins-600_270e18a84ac8b306c8f31abe1d0720fa',
+  ),
 ) ?>

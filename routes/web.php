@@ -51,6 +51,9 @@ Route::post('email-template-1', [PDFController::class, 'email_template_1'])->nam
 Route::view('email-template-2', 'emails.template2.web');
 Route::post('email-template-2', [PDFController::class, 'email_template_2'])->name('email-template-2');
 
+Route::view('email-template-3', 'emails.template3.web');
+Route::post('email-template-3', [PDFController::class, 'email_template_3'])->name('email-template-3');
+
 //Themes
 Route::get('/just-listed-story', function () {
     return view('themes.just-listed-story.just-listed-story-web');
