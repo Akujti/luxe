@@ -24,9 +24,18 @@ class PDFController extends Controller
 
     public function image($file)
     {
-        $imgExtension = new Imagick($file);
+        // $imgExtension = new Imagick($file);
+        // $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
+        // $imgExtension->writeImages($filePath, true);
+        // return $filePath;
+        $im = new imagick();
+        $im->setResolution(300, 300);
+        $im->readImage($file);
+        $im->setImageFormat('jpeg');
+        $im->setImageCompression(imagick::COMPRESSION_JPEG);
+        $im->setImageCompressionQuality(100);
         $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-        $imgExtension->writeImages($filePath, true);
+        $im->writeImage($filePath);
         return $filePath;
     }
 
@@ -42,14 +51,6 @@ class PDFController extends Controller
         $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
         $im->writeImage($filePath);
         return $filePath;
-
-
-        //        $imgExtension = new Imagick($file);
-        ////        $imgExtension->thumbnailImage('', '', true);
-        //        $imgExtension->scaleImage(1080, 1080, true);
-        //        $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-        //        $imgExtension->writeImages($filePath, true);
-        //        return $filePath;
     }
 
     // Door Hangers
@@ -122,6 +123,9 @@ class PDFController extends Controller
 
             "img_1" => $request['img_1_input'],
             "img_2" => $request['img_2_input'],
+            "img_3" => $request['img_3_input'],
+            "img_4" => $request['img_4_input'],
+            "img_5" => $request['img_5_input'],
         ];
         if ($_POST['action'] == 'Save') {
             $data_json = json_encode($data);
@@ -294,6 +298,55 @@ class PDFController extends Controller
     }
 
     // Emails //
+
+    public function email_template_3(Request $request)
+    {
+        $data = [
+            'text_1' => $request['text_1'],
+            'text_2' => $request['text_2'],
+            'text_3' => $request['text_3'],
+            'text_4' => $request['text_4'],
+            'text_5' => $request['text_5'],
+            'text_6' => $request['text_6'],
+            'text_7' => $request['text_7'],
+            'text_8' => $request['text_8'],
+            'text_9' => $request['text_9'],
+            'text_10' => $request['text_10'],
+            'text_11' => $request['text_11'],
+            'text_12' => $request['text_12'],
+            'text_13' => $request['text_13'],
+            'text_14' => $request['text_14'],
+            'text_15' => $request['text_15'],
+            'text_16' => $request['text_16'],
+            'text_17' => $request['text_17'],
+            'text_18' => $request['text_18'],
+            'text_19' => $request['text_19'],
+            'text_20' => $request['text_20'],
+            'text_21' => $request['text_21'],
+            'text_22' => $request['text_22'],
+            'text_23' => $request['text_23'],
+
+            'img_1_input' => $request['img_1_input'],
+            'img_2_input' => $request['img_2_input'],
+            'img_3_input' => $request['img_3_input'],
+            'img_4_input' => $request['img_4_input'],
+            'img_5_input' => $request['img_5_input'],
+            'img_6_input' => $request['img_6_input'],
+        ];
+        if ($_POST['action'] == 'Save') {
+            $data_json = json_encode($data);
+            $file = time() . '_file.json';
+            $destinationPath = public_path() . "/upload/json/";
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            File::put($destinationPath . $file, $data_json);
+            return response()->download($destinationPath . $file);
+        } else {
+            $pdf = PDF::loadView('emails.template3.pdf', $data);
+            return $pdf->download('Email Blast Template 3.pdf');
+        }
+    }
 
     public function email_template_2(Request $request)
     {

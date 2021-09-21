@@ -265,7 +265,7 @@
 
     .cropper-container {
         position: fixed !important;
-        top: -400px !important;
+        top: -100px !important;
         z-index: 100;
     }
 
@@ -303,15 +303,15 @@
                             style="width: 400px;height:390px;">
                     </div>
                     <div class="absolute" style="top:220px;left:485px;">
-                        <img id="img_1" src="images/flyers/template5/img-2.jpg" alt=""
+                        <img id="img_3" src="images/flyers/template5/img-2.jpg" alt=""
                             style="width: 400px;height:390px;">
                     </div>
                     <div class="absolute" style="top:620px;left:75px;">
-                        <img id="img_1" src="images/flyers/template5/img-3.jpg" alt=""
+                        <img id="img_4" src="images/flyers/template5/img-3.jpg" alt=""
                             style="width: 400px;height:390px;">
                     </div>
                     <div class="absolute" style="top:620px;left:485px;">
-                        <img id="img_1" src="images/flyers/template5/img-4.jpg" alt=""
+                        <img id="img_5" src="images/flyers/template5/img-4.jpg" alt=""
                             style="width: 400px;height:390px;">
                     </div>
                     <div class="absolute" style="top:0;left:0;">
@@ -390,12 +390,36 @@
                     <input type="text" id="text-4" name="text_4"
                         value="6 Beds | 6 Full-Baths | 1 Half-Bath | <span class='oswald-med'>6,800 SqFt</span>">
                 </div>
-                <div class="">
+                <div class="flex">
                     <div class="file-input-width">
-                        <label for="page-1-img-1">Background</label>
-                        <input type="file" id="img-1-input" onchange="img_1_change()">
+                        <label for="page-1-img-1">Image 1</label>
+                        <input type="file" id="img-1-input"
+                            onchange="image_change('img-1-input',['img_1'],'img_1_input')">
                         <button type="button" onclick="startCropper(1)">Crop</button>
-                        <button type="button" onclick="img_1_crop()">Save Crop</button>
+                        <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
+                    </div>
+                    <div class="file-input-width">
+                        <label for="page-1-img-1">Image 2</label>
+                        <input type="file" id="img-3-input"
+                            onchange="image_change('img-3-input',['img_3'],'img_3_input')">
+                        <button type="button" onclick="startCropper(1)">Crop</button>
+                        <button type="button" onclick="crop_image(['img_3'],'img_3_input')">Save Crop</button>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="file-input-width">
+                        <label for="page-1-img-1">Image 3</label>
+                        <input type="file" id="img-4-input"
+                            onchange="image_change('img-4-input',['img_4'],'img_4_input')">
+                        <button type="button" onclick="startCropper(1)">Crop</button>
+                        <button type="button" onclick="crop_image(['img_4'],'img_4_input')">Save Crop</button>
+                    </div>
+                    <div class="file-input-width">
+                        <label for="page-1-img-1">Image 4</label>
+                        <input type="file" id="img-5-input"
+                            onchange="image_change('img-5-input',['img_5'],'img_5_input')">
+                        <button type="button" onclick="startCropper(1)">Crop</button>
+                        <button type="button" onclick="crop_image(['img_5'],'img_5_input')">Save Crop</button>
                     </div>
                 </div>
                 <div class="flex">
@@ -430,9 +454,9 @@
                 </div>
                 <div class="file-input-width">
                     <label for="page-1-img-1">Agent</label>
-                    <input type="file" id="img-2-input" onchange="img_2_change()">
+                    <input type="file" id="img-2-input" onchange="image_change('img-2-input',['img_2'],'img_2_input')">
                     <button type="button" onclick="startCropper(0.7)">Crop</button>
-                    <button type="button" onclick="img_2_crop()">Save Crop</button>
+                    <button type="button" onclick="crop_image(['img_2'],'img_2_input')">Save Crop</button>
                 </div>
                 <div class="flex" style="margin-top:20px;">
                     <div class="" style="width: 345px;">
@@ -481,9 +505,9 @@
         }); 
     });
 
-    function img_change(){
+    function image_change(file_input,image_src,image_input) {
         var form_data = new FormData();
-        form_data.append("file", $("#img-1-input")[0].files[0]);
+        form_data.append("file", $("#"+file_input)[0].files[0]);
         $.ajax({
             url: '/uploadimage',
             data: form_data,
@@ -492,22 +516,22 @@
             contentType: false,
             processData: false,
             headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_1").attr('src', 'uploadedimages/' + output);
-                    $("input[name=img_1_input]").val('uploadedimages/' + output);
+            'X-CSRF-Token': $('[name="_token"]').val()
+        },
+        success: function(output) {
+            $("#image").attr('src', 'uploadedimages/' + output)
+            getBase64Image(document.getElementById('image'), function(base64) {
+                image_src.forEach(element => {
+                    $("#"+element).attr('src', 'uploadedimages/' + output);
                 });
-                $(".page").css("display", "block");
-            }
+                $("input[name="+image_input+"]").val('uploadedimages/' + output);
+            });
+        }
         });
     }
-
-    function img_crop(){
+    
+    function crop_image(image,image_input) {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
         const form_data = new FormData();
         form_data.append('file', blob, 'example.png');
         $.ajax({
@@ -518,20 +542,21 @@
             contentType: false,
             processData: false,
             headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
+            'X-CSRF-Token': $('[name="_token"]').val()
+        },
+        success: function(output) {
+            cropper.destroy();
                 $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_1").attr('src', 'uploadedimages/' + output);
-                    $("input[name=img_1_input]").val('uploadedimages/' + output);
+                getBase64Image(document.getElementById("image"), function(base64) {
+                    image.forEach(element => {
+                        $("#"+element).attr('src', 'uploadedimages/' + output);
+                    });
+                    $("input[name="+image_input+"]").val('uploadedimages/' + output);
                 });
-                $(".page").css("opacity", "1");
             }
         });
-        
-        }/*, 'image/png' */);
+        });
+        $(".page").css("opacity", "1");
     }
 
     var cropper;

@@ -195,22 +195,22 @@
     <div class="page">
         {{-- Images --}}
         <div class="absolute" style="top:220px;left:75px;">
-            <img id="img_1" src="images/flyers/template5/img-1.jpg" alt="" style="width: 400px;height:390px;">
+            <img id="img_1" src="{{$img_1}}" alt="" style="width: 400px;height:390px;">
         </div>
         <div class="absolute" style="top:220px;left:485px;">
-            <img id="img_1" src="images/flyers/template5/img-2.jpg" alt="" style="width: 400px;height:390px;">
+            <img id="img_1" src="{{$img_3}}" alt="" style="width: 400px;height:390px;">
         </div>
         <div class="absolute" style="top:620px;left:75px;">
-            <img id="img_1" src="images/flyers/template5/img-3.jpg" alt="" style="width: 400px;height:390px;">
+            <img id="img_1" src="{{$img_4}}" alt="" style="width: 400px;height:390px;">
         </div>
         <div class="absolute" style="top:620px;left:485px;">
-            <img id="img_1" src="images/flyers/template5/img-4.jpg" alt="" style="width: 400px;height:390px;">
+            <img id="img_1" src="{{$img_5}}" alt="" style="width: 400px;height:390px;">
         </div>
         <div class="absolute" style="top:0;left:0;">
             <img src="images/flyers/template3/main.png" alt="">
         </div>
         <div class="absolute" style="bottom:0;left:75px;">
-            <img src="{{$img_2}}" alt="" height="400px">
+            <img src="{{$img_2}}" alt="" height="400px" width="280px">
         </div>
         <div class="absolute" style="bottom:80px;left:400px;">
             <img src="images/flyers/template1/social.png" alt="" style="height:150px;">
