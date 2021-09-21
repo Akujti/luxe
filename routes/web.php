@@ -28,6 +28,9 @@ Route::view('door-hanger-template-1', 'door-hangers.template1.web');
 Route::post('door-hanger-template-1', [PDFController::class, 'door_hanger_template_1'])->name('door-hanger-template-1');
 
 //Flyers
+Route::view('flyer-template-5', 'flyers.template5.web');
+Route::post('flyer-template-5', [PDFController::class, 'flyer_template_5'])->name('flyer-template-5');
+
 Route::view('flyer-template-4', 'flyers.template4.web');
 Route::post('flyer-template-4', [PDFController::class, 'flyer_template_4'])->name('flyer-template-4');
 
@@ -168,7 +171,7 @@ Route::group(
         Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::resource('events', EventController::class);
-//        Route::get('bookings', [BookingController::class, 'index'])->name('bookings.index');
+        //        Route::get('bookings', [BookingController::class, 'index'])->name('bookings.index');
 
         Route::resource('files', FolderController::class);
         Route::delete('folder-destory/{id}', [FolderController::class, 'folder_destroy'])->name('folder.destroy');
