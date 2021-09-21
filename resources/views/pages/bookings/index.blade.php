@@ -5,14 +5,36 @@
 @section('css')
     <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
     <style>
-        .fc-event-main {
-            color: black !important;
+
+        .bg-red {
+            background: #e76060 !important;
+            border-color: #e76060;
         }
 
-        .fc-timegrid-event {
-            background: #FFCF40;
-            border: 1px solid rgb(136, 136, 136);
+        .bg-green {
+            background: #69a469 !important;
+            border-color: #69a469;
         }
+
+        .bg-blue {
+            background: #3788d8 !important;
+            border-color: #3788d8;
+        }
+
+        .bg-purple {
+            background: #b475b4 !important;
+            border-color: #b475b4;
+        }
+
+        .bg-yellow {
+            background: #FFCF40 !important;
+            border-color: #FFCF40;
+        }
+
+        /*.fc-timegrid-event {*/
+        /*    background: #FFCF40;*/
+        /*    border: 1px solid rgb(136, 136, 136);*/
+        /*}*/
     </style>
 @endsection
 @section('content')
@@ -127,135 +149,165 @@
         </div>
     </div>
 @endsection
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        let auth = false;
-        @auth()
-            auth = true;
-        @endauth
-        const room_id = {{$room->id}};
-        let hours = [];
-        if (room_id === 1) {
-            hours = [
-                {
-                    daysOfWeek: [1, 3, 5, 6],
-                    startTime: '08:00',
-                    endTime: '18:30'
+            let auth = false;
+            @auth()
+                auth = true;
+            @endauth
+
+            const room_id = {{$room->id}};
+            let hours = [];
+
+            if (room_id === 1) {
+
+                hours = [
+                    {
+                        daysOfWeek: [1, 3, 5, 6],
+                        startTime: '08:00',
+                        endTime: '18:30'
+                    },
+                    {
+                        daysOfWeek: [2],
+                        startTime: '08:00',
+                        endTime: '12:30'
+                    },
+                    {
+                        daysOfWeek: [2],
+                        startTime: '14:00',
+                        endTime: '18:30'
+                    },
+                    {
+                        daysOfWeek: [4],
+                        startTime: '08:00',
+                        endTime: '11:00'
+                    },
+                    {
+                        daysOfWeek: [4],
+                        startTime: '12:00',
+                        endTime: '18:30'
+                    }
+                ];
+            } else if (room_id === 2) {
+                hours = [
+                    {
+                        daysOfWeek: [1, 2, 3, 5, 6],
+                        startTime: '08:00',
+                        endTime: '18:30'
+                    },
+                    {
+                        daysOfWeek: [4],
+                        startTime: '08:00',
+                        endTime: '12:30'
+                    },
+                    {
+                        daysOfWeek: [4],
+                        startTime: '14:00',
+                        endTime: '18:30'
+                    }
+                ];
+            } else if (room_id === 3) {
+                hours = [
+                    {
+                        daysOfWeek: [1, 2, 3, 4, 6],
+                        startTime: '08:00',
+                        endTime: '18:30'
+                    },
+                    {
+                        daysOfWeek: [5],
+                        startTime: '08:00',
+                        endTime: '12:30'
+                    },
+                    {
+                        daysOfWeek: [5],
+                        startTime: '14:00',
+                        endTime: '18:30'
+                    }
+                ];
+            } else if (room_id === 4) {
+                hours = [
+                    {
+                        daysOfWeek: [2, 3, 4, 5, 6],
+                        startTime: '08:00',
+                        endTime: '18:30'
+                    },
+                    {
+                        daysOfWeek: [1],
+                        startTime: '08:00',
+                        endTime: '12:30'
+                    },
+                    {
+                        daysOfWeek: [1],
+                        startTime: '14:00',
+                        endTime: '18:30'
+                    }
+                ];
+            } else {
+                hours = [
+                    {
+                        daysOfWeek: [1, 2, 3, 4, 5, 6],
+                        startTime: '08:00',
+                        endTime: '18:30'
+                    }
+                ];
+            }
+            const data = @json($bookings);
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                select: function (start, end, allDay, jsEvent, view) {
+                    $('.create-booking').modal('show');
+                    $('#start').val(start.startStr);
+                    $('#end').val(start.endStr);
                 },
-                {
-                    daysOfWeek: [2, 4],
-                    startTime: '08:00',
-                    endTime: '12:30'
+                eventClick: function (event, element) {
+                    if (auth) {
+                        var booking = event.event;
+                        console.log(event)
+                        console.log(booking._def.publicId);
+                        // Display the modal and set the values to the booking values.
+                        $('.single-booking').modal('show');
+                        $('.single-booking').find('#booking_id').val(booking._def.publicId);
+                        // $('.single-booking').find('#name').val(booking.name);
+                        $('.single-booking').find('#name').val(booking.extendedProps.name);
+                        $('.single-booking').find('#title').val(booking.title);
+                        $('.single-booking').find('#room_id').val(booking.extendedProps.room_id);
+                        $('.single-booking').find('#email').val(booking.extendedProps.email);
+                        $('.single-booking').find('#phone').val(booking.extendedProps.phone);
+                        $('.single-booking').find('.modal-footer').css('display', 'none');
+                    }
+                    {{--if (booking.extendedProps.user_id == {{Auth::id()}}) {--}}
+                    {{--    $('.single-booking').find('.modal-footer').css('display', 'flex');--}}
+                    {{--}--}}
                 },
-                {
-                    daysOfWeek: [2, 4],
-                    startTime: '14:00',
-                    endTime: '18:30'
-                }
-            ];
-        } else if (room_id === 2) {
-            hours = [
-                {
-                    daysOfWeek: [1, 2, 3, 5, 6],
-                    startTime: '08:00',
-                    endTime: '18:30'
+                businessHours: hours,
+                selectConstraint: "businessHours",
+                initialView: 'timeGridWeek',
+                selectable: true,
+                events: data,
+                scrollTime: '08:00:00',
+                // slotDuration: 60,
+                selectOverlap: function (event) {
+                    return event.rendering === 'background';
                 },
-                {
-                    daysOfWeek: [4],
-                    startTime: '08:00',
-                    endTime: '12:30'
-                },
-                {
-                    daysOfWeek: [4],
-                    startTime: '14:00',
-                    endTime: '18:30'
-                }
-            ];
-        } else if (room_id === 3) {
-            hours = [
-                {
-                    daysOfWeek: [1, 2, 3, 4, 6],
-                    startTime: '08:00',
-                    endTime: '18:30'
-                },
-                {
-                    daysOfWeek: [5],
-                    startTime: '08:00',
-                    endTime: '12:30'
-                },
-                {
-                    daysOfWeek: [5],
-                    startTime: '14:00',
-                    endTime: '18:30'
-                }
-            ];
-        } else if (room_id === 4) {
-            hours = [
-                {
-                    daysOfWeek: [2, 3, 4, 5, 6],
-                    startTime: '08:00',
-                    endTime: '18:30'
-                },
-                {
-                    daysOfWeek: [1],
-                    startTime: '08:00',
-                    endTime: '12:30'
-                },
-                {
-                    daysOfWeek: [1],
-                    startTime: '14:00',
-                    endTime: '18:30'
-                }
-            ];
-        } else {
-            hours = [
-                {
-                    daysOfWeek: [1, 2, 3, 4, 5, 6],
-                    startTime: '08:00',
-                    endTime: '18:30'
-                }
-            ];
+                defaultTimedEventDuration: '01:00'
+            });
+            calendar.render();
+            if (room_id === 1) {
+                $('.fc-timegrid-event').addClass('bg-red');
+            } else if (room_id === 2) {
+                $('.fc-timegrid-event').addClass('bg-green');
+            } else if (room_id === 3) {
+                $('.fc-timegrid-event').addClass('bg-blue');
+            } else if (room_id === 4) {
+                $('.fc-timegrid-event').addClass('bg-purple');
+            } else {
+                $('.fc-timegrid-event').addClass('bg-yellow');
+                $('.fc-event-main').css('color', 'black');
+            }
+            @guest()
+            $('.fc-event-title').text("RESERVED");
+            @endguest
         }
-        const data = @json($bookings);
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            select: function (start, end, allDay, jsEvent, view) {
-                $('.create-booking').modal('show');
-                $('#start').val(start.startStr);
-                $('#end').val(start.endStr);
-            },
-            eventClick: function (event, element) {
-                if (auth) {
-                    var booking = event.event;
-                    console.log(event)
-                    console.log(booking._def.publicId);
-                    // Display the modal and set the values to the booking values.
-                    $('.single-booking').modal('show');
-                    $('.single-booking').find('#booking_id').val(booking._def.publicId);
-                    // $('.single-booking').find('#name').val(booking.name);
-                    $('.single-booking').find('#name').val(booking.extendedProps.name);
-                    $('.single-booking').find('#title').val(booking.title);
-                    $('.single-booking').find('#room_id').val(booking.extendedProps.room_id);
-                    $('.single-booking').find('#email').val(booking.extendedProps.email);
-                    $('.single-booking').find('#phone').val(booking.extendedProps.phone);
-                    $('.single-booking').find('.modal-footer').css('display', 'none');
-                }
-                {{--if (booking.extendedProps.user_id == {{Auth::id()}}) {--}}
-                {{--    $('.single-booking').find('.modal-footer').css('display', 'flex');--}}
-                {{--}--}}
-            },
-            businessHours: hours,
-            selectConstraint: "businessHours",
-            initialView: 'timeGridWeek',
-            selectable: true,
-            events: data,
-            scrollTime: '08:00:00',
-            // slotDuration: 60,
-            selectOverlap: function (event) {
-                return event.rendering === 'background';
-            },
-            defaultTimedEventDuration: '01:00'
-        });
-        calendar.render();
-    });
+    );
 </script>

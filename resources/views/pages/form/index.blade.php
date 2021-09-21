@@ -39,6 +39,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Any particular loan officer you want to work with?</label>
                                 <select name="loan_officer" class="form-control" id="">
+                                    <option value="-">-</option>
                                     <option value="Alfonso Rojas">Alfonso Rojas</option>
                                     <option value="Anais Delgado">Anais Delgado</option>
                                     <option value="Lissete Garcia">Lissete Garcia</option>
