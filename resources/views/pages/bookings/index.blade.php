@@ -36,6 +36,10 @@
             border: none !important;
         }
 
+        .fc .fc-scrollgrid-liquid {
+            height: 510px !important;
+        }
+
 
         /*.fc-timegrid-event {*/
         /*    background: #FFCF40;*/
@@ -170,91 +174,91 @@
 
                 hours = [
                     {
-                        daysOfWeek: [1, 3, 5, 6],
-                        startTime: '08:00',
-                        endTime: '18:30'
+                        daysOfWeek: [1, 3, 5],
+                        startTime: '09:00',
+                        endTime: '17:00'
                     },
                     {
                         daysOfWeek: [2],
-                        startTime: '08:00',
+                        startTime: '09:00',
                         endTime: '12:30'
                     },
                     {
                         daysOfWeek: [2],
                         startTime: '14:00',
-                        endTime: '18:30'
+                        endTime: '17:00'
                     },
                     {
                         daysOfWeek: [4],
-                        startTime: '08:00',
+                        startTime: '09:00',
                         endTime: '11:00'
                     },
                     {
                         daysOfWeek: [4],
                         startTime: '12:00',
-                        endTime: '18:30'
+                        endTime: '17:00'
                     }
                 ];
             } else if (room_id === 2) {
                 hours = [
                     {
-                        daysOfWeek: [1, 2, 3, 5, 6],
-                        startTime: '08:00',
-                        endTime: '18:30'
+                        daysOfWeek: [1, 2, 3, 5],
+                        startTime: '09:00',
+                        endTime: '17:00'
                     },
                     {
                         daysOfWeek: [4],
-                        startTime: '08:00',
+                        startTime: '09:00',
                         endTime: '12:30'
                     },
                     {
                         daysOfWeek: [4],
                         startTime: '14:00',
-                        endTime: '18:30'
+                        endTime: '17:00'
                     }
                 ];
             } else if (room_id === 3) {
                 hours = [
                     {
-                        daysOfWeek: [1, 2, 3, 4, 6],
-                        startTime: '08:00',
-                        endTime: '18:30'
+                        daysOfWeek: [1, 2, 3, 4],
+                        startTime: '09:00',
+                        endTime: '17:00'
                     },
                     {
                         daysOfWeek: [5],
-                        startTime: '08:00',
+                        startTime: '09:00',
                         endTime: '12:30'
                     },
                     {
                         daysOfWeek: [5],
                         startTime: '14:00',
-                        endTime: '18:30'
+                        endTime: '17:00'
                     }
                 ];
             } else if (room_id === 4) {
                 hours = [
                     {
-                        daysOfWeek: [2, 3, 4, 5, 6],
-                        startTime: '08:00',
-                        endTime: '18:30'
+                        daysOfWeek: [2, 3, 4, 5],
+                        startTime: '09:00',
+                        endTime: '17:00'
                     },
                     {
                         daysOfWeek: [1],
-                        startTime: '08:00',
+                        startTime: '09:00',
                         endTime: '12:30'
                     },
                     {
                         daysOfWeek: [1],
                         startTime: '14:00',
-                        endTime: '18:30'
+                        endTime: '17:00'
                     }
                 ];
             } else {
                 hours = [
                     {
-                        daysOfWeek: [1, 2, 3, 4, 5, 6],
-                        startTime: '08:00',
-                        endTime: '18:30'
+                        daysOfWeek: [1, 2, 3, 4, 5],
+                        startTime: '09:00',
+                        endTime: '17:00'
                     }
                 ];
             }
@@ -293,7 +297,9 @@
                 events: data,
                 allDaySlot: false,
                 scrollTime: '08:00:00',
-                slotMinTime: '07:00:00',
+                weekends: false,
+                slotMinTime: '08:00:00',
+                slotMaxTime: '18:00:00',
                 // slotDuration: 60,
                 selectOverlap: function (event) {
                     return event.rendering === 'background';
