@@ -171,13 +171,13 @@
             <img src="images/emails/template3/logo.png" alt="" width="290px">
         </div>
         <div class="absolute" style="top:409px;">
-            <img src="images/emails/template3/house-1.jpg" alt="" width="835px" height="835px">
+            <img src="{{$img_1}}" alt="" width="835px" height="835px">
         </div>
         <div class="absolute" style="top:2592px;right:0;">
-            <img src="images/emails/template3/house-2.jpg" alt="" width="835px" height="567px">
+            <img src="{{$img_2}}" alt="" width="835px" height="567px">
         </div>
         <div class="absolute" style="top:3207px;left:169px;">
-            <img src="images/emails/template3/house-3.png" alt="" width="621px" height="415px">
+            <img src="{{$img_3}}" alt="" width="621px" height="415px">
         </div>
         <div class="absolute" style="top:94.3%;width:100%;text-align:center;">
             <img src="images/emails/template1/logos.png" alt="" width="200px">
@@ -187,60 +187,44 @@
         <div class="absolute" style="top: 1100px;width: 1300px;font-size: 30px;">
             <div style="position: relative;left:245px;">
                 <h1 class="bold-700 gold" style="transform: rotate(-90deg);text-align: center;">
-                    FOR SALE: &nbsp;&nbsp;&nbsp; <span style="color: black">$1,295,000</span>
+                    FOR SALE: &nbsp;&nbsp;&nbsp; <span style="color: black">{!! $text_15 !!}</span>
                 </h1>
             </div>
         </div>
         <div class="absolute" style="width: 100%;text-align:center;top:160px;">
-            <p class="gold poppins bold-600" style="font-size: 80px;margin:0">Luxury New Build</p>
-            <p class="poppins bold-600" style="font-size: 80px;margin-top:-80px">Opportunity</p>
+            <p class="gold poppins bold-600" style="font-size: 80px;margin:0">{!! $text_1 !!}</p>
+            <p class="poppins bold-600" style="font-size: 80px;margin-top:-80px">{!! $text_2 !!}</p>
         </div>
         <div class="absolute" style="top:1120px;background:white;right:200px;padding-top:0px;padding-bottom:0px;">
             <ul style="margin:0px;padding-left: 35px;padding-bottom:10px;">
-                <li style="font-size:35px;"><b>3</b> BEDS</li>
+                <li style="font-size:35px;">{!! $text_3 !!}</li>
                 <li style="font-size:35px;" class="gold">|</li>
-                <li style="font-size:35px;"><b>2</b> BATHS</li>
+                <li style="font-size:35px;">{!! $text_4 !!}</li>
                 <li style="font-size:35px;" class="gold">|</li>
-                <li style="font-size:35px;"><b>1,700</b> SQFTs</li>
+                <li style="font-size:35px;">{!! $text_5 !!}</li>
             </ul>
         </div>
         <div class="absolute" style="width: 100%;text-align:right;top:1255px;right:296px">
-            <p class="gold bold-700" style="font-size: 45px;margin:0">55 MERRICK WAY #402</p>
-            <p class="" style="font-size: 40px;margin-top:-10px">CORAL GABLES, FL 33134</p>
+            <p class="gold bold-700" style="font-size: 45px;margin:0">{!! $text_6 !!}</p>
+            <p class="" style="font-size: 40px;margin-top:-10px">{!! $text_7 !!}</p>
         </div>
         <div class="absolute" style="width: 100%;top:1500px;left:85px;right:200px;">
-            <p class="poppins" style="font-size: 31px;">Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's standard
-                dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                a type specimen
-                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                essentially
-                unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more
-                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p class="poppins" style="font-size: 31px;">{!! $text_8 !!}</p>
         </div>
         <div class="absolute" style="width: 100%;top:3710px;left:85px;right:170px;">
-            <p class="gold bold-700" style="font-size: 31px">ABOUT THE BUILDER</p>
-            <p class="white poppins" style="font-size: 31px;">The standard chunk of Lorem Ipsum used since the 1500s is
-                reproduced below for those interested. Sections 1.10.32 and
-                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form,
-                accompanied by
-                English versions from the 1914</p>
+            <p class="gold bold-700" style="font-size: 31px">{!! $text_10 !!}</p>
+            <p class="white poppins" style="font-size: 31px;">{!! $text_11 !!}</p>
         </div>
         <div class="absolute" style="width: 100%;text-align:center;top:2425px;left:-150px">
-            <p class="white bold-700" style="font-size: 50px;">LEARN MORE</p>
+            <p class="white bold-700" style="font-size: 50px;">{!! $text_9 !!}</p>
         </div>
         <div class="absolute" style="width: 100%;text-align:right;top:4210px;right:165px;">
-            <p class="gold bold-700" style="font-size: 50px;margin:0">For More Info Call</p>
-            <p class="bold-700" style="font-size: 80px;margin-top:-40px">305.809.7650</p>
+            <p class="gold bold-700" style="font-size: 50px;margin:0">{!! $text_12 !!}</p>
+            <p class="bold-700" style="font-size: 80px;margin-top:-40px">{!! $text_13 !!}</p>
         </div>
         {{-- Footer --}}
         <div class="absolute" style="text-align: center;top:97.5%;">
-            <h1 class="" style="font-size:22px;font-weight:400;color:white">55 MERRICK WAY SUITE 402,
-                CORAL
-                GABLES,
-                FL
-                33134</h1>
+            <h1 class="" style="font-size:22px;font-weight:400;color:white">{!! $text_14 !!}</h1>
         </div>
         <div class="absolute" style="text-align: center;top:99%;">
             <h1 class="" style="font-size:18px;font-weight:400;color:#9e9e9e">Copyright © 2021 LUXE

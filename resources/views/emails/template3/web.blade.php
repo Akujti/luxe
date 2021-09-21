@@ -42,7 +42,7 @@
     .column-divider {
         min-height: 100%;
         height: 100%;
-        width: 210px;
+        width: 50px;
     }
 
     .row-input {
@@ -76,7 +76,7 @@
 
     .flex {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
     }
 
     .flex label {
@@ -233,18 +233,13 @@
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-                <input hidden name="img_1_input" id="img_1_input" value="images/emails/template2/bg.jpg">
-                <input hidden name="img_2_input" id="img_2_input" value="images/emails/template2/map1.jpg">
-                <input hidden name="img_3_input" id="img_3_input" value="images/emails/template2/map2.jpg">
-                <input hidden name="img_4_input" id="img_4_input" value="images/emails/template2/map3.jpg">
-                <input hidden name="img_5_input" id="img_5_input" value="images/emails/template1/agent-1.jpg">
-                <input hidden name="img_6_input" id="img_6_input" value="images/emails/template1/agent-2.jpg">
+                <input hidden name="img_1_input" id="img_1_input" value="images/emails/template3/house-1.jpg">
+                <input hidden name="img_2_input" id="img_2_input" value="images/emails/template3/house-2.jpg">
+                <input hidden name="img_3_input" id="img_3_input" value="images/emails/template3/house-3.jpg">
                 <div class="page-wrapper">
                     <div class="page">
                         {{-- Images --}}
                         <div class="absolute">
-                            {{-- <img src="{{ $img_1_input }}" alt="" style="width:
-                            1000px;height:1050px;object-fit:cover;"> --}}
                         </div>
                         <div class="absolute">
                             <img src="images/emails/template3/main.png" alt="" style="width: 1000px;height:4673px;">
@@ -253,13 +248,16 @@
                             <img src="images/emails/template3/logo.png" alt="" width="290px">
                         </div>
                         <div class="absolute" style="top:409px;">
-                            <img src="images/emails/template3/house-1.jpg" alt="" width="835px" height="835px">
+                            <img id="img_1" src="images/emails/template3/house-1.jpg" alt="" width="835px"
+                                height="835px">
                         </div>
                         <div class="absolute" style="top:2592px;right:0;">
-                            <img src="images/emails/template3/house-2.jpg" alt="" width="835px" height="567px">
+                            <img id="img_2" src="images/emails/template3/house-2.jpg" alt="" width="835px"
+                                height="567px">
                         </div>
                         <div class="absolute" style="top:3207px;left:169px;">
-                            <img src="images/emails/template3/house-3.png" alt="" width="621px" height="415px">
+                            <img id="img_3" src="images/emails/template3/house-3.png" alt="" width="621px"
+                                height="415px">
                         </div>
                         <div class="absolute" style="top:94.3%;width:100%;text-align:center;">
                             <img src="images/emails/template1/logos.png" alt="" width="200px">
@@ -269,30 +267,33 @@
                         <div class="absolute" style="top: 1100px;width: 1315px;font-size: 30px;">
                             <div style="position: relative;left:245px;">
                                 <h1 class="bold-700 gold" style="transform: rotate(-90deg);text-align: center;">
-                                    FOR SALE: &nbsp;&nbsp;&nbsp; <span style="color: black">$1,295,000</span>
+                                    FOR SALE: &nbsp;&nbsp;&nbsp; <span class="text-15"
+                                        style="color: black">$1,295,000</span>
                                 </h1>
                             </div>
                         </div>
                         <div class="absolute" style="width: 100%;text-align:center;top:205px;">
-                            <p class="gold poppins bold-700" style="font-size: 80px;margin:0">Luxury New Build</p>
-                            <p class="poppins bold-700" style="font-size: 80px;margin-top:-20px">Opportunity</p>
+                            <p class="text-1 gold poppins bold-700" style="font-size: 80px;margin:0">Luxury New Build
+                            </p>
+                            <p class="text-2 poppins bold-700" style="font-size: 80px;margin-top:-20px">Opportunity</p>
                         </div>
                         <div class="absolute"
                             style="top:1120px;background:white;left:0;right:200px;padding-top:0px;padding-bottom:0px;">
                             <ul style="margin:0px;padding-left: 35px;padding-top:10px;padding-bottom:10px;">
-                                <li style="font-size:35px;"><b>3</b> BEDS</li>
+                                <li class="text-3" style="font-size:35px;"><b>3</b> BEDS</li>
                                 <li style="font-size:35px;" class="gold">|</li>
-                                <li style="font-size:35px;"><b>2</b> BATHS</li>
+                                <li class="text-4" style="font-size:35px;"><b>2</b> BATHS</li>
                                 <li style="font-size:35px;" class="gold">|</li>
-                                <li style="font-size:35px;"><b>1,700</b> SQFTs</li>
+                                <li class="text-5" style="font-size:35px;"><b>1,700</b> SQFTs</li>
                             </ul>
                         </div>
                         <div class="absolute" style="width: 100%;text-align:right;top:1270px;right:296px">
-                            <p class="gold bold-700" style="font-size: 45px;margin:0">55 MERRICK WAY #402</p>
-                            <p class="" style="font-size: 40px;margin-top:3px">CORAL GABLES, FL 33134</p>
+                            <p class="text-6 gold bold-700" style="font-size: 45px;margin:0">55 MERRICK WAY #402</p>
+                            <p class="text-7" style="font-size: 40px;margin-top:3px">CORAL GABLES, FL 33134</p>
                         </div>
                         <div class="absolute" style="top:1500px;left:85px;right:200px;">
-                            <p class="poppins" style="font-size: 31px;line-height: 60px;">Lorem Ipsum is simply dummy
+                            <p class="text-8 poppins" style="font-size: 31px;line-height: 60px;">Lorem Ipsum is simply
+                                dummy
                                 text of the printing
                                 and
                                 typesetting industry. Lorem Ipsum has been the industry's standard
@@ -308,9 +309,13 @@
                                 recently with desktop publishing software like Aldus PageMaker including versions of
                                 Lorem Ipsum.</p>
                         </div>
+                        <div class="absolute" style="width: 100%;text-align:center;top:2440px;left:-80px">
+                            <p class="text-9 white bold-700" style="font-size: 50px;">LEARN MORE</p>
+                        </div>
                         <div class="absolute" style="top:3710px;left:85px;right:170px;">
-                            <p class="gold bold-700" style="font-size: 31px">ABOUT THE BUILDER</p>
-                            <p class="white poppins" style="font-size: 31px;line-height: 60px;">The standard chunk of
+                            <p class="text-10 gold bold-700" style="font-size: 31px">ABOUT THE BUILDER</p>
+                            <p class="text-11 white poppins" style="font-size: 31px;line-height: 60px;">The standard
+                                chunk of
                                 Lorem Ipsum used
                                 since the 1500s is
                                 reproduced below for those interested. Sections 1.10.32 and
@@ -319,16 +324,14 @@
                                 accompanied by
                                 English versions from the 1914</p>
                         </div>
-                        <div class="absolute" style="width: 100%;text-align:center;top:2440px;left:-80px">
-                            <p class="white bold-700" style="font-size: 50px;">LEARN MORE</p>
-                        </div>
                         <div class="absolute" style="width: 100%;text-align:right;top:4240px;right:165px;">
-                            <p class="gold bold-700" style="font-size: 50px;margin:0">For More Info Call</p>
-                            <p class="bold-700" style="font-size: 80px;margin-top:-20px">305.809.7650</p>
+                            <p class="text-12 gold bold-700" style="font-size: 50px;margin:0">For More Info Call</p>
+                            <p class="text-13 bold-700" style="font-size: 80px;margin-top:-20px">305.809.7650</p>
                         </div>
                         {{-- Footer --}}
                         <div class="absolute" style="text-align: center;top:97.5%;width: 100%;">
-                            <h1 class="" style="font-size:22px;font-weight:400;color:white">55 MERRICK WAY SUITE 402,
+                            <h1 class="text-14" style="font-size:22px;font-weight:400;color:white">55 MERRICK WAY SUITE
+                                402,
                                 CORAL
                                 GABLES,
                                 FL
@@ -343,19 +346,82 @@
             </div>
             <div class="column-divider"></div>
             <div class="row-input" style="max-width: 350px;height:3600px">
-                <div class="absolute" style="top: 400px;">
+                <div class="" style="margin-bottom:10px">
                     <div class="pr-10">
-                        <label for="page-1-img-1">Main Image</label>
-                        <input type="file" id="img-1-input" onchange="img_1_change()">
+                        <label for="page-1-img-1">First Image</label>
+                        <input type="file" id="img-1-input"
+                            onchange="image_change('img-1-input',['img_1'],'img_1_input')">
                         <button type="button" onclick="startCropper(1)">Crop</button>
-                        <button type="button" onclick="img_1_crop()">Save Crop</button>
+                        <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
                     </div>
                 </div>
-                <div class="flex absolute" style="top:1060px;">
-                    <div class="pr-10">
-                        <label for="text-1">Text</label>
-                        <input type="text" id="text-1" name="text_1" value="REALTORS">
+                <div class="">
+                    <label for="text-1">Title 1</label>
+                    <input type="text" id="text-1" name="text_1" value="Luxury New Build">
+                    <input type="text" id="text-2" name="text_2" value="Opportunity">
+                </div>
+                <div class="">
+                    <label for="text-1">Price</label>
+                    <input type="text" id="text-15" name="text_15" value="$1,295,000">
+                </div>
+                <div class="">
+                    <label for="text-1">Beds</label>
+                    <input type="text" id="text-3" name="text_3" value="<b>3</b> BEDS">
+                </div>
+                <div class="">
+                    <label for="text-1">Baths</label>
+                    <input type="text" id="text-4" name="text_4" value="<b>2</b> BATHS">
+                </div>
+                <div class="">
+                    <label for="text-1">Area</label>
+                    <input type="text" id="text-5" name="text_5" value="<b>1,700</b> SQFTs">
+                </div>
+                <div class="">
+                    <label for="text-1">Address</label>
+                    <input type="text" id="text-6" name="text_6" value="55 MERRICK WAY #402">
+                    <input type="text" id="text-7" name="text_7" value="CORAL GABLES, FL 33134">
+                </div>
+                <div class="" style="margin-top: 500px">
+                    <label for="text-1">Text</label>
+                    <textarea type="text" id="text-8" name="text_8"
+                        rows="15">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
+                </div>
+                <div class="" style="margin-top: 210px">
+                    <label for="text-1">Button</label>
+                    <input type="text" id="text-9" name="text_9" value="LEARN MORE">
+                </div>
+                <div class="" style="margin-top:180px;">
+                    <div class="" style="margin-bottom:10px">
+                        <label for="page-1-img-1">Second Image</label>
+                        <input type="file" id="img-2-input"
+                            onchange="image_change('img-2-input',['img_2'],'img_2_input')">
+                        <button type="button" onclick="startCropper(835/567)">Crop</button>
+                        <button type="button" onclick="crop_image(['img_2'],'img_2_input')">Save Crop</button>
                     </div>
+                    <div class="" style="margin-top:200px;">
+                        <label for="page-1-img-1">Third Image</label>
+                        <input type="file" id="img-3-input"
+                            onchange="image_change('img-3-input',['img_3'],'img_3_input')">
+                        <button type="button" onclick="startCropper(621/415)">Crop</button>
+                        <button type="button" onclick="crop_image(['img_3'],'img_3_input')">Save Crop</button>
+                    </div>
+                </div>
+                <div class="" style="margin-top: 230px">
+                    <label for="text-10">Title</label>
+                    <input type="text" id="text-10" name="text_10" value="ABOUT THE BUILDER">
+                    <textarea name="text_11" id="text-11" rows="10">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and
+                    1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by
+                    English versions from the 1914</textarea>
+                </div>
+                <div class="" style="margin-top: 100px">
+                    <label for="text-11">Title</label>
+                    <input type="text" id="text-12" name="text_12" value="For More Info Call">
+                    <input type="text" id="text-13" name="text_13" value="305.809.7650">
+                </div>
+                <div class="" style="margin-top: 50px">
+                    <label for="text-11">Footer</label>
+                    <input type="text" id="text-14" name="text_14"
+                        value="55 MERRICK WAY SUITE 402, CORAL GABLES, FL 33134">
                 </div>
                 <div class="flex">
                     <div class="" style="width: 345px;">
@@ -388,7 +454,7 @@
         $("."+element+"").removeClass('large');
     }
     $(document).ready(function() {        
-        $("input").change(function(event) {
+        $("input,textarea").change(function(event) {
             var event_id = event.target.id;
             var event_element = $("#" + event_id)
             var export_var = $("." + event_id);
@@ -396,9 +462,9 @@
         });    
     });
 
-    function img_6_change(){
+    function image_change(file_input,image_src,image_input) {
         var form_data = new FormData();
-        form_data.append("file", $("#img-6-input")[0].files[0]);
+        form_data.append("file", $("#"+file_input)[0].files[0]);
         $.ajax({
             url: '/uploadimage',
             data: form_data,
@@ -407,307 +473,56 @@
             contentType: false,
             processData: false,
             headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_6").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_6_input]").val('uploadedimages/' + output);
-                });
-            }
+            'X-CSRF-Token': $('[name="_token"]').val()
+        },
+        success: function(output) {
+        $("#image").attr('src', 'uploadedimages/' + output)
+        getBase64Image(document.getElementById('image'), function(base64) {
+            image_src.forEach(element => {
+            $("#"+element).attr('src', 'uploadedimages/' + output);
+            });
+            $("input[name="+image_input+"]").val('uploadedimages/' + output);
+        });
+        }
         });
     }
-
-    function img_6_crop(){
+    
+    function crop_image(image,image_input) {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
+            const form_data = new FormData();
+            form_data.append('file', blob, 'example.png');
+            $.ajax({
+                url: '/uploadimage',
+                data: form_data,
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
                 'X-CSRF-Token': $('[name="_token"]').val()
             },
-            success: function(output){
+            success: function(output) {
                 cropper.destroy();
                 $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_6").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_6_input]").val('uploadedimages/' + output);
+                getBase64Image(document.getElementById("image"), function(base64) {
+                    image.forEach(element => {
+                    $("#"+element).attr('src', 'uploadedimages/' + output);
+                    });
+                    $("input[name="+image_input+"]").val('uploadedimages/' + output);
                 });
-                $(".page").css("opacity", "1");
             }
+            });
         });
-        
-        }/*, 'image/png' */);
+        $(".page").css("opacity", "1");
     }
-
-    function img_5_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-5-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_5").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_5_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_5_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_5").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_5_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
-    }
-
-    function img_4_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-4-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_4").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_4_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_4_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_4").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_4_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
-    }
-
-    function img_3_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-3-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_3").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_3_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_3_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_3").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_3_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
-    }
-
-    function img_2_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-2-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_2").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_2_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_2_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_2").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_2_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
-    }
-
-    function img_1_change(){
-        console.log('step1');
-        var form_data = new FormData();
-        form_data.append("file", $("#img-1-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                console.log('step2');
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_1").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_1_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_1_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_1").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_1_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
+    
+    var cropper;
+    function startCropper(ratio){
+    var image = document.getElementById("image");
+    $(".page").css("opacity", "0");
+    cropper = new Cropper(image, {
+    aspectRatio: ratio,
+    });
     }
 
     var cropper;
