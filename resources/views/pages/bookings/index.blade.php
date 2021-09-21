@@ -31,6 +31,12 @@
             border-color: #FFCF40;
         }
 
+        .fc .fc-timegrid-col.fc-day-today {
+            background: #FFF !important;
+            border: none !important;
+        }
+
+
         /*.fc-timegrid-event {*/
         /*    background: #FFCF40;*/
         /*    border: 1px solid rgb(136, 136, 136);*/
@@ -285,7 +291,9 @@
                 initialView: 'timeGridWeek',
                 selectable: true,
                 events: data,
+                allDaySlot: false,
                 scrollTime: '08:00:00',
+                slotMinTime: '07:00:00',
                 // slotDuration: 60,
                 selectOverlap: function (event) {
                     return event.rendering === 'background';
