@@ -64,7 +64,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Create New Appointment</h4>
+                        <h4 class="modal-title">Create New Booking</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="phone">{{ __('Tel') }}</label>
+                                <label for="phone">{{ __('Phone') }}</label>
                                 <div class='input-group date'>
                                     <input type="text" id="phone" name="phone" class="w-100 form-control" required>
                                 </div>
