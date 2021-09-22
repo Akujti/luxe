@@ -228,14 +228,14 @@
     crossorigin="anonymous" />
 
 <body>
-    <form action="{{ route('email-template-3') }}" method="POST">
+    <form action="{{ route('email-template-4') }}" method="POST">
         @csrf
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
                 <input hidden name="img_1_input" id="img_1_input" value="images/emails/template3/house-1.jpg">
                 <input hidden name="img_2_input" id="img_2_input" value="images/emails/template3/house-2.jpg">
-                <input hidden name="img_3_input" id="img_3_input" value="images/emails/template3/house-3.png">
+                <input hidden name="img_3_input" id="img_3_input" value="images/emails/template3/house-3.jpg">
                 <div class="page-wrapper">
                     <div class="page">
                         {{-- Images --}}
