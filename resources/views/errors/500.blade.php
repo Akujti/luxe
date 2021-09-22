@@ -15,9 +15,9 @@
 <body>
 <div class="container h-100">
     <div class="row justify-content-center h-100">
-        <div class="col-md-5 align-self-center text-center">
-            <h1>Under Maintenance</h1>
-            <img src="https://icon-library.com/images/website-maintenance-icon/website-maintenance-icon-3.jpg" alt="">
+        <div class="col-md-8 align-self-center text-center">
+            <img src="{{asset('500.jpg')}}" alt=""
+                 class="my-4 w-100">
         </div>
     </div>
 </div>
