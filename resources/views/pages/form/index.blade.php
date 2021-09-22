@@ -7,7 +7,7 @@
                 <form action="{{route('form.store')}}" class="card form my-4 p-3" method="POST">
                     @csrf
                     <div class="card-header">
-                        <h1 class="text-center my-4">Pre-approval Form</h1>
+                        <h1 class="text-center my-4">Pre-Approval Form</h1>
                     </div>
                     <div class="card-body">
                         <div class="row">

@@ -40,7 +40,7 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -55,7 +55,8 @@ class EventController extends Controller
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
             'start_time' => 'required',
             'end_time' => 'required',
-            'rsvp' => 'required',
+            'rsvp' => 'nullable',
+            'zoom' => 'nullable',
         ], [
             'image.image' => 'The chosen file must be an image type'
         ]);
@@ -73,7 +74,7 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Event  $event
+     * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
     public function show(Event $event)
@@ -84,7 +85,7 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Event  $event
+     * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
     public function edit(Event $event)
@@ -95,8 +96,8 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Event  $event
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Event $event)
@@ -107,7 +108,7 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Event  $event
+     * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)

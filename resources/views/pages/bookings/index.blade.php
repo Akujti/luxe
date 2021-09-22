@@ -7,8 +7,8 @@
     <style>
 
         .bg-red {
-            background: #e76060 !important;
-            border-color: #e76060;
+            background: #daa846 !important;
+            border-color: #daa846;
         }
 
         .bg-green {
@@ -37,14 +37,19 @@
         }
 
         .fc .fc-scrollgrid-liquid {
-            height: 510px !important;
+            height: 415px !important;
+        }
+
+        .fc .fc-non-business {
+            background: red !important;
+            opacity: 50%;
         }
 
 
-        /*.fc-timegrid-event {*/
-        /*    background: #FFCF40;*/
-        /*    border: 1px solid rgb(136, 136, 136);*/
-        /*}*/
+        .fc-timegrid-event {
+            background: #FFCF40;
+            border: 1px solid rgb(136, 136, 136);
+        }
     </style>
 @endsection
 @section('content')
@@ -171,7 +176,6 @@
             let hours = [];
 
             if (room_id === 1) {
-
                 hours = [
                     {
                         daysOfWeek: [1, 3, 5],
@@ -296,10 +300,9 @@
                 selectable: true,
                 events: data,
                 allDaySlot: false,
-                scrollTime: '08:00:00',
                 weekends: false,
-                slotMinTime: '08:00:00',
-                slotMaxTime: '18:00:00',
+                slotMinTime: '09:00:00',
+                slotMaxTime: '17:00:00',
                 // slotDuration: 60,
                 selectOverlap: function (event) {
                     return event.rendering === 'background';
@@ -307,18 +310,18 @@
                 defaultTimedEventDuration: '01:00'
             });
             calendar.render();
-            if (room_id === 1) {
-                $('.fc-timegrid-event').addClass('bg-red');
-            } else if (room_id === 2) {
-                $('.fc-timegrid-event').addClass('bg-green');
-            } else if (room_id === 3) {
-                $('.fc-timegrid-event').addClass('bg-blue');
-            } else if (room_id === 4) {
-                $('.fc-timegrid-event').addClass('bg-purple');
-            } else {
-                $('.fc-timegrid-event').addClass('bg-yellow');
-                $('.fc-event-main').css('color', 'black');
-            }
+            // if (room_id === 1) {
+            //     $('.fc-timegrid-event').addClass('bg-red');
+            // } else if (room_id === 2) {
+            //     $('.fc-timegrid-event').addClass('bg-green');
+            // } else if (room_id === 3) {
+            //     $('.fc-timegrid-event').addClass('bg-blue');
+            // } else if (room_id === 4) {
+            //     $('.fc-timegrid-event').addClass('bg-purple');
+            // } else {
+            //     $('.fc-timegrid-event').addClass('bg-yellow');
+            //     $('.fc-event-main').css('color', 'black');
+            // }
             @guest()
             $('.fc-event-title').text("RESERVED");
             @endguest

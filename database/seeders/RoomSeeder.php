@@ -15,19 +15,22 @@ class RoomSeeder extends Seeder
     public function run()
     {
         Room::create([
-            'name' => 'Coral Gables Conference Room'
+            'name' => 'Homestead Conference Room'
         ]);
-        Room::create([
-            'name' => 'Kendall Conference Room'
-        ]);
-        Room::create([
-            'name' => 'Midtown Conference Room'
-        ]);
-        Room::create([
-            'name' => 'Miami Lakes Conference Room'
-        ]);
-        Room::create([
-            'name' => 'Hollywood Conference Room'
-        ]);
+//        Room::create([
+//            'name' => 'Coral Gables Conference Room'
+//        ]);
+//        Room::create([
+//            'name' => 'Kendall Conference Room'
+//        ]);
+//        Room::create([
+//            'name' => 'Midtown Conference Room'
+//        ]);
+//        Room::create([
+//            'name' => 'Miami Lakes Conference Room'
+//        ]);
+//        Room::create([
+//            'name' => 'Hollywood Conference Room'
+//        ]);
     }
 }

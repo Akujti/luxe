@@ -30,6 +30,6 @@ class FormMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email-template.form');
+        return $this->subject('New Pre-Approval Request')->view('email-template.form');
     }
 }

@@ -16,6 +16,7 @@ class Event extends Model
         'image',
         'start_time',
         'end_time',
-        'rsvp'
+        'rsvp',
+        'zoom'
     ];
 }
