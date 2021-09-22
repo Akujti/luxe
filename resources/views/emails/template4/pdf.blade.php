@@ -10,6 +10,7 @@
 <style>
     /* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
     @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
@@ -32,7 +33,7 @@
     @page {
         padding: 0px;
         margin: 0px;
-        size: 1000px 4673px;
+        size: 1000px 3523px;
     }
 
     body {
@@ -156,6 +157,35 @@
         color: #6d6e71;
         font-size: 35px;
     }
+
+    .w-100 {
+        width: 100%;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .info-size {
+        left: 518px;
+        font-size: 24px;
+    }
+
+    .font-gray {
+        color: #6d6e71;
+    }
+
+    .left-box {
+        left: 570px;
+    }
+
+    .right-box {
+        right: 570px;
+    }
+
+    .text-right {
+        text-align: right;
+    }
 </style>
 
 <body>
@@ -165,68 +195,143 @@
             {{-- <img src="{{ $img_1_input }}" alt="" style="width: 1000px;height:1050px;object-fit:cover;"> --}}
         </div>
         <div class="absolute">
-            <img src="images/emails/template3/main.png" alt="" style="width: 1000px;height:4673px;">
+            <img src="images/emails/template4/main.jpg" alt="" style="width: 1000px;height:3523px;">
         </div>
-        <div class="absolute" style="top:53px;left:360px">
-            <img src="images/emails/template3/logo.png" alt="" width="290px">
+        <div class="absolute" style="top:35px;left:410px">
+            <img src="images/emails/template4/logo.png" alt="" width="180px" height="202px">
         </div>
-        <div class="absolute" style="top:409px;">
-            <img src="{{$img_1}}" alt="" width="835px" height="835px">
+        <div class="absolute" style="top:405px;left:35px">
+            <img src="{{$img_1}}" alt="" width="450px" height="450px">
         </div>
-        <div class="absolute" style="top:2592px;right:0;">
-            <img src="{{$img_2}}" alt="" width="835px" height="567px">
+        <div class="absolute" style="top:885px;left:517px">
+            <img src="{{$img_2}}" alt="" width="450px" height="450px">
         </div>
-        <div class="absolute" style="top:3207px;left:169px;">
-            <img src="{{$img_3}}" alt="" width="621px" height="415px">
+        <div class="absolute" style="top:1368px;left:35px">
+            <img src="{{$img_3}}" alt="" width="450px" height="450px">
         </div>
-        <div class="absolute" style="top:94.3%;width:100%;text-align:center;">
-            <img src="images/emails/template1/logos.png" alt="" width="200px">
+        <div class="absolute" style="top:1850px;left:518px">
+            <img src="{{$img_4}}" alt="" width="450px" height="450px">
+        </div>
+        <div class="absolute" style="top:2790px;left:105px;outline:10px solid white">
+            <img src="{{$img_5}}" alt="" width="270px" height="280px">
+        </div>
+        <div class="absolute" style="top:2951px;left:479px">
+            <img src="images/emails/template4/contact-icons.png" alt="" height="105px">
+        </div>
+        <div class="absolute" style="top:3233px;left:423px">
+            <img src="images/emails/template4/logo-2.png" alt="" width="152px" height="55px">
+        </div>
+        <div class="absolute" style="top:3393px;left:393px">
+            <img src="images/emails/template4/icons.png" alt="" width="215px" height="48px">
         </div>
 
         {{-- Text --}}
-        <div class="absolute" style="top: 1100px;width: 1300px;font-size: 30px;">
-            <div style="position: relative;left:245px;">
-                <h1 class="bold-700 gold" style="transform: rotate(-90deg);text-align: center;">
-                    FOR SALE: &nbsp;&nbsp;&nbsp; <span style="color: black">{!! $text_15 !!}</span>
-                </h1>
-            </div>
+        <div class="absolute w-100 text-center" style="top:300px">
+            <p class="gold bold-600" style="font-size: 42px;letter-spacing:15px;letter-spacing:12px;">{{$text_1}}</p>
         </div>
-        <div class="absolute" style="width: 100%;text-align:center;top:160px;">
-            <p class="gold poppins bold-600" style="font-size: 80px;margin:0">{!! $text_1 !!}</p>
-            <p class="poppins bold-600" style="font-size: 80px;margin-top:-80px">{!! $text_2 !!}</p>
+        {{-- First Box --}}
+        <div class="absolute left-box" style="top:490px">
+            <p class="gold bold-600" style="font-size: 33px;">{{$text_2}}</p>
         </div>
-        <div class="absolute" style="top:1120px;background:white;right:200px;padding-top:0px;padding-bottom:0px;">
-            <ul style="margin:0px;padding-left: 35px;padding-bottom:10px;">
-                <li style="font-size:35px;">{!! $text_3 !!}</li>
-                <li style="font-size:35px;" class="gold">|</li>
-                <li style="font-size:35px;">{!! $text_4 !!}</li>
-                <li style="font-size:35px;" class="gold">|</li>
-                <li style="font-size:35px;">{!! $text_5 !!}</li>
-            </ul>
+        <div class="absolute left-box" style="top:530px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_3}}</p>
         </div>
-        <div class="absolute" style="width: 100%;text-align:right;top:1255px;right:296px">
-            <p class="gold bold-700" style="font-size: 45px;margin:0">{!! $text_6 !!}</p>
-            <p class="" style="font-size: 40px;margin-top:-10px">{!! $text_7 !!}</p>
+        <div class="absolute left-box" style="top:595px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_4}}</p>
         </div>
-        <div class="absolute" style="width: 100%;top:1500px;left:85px;right:200px;">
-            <p class="poppins" style="font-size: 31px;">{!! $text_8 !!}</p>
+        <div class="absolute left-box" style="top:660px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_5}}</p>
         </div>
-        <div class="absolute" style="width: 100%;top:3710px;left:85px;right:170px;">
-            <p class="gold bold-700" style="font-size: 31px">{!! $text_10 !!}</p>
-            <p class="white poppins" style="font-size: 31px;">{!! $text_11 !!}</p>
+        <div class="absolute left-box" style="top:725px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_6}}</p>
         </div>
-        <div class="absolute" style="width: 100%;text-align:center;top:2425px;left:-150px">
-            <p class="white bold-700" style="font-size: 50px;">{!! $text_9 !!}</p>
+        {{-- Second Box --}}
+        <div class="absolute right-box text-right" style="top:970px">
+            <p class="gold bold-600" style="font-size: 33px;">{{$text_7}}</p>
         </div>
-        <div class="absolute" style="width: 100%;text-align:right;top:4210px;right:165px;">
-            <p class="gold bold-700" style="font-size: 50px;margin:0">{!! $text_12 !!}</p>
-            <p class="bold-700" style="font-size: 80px;margin-top:-40px">{!! $text_13 !!}</p>
+        <div class="absolute right-box text-right" style="top:1013px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_8}}</p>
+        </div>
+        <div class="absolute right-box text-right" style="top:1075px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_9}}</p>
+        </div>
+        <div class="absolute right-box text-right" style="top:1140px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_10}}</p>
+        </div>
+        <div class="absolute right-box text-right" style="top:1205px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_11}}</p>
+        </div>
+        {{-- Third Box --}}
+        <div class="absolute left-box" style="top:1450px">
+            <p class="gold bold-600" style="font-size: 33px;">{{$text_12}}</p>
+        </div>
+        <div class="absolute left-box" style="top:1490px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_13}}</p>
+        </div>
+        <div class="absolute left-box" style="top:1555px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_14}}</p>
+        </div>
+        <div class="absolute left-box" style="top:1625px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_15}}</p>
+        </div>
+        <div class="absolute left-box" style="top:1690px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_16}}</p>
+        </div>
+        {{-- Fourth Box --}}
+        <div class="absolute right-box text-right" style="top:1930px">
+            <p class="gold bold-600" style="font-size: 33px;">{{$text_17}}</p>
+        </div>
+        <div class="absolute right-box text-right" style="top:1975px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_18}}</p>
+        </div>
+        <div class="absolute right-box text-right" style="top:2040px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_19}}</p>
+        </div>
+        <div class="absolute right-box text-right" style="top:2105px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_20}}</p>
+        </div>
+        <div class="absolute right-box text-right" style="top:2170px">
+            <p class="font-gray" style="font-size: 25px;">{{$text_21}}</p>
+        </div>
+        {{--  --}}
+        <div class="absolute info-size" style="top:2942px;">
+            <p class="font-gray">{{$text_26}}</p>
+        </div>
+        <div class="absolute info-size" style="top:2982px;">
+            <p class="font-gray">{{$text_27}}</p>
+        </div>
+        <div class="absolute info-size" style="top:3022px;">
+            <p class="font-gray">{{$text_28}}</p>
+        </div>
+        <div class="absolute w-100 text-center" style="top:2365px;">
+            <p class="bold-700 font-gray" style="font-size: 35px">TO LEARN MORE<br>ABOUT CURRENT PROJECTS CALL</p>
+        </div>
+        <div class="absolute w-100 text-center" style="top:2465px;">
+            <p class="bold-700 gold" style="font-size: 70px">{{$text_22}}</p>
+        </div>
+        <div class="absolute w-100 text-center" style="top:2560px;">
+            <p class="bold-700 font-gray" style="font-size: 35px">OR</p>
+        </div>
+        <div class="absolute w-100 text-center" style="top:2630px;">
+            <p class="white bold-700" style="font-size: 55px">{{$text_23}}</p>
+        </div>
+        <div class="absolute w-100" style="top:2795px;left:474px;">
+            <p class="gold bold-600" style="font-size: 46px">{{$text_24}}</p>
+        </div>
+        <div class="absolute w-100" style="top:2857px;left:474px;">
+            <p class="font-gray bold-600" style="font-size: 28px">{{$text_25}}</p>
+        </div>
+        <div class="absolute w-100" style="text-align:center;top:3130px;left:-430px;">
+            <p class="white bold-700" style="font-size: 35px">{{$text_29}}</p>
+        </div>
+        <div class="absolute w-100" style="text-align:center;top:3130px;left:370px;">
+            <p class="gold bold-700" style="font-size: 35px">{{$text_30}}</p>
         </div>
         {{-- Footer --}}
-        <div class="absolute" style="text-align: center;top:97.5%;">
-            <h1 class="" style="font-size:22px;font-weight:400;color:white">{!! $text_14 !!}</h1>
+        <div class="absolute" style="text-align: center;top:3320px;left:20px">
+            <h1 class="" style="font-size:23px;font-weight:400;letter-spacing:3px">{{$text_31}}</h1>
         </div>
-        <div class="absolute" style="text-align: center;top:99%;">
+        <div class="absolute" style="text-align: center;top:3483px;">
             <h1 class="" style="font-size:18px;font-weight:400;color:#9e9e9e">Copyright © 2021 LUXE
                 Properties, LLC, All rights reserved.</h1>
         </div>

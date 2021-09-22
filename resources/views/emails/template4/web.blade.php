@@ -92,7 +92,7 @@
         zoom: .7;
         position: relative;
         width: 1000px;
-        height: 4673px;
+        height: 3523px;
         left: 0;
         /* background-image: url('images/themes/just-listed/img-1.jpg'); */
         background-position: center bottom;
@@ -214,8 +214,37 @@
 
     .cropper-container {
         position: fixed !important;
-        top: -135% !important;
+        top: -800px !important;
         z-index: 100;
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .info-size {
+        left: 518px;
+        font-size: 24px;
+    }
+
+    .font-gray {
+        color: #6d6e71;
+    }
+
+    .left-box {
+        left: 570px;
+    }
+
+    .right-box {
+        right: 570px;
+    }
+
+    .text-right {
+        text-align: right;
     }
 </style>
 
@@ -233,111 +262,165 @@
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-                <input hidden name="img_1_input" id="img_1_input" value="images/emails/template3/house-1.jpg">
-                <input hidden name="img_2_input" id="img_2_input" value="images/emails/template3/house-2.jpg">
-                <input hidden name="img_3_input" id="img_3_input" value="images/emails/template3/house-3.jpg">
+                <input hidden name="img_1_input" id="img_1_input" value="images/emails/template4/house-1.jpg">
+                <input hidden name="img_2_input" id="img_2_input" value="images/emails/template4/house-2.jpg">
+                <input hidden name="img_3_input" id="img_3_input" value="images/emails/template4/house-3.jpg">
+                <input hidden name="img_4_input" id="img_4_input" value="images/emails/template4/house-4.jpg">
+                <input hidden name="img_5_input" id="img_5_input" value="images/emails/template4/agent.jpg">
                 <div class="page-wrapper">
                     <div class="page">
                         {{-- Images --}}
                         <div class="absolute">
+                            <img src="images/emails/template4/main.jpg" alt="" style="width: 1000px;height:3523px;">
                         </div>
-                        <div class="absolute">
-                            <img src="images/emails/template3/main.png" alt="" style="width: 1000px;height:4673px;">
+                        <div class="absolute" style="top:35px;left:410px">
+                            <img src="images/emails/template4/logo.png" alt="" width="180px" height="202px">
                         </div>
-                        <div class="absolute" style="top:53px;left:360px">
-                            <img src="images/emails/template3/logo.png" alt="" width="290px">
+                        <div class="absolute" style="top:405px;left:35px">
+                            <img id="img_1" src="images/emails/template4/house-1.jpg" alt="" width="450px"
+                                height="450px">
                         </div>
-                        <div class="absolute" style="top:409px;">
-                            <img id="img_1" src="images/emails/template3/house-1.jpg" alt="" width="835px"
-                                height="835px">
+                        <div class="absolute" style="top:885px;left:517px">
+                            <img id="img_2" src="images/emails/template4/house-2.jpg" alt="" width="450px"
+                                height="450px">
                         </div>
-                        <div class="absolute" style="top:2592px;right:0;">
-                            <img id="img_2" src="images/emails/template3/house-2.jpg" alt="" width="835px"
-                                height="567px">
+                        <div class="absolute" style="top:1368px;left:35px">
+                            <img id="img_3" src="images/emails/template4/house-3.jpg" alt="" width="450px"
+                                height="450px">
                         </div>
-                        <div class="absolute" style="top:3207px;left:169px;">
-                            <img id="img_3" src="images/emails/template3/house-3.png" alt="" width="621px"
-                                height="415px">
+                        <div class="absolute" style="top:1850px;left:518px">
+                            <img id="img_4" src="images/emails/template4/house-4.jpg" alt="" width="450px"
+                                height="450px">
                         </div>
-                        <div class="absolute" style="top:94.3%;width:100%;text-align:center;">
-                            <img src="images/emails/template1/logos.png" alt="" width="200px">
+                        <div class="absolute" style="top:2790px;left:105px;outline:10px solid white">
+                            <img id="img_5" src="images/emails/template4/agent.jpg" alt="" width="270px" height="280px">
+                        </div>
+                        <div class="absolute" style="top:2951px;left:479px">
+                            <img src="images/emails/template4/contact-icons.png" alt="" height="105px">
+                        </div>
+                        <div class="absolute" style="top:3233px;left:423px">
+                            <img src="images/emails/template4/logo-2.png" alt="" width="152px" height="55px">
+                        </div>
+                        <div class="absolute" style="top:3393px;left:393px">
+                            <img src="images/emails/template4/icons.png" alt="" width="215px" height="48px">
                         </div>
 
                         {{-- Text --}}
-                        <div class="absolute" style="top: 1100px;width: 1315px;font-size: 30px;">
-                            <div style="position: relative;left:245px;">
-                                <h1 class="bold-700 gold" style="transform: rotate(-90deg);text-align: center;">
-                                    FOR SALE: &nbsp;&nbsp;&nbsp; <span class="text-15"
-                                        style="color: black">$1,295,000</span>
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="absolute" style="width: 100%;text-align:center;top:205px;">
-                            <p class="text-1 gold poppins bold-700" style="font-size: 80px;margin:0">Luxury New Build
+                        <div class="absolute w-100 text-center" style="top:300px">
+                            <p class="text-1 gold bold-600"
+                                style="font-size: 42px;letter-spacing:15px;letter-spacing:12px;">
+                                CURRENT PROJECTS
                             </p>
-                            <p class="text-2 poppins bold-700" style="font-size: 80px;margin-top:-20px">Opportunity</p>
                         </div>
-                        <div class="absolute"
-                            style="top:1120px;background:white;left:0;right:200px;padding-top:0px;padding-bottom:0px;">
-                            <ul style="margin:0px;padding-left: 35px;padding-top:10px;padding-bottom:10px;">
-                                <li class="text-3" style="font-size:35px;"><b>3</b> BEDS</li>
-                                <li style="font-size:35px;" class="gold">|</li>
-                                <li class="text-4" style="font-size:35px;"><b>2</b> BATHS</li>
-                                <li style="font-size:35px;" class="gold">|</li>
-                                <li class="text-5" style="font-size:35px;"><b>1,700</b> SQFTs</li>
-                            </ul>
+                        {{-- First Box --}}
+                        <div class="absolute left-box" style="top:490px">
+                            <p class="text-2 gold bold-600" style="font-size: 33px;">123 Salamanca Ave</p>
                         </div>
-                        <div class="absolute" style="width: 100%;text-align:right;top:1270px;right:296px">
-                            <p class="text-6 gold bold-700" style="font-size: 45px;margin:0">55 MERRICK WAY #402</p>
-                            <p class="text-7" style="font-size: 40px;margin-top:3px">CORAL GABLES, FL 33134</p>
+                        <div class="absolute left-box" style="top:530px">
+                            <p class="text-3 font-gray" style="font-size: 25px;">Coral Gables, FL 33134</p>
                         </div>
-                        <div class="absolute" style="top:1500px;left:85px;right:200px;">
-                            <p class="text-8 poppins" style="font-size: 31px;line-height: 60px;">Lorem Ipsum is simply
-                                dummy
-                                text of the printing
-                                and
-                                typesetting industry. Lorem Ipsum has been the industry's standard
-                                dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                                scrambled it to make
-                                a type specimen
-                                book. It has survived not only five centuries, but also the leap into electronic
-                                typesetting, remaining
-                                essentially
-                                unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                                containing Lorem Ipsum
-                                passages, and more
-                                recently with desktop publishing software like Aldus PageMaker including versions of
-                                Lorem Ipsum.</p>
+                        <div class="absolute left-box" style="top:598px">
+                            <p class="text-4 font-gray" style="font-size: 25px;">Approx 751 SqFt (1 unit)</p>
                         </div>
-                        <div class="absolute" style="width: 100%;text-align:center;top:2440px;left:-80px">
-                            <p class="text-9 white bold-700" style="font-size: 50px;">LEARN MORE</p>
+                        <div class="absolute left-box" style="top:665px">
+                            <p class="text-5 font-gray" style="font-size: 25px;">4 Units | 2 Beds | 1 Bath</p>
                         </div>
-                        <div class="absolute" style="top:3710px;left:85px;right:170px;">
-                            <p class="text-10 gold bold-700" style="font-size: 31px">ABOUT THE BUILDER</p>
-                            <p class="text-11 white poppins" style="font-size: 31px;line-height: 60px;">The standard
-                                chunk of
-                                Lorem Ipsum used
-                                since the 1500s is
-                                reproduced below for those interested. Sections 1.10.32 and
-                                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their
-                                exact original form,
-                                accompanied by
-                                English versions from the 1914</p>
+                        <div class="absolute left-box" style="top:725px">
+                            <p class="text-6 font-gray" style="font-size: 25px;">Starting at: $1,275,000</p>
                         </div>
-                        <div class="absolute" style="width: 100%;text-align:right;top:4240px;right:165px;">
-                            <p class="text-12 gold bold-700" style="font-size: 50px;margin:0">For More Info Call</p>
-                            <p class="text-13 bold-700" style="font-size: 80px;margin-top:-20px">305.809.7650</p>
+                        {{-- Second Box --}}
+                        <div class="absolute right-box text-right" style="top:970px">
+                            <p class="text-7 gold bold-600" style="font-size: 33px;">123 Salamanca Ave</p>
+                        </div>
+                        <div class="absolute right-box text-right" style="top:1013px">
+                            <p class="text-8 font-gray" style="font-size: 25px;">Coral Gables, FL 33134</p>
+                        </div>
+                        <div class="absolute right-box text-right" style="top:1078px">
+                            <p class="text-9 font-gray" style="font-size: 25px;">Approx 751 SqFt (1 unit)</p>
+                        </div>
+                        <div class="absolute right-box text-right" style="top:1145px">
+                            <p class="text-10 font-gray" style="font-size: 25px;">4 Units | 2 Beds | 1 Bath</p>
+                        </div>
+                        <div class="absolute right-box text-right" style="top:1205px">
+                            <p class="text-11 font-gray" style="font-size: 25px;">Starting at: $1,275,000</p>
+                        </div>
+                        {{-- Third Box --}}
+                        <div class="absolute left-box" style="top:1450px">
+                            <p class="text-12 gold bold-600" style="font-size: 33px;">123 Salamanca Ave</p>
+                        </div>
+                        <div class="absolute left-box" style="top:1490px">
+                            <p class="text-13 font-gray" style="font-size: 25px;">Coral Gables, FL 33134</p>
+                        </div>
+                        <div class="absolute left-box" style="top:1555px">
+                            <p class="text-14 font-gray" style="font-size: 25px;">Approx 751 SqFt (1 unit)</p>
+                        </div>
+                        <div class="absolute left-box" style="top:1625px">
+                            <p class="text-15 font-gray" style="font-size: 25px;">4 Units | 2 Beds | 1 Bath</p>
+                        </div>
+                        <div class="absolute left-box" style="top:1690px">
+                            <p class="text-16 font-gray" style="font-size: 25px;">Starting at: $1,275,000</p>
+                        </div>
+                        {{-- Fourth Box --}}
+                        <div class="absolute right-box text-right" style="top:1930px">
+                            <p class="text-17 gold bold-600" style="font-size: 33px;">123 Salamanca Ave</p>
+                        </div>
+                        <div class="absolute right-box text-right" style="top:1975px">
+                            <p class="text-18 font-gray" style="font-size: 25px;">Coral Gables, FL 33134</p>
+                        </div>
+                        <div class="absolute right-box text-right" style="top:2040px">
+                            <p class="text-19 font-gray" style="font-size: 25px;">Approx 751 SqFt (1 unit)</p>
+                        </div>
+                        <div class="absolute right-box text-right" style="top:2105px">
+                            <p class="text-20 font-gray" style="font-size: 25px;">4 Units | 2 Beds | 1 Bath</p>
+                        </div>
+                        <div class="absolute right-box text-right" style="top:2170px">
+                            <p class="text-21 font-gray" style="font-size: 25px;">Starting at: $1,275,000</p>
+                        </div>
+                        {{--  --}}
+                        <div class="absolute info-size" style="top:2951px;">
+                            <p class="text-26 font-gray">305.986.7041</p>
+                        </div>
+                        <div class="absolute info-size" style="top:2993px;">
+                            <p class="text-27 font-gray">305.809.7650</p>
+                        </div>
+                        <div class="absolute info-size" style="top:3028px;">
+                            <p class="text-28 font-gray">wesley@Luxeknows.com</p>
+                        </div>
+                        <div class="absolute w-100 text-center" style="top:2365px;">
+                            <p class="bold-700 font-gray" style="font-size: 35px">TO LEARN MORE<br>ABOUT CURRENT
+                                PROJECTS CALL</p>
+                        </div>
+                        <div class="absolute w-100 text-center" style="top:2465px;">
+                            <p class="text-22 bold-700 gold" style="font-size: 70px">305.809.7650</p>
+                        </div>
+                        <div class="absolute w-100 text-center" style="top:2560px;">
+                            <p class="bold-700 font-gray" style="font-size: 35px">OR</p>
+                        </div>
+                        <div class="absolute w-100 text-center" style="top:2645px;">
+                            <p class="text-23 white bold-700" style="font-size: 55px">CLICK HERE</p>
+                        </div>
+                        <div class="absolute" style="top:2795px;left:474px;">
+                            <p class="text-24 gold bold-600" style="font-size: 46px">Wesley Ulloa</p>
+                        </div>
+                        <div class="absolute" style="top:2857px;left:474px;">
+                            <p class="text-25 font-gray bold-600" style="font-size: 28px">Licensed Real Estate Broker
+                            </p>
+                        </div>
+                        <div class="absolute w-100" style="text-align:center;top:3138px;left:-215px;">
+                            <p class="text-29 white bold-700" style="font-size: 35px">CALL WESLEY</p>
+                        </div>
+                        <div class="absolute w-100" style="text-align:center;top:3138px;left:195px;">
+                            <p class="text-30 gold bold-700" style="font-size: 35px">EMAIL WESLEY</p>
                         </div>
                         {{-- Footer --}}
-                        <div class="absolute" style="text-align: center;top:97.5%;width: 100%;">
-                            <h1 class="text-14" style="font-size:22px;font-weight:400;color:white">55 MERRICK WAY SUITE
-                                402,
-                                CORAL
-                                GABLES,
-                                FL
+                        <div class="absolute w-100" style="text-align: center;top:3325px;">
+                            <h1 class="text-31" style="font-size:23px;font-weight:400;letter-spacing:3px">55 MERRICK WAY
+                                SUITE
+                                402, CORAL
+                                GABLES, FL
                                 33134</h1>
                         </div>
-                        <div class="absolute" style="text-align: center;top:99%;width: 100%;">
+                        <div class="absolute w-100" style="text-align: center;top:3483px;">
                             <h1 class="" style="font-size:18px;font-weight:400;color:#9e9e9e">Copyright © 2021 LUXE
                                 Properties, LLC, All rights reserved.</h1>
                         </div>
@@ -345,82 +428,97 @@
                 </div>
             </div>
             <div class="column-divider"></div>
-            <div class="row-input" style="max-width: 350px;height:3600px">
-                <div class="" style="margin-bottom:10px">
-                    <div class="pr-10">
-                        <label for="page-1-img-1">First Image</label>
-                        <input type="file" id="img-1-input"
-                            onchange="image_change('img-1-input',['img_1'],'img_1_input')">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
-                        <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
-                    </div>
+            <div class="row-input" style="max-width: 350px;">
+                <div class="">
+                    <label for="text-1">Title</label>
+                    <input type="text" id="text-1" name="text_1" value="CURRENT PROJECTS">
+                </div>
+                <div class="pr-10" style="margin-bottom:10px">
+                    <label for="page-1-img-1">First Image</label>
+                    <input type="file" id="img-1-input" onchange="image_change('img-1-input',['img_1'],'img_1_input')">
+                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
                 </div>
                 <div class="">
-                    <label for="text-1">Title 1</label>
-                    <input type="text" id="text-1" name="text_1" value="Luxury New Build">
-                    <input type="text" id="text-2" name="text_2" value="Opportunity">
+                    <label for="text-1">First House</label>
+                    <input type="text" id="text-2" name="text_2" value="123 Salamanca Ave">
+                    <input type="text" id="text-3" name="text_3" value="Coral Gables, FL 33134">
+                    <input type="text" id="text-4" name="text_4" value="Approx 751 SqFt (1 unit)">
+                    <input type="text" id="text-5" name="text_5" value="4 Units | 2 Beds | 1 Bath">
+                    <input type="text" id="text-6" name="text_6" value="Starting at: $1,275,000">
+                </div>
+                <div class="pr-10" style="margin-bottom:10px">
+                    <label for="page-1-img-1">Second Image</label>
+                    <input type="file" id="img-2-input" onchange="image_change('img-2-input',['img_2'],'img_2_input')">
+                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" onclick="crop_image(['img_2'],'img_2_input')">Save Crop</button>
                 </div>
                 <div class="">
-                    <label for="text-1">Price</label>
-                    <input type="text" id="text-15" name="text_15" value="$1,295,000">
+                    <label for="text-1">Second House</label>
+                    <input type="text" id="text-7" name="text_7" value="123 Salamanca Ave">
+                    <input type="text" id="text-8" name="text_8" value="Coral Gables, FL 33134">
+                    <input type="text" id="text-9" name="text_9" value="Approx 751 SqFt (1 unit)">
+                    <input type="text" id="text-10" name="text_10" value="4 Units | 2 Beds | 1 Bath">
+                    <input type="text" id="text-11" name="text_11" value="Starting at: $1,275,000">
+                </div>
+                <div class="pr-10" style="margin-bottom:10px">
+                    <label for="page-1-img-1">Third Image</label>
+                    <input type="file" id="img-3-input" onchange="image_change('img-3-input',['img_3'],'img_3_input')">
+                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" onclick="crop_image(['img_3'],'img_3_input')">Save Crop</button>
                 </div>
                 <div class="">
-                    <label for="text-1">Beds</label>
-                    <input type="text" id="text-3" name="text_3" value="<b>3</b> BEDS">
+                    <label for="text-1">Third House</label>
+                    <input type="text" id="text-12" name="text_12" value="123 Salamanca Ave">
+                    <input type="text" id="text-13" name="text_13" value="Coral Gables, FL 33134">
+                    <input type="text" id="text-14" name="text_14" value="Approx 751 SqFt (1 unit)">
+                    <input type="text" id="text-15" name="text_15" value="4 Units | 2 Beds | 1 Bath">
+                    <input type="text" id="text-16" name="text_16" value="Starting at: $1,275,000">
+                </div>
+                <div class="pr-10" style="margin-bottom:10px">
+                    <label for="page-1-img-1">Fourth Image</label>
+                    <input type="file" id="img-4-input" onchange="image_change('img-4-input',['img_4'],'img_4_input')">
+                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" onclick="crop_image(['img_4'],'img_4_input')">Save Crop</button>
                 </div>
                 <div class="">
-                    <label for="text-1">Baths</label>
-                    <input type="text" id="text-4" name="text_4" value="<b>2</b> BATHS">
+                    <label for="text-1">Fourth House</label>
+                    <input type="text" id="text-17" name="text_17" value="123 Salamanca Ave">
+                    <input type="text" id="text-18" name="text_18" value="Coral Gables, FL 33134">
+                    <input type="text" id="text-19" name="text_19" value="Approx 751 SqFt (1 unit)">
+                    <input type="text" id="text-20" name="text_20" value="4 Units | 2 Beds | 1 Bath">
+                    <input type="text" id="text-21" name="text_21" value="Starting at: $1,275,000">
                 </div>
                 <div class="">
-                    <label for="text-1">Area</label>
-                    <input type="text" id="text-5" name="text_5" value="<b>1,700</b> SQFTs">
+                    <label for="text-1">Phone Number</label>
+                    <input type="text" id="text-22" name="text_22" value="305.809.7650">
                 </div>
                 <div class="">
-                    <label for="text-1">Address</label>
-                    <input type="text" id="text-6" name="text_6" value="55 MERRICK WAY #402">
-                    <input type="text" id="text-7" name="text_7" value="CORAL GABLES, FL 33134">
-                </div>
-                <div class="" style="margin-top: 500px">
-                    <label for="text-1">Text</label>
-                    <textarea type="text" id="text-8" name="text_8"
-                        rows="15">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
-                </div>
-                <div class="" style="margin-top: 210px">
                     <label for="text-1">Button</label>
-                    <input type="text" id="text-9" name="text_9" value="LEARN MORE">
+                    <input type="text" id="text-23" name="text_23" value="CLICK HERE">
                 </div>
-                <div class="" style="margin-top:180px;">
-                    <div class="" style="margin-bottom:10px">
-                        <label for="page-1-img-1">Second Image</label>
-                        <input type="file" id="img-2-input"
-                            onchange="image_change('img-2-input',['img_2'],'img_2_input')">
-                        <button type="button" onclick="startCropper(835/567)">Crop</button>
-                        <button type="button" onclick="crop_image(['img_2'],'img_2_input')">Save Crop</button>
-                    </div>
-                    <div class="" style="margin-top:200px;">
-                        <label for="page-1-img-1">Third Image</label>
-                        <input type="file" id="img-3-input"
-                            onchange="image_change('img-3-input',['img_3'],'img_3_input')">
-                        <button type="button" onclick="startCropper(621/415)">Crop</button>
-                        <button type="button" onclick="crop_image(['img_3'],'img_3_input')">Save Crop</button>
-                    </div>
+                <div class="pr-10" style="margin-bottom:10px">
+                    <label for="page-1-img-1">Agent Image</label>
+                    <input type="file" id="img-5-input" onchange="image_change('img-5-input',['img_5'],'img_5_input')">
+                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" onclick="crop_image(['img_5'],'img_5_input')">Save Crop</button>
                 </div>
-                <div class="" style="margin-top: 230px">
-                    <label for="text-10">Title</label>
-                    <input type="text" id="text-10" name="text_10" value="ABOUT THE BUILDER">
-                    <textarea name="text_11" id="text-11" rows="10">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and
-                    1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by
-                    English versions from the 1914</textarea>
+                <div class="">
+                    <label for="text-1">Agent Info</label>
+                    <input type="text" id="text-24" name="text_24" value="Wesley Ulloa">
+                    <input type="text" id="text-25" name="text_25" value="Licensed Real Estate Broker">
+                    <input type="text" id="text-26" name="text_26" value="305.986.7041">
+                    <input type="text" id="text-27" name="text_27" value="305.809.7650">
+                    <input type="text" id="text-28" name="text_28" value="wesley@Luxeknows.com">
                 </div>
-                <div class="" style="margin-top: 100px">
-                    <label for="text-11">Title</label>
-                    <input type="text" id="text-12" name="text_12" value="For More Info Call">
-                    <input type="text" id="text-13" name="text_13" value="305.809.7650">
+                <div class="">
+                    <label for="text-1">Agent Buttons</label>
+                    <input type="text" id="text-29" name="text_29" value="CALL WESLEY">
+                    <input type="text" id="text-30" name="text_30" value="EMAIL WESLEY">
                 </div>
-                <div class="" style="margin-top: 50px">
-                    <label for="text-11">Footer</label>
-                    <input type="text" id="text-14" name="text_14"
+                <div class="">
+                    <label for="text-1">Footer</label>
+                    <input type="text" id="text-31" name="text_31"
                         value="55 MERRICK WAY SUITE 402, CORAL GABLES, FL 33134">
                 </div>
                 <div class="flex">

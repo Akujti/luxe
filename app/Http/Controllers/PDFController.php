@@ -317,10 +317,28 @@ class PDFController extends Controller
             'text_13' => $request['text_13'],
             'text_14' => $request['text_14'],
             'text_15' => $request['text_15'],
+            'text_16' => $request['text_16'],
+            'text_17' => $request['text_17'],
+            'text_18' => $request['text_18'],
+            'text_19' => $request['text_19'],
+            'text_20' => $request['text_20'],
+            'text_21' => $request['text_21'],
+            'text_22' => $request['text_22'],
+            'text_23' => $request['text_23'],
+            'text_24' => $request['text_24'],
+            'text_25' => $request['text_25'],
+            'text_26' => $request['text_26'],
+            'text_27' => $request['text_27'],
+            'text_28' => $request['text_28'],
+            'text_29' => $request['text_29'],
+            'text_30' => $request['text_30'],
+            'text_31' => $request['text_31'],
 
             'img_1' => $request['img_1_input'],
             'img_2' => $request['img_2_input'],
             'img_3' => $request['img_3_input'],
+            'img_4' => $request['img_4_input'],
+            'img_5' => $request['img_5_input'],
         ];
         if ($_POST['action'] == 'Save') {
             $data_json = json_encode($data);
