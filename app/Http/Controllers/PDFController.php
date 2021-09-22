@@ -24,19 +24,19 @@ class PDFController extends Controller
 
     public function image($file)
     {
-        // $imgExtension = new Imagick($file);
-        // $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-        // $imgExtension->writeImages($filePath, true);
-        // return $filePath;
-        $im = new imagick();
-        $im->setResolution(300, 300);
-        $im->readImage($file);
-        $im->setImageFormat('jpeg');
-        $im->setImageCompression(imagick::COMPRESSION_JPEG);
-        $im->setImageCompressionQuality(100);
+        $imgExtension = new Imagick($file);
         $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
-        $im->writeImage($filePath);
+        $imgExtension->writeImages($filePath, true);
         return $filePath;
+        // $im = new imagick();
+        // $im->setResolution(300, 300);
+        // $im->readImage($file);
+        // $im->setImageFormat('jpeg');
+        // $im->setImageCompression(imagick::COMPRESSION_JPEG);
+        // $im->setImageCompressionQuality(100);
+        // $filePath = 'imageConvert/' . Str::random(10) . time() . '.jpg';
+        // $im->writeImage($filePath);
+        // return $filePath;
     }
 
     //added for 1080px issue
@@ -317,21 +317,10 @@ class PDFController extends Controller
             'text_13' => $request['text_13'],
             'text_14' => $request['text_14'],
             'text_15' => $request['text_15'],
-            'text_16' => $request['text_16'],
-            'text_17' => $request['text_17'],
-            'text_18' => $request['text_18'],
-            'text_19' => $request['text_19'],
-            'text_20' => $request['text_20'],
-            'text_21' => $request['text_21'],
-            'text_22' => $request['text_22'],
-            'text_23' => $request['text_23'],
 
-            'img_1_input' => $request['img_1_input'],
-            'img_2_input' => $request['img_2_input'],
-            'img_3_input' => $request['img_3_input'],
-            'img_4_input' => $request['img_4_input'],
-            'img_5_input' => $request['img_5_input'],
-            'img_6_input' => $request['img_6_input'],
+            'img_1' => $request['img_1_input'],
+            'img_2' => $request['img_2_input'],
+            'img_3' => $request['img_3_input'],
         ];
         if ($_POST['action'] == 'Save') {
             $data_json = json_encode($data);
