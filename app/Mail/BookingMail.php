@@ -30,6 +30,6 @@ class BookingMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email-template.booking');
+        return $this->subject('Conference Room Reservation')->view('email-template.booking');
     }
 }
