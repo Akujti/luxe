@@ -43,6 +43,8 @@
         .fc .fc-non-business {
             background: red !important;
             opacity: 50%;
+            color: white;
+            padding-left: 5px;
         }
 
 
@@ -325,6 +327,7 @@
             @guest()
             $('.fc-event-title').text("RESERVED");
             @endguest
+            $('.fc-non-business').text("RESERVED");
         }
     );
 </script>
