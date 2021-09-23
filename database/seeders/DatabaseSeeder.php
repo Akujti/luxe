@@ -16,8 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            RoomSeeder::class,
-//            FileSeed::class,
+            MarketingCategorySeeder::class
         ]);
 //        User::create([
 //            'name' => 'Luxe Admin',
