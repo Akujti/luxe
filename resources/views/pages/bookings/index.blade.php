@@ -60,7 +60,6 @@
 @section('content')
     <div class="container">
         <div class="row my-4">
-            <div class="alert alert-info w-100">NOTES: Max time for slot is 60 minutes.</div>
             <div class="alert alert-info w-100">NOTES: Click and drag to select your time slot.</div>
             <div id='calendar' style="width: 100%; display: inline-block;"></div>
         </div>

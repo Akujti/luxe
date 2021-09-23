@@ -18,7 +18,8 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::get();
-        return view('pages.events.events', compact('events'));
+        $isAdmin = Auth::user()->isAdmin;
+        return view('pages.events.events', compact('events', 'isAdmin'));
     }
 
     public function my_events()
@@ -102,7 +103,30 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        if (!Auth::user()->isAdmin) {
+            return back()->with('error', 'You cannot update event');
+        }
+        $validated = $request->validate([
+            'title' => 'required',
+            'location' => 'required',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
+            'start_time' => 'required',
+            'end_time' => 'required',
+            'rsvp' => 'nullable',
+            'zoom' => 'nullable',
+        ], [
+            'image.image' => 'The chosen file must be an image type'
+        ]);
+        $event = Event::find($request->event_id);
+        $event->update($validated);
+        if (isset($request->image)) {
+            $name = time() . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
+            $path = $request->image->storeAs('images\events', $name, 'public');;
+            $event->image = $path;
+        }
+        $event->user_id = Auth::id();
+        $event->save();
+        return back()->with('message', 'Event has been updated.');
     }
 
     /**

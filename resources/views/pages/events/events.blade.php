@@ -21,7 +21,7 @@
         <div class="row my-4">
             <div id='calendar' style="width: 100%; display: inline-block;"></div>
         </div>
-        @if (Auth::user()->isAdmin)
+        @if ($isAdmin)
             <div class="create-event modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -99,25 +99,26 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
-                    <form action="{{ route('events.destroy',1) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('events.update',2)}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        @method('delete')
-                        <input type="hidden" name="event_id" id="event_id">
+                        @method('PUT')
+                        <input type="hidden" name="event_id" id="event_id_1">
                         <div class="modal-body">
                             <div class="form-group">
                                 <div class="">
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="title" name="title" class="w-100 form-control" required
-                                               disabled>
+                                        <input type="text" id="title" name="title"
+                                               class="w-100 form-control update_field" disabled required
+                                        >
                                     </div>
                                 </div>
                                 <div class="mt-1">
                                     <label for="start">{{ __('Location') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="location" name="location" class="w-100 form-control"
-                                               required
-                                               disabled>
+                                        <input type="text" id="location" name="location"
+                                               class="w-100 form-control update_field" disabled
+                                               required>
                                     </div>
                                 </div>
                             </div>
@@ -126,49 +127,74 @@
                                 <div class="w-50 pr-1">
                                     <label for="start">{{ __('Start Time') }}</label>
                                     <div class='input-group date'>
-                                        <input type="time" id="start_time" name="start_time" class="w-100 form-control"
-                                               required disabled>
+                                        <input type="time" id="start_time" name="start_time"
+                                               class="w-100 form-control update_field" disabled
+                                               required>
                                     </div>
                                 </div>
                                 <div class="w-50 pl-1">
                                     <label for="end">{{ __('End Time') }}</label>
                                     <div class='input-group date'>
-                                        <input type="time" id="end_time" name="end_time" class="w-100 form-control"
-                                               required
-                                               disabled>
+                                        <input type="time" id="end_time" name="end_time"
+                                               class="w-100 form-control update_field" disabled
+                                               required>
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="form-group" id="rsvp_group">
                                 <div class='input-group date'>
-                                    <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
-                                       class="btn btn-luxe w-100">{{ __('OPEN RVSP') }}</a>
+                                    @if ($isAdmin)
+                                        <label for="rsvp1">{{ __('RSVP') }}</label>
+                                        <input type="text" name="rsvp" id="rsvp1"
+                                               class="w-100 form-control update_field" disabled>
+                                    @else
+                                        <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
+                                           class="btn btn-luxe w-100">{{ __('OPEN RVSP') }}</a>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group" id="zoom_group">
                                 <div class='input-group date'>
-                                    <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
-                                       class="btn btn-primary w-100">{{ __('OPEN ZOOM') }}</a>
+                                    @if ($isAdmin)
+                                        <label for="zoom1">{{ __('ZOOM') }}</label>
+                                        <input type="text" name="zoom" id="zoom1"
+                                               class="w-100 form-control update_field" disabled>
+                                    @else
+                                        <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
+                                           class="btn btn-primary w-100">{{ __('OPEN ZOOM') }}</a>
+                                    @endif
                                 </div>
                             </div>
+                            <div class="form-group image_group d-none">
+                                <label for="image">{{ __('Event Image') }}</label>
+                                <input type="file" name="image" class="form-control update_field"
+                                       disabled style="padding: 3px">
+                            </div>
                             <div class="form-group event-image">
-                                <label for="start">{{ __('Event Image') }}</label>
                                 <div class="img-wrapper">
                                     <img id="image-id" src="" alt="" class="w-100">
                                 </div>
                             </div>
                         </div>
-                        @if (Auth::user()->isAdmin)
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-danger" id="delete_event">Delete</button>
-                            </div>
+                        <div class="modal-footer">
+                            @if ($isAdmin)
+                                <button type="submit" class="btn btn-luxe" id="update_event">UPDATE</button>
                         @endif
+
                     </form>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div>
+                    <form action="{{ route('events.destroy',1) }}" method="POST" enctype="multipart/form-data"
+                          class="m-0">
+                        @csrf
+                        @method('delete')
+                        <input type="hidden" name="event_id" id="event_id">
+                        @if ($isAdmin)
+                            <button type="submit" class="btn btn-danger" id="delete_event">Delete</button>
+                    @endif
+                </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
     </div>
 @endsection
 <script>
@@ -186,27 +212,33 @@
                 // Display the modal and set the values to the event values.
                 $('.single-event').modal('show');
                 $('.single-event').find('#event_id').val(event._def.publicId);
+                $('.single-event').find('#event_id_1').val(event._def.publicId);
                 $('.single-event').find('#title').val(event.title);
                 $('.single-event').find('#location').val(event.extendedProps.location);
                 $('.single-event').find('#start_time').val(event.extendedProps.start_time);
                 $('.single-event').find('#end_time').val(event.extendedProps.end_time);
                 $('.single-event').find('#user_id').val(event.extendedProps.user_id);
-                if (event.extendedProps.rsvp != null) {
+                $('.single-event').find('#rsvp1').val(event.extendedProps.rsvp);
+                $('.single-event').find('#zoom1').val(event.extendedProps.zoom);
+                if (event.extendedProps.rsvp != null || {{$isAdmin}}) {
                     $('.single-event').find('#rsvp').attr('href', event.extendedProps.rsvp);
                     $('#rsvp_group').css('display', 'block');
                 } else {
                     $('#rsvp_group').css('display', 'none');
                 }
-                if (event.extendedProps.zoom != null) {
+                if (event.extendedProps.zoom != null || {{$isAdmin}}) {
                     $('.single-event').find('#zoom').attr('href', event.extendedProps.zoom);
                     $('#zoom_group').css('display', 'block');
                 } else {
                     $('#zoom_group').css('display', 'none');
                 }
                 $('.single-event').find('.modal-footer').css('display', 'none');
-                if (event.extendedProps.user_id == {{Auth::id()}}) {
+                if (event.extendedProps.user_id == {{Auth::id()}} && {{$isAdmin}}) {
                     $('.single-event').find('.modal-footer').css('display', 'flex');
+                    $('.single-event').find('.update_field').removeAttr('disabled');
+                    $('.single-event').find('.image_group').removeClass('d-none');
                 }
+                // $('.single-event').find('.update_field').attr('disabled', 'true');
                 if (event.extendedProps.image != null) {
                     $('.single-event').find('.event-image').css('display', 'block');
                     $('.single-event').find('#image-id').attr('src', '/storage/' + event.extendedProps.image);
