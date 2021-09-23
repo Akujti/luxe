@@ -165,7 +165,8 @@
                                                class="w-100 form-control update_field" disabled>
                                     @endif
                                     <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
-                                       class="btn btn-primary w-100 mt-2">{{ __('OPEN ZOOM') }}</a>
+                                       class="btn btn-primary w-100 mt-2"
+                                       style="color: white !important;">{{ __('OPEN ZOOM') }}</a>
                                 </div>
                             </div>
                             <div class="form-group image_group d-none">
