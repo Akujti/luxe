@@ -47,32 +47,37 @@
                                                required>
                                     </div>
                                 </div>
+                                <div class="d-flex">
+                                    <div class="form-group w-50 pr-1">
+                                        <label for="start">{{ __('Start Time') }}</label>
+                                        <div class='input-group date'>
+                                            <input type="time" id="start_time" name="start_time"
+                                                   class="w-100 form-control"
+                                                   required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group w-50 pl-1">
+                                        <label for="end">{{ __('End Time') }}</label>
+                                        <div class='input-group date'>
+                                            <input type="time" id="end_time" name="end_time" class="w-100 form-control"
+                                                   required>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="start">{{ __('RSVP') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="rsvp" name="rsvp" class="w-100 form-control">
+                                        <input type="url" id="rsvp" name="rsvp" class="w-100 form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="start">{{ __('ZOOM') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="zoom" name="zoom" class="w-100 form-control">
+                                        <input type="url" id="zoom" name="zoom" class="w-100 form-control">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="start">{{ __('Start Time') }}</label>
-                                    <div class='input-group date'>
-                                        <input type="time" id="start_time" name="start_time" class="w-100 form-control"
-                                               required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="end">{{ __('End Time') }}</label>
-                                    <div class='input-group date'>
-                                        <input type="time" id="end_time" name="end_time" class="w-100 form-control"
-                                               required>
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
                                     <label for="start">{{ __('Event Image') }}</label>
                                     <div class="custom-file">
@@ -99,7 +104,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
-                    <form action="{{route('events.update',2)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('events.update',0)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <input type="hidden" name="event_id" id="event_id_1">
@@ -145,24 +150,22 @@
                                 <div class='input-group date'>
                                     @if ($isAdmin)
                                         <label for="rsvp1">{{ __('RSVP') }}</label>
-                                        <input type="text" name="rsvp" id="rsvp1"
+                                        <input type="url" name="rsvp" id="rsvp1"
                                                class="w-100 form-control update_field" disabled>
-                                    @else
-                                        <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
-                                           class="btn btn-luxe w-100">{{ __('OPEN RVSP') }}</a>
                                     @endif
+                                    <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
+                                       class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
                                 </div>
                             </div>
                             <div class="form-group" id="zoom_group">
                                 <div class='input-group date'>
                                     @if ($isAdmin)
                                         <label for="zoom1">{{ __('ZOOM') }}</label>
-                                        <input type="text" name="zoom" id="zoom1"
+                                        <input type="url" name="zoom" id="zoom1"
                                                class="w-100 form-control update_field" disabled>
-                                    @else
-                                        <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
-                                           class="btn btn-primary w-100">{{ __('OPEN ZOOM') }}</a>
                                     @endif
+                                    <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
+                                       class="btn btn-primary w-100 mt-2">{{ __('OPEN ZOOM') }}</a>
                                 </div>
                             </div>
                             <div class="form-group image_group d-none">
@@ -176,9 +179,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer"
+                             style="flex-direction: row-reverse; display: flex;justify-content: flex-start;">
                             @if ($isAdmin)
-                                <button type="submit" class="btn btn-luxe" id="update_event">UPDATE</button>
+                                <button type="submit" class="btn btn-luxe" id="update_event">Update</button>
                         @endif
 
                     </form>
@@ -188,7 +192,7 @@
                         @method('delete')
                         <input type="hidden" name="event_id" id="event_id">
                         @if ($isAdmin)
-                            <button type="submit" class="btn btn-danger" id="delete_event">Delete</button>
+                            <button type="submit" class="btn btn-danger mr-2" id="delete_event">Delete</button>
                     @endif
                 </div>
                 </form>

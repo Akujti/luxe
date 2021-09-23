@@ -56,10 +56,12 @@ class EventController extends Controller
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
             'start_time' => 'required',
             'end_time' => 'required',
-            'rsvp' => 'nullable',
-            'zoom' => 'nullable',
+            'rsvp' => 'nullable|url',
+            'zoom' => 'nullable|url',
         ], [
-            'image.image' => 'The chosen file must be an image type'
+            'image.image' => 'The chosen file must be an image type',
+            'rsvp.url' => 'RSVP must be a valid web link.',
+            'zoom.url' => 'ZOOM must be a valid web link.',
         ]);
         $event = Event::create($validated);
         if (isset($request->image)) {
@@ -101,7 +103,7 @@ class EventController extends Controller
      * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request)
     {
         if (!Auth::user()->isAdmin) {
             return back()->with('error', 'You cannot update event');
@@ -112,10 +114,12 @@ class EventController extends Controller
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
             'start_time' => 'required',
             'end_time' => 'required',
-            'rsvp' => 'nullable',
-            'zoom' => 'nullable',
+            'rsvp' => 'nullable|url',
+            'zoom' => 'nullable|url',
         ], [
-            'image.image' => 'The chosen file must be an image type'
+            'image.image' => 'The chosen file must be an image type',
+            'rsvp.url' => 'RSVP must be a valid web link.',
+            'zoom.url' => 'ZOOM must be a valid web link.',
         ]);
         $event = Event::find($request->event_id);
         $event->update($validated);
