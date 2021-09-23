@@ -158,7 +158,10 @@
                         @auth()
                             @if (Auth::user()->isAdmin)
                                 <div class="modal-footer d-flex">
-                                    <button type="submit" class="btn btn-danger" id="delete_booking">Delete</button>
+                                    <button type="submit" class="btn btn-danger" id="delete_booking"
+                                            onclick="return confirm('Are you sure you want to delete this booking?');">
+                                        Delete
+                                    </button>
                                 </div>
                             @endif
                         @endauth

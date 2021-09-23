@@ -193,7 +193,9 @@
                         @method('delete')
                         <input type="hidden" name="event_id" id="event_id">
                         @if ($isAdmin)
-                            <button type="submit" class="btn btn-danger mr-2" id="delete_event">Delete</button>
+                            <button type="submit" class="btn btn-danger mr-2" id="delete_event"
+                                    onclick="return confirm('Are you sure you want to delete this event?');">Delete
+                            </button>
                     @endif
                 </div>
                 </form>

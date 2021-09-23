@@ -120,7 +120,9 @@
                             <form action="{{ route('guides.destroy',$file->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button class="delete-button" type="submit">X</button>
+                                <button class="delete-button" type="submit"
+                                        onclick="return confirm('Are you sure you want to delete this file?');">X
+                                </button>
                             </form>
                         </div>
                     </div>
