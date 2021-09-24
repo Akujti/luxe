@@ -5,18 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MarketingCategory extends Model
+class TemplateField extends Model
 {
     use HasFactory;
 
+
     protected $fillable = [
-        'title',
-        'image'
+        'name',
+        'type',
+        'template_id'
     ];
 
 
-    public function templates()
+    public function template()
     {
-        return $this->hasMany(Template::class, 'category_id');
+        return $this->belongsTo(Template::class);
     }
 }

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\MarketingCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -183,9 +184,23 @@ Route::group(
         Route::delete('folder-destory/{id}', [FolderController::class, 'folder_destroy'])->name('folder.destroy');
         Route::delete('file-destory/{id}', [FolderController::class, 'file_destroy'])->name('file.destroy');
         Route::post('files/open-house-directory', [FolderController::class, 'create_directory'])->name('files.open-house.directory');
-
-
         Route::resource('guides', GuideController::class);
+    }
+);
+
+Route::group(['middleware' => ['auth']],
+    function () {
+        Route::get('marketing-requests/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'fields'])->name('template.fields');
+        Route::post('marketing-requests/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'addField'])->name('field.store');
+        Route::put('marketing-requests/template/fields/update/{field}', [MarketingCategoryController::class, 'updateField'])->name('field.update');
+        Route::delete('marketing-requests/template/fields/update/{field}', [MarketingCategoryController::class, 'deleteField'])->name('field.delete');
+
+        Route::post('marketing-requests/{marketingCategory}', [MarketingCategoryController::class, 'addTemplate'])->name('template.store');
+        Route::put('marketing-requests/{marketingCategory}/{template}', [MarketingCategoryController::class, 'updateTemplate'])->name('template.update');
+        Route::delete('marketing-requests/{marketingCategory}/{template}/delete', [MarketingCategoryController::class, 'deleteTemplate'])->name('template.delete');
+
+        Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
+        Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
     }
 );
 
@@ -193,7 +208,11 @@ Route::resource('form', FormController::class);
 
 Route::get('bookings/{room}', [BookingController::class, 'index'])->name('bookings.index');
 Route::get('bookings', [BookingController::class, 'selectRoom'])->name('bookings.rooms');
-Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
-Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
+
+Route::get('marketing-requests', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
+Route::get('marketing-requests/{marketingCategory}', [MarketingCategoryController::class, 'show'])->name('marketing.request');
+Route::get('marketing-requests/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
+
+Route::post('marketing-requests/sendEmail', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
 Route::get('loginTest', [UserController::class, 'login']);

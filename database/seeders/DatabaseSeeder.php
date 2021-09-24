@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            MarketingCategorySeeder::class
+//            MarketingCategorySeeder::class
         ]);
 //        User::create([
 //            'name' => 'Luxe Admin',

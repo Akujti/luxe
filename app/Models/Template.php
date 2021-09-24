@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Template extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'category_id',
+        'title',
+        'image'
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo(MarketingCategory::class, 'category_id');
+    }
+
+    public function fields()
+    {
+        return $this->hasMany(TemplateField::class, 'template_id');
+    }
 }
