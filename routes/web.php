@@ -188,7 +188,8 @@ Route::group(
     }
 );
 
-Route::group(['middleware' => ['auth']],
+Route::group(
+    ['middleware' => ['auth']],
     function () {
         Route::get('marketing-requests/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'fields'])->name('template.fields');
         Route::post('marketing-requests/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'addField'])->name('field.store');

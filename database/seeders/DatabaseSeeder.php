@@ -16,12 +16,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-//            MarketingCategorySeeder::class
+            // MarketingCategorySeeder::class,
+            // TemplateSeeder::class,
+            // TemplateFieldsSeeder::class
         ]);
-//        User::create([
-//            'name' => 'Luxe Admin',
-//            'email' => 'email@company.com',
-//            'password' => bcrypt('password'),
-//        ]);
+        //        User::create([
+        //            'name' => 'Luxe Admin',
+        //            'email' => 'email@company.com',
+        //            'password' => bcrypt('password'),
+        //        ]);
     }
 }
