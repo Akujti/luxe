@@ -87,9 +87,3 @@
     </div>
 @endsection
 
-<script>
-    var deleteInput = document.getElementById("delete_input");
-    document.getElementById("delete_button").addEventListener("click", function () {
-        deleteInput.click();
-    });
-</script>
