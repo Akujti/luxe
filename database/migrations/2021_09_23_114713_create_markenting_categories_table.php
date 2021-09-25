@@ -15,8 +15,8 @@ class CreateMarkentingCategoriesTable extends Migration
     {
         Schema::create('marketing_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
             $table->string('title');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateMarkentingCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('markenting_categories');
+        Schema::dropIfExists('marketing_categories');
     }
 }

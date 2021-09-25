@@ -15,9 +15,9 @@ class CreateTemplatesTable extends Migration
     {
         Schema::create('templates', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('marketing_categories')->cascadeOnDelete();
-            $table->string('image');
             $table->string('title');
+            $table->string('image');
+            $table->foreignId('category_id')->constrained('marketing_categories')->cascadeOnDelete();
             $table->timestamps();
         });
     }
