@@ -84,7 +84,7 @@ class MarketingCategoryController extends Controller
             }
             $details[strtolower($key)] = $val;
         }
-        Mail::to('edin.vllaco@gmail.com')->send(new MarketingRequestMail($details));
+        Mail::to('marketing@luxeknows.com')->send(new MarketingRequestMail($details));
 
         return back()->with('message', 'Form has been submitted');
     }
