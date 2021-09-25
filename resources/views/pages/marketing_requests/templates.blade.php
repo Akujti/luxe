@@ -1,54 +1,91 @@
 @extends('layouts.app')
 @section('css')
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            color: black;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="container">
-        <div class="row">
-            <h3 class="text-center font-weight-normal">Please choose a {{$marketingCategory->title}} below which you
+        <div class="row justify-content-center">
+            <h3 class="text-center font-weight-normal">Please choose one of the
+                <strong>{{$marketingCategory->title}}</strong> below which
+                you
                 want
                 to use. Just
                 click on it and then
                 you can give your info.</h3>
-        </div>
-        <div class="row mt-4">
             @auth()
                 @if(Auth::user()->isAdmin)
-                    <div class="col-md-3">
-                        <form action="{{route('template.store',$marketingCategory)}}" class="form row rounded"
-                              method="POST">
-                            @csrf
-                            <h4 class="text-center w-100 my-4">Add a new template</h4>
-                            <div class="form-group col-12">
-                                <label for="title">Title:</label>
-                                <input type="text" id="title" name="title" class="form-control" required>
-                            </div>
-                            <div class="form-group col-12">
-                                <label for="image">Image:</label>
-                                <input type="url" name="image" id="image" class="form-control" required>
-                            </div>
-                            <div class="form-group col-12">
-                                <input type="submit" value="Save" class="btn btn-luxe w-100">
-                            </div>
-                        </form>
-                    </div>
+                    <button type="button" class="btn btn-luxe my-4" data-toggle="modal" data-target="#exampleModal">
+                        Add Template
+                    </button>
                 @endif
             @endauth
-            @foreach($templates as $template)
-                <div class="col-md-3">
-                    <p class="text-center">{{$template->title}}</p>
-                    <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}">
-                        <img src="{{$template->image}}" alt="" class="w-100">
-                    </a>
+        </div>
+        <div class="row my-4">
+            @if($templates->count())
+                @foreach($templates as $template)
+                    <div class="col-md-3">
+                        <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}">
+                            <p class="text-center">{{$template->title}}</p>
+                            <img src="{{$template->image}}" alt="No image found" class="w-100" style="height: 227px"
+                                 onerror="this.src='{{asset('images/no-image.png')}}';">
+                        </a>
+                        @auth()
+                            @if(Auth::user()->isAdmin)
+                                <div class="row justify-content-center">
+                                    <a href="{{route('template.fields',['marketingCategory'=>$template->category, 'template'=>$template])}}"
+                                       class="btn btn-luxe m-4 w-100">Fields</a>
+                                </div>
+                            @endif
+                        @endauth
+                    </div>
+                @endforeach
+            @else <p>No templates found.</p>
+            @endif
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add a new template</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
                     @auth()
                         @if(Auth::user()->isAdmin)
-                            <div class="row justify-content-center">
-                                <a href="{{route('template.fields',['marketingCategory'=>$template->category, 'template'=>$template])}}"
-                                   class="btn btn-luxe m-4 w-100">Fields</a>
-                            </div>
+                            <form action="{{route('template.store',$marketingCategory)}}" class="form row rounded"
+                                  method="POST">
+                                @csrf
+                                <div class="form-group col-12">
+                                    <label for="title">Title:</label>
+                                    <input type="text" id="title" name="title" class="form-control" required>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="image">Image Link:</label>
+                                    <input type="url" name="image" id="image" class="form-control" required>
+                                </div>
                         @endif
                     @endauth
                 </div>
-            @endforeach
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-luxe">Save</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

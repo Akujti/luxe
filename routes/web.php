@@ -189,16 +189,16 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['auth']],
+    ['middleware' => ['auth', 'admin']],
     function () {
-        Route::get('marketing-requests/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'fields'])->name('template.fields');
-        Route::post('marketing-requests/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'addField'])->name('field.store');
-        Route::put('marketing-requests/template/fields/update/{field}', [MarketingCategoryController::class, 'updateField'])->name('field.update');
-        Route::delete('marketing-requests/template/fields/update/{field}', [MarketingCategoryController::class, 'deleteField'])->name('field.delete');
+        Route::get('marketing/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'fields'])->name('template.fields');
+        Route::post('marketing/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'addField'])->name('field.store');
+        Route::put('marketing/template/fields/update/{field}', [MarketingCategoryController::class, 'updateField'])->name('field.update');
+        Route::delete('marketing/template/fields/update/{field}', [MarketingCategoryController::class, 'deleteField'])->name('field.delete');
 
-        Route::post('marketing-requests/{marketingCategory}', [MarketingCategoryController::class, 'addTemplate'])->name('template.store');
-        Route::put('marketing-requests/{marketingCategory}/{template}', [MarketingCategoryController::class, 'updateTemplate'])->name('template.update');
-        Route::delete('marketing-requests/{marketingCategory}/{template}/delete', [MarketingCategoryController::class, 'deleteTemplate'])->name('template.delete');
+        Route::post('marketing/{marketingCategory}', [MarketingCategoryController::class, 'addTemplate'])->name('template.store');
+        Route::put('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'updateTemplate'])->name('template.update');
+        Route::delete('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'deleteTemplate'])->name('template.delete');
 
         Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
         Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
@@ -211,9 +211,9 @@ Route::get('bookings/{room}', [BookingController::class, 'index'])->name('bookin
 Route::get('bookings', [BookingController::class, 'selectRoom'])->name('bookings.rooms');
 
 
-Route::get('marketing-requests', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
-Route::get('marketing-requests/{marketingCategory}', [MarketingCategoryController::class, 'show'])->name('marketing.request');
-Route::get('marketing-requests/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
+Route::get('marketing', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
+Route::get('marketing/{marketingCategory}', [MarketingCategoryController::class, 'show'])->name('marketing.request');
+Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
 
-Route::post('marketing-requests/sendEmail', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
+Route::post('marketing/{marketingCategory}/{template}/email/send', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
 Route::get('loginTest', [UserController::class, 'login']);

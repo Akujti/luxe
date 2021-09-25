@@ -50,10 +50,7 @@ class MarketingCategoryController extends Controller
 
     public function fields(MarketingCategory $marketingCategory, Template $template)
     {
-        if (Auth::user()->isAdmin)
-            return view('pages.marketing_requests.fields', compact('template'));
-
-        return back()->with('message', 'You dont have access.');
+        return view('pages.marketing_requests.fields', compact('template'));
     }
 
     /**
@@ -64,7 +61,7 @@ class MarketingCategoryController extends Controller
      */
     public function show(MarketingCategory $marketingCategory)
     {
-        $templates = $marketingCategory->templates;
+        $templates = $marketingCategory->templates()->latest()->get();
         return view('pages.marketing_requests.templates', compact('templates', 'marketingCategory'));
     }
 
@@ -73,10 +70,12 @@ class MarketingCategoryController extends Controller
         return view('pages.marketing_requests.template', compact('template'));
     }
 
-    public function sendEmail(Request $request)
+    public function sendEmail(Request $request, MarketingCategory $marketingCategory, Template $template)
     {
-
         $details = [];
+        $details['category'] = $marketingCategory->title;
+        $details['template'] = $template->title;
+        $details['template link'] = env('APP_URL') . '/marketing/' . $marketingCategory->id . '/' . $template->id;
         foreach ($request->except('_token') as $key => $val) {
             if ($request->hasFile($key)) {
                 $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
@@ -126,82 +125,68 @@ class MarketingCategoryController extends Controller
 
     public function updateField(Request $request, TemplateField $field)
     {
-        if (Auth::user()->isAdmin) {
-            $request->validate([
-                'name' => 'required',
-                'type' => 'required'
-            ]);
-            $field->update([
-                'name' => $request->name,
-                'type' => $request->type
-            ]);
-            return back()->with('message', 'Updated successfully');
-        }
-        return back()->with('message', 'You dont have access.');
+        $request->validate([
+            'name' => 'required',
+            'type' => 'required'
+        ]);
+        $field->update([
+            'name' => $request->name,
+            'type' => $request->type
+        ]);
+        return back()->with('message', 'Updated successfully');
     }
 
     public function deleteField(TemplateField $field)
     {
-        if (Auth::user()->isAdmin) {
-            $field->delete();
-            return back()->with('message', 'Deleted successfully');
-        }
-        return back()->with('message', 'You dont have access.');
+        $field->delete();
+        return back()->with('message', 'Deleted successfully');
     }
 
     public function addField(Request $request, MarketingCategory $marketingCategory, Template $template)
     {
-        if (Auth::user()->isAdmin) {
-            $request->validate(['name' => 'required',
-                'type' => 'required']);
-            TemplateField::create(['name' => $request->name,
-                'type' => $request->type,
-                'template_id' => $template->id,]);
-            return back()->with('message', 'Created successfully');
-        }
-        return back()->with('message', 'You dont have access.');
+        $request->validate(['name' => 'required',
+            'type' => 'required']);
+        TemplateField::create(['name' => $request->name,
+            'type' => $request->type,
+            'template_id' => $template->id,]);
+        return back()->with('message', 'Created successfully');
     }
 
     public function addTemplate(Request $request, MarketingCategory $marketingCategory)
     {
-        if (Auth::user()->isAdmin) {
-            $request->validate([
-                'title' => 'required',
-                'image' => 'required|url'
-            ]);
-            Template::create([
-                'title' => $request->title,
-                'image' => $request->image,
-                'category_id' => $marketingCategory->id,
-            ]);
-            return back()->with('message', 'Created successfully');
-        }
-        return back()->with('message', 'You dont have access.');
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|url'
+        ], [
+            'image.url' => 'Image must be a link.'
+        ]);
+        Template::create([
+            'title' => $request->title,
+            'image' => $request->image,
+            'category_id' => $marketingCategory->id,
+        ]);
+        return back()->with('message', 'Created successfully');
     }
 
     public function updateTemplate(Request $request, MarketingCategory $marketingCategory, Template $template)
     {
-        if (Auth::user()->isAdmin) {
-            $request->validate([
-                'title' => 'required',
-                'image' => 'required|url'
-            ]);
-            $template->update([
-                'title' => $request->title,
-                'image' => $request->image
-            ]);
-            return back()->with('message', 'Updated successfully');
-        }
-        return back()->with('message', 'You dont have access.');
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required|url'
+        ], [
+            'image.url' => 'Image must be a link.'
+        ]);
+        $template->update([
+            'title' => $request->title,
+            'image' => $request->image
+        ]);
+        return back()->with('message', 'Updated successfully');
     }
 
     public function deleteTemplate(MarketingCategory $marketingCategory, Template $template)
     {
-        if (Auth::user()->isAdmin) {
-            $template->delete();
-            return redirect()->route('marketing.request', $marketingCategory)->with('message', 'Deleted successfully');
-        }
-        return back()->with('message', 'You dont have access.');
+        $template->delete();
+        return redirect()->route('marketing.request', $marketingCategory)->with('message', 'Deleted successfully');
     }
 
 }
