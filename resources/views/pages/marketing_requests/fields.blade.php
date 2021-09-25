@@ -79,7 +79,7 @@
         @else
             <p>No fields found.</p>
         @endif
-        <div class="row pl-3 w-100 justify-content-center">
+        <div class="row pl-3 w-100 justify-content-center my-4">
             <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}"
                class="btn btn-luxe w-75 my-2">Open Template</a>
         </div>
