@@ -60,14 +60,14 @@
                     <div class="form-group col-md-12">
                         <label for="{{$field->name}}">{{$field->name}}:</label>
                         @if($field->type === 'textarea')
-                            <textarea name="{{strtolower($field->name)}}" required
+                            <textarea name="{{strtolower($field->name)}}"
                                       id="{{strtolower($field->name)}}"
                                       class="form-control"></textarea>
                         @else
                             <input type="{{strtolower($field->type)}}"
                                    id="{{strtolower($field->name)}}"
                                    name="{{strtolower($field->name)}}"
-                                   class="form-control" required>
+                                   class="form-control">
                         @endif
                     </div>
                 @endforeach

@@ -2,9 +2,13 @@
 @section('css')
     <style>
         body {
-            background: url('https://myluxehub.com/wp-content/uploads/2018/10/bg-top.jpg?id=372');
+            background: url('{{asset('images/bg-image1.jpg')}}');
             height: 100vh;
             background-size: cover;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            background-blend-mode: hue;
+
         }
 
         main, #app {
@@ -33,7 +37,11 @@
             line-height: 22px;
             text-align: center;
             padding: 0;
+            background: none;
+            border: none;
+            padding-top: 10px;
         }
+
 
         a:hover {
             text-decoration: none;
@@ -48,8 +56,8 @@
                 <div class="col my-2">
                     <div class="bg-transparent">
                         <a href="{{route('marketing.request',$category)}}">
-                            <div class="card-body text-center">
-                                <img src="{{$category->image}}" alt="">
+                            <div class="card-body text-center p-0">
+                                <img src="{{$category->image}}" alt="" width="92" height="92">
                             </div>
                             <div class="card-header">
                                 {{$category->title}}

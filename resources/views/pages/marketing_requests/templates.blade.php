@@ -35,7 +35,8 @@
                     <div class="col-md-3">
                         <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}">
                             <p class="text-center">{{$template->title}}</p>
-                            <img src="{{$template->image}}" alt="No image found" class="w-100" style="height: 227px"
+                            <img src="{{$template->image}}" alt="No image found"
+                                 style="width: 262px !important;"
                                  onerror="this.src='{{asset('images/no-image.png')}}';">
                         </a>
                         @auth()
