@@ -7,7 +7,7 @@
             background-size: cover;
             background-position: center;
             background-color: rgba(0, 0, 0, 0.7);
-            background-blend-mode: hue;
+            background-blend-mode: color;
 
         }
 
