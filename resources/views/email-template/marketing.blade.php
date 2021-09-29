@@ -59,7 +59,7 @@
     <div class="" style="width: 100%">
         @foreach($details as $key=>$val)
             <p class="bold-text"><b>{{ucwords(str_replace('_',' ',$key))}}:</b>
-                @if(str_contains($val,'storage/images/marketing'))
+                @if(preg_match("(storage/images/marketing|marketing)",$val))
                     <a href="{{$val}}" target="_blank">Click to open.</a>
                 @else
                     {{$val}}

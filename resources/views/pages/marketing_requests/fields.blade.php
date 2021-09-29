@@ -3,7 +3,7 @@
 @endsection
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row m-0 w-100 justify-content-center">
             <h3 class="text-center my-4 w-100">{{$template->title}}</h3>
             <form
                 action="{{route('field.store',['marketingCategory'=>$template->category, 'template'=>$template])}}"
@@ -56,7 +56,9 @@
                                     </td>
                                     <td>
                                         <div class="button-group d-flex">
-                                            <button href="" class="btn btn-primary mr-2" type="submit">Update</button>
+                                            <button href="" class="btn btn-luxe mr-2" type="submit"
+                                                    style="height: 39px">Update
+                                            </button>
 
                             </form>
                             <form action="{{route('field.delete',$field)}}" method="POST">
@@ -77,7 +79,7 @@
         @else
             <p>No fields found.</p>
         @endif
-        <div class="row pl-3 w-100 justify-content-center">
+        <div class="row pl-3 w-100 justify-content-center my-4">
             <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}"
                class="btn btn-luxe w-75 my-2">Open Template</a>
         </div>
