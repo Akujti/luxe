@@ -9,6 +9,11 @@ class Event extends Model
 {
     use HasFactory;
 
+    protected $appends = [
+        'start',
+    ];
+
+
     protected $fillable = [
         'title',
         'location',
@@ -17,6 +22,18 @@ class Event extends Model
         'start_time',
         'end_time',
         'rsvp',
-        'zoom'
+        'zoom',
     ];
+
+    public function getStartAttribute()
+    {
+        return $this->date . ' ' . $this->attributes['start_time'];
+    }
+
+    public function getEndAttribute()
+    {
+        return $this->date . ' ' . $this->attributes['end_time'] . '123';
+    }
+
+
 }

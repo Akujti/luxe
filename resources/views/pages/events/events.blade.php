@@ -9,10 +9,14 @@
             color: black;
         }
 
-        .fc-h-event {
+        .fc-daygrid-event, .fc-daygrid-event:hover {
             background: #FFCF40;
             border: 1px solid rgb(136, 136, 136);
             margin-bottom: 3px;
+        }
+
+        .fc-daygrid-event-dot {
+            display: none !important;
         }
     </style>
 @endsection
@@ -256,14 +260,7 @@
             initialView: 'dayGridMonth',
             selectable: true,
             events: data,
-            // events: [{
-            //     title: "My repeating event",
-            //     date: '2021-09-23',
-            //     start_time: '10:00', // a start time (10am in this example)
-            //     end_time: '14:00',
-            //     startRecur: '2021-09-23',
-            //     daysOfWeek: [1, 2]
-            // }],
+            displayEventEnd: true,
         });
         calendar.render();
     });
