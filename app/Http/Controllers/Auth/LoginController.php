@@ -56,8 +56,6 @@ class LoginController extends Controller
             'user_email' => $user_email,
             'user_pass' => $user_pass
         ]);
-
-        // dd($request, $user_email, $user_pass, $user_wp_attempt);
         if ($user_wp_attempt) {
             $user_wp = Auth::guard('wordpress')->user();
             $exist_user = User::where('email', $user_email)->first();
@@ -65,7 +63,7 @@ class LoginController extends Controller
                 Auth::login($exist_user);
             } else {
                 $new_user = new User();
-                $response = Http::get('https://designsbyluxe.com/wp-json/wp/v2/users/' . $user_wp->ID);
+                $response = Http::get('https://myluxehub.com/wp-json/wp/v2/users/' . $user_wp->ID);
                 $new_user->email = $user_wp->user_email;
                 $new_user->wp_id = $user_wp->ID;
                 $new_user->isAdmin = key_exists('slug', $response->json());
