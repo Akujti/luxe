@@ -13,6 +13,8 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\MarketingCategoryController;
+use App\Http\Controllers\WrittenEmailTemplateController;
+use App\Http\Controllers\WrittenEmailTemplateItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -185,6 +187,9 @@ Route::group(
         Route::delete('file-destory/{id}', [FolderController::class, 'file_destroy'])->name('file.destroy');
         Route::post('files/open-house-directory', [FolderController::class, 'create_directory'])->name('files.open-house.directory');
         Route::resource('guides', GuideController::class);
+
+        Route::get('written-email-templates', [WrittenEmailTemplateController::class, 'index'])->name('written-email-templates');
+        Route::get('written-email-templates/{writtenEmailTemplate}', [WrittenEmailTemplateController::class, 'show'])->name('written-email-templates.show');
     }
 );
 
@@ -202,6 +207,10 @@ Route::group(
 
         Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
         Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+
+        Route::post('written-email-templates/{writtenEmailTemplate}', [WrittenEmailTemplateItemController::class, 'store'])->name('written-email-templates.item.store');
+        Route::delete('written-email-template-item/delete/item', [WrittenEmailTemplateItemController::class, 'destroy'])->name('written-email-templates.item.delete');
+        Route::put('written-email-template-item/update/item', [WrittenEmailTemplateItemController::class, 'update'])->name('written-email-templates.item.update');
     }
 );
 
