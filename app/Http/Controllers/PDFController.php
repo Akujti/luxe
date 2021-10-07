@@ -107,6 +107,32 @@ class PDFController extends Controller
 
     //Flyers
 
+    public function flyer_template_6(Request $request)
+    {
+        $data = [
+            "text_1" => $request['text_1'],
+            "text_2" => $request['text_2'],
+            "text_3" => $request['text_3'],
+            "text_4" => $request['text_4'],
+            "text_5" => $request['text_5'],
+
+            "img_1" => $request['img_1_input'],
+        ];
+        if ($_POST['action'] == 'Save') {
+            $data_json = json_encode($data);
+            $file = time() . '_file.json';
+            $destinationPath = public_path() . "/upload/json/";
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            File::put($destinationPath . $file, $data_json);
+            return response()->download($destinationPath . $file);
+        } else {
+            $pdf = PDF::loadView('flyers.template6.pdf', $data);
+            return $pdf->download('Flyer Template 6.pdf');
+        }
+    }
+
     public function flyer_template_5(Request $request)
     {
         $data = [
