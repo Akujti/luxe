@@ -201,6 +201,42 @@
     .pl-10 {
         padding-left: 10px
     }
+
+    .text-1.small {
+        font-size: 80px;
+    }
+
+    .text-1.normal {
+        font-size: 90px;
+    }
+
+    .text-1.large {
+        font-size: 100px;
+    }
+
+    .text-2.small {
+        font-size: 30px;
+    }
+
+    .text-2.normal {
+        font-size: 35px;
+    }
+
+    .text-2.large {
+        font-size: 40px;
+    }
+
+    .text-3.small {
+        font-size: 68px;
+    }
+
+    .text-3.normal {
+        font-size: 73px;
+    }
+
+    .text-3.large {
+        font-size: 76px;
+    }
 </style>
 
 <body>
@@ -218,19 +254,22 @@
 
         {{-- Text --}}
         <div class="absolute" style="top:30px;left:65px;">
-            <p class="" style="font-size: 90px;letter-spacing:-3px;color:#6d6e71">{!! $text_1 !!}</p>
+            <p class="text-1 {{$text_1_select}}" style="letter-spacing:-3px;color:#6d6e71">{!! $text_1
+                !!}</p>
         </div>
         <div class="absolute" style="top:90px;left:665px;">
-            <p class="" style="font-size: 35px;letter-spacing:-1px;color:#6d6e71">{!! $text_2 !!}</p>
+            <p class="text-2 {{$text_2_select}}" style="letter-spacing:-1px;color:#6d6e71">{!! $text_2
+                !!}</p>
         </div>
         <div class="absolute w-100 text-center" style="top:210px;left:1262px;">
-            <p class="gold" style="font-size: 73px;">{!! $text_3 !!}</p>
+            <p class="gold text-3 {{$text_3_select}}">{!! $text_3 !!}</p>
         </div>
         <div class="absolute" style="top:1490px;left:65px;">
-            <p class="" style="font-size: 35px;letter-spacing:-1px;color:#6d6e71">{!! $text_4 !!}</p>
+            <p class="text-4" style="font-size: 35px;letter-spacing:-1px;color:#6d6e71">{!! $text_4
+                !!}</p>
         </div>
         <div class="absolute w-100 text-center" style="top:1490px;left:1250px;">
-            <p class="gold" style="font-size: 37px;">{!! $text_5 !!}</p>
+            <p class="gold text-5" style="font-size: 37px;">{!! $text_5 !!}</p>
         </div>
     </div>
 </body>

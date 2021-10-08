@@ -116,6 +116,12 @@ class PDFController extends Controller
             "text_4" => $request['text_4'],
             "text_5" => $request['text_5'],
 
+            "text_1_select" => $request['text_1_select'],
+            "text_2_select" => $request['text_2_select'],
+            "text_3_select" => $request['text_3_select'],
+            "text_4_select" => $request['text_4_select'],
+            "text_5_select" => $request['text_5_select'],
+
             "img_1" => $request['img_1_input'],
         ];
         if ($_POST['action'] == 'Save') {

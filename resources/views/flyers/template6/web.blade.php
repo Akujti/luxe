@@ -285,7 +285,41 @@
         zoom: 50% !important;
     }
 
-    @media(max-width:1280px) {}
+    .text-1.small {
+        font-size: 80px;
+    }
+
+    .text-1.normal {
+        font-size: 90px;
+    }
+
+    .text-1.large {
+        font-size: 100px;
+    }
+
+    .text-2.small {
+        font-size: 30px;
+    }
+
+    .text-2.normal {
+        font-size: 35px;
+    }
+
+    .text-2.large {
+        font-size: 40px;
+    }
+
+    .text-3.small {
+        font-size: 68px;
+    }
+
+    .text-3.normal {
+        font-size: 73px;
+    }
+
+    .text-3.large {
+        font-size: 76px;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -319,16 +353,16 @@
 
                     {{-- Text --}}
                     <div class="absolute" style="top:30px;left:65px;">
-                        <p class="text-1" style="font-size: 90px;letter-spacing:-3px;color:#6d6e71">Just <span
+                        <p class="text-1 normal" style="letter-spacing:-3px;color:#6d6e71">Just <span
                                 class='gold bold'>Listed</span>
                         </p>
                     </div>
                     <div class="absolute" style="top:90px;left:665px;">
-                        <p class="text-2" style="font-size: 35px;letter-spacing:-1px;color:#6d6e71"><b>775 NE
+                        <p class="text-2 normal" style="letter-spacing:-1px;color:#6d6e71"><b>775 NE
                                 77 Terrace, </b> Miami, FL 33138</span></p>
                     </div>
                     <div class="absolute w-100 text-center" style="top:235px;left:630px;">
-                        <p class="text-3 gold" style="font-size: 73px;">$865,989</p>
+                        <p class="text-3 gold normal">$865,989</p>
                     </div>
                     <div class="absolute" style="top:1490px;left:65px;">
                         <p class="text-4" style="font-size: 35px;letter-spacing:-1px;color:#6d6e71">6 Beds | 6
@@ -346,15 +380,33 @@
                 <div class="pr-10">
                     <label for="text-1">Title</label>
                     <input type="text" id="text-1" name="text_1" value="Just <span class='gold bold'>Listed</span>">
+                    <select name="text_1_select" id="text_1_select" data-id-to-change="text-1"
+                        onchange="change_font_size(this)">
+                        <option value="small">Small</option>
+                        <option value="normal" selected>Medium</option>
+                        <option value="large">Large</option>
+                    </select>
                 </div>
                 <div class="pr-10">
                     <label for="text-2">Address</label>
                     <input type="text" id="text-2" name="text_2"
                         value="<b>775 NE 77 Terrace, </b> Miami, FL 33138</span>">
+                    <select name="text_2_select" id="text_2_select" data-id-to-change="text-2"
+                        onchange="change_font_size(this)">
+                        <option value="small">Small</option>
+                        <option value="normal" selected>Medium</option>
+                        <option value="large">Large</option>
+                    </select>
                 </div>
                 <div class="pr-10">
                     <label for="text-3">Price</label>
                     <input type="text" id="text-3" name="text_3" value="$865,989">
+                    <select name="text_3_select" id="text_3_select" data-id-to-change="text-3"
+                        onchange="change_font_size(this)">
+                        <option value="small">Small</option>
+                        <option value="normal" selected>Medium</option>
+                        <option value="large">Large</option>
+                    </select>
                 </div>
                 <div class="pr-10">
                     <label for="text-4">Options</label>

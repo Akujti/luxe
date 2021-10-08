@@ -44,60 +44,40 @@
     <div class="row my-4">
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="{{route('video.folder','first_video')}}">
+                <a href="{{route('video.folder','first_video_folder')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        Folder A
+                        Seller Representation
                     </p>
                 </a>
             </div>
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="#">
+                <a href="{{route('video.folder','second_video_folder')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        Folder B
+                        Buyer Representation
                     </p>
                 </a>
             </div>
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="#">
+                <a href="{{route('video.folder','third_video_folder')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        Folder C
+                        Tenant Representation
                     </p>
                 </a>
             </div>
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="#">
+                <a href="{{route('video.folder','fourth_video_folder')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        Folder D
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="folder mb-2">
-                <a href="#">
-                    <img src="/images/files/video-folder.png" alt="">
-                    <p>
-                        Folder E
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="folder mb-2">
-                <a href="#">
-                    <img src="/images/files/video-folder.png" alt="">
-                    <p>
-                        Folder F
+                        LUXE Tech Training
                     </p>
                 </a>
             </div>
