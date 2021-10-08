@@ -43,12 +43,60 @@
 <div class="container">
     <div class="row my-4">
         <div class="col-12 col-lg-6 mb-4">
-            <div style="padding:56.25% 0 0 0;position:relative;"><iframe
-                    src="https://player.vimeo.com/video/583855695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=0e15b635b7"
-                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Zillow 08/04/2021"></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
+            <iframe src="https://player.vimeo.com/video/577202712?h=ab5dbe41ba" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/577202712">Miami Dade Schools Explained | Janice Garcia | July 7th | English |
+                    Mini
+                    Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a
+                    href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/564287075?h=ad58a4e7a8" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/564287075">Purchasing and Selling Real Estate for the International Client |
+                    Steven E.
+                    Gurian | Jun 17th | English | Mini Session</a> from <a href="https://vimeo.com/luxeknows">LUXE
+                    Properties</a> on
+                <a href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/546207740?h=a9123cdc48" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/546207740">New Realtor 101 How to read a Contract &amp; Financing | Giovanna
+                    Calimano |
+                    Apr 23rd | English | Long Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a>
+                on <a href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/533364662?h=d78a643d10" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/533364662">How to do a Buyer Consultations | Giovanna Calimano | Jan 18 |
+                    English | Mini
+                    Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a
+                    href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/533357349?h=f5da567a1f" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/533357349">Working With Investors | Wesley Ulloa | Feb 9th | English | Long
+                    Session</a>
+                from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/529541470?h=4e71643afa" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/529541470">How to do a Buyers Consultation | Giovanna Calimano | Mar 26th |
+                    English | Long
+                    Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a
+                    href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/479070321?h=294d294328" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/479070321">How to review Taxes | Wesley Ulloa | Nov 4th | English | Mini
+                    Session</a> from
+                <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
         </div>
     </div>
 </div>

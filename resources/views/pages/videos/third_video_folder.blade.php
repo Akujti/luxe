@@ -43,12 +43,19 @@
 <div class="container">
     <div class="row my-4">
         <div class="col-12 col-lg-6 mb-4">
-            <div style="padding:56.25% 0 0 0;position:relative;"><iframe
-                    src="https://player.vimeo.com/video/583855695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=0e15b635b7"
-                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Zillow 08/04/2021"></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
+            <iframe src="https://player.vimeo.com/video/520009698?h=82d8504764" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/520009698">The Rental Game | Juan Suarez | Mar 4th | English | Long
+                    Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a
+                    href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/500924695?h=618b9fcaed" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/500924695">Crushing The Rental Game | Alex Reyes | Jan 12th | English | Mini
+                    Session</a>
+                from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.
+            </p>
         </div>
     </div>
 </div>

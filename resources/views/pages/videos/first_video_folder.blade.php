@@ -43,12 +43,51 @@
 <div class="container">
     <div class="row my-4">
         <div class="col-12 col-lg-6 mb-4">
-            <div style="padding:56.25% 0 0 0;position:relative;"><iframe
-                    src="https://player.vimeo.com/video/583855695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=0e15b635b7"
-                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Zillow 08/04/2021"></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
+            <iframe src="https://player.vimeo.com/video/556384376?h=78a953499c" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/556384376">Seller Presentation | Wesley Ulloa | May 19th | English | Long
+                    Session</a> from
+                <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/546502927?h=ee219cf01e" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/546502927">Nailing Your Listing Presentation | Denisse Uyema | Apr 20th |
+                    English | Long
+                    Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a
+                    href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/546201500?h=31357f2982" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/546201500">Understanding FIRPTA | Steven E. Gurian | Apr 29th | English | Mini
+                    Session</a>
+                from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/533366843?h=8b76d73b26" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/533366843">Nailing Your Listing Presentation | Wesley Ulloa | Jan 25 | English
+                    | Long
+                    Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a
+                    href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/529534833?h=d766a9eb23" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/529534833">Got a Listing, What&#039;s Next? | Denisse Uyema | Mar 9th |
+                    English | Long
+                    Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a
+                    href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/529428806?h=6b013177ae" width="100%" height="300px"
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/529428806">Staging to Sell COVID Edition | Janice Garcia | Mar 24th | English
+                    | Mini
+                    Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a
+                    href="https://vimeo.com">Vimeo</a>.</p>
         </div>
     </div>
 </div>
