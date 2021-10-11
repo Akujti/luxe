@@ -91,9 +91,7 @@ class WrittenEmailTemplateItemController extends Controller
             'content' => $request->content
         ]);
 
-
         return back()->with('message', 'Updated Successfully');
-        //
     }
 
     /**

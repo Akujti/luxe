@@ -75,9 +75,20 @@ class FolderController extends Controller
         return redirect()->route('files.index', ['id' => $request->folder_id])->with('message', 'File has been uploaded');
     }
 
+    public function folder_update(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string'
+        ]);
+        $folder = Folder::findOrFail($request->folder_id);
+        $folder->title = $request->title;
+        $folder->save();
+        return back()->with('message', 'Directory has been updated!');
+    }
+
     public function folder_destroy($id)
     {
-        $folder = Folder::find($id);
+        $folder = Folder::findOrFail($id);
         $folder->delete();
         return back()->with('message', 'Directory has been deleted!');
     }

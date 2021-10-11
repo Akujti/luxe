@@ -41,6 +41,7 @@
 <style>
 </style>
 <div class="container">
+    <p class="text-center" style="font-size: 28px">Password to watch videos is: Luxeknows123</p>
     <div class="row my-4">
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">

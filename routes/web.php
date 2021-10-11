@@ -187,6 +187,7 @@ Route::group(
 
         Route::resource('files', FolderController::class);
         Route::delete('folder-destory/{id}', [FolderController::class, 'folder_destroy'])->name('folder.destroy');
+        Route::put('folder-update', [FolderController::class, 'folder_update'])->name('folder.update');
         Route::delete('file-destory/{id}', [FolderController::class, 'file_destroy'])->name('file.destroy');
         Route::post('files/open-house-directory', [FolderController::class, 'create_directory'])->name('files.open-house.directory');
         Route::resource('guides', GuideController::class);
@@ -228,4 +229,6 @@ Route::get('marketing/{marketingCategory}', [MarketingCategoryController::class,
 Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
 
 Route::post('marketing/{marketingCategory}/{template}/email/send', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
+Route::post('general/form/send', [FormController::class, 'general_form_post'])->name('general.email.post');
+Route::get('general/form/{folder}/{form}', [FormController::class, 'general_form_index'])->name('general.email.index');
 Route::get('loginTest', [UserController::class, 'login']);

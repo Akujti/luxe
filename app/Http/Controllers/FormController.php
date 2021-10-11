@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\FormMail;
+use App\Mail\GeneralMailTemplate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -41,5 +42,25 @@ class FormController extends Controller
         } catch (\Throwable $th) {
             return back()->with('error', 'Ooops! try again later!');
         }
+    }
+    public function general_form_index($folder, $form)
+    {
+        return view('pages/form/' . $folder . '/' . $form);
+    }
+    public function general_form_post(Request $request)
+    {
+        $details = [];
+        foreach ($request->except('_token', 'to_email') as $key => $val) {
+            if ($request->hasFile($key)) {
+                $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
+                $path = Storage::put('public/images/marketing', $val, 'public');
+                $val = env('APP_URL') . Storage::url($path);
+            }
+            $details[strtolower($key)] = $val;
+        }
+        $to = $request->to_email;
+        $cc = [];
+        Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+        return redirect()->back()->with('message', 'Form has been submitted!');
     }
 }
