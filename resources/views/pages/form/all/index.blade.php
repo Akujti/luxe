@@ -55,7 +55,7 @@
     <div class="row">
         <div class="col my-2">
             <div class="bg-transparent">
-                <a href="{{route('form.index')}}">
+                <a href="{{route('marketing.requests')}}">
                     <div class="card-header">
                         Marketing
                     </div>
@@ -64,9 +64,9 @@
         </div>
         <div class="col my-2">
             <div class="bg-transparent">
-                <a href="{{route('general.email.index',['folder'=>'escrow','form'=>'index'])}}">
+                <a href="{{route('general.email.index',['folder'=>'escrow','form'=>'request-store'])}}">
                     <div class="card-header">
-                        Escrow Dis
+                        Rental Escrow Disbursement
                     </div>
                 </a>
             </div>

@@ -135,7 +135,10 @@ class PDFController extends Controller
             return response()->download($destinationPath . $file);
         } else {
             $pdf = PDF::loadView('flyers.template6.pdf', $data);
-            return $pdf->download('Flyer Template 6.pdf');
+            // return $pdf->download('Flyer Template 6.pdf');
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            return response()->download($this->open_house_image($fileName), 'Just Listed.jpg', $this->headers);
         }
     }
 
