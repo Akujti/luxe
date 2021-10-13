@@ -2,7 +2,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center my-4">
-        <div class="col-md-12">
+        <div class="col-12">
+            <iframe src="https://signup.opcity.com/_/zfzm2oiZk/luxe-properties?invite=Tirgd_Pjd" frameborder="0"
+                width="100%" height="800px"></iframe>
+        </div>
+        {{-- <div class="col-md-12">
             <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST">
                 @csrf
                 <div class="card-header">
@@ -44,7 +48,7 @@
                     </div>
                 </div>
             </form>
-        </div>
+        </div> --}}
     </div>
 </div>
 @endsection
