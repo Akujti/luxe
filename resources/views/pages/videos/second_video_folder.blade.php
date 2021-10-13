@@ -41,6 +41,7 @@
 <style>
 </style>
 <div class="container">
+    <p class="text-center" style="font-size: 28px">Password to watch videos is: Luxeknows123</p>
     <div class="row my-4">
         <div class="col-12 col-lg-6 mb-4">
             <iframe src="https://player.vimeo.com/video/577202712?h=ab5dbe41ba" width="100%" height="300px"
@@ -57,7 +58,8 @@
                     Steven E.
                     Gurian | Jun 17th | English | Mini Session</a> from <a href="https://vimeo.com/luxeknows">LUXE
                     Properties</a> on
-                <a href="https://vimeo.com">Vimeo</a>.</p>
+                <a href="https://vimeo.com">Vimeo</a>.
+            </p>
         </div>
         <div class="col-12 col-lg-6 mb-4">
             <iframe src="https://player.vimeo.com/video/546207740?h=a9123cdc48" width="100%" height="300px"
@@ -96,7 +98,8 @@
                 frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             <p><a href="https://vimeo.com/479070321">How to review Taxes | Wesley Ulloa | Nov 4th | English | Mini
                     Session</a> from
-                <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+                <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.
+            </p>
         </div>
     </div>
 </div>

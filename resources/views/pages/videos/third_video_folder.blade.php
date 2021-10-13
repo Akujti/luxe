@@ -41,6 +41,7 @@
 <style>
 </style>
 <div class="container">
+    <p class="text-center" style="font-size: 28px">Password to watch videos is: Luxeknows123</p>
     <div class="row my-4">
         <div class="col-12 col-lg-6 mb-4">
             <iframe src="https://player.vimeo.com/video/520009698?h=82d8504764" width="100%" height="300px"
