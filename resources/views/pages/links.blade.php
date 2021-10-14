@@ -42,6 +42,15 @@
     <div class="row my-4">
         <div class="col-12 col-lg-3">
             <div class="link-box">
+                <p class="title">Zillow Premiere Agent</p>
+                <a href="https://www.zillow.com/user/account/ZillowLogin.htm?client_id=PAClient&continue=https://authv2.zillow.com:443/externalLogin?nonce%3DM8lOR3&force_display_login=true&hashing=48ffd94f2128d6c212e5fbb53b8d1c2f&nonce=M8lOR3"
+                    class="image-link" target="_blank">
+                    <img src="/images/links/zillow.jpg" alt="" class="image">
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3">
+            <div class="link-box">
                 <p class="title">Access Your LUXE Email</p>
                 <a href="http://portal.office.com/" class="image-link" target="_blank">
                     <img src="/images/links/img1.png" alt="" class="image">
@@ -120,23 +129,23 @@
                 </a>
             </div>
         </div> --}}
-        <div class="col-12 col-lg-3">
+        {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">Open House Sign Up</p>
                 <a href="https://luxeproperties1710.setmore.com/" class="image-link" target="_blank">
                     <img src="/images/links/img10.png" alt="" class="image">
                 </a>
             </div>
-        </div>
-        <div class="col-12 col-lg-3">
+        </div> --}}
+        {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">CINC - Online Training Series</p>
                 <a href="https://vimeo.com/showcase/7009202" class="image-link" target="_blank">
                     <img src="/images/links/img4.png" alt="" class="image">
                 </a>
             </div>
-        </div>
-        <div class="col-12 col-lg-3">
+        </div> --}}
+        {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">Photography Session</p>
                 <a href="https://luxeproperties8881.setmore.com/resourcebookingpage/r91ed1490023055601"
@@ -144,7 +153,7 @@
                     <img src="/images/links/img11.jpg" alt="" class="image">
                 </a>
             </div>
-        </div>
+        </div> --}}
         {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">Book an Appt - Denisse</p>
@@ -154,7 +163,7 @@
                 </a>
             </div>
         </div> --}}
-        <div class="col-12 col-lg-3">
+        {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">kvCORE Orientation</p>
                 <a href="https://kvcoregoogleadsfacebookads.setmore.com/kvcoreorientation" class="image-link"
@@ -162,7 +171,7 @@
                     <img src="/images/links/img13.png" alt="" class="image">
                 </a>
             </div>
-        </div>
+        </div> --}}
         {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">Tech & Orientation</p>
@@ -187,14 +196,14 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-3">
+        {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">Luxe Mentorship Program</p>
                 <a href="https://luxeproperties9337.setmore.com/" class="image-link" target="_blank">
                     <img src="/images/links/img17.jpg" alt="" class="image">
                 </a>
             </div>
-        </div>
+        </div> --}}
         <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">True People Search</p>
@@ -211,14 +220,14 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-3">
+        {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">Link to Send Investment Properties</p>
                 <a href="https://receptionist408509.typeform.com/to/UpeFJJ" class="image-link" target="_blank">
                     <img src="/images/links/img20.png" alt="" class="image">
                 </a>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 @endsection
