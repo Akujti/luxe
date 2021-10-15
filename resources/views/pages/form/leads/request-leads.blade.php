@@ -9,9 +9,9 @@
                     <h1 class="text-center my-4">Request 25 CINC Leads</h1>
                 </div>
                 <input type="hidden" name="form_title" value="Request 25 CINC Leads">
+                <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
