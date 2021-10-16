@@ -24,4 +24,9 @@ class Template extends Model
     {
         return $this->hasMany(TemplateField::class, 'template_id');
     }
+
+    public function submits()
+    {
+        return $this->hasMany(TemplateSubmit::class);
+    }
 }

@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\MarketingCategory;
 use App\Models\Template;
 use App\Models\TemplateField;
+use App\Models\TemplateSubmit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -86,6 +87,11 @@ class MarketingCategoryController extends Controller
         }
         Mail::to('marketing@luxeknows.com')->send(new MarketingRequestMail($details));
 
+        TemplateSubmit::create([
+            'template_id' => $template->id,
+            'status' => 0,
+        ]);
+
         return back()->with('message', 'Form has been submitted');
     }
 
@@ -144,11 +150,15 @@ class MarketingCategoryController extends Controller
 
     public function addField(Request $request, MarketingCategory $marketingCategory, Template $template)
     {
-        $request->validate(['name' => 'required',
-            'type' => 'required']);
-        TemplateField::create(['name' => $request->name,
+        $request->validate([
+            'name' => 'required',
+            'type' => 'required'
+        ]);
+        TemplateField::create([
+            'name' => $request->name,
             'type' => $request->type,
-            'template_id' => $template->id,]);
+            'template_id' => $template->id,
+        ]);
         return back()->with('message', 'Created successfully');
     }
 
@@ -188,5 +198,4 @@ class MarketingCategoryController extends Controller
         $template->delete();
         return redirect()->route('marketing.request', $marketingCategory)->with('message', 'Deleted successfully');
     }
-
 }

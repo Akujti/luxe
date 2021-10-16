@@ -13,6 +13,7 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\MarketingCategoryController;
+use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 
@@ -215,6 +216,8 @@ Route::group(
         Route::post('written-email-templates/{writtenEmailTemplate}', [WrittenEmailTemplateItemController::class, 'store'])->name('written-email-templates.item.store');
         Route::delete('written-email-template-item/delete/item', [WrittenEmailTemplateItemController::class, 'destroy'])->name('written-email-templates.item.delete');
         Route::put('written-email-template-item/update/item', [WrittenEmailTemplateItemController::class, 'update'])->name('written-email-templates.item.update');
+
+        Route::resource('template-submit', TemplateSubmitController::class);
     }
 );
 
