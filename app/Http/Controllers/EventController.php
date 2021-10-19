@@ -54,8 +54,8 @@ class EventController extends Controller
             'location' => 'required',
             'date' => 'required|date',
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
-            'start_time' => 'required',
-            'end_time' => 'required',
+            'start_time' => 'nullable',
+            'end_time' => 'nullable',
             'rsvp' => 'nullable|url',
             'zoom' => 'nullable|url',
         ], [

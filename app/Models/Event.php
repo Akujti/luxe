@@ -13,7 +13,6 @@ class Event extends Model
         'start',
     ];
 
-
     protected $fillable = [
         'title',
         'location',
@@ -27,13 +26,11 @@ class Event extends Model
 
     public function getStartAttribute()
     {
-        return $this->date . ' ' . $this->attributes['start_time'];
+        return $this->date .  ($this->attributes['start_time'] ? ' ' . $this->attributes['start_time'] : '');
     }
 
     public function getEndAttribute()
     {
-        return $this->date . ' ' . $this->attributes['end_time'] . '123';
+        return $this->date . ' ' . $this->attributes['end_time'];
     }
-
-
 }
