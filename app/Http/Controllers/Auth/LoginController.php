@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -70,7 +71,7 @@ class LoginController extends Controller
                 $new_user->save();
                 Auth::login($new_user);
             }
-            return redirect('https://myluxehub.com/');
+            return redirect(Redirect::intended('https://myluxehub.com/')->getTargetUrl());
         }
 
         return redirect()->back()->with('error', 'These credentials do not match our records.');
