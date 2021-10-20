@@ -58,7 +58,7 @@
         font-weight: bold;
         font-size: 24px;
         padding: 5px 20px;
-        background-image: url(https://designsbyluxe.com/wp-content/themes/Luxe/img/loginbg.png);
+        background-image: url(https://myluxehub.com/wp-content/themes/Luxe/img/loginbg.png);
         background-repeat: no-repeat;
         background-size: contain;
         margin-top: 20px;
@@ -84,15 +84,15 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-center" style="background:#FFCF40;font-size:20px;"><img class="login-logo"
-                        src="https://designsbyluxe.com/wp-content/uploads/2018/10/logo-big-391x130.png" alt=""
+                        src="https://myluxehub.com/wp-content/uploads/2018/10/logo-big-391x130.png" alt=""
                         height="80px"><br>All templates here. <br>Just login and customize your desired theme.
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" class="flex-column">
                         @csrf
                         <div class="row">
-                            <label for="email"
-                                class="card-label col-md-3 col-form-label text-md-right">{{ __('Email') }}</label>
+                            <label for="email" class="card-label col-md-3 col-form-label text-md-right">{{ __('Email')
+                                }}</label>
 
                             <div class="col-md-9">
                                 <input id="email" type="email"
@@ -108,8 +108,8 @@
                         </div>
 
                         <div class="row">
-                            <label for="password"
-                                class="card-label col-md-3 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="card-label col-md-3 col-form-label text-md-right">{{
+                                __('Password') }}</label>
 
                             <div class="col-md-9">
                                 <input id="password" type="password"
@@ -139,7 +139,7 @@
                                     </div>
                                     <div class="col-6">
                                         <a class="text-white"
-                                            href="https://designsbyluxe.com/my-account/lost-password/">Forgot your
+                                            href="https://myluxehub.com/my-account/lost-password/">Forgot your
                                             password?</a>
                                     </div>
                                 </div>

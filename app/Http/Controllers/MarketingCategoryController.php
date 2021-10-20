@@ -73,7 +73,10 @@ class MarketingCategoryController extends Controller
 
     public function sendEmail(Request $request, MarketingCategory $marketingCategory, Template $template)
     {
+        // dd($request->all());
         $details = [];
+        $details['form_agent_full_name'] = $request->form_agent_full_name;
+        $details['form_agent_email'] = $request->form_agent_email;
         $details['category'] = $marketingCategory->title;
         $details['template'] = $template->title;
         $details['template link'] = env('APP_URL') . '/marketing/' . $marketingCategory->id . '/' . $template->id;
@@ -85,11 +88,15 @@ class MarketingCategoryController extends Controller
             }
             $details[strtolower($key)] = $val;
         }
-        Mail::to('marketing@luxeknows.com')->send(new MarketingRequestMail($details));
+
+        Mail::to(['marketing@luxeknows.com', $request->form_agent_email])->send(new MarketingRequestMail($details));
 
         TemplateSubmit::create([
             'template_id' => $template->id,
             'status' => 0,
+            'agent_name' => $request->form_agent_full_name,
+            'agent_email' => $request->form_agent_email,
+            'details' => json_encode($details),
         ]);
 
         return back()->with('message', 'Form has been submitted');

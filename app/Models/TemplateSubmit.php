@@ -12,7 +12,10 @@ class TemplateSubmit extends Model
 
     protected $fillable = [
         'template_id',
-        'status'
+        'status',
+        'agent_name',
+        'agent_email',
+        'details',
     ];
 
     public function template()

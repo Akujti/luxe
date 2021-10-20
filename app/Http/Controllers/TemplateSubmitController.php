@@ -47,7 +47,8 @@ class TemplateSubmitController extends Controller
      */
     public function show(TemplateSubmit $templateSubmit)
     {
-        //
+        $details = json_decode($templateSubmit->details);
+        return view('pages.template-submits.show', compact('details'));
     }
 
     /**

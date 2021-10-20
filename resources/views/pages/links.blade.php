@@ -100,7 +100,7 @@
         {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">The LUXE Store</p>
-                <a href="https://designsbyluxe.com/shopluxere/" class="image-link" target="_blank">
+                <a href="https://myluxehub.com/shopluxere/" class="image-link" target="_blank">
                     <img src="/images/links/img6.png" alt="" class="image">
                 </a>
             </div>
@@ -116,7 +116,7 @@
         {{-- <div class="col-12 col-lg-3">
             <div class="link-box">
                 <p class="title">Designs By LUXE</p>
-                <a href="http://designsbyluxe.com/member-login/" class="image-link" target="_blank">
+                <a href="http://myluxehub.com/member-login/" class="image-link" target="_blank">
                     <img src="/images/links/img8.png" alt="" class="image">
                 </a>
             </div>
