@@ -31,6 +31,9 @@ use App\Http\Controllers\WrittenEmailTemplateItemController;
 Route::view('door-hanger-template-1', 'door-hangers.template1.web');
 Route::post('door-hanger-template-1', [PDFController::class, 'door_hanger_template_1'])->name('door-hanger-template-1');
 
+Route::view('door-hanger-template-3', 'door-hangers.template3.web');
+Route::post('door-hanger-template-3', [PDFController::class, 'door_hanger_template_3'])->name('door-hanger-template-3');
+
 //Flyers
 Route::view('flyer-template-6', 'flyers.template6.web');
 Route::post('flyer-template-6', [PDFController::class, 'flyer_template_6'])->name('flyer-template-6');

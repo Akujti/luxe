@@ -64,6 +64,27 @@
                                 <option value="Afternoon">Afternoon</option>
                             </select>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Amount Held In Escrow</label>
+                            <input type="number" name="amount_held_in_escrow" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Amount Due To LUXE Agent (before split)</label>
+                            <input type="number" name="amount_due_to_LUXE_agent" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Amount Due To Co-op Agent</label>
+                            <input type="number" name="amount_due_to_co_op_agent" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Co-op Brokerage Name</label>
+                            <input type="text" name="co_op_brokerage_name" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Amount Due To Landlord (if applicable)</label>
+                            <input type="number" name="amount_dute_to_landlord" class="form-control" required>
+                        </div>
+
                         <div class="form-group">
                             <b>Other Required Documents Along With This Form - Must Be Uploaded To Broker
                                 Sumo</b>
