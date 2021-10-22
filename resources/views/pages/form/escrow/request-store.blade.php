@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Agent Name</label>
-                            <input type="text" name="agent_name" class="form-control" required>
+                            <input type="text" name="agent_full_name" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Property Address</label>
@@ -126,8 +126,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </form>
         </div>
     </div>

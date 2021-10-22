@@ -15,16 +15,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="name">First Name</label>
-                            <input type="text" name="first_name" class="form-control" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="name">Last Name</label>
-                            <input type="text" name="last_name" class="form-control" required>
+                            <label for="name">Full Name</label>
+                            <input type="text" name="agent_full_name" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Email</label>
-                            <input type="text" name="email" class="form-control" required>
+                            <input type="text" name="agent_email" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Mobile Phone Number</label>

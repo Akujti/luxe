@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\FormMail;
 use App\Mail\GeneralMailTemplate;
+use App\Models\FormSubmit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -50,6 +51,8 @@ class FormController extends Controller
     public function general_form_post(Request $request)
     {
         $details = [];
+        $details['form_agent_full_name'] = $request->agent_full_name;
+        $details['form_agent_email'] = $request->agent_email;
         foreach ($request->except('_token', 'to_email') as $key => $val) {
             if ($request->hasFile($key)) {
                 $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
@@ -61,6 +64,14 @@ class FormController extends Controller
         $to = $request->to_email;
         $cc = [];
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+
+        FormSubmit::create([
+            'form_title' => $request->form_title,
+            'status' => 0,
+            'agent_name' => $request->agent_full_name,
+            'agent_email' => $request->agent_email,
+            'details' => json_encode($details),
+        ]);
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
 }

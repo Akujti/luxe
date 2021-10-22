@@ -232,6 +232,62 @@
                         The Last 30 Days</span>
                 </p>
             </div>
+            <div class="absolute" style="top: 1200px;left:85px;">
+                <p class="gold" style="font-size:35px;">Address</p>
+                <p class="white" style="font-size:28px;margin-top:16px">9340 SW 174 St</p>
+                <p class="white" style="font-size:28px;margin-top:15px">8301 SW 164 St</p>
+                <p class="white" style="font-size:28px;margin-top:18px">9340 SW 174 St</p>
+                <p class="white" style="font-size:28px;margin-top:17px">8301 SW 164 St</p>
+            </div>
+            <div class="absolute" style="top: 1200px;left:340px;">
+                <p class="" style="font-size:35px;margin-left:-10px;">Sale Price</p>
+                <p class="white" style="font-size:28px;margin-top:16px">$466,000</p>
+                <p class="white" style="font-size:28px;margin-top:15px">$466,000</p>
+                <p class="white" style="font-size:28px;margin-top:18px">$466,000</p>
+                <p class="white" style="font-size:28px;margin-top:17px">$466,000</p>
+            </div>
+            <div class="absolute" style="top: 1200px;left:580px;">
+                <p class="" style="font-size:35px;margin-left:-60px;">Beds/Baths</p>
+                <p class="white" style="font-size:28px;margin-top:16px">4/3</p>
+                <p class="white" style="font-size:28px;margin-top:15px">4/3</p>
+                <p class="white" style="font-size:28px;margin-top:18px">4/3</p>
+                <p class="white" style="font-size:28px;margin-top:17px">4/3</p>
+            </div>
+            <div class="absolute" style="top: 1200px;left:740px;">
+                <p class="gold" style="font-size:35px;margin-left:0px;">Beds/Baths</p>
+                <p class="white" style="font-size:28px;margin-top:16px">2,627 SqFt</p>
+                <p class="white" style="font-size:28px;margin-top:15px">2,627 SqFt</p>
+                <p class="white" style="font-size:28px;margin-top:18px">2,627 SqFt</p>
+                <p class="white" style="font-size:28px;margin-top:17px">2,627 SqFt</p>
+            </div>
+            <div class="absolute" style="top: 1670px;left:85px;">
+                <p class="gold" style="font-size:35px;">Address</p>
+                <p class="white" style="font-size:28px;margin-top:16px">9340 SW 174 St</p>
+                <p class="white" style="font-size:28px;margin-top:15px">8301 SW 164 St</p>
+                <p class="white" style="font-size:28px;margin-top:18px">9340 SW 174 St</p>
+                <p class="white" style="font-size:28px;margin-top:17px">8301 SW 164 St</p>
+            </div>
+            <div class="absolute" style="top: 1670px;left:340px;">
+                <p class="" style="font-size:35px;margin-left:-10px;">Sale Price</p>
+                <p class="white" style="font-size:28px;margin-top:16px">$466,000</p>
+                <p class="white" style="font-size:28px;margin-top:15px">$466,000</p>
+                <p class="white" style="font-size:28px;margin-top:18px">$466,000</p>
+                <p class="white" style="font-size:28px;margin-top:17px">$466,000</p>
+            </div>
+            <div class="absolute" style="top: 1670px;left:580px;">
+                <p class="" style="font-size:35px;margin-left:-60px;">Beds/Baths</p>
+                <p class="white" style="font-size:28px;margin-top:16px">4/3</p>
+                <p class="white" style="font-size:28px;margin-top:15px">4/3</p>
+                <p class="white" style="font-size:28px;margin-top:18px">4/3</p>
+                <p class="white" style="font-size:28px;margin-top:17px">4/3</p>
+            </div>
+            <div class="absolute" style="top: 1670px;left:740px;">
+                <p class="gold" style="font-size:35px;margin-left:0px;">Beds/Baths</p>
+                <p class="white" style="font-size:28px;margin-top:16px">2,627 SqFt</p>
+                <p class="white" style="font-size:28px;margin-top:15px">2,627 SqFt</p>
+                <p class="white" style="font-size:28px;margin-top:18px">2,627 SqFt</p>
+                <p class="white" style="font-size:28px;margin-top:17px">2,627 SqFt</p>
+            </div>
             <div class="absolute w-100 text-right" style="top: 1560px;right:70px;">
                 <p class="gold bold" style="font-size:70px;letter-spacing:3px">Listed <span class="white"
                         style="font-size: 40px;font-weight:300;">Within

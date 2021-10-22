@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Full name</label>
-                            <input type="text" name="full_name" class="form-control" required>
+                            <input type="text" name="agent_full_name" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Phone</label>
@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Email</label>
-                            <input type="text" name="email" class="form-control" required>
+                            <input type="text" name="agent_email" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent zillow profile link</label>
@@ -58,6 +58,23 @@
                         <div class="form-group col-md-6">
                             <label for="name">Have you been set up on the Bundle?</label>
                             <input type="text" name="have_you_been_set_up_on_the_bundle" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Are you working full-time or part-time in real estate?</label>
+                            <select name="are_you_working_full_time_or_part_time_in_real_estate" class="form-control"
+                                required id="">
+                                <option value="-">-</option>
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Do you have an active MLS?</label>
+                            <select name="do_you_have_an_active_mls" class="form-control" required id="">
+                                <option value="-">-</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
                         </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">

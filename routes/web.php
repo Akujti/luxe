@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\WrittenEmailTemplateController;
@@ -221,6 +222,7 @@ Route::group(
         Route::put('written-email-template-item/update/item', [WrittenEmailTemplateItemController::class, 'update'])->name('written-email-templates.item.update');
 
         Route::resource('template-submit', TemplateSubmitController::class);
+        Route::resource('form-submit', FormSubmitController::class);
     }
 );
 

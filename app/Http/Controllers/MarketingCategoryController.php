@@ -73,7 +73,6 @@ class MarketingCategoryController extends Controller
 
     public function sendEmail(Request $request, MarketingCategory $marketingCategory, Template $template)
     {
-        // dd($request->all());
         $details = [];
         $details['form_agent_full_name'] = $request->form_agent_full_name;
         $details['form_agent_email'] = $request->form_agent_email;
