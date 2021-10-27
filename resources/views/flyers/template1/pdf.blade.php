@@ -159,6 +159,30 @@
     .white-border {
         border: 5px solid white;
     }
+
+    .text-3.extra-small {
+        font-size: 45px;
+    }
+
+    .text-3.small {
+        font-size: 50px;
+    }
+
+    .text-3.normal {
+        font-size: 55px;
+    }
+
+    .text-4.small {
+        font-size: 20px;
+    }
+
+    .text-4.normal {
+        font-size: 25px;
+    }
+
+    .text-4.large {
+        font-size: 30px;
+    }
 </style>
 
 <body>
@@ -195,8 +219,8 @@
             <p class="extra-bold white title" style="margin-top:-60px">{{ $text_2 }}</p>
         </div>
         <div class="absolute" style="text-align: right;top:28px;right:510px;">
-            <p class="oswald white" style="font-size: 55px;letter-spacing:-1px;">{{ $text_3 }}</p>
-            <p class="" style="font-size: 25px;margin-top:-25px">{{ $text_4 }}</p>
+            <p class="oswald white text-3 {{$text_3_select}}" style="letter-spacing:-1px;">{{ $text_3 }}</p>
+            <p class="text-4 {{$text_4_select}}" style="margin-top:-25px">{{ $text_4 }}</p>
         </div>
         <div class="absolute" style="text-align: right;top:225px;right:740px;">
             <p class="gold list" style="">{!! $text_5 !!}</p>

@@ -242,6 +242,30 @@
             zoom: 87% !important;
         }
     }
+
+    .text-3.extra-small {
+        font-size: 45px;
+    }
+
+    .text-3.small {
+        font-size: 50px;
+    }
+
+    .text-3.normal {
+        font-size: 55px;
+    }
+
+    .text-4.small {
+        font-size: 20px;
+    }
+
+    .text-4.normal {
+        font-size: 25px;
+    }
+
+    .text-4.large {
+        font-size: 30px;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -299,9 +323,9 @@
                         <p class="extra-bold white title text-2" style="margin-top:-25px">Listed</p>
                     </div>
                     <div class="absolute" style="text-align: right;top:50px;right:510px;">
-                        <p class="oswald white text-3" style="font-size: 55px;letter-spacing:-1px;">775 NE 77 TERRACE
+                        <p class="oswald white text-3 normal" style="letter-spacing:-1px;">775 NE 77 TERRACE
                         </p>
-                        <p class="text-4" style="font-size: 25px;margin-top:-15px">MIAMI, FL 33138</p>
+                        <p class="text-4 normal" style="margin-top:-15px">MIAMI, FL 33138</p>
                     </div>
                     <div class="absolute" style="text-align: right;top:233px;right:740px;">
                         <p class="gold list text-5" style=""><span class="bold mr-3">6</span> Beds</p>
@@ -376,10 +400,22 @@
                     <div class="pr-10">
                         <label for="text-1">Address 1</label>
                         <input type="text" id="text-3" name="text_3" value="775 NE 77 TERRACE">
+                        <select name="text_3_select" id="text_3_select" data-id-to-change="text-3"
+                            onchange="change_font_size(this)">
+                            <option value="extra-small">Extra Small</option>
+                            <option value="small">Small</option>
+                            <option value="normal" selected>Normal</option>
+                        </select>
                     </div>
                     <div>
                         <label for="text-2">Address 2</label>
                         <input type="text" id="text-4" name="text_4" value="MIAMI, FL 33138">
+                        <select name="text_4_select" id="text_4_select" data-id-to-change="text-4"
+                            onchange="change_font_size(this)">
+                            <option value="small">Small</option>
+                            <option value="normal" selected>Normal</option>
+                            <option value="large">Large</option>
+                        </select>
                     </div>
                 </div>
                 <div class="flex">
@@ -520,6 +556,7 @@
             textarea.innerHTML = text;
         }
     });
+
     function change_font_size(select_input){
         console.log(select_input);
         var select_id = select_input.id;
@@ -529,11 +566,14 @@
         remove_classes(element_to_edit);
         $("."+element_to_edit).addClass(font_size);
     }
+
     function remove_classes(element){
-        $("."+element+"").removeClass('small');
-        $("."+element+"").removeClass('normal');
-        $("."+element+"").removeClass('large');
+        $("."+element).removeClass('extra-small');
+        $("."+element).removeClass('small');
+        $("."+element).removeClass('normal');
+        $("."+element).removeClass('large');
     }
+
     $(document).ready(function() {        
         $("input").change(function(event) {
             var event_id = event.target.id;

@@ -341,6 +341,8 @@ class PDFController extends Controller
             'text_18' => $request['text_18'],
             'text_19' => $request['text_19'],
 
+            'text_6_select' => $request['text_6_select'],
+
             'img_1_input' => $request['img_1_input'],
             'img_2_input' => $request['img_2_input'],
             'img_3_input' => $request['img_3_input'],
@@ -384,6 +386,9 @@ class PDFController extends Controller
             'text_17' => $request['text_17'],
             'text_18' => $request['text_18'],
             'text_19' => $request['text_19'],
+
+            'text_3_select' => $request['text_3_select'],
+            'text_4_select' => $request['text_4_select'],
 
             'img_1_input' => $request['img_1_input'],
             'img_2_input' => $request['img_2_input'],

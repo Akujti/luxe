@@ -189,6 +189,30 @@
         padding-left: 20px;
         background: white;
     }
+
+    .text-border.extra-small {
+        line-height: 27px !important;
+    }
+
+    .text-border.small {
+        line-height: 32ch !important;
+    }
+
+    .text-border.normal {
+        line-height: 37px !important;
+    }
+
+    .text-6.extra-small {
+        font-size: 30px !important;
+    }
+
+    .text-6.small {
+        font-size: 35px !important;
+    }
+
+    .text-6.normal {
+        font-size: 40px !important;
+    }
 </style>
 
 <body>
@@ -237,7 +261,7 @@
         <div class="absolute" style="top:335px;left:440px;">
             <ul>
                 <li class="gold">
-                    <div class="text-border oswald-med">{{$text_6}}</div>
+                    <div class="text-border oswald-med text-6 {{$text_6_select}}">{{$text_6}}</div>
                 </li>
             </ul>
         </div>

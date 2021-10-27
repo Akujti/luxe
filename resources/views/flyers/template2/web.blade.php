@@ -273,6 +273,18 @@
             zoom: 87% !important;
         }
     }
+
+    .text-6.extra-small {
+        font-size: 30px !important;
+    }
+
+    .text-6.small {
+        font-size: 35px !important;
+    }
+
+    .text-6.normal {
+        font-size: 40px !important;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -343,7 +355,7 @@
                     <div class="absolute" style="top:335px;left:440px;height: 85px;">
                         <ul>
                             <li class="gold">
-                                <div class="text-border oswald-med text-6">12625 SW 78th AVENUE</div>
+                                <div class="text-border oswald-med text-6 normal">12625 SW 78th AVENUE</div>
                             </li>
                         </ul>
                     </div>
@@ -447,6 +459,12 @@
                     <div>
                         <label for="text-6">Address</label>
                         <input type="text" id="text-6" name="text_6" value="12625 SW 78th AVENUE">
+                        <select name="text_6_select" id="text_6_select" data-id-to-change="text-6"
+                            onchange="change_font_size(this)">
+                            <option value="extra-small">Extra Small</option>
+                            <option value="small">Small</option>
+                            <option value="normal" selected>Normal</option>
+                        </select>
                     </div>
                 </div>
                 <div class="file-input-width">
@@ -571,7 +589,6 @@
         }
     });
     function change_font_size(select_input){
-        console.log(select_input);
         var select_id = select_input.id;
         var selector = $('#'+select_id);
         var element_to_edit = selector.attr('data-id-to-change');
@@ -579,11 +596,14 @@
         remove_classes(element_to_edit);
         $("."+element_to_edit).addClass(font_size);
     }
+
     function remove_classes(element){
-        $("."+element+"").removeClass('small');
-        $("."+element+"").removeClass('normal');
-        $("."+element+"").removeClass('large');
+        $("."+element).removeClass('extra-small');
+        $("."+element).removeClass('small');
+        $("."+element).removeClass('normal');
+        $("."+element).removeClass('large');
     }
+
     $(document).ready(function() {        
         $("input").change(function(event) {
             var event_id = event.target.id;
