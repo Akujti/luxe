@@ -6,7 +6,8 @@
             <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST">
                 @csrf
                 <div class="card-header">
-                    <h1 class="text-center my-4">Request 25 CINC Leads</h1>
+                    <h1 class="text-center mt-4">Request 25 CINC Leads</h1>
+                    <h6 class="text-center mb-4">**THE LEADS WILL BE REROUTED IF NOT CONTACTED WITHIN 2 HOURS**</h6>
                 </div>
                 <input type="hidden" name="form_title" value="Request 25 CINC Leads">
                 <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
