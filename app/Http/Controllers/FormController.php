@@ -7,6 +7,8 @@ use App\Mail\GeneralMailTemplate;
 use App\Models\FormSubmit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class FormController extends Controller
 {
@@ -57,7 +59,7 @@ class FormController extends Controller
             if ($request->hasFile($key)) {
                 $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
                 $path = Storage::put('public/images/marketing', $val, 'public');
-                $val = env('APP_URL') . Storage::url($path);
+                $val = substr_replace(Storage::url($path), '', 0, 1);
             }
             $details[strtolower($key)] = $val;
         }
@@ -73,5 +75,10 @@ class FormController extends Controller
             'details' => json_encode($details),
         ]);
         return redirect()->back()->with('message', 'Form has been submitted!');
+    }
+
+    public function file_download()
+    {
+        return response()->download(request()->path);
     }
 }

@@ -238,5 +238,6 @@ Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryControl
 
 Route::post('marketing/{marketingCategory}/{template}/email/send', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
 Route::post('general/form/send', [FormController::class, 'general_form_post'])->name('general.email.post');
+Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 Route::get('general/form/{folder}/{form}', [FormController::class, 'general_form_index'])->name('general.email.index');
 Route::get('loginTest', [UserController::class, 'login']);
