@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    @media(min-width:1200px) {
+        pre {
+            padding-left: 150px;
+        }
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center my-4">
         <div class="col-md-12">
@@ -8,7 +15,7 @@
                     <h5>Prior to scheduling a photoshoot for your listing you must agree to the following terms:</h5>
                 </div>
                 <div class="card-body">
-                    <pre>
+                    <pre style="font-family: Arial;">
                     If your listing agreement does not meet the requirements for the shoot to be covered by LUXE, you
                     understand that you will be responsible for submitting payment prior to the shoot.
                     

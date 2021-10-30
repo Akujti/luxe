@@ -7,9 +7,9 @@
             <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST">
                 @csrf
                 <div class="card-header">
-                    <h1 class="text-center my-4">Request Zillow Nurtures</h1>
+                    <h1 class="text-center my-4">Zillow Pause Request</h1>
                 </div>
-                <input type="hidden" name="form_title" value="Request Zillow Nurtures">
+                <input type="hidden" name="form_title" value="Zillow Pause Request">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
