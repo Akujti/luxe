@@ -4,7 +4,7 @@
     <div class="row justify-content-center my-4">
         <div class="col-md-12">
             <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST"
-                onsubmit="event.preventDefault(); addAgentEmail()">
+                onsubmit="addAgentEmail()">
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">CLOSING COORDINATORS</h1>
@@ -68,11 +68,10 @@
 </div>
 <script>
     function addAgentEmail(){
-        if(getUrlParameter('agent_email')){
+        if(getUrlParameter('agent_email'))
             $('[name="to_email[]"]').val(getUrlParameter('agent_email'))
-            return true;
-        }
-        return false;
+        else
+            $('[name="to_email[]"]').val('wesley@luxeknows.com')
     }
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
