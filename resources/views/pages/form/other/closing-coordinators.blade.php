@@ -69,7 +69,6 @@
 <script>
     function addAgentEmail(){
         if(getUrlParameter('agent_email')){
-            alert(getUrlParameter('agent_email'))
             $('[name="to_email[]"]').val(getUrlParameter('agent_email'))
             return true;
         }
