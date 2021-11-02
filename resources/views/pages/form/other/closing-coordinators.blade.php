@@ -57,6 +57,30 @@
                             <label for="name">Co-op Agent Phone Number</label>
                             <input type="text" name="co_op_agent_number" class="form-control" required>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Attorney/Title Company Name</label>
+                            <input type="text" name="attorney_name" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Attorney/Title Company Email</label>
+                            <input type="text" name="attorney_email" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Attorney/Title Company Phone Number</label>
+                            <input type="text" name="attorney_number" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">HOA Name</label>
+                            <input type="text" name="hoa_name" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">HOA Email</label>
+                            <input type="text" name="hoa_email" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">HOA Phone Number</label>
+                            <input type="text" name="hoa_number" class="form-control">
+                        </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>

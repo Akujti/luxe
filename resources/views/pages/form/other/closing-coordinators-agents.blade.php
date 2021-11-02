@@ -21,17 +21,6 @@
         align-items: center;
     }
 
-    .card-header:after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        width: 104px;
-        height: 2px;
-        background-color: rgba(255, 207, 64, 1);
-        left: 50%;
-        margin-left: -52px;
-    }
-
     .card-header {
         font-size: 18px;
         color: #ffffff;
@@ -50,10 +39,18 @@
 
     .agent-name {
         margin-top: 20px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(255, 255, 255, 0.26) 100%);
+        border-radius: 15px;
+        border: 1px solid #fff;
+        padding: 18px 0;
+        text-transform: uppercase;
     }
 
     .agents img {
-        border-radius: 10px
+        border-radius: 10px;
+        max-height: 350px;
+        object-fit: cover;
+        object-position: top;
     }
 </style>
 @endsection
