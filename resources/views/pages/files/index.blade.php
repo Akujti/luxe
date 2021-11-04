@@ -242,7 +242,7 @@
                         <label for="start">{{ __('Select File') }}</label>
                         <div class="custom-file">
                             <input type="file" name="file" class="form-control" id="inputGroupFile01"
-                                style="padding: 3px;">
+                                style="padding: 3px;" required>
                         </div>
                     </div>
 
