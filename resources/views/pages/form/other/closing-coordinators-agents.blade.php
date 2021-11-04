@@ -61,7 +61,8 @@
     <div class="row">
         <div class="col my-2">
             <div class="bg-transparent">
-                <a href="/general/form/other/closing-coordinators?agent_email=denisse@luxeknows.com">
+                <a
+                    href="/general/form/other/closing-coordinators?agent_email=denisse@luxeknows.com&agent_text=Senior Closing Coordinator - Basic Package $300 - VIP Package $500">
                     <div class="card-header">
                         <img src="{{asset('images/agents/dennise.jpg')}}" alt="" class="w-100">
                         <p class="agent-name">Denisse Uyema</p>
@@ -71,7 +72,8 @@
         </div>
         <div class="col my-2">
             <div class="bg-transparent">
-                <a href="/general/form/other/closing-coordinators?agent_email=victoria@luxeknows.com">
+                <a
+                    href="/general/form/other/closing-coordinators?agent_email=victoria@luxeknows.com&agent_text=Closing Coordinator - Basic Package $200 - VIP Package $325">
                     <div class="card-header">
                         <img src="{{asset('images/agents/victoria.jpg')}}" alt="" class="w-100">
                         <p class="agent-name">Victoria Lettieri</p>
@@ -81,7 +83,8 @@
         </div>
         <div class="col my-2">
             <div class="bg-transparent">
-                <a href="/general/form/other/closing-coordinators?agent_email=theclosinggenie@gmail.com">
+                <a
+                    href="/general/form/other/closing-coordinators?agent_email=theclosinggenie@gmail.com&agent_text=Senior Closing Coordinator - Standard Package $399">
                     <div class="card-header">
                         <img src="{{asset('images/agents/maribel.jpg')}}" alt="" class="w-100">
                         <p class="agent-name">Maribel Gonzalez</p>

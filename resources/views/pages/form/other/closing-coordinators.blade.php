@@ -8,6 +8,7 @@
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">CLOSING COORDINATORS</h1>
+                    <h6 id="agent-text" class="text-center" style="font-size: 21px;"></h6>
                 </div>
                 <input type="hidden" name="form_title" value="CLOSING COORDINATORS">
                 <input type="hidden" name="to_email[]" value="">
@@ -110,5 +111,6 @@
         }
         return false;
     };
+    document.getElementById('agent-text').innerHTML=getUrlParameter('agent_text')
 </script>
 @endsection
