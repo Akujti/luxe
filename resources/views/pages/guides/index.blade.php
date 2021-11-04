@@ -145,7 +145,7 @@
                     <div class="form-group">
                         <label for="start">{{ __('File Name') }}</label>
                         <div class='input-group'>
-                            <input type="text" class="w-100 form-control" name="title">
+                            <input type="text" class="w-100 form-control" name="title" required>
                         </div>
                     </div>
                     <div class="form-group">
