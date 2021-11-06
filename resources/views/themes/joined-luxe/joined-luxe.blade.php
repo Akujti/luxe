@@ -83,6 +83,10 @@
         font-size: 204px;
     }
 
+    .page-1-text-12.extra-small {
+        font-size: 200px;
+    }
+
     .page-1-text-12.small {
         font-size: 340px;
     }

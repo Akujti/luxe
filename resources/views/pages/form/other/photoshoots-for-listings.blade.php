@@ -46,7 +46,8 @@
                     • $225 charge if property not set up correctly/prepared before photographer arrival
                     • $225 charge if photographer must make a 2nd visit to same property
                     • $75 Travel Free for any property past W Atlantic Blvd
-                    • Only properties in Miami-Dade or Broward county are covered</pre>
+                    • Only properties in Miami-Dade or Broward county are covered
+                    <b>*Please note: If property does not sell (cancelled, expired, or withdrawn), agent will be charged for shoot fee​​.​​*<b></pre>
                 </div>
                 <div class="card-footer">
                     <button onclick="showForm()" class="btn btn-luxe w-100">I Agree</button>

@@ -152,6 +152,10 @@
         font-size: 48px;
     }
 
+    .page-1-text-12.extra-small {
+        font-size: 44px;
+    }
+
     .page-1-text-12.small {
         font-size: 80px;
     }
@@ -269,6 +273,7 @@
                         <input type="text" id="page-1-text-12" name="page_1_text_12" value="LUXE">
                         <select name="page_1_text_12_select" id="page_1_text_12_select"
                             data-id-to-change="page-1-text-12" onchange="change_font_size(this)">
+                            <option value="extra-small">Extra Small</option>
                             <option value="small">Small</option>
                             <option value="normal" selected>Medium</option>
                             <option value="large">Large</option>
