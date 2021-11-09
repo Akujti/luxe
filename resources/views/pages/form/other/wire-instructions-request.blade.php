@@ -62,6 +62,10 @@
                                 <option value="Rental Escrow Deposit">Rental Escrow Deposit</option>
                             </select>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Property Address For Wire</label>
+                            <input type="text" name="property_address_for_wire" class="form-control" required>
+                        </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
