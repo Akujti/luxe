@@ -11,7 +11,8 @@
                     <h6 id="agent-text" class="text-center" style="font-size: 21px;"></h6>
                 </div>
                 <input type="hidden" name="form_title" value="CLOSING COORDINATORS">
-                <input type="hidden" name="to_email[]" value="">
+                <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
