@@ -6,6 +6,7 @@ use App\Mail\FormMail;
 use App\Mail\GeneralMailTemplate;
 use App\Models\FormSubmit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -50,6 +51,7 @@ class FormController extends Controller
     {
         return view('pages/form/' . $folder . '/' . $form);
     }
+
     public function general_form_post(Request $request)
     {
         $details = [];
@@ -64,6 +66,7 @@ class FormController extends Controller
             $details[strtolower($key)] = $val;
         }
         $to = $request->to_email;
+        array_push($to, $request->agent_email);
         $cc = [];
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
 

@@ -62,6 +62,7 @@
                 </div>
                 <input type="hidden" name="form_title" value="Photoshoots For Listings">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">

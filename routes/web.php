@@ -223,6 +223,7 @@ Route::group(
 
         Route::resource('template-submit', TemplateSubmitController::class);
         Route::resource('form-submit', FormSubmitController::class);
+        Route::post('form-submit', [FormSubmitController::class, 'getCsv'])->name('getCsv');
     }
 );
 

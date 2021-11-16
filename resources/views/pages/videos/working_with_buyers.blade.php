@@ -45,10 +45,10 @@
     <div class="row my-4">
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="{{route('video.folder','working_with_buyers')}}">
+                <a href="javascript:void(0)">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        WORKING WITH BUYERS, SELLERS, & RENTALS
+                        BUYER REPRESENTATION
                     </p>
                 </a>
             </div>
@@ -58,17 +58,7 @@
                 <a href="javascript:void(0)">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        LEAD GENERATION
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','business_planning')}}">
-                    <img src="/images/files/video-folder.png" alt="">
-                    <p>
-                        BUSINESS PLANNING & PERSONAL DEVELOPMENT
+                        SELLER REPRESENTATION
                     </p>
                 </a>
             </div>
@@ -78,47 +68,17 @@
                 <a href="javascript:void(0)">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        HOW TO DO CONTRACTS & FORMS
+                        TENANT/LANDLORD REPRESENTATION
                     </p>
                 </a>
             </div>
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','working_with_investors')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        CONTRACTS TO CLOSE
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="folder mb-2">
-                <a href="javascript:void(0)">
-                    <img src="/images/files/video-folder.png" alt="">
-                    <p>
-                        TECHNOLOGY WALK-THROUGH & HOW TO
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="folder mb-2">
-                <a href="javascript:void(0)">
-                    <img src="/images/files/video-folder.png" alt="">
-                    <p>
-                        MARKETING & BRANDING
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="folder mb-2">
-                <a href="javascript:void(0)">
-                    <img src="/images/files/video-folder.png" alt="">
-                    <p>
-                        INSPECTIONS, FINANCING, TITLE, INSURANCE
+                        WORKING WITH INVESTORS
                     </p>
                 </a>
             </div>

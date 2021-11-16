@@ -19,6 +19,10 @@
                             <input type="text" name="agent_full_name" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
+                            <label for="name">Agent Email</label>
+                            <input type="text" name="agent_email" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
                             <label for="name">Property Address</label>
                             <input type="text" name="property_address" class="form-control" required>
                         </div>
@@ -111,6 +115,7 @@
                                 <option value="-">-</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
+                                <option value="N/A">N/A - No HOA for property</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">

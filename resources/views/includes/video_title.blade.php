@@ -1,0 +1,1 @@
+<p class="text-center" style="font-size: 28px">Password to watch videos is: Luxeknows123</p>

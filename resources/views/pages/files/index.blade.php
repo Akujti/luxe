@@ -183,7 +183,7 @@
         @foreach ($files as $file)
         <div class="col-12 col-lg-2">
             <div class="folder mb-2">
-                <a href="{{'/storage/'.$file->file}}" target="_blank">
+                <a href="{{'/storage/'.$file->file}}" download target="_blank">
                     @if ($file->type == 'img')
                     <img class="preview-img" src="{{'/storage/'.$file->file}}" alt="">
                     @else
