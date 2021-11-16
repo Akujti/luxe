@@ -8,7 +8,13 @@
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">Pre-Approval Form</h1>
+                    @if (auth()->user()->isAdmin)
+                    <div class="form-group text-center">
+                        <input class="btn btn-luxe" value="EXPORT CSV" onclick="createCsv()">
+                    </div>
+                    @endif
                 </div>
+                <input type="hidden" name="form_title" value="Pre-Approval Form">
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -22,6 +28,10 @@
                         <div class="form-group col-md-6">
                             <label for="name">Client's Email *</label>
                             <input type="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Agent's Email *</label>
+                            <input type="email" name="agent_email" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Referring Agent *</label>
@@ -54,10 +64,17 @@
                         </div>
                     </div>
                 </div>
-
-
+            </form>
+            <form action="{{route('getCsv')}}" method="post" id="csv">
+                @csrf
+                <input type="hidden" name="title" value="Pre-Approval Form">
             </form>
         </div>
     </div>
 </div>
+<script>
+    function createCsv(){
+        $('#csv').submit()
+    }
+</script>
 @endsection

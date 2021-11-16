@@ -42,6 +42,15 @@ class FormController extends Controller
             $to = ['wesley@luxehomeloan.com'];
             $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com'];
             Mail::to($to)->cc($cc)->send(new FormMail($details));
+
+            FormSubmit::create([
+                'form_title' => $request->form_title,
+                'status' => 0,
+                'agent_name' => $request->agent,
+                'agent_email' => $request->agent_email,
+                'details' => json_encode($details),
+            ]);
+
             return back()->with('message', 'Sent successfully . ');
         } catch (\Throwable $th) {
             return back()->with('error', 'Ooops! try again later!');
