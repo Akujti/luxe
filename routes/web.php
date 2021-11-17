@@ -28,6 +28,10 @@ use App\Http\Controllers\WrittenEmailTemplateItemController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::view('generate-offer', 'generate.web');
+Route::post('generate-offer', [PDFController::class, 'generate_offer'])->name('generate.offer');
+
 // Door Hangers
 Route::view('door-hanger-template-1', 'door-hangers.template1.web');
 Route::post('door-hanger-template-1', [PDFController::class, 'door_hanger_template_1'])->name('door-hanger-template-1');

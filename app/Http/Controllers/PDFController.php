@@ -53,6 +53,16 @@ class PDFController extends Controller
         return $filePath;
     }
 
+    public function generate_offer(Request $request)
+    {
+        $data = [];
+        $pdf = PDF::loadView('generate.pdf', $data);
+        $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+        $pdf->save($fileName);
+        return $pdf->download('Generate PDF.pdf');
+    }
+
+
     // Door Hangers
 
     public function door_hanger_template_1(Request $request)
