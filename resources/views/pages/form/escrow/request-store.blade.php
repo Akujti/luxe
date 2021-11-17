@@ -124,6 +124,7 @@
                                 <option value="-">-</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
+                                <option value="N/A">N/A</option>
                             </select>
                         </div>
                         <div class="form-group col-12">
