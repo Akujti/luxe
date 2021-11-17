@@ -5,6 +5,7 @@
         background-color: #FFCF40;
         padding: 10px;
         display: block;
+        border: 1px solid black;
     }
 
     input,
@@ -27,7 +28,7 @@
         font-size: 18px;
         padding: 20px;
         background-color: #FFCF40;
-        color: white;
+        /* color: white; */
         text-decoration: none;
     }
 </style>
@@ -41,22 +42,22 @@
     crossorigin="anonymous" />
 
 <body>
-    <form action="{{ route('generate.offer') }}" method="POST">
+    <form action="{{ route('generate.offer') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="container">
+        <div class="container text-center">
+            <img src="{{asset('images/generate/main.jpg')}}" alt="" class="w-50 text-center">
             <div class="row justify-content-center">
                 <div class="row-input">
                     <div class="">
                         <label for="page-1-img-1">Upload CSV</label>
-                        <input type="file" id="img-3-input" onchange="img_3_change()">
+                        <input type="file" id="file" name="file" required>
                     </div>
-                    <div class="" style="margin-top:20px;">
-                        <button type="submit" name="action" value="Generate" class="generate w-100">Generate</button>
+                    <div class="" style="margin-top:15px;">
+                        <button type="submit" name="action" value="Generate" class="generate w-100">DOWNLOAD</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
 </body>
-
 @endsection

@@ -56,10 +56,52 @@ class PDFController extends Controller
     public function generate_offer(Request $request)
     {
         $data = [];
-        $pdf = PDF::loadView('generate.pdf', $data);
-        $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
-        $pdf->save($fileName);
-        return $pdf->download('Generate PDF.pdf');
+
+        $request->validate([
+            'file' => 'required|mimes:csv,txt|max:1024',
+        ]);
+
+        $file = $request->file('file');
+        // File Details
+        $filename = $file->getClientOriginalName();
+
+        $location = 'storage/uploads';
+        // Upload file
+        $file->move($location, $filename);
+        // Import CSV to Database
+        $filepath = public_path($location . "/" . $filename);
+        // Reading file
+        $file = fopen($filepath, "r");
+        $importData_arr = [];
+        $i = 0;
+        $zip = new \ZipArchive();
+        $zipname = 'Generated.zip';
+        $zip = new \ZipArchive;
+        $zip->open($zipname, \ZipArchive::OVERWRITE);
+        while (($filedata = fgetcsv($file, 20000, ";", '"')) !== FALSE) {
+            $num = count($filedata);
+            //Skip first row(Remove below comment if you want to skip the first row)
+            if ($i == 0) {
+                $i++;
+                continue;
+            }
+            for ($c = 0; $c < $num; $c++) {
+                $importData_arr[$i][] = $filedata[$c];
+            }
+            $pdf = PDF::loadView('generate.pdf', $data);
+            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $pdf->save($fileName);
+            $zip->addFile($fileName);
+            $i++;
+        }
+        fclose($file);
+        $zip->close();
+
+        header('Content-Type: application/zip');
+        header("Content-Disposition: attachment; filename=Generated.zip");
+        header('Content-Length: ' . filesize($zipname));
+        header("Location: Generated.zip");
+        readfile($zipname);
     }
 
 
