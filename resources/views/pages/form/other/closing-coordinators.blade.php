@@ -84,6 +84,13 @@
                             <label for="name">HOA Phone Number</label>
                             <input type="text" name="hoa_number" class="form-control">
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Is this a LUXE Zillow lead?</label>
+                            <select name="is_this_luxe_zillow_lead" class="form-control">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
