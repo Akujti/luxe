@@ -8,12 +8,12 @@
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">CLOSING COORDINATORS</h1>
-                    <h6 id="agent-text" class="text-center" style="font-size: 21px;"></h6>
+                    <h6 id="agent-text" class="text-center" style="font-size: 21px;">{{$coordinator->sentence}}</h6>
                 </div>
                 <input type="hidden" name="form_title" value="CLOSING COORDINATORS">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com" id="agent_email_form">
+                <input type="hidden" name="to_email[]" value="{{$coordinator->email}}">
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -87,6 +87,7 @@
                         <div class="form-group col-md-6">
                             <label for="name">Is this a LUXE Zillow lead?</label>
                             <select name="is_this_luxe_zillow_lead" class="form-control">
+                                <option value="-">-</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
@@ -100,24 +101,4 @@
         </div>
     </div>
 </div>
-<script>
-    function addAgentEmail(){
-        if(getUrlParameter('agent_email'))
-            $('#agent_email_form').val(getUrlParameter('agent_email'))
-    }
-    var getUrlParameter = function getUrlParameter(sParam) {
-        var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;    
-        for (i = 0; i < sURLVariables.length; i++) { sParameterName=sURLVariables[i].split('=');
-    
-            if (sParameterName[0] === sParam) {
-                return typeof sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-            }
-        }
-        return false;
-    };
-    document.getElementById('agent-text').innerHTML=getUrlParameter('agent_text')
-</script>
 @endsection

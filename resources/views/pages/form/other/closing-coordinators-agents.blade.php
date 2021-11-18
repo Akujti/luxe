@@ -42,7 +42,7 @@
         background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(255, 255, 255, 0.26) 100%);
         border-radius: 15px;
         border: 1px solid #fff;
-        padding: 18px 0;
+        padding: 18px 30px;
         text-transform: uppercase;
     }
 
@@ -52,6 +52,12 @@
         object-fit: cover;
         object-position: top;
     }
+
+    /* .agents .col.my-2 {
+        display: flex;
+        flex-flow: column;
+        align-self: center;
+    } */
 </style>
 @endsection
 @section('content')
@@ -59,18 +65,37 @@
 <div class="container agents">
     <h1 class="text-center text-white">CLOSING COORDINATORS</h1>
     <div class="row">
+        @foreach ($coordinators as $coordinator)
         <div class="col my-2">
+            @if (auth()->user() && auth()->user()->isAdmin)
+            <form action="{{route('change_status')}}" method="POST">
+                @csrf
+                <input type="hidden" name="id" value="{{$coordinator->id}}">
+                <button type="submit" class="btn btn-luxe text-center w-100">{{$coordinator->status ?
+                    'Hide':'Show'}}</button>
+            </form>
+            @endif
+            @if ($coordinator->status)
             <div class="bg-transparent">
-                <a
-                    href="/general/form/other/closing-coordinators?agent_email=denisse@luxeknows.com&agent_text=Senior Closing Coordinator - Basic Package $300 - VIP Package $500">
+                <a href="{{route('closing-coordinator',$coordinator->id)}}">
                     <div class="card-header">
-                        <img src="{{asset('images/agents/dennise.jpg')}}" alt="" class="w-100">
-                        <p class="agent-name">Denisse Uyema</p>
+                        <img src="{{asset($coordinator->image)}}" alt="" class="w-100">
+                        <p class="agent-name">{{$coordinator->name}}</p>
                     </div>
                 </a>
             </div>
+            @else
+            <div class="bg-transparent">
+                <div class="card-header">
+                    <img src="{{asset($coordinator->image)}}" alt="" class="w-100">
+                    <p class="agent-name">SORRY THIS AGENT IS NOT AVAILABLE AT THE MOMENT</p>
+                </div>
+            </div>
+            @endif
+
         </div>
-        <div class="col my-2">
+        @endforeach
+        {{-- <div class="col my-2">
             <div class="bg-transparent">
                 <a
                     href="/general/form/other/closing-coordinators?agent_email=victoria@luxeknows.com&agent_text=Closing Coordinator - Basic Package $200 - VIP Package $325">
@@ -91,7 +116,7 @@
                     </div>
                 </a>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 

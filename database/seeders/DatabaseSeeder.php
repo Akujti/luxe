@@ -16,14 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // MarketingCategorySeeder::class,
-            // TemplateSeeder::class,
-            // TemplateFieldsSeeder::class
+            ClosingCoordinatorSeeder::class
         ]);
-        //        User::create([
-        //            'name' => 'Luxe Admin',
-        //            'email' => 'email@company.com',
-        //            'password' => bcrypt('password'),
-        //        ]);
     }
 }
