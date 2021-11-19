@@ -8,7 +8,7 @@
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">Pre-Approval Form</h1>
-                    @if (auth()->user()->isAdmin)
+                    @if (auth()->user() && auth()->user()->isAdmin)
                     <div class="form-group text-center">
                         <input class="btn btn-luxe" value="EXPORT CSV" onclick="createCsv()">
                     </div>
