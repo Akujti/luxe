@@ -3,6 +3,7 @@
 /public/postimages
 /public/thumbnails
 /public/uploadedimages
+/public/zip
 /storage/*.key
 /vendor
 /public/pdfConvert

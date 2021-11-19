@@ -55,7 +55,20 @@ class PDFController extends Controller
 
     public function generate_offer(Request $request)
     {
-        $data = [];
+        $data = [
+            'text_1' => $request['text_1'],
+            'text_2' => $request['text_2'],
+            'text_3' => $request['text_3'],
+            'text_4' => $request['text_4'],
+            'text_5' => $request['text_5'],
+            'text_6' => $request['text_6'],
+            'text_7' => $request['text_7'],
+            'text_8' => $request['text_8'],
+            'text_9' => $request['text_9'],
+            'text_10' => $request['text_10'],
+            'text_11' => $request['text_11'],
+            'text_12' => $request['text_12'],
+        ];
 
         $request->validate([
             'file' => 'required|mimes:csv,txt|max:1024',
@@ -75,9 +88,9 @@ class PDFController extends Controller
         $importData_arr = [];
         $i = 0;
         $zip = new \ZipArchive();
-        $zipname = 'Generated.zip';
+        $zipname = 'zip/Generated' . ' - ' . Str::random(5) . '.zip';
         $zip = new \ZipArchive;
-        $zip->open($zipname, \ZipArchive::OVERWRITE);
+        $zip->open($zipname, \ZipArchive::CREATE);
         while (($filedata = fgetcsv($file, 20000, ";", '"')) !== FALSE) {
             $num = count($filedata);
             //Skip first row(Remove below comment if you want to skip the first row)
@@ -88,8 +101,10 @@ class PDFController extends Controller
             for ($c = 0; $c < $num; $c++) {
                 $importData_arr[$i][] = $filedata[$c];
             }
+            $data['name'] = $importData_arr[$i][0];
+            $data['address'] = $importData_arr[$i][1];
             $pdf = PDF::loadView('generate.pdf', $data);
-            $fileName = 'pdfConvert/' . Str::random(10) . time() . '.pdf';
+            $fileName = 'pdfConvert/' . $importData_arr[$i][0] . ' - ' . Str::random(5) . '.pdf';
             $pdf->save($fileName);
             $zip->addFile($fileName);
             $i++;
@@ -98,9 +113,9 @@ class PDFController extends Controller
         $zip->close();
 
         header('Content-Type: application/zip');
-        header("Content-Disposition: attachment; filename=Generated.zip");
+        header("Content-Disposition: attachment; filename=" . $zipname);
         header('Content-Length: ' . filesize($zipname));
-        header("Location: Generated.zip");
+        header("Location: " . $zipname);
         readfile($zipname);
     }
 
