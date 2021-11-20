@@ -45,7 +45,7 @@
     <div class="row my-4">
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','buyer_representation')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
                         BUYER REPRESENTATION
@@ -55,7 +55,7 @@
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','seller_representation')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
                         SELLER REPRESENTATION
