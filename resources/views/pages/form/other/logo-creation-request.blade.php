@@ -16,6 +16,7 @@
                 </div>
                 <input type="hidden" name="form_title" value="Logo Creation Request">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="designs@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                 <div class="card-body">
