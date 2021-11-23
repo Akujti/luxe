@@ -18,12 +18,12 @@
                     <pre style="font-family: Arial;">
                     Due to wire fraud, the client and/or title company must call our office to verbally verify the account information prior
                     to sending the wire. Just to ensure that our accounts have not been hacked.
-                    
+
                     <b>Please note there is a $25 wire fee that will be deducted from the agent's final commission after the split.</b>
-                    
+
                     Here is an informational video you can provide the client. If the client does not call, we will not be responsible for
                     the lost wire.
-                    
+
                     <a href="http://www.floridarealtors.org/MediaLibrary/media.cfm?id=345322">http://www.floridarealtors.org/MediaLibrary/media.cfm?id=345322</a></pre>
                 </div>
                 <div class="card-footer">
@@ -39,6 +39,7 @@
                 </div>
                 <input type="hidden" name="form_title" value="WIRE INSTRUCTIONS REQUEST">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">

@@ -88,7 +88,8 @@
             <div class="bg-transparent">
                 <div class="card-header">
                     <img src="{{asset($coordinator->image)}}" alt="" class="w-100">
-                    <p class="agent-name">SORRY THIS AGENT IS NOT AVAILABLE AT THE MOMENT</p>
+                    <p class="agent-name">Sorry this closing coordinator is not taking any files at the moment
+                    </p>
                 </div>
             </div>
             @endif

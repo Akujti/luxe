@@ -18,7 +18,7 @@
                     <pre style="font-family: Arial;">
                     If your listing agreement does not meet the requirements for the shoot to be covered by LUXE, you
                     understand that you will be responsible for submitting payment prior to the shoot.
-                    
+
                     Requirements for shoots covered by LUXE below. Photos for listings not meeting these
                     requirements will be responsibility of the agent.<br>
                     • Listing agreement for sale (single-family, townhouses, condos, & commercial sales only)
@@ -62,6 +62,7 @@
                 </div>
                 <input type="hidden" name="form_title" value="Photoshoots For Listings">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                 <div class="card-body">
                     <div class="row">
