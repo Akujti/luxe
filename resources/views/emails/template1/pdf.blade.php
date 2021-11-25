@@ -130,6 +130,23 @@
         background-color: black;
         height: 120px;
     }
+
+    .text-17.extra-small,
+    .text-24.extra-small {
+        margin-top: 6px;
+        font-size: 18px !important;
+    }
+
+    .text-17.small,
+    .text-24.small {
+        margin-top: 3px;
+        font-size: 22px !important;
+    }
+
+    .text-17.normal,
+    .text-24.normal {
+        font-size: 25px !important;
+    }
 </style>
 
 <body>
@@ -227,7 +244,7 @@
             <p>{{ $text_16 }}</p>
         </div>
         <div class="absolute info-size" style="top:77%;">
-            <p>{{ $text_17 }}</p>
+            <p class="text-17 {{$text_17_select}}">{{ $text_17 }}</p>
         </div>
 
         <div class="absolute" style="text-align: center;top:79.25%;left:-325px;">
@@ -250,7 +267,7 @@
             <p>{{ $text_23 }}</p>
         </div>
         <div class="absolute info-size" style="top:87%;">
-            <p>{{ $text_24 }}</p>
+            <p class="text-24 {{$text_24_select}}">{{ $text_24 }}</p>
         </div>
         <div class="absolute" style="text-align: center;top:89.62%;left:-325px;">
             <h1 class="white" style="font-size:33px;">{{ $text_25 }}</h1>

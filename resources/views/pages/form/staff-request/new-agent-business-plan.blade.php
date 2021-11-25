@@ -23,7 +23,7 @@
                             <input type="text" name="agent_email" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">What is your GCI goal?</label><br><br>
+                            <label for="name">What is your Gross Commission Income goal?</label><br><br>
                             <input type="text" name="what_is_your_gross_comission_income_goal_for_2022"
                                 class="form-control" required>
                         </div>

@@ -195,6 +195,23 @@
         top: -135% !important;
         z-index: 100;
     }
+
+    .text-17.extra-small,
+    .text-24.extra-small {
+        margin-top: 6px;
+        font-size: 18px !important;
+    }
+
+    .text-17.small,
+    .text-24.small {
+        margin-top: 3px;
+        font-size: 22px !important;
+    }
+
+    .text-17.normal,
+    .text-24.normal {
+        font-size: 25px !important;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -505,6 +522,12 @@
                         <div>
                             <label for="text-17">Agent 1</label>
                             <input type="text" id="text-17" name="text_17" value="wesley@Luxeknows.com">
+                            <select name="text_17_select" id="text_17_select" data-id-to-change="text-17"
+                                onchange="change_font_size(this)">
+                                <option value="extra-small">Extra Small</option>
+                                <option value="small">Small</option>
+                                <option value="normal" selected>Normal</option>
+                            </select>
                         </div>
                     </div>
                     <div class="flex">
@@ -551,6 +574,12 @@
                         <div>
                             <label for="text-24">Agent 2</label>
                             <input type="text" id="text-24" name="text_24" value="wesley@Luxeknows.com">
+                            <select name="text_24_select" id="text_24_select" data-id-to-change="text-24"
+                                onchange="change_font_size(this)">
+                                <option value="extra-small">Extra Small</option>
+                                <option value="small">Small</option>
+                                <option value="normal" selected>Normal</option>
+                            </select>
                         </div>
                     </div>
                     <div class="flex">
@@ -611,9 +640,9 @@
         $("."+element_to_edit).addClass(font_size);
     }
     function remove_classes(element){
+        $("."+element+"").removeClass('extra-small');
         $("."+element+"").removeClass('small');
         $("."+element+"").removeClass('normal');
-        $("."+element+"").removeClass('large');
     }
     $(document).ready(function() {        
         $("input").change(function(event) {
