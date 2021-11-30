@@ -16,6 +16,7 @@
                 </div>
                 <div class="card-body">
                     <pre style="font-family: Arial;">
+                    <b>Photoshoots take staff 24-48 hours to confirm. Keep in mind requests are only viewed during office hours.</b>
                     If your listing agreement does not meet the requirements for the shoot to be covered by LUXE, you
                     understand that you will be responsible for submitting payment prior to the shoot.
 
@@ -71,7 +72,7 @@
                             <input type="text" name="agent_full_name" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Agent Number</label>
+                            <label for="name">Agent Phone Number</label>
                             <input type="text" name="agent_number" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
@@ -79,7 +80,7 @@
                             <input type="text" name="agent_email" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Property Address</label>
+                            <label for="name">Property Address For Shoot</label>
                             <input type="text" name="property_address" class="form-control" required>
                         </div>
                         <div class="form-group col-12 text-center">
