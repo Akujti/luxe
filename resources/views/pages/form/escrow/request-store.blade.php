@@ -7,7 +7,9 @@
             <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST">
                 @csrf
                 <div class="card-header">
-                    <h1 class="text-center my-4">Request Store - Rental Escrow Disbursement</h1>
+                    <h1 class="text-center my-4 text-uppercase">Request Store - Rental Escrow Disbursement</h1>
+                    <h6 id="agent-text" class="text-center " style="font-size: 21px;"><b>ESCROW DISBURSEMENTS TAKE 24-48
+                            HOURS TO BE PROCESSED.</b></h6>
                 </div>
                 <input type="hidden" name="form_title" value="Request Store - Rental Escrow Disbursement">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">

@@ -10,7 +10,7 @@
                     <h1 class="text-center my-4">Pre-Approval Form</h1>
                     @if (auth()->user() && auth()->user()->isAdmin)
                     <div class="form-group text-center">
-                        <input class="btn btn-luxe" value="EXPORT CSV" onclick="createCsv()">
+                        <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
                     </div>
                     @endif
                 </div>
@@ -40,7 +40,7 @@
                         <div class="form-group col-md-6">
                             <label for="name">Interested in a specific property? Please provide the full address
                                 below. </label>
-                            <input type="text" name="full_address" class="form-control">
+                            <input type="text" name="full_address" class="form-control" required value="-">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Best Time To Be Reached - Please provide 2 options. *</label>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Any particular loan officer you want to work with?</label>
-                            <select name="loan_officer" class="form-control" id="">
+                            <select name="loan_officer" class="form-control" id="" required>
                                 <option value="-">-</option>
                                 <option value="Alfonso Rojas">Alfonso Rojas</option>
                                 <option value="Anais Delgado">Anais Delgado</option>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Any other additional information may be provided below.</label>
-                            <input type="text" name="additional" class="form-control">
+                            <input type="text" name="additional" class="form-control" required value="-">
                         </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">

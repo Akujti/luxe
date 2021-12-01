@@ -10,7 +10,7 @@
                     <h1 class="text-center my-4">ZILLOW LEADS WEEKLY UPDATE</h1>
                     @if (auth()->user() && auth()->user()->isAdmin)
                     <div class="form-group text-center">
-                        <input class="btn btn-luxe" value="EXPORT CSV" onclick="createCsv()">
+                        <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
                     </div>
                     @endif
                 </div>
@@ -184,7 +184,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Notes</label>
-                            <textarea type="text" name="notes" class="form-control"></textarea>
+                            <textarea type="text" name="notes" class="form-control" required rows="1">-</textarea>
                         </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">

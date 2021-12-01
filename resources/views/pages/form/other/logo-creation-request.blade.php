@@ -10,7 +10,7 @@
                     <h1 class="text-center my-4 text-uppercase">Logo Creation Request</h1>
                     @if (auth()->user() && auth()->user()->isAdmin)
                     <div class="form-group text-center">
-                        <input class="btn btn-luxe" value="EXPORT CSV" onclick="createCsv()">
+                        <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
                     </div>
                     @endif
                 </div>
