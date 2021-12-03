@@ -13,7 +13,7 @@
                     <h1 class="text-center my-4">Opcity Leads</h1>
                 </div>
                 <input type="hidden" name="form_title" value="Opcity Leads">
-                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="wesley@luxehomeloan.com">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
                 <div class="card-body">

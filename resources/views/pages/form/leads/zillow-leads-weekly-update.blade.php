@@ -15,7 +15,7 @@
                     @endif
                 </div>
                 <input type="hidden" name="form_title" value="ZILLOW LEADS WEEKLY UPDATE">
-                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="wesley@luxehomeloan.com">
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">

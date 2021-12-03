@@ -10,7 +10,7 @@
                     <h1 class="text-center my-4">2022 Business Plan</h1>
                 </div>
                 <input type="hidden" name="form_title" value="2022 Business Plan">
-                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="wesley@luxehomeloan.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <div class="card-body">
                     <div class="row">
@@ -73,12 +73,18 @@
                             <input type="text" name="do_you_have_a_set_schedule_for_time_blocking" class="form-control"
                                 required>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
                             <label for="name">What other areas would you like to cover in business plan or learn more
                                 about for next year?</label>
                             <input type="text"
                                 name="what_other_areas_would_you_like_to_cover_in_business_plan_or_learn_more"
                                 class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">What is the most you have ever made yearly? In real estate or other
+                                professions</label>
+                            <input type="text" name="what_is_the_most_you_have_ever_made_yearly" class="form-control"
+                                required>
                         </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
