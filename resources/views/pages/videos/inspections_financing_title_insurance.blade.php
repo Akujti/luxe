@@ -45,40 +45,20 @@
     <div class="row my-4">
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="{{route('video.folder','buyer_representation')}}">
+                <a href="javascript:void(0)">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        BUYER REPRESENTATION
+                        Inspections & Repairs
                     </p>
                 </a>
             </div>
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="{{route('video.folder','seller_representation')}}">
+                <a href="javascript:void(0)">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        SELLER REPRESENTATION
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','tenant_representation')}}">
-                    <img src="/images/files/video-folder.png" alt="">
-                    <p>
-                        TENANT/LANDLORD REPRESENTATION
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','working_with_investors')}}">
-                    <img src="/images/files/video-folder.png" alt="">
-                    <p>
-                        WORKING WITH INVESTORS
+                        Title, Financing, & Insurance
                     </p>
                 </a>
             </div>

@@ -55,10 +55,10 @@
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','lead_generation_conversion')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
-                        LEAD GENERATION
+                        LEAD GENERATION & CONVERSION
                     </p>
                 </a>
             </div>
@@ -75,7 +75,7 @@
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','how_to_do_contracts_forms')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
                         HOW TO DO CONTRACTS & FORMS
@@ -85,7 +85,7 @@
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','contracts_to_close')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
                         CONTRACTS TO CLOSE
@@ -115,7 +115,7 @@
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','inspections_financing_title_insurance')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
                         INSPECTIONS, FINANCING, TITLE, INSURANCE
