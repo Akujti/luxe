@@ -29,7 +29,8 @@
                             <input type="text" name="agent_email" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Number of FULLY executed contracts. Sorry to capitalize fully but we have
+                            <label for="name">Number of <b>Total</b> FULLY executed contracts. Sorry to capitalize fully
+                                but we have
                                 had some confusion on agents as to what a
                                 fully executed contract is?</label>
                             <select name="number_of_fully_executed_contracts" class="form-control" required id="">
@@ -68,8 +69,14 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
+                            <label for="name">Please list the addresses of the fully executed contracts along with the
+                                Buyer Name as it appears on Zillow</label><br><br>
+                            <input type="text" name="addresses_of_the_fully_executed_contracts" class="form-control"
+                                required>
+                        </div>
+                        <div class="form-group col-md-6">
                             <label for="name">Number of offers outstanding awaiting a response from seller, listing
-                                agent or buyer?</label><br><br>
+                                agent or buyer?</label>
                             <select name="number_of_offers_outstanding_awaiting_a_response_from_seller"
                                 class="form-control" required id="">
                                 <option value="-">-</option>
