@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="name">Agent name</label>
+                            <label for="name">Agent Name</label>
                             <input type="text" name="agent_full_name" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
@@ -71,8 +71,8 @@
                         <div class="form-group col-md-6">
                             <label for="name">Please list the addresses of the fully executed contracts along with the
                                 Buyer Name as it appears on Zillow</label><br><br>
-                            <input type="text" name="addresses_of_the_fully_executed_contracts" class="form-control"
-                                required>
+                            <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3"
+                                class="form-control" required>-</textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Number of offers outstanding awaiting a response from seller, listing
