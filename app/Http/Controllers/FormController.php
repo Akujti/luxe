@@ -51,7 +51,7 @@ class FormController extends Controller
                 'details' => json_encode($details),
             ]);
 
-            return back()->with('message', 'Sent successfully . ');
+            return back()->with('message', 'Sent Successfully');
         } catch (\Throwable $th) {
             return back()->with('error', 'Ooops! try again later!');
         }

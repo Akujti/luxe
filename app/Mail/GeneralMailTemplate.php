@@ -28,6 +28,6 @@ class GeneralMailTemplate extends Mailable
      */
     public function build()
     {
-        return $this->subject('Form Submission')->view('email-template.general');
+        return $this->subject($this->details['form_title'] ?? 'Form Submission')->view('email-template.general');
     }
 }
