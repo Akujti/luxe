@@ -219,7 +219,6 @@ Route::group(
         Route::put('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'updateTemplate'])->name('template.update');
         Route::delete('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'deleteTemplate'])->name('template.delete');
 
-        Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
         Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
         Route::post('written-email-templates/{writtenEmailTemplate}', [WrittenEmailTemplateItemController::class, 'store'])->name('written-email-templates.item.store');
@@ -236,6 +235,8 @@ Route::resource('form', FormController::class);
 
 Route::get('bookings/{room}', [BookingController::class, 'index'])->name('bookings.index');
 Route::get('bookings', [BookingController::class, 'selectRoom'])->name('bookings.rooms');
+
+Route::post('bookings', [BookingController::class, 'store'])->middleware('auth')->name('bookings.store');
 
 
 Route::get('marketing', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
