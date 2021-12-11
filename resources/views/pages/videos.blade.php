@@ -95,7 +95,7 @@
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','technology_walkthrough_how_to')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
                         TECHNOLOGY WALK-THROUGH & HOW TO
@@ -119,6 +119,16 @@
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
                         INSPECTIONS, FINANCING, TITLE, INSURANCE
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 mb-4">
+            <div class="folder mb-2">
+                <a href="javascript:void(0)">
+                    <img src="/images/files/video-folder.png" alt="">
+                    <p>
+                        COMMERCIAL REAL ESTATE
                     </p>
                 </a>
             </div>
