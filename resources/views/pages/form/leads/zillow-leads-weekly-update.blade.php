@@ -170,9 +170,9 @@
                             <select name="if_yes_can_you_handle_more/less_leads_while_updating_your_crm"
                                 class="form-control" required id="">
                                 <option value="-">-</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                                <option value="Paused">Paused</option>
+                                <option value="MORE">MORE</option>
+                                <option value="LESS">LESS</option>
+                                <option value="PAUSED">PAUSED</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">

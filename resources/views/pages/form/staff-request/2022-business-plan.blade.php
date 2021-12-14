@@ -7,11 +7,12 @@
             <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST">
                 @csrf
                 <div class="card-header">
-                    <h1 class="text-center my-4">2022 Business Plan</h1>
+                    <h1 class="text-center my-4 text-uppercase">2022 Business Plan</h1>
                 </div>
                 <input type="hidden" name="form_title" value="2022 Business Plan">
                 <input type="hidden" name="to_email[]" value="wesley@luxehomeloan.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">

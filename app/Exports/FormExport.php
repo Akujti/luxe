@@ -22,7 +22,7 @@ class FormExport implements FromView
     public function view(): \Illuminate\Contracts\View\View
     {
         return view('excel.export', [
-            'rows' => FormSubmit::where('form_title', 'like', $this->title)->get()
+            'rows' => FormSubmit::where('form_title', 'like', $this->title)->latest()->get()
         ]);
     }
 }
