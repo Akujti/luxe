@@ -53,6 +53,16 @@ class PDFController extends Controller
         return $filePath;
     }
 
+    public function agent_agreement(Request $request)
+    {
+        $data = [
+            'text_1' => $request['agent_full_name'],
+            'text_2' => $request['date_signed'],
+        ];
+        $pdf = PDF::loadView('agreements.basic.pdf', $data);
+        return $pdf->download('Basic Agreement.pdf');
+    }
+
     public function generate_offer(Request $request)
     {
         $data = [

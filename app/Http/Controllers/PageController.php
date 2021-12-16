@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AgreementAgent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
@@ -21,5 +22,16 @@ class PageController extends Controller
     public function video_folder($folder)
     {
         return view('pages.videos.' . $folder);
+    }
+
+    public function agreement_agents()
+    {
+        $agents = AgreementAgent::get();
+        return view('agreements.index', compact('agents'));
+    }
+
+    public function agreement_agent(AgreementAgent $agent)
+    {
+        return view('agreements.' . $agent->agreement_page, compact('agent'));
     }
 }

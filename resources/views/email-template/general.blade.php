@@ -61,6 +61,8 @@
             <p class="bold-text"><b>{{ucwords(str_replace('_',' ',$key))}}:</b>
                 @if(preg_match("(storage/images/marketing|marketing)",$val))
                 <a href="{{route('form.file.download')}}?path={{$val}}">Click to download</a>
+                @elseif ($key == 'agreement')
+                <a href="{{$details['agreement']}}">Click to download</a>
                 @else
                 {{$val}}
                 @endif

@@ -33,6 +33,13 @@ use App\Http\Controllers\WrittenEmailTemplateItemController;
 Route::view('generate-offer', 'generate.web');
 Route::post('generate-offer', [PDFController::class, 'generate_offer'])->name('generate.offer');
 
+Route::view('agent-agreement', 'agreements.basic.web');
+Route::post('agent-agreement', [FormController::class, 'submitAgreementAgentForm'])->name('agreement.basic');
+
+Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
+Route::get('agreement-agent/{agent}', [PageController::class, 'agreement_agent'])->name('agreement.agent');
+Route::get('agreement-agent', [PDFController::class, 'agent_agreement'])->name('agreement.agent.download');
+
 // Door Hangers
 Route::view('door-hanger-template-1', 'door-hangers.template1.web');
 Route::post('door-hanger-template-1', [PDFController::class, 'door_hanger_template_1'])->name('door-hanger-template-1');

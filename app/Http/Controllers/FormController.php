@@ -93,4 +93,19 @@ class FormController extends Controller
     {
         return response()->download(request()->path);
     }
+
+    public function submitAgreementAgentForm(Request $request)
+    {
+        $details = [];
+        foreach ($request->except('_token', 'to_email') as $key => $val) {
+            $details[strtolower($key)] = $val;
+        }
+        $details['agreement'] = env('APP_URL') . '/agreement-agent?agent_full_name=' . $request->agent_full_name . '&date_signed=' . $request->date_signed;
+        $to = $request->to_email;
+        array_push($to, $request->agent_email);
+        $cc = [];
+        Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+
+        return redirect()->back()->with('message', 'Agreement has been submitted!');
+    }
 }

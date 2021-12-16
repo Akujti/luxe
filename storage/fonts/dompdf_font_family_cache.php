@@ -119,4 +119,7 @@
     'bold' => $fontDir . '/poppins-bold_7eb29046bc7eaf66b896ec27702d038b',
     '600' => $fontDir . '/poppins-600_270e18a84ac8b306c8f31abe1d0720fa',
   ),
+  'petemoss' => array(
+    'normal' => $fontDir . '/petemoss-normal_a87747b06714f72f68ce96d7f3f3f3f2',
+  ),
 ) ?>
