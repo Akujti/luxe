@@ -115,10 +115,10 @@
                 </div>
                 <div class="row-input" style="display: flex;flex-flow: column;align-self: center;">
                     <div>
-                        {{-- <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
+                        <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                         <input type="hidden" name="to_email[]" value="support@luxeknows.com">
-                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com"> --}}
-                        {{-- <input type="hidden" name="to_email[]" value="{{$agent->email}}"> --}}
+                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
+                        <input type="hidden" name="to_email[]" value="{{$agent->email}}">
                         <label for="page-1-img-1">Full Name</label>
                         <input type="text" name="agent_full_name" id="text-1" value="" required>
                         <label for="page-1-img-1">Email</label>
