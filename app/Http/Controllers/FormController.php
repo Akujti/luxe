@@ -100,7 +100,7 @@ class FormController extends Controller
         foreach ($request->except('_token', 'to_email') as $key => $val) {
             $details[strtolower($key)] = $val;
         }
-        $details['agreement'] = env('APP_URL') . '/agreement-agent?agent_full_name=' . $request->agent_full_name . '&date_signed=' . $request->date_signed;
+        $details['agreement'] = env('APP_URL') . '/agreement-agent?mentor_name=' . $request->mentor_name . '&agent_full_name=' . $request->agent_full_name . '&date_signed=' . $request->date_signed;
         $to = $request->to_email;
         array_push($to, $request->agent_email);
         $cc = [];

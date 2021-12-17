@@ -58,6 +58,7 @@ class PDFController extends Controller
         $data = [
             'text_1' => $request['agent_full_name'],
             'text_2' => $request['date_signed'],
+            'mentor_name' => $request['mentor_name'],
         ];
         $pdf = PDF::loadView('agreements.basic.pdf', $data);
         return $pdf->download('Basic Agreement.pdf');

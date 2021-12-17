@@ -119,6 +119,7 @@
                         <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                         <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                         <input type="hidden" name="to_email[]" value="{{$agent->email}}">
+                        <input type="hidden" name="mentor_name" value="{{$agent->name}}">
                         <label for="page-1-img-1">Full Name</label>
                         <input type="text" name="agent_full_name" id="text-1" value="" required>
                         <label for="page-1-img-1">Email</label>

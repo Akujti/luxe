@@ -49,7 +49,7 @@
         </div>
         <div class="body">
             <br><br>
-            <p class="text-center"><b>Mentorship Agreement</b></p>
+            <p class="text-center"><b>{{$mentor_name}} - Mentorship Agreement</b></p>
             <br><br>
             <p>Agent Name:<span
                     class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$text_1}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>

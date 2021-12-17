@@ -120,6 +120,6 @@
     '600' => $fontDir . '/poppins-600_270e18a84ac8b306c8f31abe1d0720fa',
   ),
   'petemoss' => array(
-    'normal' => $fontDir . '/petemoss-normal_a87747b06714f72f68ce96d7f3f3f3f2',
+    'normal' => $fontDir . '/petemoss-normal_a416948df8d6188c40079588e84b5e69',
   ),
 ) ?>
