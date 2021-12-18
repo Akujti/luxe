@@ -97,10 +97,10 @@ class FormController extends Controller
     public function submitAgreementAgentForm(Request $request)
     {
         $details = [];
-        foreach ($request->except('_token', 'to_email') as $key => $val) {
+        foreach ($request->except('_token', 'to_email', 'agreement_type') as $key => $val) {
             $details[strtolower($key)] = $val;
         }
-        $details['agreement'] = env('APP_URL') . '/agreement-agent?mentor_name=' . $request->mentor_name . '&agent_full_name=' . $request->agent_full_name . '&date_signed=' . $request->date_signed;
+        $details['agreement'] = env('APP_URL') . '/' . $request->agreement_type . '?mentor_name=' . $request->mentor_name . '&agent_full_name=' . $request->agent_full_name . '&date_signed=' . $request->date_signed;
         $to = $request->to_email;
         array_push($to, $request->agent_email);
         $cc = [];

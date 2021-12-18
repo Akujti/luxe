@@ -53,6 +53,28 @@ class PDFController extends Controller
         return $filePath;
     }
 
+    public function steven_agreement(Request $request)
+    {
+        $data = [
+            'text_1' => $request['agent_full_name'],
+            'text_2' => $request['date_signed'],
+            'mentor_name' => $request['mentor_name'],
+        ];
+        $pdf = PDF::loadView('agreements.steven.pdf', $data);
+        return $pdf->download('Steven Agreement.pdf');
+    }
+
+    public function suzan_agreement(Request $request)
+    {
+        $data = [
+            'text_1' => $request['agent_full_name'],
+            'text_2' => $request['date_signed'],
+            'mentor_name' => $request['mentor_name'],
+        ];
+        $pdf = PDF::loadView('agreements.suzan.pdf', $data);
+        return $pdf->download('Suzan Agreement.pdf');
+    }
+
     public function agent_agreement(Request $request)
     {
         $data = [

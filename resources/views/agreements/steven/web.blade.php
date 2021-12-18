@@ -53,6 +53,12 @@
     .body {
         font-family: 'Times New Roman';
     }
+
+    .footer {
+        width: 100%;
+        text-align: center;
+        color: gray
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -77,25 +83,25 @@
                             <br><br>
                             <p class="text-center"><b>Mentorship Agreement</b></p>
                             <br><br>
-                            <p>Agent Name:____________________
+                            <p>Agent Name:<span
+                                    class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             </p>
                             <br>
                             <p>Agent agrees to join mentorship program and use mentor for assistance in three real
                                 estate transactions.
                                 There is no
-                                time limit for completion of these transactions. Associate will be responsible for
-                                procuring business
-                                leads to work and
-                                mentor will provide a 30 minute weekly coaching call to make sure agent is progressing
-                                through the
-                                program.</p>
+                                time limit for completion of these transactions.
+                                Associate will be responsible for procuring business leads to work and mentor will
+                                provide a 30 minute
+                                weekly coaching
+                                call to make sure agent is progressing through the program.</p>
                             <p>Compensation will be as follows.</p>
-                            <p>Listing Transactions - Agent agrees to pay Mentor a 25% referral for any listing
+                            <p>Listing Transactions - Agent agrees to pay Mentor a 35% referral for any listing
                                 transactions. Mentor
                                 will attend
                                 listing presentation; prepare CMA, open house and guide agent through sales process and
                                 marketing.</p>
-                            <p>Buyer Transactions - Agent agrees to pay Mentor a 25% referral for any buyer
+                            <p>Buyer Transactions - Agent agrees to pay Mentor a 35% referral for any buyer
                                 transactions. Mentor will
                                 coach agent
                                 through showings, comparables, negotiation and contract preparation.</p>
@@ -104,12 +110,17 @@
                                 three mentees at
                                 any time.</p>
                             <p>Additional services upon request</p>
-                            <br><br>
-                            <p>Agent Signature: ____________________
+                            <p>Agent Signature: <span
+                                    class="underline handwritten">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             </p>
-                            <p>Date Signed:________________________
+                            <p>Date Signed:<span
+                                    class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             </p>
-                            <br><br>
+                        </div>
+                        <br><br><br>
+                        <div class="footer">
+                            55 Merrick Way Suite 402, Coral Gables, FL 33134&nbsp;&nbsp;&nbsp;O: (305) 809-7650 F: (305)
+                            938-8054
                         </div>
                     </div>
                 </div>
@@ -120,7 +131,7 @@
                         <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                         <input type="hidden" name="to_email[]" value="{{$agent->email}}">
                         <input type="hidden" name="mentor_name" value="{{$agent->name}}">
-                        <input type="hidden" name="agreement_type" value="agreement-agent">
+                        <input type="hidden" name="agreement_type" value="steven-agreement">
                         <label for="page-1-img-1">Full Name</label>
                         <input type="text" name="agent_full_name" id="text-1" value="" required>
                         <label for="page-1-img-1">Email</label>

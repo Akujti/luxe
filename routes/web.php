@@ -34,11 +34,14 @@ Route::view('generate-offer', 'generate.web');
 Route::post('generate-offer', [PDFController::class, 'generate_offer'])->name('generate.offer');
 
 Route::view('agent-agreement', 'agreements.basic.web');
-Route::post('agent-agreement', [FormController::class, 'submitAgreementAgentForm'])->name('agreement.basic');
+Route::post('agent-agreement', [FormController::class, 'submitAgreementAgentForm'])->name('agreement.submit');
 
 Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
 Route::get('agreement-agent/{agent}', [PageController::class, 'agreement_agent'])->name('agreement.agent');
 Route::get('agreement-agent', [PDFController::class, 'agent_agreement'])->name('agreement.agent.download');
+
+Route::get('suzan-agreement', [PDFController::class, 'suzan_agreement'])->name('agreement.suzan');
+Route::get('steven-agreement', [PDFController::class, 'steven_agreement'])->name('agreement.steven');
 
 // Door Hangers
 Route::view('door-hanger-template-1', 'door-hangers.template1.web');

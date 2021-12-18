@@ -48,7 +48,7 @@
 
     .agents img {
         border-radius: 10px;
-        max-height: 350px;
+        max-height: 189px;
         object-fit: cover;
         object-position: top;
     }
