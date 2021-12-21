@@ -43,6 +43,32 @@
 <div class="container">
     @include('includes.video_title')
     <div class="row my-4">
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+        </div>
         <div class="col-12">
             <a href="https://vimeo.com/manage/videos" class="btn btn-luxe w-100">View More</a>
         </div>

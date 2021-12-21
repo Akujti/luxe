@@ -75,7 +75,7 @@
                         </div>
                         <div class="body">
                             <br><br>
-                            <p class="text-center"><b>Mentorship Agreement</b></p>
+                            <p class="text-center"><b>{{$agent->name}} - Mentorship Agreement</b></p>
                             <br><br>
                             <p>Agent Name:____________________
                             </p>

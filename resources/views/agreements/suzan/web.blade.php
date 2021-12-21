@@ -81,7 +81,7 @@
                         </div>
                         <div class="body">
                             <br><br>
-                            <p class="text-center"><b> Mentorship Agreement</b></p>
+                            <p class="text-center"><b>{{$agent->name}} - Mentorship Agreement</b></p>
                             <br><br>
                             <p>Agent Name:<span
                                     class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -145,13 +145,6 @@
                                 not take on more
                                 than seven
                                 mentees at any time.</p>
-                            <div class="footer">
-                                55 Merrick Way Suite 402, Coral Gables, FL 33134&nbsp;&nbsp;&nbsp;O: (305) 809-7650 F:
-                                (305) 938-8054
-                            </div>
-                            <br><br>
-                            <hr>
-                            <br><br>
                             <p>Agent success is solely determined by the agent. The Agent will be prepared, fully
                                 engaged, and ready to
                                 work towards
@@ -174,11 +167,6 @@
                             <p>Date Signed:<span
                                     class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             </p>
-                        </div>
-                        <br><br><br>
-                        <div class="footer">
-                            55 Merrick Way Suite 402, Coral Gables, FL 33134&nbsp;&nbsp;&nbsp;O: (305) 809-7650 F: (305)
-                            938-8054
                         </div>
                     </div>
                 </div>

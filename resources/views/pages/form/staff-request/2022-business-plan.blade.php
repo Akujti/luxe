@@ -1,9 +1,39 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    .answer-btn {
+        font-size: 24px;
+        width: 200px;
+        height: 50px;
+        margin: 10px
+    }
+
+    .container {
+        min-height: 85vh;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center my-4">
-        <div class="col-md-12">
-
+        <div id="question" class="col-md-12">
+            <div class="card-header">
+                <h2 class="text-center my-4 text-uppercase">Have you completed an initial Business Plan before?</h2>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-luxe answer-btn" onclick="display(true)">Yes</button>
+                <button class="btn btn-luxe answer-btn" onclick="display(false)">No</button>
+            </div>
+        </div>
+        <div id="no-answer" class="col-md-12 d-none">
+            <div class="card-header">
+                <h2 class="text-center my-4">Please reach out to <a
+                        href="mailto:support@luxeknows.com">support@luxeknows.com</a> to schedule your
+                    initial business plan. Thanks!</h2>
+            </div>
+        </div>
+        <div id="form" class="col-md-12 d-none">
             <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST">
                 @csrf
                 <div class="card-header">
@@ -96,4 +126,13 @@
         </div>
     </div>
 </div>
+<script>
+    function display(cond){
+        if(cond)
+            $('#form').removeClass('d-none')
+        else
+            $('#no-answer').removeClass('d-none')
+        $('#question').addClass('d-none')
+    }
+</script>
 @endsection

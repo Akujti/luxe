@@ -44,6 +44,7 @@
         border: 1px solid #fff;
         padding: 18px 30px;
         text-transform: uppercase;
+        font-size: 16px;
     }
 
     .agents img {
