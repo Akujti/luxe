@@ -64,7 +64,7 @@
 @section('content')
 
 <div class="container agents">
-    <h1 class="text-center text-white">AGREEMENT AGENTS</h1>
+    <h1 class="text-center text-white">MENTORS</h1>
     <div class="row">
         @foreach ($agents as $agent)
         <div class="col my-2">

@@ -80,7 +80,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label for="name">Note:</label>
-                            <input type="text" name="note" class="form-control" required>
+                            <input type="text" name="note" class="form-control">
                         </div>
                         <div class="form-group col-md-12">
                             <p class="text-center">Occasionally we will feature Agents, Listings and Closing. Please
@@ -119,7 +119,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label for="name">Notes or Special Requests:</label>
-                            <input type="text" name="notes_special_requests" class="form-control" required>
+                            <input type="text" name="notes_special_requests" class="form-control">
                         </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
