@@ -7,10 +7,10 @@
                 onsubmit="addAgentEmail()">
                 @csrf
                 <div class="card-header">
-                    <h1 class="text-center my-4">CLOSING COORDINATORS</h1>
+                    <h1 class="text-center my-4">CLOSING COORDINATORS - {{$coordinator->name}}</h1>
                     <h6 id="agent-text" class="text-center" style="font-size: 21px;">{{$coordinator->sentence}}</h6>
                 </div>
-                <input type="hidden" name="form_title" value="CLOSING COORDINATORS">
+                <input type="hidden" name="form_title" value="CLOSING COORDINATORS - {{$coordinator->name}}">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="wesley@luxehomeloan.com">
