@@ -48,8 +48,8 @@
                                 required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">What area do you live in?</label>
-                            <input type="text" name="what_are_do_you_live_in" class="form-control" required>
+                            <label for="name">What zip code do you live in?</label>
+                            <input type="text" name="what_zip_code_do_you_live_in" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">What languages do you speak fluently?</label>
@@ -76,6 +76,10 @@
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="name">Real Estate License Number</label>
+                            <input type="text" name="real_estate_license_number" class="form-control" required>
                         </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
