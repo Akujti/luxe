@@ -71,7 +71,7 @@
                 the agent is
                 progressing through the program.
                 Compensation will be as follows.</p>
-            <p><b>Listing Transactions</b> - Agent agrees to pay Mentor a 30% referral for any listing transactions. The
+            <p><b>Listing Transactions</b> - Agent agrees to pay Mentor a 50% referral for any listing transactions. The
                 Mentor will attend the listing presentation;
                 assist with the preparation of the CMA, assist with open house, and guide the agent through the sales
                 process and
