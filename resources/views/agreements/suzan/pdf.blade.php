@@ -85,7 +85,7 @@
                 Ulloa is their
                 Broker and any question deemed needing an answer from the Broker, at my discretion, will be sent to
                 Wesley.</p>
-            <p><b>Buyer Transactions</b> - Agent agrees to pay Mentor a 30% referral for any buyer transactions. The
+            <p><b>Buyer Transactions</b> - Agent agrees to pay Mentor a 50% referral for any buyer transactions. The
                 Mentor will coach the agent through showings,
                 comparables, assist with the preparation of the CMA, verification of data, negotiations, and contract
                 preparation. In
