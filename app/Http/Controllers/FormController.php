@@ -39,7 +39,7 @@ class FormController extends Controller
                 'loan_officer' => $request->loan_officer,
                 'additional' => $request->additional ?? 'None'
             ];
-            $to = ['wesley@luxehomeloan.com'];
+            $to = ['wesley@luxeknows.com'];
             $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com'];
             Mail::to($to)->cc($cc)->send(new FormMail($details));
 

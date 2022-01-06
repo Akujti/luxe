@@ -10,7 +10,8 @@
                     <h1 class="text-center my-4">Join Zillow</h1>
                 </div>
                 <input type="hidden" name="form_title" value="Join Zillow">
-                <input type="hidden" name="to_email[]" value="wesley@luxehomeloan.com">
+                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="support@luxeknows">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
