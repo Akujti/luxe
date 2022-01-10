@@ -11,7 +11,7 @@
                 </div>
                 <input type="hidden" name="form_title" value="Zillow Pause Request">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="support@luxeknows">
+                <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
