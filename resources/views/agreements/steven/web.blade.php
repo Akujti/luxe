@@ -81,7 +81,7 @@
                         </div>
                         <div class="body">
                             <br><br>
-                            <p class="text-center"><b>{{$agent->name}} -Mentorship Agreement</b></p>
+                            <p class="text-center"><b>{{$agent->name}} - Mentorship Agreement</b></p>
                             <br><br>
                             <p>Agent Name:<span
                                     class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -121,6 +121,7 @@
                 </div>
                 <div class="row-input" style="display: flex;flex-flow: column;align-self: center;">
                     <div>
+                        <input type="hidden" name="form_title" value="{{$agent->name}} - Mentorship Agreement">
                         <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                         <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                         <input type="hidden" name="to_email[]" value="operations@luxeknows.com">

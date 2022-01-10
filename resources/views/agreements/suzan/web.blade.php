@@ -172,6 +172,7 @@
                 </div>
                 <div class="row-input" style="display: flex;flex-flow: column;align-self: center;">
                     <div>
+                        <input type="hidden" name="form_title" value="{{$agent->name}} - Mentorship Agreement">
                         <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                         <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                         <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
