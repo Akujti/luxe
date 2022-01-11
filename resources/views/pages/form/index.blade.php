@@ -53,6 +53,7 @@
                                 <option value="Alfonso Rojas">Alfonso Rojas</option>
                                 <option value="Anais Delgado">Anais Delgado</option>
                                 <option value="Lissete Garcia">Lissete Garcia</option>
+                                <option value="Monica Estupinan">Monica Estupinan</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
