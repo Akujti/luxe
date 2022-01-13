@@ -213,6 +213,7 @@ Route::group(
         Route::resource('guides', GuideController::class);
 
         Route::get('written-email-templates', [WrittenEmailTemplateController::class, 'index'])->name('written-email-templates');
+        Route::post('written-email-templates', [WrittenEmailTemplateController::class, 'store'])->name('written-email-templates.store');
         Route::get('written-email-templates/{writtenEmailTemplate}', [WrittenEmailTemplateController::class, 'show'])->name('written-email-templates.show');
     }
 );

@@ -5,8 +5,7 @@
     .form-control[readonly] {
         background: none !important;
     }
-</style>
-<style>
+
     .editor {
         border: solid 1px #ccc;
         padding: 20px;
@@ -30,6 +29,12 @@
 
     .sample-toolbar>span:hover {
         text-decoration: underline;
+    }
+
+    @media (min-width: 576px) {
+        .modal-dialog {
+            max-width: 700px !important;
+        }
     }
 </style>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"

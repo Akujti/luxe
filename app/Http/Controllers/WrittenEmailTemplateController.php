@@ -37,7 +37,9 @@ class WrittenEmailTemplateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(['title' => 'required|max:255']);
+        WrittenEmailTemplate::create(['title' => $request->title]);
+        return redirect()->back();
     }
 
     /**
