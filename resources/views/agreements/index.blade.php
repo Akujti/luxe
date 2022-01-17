@@ -49,7 +49,7 @@
 
     .agents img {
         border-radius: 10px;
-        max-height: 189px;
+        max-height: 235px;
         object-fit: cover;
         object-position: top;
     }
@@ -67,7 +67,7 @@
     <h1 class="text-center text-white">MENTORS</h1>
     <div class="row">
         @foreach ($agents as $agent)
-        <div class="col my-2">
+        <div class="col-12 col-lg-3 my-2">
             <div class="bg-transparent">
                 <a href="{{route('agreement.agent',$agent)}}">
                     <div class="card-header">

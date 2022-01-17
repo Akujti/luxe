@@ -39,21 +39,29 @@ class AgreementAgentSeeder extends Seeder
         //     ]
         // );
 
-        AgreementAgent::create(
-            [
-                'name' => 'Suzan Clough',
-                'email' => 'suzan@luxeknows.com',
-                'agreement_page' => 'suzan.web',
-                'image' => 'suzan.jpg',
-            ]
-        );
+        // AgreementAgent::create(
+        //     [
+        //         'name' => 'Suzan Clough',
+        //         'email' => 'suzan@luxeknows.com',
+        //         'agreement_page' => 'suzan.web',
+        //         'image' => 'suzan.jpg',
+        //     ]
+        // );
 
         AgreementAgent::create(
             [
-                'name' => 'Steven Viviar',
+                'name' => 'Giovanna Calimano',
                 'email' => 'steven@luxeknows.com',
-                'agreement_page' => 'steven.web',
-                'image' => 'steven.jpg',
+                'agreement_page' => 'gio.web',
+                'image' => 'gio.jpg',
+            ]
+        );
+        AgreementAgent::create(
+            [
+                'name' => 'Albert Babani',
+                'email' => 'albert@babaniproperties.com',
+                'agreement_page' => 'albert.web',
+                'image' => 'albert.jpg',
             ]
         );
     }

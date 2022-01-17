@@ -75,6 +75,28 @@ class PDFController extends Controller
         return $pdf->download('Suzan Agreement.pdf');
     }
 
+    public function gio_agreement(Request $request)
+    {
+        $data = [
+            'text_1' => $request['agent_full_name'],
+            'text_2' => $request['date_signed'],
+            'mentor_name' => $request['mentor_name'],
+        ];
+        $pdf = PDF::loadView('agreements.gio.pdf', $data);
+        return $pdf->download('Gio Agreement.pdf');
+    }
+
+    public function albert_agreement(Request $request)
+    {
+        $data = [
+            'text_1' => $request['agent_full_name'],
+            'text_2' => $request['date_signed'],
+            'mentor_name' => $request['mentor_name'],
+        ];
+        $pdf = PDF::loadView('agreements.albert.pdf', $data);
+        return $pdf->download('Albert Agreement.pdf');
+    }
+
     public function agent_agreement(Request $request)
     {
         $data = [
@@ -276,6 +298,33 @@ class PDFController extends Controller
         } else {
             $pdf = PDF::loadView('door-hangers.template3.pdf', $data);
             return $pdf->download('Door Hanger Template 3.pdf');
+        }
+    }
+
+    public function door_hanger_template_4(Request $request)
+    {
+        $data = [
+            "text_1" => $request['text-1'],
+            "text_2" => $request['text-2'],
+            "text_3" => $request['text-3'],
+            "text_4" => $request['text-4'],
+            "text_5" => $request['text-5'],
+            "text_6" => $request['text-6'],
+            "text_7" => $request['text-7'],
+            "text_8" => $request['text-8']
+        ];
+        if ($_POST['action'] == 'Save') {
+            $data_json = json_encode($data);
+            $file = time() . '_file.json';
+            $destinationPath = public_path() . "/upload/json/";
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            File::put($destinationPath . $file, $data_json);
+            return response()->download($destinationPath . $file);
+        } else {
+            $pdf = PDF::loadView('door-hangers.template4.pdf', $data);
+            return $pdf->download('Door Hanger Template 4.pdf');
         }
     }
 

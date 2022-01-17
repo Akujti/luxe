@@ -42,6 +42,8 @@ Route::get('agreement-agent', [PDFController::class, 'agent_agreement'])->name('
 
 Route::get('suzan-agreement', [PDFController::class, 'suzan_agreement'])->name('agreement.suzan');
 Route::get('steven-agreement', [PDFController::class, 'steven_agreement'])->name('agreement.steven');
+Route::get('gio-agreement', [PDFController::class, 'gio_agreement'])->name('agreement.gio');
+Route::get('albert-agreement', [PDFController::class, 'albert_agreement'])->name('agreement.albert');
 
 // Door Hangers
 Route::view('door-hanger-template-1', 'door-hangers.template1.web');
@@ -49,6 +51,9 @@ Route::post('door-hanger-template-1', [PDFController::class, 'door_hanger_templa
 
 Route::view('door-hanger-template-3', 'door-hangers.template3.web');
 Route::post('door-hanger-template-3', [PDFController::class, 'door_hanger_template_3'])->name('door-hanger-template-3');
+
+Route::view('door-hanger-template-4', 'door-hangers.template4.web');
+Route::post('door-hanger-template-4', [PDFController::class, 'door_hanger_template_4'])->name('door-hanger-template-4');
 
 //Flyers
 Route::view('flyer-template-6', 'flyers.template6.web');
