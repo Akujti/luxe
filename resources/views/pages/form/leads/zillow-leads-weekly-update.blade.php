@@ -30,10 +30,9 @@
                             <input type="text" name="agent_email" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Number of <b>Total</b> FULLY executed contracts. Sorry to capitalize fully
-                                but we have
-                                had some confusion on agents as to what a
-                                fully executed contract is?</label>
+                            <label for="name">Number of <b>Total</b> FULLY executed <b>Zillow</b> contracts. Sorry to
+                                capitalize fully but we have had some confusion on agents as to what a fully executed
+                                contract is?</label>
                             <select name="number_of_fully_executed_contracts" class="form-control" required id="">
                                 <option value="-">-</option>
                                 <option value="0">0</option>
@@ -70,8 +69,9 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Please list the addresses of the fully executed contracts along with the
-                                Buyer Name as it appears on Zillow</label><br><br>
+                            <label for="name">Please list the addresses of the fully executed <b>Zillow</b> contracts
+                                along
+                                with the Buyer Name as it appears on Zillow</label><br><br>
                             <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3"
                                 class="form-control" required>-</textarea>
                         </div>
