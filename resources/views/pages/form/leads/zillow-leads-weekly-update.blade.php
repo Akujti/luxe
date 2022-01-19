@@ -211,6 +211,7 @@
         $('#csv').submit()
     }
     function deleteSubmissions(){
+        if(confirm('Are you sure, you want to delete all submissions for this form?'))
         $('#deleteSubmissions').submit()
     }
 </script>
