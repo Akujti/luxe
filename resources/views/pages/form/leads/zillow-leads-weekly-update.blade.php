@@ -11,6 +11,7 @@
                     @if (auth()->user() && auth()->user()->isAdmin)
                     <div class="form-group text-center">
                         <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
+                        <button class="btn btn-danger" onclick="deleteSubmissions()">DELETE SUBMISSIONS</button>
                     </div>
                     @endif
                 </div>
@@ -196,6 +197,11 @@
                 @csrf
                 <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
             </form>
+            <form action="{{route('deleteSubmissions')}}" method="POST" id="deleteSubmissions">
+                @csrf
+                @method('delete')
+                <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
+            </form>
         </div>
     </div>
 </div>
@@ -203,6 +209,9 @@
 <script>
     function createCsv(){
         $('#csv').submit()
+    }
+    function deleteSubmissions(){
+        $('#deleteSubmissions').submit()
     }
 </script>
 @endsection
