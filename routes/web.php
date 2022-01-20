@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AppointmentAddressController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
@@ -18,6 +20,7 @@ use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
+use Illuminate\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -188,7 +191,6 @@ Route::get('/home-buying', function () {
 
 Route::view('/home-didnt-sell', 'home-didnt-sell-web');
 
-
 Route::post('uploadimage', [PDFController::class, 'uploadimage'])->name('pdf.uploadimage');
 
 Route::post('create-pdf-file-home', [PDFController::class, 'index'])->name('pdf.store');
@@ -196,6 +198,8 @@ Route::post('create-pdf-file-fsbo', [PDFController::class, 'fsbo_index'])->name(
 Route::post('create-pdf-file-single', [PDFController::class, 'single_property'])->name('pdf.single.property');
 Route::post('create-pdf-file-home-buying', [PDFController::class, 'home_buying'])->name('pdf.home.buying');
 Route::post('home-didnt-sell', [PDFController::class, 'home_didnt_sell'])->name('pdf.home.didnt.sell');
+
+Route::resource('appointments', AppointmentController::class);
 
 Auth::routes();
 
@@ -245,6 +249,8 @@ Route::group(
         Route::resource('form-submit', FormSubmitController::class);
         Route::post('form-submit', [FormSubmitController::class, 'getCsv'])->name('getCsv');
         Route::delete('deleteSubmissions', [FormSubmitController::class, 'deleteSubmissions'])->name('deleteSubmissions');
+
+        Route::resource('appointment-addresses', AppointmentAddressController::class);
     }
 );
 
