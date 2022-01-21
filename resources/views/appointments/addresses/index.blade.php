@@ -27,7 +27,8 @@
                         <td>{{$address->title}}</td>
                         <td class="d-flex"><button class="btn btn-primary mr-2" data-toggle="modal"
                                 data-target="#editModal{{$address->id}}">Edit</button>
-                            <form action="{{route('appointment-addresses.destroy',$address)}}" method="POST">
+                            <form action="{{route('appointment-addresses.destroy',$address)}}" method="POST"
+                                onSubmit="return confirm('Are you sure you want to delete this address?');">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger">Delete</button>
