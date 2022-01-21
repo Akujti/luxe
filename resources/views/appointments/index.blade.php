@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('js')
+
 @endsection
 @section('css')
 <style>
@@ -107,29 +108,18 @@
 @section('content')
 <div class="container wrapper">
     <h1>Appointments</h1>
-    <form id="regForm" action="" class="d-block">
+    <form id="regForm" action="{{route('appointments.store')}}" method="POST" class="d-block">
+        @csrf
         <div class="tab">
             <h4 class="my-4">1. Choose an address</h4>
             <hr>
             <div class="w-100">
+                @foreach ($addresses as $item)
                 <div class="shadow-box">
-                    <label for="html">8550 Locust Street Maryville, TN 37803</label>
-                    <input type="radio" id="html" name="fav_language" value="8550 Locust Street Maryville, TN 37803">
+                    <label for="html">{{$item->title}}</label>
+                    <input type="radio" id="html" name="appointment_address" value="{{$item->id}}">
                 </div>
-                <div class="shadow-box">
-                    <label for="css">628 Depot Ave. Phoenixville, PA 19460</label>
-                    <input type="radio" id="css" name="fav_language" value="84 S. Penn Dr. Stamford, CT 06902">
-                </div>
-                <div class="shadow-box">
-                    <label for="javascript">84 S. Penn Dr. Stamford, CT 06902</label>
-                    <input type="radio" id="javascript" name="fav_language"
-                        value="628 Depot Ave. Phoenixville, PA 19460">
-                </div>
-                <div class="shadow-box">
-                    <label for="javascript">35 West James St. Palos Verdes Peninsula, CA 90274</label>
-                    <input type="radio" id="javascript" name="fav_language" value="35 West James St.
-Palos Verdes Peninsula, CA 90274">
-                </div>
+                @endforeach
             </div>
         </div>
         <div class="tab">
@@ -137,55 +127,48 @@ Palos Verdes Peninsula, CA 90274">
             <hr>
             <div class="form-group">
                 <label for="">Select Date</label>
-                <input type="date" class="form-control">
+                <input type="date" class="form-control date" name="date">
+                <i>Available days are Saturday and Sunday</i>
             </div>
-            <div class="form-group">
-                <label for="html">Select Time</label>
-                <div class="shadow-box">
-                    <label for="html">11:00 am</label>
-                    <input type="radio" id="html" name="fav_language" value="11:00 am">
-                </div>
-                <div class="shadow-box">
-                    <label for="html">2:00 pm</label>
-                    <input type="radio" id="html" name="fav_language" value="11:00 am">
-                </div>
+            <label for="html">Select Time</label>
+            <div class="form-group time-group">
             </div>
         </div>
         <div class="tab">3. Your Information</h4>
             <hr>
             <div class="form-group">
                 <label for="">Your Name</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="name">
             </div>
             <div class="form-group">
                 <label for="">Phone</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="phone">
             </div>
             <div class="form-group">
                 <label for="">Email</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="email">
             </div>
             <div class="form-group">
                 <label for="">Address</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="address">
             </div>
             <div class="row">
                 <div class="form-group col-4">
                     <label for="">City</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="city">
                 </div>
                 <div class="form-group col-4">
                     <label for="">State</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="state">
                 </div>
                 <div class="form-group col-4">
                     <label for="">Zip Code</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="zip">
                 </div>
             </div>
             <div class="form-group">
                 <label for="">Comments</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="comments">
             </div>
         </div>
         <div style="overflow:auto;">
@@ -217,7 +200,7 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
+    document.getElementById("nextBtn").innerHTML = "Book";
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
@@ -277,3 +260,41 @@ function fixStepIndicator(n) {
 }
 </script>
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(()=>{
+        const validate = dateString => {
+            var date = new Date();
+            date.setDate(date.getDate() + 90);
+            selected_date = (new Date(dateString))
+            console.log(selected_date<date);
+            const day = (new Date(dateString)).getDay();
+            if (day==1 || day==2 || day==3 || day==4 || day==5 || selected_date>=date) {
+                return false;
+            }
+            return true;
+        }
+        
+        // Sets the value to '' in case of an invalid date
+        document.querySelector('.date').onchange = evt => {
+            $('.time-group').empty()
+            if (!validate(evt.target.value)) {
+                evt.target.value = '';                
+            }
+            else{
+                $.ajax({
+                    type:'GET',
+                    url:'/appointment-timeslots/all?date='+evt.target.value,
+                    data:'_token = <?php echo csrf_token() ?>',
+                    success:function(data) {
+                        data = data.time_slots
+                        data.forEach(element => {
+                            $('.time-group').append('<div class="shadow-box"> <label for="html">'+element.title+'</label><input type="radio" name="time_slot" value="'+element.id+'"></div>')
+                        });
+                    }
+                });
+            }
+        }
+    })
+</script>

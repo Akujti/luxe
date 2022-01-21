@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\AppointmentAddress;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -12,9 +14,9 @@ class AppointmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('appointments.index');
+        // return response()->json([Appointment::where('date', $request->date)->get(), $request->all()]);
     }
 
     /**
@@ -24,7 +26,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        $addresses = AppointmentAddress::get();
+        return view('appointments.index', compact('addresses'));
     }
 
     /**
@@ -35,7 +38,38 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate(
+            [
+                "appointment_address" => "required|exists:appointment_addresses,id",
+                "date" => "required|date",
+                "time_slot" => "required|exists:appointment_timeslots,id",
+                "name" => "required|string",
+                "phone" => "required|string",
+                "email" => "required|email",
+                "address" => "nullable|string",
+                "city" => "nullable|string",
+                "state" => "nullable|string",
+                "zip" => "nullable|string",
+                "comments" => "nullable|string",
+            ]
+        );
+        Appointment::create(
+            [
+                "appointment_address_id" => $request->appointment_address,
+                "date" => $request->date,
+                "appointment_timeslot_id" => $request->time_slot,
+                "name" => $request->name,
+                "phone" => $request->phone,
+                "email" => $request->email,
+                "address" => $request->address,
+                "city" => $request->city,
+                "state" => $request->state,
+                "zip" => $request->zip,
+                "comments" => $request->comments
+            ]
+        );
+        return back()->with('message', 'Appointment Created');
     }
 
     /**

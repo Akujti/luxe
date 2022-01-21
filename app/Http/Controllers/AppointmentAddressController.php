@@ -18,6 +18,11 @@ class AppointmentAddressController extends Controller
         return view('appointments.addresses.index', compact('addresses'));
     }
 
+    public function all()
+    {
+        return response()->json(AppointmentAddress::get());
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -32,29 +37,6 @@ class AppointmentAddressController extends Controller
         AppointmentAddress::create(['title' => $request->title]);
         return back()->with('message', 'Address Created');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\AppointmentAddress  $appointmentAddress
-     * @return \Illuminate\Http\Response
-     */
-    public function show(AppointmentAddress $appointmentAddress)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\AppointmentAddress  $appointmentAddress
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(AppointmentAddress $appointmentAddress)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -64,7 +46,11 @@ class AppointmentAddressController extends Controller
      */
     public function update(Request $request, AppointmentAddress $appointmentAddress)
     {
-        //
+        $request->validate([
+            'title' => 'required|string'
+        ]);
+        $appointmentAddress->update(['title' => $request->title]);
+        return back()->with('message', 'Address Updated');
     }
 
     /**
@@ -75,6 +61,7 @@ class AppointmentAddressController extends Controller
      */
     public function destroy(AppointmentAddress $appointmentAddress)
     {
-        //
+        $appointmentAddress->delete();
+        return back()->with('message', 'Address Deleted');
     }
 }

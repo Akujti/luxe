@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentAddressController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
@@ -18,8 +19,10 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\TemplateSubmitController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
+use App\Models\AppointmentTimeslot;
 use Illuminate\Routing\Router;
 
 /*
@@ -200,6 +203,9 @@ Route::post('create-pdf-file-home-buying', [PDFController::class, 'home_buying']
 Route::post('home-didnt-sell', [PDFController::class, 'home_didnt_sell'])->name('pdf.home.didnt.sell');
 
 Route::resource('appointments', AppointmentController::class);
+Route::get('appointment-addresses/all', [AppointmentAddressController::class, 'all']);
+Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
+Route::get('test', [TestController::class, 'index']);
 
 Auth::routes();
 
