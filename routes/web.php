@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgentEmailController;
 use App\Http\Controllers\AppointmentAddressController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AppointmentTimeslotController;
@@ -257,6 +258,7 @@ Route::group(
         Route::delete('deleteSubmissions', [FormSubmitController::class, 'deleteSubmissions'])->name('deleteSubmissions');
 
         Route::resource('appointment-addresses', AppointmentAddressController::class);
+        Route::resource('agent-emails', AgentEmailController::class);
     }
 );
 

@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AppointmentAddress extends Model
+class AgentEmail extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'email'];
+
+    protected $fillable = ['email'];
 }

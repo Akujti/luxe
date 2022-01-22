@@ -2,19 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Folder;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class AgentEmailSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([]);
+        //
     }
 }

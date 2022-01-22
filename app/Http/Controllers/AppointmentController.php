@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\GeneralMailTemplate;
+use App\Models\AgentEmail;
 use App\Models\Appointment;
 use App\Models\AppointmentAddress;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AppointmentController extends Controller
 {
@@ -69,6 +72,20 @@ class AppointmentController extends Controller
                 "comments" => $request->comments
             ]
         );
+        $details = [];
+        $address = AppointmentAddress::findOrFail($request->appointment_address);
+        foreach ($request->except('_token', 'to_email', 'appointment_address', 'time_slot') as $key => $val) {
+            $details[strtolower($key)] = $val;
+        }
+        $to = [];
+        $email_list = AgentEmail::get();
+        foreach ($email_list as $email) {
+            array_push($to, $email->email);
+        }
+        array_push($to, $address->email);
+        array_push($to, $request->email);
+        $cc = [];
+        Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
         return back()->with('message', 'Appointment Created');
     }
 

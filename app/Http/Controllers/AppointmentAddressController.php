@@ -32,9 +32,10 @@ class AppointmentAddressController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string'
+            'title' => 'required|string',
+            'email' => 'required|email',
         ]);
-        AppointmentAddress::create(['title' => $request->title]);
+        AppointmentAddress::create(['title' => $request->title, 'email' => $request->email]);
         return back()->with('message', 'Address Created');
     }
     /**
@@ -47,9 +48,10 @@ class AppointmentAddressController extends Controller
     public function update(Request $request, AppointmentAddress $appointmentAddress)
     {
         $request->validate([
-            'title' => 'required|string'
+            'title' => 'required|string',
+            'email' => 'required|email',
         ]);
-        $appointmentAddress->update(['title' => $request->title]);
+        $appointmentAddress->update(['title' => $request->title, 'email' => $request->email]);
         return back()->with('message', 'Address Updated');
     }
 

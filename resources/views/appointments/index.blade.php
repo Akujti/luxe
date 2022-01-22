@@ -107,9 +107,15 @@
 @endsection
 @section('content')
 <div class="container wrapper">
-    <h1>Appointments</h1>
+    <h1 class="position-relative">Appointments
+        @if (Auth::user() && Auth::user()->isAdmin)
+        <a href="{{route('appointment-addresses.index')}}" class="btn btn-dark position-absolute text-white"
+            style="right: 15px;top:15px">Addresses</a>
+        @endif
+    </h1>
     <form id="regForm" action="{{route('appointments.store')}}" method="POST" class="d-block">
         @csrf
+        <input type="hidden" class="form-control" name="phone">
         <div class="tab">
             <h4 class="my-4">1. Choose an address</h4>
             <hr>
@@ -127,7 +133,7 @@
             <hr>
             <div class="form-group">
                 <label for="">Select Date</label>
-                <input type="date" class="form-control date" name="date">
+                <input type="date" class="form-control date" name="date" required>
                 <i>Available days are Saturday and Sunday</i>
             </div>
             <label for="html">Select Time</label>
@@ -138,15 +144,15 @@
             <hr>
             <div class="form-group">
                 <label for="">Your Name</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" name="name" required>
             </div>
             <div class="form-group">
                 <label for="">Phone</label>
-                <input type="text" class="form-control" name="phone">
+                <input type="text" class="form-control" name="phone" required>
             </div>
             <div class="form-group">
                 <label for="">Email</label>
-                <input type="text" class="form-control" name="email">
+                <input type="email" class="form-control" name="email" required>
             </div>
             <div class="form-group">
                 <label for="">Address</label>
@@ -235,13 +241,23 @@ function validateForm() {
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
     // If a field is empty...
-    if (y[i].value == "") {
+    if (y[i].value == "" && y[i].hasAttribute('required')) {
       // add an "invalid" class to the field:
       y[i].className += " invalid";
       // and set the current valid status to false
       valid = false;
     }
+    if ($('input[type=radio]:checked').length == 0) {
+        valid = false;
+    }
   }
+  if(currentTab == 1){
+      console.log($('input[name=time_slot]:checked'));
+      if ($('input[name=time_slot]:checked').length == 0) {
+        valid = false;
+    }
+  }
+  
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
