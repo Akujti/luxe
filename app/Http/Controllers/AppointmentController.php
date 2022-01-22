@@ -6,6 +6,7 @@ use App\Mail\GeneralMailTemplate;
 use App\Models\AgentEmail;
 use App\Models\Appointment;
 use App\Models\AppointmentAddress;
+use App\Models\AppointmentTimeslot;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -73,7 +74,11 @@ class AppointmentController extends Controller
             ]
         );
         $details = [];
+        $details['form_title'] = 'LUXE | New Appointment';
         $address = AppointmentAddress::findOrFail($request->appointment_address);
+        $time_slot = AppointmentTimeslot::findOrFail($request->time_slot);
+        $details['appointment_address'] = $address->title;
+        $details['time_slot'] = $time_slot->title;
         foreach ($request->except('_token', 'to_email', 'appointment_address', 'time_slot') as $key => $val) {
             $details[strtolower($key)] = $val;
         }
