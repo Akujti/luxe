@@ -175,6 +175,16 @@ class PDFController extends Controller
     }
 
 
+    //Resume
+
+    public function resume(Request $request)
+    {
+        $data = [];
+        $pdf = PDF::loadView('resume.pdf', $data);
+        return $pdf->download('Resume.pdf');
+    }
+
+
     // Door Hangers
 
     public function door_hanger_template_1(Request $request)

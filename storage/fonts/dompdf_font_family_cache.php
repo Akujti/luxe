@@ -97,7 +97,8 @@
     'bold' => $fontDir . '/montserrat-bold_6beb6e27cd8907eec374534ce0d119ec',
     '800' => $fontDir . '/montserrat-800_3593059443dde0e05fef2d4793944645',
     '900' => $fontDir . '/montserrat-900_112533be530cce45147fe268f78174dc',
-    '600' => $fontDir . '/montserrat-600_aaf22da658809ba5766ac9e42d2fb5f2',
+    '600' => $fontDir . '/montserrat-600_2706209d34f92d9eace7ffd8f3cb569a',
+    '500' => $fontDir . '/montserrat-500_f99c806a7c955d6cafe5ed7742c302d3',
   ),
   'gochi hand' => array(
     'normal' => $fontDir . '/gochi-hand-normal_95d4ede7972d8166612d4a9d2482935b',

@@ -21,6 +21,7 @@ use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\W9Controller;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 use App\Models\AppointmentTimeslot;
@@ -51,6 +52,10 @@ Route::get('suzan-agreement', [PDFController::class, 'suzan_agreement'])->name('
 Route::get('steven-agreement', [PDFController::class, 'steven_agreement'])->name('agreement.steven');
 Route::get('gio-agreement', [PDFController::class, 'gio_agreement'])->name('agreement.gio');
 Route::get('albert-agreement', [PDFController::class, 'albert_agreement'])->name('agreement.albert');
+
+// Resume
+Route::view('resume', 'resume.web');
+Route::post('resume', [PDFController::class, 'resume'])->name('resume');
 
 // Door Hangers
 Route::view('door-hanger-template-1', 'door-hangers.template1.web');
@@ -231,6 +236,11 @@ Route::group(
         Route::get('written-email-templates', [WrittenEmailTemplateController::class, 'index'])->name('written-email-templates');
         Route::post('written-email-templates', [WrittenEmailTemplateController::class, 'store'])->name('written-email-templates.store');
         Route::get('written-email-templates/{writtenEmailTemplate}', [WrittenEmailTemplateController::class, 'show'])->name('written-email-templates.show');
+
+        // W-9
+        Route::view('w-9', 'w-9.web');
+        Route::post('w-9', [W9Controller::class, 'store'])->name('w-9');
+        Route::get('w-9/download/{id}', [W9Controller::class, 'download'])->name('w-9.download');
     }
 );
 
