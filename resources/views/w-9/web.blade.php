@@ -126,11 +126,10 @@
 
     .row-image {
         height: auto;
-        width: 715px;
+        min-width: 855px;
     }
 
     .page {
-        width: 1000px;
         position: relative;
         height: 2541px;
         /* background-image: url('images/themes/just-listed/img-1.jpg'); */
@@ -421,7 +420,6 @@
                     </div>
                 </div>
             </div>
-            <div class="column-divider"></div>
             <div class="row-input" style="">
                 <a href="/fw9.pdf" download="">Download the empty template here</a>
                 <div>
