@@ -136,7 +136,7 @@
                 <input type="date" class="form-control date" name="date" required>
                 <i>Available days are Saturday and Sunday</i>
             </div>
-            <label for="html">Select Time</label>
+            <label for="html">Select Time Slot</label>
             <div class="form-group time-group">
             </div>
         </div>
