@@ -9,6 +9,7 @@
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
 </style>
 <style>
     * {
@@ -117,6 +118,10 @@
     .page * {
         color: rgb(25, 23, 24)
     }
+
+    .listings * {
+        font-size: 18px;
+    }
 </style>
 
 <body>
@@ -167,7 +172,7 @@
         </div>
         <div class="absolute" style="left:835px;top:110px">
             <p class="bold gold" style="font-size: 40px;">Education & Accomplishments</p>
-            <table>
+            <table style="width:1125px;margin-bottom:30px">
                 <tr>
                     <td>
                         <p class="bold-600" style="font-size: 25px;">Master of Science in International Real Estate</p>
@@ -177,9 +182,327 @@
                         <p class="bold-600" style="font-size: 25px;">- 2017</p>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <p class="bold-600" style="font-size: 25px;">Bachelor of Business Administration in Management
+                        </p>
+                        <p style="font-size: 20px;">From The School of Business | Miami, FL</p>
+                    </td>
+                    <td>
+                        <p class="bold-600" style="font-size: 25px;">- 2014</p>
+                    </td>
+                </tr>
             </table>
+
+            <p class="bold gold" style="font-size: 40px;">Real Estate Experience</p>
+            <table style="min-width:750px;margin-bottom:30px">
+                <tr>
+                    <td>
+                        <p class="bold-600" style="font-size: 25px;">2014 — Present</p>
+                    </td>
+                    <td>
+                        <p class="" style="font-size: 25px;">LUXE Properties</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="bold-600" style="font-size: 25px;">Mar 2007 — Jan 2014</p>
+                    </td>
+                    <td>
+                        <p class="" style="font-size: 25px;">Fortune International Realty</p>
+                    </td>
+                </tr>
+            </table>
+
+            <p class="bold gold" style="font-size: 40px;">Language</p>
+            <table style="min-width:750px;margin-bottom:30px">
+                <tr>
+                    <td>
+                        <p class="" style="font-size: 25px;">Fluent in both:</p>
+                    </td>
+                    <td>
+                        <p class="bold-600" style="font-size: 25px;"> Spanish & English</p>
+                    </td>
+                </tr>
+            </table>
+
+            <p class="bold gold" style="font-size: 40px;">Organizations</p>
+            <table style="min-width:750px">
+                <tr>
+                    <td>
+                        <p class="bold-600" style="font-size: 25px;">Miami YPN</p>
+                    </td>
+                    <td>
+                        <p class="" style="font-size: 25px;">Active Member</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="bold-600" style="font-size: 25px;">NAHREP</p>
+                    </td>
+                    <td>
+                        <p class="" style="font-size: 25px;">Active Member</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="bold-600" style="font-size: 25px;">Miami Association of Realtors</p>
+                    </td>
+                    <td>
+                        <p class="" style="font-size: 25px;">Active Member</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="bold-600" style="font-size: 25px;">CLHMS Designee</p>
+                    </td>
+                    <td>
+                        <p class="" style="font-size: 25px;">Active Member</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="absolute" style="left:835px;top:1150px">
+            <p class="bold gold" style="font-size: 40px;">References</p>
+            <p class="" style="font-size: 28px;"><i>Transactions / Have Conducted From 2018 - Present</i></p>
+            <div>
+                <table class="listings" style="min-width: 1010px">
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="absolute" style="left:835px;top:2260px">
+            <p class="bold gold" style="font-size: 40px;">Current Listings</p>
+            <div>
+                <table class="listings" style="min-width: 1010px">
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                    <tr>
+                        <td>1200 Hardee Rd</td>
+                        <td>512 Alcazar Ave</td>
+                        <td>2730 SW 29th Ct</td>
+                        <td>908 Mariana Ave</td>
+                        <td>3155 MARY ST #3155</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </body>
 
-</html>
+</html>`

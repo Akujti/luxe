@@ -9,6 +9,9 @@
 </head>
 @include('includes.fonts')
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
     * {
         font-family: 'Montserrat';
     }
@@ -61,11 +64,15 @@
         font-weight: 800;
     }
 
+    .bold-600 {
+        font-weight: 600;
+    }
+
     label {
         background-color: #FFCF40;
         padding: 10px;
         display: block;
-        width: 150px;
+        width: 250px;
         font-family: Lato;
     }
 
@@ -79,15 +86,9 @@
         background-color: black;
     }
 
-    .column-divider {
-        min-height: 100%;
-        height: 100%;
-        width: 150px;
-    }
-
     .row-input {
         margin: auto 0;
-        max-width: 1050px;
+        min-width: 540px;
     }
 
     input,
@@ -125,12 +126,13 @@
 
     .row-image {
         height: auto;
+        width: 1000px;
     }
 
     .page {
-        width: 1000px;
+        width: 2000px;
         position: relative;
-        height: 2541px;
+        height: 2572px;
         /* background-image: url('images/themes/just-listed/img-1.jpg'); */
         background-position: center bottom;
         background-repeat: no-repeat;
@@ -142,7 +144,7 @@
     }
 
     .gold {
-        color: #C5A467;
+        color: #C5A467 !important;
     }
 
     .white {
@@ -261,6 +263,15 @@
         font-size: 40px;
         font-weight: 300;
     }
+
+    .page * {
+        color: rgb(25, 23, 24)
+    }
+
+    .listings * {
+        line-height: 30px;
+        font-size: 20px;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -278,49 +289,386 @@
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
                 <input hidden name="img_1_input" id="img_1_input" value="images/door-hangers/template3/1/bg.png">
-                <input hidden name="img_2_input" id="img_2_input" value="images/door-hangers/template3/1/person.png">
-                <input hidden name="img_3_input" id="img_3_input" value="images/door-hangers/template3/2/bg.png">
-                <input hidden name="img_4_input" id="img_3_input" value="images/door-hangers/template3/2/person.png">
                 <div class="page">
                     {{-- Image --}}
                     <div class="absolute" style="top: 0;left:0;">
-                        <img src="images/door-hangers/template4/main.jpg" alt="">
+                        <img src="images/resume/main.jpg" alt="">
+                    </div>
+                    <div class="absolute" style="bottom: 162px;left:228px;">
+                        <img src="images/resume/qr.jpg" alt="" width="300px" height="300px">
+                    </div>
+                    <div class="absolute" style="bottom: 630px;left:140px;">
+                        <img src="images/resume/icons.jpg" alt="" width="45px">
                     </div>
 
                     {{-- Text --}}
-                    <div class="absolute w-100 text-center" style="bottom: 1500px">
-                        <p class="gold text-1" style="font-size:100px">HELLO!</p>
-                        <p class="white text-2" style="font-size:60px;line-height:50px;letter-spacing:5px">I'M NOT JUST
-                            A</p>
-                        <p class="gold gochi text-3" style="font-size:80px;">Real Estate Agent</p>
-                        <p class="white text-4"
-                            style="font-size:60px;line-height:40px;letter-spacing:5px;margin-top:100px">I'M
-                            ALSO YOUR
+                    <div class="absolute" style="bottom: 2170px;left:150px;width:450px">
+                        <div style="font-size: 70px;line-height:60px">
+                            <p>WESLEY</p>
+                            <p class="gold bold">ULLOA</p>
+                        </div>
+                        <p class="bold" style="font-size: 30px;margin-top:30px">CORAL GABLES REALTOR</p>
+                    </div>
+                    <div class="absolute" style="top: 560px;left:145px;width:460px;text-align:justify;font-size:25px">
+                        <p class="text-1" style="font-size: 28px;">Wesley Ulloa is the founder of LUXE Properties, born
+                            and raised in
+                            Miami, she has
+                            more than
+                            fourteen years of experience in South Florida real estate. Selling on average over $20
+                            million a year,
+                            she specializes in creative marketing for listings and sells at 98% list to sales price
+                            ratio with 45
+                            days on market. Wesley has a passion for historic homes and loves sharing her knowledge of
+                            working with,
+                            renovating, researching, owning and of course selling historic homes in South Florida.</p>
+                    </div>
+                    <div class="absolute" style="top: 1260px;left:145px;width:460px;text-align:justify;font-size:25px">
+                        <p class="bold gold" style="font-size: 30px;">Objective</p>
+                        <p class="text-2" style="font-size: 28px;">My objectives are to get you the most money possible,
+                            sell your home
+                            as quickly as I
+                            can, and
+                            make selling your home a pleasant and profitable experience for you.</p>
+                    </div>
+                    <div class="absolute" style="top: 1630px;left:145px;width:460px;text-align:justify;font-size:25px">
+                        <p class="bold gold" style="font-size: 30px;">LUXE Properties</p>
+                        <p class="text-3" style="">55 Merrick Way #402,<br>
+                            Coral Gables, FL 33134</p>
+                    </div>
+                    <div class="absolute"
+                        style="top: 1763px;left:190px;text-align:justify;font-size:30px;line-height:61px">
+                        <p class="text-4">305-986-7041</p>
+                        <p class="text-5">wesley@luxeknows.com</p>
+                        <p class="text-6" style="margin-top:5px">@miamihistorichomes</p>
+                    </div>
+                    <div class="absolute" style="bottom: 520px;left:160px">
+                        <p class="bold" style="font-size: 40px;letter-spacing:-2px;">Scan Here For Website</p>
+                    </div>
+                    <div class="absolute" style="left:835px;top:110px">
+                        <p class="bold gold" style="font-size: 40px;">Education & Accomplishments</p>
+                        <table style="width:1025px;margin-bottom:30px">
+                            <tr>
+                                <td>
+                                    <p class="bold-600 text-7" style="font-size: 25px;">Master of Science in
+                                        International Real
+                                        Estate</p>
+                                    <p class="text-8" style="font-size: 20px;">Florida International University | Miami,
+                                        FL</p>
+                                </td>
+                                <td>
+                                    <p class="bold-600 text-9" style="font-size: 25px;">- 2017</p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <p class="bold gold" style="font-size: 40px;">Real Estate Experience</p>
+                        <table style="min-width:750px;margin-bottom:30px">
+                            <tr>
+                                <td>
+                                    <p class="bold-600" style="font-size: 25px;">2014 — Present</p>
+                                </td>
+                                <td>
+                                    <p class="" style="font-size: 25px;">LUXE Properties</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bold-600" style="font-size: 25px;">Mar 2007 — Jan 2014</p>
+                                </td>
+                                <td>
+                                    <p class="" style="font-size: 25px;">Fortune International Realty</p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <p class="bold gold" style="font-size: 40px;">Language</p>
+                        <table style="min-width:750px;margin-bottom:30px">
+                            <tr>
+                                <td>
+                                    <p class="" style="font-size: 25px;">Fluent in both:</p>
+                                </td>
+                                <td>
+                                    <p class="bold-600" style="font-size: 25px;"> Spanish & English</p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <p class="bold gold" style="font-size: 40px;">Organizations</p>
+                        <table style="min-width:750px">
+                            <tr>
+                                <td>
+                                    <p class="bold-600" style="font-size: 25px;">Miami YPN</p>
+                                </td>
+                                <td>
+                                    <p class="" style="font-size: 25px;">Active Member</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bold-600" style="font-size: 25px;">NAHREP</p>
+                                </td>
+                                <td>
+                                    <p class="" style="font-size: 25px;">Active Member</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bold-600" style="font-size: 25px;">Miami Association of Realtors</p>
+                                </td>
+                                <td>
+                                    <p class="" style="font-size: 25px;">Active Member</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bold-600" style="font-size: 25px;">CLHMS Designee</p>
+                                </td>
+                                <td>
+                                    <p class="" style="font-size: 25px;">Active Member</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="absolute" style="left:835px;top:1150px">
+                        <p class="bold gold" style="font-size: 40px;">References</p>
+                        <p class="" style="font-size: 28px;"><i>Transactions / Have Conducted From 2018 - Present</i>
                         </p>
-                        <p class="gold gochi text-5" style="font-size:100px;">Neighbor!</p>
+                        <div>
+                            <table class="listings" style="min-width: 1010px">
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div class="absolute" style="top: 1300px;margin-left:180px;margin-right:250px">
-                        <p class="text-6" style="font-size:33px">As a professional real estate agent and fellow
-                            neighbor, know
-                            the real
-                            value of
-                            what our
-                            neighborhood offers</p>
-                    </div>
-                    <div class="absolute text-right" style="top: 1545px;margin-left:250px;margin-right:180px">
-                        <p class="text-7" style="font-size:33px">I'd love to offer my services and resources to you,
-                            whether
-                            you're
-                            looking to buy
-                            or sell a home</p>
-                    </div>
-                    <div class="absolute w-100 text-center" style="top: 1820px;">
-                        <p class="bold white text-8" style="font-size:33px;margin-left:155px;margin-right:155px;">CALL
-                            ME
-                            FOR A
-                            FREE HOME VALUATION OR IF YOU'RE JUST
-                            NEEDING A
-                            CUP OF SUGAR</p>
+                    <div class="absolute" style="left:835px;top:2260px">
+                        <p class="bold gold" style="font-size: 40px;">Current Listings</p>
+                        <div>
+                            <table class="listings" style="min-width: 1010px">
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                                <tr>
+                                    <td>1200 Hardee Rd</td>
+                                    <td>512 Alcazar Ave</td>
+                                    <td>2730 SW 29th Ct</td>
+                                    <td>908 Mariana Ave</td>
+                                    <td>3155 MARY ST #3155</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -328,43 +676,41 @@
             <div class="row-input" style="">
                 <div>
                     <label for="text-2">Text 1</label>
-                    <input type="text" id="text-1" name="text-1" value="HELLO!">
+                    <textarea name="text_1" id="text-1" cols="30"
+                        rows="5">Wesley Ulloa is the founder of LUXE Properties, born and raised in Miami, she has more than fourteen years of experience in South Florida real estate. Selling on average over $20 million a year, she specializes in creative marketing for listings and sells at 98% list to sales price ratio with 45 days on market. Wesley has a passion for historic homes and loves sharing her knowledge of working with, renovating, researching, owning and of course selling historic homes in South Florida.</textarea>
                 </div>
                 <div>
-                    <label for="text-2">Text 2</label>
-                    <input type="text" id="text-2" name="text-2" value="I'M NOT JUST A">
+                    <label for="text-2">Text 1</label>
+                    <textarea name="text_2" id="text-2" cols="30"
+                        rows="5">My objectives are to get you the most money possible, sell your home as quickly as I can, and make selling your home a pleasant and profitable experience for you.</textarea>
                 </div>
                 <div>
-                    <label for="text-2">Text 3</label>
-                    <input type="text" id="text-3" name="text-3" value="Real Estate Agent">
+                    <label for="text-2">Contact</label>
+                    <input type="text" name="text_3" id="text-3" value="" placeholder="Address">
+                    <i style="font-size: 12px;">Use &lt;br&gt; to create a new line</i>
+                    <input type="text" name="text_4" id="text-4" value="" placeholder="Phone">
+                    <input type="text" name="text_5" id="text-5" value="" placeholder="Email">
+                    <input type="text" name="text_6" id="text-6" value="" placeholder="Instagram">
+
                 </div>
-                <div>
-                    <label for="text-2">Text 4</label>
-                    <input type="text" id="text-4" name="text-4" value="I'M ALSO YOUR">
+                <div style="margin-bottom:10px;">
+                    <label for="page-1-img-1">QR Image</label>
+                    <input type="file" id="img-1-input" onchange="image_change('img-1-input',['img_1'],'img_1_input')">
+                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
                 </div>
-                <div>
-                    <label for="text-2">Text 5</label>
-                    <input type="text" id="text-5" name="text-5" value="Neighbor!">
+                <div id="section-1">
+                    <label for="text-2">Education & Accomplishments</label>
+                    <input type="text" placeholder="Title" name="section_1_title[]" id="section_1_title_1">
+                    <input type="text" placeholder="Subtitle" name="section_1_subtitle[]" id="section_1_subtitle_1">
+                    <input type="text" placeholder="Year" name="section_1_year[]" id="section_1_year_1">
+                    <hr>
                 </div>
-                <div>
-                    <label for="text-2">Text 6</label>
-                    <textarea name="text-6" id="text-6"
-                        rows="4">As a professional real estate agent and fellow neighbor, know the real value of what our neighborhood offers</textarea>
-                </div>
-                <div>
-                    <label for="text-2">Text 7</label>
-                    <textarea name="text-7" id="text-7"
-                        rows="4">I'd love to offer my services and resources to you, whether you're looking to buy or sell a home</textarea>
-                </div>
-                <div>
-                    <label for="text-2">Text 8</label>
-                    <input type="text" id="text-8" name="text-8"
-                        value="CALL ME FOR A FREE HOME VALUATION OR IF YOU'RE JUST NEEDING A CUP OF SUGAR">
-                </div>
-                <div>
+                <button type="button" onclick="add_section_1()">Add row</button>
+                <div style="margin-top:10px;">
                     <div class="flex">
                         <div class="" style="width: 345px">
-                            <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                            <button type="submit" name="action" value="Generate" class="generate">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -402,6 +748,12 @@
             export_var.html(event_element.val());
         }); 
     });
+
+    var section_1_counter = 2; 
+    function add_section_1(){
+        $('#section-1').append('<input type="text" placeholder="Title" name="section_1_title[]" id="section_1_title_'+section_1_counter+'"><input type="text" placeholder="Subtitle" name="section_1_subtitle[]" id="section_1_subtitle'+section_1_counter+'"><input type="text" placeholder="Year" name="section_1_year[]" id="section_1_year'+section_1_counter+'"><hr>')
+        section_1_counter++;
+    }
 
     
     function img_6_change(){

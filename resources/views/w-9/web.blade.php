@@ -426,10 +426,10 @@
                     </div>
 
                     <div class="absolute" style="top: 1506px;left:360px;">
-                        <p class="handwritten text-11" style="font-size: 50px">Art Kujtimi</p>
+                        <p class="handwritten text-11" style="font-size: 50px"></p>
                     </div>
                     <div class="absolute" style="top: 1525px;left:1155px;">
-                        <p class="p-1 text-12">01/01/2000</p>
+                        <p class="p-1 text-12"></p>
                     </div>
                 </div>
             </div>
