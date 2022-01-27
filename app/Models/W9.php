@@ -23,6 +23,8 @@ class W9 extends Model
         'text_7',
         'text_8',
         'text_9',
-        'text_10'
+        'text_10',
+        'signature',
+        'date'
     ];
 }

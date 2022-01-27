@@ -11,8 +11,14 @@
 </head>
 @include('includes.fonts')
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Petemoss&display=swap');
+
     * {
         font-family: 'Montserrat';
+    }
+
+    .handwritten {
+        font-family: Petemoss !important;
     }
 
     .gochi {
@@ -418,6 +424,13 @@
                     <div class="absolute text-center w-50" style="top: 1072px;left:1515px;">
                         <p class="p-2 employer-8"></p>
                     </div>
+
+                    <div class="absolute" style="top: 1506px;left:360px;">
+                        <p class="handwritten text-11" style="font-size: 50px">Art Kujtimi</p>
+                    </div>
+                    <div class="absolute" style="top: 1525px;left:1155px;">
+                        <p class="p-1 text-12">01/01/2000</p>
+                    </div>
                 </div>
             </div>
             <div class="row-input" style="">
@@ -490,6 +503,14 @@
                 <div>
                     <label for="text-2">Employer identification number</label>
                     <input type="text" id="text-10" name="text_10" value="">
+                </div>
+                <div>
+                    <label for="text-2">Signature of U.S person</label>
+                    <input type="text" id="text-11" name="text_11" value="">
+                </div>
+                <div>
+                    <label for="text-2">Date</label>
+                    <input type="text" id="text-12" name="text_12" value="">
                 </div>
                 <div>
                     <div class="flex">

@@ -36,6 +36,8 @@ class W9Controller extends Controller
                 'text_8' => $request['text_8'],
                 'text_9' => $request['text_9'],
                 'text_10' => $request['text_10'],
+                'signature' => $request['text_11'],
+                'date' => $request['text_12'],
             ]
         );
 

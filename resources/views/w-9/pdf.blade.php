@@ -7,9 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>W-9</title>
 </head>
+
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Petemoss&display=swap');
+
     * {
         font-family: Roboto;
+    }
+
+    .handwritten {
+        font-family: Petemoss;
     }
 
     @page {
@@ -257,6 +264,13 @@
         </div>
         <div class="absolute text-center w-50" style="top: 1072px;left:1515px;">
             <p class="p-2">{{$text_10[8]}}</p>
+        </div>
+
+        <div class="absolute" style="top: 1500px;left:360px;">
+            <p class="handwritten" style="font-size: 45px">{{$signature}}</p>
+        </div>
+        <div class="absolute" style="top: 1525px;left:1155px;">
+            <p class="p-1">{{$date}}</p>
         </div>
     </div>
 
