@@ -74,7 +74,7 @@ class AppointmentController extends Controller
             ]
         );
         $details = [];
-        $details['form_title'] = 'LUXE | New Appointment';
+        $details['form_title'] = 'Open House Sign-Up';
         $address = AppointmentAddress::findOrFail($request->appointment_address);
         $time_slot = AppointmentTimeslot::findOrFail($request->time_slot);
         $details['appointment_address'] = $address->title;

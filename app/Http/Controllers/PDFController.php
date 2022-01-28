@@ -179,7 +179,28 @@ class PDFController extends Controller
 
     public function resume(Request $request)
     {
-        $data = [];
+        $data = [
+            'img_1_input' => $request['img_1_input'],
+            'text_name_1' => $request['text_name_1'],
+            'text_name_2' => $request['text_name_2'],
+            'text_1' => $request['text_1'],
+            'text_2' => $request['text_2'],
+            'text_3' => $request['text_3'],
+            'text_4' => $request['text_4'],
+            'text_5' => $request['text_5'],
+            'text_6' => $request['text_6'],
+            'section_1_title' => $request['section_1_title'],
+            'section_1_subtitle' => $request['section_1_subtitle'],
+            'section_1_year' => $request['section_1_year'],
+            'section_2_title' => $request['section_2_title'],
+            'section_2_subtitle' => $request['section_2_subtitle'],
+            'section_3_title' => $request['section_3_title'],
+            'section_3_subtitle' => $request['section_3_subtitle'],
+            'section_4_title' => $request['section_4_title'],
+            'section_4_subtitle' => $request['section_4_subtitle'],
+            'current_listings' => $request['current_listings'],
+            'text_references' => $request['text_references']
+        ];
         $pdf = PDF::loadView('resume.pdf', $data);
         return $pdf->download('Resume.pdf');
     }

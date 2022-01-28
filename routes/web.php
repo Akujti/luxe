@@ -213,7 +213,7 @@ Route::get('appointment-addresses/all', [AppointmentAddressController::class, 'a
 Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
 Route::get('test', [TestController::class, 'index']);
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::group(
     ['prefix' => 'user', 'middleware' => ['auth']],

@@ -131,7 +131,7 @@
             <img src="images/resume/main.jpg" alt="">
         </div>
         <div class="absolute" style="bottom: 162px;left:228px;">
-            <img src="images/resume/qr.jpg" alt="" width="300px" height="300px">
+            <img src="{{$img_1_input}}" alt="" width="300px" height="300px">
         </div>
         <div class="absolute" style="bottom: 630px;left:140px;">
             <img src="images/resume/icons.jpg" alt="" width="45px">
@@ -140,32 +140,26 @@
         {{-- Text --}}
         <div class="absolute" style="bottom: 2170px;left:150px;width:450px">
             <div style="font-size: 70px;line-height:60px">
-                <p>WESLEY</p>
-                <p class="gold bold">ULLOA</p>
+                <p>{!! $text_name_1 !!}</p>
+                <p class="gold bold">{!! $text_name_2 !!}</p>
             </div>
             <p class="bold" style="font-size: 30px;margin-top:30px">CORAL GABLES REALTOR</p>
         </div>
         <div class="absolute" style="top: 560px;left:145px;width:460px;text-align:justify;font-size:25px">
-            <p style="">Wesley Ulloa is the founder of LUXE Properties, born and raised in Miami, she has more than
-                fourteen years of experience in South Florida real estate. Selling on average over $20 million a year,
-                she specializes in creative marketing for listings and sells at 98% list to sales price ratio with 45
-                days on market. Wesley has a passion for historic homes and loves sharing her knowledge of working with,
-                renovating, researching, owning and of course selling historic homes in South Florida.</p>
+            <p style="">{!! $text_1 !!}</p>
         </div>
         <div class="absolute" style="top: 1260px;left:145px;width:460px;text-align:justify;font-size:25px">
             <p class="bold gold" style="font-size: 30px;">Objective</p>
-            <p style="">My objectives are to get you the most money possible, sell your home as quickly as I can, and
-                make selling your home a pleasant and profitable experience for you.</p>
+            <p style="">{!! $text_2 !!}</p>
         </div>
         <div class="absolute" style="top: 1630px;left:145px;width:460px;text-align:justify;font-size:25px">
             <p class="bold gold" style="font-size: 30px;">LUXE Properties</p>
-            <p style="">55 Merrick Way #402,<br>
-                Coral Gables, FL 33134</p>
+            <p style="">{!! $text_3 !!}</p>
         </div>
         <div class="absolute" style="top: 1760px;left:190px;text-align:justify;font-size:30px;line-height:45px">
-            <p style="">305-986-7041</p>
-            <p style="">wesley@luxeknows.com</p>
-            <p style="margin-top:5px">@miamihistorichomes</p>
+            <p style="">{!! $text_4 !!}</p>
+            <p style="">{!! $text_5 !!}</p>
+            <p style="margin-top:5px">{!! $text_6 !!}</p>
         </div>
         <div class="absolute" style="bottom: 520px;left:160px">
             <p class="bold" style="font-size: 40px;letter-spacing:-2px;">Scan Here For Website</p>
@@ -173,93 +167,55 @@
         <div class="absolute" style="left:835px;top:110px">
             <p class="bold gold" style="font-size: 40px;">Education & Accomplishments</p>
             <table style="width:1125px;margin-bottom:30px">
-                <tr>
+                @for ($i = 0; $i < count($section_1_title); $i++) <tr>
                     <td>
-                        <p class="bold-600" style="font-size: 25px;">Master of Science in International Real Estate</p>
-                        <p style="font-size: 20px;">Florida International University | Miami, FL</p>
+                        <p class="bold-600" style="font-size: 25px;">{{$section_1_title[$i]}}</p>
+                        <p style="font-size: 20px;">{{$section_1_subtitle[$i]}}</p>
                     </td>
                     <td>
-                        <p class="bold-600" style="font-size: 25px;">- 2017</p>
+                        <p class="bold-600" style="font-size: 25px;">{{$section_1_year[$i]}}</p>
                     </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="bold-600" style="font-size: 25px;">Bachelor of Business Administration in Management
-                        </p>
-                        <p style="font-size: 20px;">From The School of Business | Miami, FL</p>
-                    </td>
-                    <td>
-                        <p class="bold-600" style="font-size: 25px;">- 2014</p>
-                    </td>
-                </tr>
+                    </tr>
+                    @endfor
             </table>
 
             <p class="bold gold" style="font-size: 40px;">Real Estate Experience</p>
             <table style="min-width:750px;margin-bottom:30px">
-                <tr>
+                @for ($i = 0; $i < count($section_2_title); $i++) <tr>
                     <td>
-                        <p class="bold-600" style="font-size: 25px;">2014 — Present</p>
+                        <p class="bold-600" style="font-size: 25px;">{{$section_2_title[$i]}}</p>
                     </td>
                     <td>
-                        <p class="" style="font-size: 25px;">LUXE Properties</p>
+                        <p class="" style="font-size: 25px;">{{$section_2_subtitle[$i]}}</p>
                     </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="bold-600" style="font-size: 25px;">Mar 2007 — Jan 2014</p>
-                    </td>
-                    <td>
-                        <p class="" style="font-size: 25px;">Fortune International Realty</p>
-                    </td>
-                </tr>
+                    </tr>
+                    @endfor
             </table>
 
             <p class="bold gold" style="font-size: 40px;">Language</p>
             <table style="min-width:750px;margin-bottom:30px">
-                <tr>
+                @for ($i = 0; $i < count($section_3_title); $i++) <tr>
                     <td>
-                        <p class="" style="font-size: 25px;">Fluent in both:</p>
+                        <p class="" style="font-size: 25px;">{{$section_3_title[$i]}}</p>
                     </td>
                     <td>
-                        <p class="bold-600" style="font-size: 25px;"> Spanish & English</p>
+                        <p class="bold-600" style="font-size: 25px;">{{$section_3_subtitle[$i]}}</p>
                     </td>
-                </tr>
+                    </tr>
+                    @endfor
             </table>
 
             <p class="bold gold" style="font-size: 40px;">Organizations</p>
             <table style="min-width:750px">
-                <tr>
+                @for ($i = 0; $i < count($section_4_title); $i++) <tr>
                     <td>
-                        <p class="bold-600" style="font-size: 25px;">Miami YPN</p>
+                        <p class="bold-600" style="font-size: 25px;">{{$section_4_title[$i]}}</p>
                     </td>
                     <td>
-                        <p class="" style="font-size: 25px;">Active Member</p>
+                        <p class="" style="font-size: 25px;">{{$section_4_subtitle[$i]}}</p>
                     </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="bold-600" style="font-size: 25px;">NAHREP</p>
-                    </td>
-                    <td>
-                        <p class="" style="font-size: 25px;">Active Member</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="bold-600" style="font-size: 25px;">Miami Association of Realtors</p>
-                    </td>
-                    <td>
-                        <p class="" style="font-size: 25px;">Active Member</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="bold-600" style="font-size: 25px;">CLHMS Designee</p>
-                    </td>
-                    <td>
-                        <p class="" style="font-size: 25px;">Active Member</p>
-                    </td>
-                </tr>
+                    </tr>
+                    @endfor
             </table>
         </div>
 
@@ -268,209 +224,18 @@
             <p class="" style="font-size: 28px;"><i>Transactions / Have Conducted From 2018 - Present</i></p>
             <div>
                 <table class="listings" style="min-width: 1010px">
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
+                    @php
+                    $text_references = explode("\n", $text_references)
+                    @endphp
+                    @for ($index = 0; $index < count($text_references)/5; $index++) <tr>
+                        @for ($index_2 = $index*5; $index_2 < $index*5+5; $index_2++) <td>
+                            @if (!empty($text_references[$index_2]))
+                            {{$text_references[$index_2]}}
+                            @endif
+                            </td>
+                            @endfor
+                            </tr>
+                            @endfor
                 </table>
             </div>
         </div>
@@ -478,27 +243,18 @@
             <p class="bold gold" style="font-size: 40px;">Current Listings</p>
             <div>
                 <table class="listings" style="min-width: 1010px">
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
-                    <tr>
-                        <td>1200 Hardee Rd</td>
-                        <td>512 Alcazar Ave</td>
-                        <td>2730 SW 29th Ct</td>
-                        <td>908 Mariana Ave</td>
-                        <td>3155 MARY ST #3155</td>
-                    </tr>
+                    @php
+                    $current_listings = explode("\n", $current_listings)
+                    @endphp
+                    @for ($index = 0; $index < count($current_listings)/5; $index++) <tr>
+                        @for ($index_2 = $index*5; $index_2 < $index*5+5; $index_2++) <td>
+                            @if (!empty($current_listings[$index_2]))
+                            {{$current_listings[$index_2]}}
+                            @endif
+                            </td>
+                            @endfor
+                            </tr>
+                            @endfor
                 </table>
             </div>
         </div>
