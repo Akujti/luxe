@@ -58,7 +58,11 @@
         <div class="body">
             <br><br>
             <p class="text-center"><b>{{$mentor_name}} - Mentorship Agreement</b></p>
-            <br><br>
+            <ul style="padding: 0">
+                <li>3 TRANSACTIONS WITH MENTOR</li>
+                <li>50% OF LISTINGS</li>
+                <li>50% OF SALES</li>
+            </ul>
             <p>Agent Name:<span
                     class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$text_1}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </p>

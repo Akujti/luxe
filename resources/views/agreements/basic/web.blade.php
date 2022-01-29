@@ -74,9 +74,13 @@
                             <img src="{{asset('images/generate_logo.jpg')}}" alt="" style="width:270px">
                         </div>
                         <div class="body">
-                            <br><br>
+                            <br>
                             <p class="text-center"><b>{{$agent->name}} - Mentorship Agreement</b></p>
-                            <br><br>
+                            <ul style="padding: 0">
+                                <li>3 TRANSACTIONS WITH MENTOR</li>
+                                <li>25% OF LISTINGS</li>
+                                <li>25% OF SALES</li>
+                            </ul>
                             <p>Agent Name:____________________
                             </p>
                             <br>

@@ -56,9 +56,16 @@
             <img src="images/generate_logo.jpg" alt="" style="width:270px">
         </div>
         <div class="body">
-            <br><br>
+            <br>
             <p class="text-center"><b>{{$mentor_name}} - Mentorship Agreement</b></p>
-            <br><br>
+            <br>
+            <ul style="padding: 0">
+                <li>3 TRANSACTIONS WITH MENTOR</li>
+                <li>50% OF LISTINGS</li>
+                <li>35% OF SALES</li>
+                <li>25% IF IT'S A ZILLOW LEAD</li>
+            </ul>
+            <br>
             <p>Agent Name:<span
                     class="underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$text_1}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </p>
@@ -92,10 +99,6 @@
                 <li>Assist with negotiating the inspections</li>
                 <li>Assist with appraisal negotiations</li>
             </ol>
-            <div class="footer">
-                55 Merrick Way Suite 402, Coral Gables, FL 33134&nbsp;&nbsp;&nbsp;O: (305) 809-7650 F: (305) 938-8054
-            </div>
-            <div class="page_break"></div>
             <p>Agent agrees to use closing coordinator for these transactions and pay for closing
                 coordinator.</p>
             <p>Additional services upon request</p>
