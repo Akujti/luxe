@@ -444,13 +444,34 @@
         </header>
         <main class="">
             <div class="container wrapper">
-                <h1 class="position-relative">Appointments
-                    @if (Auth::user() && Auth::user()->isAdmin)
-                    <a href="{{route('appointment-addresses.index')}}" class="btn btn-dark position-absolute text-white"
-                        style="right: 15px;top:15px">Addresses</a>
-                    @endif
-                </h1>
-                <form id="regForm" action="{{route('appointments.store')}}" method="POST" class="d-block">
+                <div id="popup" class="card">
+                    <div class="card-header text-center">
+                        <h5>Open House Sign-Up Policy
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>You will receive an email confirmation once you book an open house on the following page. The
+                            email confirmation only
+                            serves as a notification to you, listing agent, & staff that you have requested to host an
+                            open house.
+                        </p>
+                        <b>
+                            Your open house is not confirmed until you reach out to the listing agent for final
+                            approval.
+                        </b>
+                        <p>Listing agent will be the one to provide access instructions for the property.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button onclick="showForm()" class="btn btn-luxe w-100">I Agree</button>
+                    </div>
+                </div>
+                <form id="regForm" action="{{route('appointments.store')}}" method="POST" class="d-none">
+                    <h1 class="position-relative">Appointments
+                        @if (Auth::user() && Auth::user()->isAdmin)
+                        <a href="{{route('appointment-addresses.index')}}"
+                            class="btn btn-dark position-absolute text-white" style="right: 15px;top:15px">Addresses</a>
+                        @endif
+                    </h1>
                     @csrf
                     <input type="hidden" class="form-control" name="phone">
                     <div class="tab">
@@ -470,7 +491,6 @@
                         <hr>
                         <div class="form-group">
                             <label for="">Select Date</label>
-                            {{-- <input type="date" class="form-control date" name="date" required> --}}
                             <input type="text" id="datepicker" name="date" class="form-control date" autocomplete="off"
                                 required>
                             <i>Available days are Saturday and Sunday</i>
@@ -534,6 +554,12 @@
     </div>
 </body>
 <script>
+    function showForm(){
+        $('#popup').addClass('d-none')
+        $('#regForm').removeClass('d-none')
+        $('#regForm').addClass('d-block')
+    }
+
     $(function () {
         $("#datepicker").datepicker({
             duration: "fast",
