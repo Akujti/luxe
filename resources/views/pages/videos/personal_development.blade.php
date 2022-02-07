@@ -113,6 +113,47 @@
                 from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.
             </p>
         </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/564291299?h=8b1c359951" width="640" height="360" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/564291299">The 3 P&rsquo;s- Priorities, Productivity &amp; Procrastination |
+                    Wesley Ulloa
+                    | Jun 16th | English | Mini Session</a> from <a href="https://vimeo.com/luxeknows">LUXE
+                    Properties</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/407572000?h=bde4d30814" width="640" height="328" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/407572000">Back to Basics | Wesley Ulloa | April 10th 2020 | English | Long
+                    Session</a>
+                from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/394284688?h=7127bd85e0" width="640" height="361" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/394284688">Mindset Reset Training | Shanut Anaut | Feb 2020 | English | Mini
+                    Session</a>
+                from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on <a href="https://vimeo.com">Vimeo</a>.
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/365558909?h=8ac4032a6f" width="640" height="480" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/365558909">Shazam! Transform Your Power- Tame Your Brain | Florida Realtors
+                    Convention |
+                    Oct 2019 | English | Mini Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a>
+                on <a href="https://vimeo.com">Vimeo</a>.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <iframe src="https://player.vimeo.com/video/289464838?h=b7bcb68673" width="640" height="480" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p><a href="https://vimeo.com/289464838">10 Strategies for Achieving Life Balance | Florida Realtors
+                    Convention | Oct
+                    2019 | English | Mini Session</a> from <a href="https://vimeo.com/luxeknows">LUXE Properties</a> on
+                <a href="https://vimeo.com">Vimeo</a>.
+            </p>
+        </div>
     </div>
 </div>
 @endsection

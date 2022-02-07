@@ -55,7 +55,7 @@
         </div>
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','title_financing_insurance')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
                         Title, Financing, & Insurance
