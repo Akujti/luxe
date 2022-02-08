@@ -42,7 +42,7 @@
         background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(255, 255, 255, 0.26) 100%);
         border-radius: 15px;
         border: 1px solid #fff;
-        padding: 18px 30px;
+        padding: 18px 25px;
         text-transform: uppercase;
     }
 

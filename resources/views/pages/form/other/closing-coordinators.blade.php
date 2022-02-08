@@ -15,6 +15,7 @@
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="support@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="{{$coordinator->email}}">
                 <div class="card-body">
                     <div class="row">

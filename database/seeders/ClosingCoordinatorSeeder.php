@@ -14,27 +14,35 @@ class ClosingCoordinatorSeeder extends Seeder
      */
     public function run()
     {
-        ClosingCoordinator::create([
-            'name' => 'Denisse Uyema',
-            'email' => 'denisse@luxeknows.com',
-            'image' => 'images/agents/dennise.jpg',
-            'sentence' => 'Senior Closing Coordinator - Basic Package $300 - VIP Package $500',
-            'status' => 1
-        ]);
+        // ClosingCoordinator::create([
+        //     'name' => 'Denisse Uyema',
+        //     'email' => 'denisse@luxeknows.com',
+        //     'image' => 'images/agents/dennise.jpg',
+        //     'sentence' => 'Senior Closing Coordinator - Basic Package $300 - VIP Package $500',
+        //     'status' => 1
+        // ]);
+
+        // ClosingCoordinator::create([
+        //     'name' => 'Victoria Lettieri',
+        //     'email' => 'victoria@luxeknows.com',
+        //     'image' => 'images/agents/victoria.jpg',
+        //     'sentence' => 'Closing Coordinator - Basic Package $200 - VIP Package $325',
+        //     'status' => 1
+        // ]);
+
+        // ClosingCoordinator::create([
+        //     'name' => 'Maribel Gonzalez',
+        //     'email' => 'theclosinggenie@gmail.com',
+        //     'image' => 'images/agents/maribel.jpg',
+        //     'sentence' => 'Senior Closing Coordinator - Standard Package $399',
+        //     'status' => 1
+        // ]);
 
         ClosingCoordinator::create([
-            'name' => 'Victoria Lettieri',
-            'email' => 'victoria@luxeknows.com',
-            'image' => 'images/agents/victoria.jpg',
-            'sentence' => 'Closing Coordinator - Basic Package $200 - VIP Package $325',
-            'status' => 1
-        ]);
-
-        ClosingCoordinator::create([
-            'name' => 'Maribel Gonzalez',
-            'email' => 'theclosinggenie@gmail.com',
-            'image' => 'images/agents/maribel.jpg',
-            'sentence' => 'Senior Closing Coordinator - Standard Package $399',
+            'name' => 'The Transaction Hub',
+            'email' => 'michelle@thetransactionhub.com',
+            'image' => 'images/agents/transhub.png',
+            'sentence' => 'Closing Coordinator - Standard Package (Buyer or Seller) $399 - Dual Package (Both Buyer & Seller) $599',
             'status' => 1
         ]);
     }
