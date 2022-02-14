@@ -45,7 +45,7 @@
     <div class="row my-4">
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
-                <a href="javascript:void(0)">
+                <a href="{{route('video.folder','inspections_repairs')}}">
                     <img src="/images/files/video-folder.png" alt="">
                     <p>
                         Inspections & Repairs
