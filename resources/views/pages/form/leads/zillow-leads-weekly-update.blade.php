@@ -17,7 +17,6 @@
                 </div>
                 <input type="hidden" name="form_title" value="ZILLOW LEADS WEEKLY UPDATE">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
                 <input type="hidden" name="to_email[]" value="jkirkwood316@gmail.com">
