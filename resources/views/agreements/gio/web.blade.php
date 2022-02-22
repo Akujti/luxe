@@ -84,8 +84,8 @@
                             <p class="text-center"><b>{{$agent->name}} - Mentorship Agreement</b></p>
                             <ul style="padding: 0">
                                 <li>3 TRANSACTIONS WITH MENTOR</li>
-                                <li>35% OF LISTINGS</li>
-                                <li>35% OF SALES</li>
+                                <li>25% OF LISTINGS</li>
+                                <li>25% OF SALES</li>
                             </ul>
                             <br>
                             <p>Agent Name:<span
