@@ -5,7 +5,6 @@
 /public/uploadedimages
 /public/zip
 /storage/*.key
-/vendor
 /public/pdfConvert
 /public/imageConvert
 .env
