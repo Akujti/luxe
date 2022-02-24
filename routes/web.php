@@ -38,6 +38,8 @@ use Illuminate\Routing\Router;
 |
 */
 
+Route::view('office-locations', 'office-locations');
+
 Route::view('generate-offer', 'generate.web');
 Route::post('generate-offer', [PDFController::class, 'generate_offer'])->name('generate.offer');
 
