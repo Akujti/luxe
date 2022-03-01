@@ -12,36 +12,33 @@
         <div class="col-md-12">
             <div id="popup" class="card">
                 <div class="card-header text-center">
-                    <h5>Photoshoots take staff 24-48 hours to confirm. Keep in mind requests are only viewed during
-                        office hours.</h5>
+                    <h5>Prior to scheduling a photoshoot for your listing you must agree to the following terms:</h5>
                 </div>
                 <div class="card-body">
                     <pre style="font-family: Arial;">
+        <b>Photoshoots take staff 24-48 hours to confirm. Keep in mind requests are only viewed during office hours.</b>
                     If your listing agreement does not meet the requirements for the shoot to be covered by LUXE, you
                     understand that you will be responsible for submitting payment prior to the shoot.
-                    
+
                     Requirements for shoots covered by LUXE below. Photos for listings not meeting these
-                    requirements will be responsibility of the agent.
-                    
-                    • Listing agreement for sale (residential sales only - single-family, townhouses, condos)
+                    requirements will be responsibility of the agent.<br>
+                    • Listing agreement for sale (single-family, townhouses, condos, & commercial sales only)
                     • 6-month listing agreement
                     • Minimum list price of $250K
                     • Minimum 5% gross commission (2.5% listing side)
                     • Property size of 2,000 SqFt or less - 10% buffer on size (anything over will have a surcharge
-                    to be paid on LUXE store)
-                    
-                    See below for our standard photography policies:
-                    
+                    to be paid on LUXE store)<br>
+                    See below for our standard photography policies:<br>
                     • pics/videos done Monday-Thursday are turned in on Fridays by the end of the day
                     • pics/videos done Friday-Sunday will turned in the following Friday
-                    • please request any specific shots when you book the photoshoot
-                    &#9;• for example, if you need pictures of amenities or nearby surroundings
+                    • please request any specific shots when you book the photoshoot through Setmore
+                    &#9;o for example, if you need pictures of amenities or nearby surroundings
                     • listing agents must be present throughout the entire photoshoot
                     • photographers are not allowed to be alone at properties or close/lock up the property
                     • photographers reserve the right to not photograph a property if it is not photoshoot ready
-                    &#9;• we provide you with a guide on how to prepare properties for the shoot when we confirm your
+                    &#9;o we provide you with a guide on how to prepare properties for the shoot when we confirm your
                     appointment
-                    &#9;• no cars in front of the property
+                    &#9;o no cars in front of the property
                     • if you need any additional or custom work, please feel free to talk to the photographers as
                     they are always willing to
                     help :)
@@ -49,10 +46,9 @@
                     • $150 charge for RENTAL shoots for pictures only
                     • $225 charge if property not set up correctly/prepared before photographer arrival
                     • $225 charge if photographer must make a 2nd visit to same property
-                    • $100 Travel Free for any property past W Atlantic Blvd
+                    • $75 Travel Free for any property past W Atlantic Blvd
                     • Only properties in Miami-Dade or Broward county are covered
-                    <b>*Please note: If property does not sell (cancelled, expired, or withdrawn), agent will be charged for shoot fee.*</b>
-                    </pre>
+                    <b>*Please note: If property does not sell (cancelled, expired, or withdrawn), agent will be charged for shoot fee​​.​​*<b></pre>
                 </div>
                 <div class="card-footer">
                     <button onclick="showForm()" class="btn btn-luxe w-100">I Agree</button>
