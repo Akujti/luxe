@@ -35,7 +35,7 @@
                     • pics/videos done Monday-Thursday are turned in on Fridays by the end of the day
                     • pics/videos done Friday-Sunday will turned in the following Friday
                     • please request any specific shots when you book the photoshoot
-                    &#9;o for example, if you need pictures of amenities or nearby surroundings
+                    &#9;• for example, if you need pictures of amenities or nearby surroundings
                     • listing agents must be present throughout the entire photoshoot
                     • photographers are not allowed to be alone at properties or close/lock up the property
                     • photographers reserve the right to not photograph a property if it is not photoshoot ready
