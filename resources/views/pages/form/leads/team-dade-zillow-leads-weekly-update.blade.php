@@ -7,7 +7,7 @@
             <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST">
                 @csrf
                 <div class="card-header">
-                    <h1 class="text-center my-4">TEAM FLEX - ZILLOW LEADS WEEKLY UPDATE</h1>
+                    <h1 class="text-center my-4">TEAM DADE - ZILLOW LEADS WEEKLY UPDATE</h1>
                     @if (auth()->user() && auth()->user()->isAdmin)
                     <div class="form-group text-center">
                         <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
@@ -15,7 +15,7 @@
                     </div>
                     @endif
                 </div>
-                <input type="hidden" name="form_title" value="TEAM FLEX - ZILLOW LEADS WEEKLY UPDATE">
+                <input type="hidden" name="form_title" value="TEAM DADE - ZILLOW LEADS WEEKLY UPDATE">
                 <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
@@ -73,14 +73,12 @@
                             <label for="name">Please list the addresses of the fully executed <b>Zillow</b> contracts
                                 along
                                 with the Buyer Name as it appears on Zillow</label><br><br>
-                            <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3"
-                                class="form-control" required>-</textarea>
+                            <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3" class="form-control" required>-</textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Number of offers outstanding awaiting a response from seller, listing
                                 agent or buyer?</label>
-                            <select name="number_of_offers_outstanding_awaiting_a_response_from_seller"
-                                class="form-control" required id="">
+                            <select name="number_of_offers_outstanding_awaiting_a_response_from_seller" class="form-control" required id="">
                                 <option value="-">-</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -118,8 +116,7 @@
                         <div class="form-group col-md-6">
                             <label for="name">Number of ACTIVE buyers you have shown in the last 10 days that plan to
                                 continue working with you?</label>
-                            <select name="number_of_active_buyers_you_have_shows_in_the_last_10_days"
-                                class="form-control" required id="">
+                            <select name="number_of_active_buyers_you_have_shows_in_the_last_10_days" class="form-control" required id="">
                                 <option value="-">-</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -158,8 +155,7 @@
                             <label for="name">Please answer the next questions in Yes/no Format unless paused. Are you
                                 receiving an adequate number of calls you can
                                 handle?</label>
-                            <select name="are_you_receiving_an_adequate_number_of_calls_you_can_handle"
-                                class="form-control" required id="">
+                            <select name="are_you_receiving_an_adequate_number_of_calls_you_can_handle" class="form-control" required id="">
                                 <option value="-">-</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
@@ -169,8 +165,7 @@
                         <div class="form-group col-md-6">
                             <label for="name">If the above is no, can you handle more/less leads while updating your CRM
                                 as per Zillow guidelines?</label>
-                            <select name="if_yes_can_you_handle_more/less_leads_while_updating_your_crm"
-                                class="form-control" required id="">
+                            <select name="if_yes_can_you_handle_more/less_leads_while_updating_your_crm" class="form-control" required id="">
                                 <option value="-">-</option>
                                 <option value="MORE">MORE</option>
                                 <option value="LESS">LESS</option>
@@ -180,8 +175,7 @@
                         <div class="form-group col-md-6">
                             <label for="name">If Paused, please advise if you would like to stay paused in Yes/No
                                 format</label>
-                            <select name="if_paused_please_advise_if_you_would_like_to_stay_paused" class="form-control"
-                                required id="">
+                            <select name="if_paused_please_advise_if_you_would_like_to_stay_paused" class="form-control" required id="">
                                 <option value="-">-</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
@@ -232,24 +226,25 @@
             </form>
             <form action="{{route('getCsv')}}" method="post" id="csv">
                 @csrf
-                <input type="hidden" name="title" value="TEAM FLEX - ZILLOW LEADS WEEKLY UPDATE">
+                <input type="hidden" name="title" value="TEAM DADE - ZILLOW LEADS WEEKLY UPDATE">
             </form>
             <form action="{{route('deleteSubmissions')}}" method="POST" id="deleteSubmissions">
                 @csrf
                 @method('delete')
-                <input type="hidden" name="title" value="TEAM FLEX - ZILLOW LEADS WEEKLY UPDATE">
+                <input type="hidden" name="title" value="TEAM DADE - ZILLOW LEADS WEEKLY UPDATE">
             </form>
         </div>
     </div>
 </div>
 
 <script>
-    function createCsv(){
+    function createCsv() {
         $('#csv').submit()
     }
-    function deleteSubmissions(){
-        if(confirm('Are you sure, you want to delete all submissions for this form?'))
-        $('#deleteSubmissions').submit()
+
+    function deleteSubmissions() {
+        if (confirm('Are you sure, you want to delete all submissions for this form?'))
+            $('#deleteSubmissions').submit()
     }
 </script>
 @endsection
