@@ -69,8 +69,9 @@ class FormController extends Controller
         foreach ($request->except('_token', 'to_email') as $key => $val) {
             if ($request->hasFile($key)) {
                 $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
-                $path = Storage::put('public/images/marketing', $val, 'public');
-                $val = substr_replace(Storage::url($path), '', 0, 1);
+                $request->file($key)->move(public_path('/new-storage/images/marketing'), $name);
+                // $path = Storage::put('public/images/marketing', $val, 'public');
+                $val = 'new-storage/images/marketing/' . $name;
             }
             $details[strtolower($key)] = $val;
         }
@@ -91,7 +92,12 @@ class FormController extends Controller
 
     public function file_download()
     {
-        return response()->download(request()->path);
+        $path = request()->path;
+        if (str_starts_with($path, 'storage/')) {
+            $path = str_replace("storage/", "new-storage/", $path);
+        }
+        // dd($path);
+        return response()->download($path);
     }
 
     public function submitAgreementAgentForm(Request $request)

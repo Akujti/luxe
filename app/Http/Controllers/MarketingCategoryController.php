@@ -82,8 +82,9 @@ class MarketingCategoryController extends Controller
         foreach ($request->except('_token') as $key => $val) {
             if ($request->hasFile($key)) {
                 $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
-                $path = Storage::put('public/images/marketing', $val, 'public');
-                $val = env('APP_URL') . Storage::url($path);
+                // $path = Storage::put('public/images/marketing', $val, 'public');
+                $request->file($key)->move(public_path('/new-storage/images/marketing'), $name);
+                $val = env('APP_URL') . '/new-storage/images/marketing/' . $name;
             }
             $details[strtolower($key)] = $val;
         }

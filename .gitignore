@@ -4,6 +4,8 @@
 /public/thumbnails
 /public/uploadedimages
 /public/zip
+/public/marketing-old
+/public/marketing/*
 /storage/*.key
 /public/pdfConvert
 /public/imageConvert
