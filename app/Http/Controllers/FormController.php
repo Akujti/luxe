@@ -63,6 +63,7 @@ class FormController extends Controller
 
     public function general_form_post(Request $request)
     {
+        $ehllo_world = '123123123';
         $details = [];
         $details['form_agent_full_name'] = $request->agent_full_name;
         $details['form_agent_email'] = $request->agent_email;
