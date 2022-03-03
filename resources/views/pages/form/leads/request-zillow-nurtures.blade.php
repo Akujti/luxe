@@ -10,7 +10,7 @@
                     <h1 class="text-center my-4">Request Zillow Nurtures</h1>
                 </div>
                 <input type="hidden" name="form_title" value="Request Zillow Nurtures">
-                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="email@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">

@@ -10,7 +10,7 @@
                     <h1 class="text-center my-4 text-uppercase">New Agent Business Plan</h1>
                 </div>
                 <input type="hidden" name="form_title" value="New Agent Business Plan">
-                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="email@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <div class="card-body">

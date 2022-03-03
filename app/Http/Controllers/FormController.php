@@ -39,7 +39,7 @@ class FormController extends Controller
                 'loan_officer' => $request->loan_officer,
                 'additional' => $request->additional ?? 'None'
             ];
-            $to = ['wesley@luxeknows.com'];
+            $to = ['email@luxeknows.com'];
             $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com'];
             Mail::to($to)->cc($cc)->send(new FormMail($details));
 
@@ -63,7 +63,6 @@ class FormController extends Controller
 
     public function general_form_post(Request $request)
     {
-        $ehllo_world = '123123123';
         $details = [];
         $details['form_agent_full_name'] = $request->agent_full_name;
         $details['form_agent_email'] = $request->agent_email;

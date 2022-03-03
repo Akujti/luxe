@@ -15,7 +15,7 @@
                 <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="kristy@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="shanut@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="wesley@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="email@luxeknows.com">
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
