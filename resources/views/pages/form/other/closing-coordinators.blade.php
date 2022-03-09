@@ -4,7 +4,7 @@
     <div class="row justify-content-center my-4">
         <div class="col-md-12">
             <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST"
-                onsubmit="addAgentEmail()">
+                onsubmit="addAgentEmail()" enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">CLOSING COORDINATORS - {{$coordinator->name}}</h1>
@@ -94,6 +94,10 @@
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="name">Upload Fully Executed Contract</label>
+                            <input type="file" name="contract" class="form-control p-1">
                         </div>
                         <div class="form-group col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
