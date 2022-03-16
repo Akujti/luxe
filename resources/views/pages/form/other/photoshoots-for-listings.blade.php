@@ -22,7 +22,7 @@
 
                     Requirements for shoots covered by LUXE below. Photos for listings not meeting these
                     requirements will be responsibility of the agent.<br>
-                    • Listing agreement for sale (single-family, townhouses, condos, & commercial sales only)
+                    • Listing agreement for sale (single-family, townhouses, condos)
                     • 6-month listing agreement
                     • Minimum list price of $250K
                     • Minimum 5% gross commission (2.5% listing side)
