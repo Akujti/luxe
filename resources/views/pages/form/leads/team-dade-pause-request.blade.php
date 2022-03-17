@@ -23,18 +23,18 @@
                             <label for="name">Agent Number</label>
                             <input type="text" name="agent_number" class="form-control" required>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label for="name">Agent Email</label>
                             <input type="text" name="agent_email" class="form-control" required>
                         </div>
-                        <div class="form-group col-md-6">
+                        {{-- <div class="form-group col-md-6">
                             <label for="name">Zillow Team</label>
                             <select name="zillow_team" class="form-control" required id="">
                                 <option value="-">-</option>
                                 <option value="Team FLEX">Team FLEX</option>
                                 <option value="Team DADE">Team DADE</option>
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="form-group col-md-6">
                             <label for="name">Start Pause Date</label>
                             <input type="date" name="start_pause_date" class="form-control" required>
