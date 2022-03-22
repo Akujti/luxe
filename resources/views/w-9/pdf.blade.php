@@ -211,59 +211,59 @@
         </div>
 
         <div class="absolute text-center w-50" style="top: 937px;left:1155px;">
-            <p class="p-2">{{$text_9[0]}}</p>
+            <p class="p-2">{{$text_9[0] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 937px;left:1195px;">
-            <p class="p-2">{{$text_9[1]}}</p>
+            <p class="p-2">{{$text_9[1] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 937px;left:1235px;">
-            <p class="p-2">{{$text_9[2]}}</p>
+            <p class="p-2">{{$text_9[2] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 937px;left:1315px;">
-            <p class="p-2">{{$text_9[3]}}</p>
+            <p class="p-2">{{$text_9[3] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 937px;left:1355px;">
-            <p class="p-2">{{$text_9[4]}}</p>
+            <p class="p-2">{{$text_9[4] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 937px;left:1435px;">
-            <p class="p-2">{{$text_9[5]}}</p>
+            <p class="p-2">{{$text_9[5] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 937px;left:1475px;">
-            <p class="p-2">{{$text_9[6]}}</p>
+            <p class="p-2">{{$text_9[6] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 937px;left:1515px;">
-            <p class="p-2">{{$text_9[7]}}</p>
+            <p class="p-2">{{$text_9[7] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 937px;left:1555px;">
-            <p class="p-2">{{$text_9[8]}}</p>
+            <p class="p-2">{{$text_9[8] ?? ''}}</p>
         </div>
 
         <div class="absolute text-center w-50" style="top: 1072px;left:1155px;">
-            <p class="p-2">{{$text_10[0]}}</p>
+            <p class="p-2">{{$text_10[0] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 1072px;left:1195px;">
-            <p class="p-2">{{$text_10[1]}}</p>
+            <p class="p-2">{{$text_10[1] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 1072px;left:1275px;">
-            <p class="p-2">{{$text_10[2]}}</p>
+            <p class="p-2">{{$text_10[2] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 1072px;left:1315px;">
-            <p class="p-2">{{$text_10[3]}}</p>
+            <p class="p-2">{{$text_10[3] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 1072px;left:1355px;">
-            <p class="p-2">{{$text_10[4]}}</p>
+            <p class="p-2">{{$text_10[4] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 1072px;left:1395px;">
-            <p class="p-2">{{$text_10[5]}}</p>
+            <p class="p-2">{{$text_10[5] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 1072px;left:1435px;">
-            <p class="p-2">{{$text_10[6]}}</p>
+            <p class="p-2">{{$text_10[6] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 1072px;left:1475px;">
-            <p class="p-2">{{$text_10[7]}}</p>
+            <p class="p-2">{{$text_10[7] ?? ''}}</p>
         </div>
         <div class="absolute text-center w-50" style="top: 1072px;left:1515px;">
-            <p class="p-2">{{$text_10[8]}}</p>
+            <p class="p-2">{{$text_10[8] ?? ''}}</p>
         </div>
 
         <div class="absolute" style="top: 1500px;left:360px;">
