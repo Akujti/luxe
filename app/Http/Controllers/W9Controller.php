@@ -44,7 +44,7 @@ class W9Controller extends Controller
         $details = [];
         $details['form_title'] = 'W-9 Form';
         $details['agreement'] = route('w-9.download', $form->id);
-        $to = ['operations@luxeknows.com', auth()->user()->email];
+        $to = ['operations@luxeknows.com', 'monica@luxeknows.com', auth()->user()->email];
         $cc = [];
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
 
