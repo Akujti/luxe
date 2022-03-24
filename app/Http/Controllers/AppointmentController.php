@@ -82,7 +82,7 @@ class AppointmentController extends Controller
         foreach ($request->except('_token', 'to_email', 'appointment_address', 'time_slot') as $key => $val) {
             $details[strtolower($key)] = $val;
         }
-        $to = ['support@luxeknows.com', 'receptionist@luxeknows.com', 'wesley@luxeknows.com'];
+        $to = ['support@luxeknows.com', 'receptionist@luxeknows.com', 'email@luxeknows.com'];
         $email_list = AgentEmail::get();
         foreach ($email_list as $email) {
             array_push($to, $email->email);
