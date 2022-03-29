@@ -84,6 +84,18 @@
                             <label for="name">Property Address For Shoot</label>
                             <input type="text" name="property_address" class="form-control" required>
                         </div>
+                        <div class="form-group col-md-12">
+                            <label for="name">Property Type</label>
+                            <select type="text" name="property_type" class="form-control" required>
+                                <option value="Single Family">Single Family</option>
+                                <option value="Condo/Apartment">Condo/Apartment</option>
+                                <option value="Duplex">Duplex</option>
+                                <option value="Triplex">Triplex</option>
+                                <option value="Quadplex">Quadplex</option>
+                                <option value="Entire Condo Building">Entire Condo Building</option>
+                                <option value="Commercial">Commercial</option>
+                            </select>
+                        </div>
                         <div class="form-group col-12 text-center">
                             <h6>**Photoshoots can only be scheduled between 8AM-3PM**</h6>
                         </div>
