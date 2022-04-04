@@ -180,9 +180,7 @@ Route::post('create-theme-just-sold', [PDFController::class, 'theme_just_sold'])
 Route::post('create-theme-just-sold-story', [PDFController::class, 'theme_just_sold_story'])->name('theme-just-sold-story');
 //End
 
-Route::get('/', function () {
-    return redirect('http://myluxehub.com/');
-});
+Route::view('/', 'index');
 
 Route::get('/single-property', function () {
     return view('single-property-web');

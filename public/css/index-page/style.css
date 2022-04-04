@@ -1,0 +1,116 @@
+.section-header {
+    position: relative;
+    height: 100vh;
+}
+.gothicBold {
+    font-family: 'gothicbold';
+}
+.gothicRegular {
+    font-family: 'gothicregular';
+}
+.h1-luxe {
+    font-family: 'gothicbold';
+    font-size: 80px;
+}
+.h2-luxe {
+    font-family: 'gothicbold';
+    font-size: 70px;
+}
+.h3-luxe {
+    font-family: 'gothicbold';
+    font-size: 60px;
+}
+.h4-luxe {
+    font-family: 'gothicbold';
+    font-size: 50px;
+}
+.h5-luxe {
+    font-family: 'gothicbold';
+    font-size: 40px;
+}
+.p-luxe {
+    font-family: 'gothicregular';
+    font-size: 16px;
+}
+.color-dark-luxe {
+    color: #262626;
+}
+.section-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFFFFF;
+}
+.section-img h1 {
+    font-family: 'gothicbold';
+    font-size: 80px;
+}
+.section-img p {
+    font-family: 'gothicregular';
+}
+.button {
+    background-color: #FFFFFF;
+    font-family: 'gothicbold';
+    font-size: 18px;
+    border-radius: 35px !important;
+    border:none;
+    padding: 17px 35px;
+    text-transform: uppercase;
+}
+.section-right-move {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.section-right-move .section-right-move-title {
+    font-family: 'gothicbold';
+    font-size: 30px;
+    color: #262626;
+    text-align: center;
+}
+.section-right-move p {
+    color: #757575;
+    text-align: center;
+}
+.section-what-different {
+    height: 555px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.section-what-different p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 500px) {
+    .section-img h1 {
+        font-size: 30px;
+    }
+    .section-what-different {
+        background-size: cover;
+    }
+    .section-what-different p {
+        font-size: 35px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 980px) {
+    .section-what-different {
+        height: 400px;
+        background-size: cover;
+    }
+    .section-what-different p {
+        font-size: 35px !important;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+    .section-what-different {
+        background-size: cover;
+    }
+  }
