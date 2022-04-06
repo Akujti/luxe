@@ -50,7 +50,7 @@
 @endsection
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             @foreach($marketing_categories as $category)
                 <div class="col my-2">

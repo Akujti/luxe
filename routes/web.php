@@ -39,6 +39,8 @@ use Illuminate\Routing\Router;
 */
 
 Route::view('office-locations', 'office-locations');
+Route::view('home', 'home-page');
+Route::view('store', 'store');
 
 Route::view('generate-offer', 'generate.web');
 Route::post('generate-offer', [PDFController::class, 'generate_offer'])->name('generate.offer');
@@ -280,7 +282,7 @@ Route::get('bookings', [BookingController::class, 'selectRoom'])->name('bookings
 Route::post('bookings', [BookingController::class, 'store'])->middleware('auth')->name('bookings.store');
 
 
-Route::get('marketing', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
+Route::get('marketing-home', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
 Route::get('marketing/{marketingCategory}', [MarketingCategoryController::class, 'show'])->name('marketing.request');
 Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
 

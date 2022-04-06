@@ -11,6 +11,7 @@
     <title>LUXE - PROPERTIES LLC</title>
 
     <!-- Scripts -->
+    <link rel="stylesheet" href="{{ asset('css/root.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -27,6 +28,18 @@
     @yield('css')
 </head>
 <style>
+
+    @font-face {
+        font-family: "gothicbold";
+        src: local("gothicbold"),
+        url("{{ asset('fonts/index-page/gothicbold.ttf')}}") format("truetype");
+    }
+
+    @font-face {
+        font-family: "gothicregular";
+        src: local("gothicregular"),
+        url("{{ asset('fonts/index-page/gothicregular.ttf')}}") format("truetype");
+    }
     footer {
         position: fixed;
         bottom: 0;
@@ -34,9 +47,8 @@
         height: 5px;
         width: 100%;
     }
-
-    header {
-        position: absolute;
+    .header {
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -48,7 +60,10 @@
         padding-right: 90px;
         padding-left: 75px;
     }
-
+    header {
+        position: relative;
+        height: 120px;
+    }
     .header-call a {
         display: block;
         line-height: 30px;
@@ -56,25 +71,20 @@
         font-size: 20px;
         font-family: Montserrat;
     }
-
     .header-call a img {
         margin-right: 5px;
         max-height: 35px;
     }
-
     .btn-luxe {
         background: #FFCF40;
         color: black;
     }
-
     .contact-details {
         height: 100%;
     }
-
     .right-contactsd a:first-child {
         max-width: 330px;
     }
-
     .right-contactsd a {
         display: flex;
         align-items: center;
@@ -87,62 +97,221 @@
         width: auto;
         margin-left: 40px;
     }
-
     .right-contactsd {
         display: flex;
         align-items: center;
         justify-content: flex-end;
         height: 100%;
     }
-
-    .container {
-        padding-top: 155px;
+    .container-fluid {
+        margin-top: 60px;
+        padding-left: 60px;
+        padding-right: 60px;
     }
 
     @media screen and (max-width: 500px) {
-        header {
+        .header {
             padding: 0 !important;
+            position: fixed;
         }
-
+        header {
+            height: 94px;
+        }
         .right-contactsd {
             display: block;
             justify-content: flex-start;
             align-items: baseline;
         }
-
         .right-contactsd a {
             justify-content: center;
             font-size: 14px;
             margin-top: 5px;
             margin-left: 0 !important;
         }
-
         .right-contactsd a svg {
             width: 30px !important;
             margin-right: 5px;
         }
-
         .container {
             padding-top: 20px;
         }
-
-        header {
-            position: relative;
-        }
-
         form {
             display: flex;
             justify-content: center;
             margin-bottom: 10px !important;
         }
-
-
     }
+    
 </style>
 
 <body>
     <div id="app">
         <header>
+            <div class="header">
+                <div class="container-flud">
+                    <div class="row m-0">
+                        <div class="col-2 col-md-2 align-items-center d-flex d-lg-none d-xl-none">
+                            <button class="toggleSidebar btn text-white border rounded bg-transparent">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false" class="">
+                                    <title>Menu</title>
+                                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
+                                </svg>
+
+                            </button>
+                        </div>
+                        <div class="col-10 col-md-4 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
+                            <a href="{{ url('/') }}"><img src="/images/logo.png" alt="" height="80px"></a>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-md-flex d-lg-flex d-xl-flex justify-content-end">
+                            <div class="contact-details">
+                                <div class="right-contactsd">
+                                    <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
+                                    <a href="#"><img src="/images/account-icon.svg" alt=""></a>
+                                    <a href="#"><img src="/images/search-icon.svg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="row d-flex w-100 m-0">
+        <div class="sidebar d-none d-lg-flex">
+            <div class="sidebar-main">
+                <div class="d-flex d-md-none d-lg-none d-xl-none">
+                    <div class="w-100 right-contactsd d-flex justify-content-around">
+                        <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
+                        <a href="#"><img src="/images/account-icon.svg" alt=""></a>
+                        <a href="#"><img src="/images/search-icon.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="sidebar__item sidebar-navigation">
+                    <ul>
+                        <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active @endif">
+                            <a href="{{ url('/home?dir=leads') }}">Leads </a>
+                            <em><img src="/images/plus.png"></em>
+                            <ul class="w-100">
+                                <li class="row m-0"><a href="#">Zillow Premiere</a>
+                                 <em><img src="/images/plus.png"></em>
+
+                                <ul class="w-100">
+                                    <li><a href="#">Social media</a></li>
+                                    <li><a href="#">Security</a></li>
+                                    <li><a href="#">Project</a></li>
+                                    <li><a href="#">Hardware</a></li>
+                                    <li class="row m-0"><a href="#">Activity</a>
+                                     <em><img src="/images/plus.png"></em>
+
+                                        <ul class="w-100">
+                                            <li><a href="#">Social media</a></li>
+                                            <li><a href="#">Security</a></li>
+                                            <li><a href="#">Project</a></li>
+                                            <li><a href="#">Hardware</a></li>
+                                            <li><a href="#">Activity</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                </li>
+                                <li><a href="#">Request 25 Cinc Leads</a></li>
+                                <li><a href="#">Sign Up for Opcity Leads</a></li>
+                                <li><a href="#">Primme Street Leads</a></li>
+                            </ul>
+                        </li>
+                        <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active @endif">
+                            <a href="{{ url('/home?dir=tools_training_videos') }}">Tools & Training Videos</a>
+                             <em><img src="/images/plus.png"></em>
+
+                            <ul class="w-100">
+                                <li class="row m-0"><a href="#">Training Videos</a>
+                                 <em><img src="/images/plus.png"></em>
+
+                                <ul class="w-100">
+                                    <li><a href="#">Social media</a></li>
+                                    <li><a href="#">Security</a></li>
+                                    <li><a href="#">Project</a></li>
+                                    <li><a href="#">Hardware</a></li>
+                                    <li class="row m-0"><a href="#">Activity</a>
+                                     <em><img src="/images/plus.png"></em>
+
+                                        <ul class="w-100">
+                                            <li><a href="#">Social media</a></li>
+                                            <li><a href="#">Security</a></li>
+                                            <li><a href="#">Project</a></li>
+                                            <li><a href="#">Hardware</a></li>
+                                            <li><a href="#">Activity</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                </li>
+                                <li><a href="#">Email Templates</a></li>
+                                <li><a href="#">Link to other services</a></li>
+                                <li><a href="#">New Agents & Referrals</a></li>
+                                <li><a href="#">Conference Room</a></li>
+                                <li><a href="#">Office Documents</a></li>
+                                <li><a href="#">Photoshoot for Listings</a></li>
+                                <li><a href="#">Resume Builder</a></li>
+                            </ul>
+                        </li>
+                        <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active @endif">
+                            <a href="{{ url('/home?dir=marketing') }}">Marketing</a>
+                            <em><img src="/images/plus.png"></em>
+
+                            <ul class="w-100">
+                                <li><a href="#">DIY Marketing</a></li>
+                                <li><a href="#">Print Marketing</a></li>
+                                <li><a href="#">Downloadble Guides</a></li>
+                                <li><a href="#">Canva Templates</a></li>
+                            </ul>
+                        </li>
+                        <li class="row m-0 @if(Request::path() == 'user/events') active @endif">
+                            <a href="{{ url('/user/events') }}">Training & Events</a>
+                        </li>
+                        <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'service_staff_requests') active @endif">
+                            <a href="{{ url('/home?dir=service_staff_requests') }}">Service & Staff Requests</a>
+                            <em><img src="/images/plus.png"></em>
+                            <ul class="w-100">
+                                <li><a href="#">Rental Escrow Disbursement</a></li>
+                                <li><a href="#">Closing Coordinators</a></li>
+                                <li><a href="#">Mentors</a></li>
+                                <li><a href="#">Photoshoot for Listings</a></li>
+                                <li><a href="#">Wire Instructions Request</a></li>
+                                <li><a href="#">Logo Creation Request</a></li>
+                                <li><a href="#">New Agent Business Plan</a></li>
+                                <li><a href="#">2022 Business Plan</a></li>
+                                <li><a href="#">Follow-up Business Plan</a></li>
+                                <li><a href="#">Open House Signup</a></li>
+                            </ul>
+                        </li>
+                        <li class="row m-0 @if(Request::path() == 'store') active @endif">
+                            <a href="{{ url('/store') }}">Luxe Product Store</a>
+                        </li>
+                        <li class="row m-0 @if(Request::path() == 'form') active @endif">
+                            <a href="{{ url('/form') }}">Luxe Lending</a>
+                        </li>
+                        <li class="row m-0 @if(Request::path() == 'office-locations') active @endif">
+                            <a href="{{ url('/office-locations') }}">Office Locations</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-details">
+                    <p class="d-flex align-items-center" onclick="window.location = 'https://goo.gl/maps/UxezmFmdTJE8SmJL6'">
+                        <span><img src="/images/index-page/location-icon.svg" alt=""></span>
+                        <span class="text">55 Merrick Way #402 <br> Coral Gables, FL 33134</span>
+                    </p>
+                    <p class="d-flex align-items-center" onclick="window.location = 'http://www.luxeknows.com/'">
+                        <span><img src="/images/index-page/web-icon.svg" alt=""></span>
+                        <span class="text">www.luxeknows.com</span>
+                    </p>
+                    <p class="d-flex align-items-center" onclick="window.location = 'tel:(305) 809-7650'">
+                        <span><img src="/images/index-page/phone-icon-white.svg" alt=""></span>
+                        <span class="text">(305) 809-7650</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <header>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-lg-2 text-center">
@@ -239,11 +408,13 @@
                     </div>
                 </div>
             </div>
-        </header>
-        <main class="">
-            @yield('content')
-        </main>
-        <footer></footer>
+        </header> -->
+        <div class="col p-0 m-0">
+            <main class="">
+                @yield('content')
+            </main>
+        </div>
+        </div>
     </div>
     @if ($errors->any())
     @foreach ($errors->all() as $error)
@@ -324,4 +495,65 @@
     @endif
 </script>
 
+<script>
+    $('.toggleSidebar').click(function () {
+        $('.sidebar').toggleClass('active');
+    })
+    $(function(){
+        var $ul   =   $('.sidebar-navigation > ul');
+        
+        $ul.find('li em').click(function(e){
+            var $li = $(this).parent();
+            
+            if($li.find('ul').length > 0){
+            e.preventDefault();
+            
+            if($li.hasClass('selected')){
+                
+                $li.removeClass('selected').find('li').removeClass('selected');
+                $li.find('ul').slideUp(400);
+                $li.find('a em').removeClass('mdi-flip-v');
+                $(this).find('img').attr("src","/images/plus.png")
+            }else{
+                $(this).find('img').attr("src","/images/minus.png")
+                if($li.parents('li.selected').length == 0){
+                $ul.find('li').removeClass('selected');
+                $ul.find('ul').slideUp(400);
+                $ul.find('li a em').removeClass('mdi-flip-v');
+                }else{
+                $li.parent().find('li').removeClass('selected');
+                $li.parent().find('> li ul').slideUp(400);
+                $li.parent().find('> li a em').removeClass('mdi-flip-v');
+                }
+                
+                $li.addClass('selected');
+                $li.find('>ul').slideDown(400);
+                $li.find('>a>em').addClass('mdi-flip-v');
+            }
+            }
+        });
+        
+        $('.sidebar-navigation > ul ul').each(function(i){
+            if($(this).find('>li>ul').length > 0){
+            var paddingLeft = $(this).parent().parent().find('>li>a').css('padding-left');
+            var pIntPLeft   = parseInt(paddingLeft);
+            var result      = pIntPLeft + 20;
+            
+            $(this).find('>li>a').css('padding-left',result);
+            }else{
+            var paddingLeft = $(this).parent().parent().find('>li>a').css('padding-left');
+            var pIntPLeft   = parseInt(paddingLeft);
+            var result      = pIntPLeft + 20;
+            
+            $(this).find('>li>a').css('padding-left',result).parent().addClass('selected--last');
+            }
+        });
+        
+        var t = ' li > ul ';
+        for(var i=1;i<=10;i++){
+            $('.sidebar-navigation > ul > ' + t.repeat(i)).addClass('subMenuColor' + i);
+        }
+
+        });
+</script>
 </html>

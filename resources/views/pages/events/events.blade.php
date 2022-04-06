@@ -22,8 +22,8 @@
 </style>
 @endsection
 @section('content')
-<div class="container">
-    <div class="row my-4">
+<div class="container-fluid">
+    <div class="row w-100 m-0">
         <div id='calendar' style="width: 100%; display: inline-block;"></div>
     </div>
     @if ($isAdmin)

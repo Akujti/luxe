@@ -71,7 +71,7 @@ class LoginController extends Controller
                 $new_user->save();
                 Auth::login($new_user);
             }
-            return redirect(Redirect::intended('https://myluxehub.com/')->getTargetUrl());
+            return redirect(Redirect::intended('/home')->getTargetUrl());
         }
 
         return redirect()->back()->with('error', 'These credentials do not match our records.');
