@@ -55,7 +55,7 @@
                     <nav class="navbar navbar-light light-blue lighten-4 d-flex d-lg-none d-xl-none">
 
                         <a class="navbar-brand" href="#"><img src="images/logo.png" alt="" height="74px"></a>
-                        <button class="navbar-toggler toggler-example text-white border" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler toggler-example text-white p-0 m-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false" class="hamburger-menu">
                                 <title>Menu</title>
                                 <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>

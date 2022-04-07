@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34.237" height="34.237" viewBox="0 0 34.237 34.237">
+  <g id="vuesax_bold_close-circle" data-name="vuesax/bold/close-circle" transform="translate(-236 -252)">
+    <g id="close-circle" transform="translate(236 252)">
+      <path id="Vector" d="M14.266,0A14.266,14.266,0,1,0,28.531,14.266,14.289,14.289,0,0,0,14.266,0Zm4.793,17.547a1.076,1.076,0,0,1,0,1.512,1.068,1.068,0,0,1-1.512,0l-3.281-3.281-3.281,3.281a1.068,1.068,0,0,1-1.512,0,1.076,1.076,0,0,1,0-1.512l3.281-3.281L9.472,10.984a1.069,1.069,0,0,1,1.512-1.512l3.281,3.281,3.281-3.281a1.069,1.069,0,0,1,1.512,1.512l-3.281,3.281Z" transform="translate(2.853 2.853)" fill="#262626"/>
+      <path id="Vector-2" data-name="Vector" d="M0,0H34.237V34.237H0Z" transform="translate(34.237 34.237) rotate(180)" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>

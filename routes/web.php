@@ -19,6 +19,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\MarketingCategoryController;
+use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\W9Controller;
@@ -285,6 +286,17 @@ Route::post('bookings', [BookingController::class, 'store'])->middleware('auth')
 Route::get('marketing-home', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
 Route::get('marketing/{marketingCategory}', [MarketingCategoryController::class, 'show'])->name('marketing.request');
 Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
+
+// Canva Marketing
+
+Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function() {
+    Route::get('/', [MarketingTemplateController::class, 'index'])->name('marketing.requests');
+    Route::get('/{marketingCanva}', [MarketingTemplateController::class, 'show'])->name('marketing.request');
+    Route::get('/{marketingCanva}/{template}', [MarketingTemplateController::class, 'template'])->name('marketing.template');
+});
+
+// End Canva Marketing
+
 
 Route::post('marketing/{marketingCategory}/{template}/email/send', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
 Route::post('general/form/send', [FormController::class, 'general_form_post'])->name('general.email.post');

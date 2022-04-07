@@ -6,8 +6,7 @@
         background-color: #F7F7F7;
         text-align: center;
         height: 311px;
-        margin-bottom: 12px;
-        /* margin: 12px 0px; */
+        margin-bottom: 26px;
         border-radius: 30px;
         display: flex;
         align-items: center;
@@ -232,7 +231,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent">
+                <div class="box-item bg-transparent" onclick="window.location = '{{ route("canva.marketing.requests") }}'">
                     <div>
                         <p>Canva Templates</p>
                         <img src="/images/index-page/canva_templates_dir.png" alt="">

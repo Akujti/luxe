@@ -433,8 +433,12 @@ header .navbar-nav .nav-item a {
     font-size: 30px !important;
     opacity: 1 !important;
 }
-.sidebar__item .navbar-toggler {
+.sidebar__item .navbar-toggler, .navbar-toggler {
     border: none !important
+}
+.navbar-toggler:focus {
+    border:none;
+    box-shadow: 0 0 0.2rem rgba(255, 255, 255, 0) !important
 }
 #scrollTop {
     display: none;
