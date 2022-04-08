@@ -1,0 +1,110 @@
+.header-navigation {
+    background: #262626 !important;
+    border-top: 1px solid #4B4B4B;
+}
+.header-navigation a.active {
+    color: #fff;
+    font-size: 18px;
+    font-family: 'gothicbold';
+    border-top: 3px solid #fff;
+    line-height: 72px;
+}
+.header-navigation a {
+    color: #A8A8A8;
+    font-size: 18px;
+    font-family: 'gothicregular';
+    height: 80px;
+    line-height: 80px;
+}
+.header-navigation a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.header-navigation nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#user-logo-dropdown {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+img {
+    object-fit: cover;
+}
+.header ul {
+    margin: 0px;
+    padding: 0px;
+}
+ul {
+    list-style: none;
+}
+.dropdown-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 39px;
+}
+.dropdown-profile a {
+    color: #fff !important;
+}
+.dropdown-profile .dropdown-menu {
+    top: -1px !important;
+    left: -55px !important;
+    text-align: right;
+}
+.dropdown-profile .dropdown-menu a {
+    color: #262626 !important;
+    font-size: 18px;
+    font-family: 'gothicregular';
+}
+#user-name-dropdown {
+    padding: 0px 8px;
+    font-size: 18px;
+    font-family: 'gothicregular';
+}
+.sidebar .dropdown-profile {
+    margin: 0px;
+    width: 86px;
+}
+.sidebar .dropdown-profile .navbar__dropdown {
+    padding: 0px;
+    margin: 0px
+}
+
+.box {
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.box .icon {
+    border-bottom: 1px solid #e6e6e681;
+}
+.box .icon-up {
+    border-top: 1px solid #e6e6e681;
+}
+.box .p-count {
+    font-size: 71px;
+    font-family: 'gothicbold';
+    color: #262626;
+    padding: 0px;
+    margin: 0px;
+}
+.box .p-text {
+    font-size: 22px;
+    font-family: 'gothicbold';
+    color: #262626;
+}
+.box .p-text-regular {
+    font-size: 20px;
+    font-family: 'gothicregular';
+    color: #262626;
+}
+.box .legend-chart-text {
+    font-size: 15px;
+    font-family: 'gothicregular';
+    color: #262626;
+}

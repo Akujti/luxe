@@ -68,7 +68,7 @@
         @foreach ($coordinators as $coordinator)
         <div class="col my-2">
             @if (auth()->user() && auth()->user()->isAdmin)
-            <form action="{{route('change_status')}}" method="POST">
+            <form action="{{route('change_status')}}" method="POST" class="form">
                 @csrf
                 <input type="hidden" name="id" value="{{$coordinator->id}}">
                 <button type="submit" class="btn btn-luxe text-center w-100">{{$coordinator->status ?

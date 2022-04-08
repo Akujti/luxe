@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "gothicbold";
+    src: local("gothicbold"),
+    url("/fonts/index-page/gothicbold.ttf") format("truetype");
+}
+.form label {
+    font-weight: bold;
+}
+.form .btn-luxe, .btn-luxe {
+    background-color: #262626 !important;
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 33px !important;
+    padding: 10px;
+    font-family: 'gothicbold';
+    font-size: 18px;
+}
+.form .btn-danger {
+    padding: 10px;
+    border-radius: 33px;
+    font-weight: bold;
+}

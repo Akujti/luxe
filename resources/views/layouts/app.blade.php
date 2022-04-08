@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/form.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -76,8 +77,8 @@
         max-height: 35px;
     }
     .btn-luxe {
-        background: #FFCF40;
-        color: black;
+        background: #262626;
+        color: #fff;
     }
     .contact-details {
         height: 100%;

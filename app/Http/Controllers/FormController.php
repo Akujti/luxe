@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
 use App\Mail\FormMail;
-use App\Mail\GeneralMailTemplate;
 use App\Models\FormSubmit;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Mail\GeneralMailTemplate;
+use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
@@ -75,7 +74,13 @@ class FormController extends Controller
             }
             $details[strtolower($key)] = $val;
         }
-        $to = $request->to_email;
+        if(isset($request->form_title_value)) {
+            $to = $this->getEmails($request->form_title_value, $request->to_email);
+        } else {
+            $to = $this->getEmails($request->form_title);
+        }
+        // $to = $request->to_email;
+        
         array_push($to, $request->agent_email);
         $cc = [];
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
@@ -113,5 +118,15 @@ class FormController extends Controller
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
 
         return redirect()->back()->with('message', 'Agreement has been submitted!');
+    }
+
+    public function getEmails($title, $extraEmail = '') {
+        $form = Form::where('title', $title)->firstOrFail();
+        
+        $data = $form->emails()->get()->pluck('email')->toArray();
+        if($extraEmail) {
+            array_push($data, $extraEmail);
+        }
+        return $data;
     }
 }

@@ -1,32 +1,33 @@
 <?php
 
-use App\Http\Controllers\AgentEmailController;
-use App\Http\Controllers\AppointmentAddressController;
-use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\AppointmentTimeslotController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\FolderController;
-use App\Http\Controllers\PageController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PDFController;
-use App\Http\Controllers\UserController;
+use Illuminate\Routing\Router;
+use App\Models\AppointmentTimeslot;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\GuideController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\W9Controller;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\GuideController;
+use App\Http\Controllers\FolderController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\ClosingCoordinatorController;
+use App\Http\Controllers\AgentEmailController;
 use App\Http\Controllers\FormSubmitController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\MarketingTemplateController;
-use App\Http\Controllers\TemplateSubmitController;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\W9Controller;
+use App\Http\Controllers\AppointmentAddressController;
+use App\Http\Controllers\ClosingCoordinatorController;
+use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
-use App\Models\AppointmentTimeslot;
-use Illuminate\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -307,3 +308,9 @@ Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinato
 Route::get('general/form/other/closing-coordinators/{id}', [ClosingCoordinatorController::class, 'agent'])->name('closing-coordinator');
 Route::get('general/form/{folder}/{form}', [FormController::class, 'general_form_index'])->name('general.email.index');
 Route::get('loginTest', [UserController::class, 'login']);
+
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
+    Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::get('/forms', [AdminController::class, 'forms'])->name('forms');
+});
