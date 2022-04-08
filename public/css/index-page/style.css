@@ -288,7 +288,9 @@ header .navbar-nav .nav-item a {
 .section-products .social-media-text {
     position: absolute;
     top: 8px;
-    left: 16px;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 10px);
 }
 
 .section-our-team .p-luxe {

@@ -53,6 +53,7 @@
         justify-content: center;
         background-color: #F7F7F7;
         border-radius: 10px;
+        cursor: pointer
     }
 
     .upload:first-child {
@@ -63,6 +64,7 @@
         width: 40px;
         height: 40px;
         object-fit: cover;
+        margin-top: 19px;
     }
 
     .upload p {
@@ -181,16 +183,16 @@
         @if (Auth::user()->isAdmin)
         <div class="box-file">
             <div class="col-12 p-0">
-                <div class="upload">
-                    <a onclick="create_folder()">
+                <div class="upload" onclick="create_folder()">
+                    <a>
                         <img src="/images/files/create-folder-icon.svg" alt="">
                         <p>Create a Folder</p>
                     </a>
                 </div>
             </div>
             <div class="col-12 p-0">
-                <div class="upload">
-                    <a onclick="show_modal()">
+                <div class="upload" onclick="show_modal()">
+                    <a>
                         <img src="/images/files/upload-file-icon.svg" alt="">
                         <p>Upload a File</p>
                     </a>
