@@ -18,6 +18,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\FormSubmitController;
+use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\TestController;
@@ -247,6 +248,15 @@ Route::group(
 );
 
 Route::group(
+    ['middleware' => ['auth']],
+    function () {
+        Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
+        Route::resource('listing-coordinators', ListingCoordinatorController::class);
+        Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
+    }
+);
+
+Route::group(
     ['middleware' => ['auth', 'admin']],
     function () {
         Route::get('marketing/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'fields'])->name('template.fields');
@@ -291,7 +301,7 @@ Route::post('general/form/send', [FormController::class, 'general_form_post'])->
 Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 
 Route::get('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'index']);
-Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
+
 Route::get('general/form/other/closing-coordinators/{id}', [ClosingCoordinatorController::class, 'agent'])->name('closing-coordinator');
 Route::get('general/form/{folder}/{form}', [FormController::class, 'general_form_index'])->name('general.email.index');
 Route::get('loginTest', [UserController::class, 'login']);
