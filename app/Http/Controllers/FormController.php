@@ -74,13 +74,11 @@ class FormController extends Controller
             }
             $details[strtolower($key)] = $val;
         }
-        if(isset($request->form_title_value)) {
+        if (isset($request->form_title_value)) {
             $to = $this->getEmails($request->form_title_value, $request->to_email);
         } else {
             $to = $this->getEmails($request->form_title);
         }
-        // $to = $request->to_email;
-        
         array_push($to, $request->agent_email);
         $cc = [];
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
@@ -92,6 +90,9 @@ class FormController extends Controller
             'agent_email' => $request->agent_email,
             'details' => json_encode($details),
         ]);
+        if ($request->wantsJson()) {
+            return response()->json('success');
+        }
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
 
@@ -120,11 +121,12 @@ class FormController extends Controller
         return redirect()->back()->with('message', 'Agreement has been submitted!');
     }
 
-    public function getEmails($title, $extraEmail = '') {
+    public function getEmails($title, $extraEmail = '')
+    {
         $form = Form::where('title', $title)->firstOrFail();
-        
+
         $data = $form->emails()->get()->pluck('email')->toArray();
-        if($extraEmail) {
+        if ($extraEmail) {
             array_push($data, $extraEmail);
         }
         return $data;

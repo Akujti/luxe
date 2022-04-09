@@ -14,4 +14,9 @@ class TestController extends Controller
         $t = AppointmentTimeslot::whereNotIn('id', $ids)->get();
         return response()->json($t);
     }
+
+    public function submit(Request $request)
+    {
+        return response()->json($request->all());
+    }
 }
