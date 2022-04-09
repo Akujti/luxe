@@ -132,10 +132,9 @@
     }
 </script>
 <script
-    src="https://www.paypal.com/sdk/js?client-id=AdQmTPX49orPMJjDnqR1ShkNbjaYfyekRil8tBUuswM8PYtypPLiqNc4KQfrysmNUe5ntHQRHHQ3L4Mi&components=buttons">
+    src="https://www.paypal.com/sdk/js?client-id=AVWEKeNPDlWe0JaCLf-eI-mGr_Xsnzpg0nXdM3gHKlD_MCx3j-PncAD46xyj5Wa6zsX1RXj-DwfNpPGT&components=buttons">
 </script>
 <script>
-    console.log(document.querySelectorAll('input'));
     paypal.Buttons({
     style: {
     layout: 'horizontal',
