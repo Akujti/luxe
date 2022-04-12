@@ -132,7 +132,7 @@
     }
 </script>
 <script
-    src="https://www.paypal.com/sdk/js?client-id=AVWEKeNPDlWe0JaCLf-eI-mGr_Xsnzpg0nXdM3gHKlD_MCx3j-PncAD46xyj5Wa6zsX1RXj-DwfNpPGT&components=buttons">
+    src="https://www.paypal.com/sdk/js?client-id=AVWEKeNPDlWe0JaCLf-eI-mGr_Xsnzpg0nXdM3gHKlD_MCx3j-PncAD46xyj5Wa6zsX1RXj-DwfNpPGT&disable-funding=credit&components=buttons">
 </script>
 <script>
     paypal.Buttons({
