@@ -1,3 +1,33 @@
+.h1-luxe {
+    font-family: 'gothicbold';
+    font-size: 80px;
+}
+
+.h2-luxe {
+    font-family: 'gothicbold';
+    font-size: 70px;
+}
+
+.h3-luxe {
+    font-family: 'gothicbold';
+    font-size: 60px;
+}
+
+.h4-luxe {
+    font-family: 'gothicbold';
+    font-size: 50px;
+}
+
+.h5-luxe {
+    font-family: 'gothicbold';
+    font-size: 40px;
+}
+
+.h6-luxe {
+    font-family: 'gothicbold';
+    font-size: 30px;
+    color: #262626;
+}
 .header-navigation {
     background: #262626 !important;
     border-top: 1px solid #4B4B4B;
@@ -32,7 +62,7 @@
     border-radius: 50%;
 }
 img {
-    object-fit: cover;
+    object-fit: cover !important;
 }
 .header ul {
     margin: 0px;
@@ -107,4 +137,10 @@ ul {
     font-size: 15px;
     font-family: 'gothicregular';
     color: #262626;
+}
+
+.pagination .active .page-link {
+    color: #fff !important;
+    background-color: #c82333 !important;
+    border-color: #bd2130 !important;
 }

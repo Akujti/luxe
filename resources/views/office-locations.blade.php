@@ -4,10 +4,11 @@
     .wrapper h1 {
         font-weight: 400;
         letter-spacing: 2px;
-        background: #FFCF40;
+        background: #262626;
         padding: 10px;
         border: 1px solid #dadada;
         border-radius: 10px;
+        color: #fff;
     }
 
     .address {

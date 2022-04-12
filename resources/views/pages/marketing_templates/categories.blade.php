@@ -57,7 +57,7 @@
                     <div class="bg-transparent">
                         <a href="{{route('canva.marketing.request', $category)}}">
                             <div class="card-body text-center p-0">
-                                <img src="images/marketing-canva/{{$category->image}}" alt="" width="92" height="92">
+                                <img src="{{ asset('storage/'.$category->image) }}" alt="" width="92" height="92">
                             </div>
                             <div class="card-header">
                                 {{$category->title}}

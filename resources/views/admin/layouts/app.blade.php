@@ -199,14 +199,15 @@
             </div>
             <div class="header-navigation">
                 <div class="container-fluid">
-                    <div class="row m-0">
-                        <div class="col-3 col-sm-7 col-md-8 col-lg-3 p-0">
+                    <div class="row m-0 d-none d-md-flex d-lg-flex d-xl-flex">
+                        <div class="col-3 col-sm-7 col-md-12 col-lg-4 p-0">
                             <nav>
-                                <a href="{{ route('admin.index') }}" class="active">Dashboard</a>
-                                <a href="{{ route('admin.forms') }}">Forms</a>
+                                <a href="{{ route('admin.index') }}" class="@if(Request::path() == 'admin') active @endif">Dashboard</a>
+                                <a href="{{ route('admin.forms.index') }}" class="@if(Request::path() == 'admin/forms') active @endif">Forms</a>
                                 <a href="#">Videos</a>
                                 <a href="#">Events</a>
                                 <a href="#">Files</a>
+                                <a href="{{ route('admin.canva.marketing.index_admin') }}" class="@if(in_array(Request::route()->getName(), ['admin.canva.marketing.index_admin', 'admin.canva.categories.index', 'admin.canva.categories.templates.index'])) active @endif">Marketing Canva</a>
                             </nav>
                         </div>
                     </div>
@@ -256,7 +257,7 @@
                                     <a href="{{ route('admin.index') }}">Dashboard</a>
                                 </li>
                                 <li class="row m-0 @if(Request::path() == 'admin/forms') active @endif">
-                                    <a href="{{ route('admin.forms') }}">Forms</a>
+                                    <a href="{{ route('admin.forms.index') }}">Forms</a>
                                 </li>
                                 <li class="row m-0 @if(Request::path() == 'admin/videos') active @endif">
                                     <a href="#">Vidoes</a>
@@ -266,6 +267,9 @@
                                 </li>
                                 <li class="row m-0 @if(Request::path() == 'admin/files') active @endif">
                                     <a href="#">Files</a>
+                                </li>
+                                <li class="row m-0 @if(Request::path() == 'admin/marketing-canva') active @endif">
+                                    <a href="{{ route('admin.canva.marketing.index_admin') }}">Marketing Canva</a>
                                 </li>
                             </ul>
                         </div>

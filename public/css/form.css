@@ -6,17 +6,24 @@
 .form label {
     font-weight: bold;
 }
+
 .form .btn-luxe, .btn-luxe {
     background-color: #262626 !important;
     color: #fff !important;
     font-weight: bold;
-    border-radius: 33px !important;
     padding: 10px;
     font-family: 'gothicbold';
-    font-size: 18px;
+    font-size: 18px !important;
+    border-radius: 33px;
 }
+
 .form .btn-danger {
     padding: 10px;
     border-radius: 33px;
-    font-weight: bold;
+}
+.btn-danger,.btn-primary {
+    font-family: 'gothicbold' !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    padding: 10px;
 }

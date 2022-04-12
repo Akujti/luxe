@@ -294,6 +294,7 @@ Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function() {
     Route::get('/', [MarketingTemplateController::class, 'index'])->name('marketing.requests');
     Route::get('/{marketingCanva}', [MarketingTemplateController::class, 'show'])->name('marketing.request');
     Route::get('/{marketingCanva}/{template}', [MarketingTemplateController::class, 'template'])->name('marketing.template');
+    
 });
 
 // End Canva Marketing
@@ -312,5 +313,29 @@ Route::get('loginTest', [UserController::class, 'login']);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::get('/', [AdminController::class, 'index'])->name('index');
-    Route::get('/forms', [AdminController::class, 'forms'])->name('forms');
+
+    Route::group(['prefix' => 'forms', 'as' => 'forms.'], function() {
+        Route::get('/', [AdminController::class, 'forms'])->name('index');
+        Route::put('/', [AdminController::class, 'update_form'])->name('update');
+    });
+
+    Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function() {
+        Route::get('/', [MarketingTemplateController::class, 'index_admin'])->name('marketing.index_admin');
+        Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
+            Route::get('/{id}', [MarketingTemplateController::class, 'admin_categories'])->name('index');
+            Route::post('/', [MarketingTemplateController::class, 'create_category'])->name('create');
+            Route::put('/', [MarketingTemplateController::class, 'update_category'])->name('update');
+            Route::delete('/', [MarketingTemplateController::class, 'destroy_category'])->name('delete');
+
+            Route::group(['prefix' => 'templates', 'as' => 'templates.'], function () {
+                Route::get('/{marketing_id}/categories/{category_id}', [MarketingTemplateController::class, 'admin_templates'])->name('index');
+                Route::post('/', [MarketingTemplateController::class, 'create_template'])->name('create');
+                Route::put('/', [MarketingTemplateController::class, 'update_template'])->name('update');
+                Route::delete('/', [MarketingTemplateController::class, 'destroy_template'])->name('delete');
+            });
+        });
+        Route::post('/', [MarketingTemplateController::class, 'create'])->name('marketing.create');
+        Route::put('/', [MarketingTemplateController::class, 'update'])->name('marketing.update');
+        Route::delete('/', [MarketingTemplateController::class, 'destroy'])->name('marketing.delete');
+    });
 });

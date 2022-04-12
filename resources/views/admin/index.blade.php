@@ -5,34 +5,34 @@
 @section('content')
 <div class="container-fluid">
     <div class="row m-0">
-        <div class="col-3">
+        <div class="col-12 col-md-12 col-lg-3">
             <div class="col-12 box">
                 <div class="py-4 icon">
                     <img src="/images/admin/form-icon.svg" alt="">
                 </div>
                 <div class="py-4">
-                    <p class="p-count">0</p>
+                    <p class="p-count">{{ $stats[0] }}</p>
                     <p class="p-text">
                         Pre Approval Forms
                     </p>
                 </div>
             </div>
             <div class="col-12 box py-3">
-                <p class="p-count">0</p>
+                <p class="p-count">{{ $stats[1] }}</p>
                 <p class="p-text-regular">
                     Logo creation Request
                 </p>
             </div>
             <div class="col-12 box py-4">
-                <p class="p-count">2</p>
+                <p class="p-count">{{ $stats[2] }}</p>
                 <p class="p-text-regular">TEAM DADE <br> ZILLOW LEADS WEEKLY UPDATE</p>
             </div>
             <div class="col-12 box py-4">
-                <p class="p-count">2</p>
-                <p class="p-text-regular">TEAM ZILLOW <br> ZILLOW LEADS WEEKLY UPDATE</p>
+                <p class="p-count">{{ $stats[3] }}</p>
+                <p class="p-text-regular">TEAM FLEX <br> ZILLOW LEADS WEEKLY UPDATE</p>
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-12 col-lg-9">
             <div class="row m-0">
                 <div class="col-12 box px-4">
                     <div class="py-4 icon">
@@ -44,7 +44,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-7 box mr-4">
+                <div class="col-lg-7 col-md-12 box mr-4">
                     <div class="py-4 icon">
                         <p class="p-text text-left m-0">Potential Sales Volume</p>
                     </div>

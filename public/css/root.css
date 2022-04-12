@@ -236,7 +236,7 @@
 .modal-new .modal-footer button:first-child {
     background-color: #F2F2F2;
 }
-.modal-new .modal-footer button:last-child {
+.modal-new .modal-footer button:not(.btn-danger):last-child {
     background-color: #262626;
     color: #FFFFFF;
 }
@@ -246,7 +246,7 @@
 .modal-new .modal-footer button {
     font-family: 'gothicbold';
     font-size: 18px;
-    border-radius: 10px;
+    border-radius: 10px !important;
     padding: 10px;
 }
 .modal-new .modal-content {

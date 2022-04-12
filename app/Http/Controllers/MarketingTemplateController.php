@@ -13,10 +13,20 @@ use App\Models\TemplateSubmit;
 use App\Models\MarketingCategory;
 use App\Models\MarketingTemplate;
 use App\Mail\MarketingRequestMail;
-use App\Models\MarketingCanvaCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Models\MarketingCanvaCategory;
+use App\Models\MarketingCanvaTemplate;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\CanvaMarketing\AddRequest;
+use App\Http\Requests\CanvaMarketing\DeleteRequest;
+use App\Http\Requests\CanvaMarketing\UpdateRequest;
+use App\Http\Requests\CanvaMarketing\Category\AddCategoryRequest;
+use App\Http\Requests\CanvaMarketing\Template\AddTemplateRequest;
+use App\Http\Requests\CanvaMarketing\Category\DeleteCategoryRequest;
+use App\Http\Requests\CanvaMarketing\Category\UpdateCategoryRequest;
+use App\Http\Requests\CanvaMarketing\Template\DeleteTemplateRequest;
+use App\Http\Requests\CanvaMarketing\Template\UpdateTemplateRequest;
 
 class MarketingTemplateController extends Controller
 {
@@ -25,6 +35,31 @@ class MarketingTemplateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index_admin()
+    {
+        $canvas = MarketingCanva::orderBy('order', 'asc')->get();
+        $last_order = MarketingCanva::latest()->first()->order ?? 0;
+        ++$last_order;
+        return view('admin.marketing.canva.index', compact('canvas', 'last_order'));
+    }
+
+    public function admin_categories($id)
+    {
+        $canva = MarketingCanva::with('categories')->find($id);
+        $last_order = MarketingCanvaCategory::where('category_id', $id)->latest()->first()->order ?? 0;
+        ++$last_order;
+        
+        return view('admin.marketing.canva.categories', compact('canva', 'last_order'));
+    }
+    public function admin_templates($marketing_id, $category_id)
+    {
+        $category = MarketingCanvaCategory::with('templates')->find($category_id);
+        $last_order = MarketingCanvaTemplate::where('template_id', $category_id)->latest()->first()->order ?? 0;
+        ++$last_order;
+        
+        return view('admin.marketing.canva.templates', compact('category', 'last_order'));
+    }
+
     public function index()
     {
         $marketing_categories = MarketingCanva::orderBy('order', 'asc')->get();
@@ -36,9 +71,104 @@ class MarketingTemplateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(AddRequest $req)
     {
-        //
+        $canva = new MarketingCanva;
+
+        $canva->title = $req->title;
+
+        $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
+        $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
+        $canva->image = $path;
+        $canva->order = $req->order ?? ++MarketingCanva::latest()->first()->order;
+        $canva->save();
+
+        return back()->with('message', 'Created successfully');
+    }
+
+    public function create_category(AddCategoryRequest $req)
+    {
+        $canva_category = new MarketingCanvaCategory;
+
+        $canva_category->title = $req->title;
+
+        $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
+        $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
+        $canva_category->image = $path;
+        $canva_category->category_id = $req->category_id;
+        $canva_category->order = $req->order ?? ++MarketingCanvaCategory::where('category_id', $req->category_id)->latest()->first()->order;
+        $canva_category->save();
+
+        return back()->with('message', 'Created successfully');
+    }
+
+    public function create_template(AddTemplateRequest $req)
+    {
+        $canva_template = new MarketingCanvaTemplate;
+
+        $canva_template->title = $req->title;
+
+        $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
+        $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
+        $canva_template->image = $path;
+        $canva_template->template_id = $req->template_id;
+        $canva_template->order = $req->order ?? ++MarketingCanvaTemplate::latest()->first()->order;
+        $canva_template->url = $req->url;
+        $canva_template->save();
+
+        return back()->with('message', 'Created successfully');
+    }
+
+    public function update(UpdateRequest $req)
+    {
+        $canva = MarketingCanva::find($req->id);
+
+        $canva->title = $req->title;
+
+        if($req->image) {
+            $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
+            $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
+            $canva->image = $path;
+        }
+        $canva->order = $req->order ?? ++MarketingCanva::latest()->first()->order;
+        $canva->save();
+
+        return back()->with('message', 'Created successfully');
+    }
+
+    public function update_category(UpdateCategoryRequest $req)
+    {
+        $canva_category = MarketingCanvaCategory::find($req->id);
+
+        $canva_category->title = $req->title;
+
+        if($req->image) {
+            $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
+            $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
+            $canva_category->image = $path;
+        }
+        $canva_category->order = $req->order ?? ++MarketingCanvaCategory::latest()->first()->order;
+        $canva_category->save();
+
+        return back()->with('message', 'Created successfully');
+    }
+
+    public function update_template(UpdateTemplateRequest $req)
+    {
+        $canva_category = MarketingCanvaTemplate::find($req->id);
+
+        $canva_category->title = $req->title;
+        $canva_category->url = $req->url;
+
+        if($req->image) {
+            $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
+            $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
+            $canva_category->image = $path;
+        }
+        $canva_category->order = $req->order ?? ++MarketingCanvaTemplate::latest()->first()->order;
+        $canva_category->save();
+
+        return back()->with('message', 'Created successfully');
     }
 
     /**
@@ -75,87 +205,35 @@ class MarketingTemplateController extends Controller
         return view('pages.marketing_templates.template', compact('templates', 'template'));
     }
 
-    public function sendEmail(Request $request, MarketingCategory $marketingCategory, Template $template)
-    {
-        $details = [];
-        $details['form_agent_full_name'] = $request->form_agent_full_name;
-        $details['form_agent_email'] = $request->form_agent_email;
-        $details['category'] = $marketingCategory->title;
-        $details['template'] = $template->title;
-        $details['template link'] = env('APP_URL') . '/marketing/' . $marketingCategory->id . '/' . $template->id;
-        foreach ($request->except('_token') as $key => $val) {
-            if ($request->hasFile($key)) {
-                $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
-                // $path = Storage::put('public/images/marketing', $val, 'public');
-                $request->file($key)->move(public_path('/new-storage/images/marketing'), $name);
-                $val = env('APP_URL') . '/new-storage/images/marketing/' . $name;
-            }
-            $details[strtolower($key)] = $val;
-        }
-
-        Mail::to(['marketing@luxeknows.com', $request->form_agent_email])->send(new MarketingRequestMail($details));
-
-        TemplateSubmit::create([
-            'template_id' => $template->id,
-            'status' => 0,
-            'agent_name' => $request->form_agent_full_name,
-            'agent_email' => $request->form_agent_email,
-            'details' => json_encode($details),
-        ]);
-
-        return back()->with('message', 'Form has been submitted');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\MarketingCategory $marketingCategory
-     * @return \Illuminate\Http\Response
-     */
     public function edit(MarketingCategory $marketingCategory)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\MarketingCategory $marketingCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, MarketingCategory $marketingCategory)
+    public function destroy(DeleteRequest $req)
     {
-        //
+        $row = MarketingCanva::find($req->id);
+        if($row) {
+            $row->delete();
+        }
+        return back()->with('message', 'Deleted successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\MarketingCategory $marketingCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MarketingCategory $marketingCategory)
+    public function destroy_category(DeleteCategoryRequest $req)
     {
-        //
+        $row = MarketingCanvaCategory::find($req->id);
+        if($row) {
+            $row->delete();
+        }
+        return back()->with('message', 'Deleted successfully');
     }
 
-    public function updateField(Request $request, TemplateField $field)
+    public function destroy_template(DeleteTemplateRequest $req)
     {
-        $request->validate([
-            'name' => 'required',
-            'type' => 'required'
-        ]);
-        $field->update([
-            'name' => $request->name,
-            'type' => $request->type
-        ]);
-        return back()->with('message', 'Updated successfully');
-    }
-
-    public function deleteField(TemplateField $field)
-    {
-        $field->delete();
+        $row = MarketingCanvaTemplate::find($req->id);
+        if($row) {
+            $row->delete();
+        }
         return back()->with('message', 'Deleted successfully');
     }
 
@@ -173,36 +251,6 @@ class MarketingTemplateController extends Controller
         return back()->with('message', 'Created successfully');
     }
 
-    public function addTemplate(Request $request, MarketingCategory $marketingCategory)
-    {
-        $request->validate([
-            'title' => 'required',
-            'image' => 'required|url'
-        ], [
-            'image.url' => 'Image must be a link.'
-        ]);
-        Template::create([
-            'title' => $request->title,
-            'image' => $request->image,
-            'category_id' => $marketingCategory->id,
-        ]);
-        return back()->with('message', 'Created successfully');
-    }
-
-    public function updateTemplate(Request $request, MarketingCategory $marketingCategory, Template $template)
-    {
-        $request->validate([
-            'title' => 'required',
-            'image' => 'required|url'
-        ], [
-            'image.url' => 'Image must be a link.'
-        ]);
-        $template->update([
-            'title' => $request->title,
-            'image' => $request->image
-        ]);
-        return back()->with('message', 'Updated successfully');
-    }
 
     public function deleteTemplate(MarketingCategory $marketingCategory, Template $template)
     {

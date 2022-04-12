@@ -26,7 +26,7 @@
             <div class="col d-flex justify-content-center">
                 <div class="template-box">
                     <a href="{{route('canva.marketing.template',['marketingCanva' => $template->canva, 'template' => $template])}}">
-                        <img src="{{$template->image}}" alt="No image found" width="100%" height="303px"
+                        <img src="{{ asset('storage/'. $template->image) }}" alt="No image found" width="100%" height="303px"
                         onerror="this.src='{{asset('images/no-image.png')}}';">
                         <div class="template-details">
                             <p>{{$template->title}}</p>

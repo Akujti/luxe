@@ -12,7 +12,7 @@
         <div class="col d-flex justify-content-center">
             <div class="template-box">
                 <a href="{{ $template->url }}" target="_blank">
-                    <img src="{{$template->image}}" alt="No image found" width="100%" height="303px" onerror="this.src='{{asset('images/no-image.png')}}';">
+                    <img src="{{ asset('storage/'. $template->image) }}" alt="No image found" width="100%" height="303px" onerror="this.src='{{asset('images/no-image.png')}}';">
                     <div class="template-details d-flex justify-content-between align-items-center">
                         <p>{{$template->title}}</p>
                         <div>
