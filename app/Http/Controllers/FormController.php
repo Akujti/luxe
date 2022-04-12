@@ -74,10 +74,16 @@ class FormController extends Controller
             }
             $details[strtolower($key)] = $val;
         }
-        if (isset($request->form_title_value)) {
-            $to = $this->getEmails($request->form_title_value, $request->to_email);
-        } else {
-            $to = $this->getEmails($request->form_title);
+        try {
+            //code...
+
+            if (isset($request->form_title_value)) {
+                $to = $this->getEmails($request->form_title_value, $request->to_email);
+            } else {
+                $to = $this->getEmails($request->form_title);
+            }
+        } catch (\Throwable $th) {
+            return response()->json('Something went wrong', 500);
         }
         array_push($to, $request->agent_email);
         $cc = [];

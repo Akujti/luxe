@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
@@ -18,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('formSubmit', [FormController::class, 'general_form_post']);
+Route::post('login', [LoginController::class, 'login']);
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::middleware('auth:api')->get('/user/get', 'App\Http\Controllers\UserController@get');
