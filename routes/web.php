@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddendumTemplateController;
 use App\Http\Controllers\AgentEmailController;
 use App\Http\Controllers\AppointmentAddressController;
 use App\Http\Controllers\AppointmentController;
@@ -240,6 +241,9 @@ Route::group(
         Route::post('written-email-templates', [WrittenEmailTemplateController::class, 'store'])->name('written-email-templates.store');
         Route::get('written-email-templates/{writtenEmailTemplate}', [WrittenEmailTemplateController::class, 'show'])->name('written-email-templates.show');
 
+        Route::resource('addendum-templates', AddendumTemplateController::class)->except(['show']);
+        Route::get('addendum-templates/{writtenEmailTemplate}', [WrittenEmailTemplateController::class, 'show'])->name('addendum-templates.show');
+
         // W-9
         Route::view('w-9', 'w-9.web');
         Route::post('w-9', [W9Controller::class, 'store'])->name('w-9');
@@ -273,6 +277,7 @@ Route::group(
         Route::post('written-email-templates/{writtenEmailTemplate}', [WrittenEmailTemplateItemController::class, 'store'])->name('written-email-templates.item.store');
         Route::delete('written-email-template-item/delete/item', [WrittenEmailTemplateItemController::class, 'destroy'])->name('written-email-templates.item.delete');
         Route::put('written-email-template-item/update/item', [WrittenEmailTemplateItemController::class, 'update'])->name('written-email-templates.item.update');
+
 
         Route::resource('template-submit', TemplateSubmitController::class);
         Route::resource('form-submit', FormSubmitController::class);
