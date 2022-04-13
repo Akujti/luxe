@@ -30,6 +30,10 @@ class FolderController extends Controller
                 $query->whereNull('folder_id');
             }
         })->latest()->get();
+
+        if (request()->wantsJson()) {
+            return response()->json(['folders' => $folders, 'files' => $files]);
+        }
         return view('pages.files.index', compact('folders', 'files', 'folder_id'));
     }
 

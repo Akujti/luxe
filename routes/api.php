@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\FolderController;
 use App\Http\Controllers\FormController;
-use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('formSubmit', [FormController::class, 'general_form_post']);
 Route::post('login', [LoginController::class, 'login']);
-
+Route::apiResource('user/events', EventController::class, array("as" => "api"));
+Route::apiResource('user/files', FolderController::class, array("as" => "api"));
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
