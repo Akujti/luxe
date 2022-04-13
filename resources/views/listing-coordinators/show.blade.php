@@ -32,17 +32,17 @@
                             <label for="name">Agent Name</label>
                             <input type="text" name="agent_full_name" class="form-control" required>
                         </div>
-                        <div class="form-group col-md-6">
+                        {{-- <div class="form-group col-md-6">
                             <label for="name">Agent Phone Number</label>
                             <input type="text" name="agent_number" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent Email</label>
                             <input type="text" name="agent_email" class="form-control" required>
-                        </div>
+                        </div> --}}
                         <div class="form-group col-md-6">
-                            <label for="name">Address</label>
-                            <input type="text" name="address" class="form-control" required>
+                            <label for="name">Address for Listing</label>
+                            <input type="text" name="address_for_listing" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">List Date to go on MLS</label>
@@ -50,8 +50,8 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Anything that differs from tax records?</label>
-                            <input type="text" name="anything_that_differs_from_tax_records" class="form-control"
-                                required>
+                            <textarea name="anything_that_differs_from_tax_records" class="form-control" rows="3"
+                                required></textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Please list any upgrades or special features ex - impact windows,
@@ -69,7 +69,8 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Any coagents or special instructions for broker remarks?</label>
-                            <input type="text" name="coagents_or_special_instructions" class="form-control" required>
+                            <textarea name="coagents_or_special_instructions" class="form-control" rows="3"
+                                required></textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Do you want us to make the description?</label>
@@ -115,7 +116,7 @@
 </div>
 <script>
     function toggleDescription(select) {
-        if(select.value == 'Yes'){
+        if(select.value == 'No'){
             document.getElementById('listing_desc').classList.remove("d-none");
         }
         else{
