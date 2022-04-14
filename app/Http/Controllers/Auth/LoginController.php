@@ -72,7 +72,7 @@ class LoginController extends Controller
                 Auth::login($new_user);
             }
             if ($request->wantsJson()) {
-                return response()->json($exist_user->createToken('API Token')->plainTextToken);
+                return response()->json(['token' => $exist_user->createToken('API Token')->plainTextToken, 'user' => $exist_user]);
             }
             return redirect(Redirect::intended('/home')->getTargetUrl());
         }
