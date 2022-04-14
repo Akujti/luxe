@@ -25,12 +25,21 @@ class UpdateRequest extends FormRequest
     {
         return [
             'id' => 'required|exists:luxe_store_products,id',
-            'name' => 'required|min:5|max:200',
+            'name' => 'required|max:200',
             'description' => 'nullable',
             'description_2' => 'nullable',
             'price' => 'nullable|numeric',
+            'sale_price' => 'nullable|numeric',
             'stock' => 'required',
-            'preview_image' => 'nullable|image'
+            'preview_image' => 'nullable|image',
+            'categories' => 'nullable|array',
+            'variant_name' => 'nullable',
+
+            'variant_values' => 'nullable|array',
+            'variant_values.*.value' => 'required|string',
+            'variant_values.*.price' => 'required|numeric',
+
+            'images' => 'nullable|array'
         ];
     }
 }

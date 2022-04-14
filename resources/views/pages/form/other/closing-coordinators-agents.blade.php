@@ -2,12 +2,12 @@
 @section('css')
 <style>
     body {
-        background: url('{{asset('images/bg-image1.jpg')}}');
+        /* background: url('{{asset('images/bg-image1.jpg')}}'); */
         height: 100vh;
-        background-size: cover;
+        /* background-size: cover;
         background-position: center;
         background-color: rgba(0, 0, 0, 0.7);
-        background-blend-mode: color;
+        background-blend-mode: color; */
 
     }
 
@@ -39,7 +39,8 @@
 
     .agent-name {
         margin-top: 20px;
-        background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(255, 255, 255, 0.26) 100%);
+        /* background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(255, 255, 255, 0.26) 100%); */
+        background-color: #262626;
         border-radius: 15px;
         border: 1px solid #fff;
         padding: 18px 25px;

@@ -1,66 +1,58 @@
 @extends('layouts.app')
-
 @section('css')
 <style>
-    img {
-        width: 100%;
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    .row img {
         object-fit: cover;
     }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row m-0 p-0">
-        @forelse($category->products as $product)
-            <div class="col-3">
-                <img src="{{ asset('storage/'. $product->preview_image) }}" alt="">
-                <h5>{{ $product->name }}</h5>
-                <a href="{{ route('luxe_store.single_product', ['product_slug' => $product->slug]) }}">Click here</a>
+    <div class="row box-title p-0 m-0 justify-content-between align-items-center">
+        <h3 class="text-center">{{ $category->name }}</h3>
+        <p class="p-show-pages mr-2">Showing {{ $products->firstItem() .'-'. $products->lastItem() .' of '. $products->total() }} results</p>
+    </div>
+    <div class="row my-5 justify-content-start">
+        @forelse($products as $product)
+            <div class="col d-flex justify-content-center">
+                <div class="template-box">
+                    <a href="{{ route('luxe_store.single_product', ['product_slug' => $product->slug]) }}">
+                        <img src="{{ asset('storage/'. $product->preview_image) }}" alt="No image found" width="100%" height="303px"
+                        onerror="this.src='{{asset('images/no-image.png')}}';">
+                        <div class="template-details">
+                            <p>{{ $product->name }}</p>
+                            <p id="template-details-price" class="mt-4">
+                                @if(!$product->variants->count())
+                                    {{ '$'. $product->price }}
+                                @else
+                                    {{
+                                        ($product->variants[0]->max_value_price == $product->variants[0]->min_value_price) ?
+                                        $product->variants[0]->max_value_price :
+                                        '$' . $product->variants[0]->min_value_price . ' - $'. $product->variants[0]->max_value_price
+                                    }}
+                                @endif
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
         @empty
-            <p>No Products</p>
+            <p>No Products found.</p>
         @endforelse
     </div>
- 
-    <form action="{{ route('admin.luxe_store.products.create') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <input type="hidden" name="id" value="2">
-        <input type="text" name="name"><br>
-        <input type="number" name="stock"><br>
-        <input type="text" name="price"><br>
-        <input type="file" name="preview_image">
 
-
-        <h1>Categories</h1>
-        <input type="text" name="categories[]" value="1">
-        <input type="text" name="categories[]" value="3">
-        <br><br>
-        <h1>Variants</h1>
-
-        <input type="text" name="variant_name" value="Size">
-        <br>
-        <h3>Values</h3>
-        <input type="text" name="variant_values[0][value]" value="Large">
-        <input type="text" name="variant_values[0][price]" value="100">
-        <input type="text" name="variant_values[1][value]" value="1121">
-        <input type="text" name="variant_values[1][price]" value="1020">
-        <input type="text" name="variant_values[2][value]" value="sadsadsa">
-        <input type="text" name="variant_values[2][price]" value="1020">
-
-        <h1>Form</h1>
-
-        <input type="text" name="form[]" value="Name">
-        <input type="text" name="form[]" value="Email">
-        <input type="text" name="form[]" value="Test">
-
-        <button type="submit">Done</button>
-    </form>
-    <br><br>
-    <form action="{{ route('admin.luxe_store.products.delete') }}" method="POST">
-        @method('delete')
-        @csrf
-        <input type="hidden" name="id" value="14">
-        <button type="submit">Delete</button>
-    </form>
+    <div class="d-flex justify-content-center">
+        {{ $products->links() }}
+    </div>
 </div>
+
 @endsection

@@ -1,42 +1,46 @@
 @extends('layouts.app')
-
 @section('css')
 <style>
-    img {
-        width: 100%;
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    .row img {
         object-fit: cover;
     }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row m-0 p-0">
+    <div class="row box-title p-0 m-0 justify-content-end">
+        <p class="p-show-pages mr-2">Showing {{ $categories->firstItem() .'-'. $categories->lastItem() .' of '. $categories->total() }} results</p>
+    </div>
+    <div class="row my-5 justify-content-start">
         @forelse($categories as $category)
-            <div class="col-3">
-                <img src="{{ asset('storage/'. $category->image) }}" alt="">
-                <h5>{{ $category->name }}</h5>
-                <a href="{{ route('luxe_store.products.index', ['category_slug' => $category->slug]) }}">Click here</a>
+            <div class="col d-flex justify-content-center">
+                <div class="template-box">
+                    <a href="{{ route('luxe_store.products.index', ['category_slug' => $category->slug]) }}">
+                        <img src="{{ asset('storage/'. $category->image) }}" alt="No image found" width="100%" height="303px"
+                        onerror="this.src='{{asset('images/no-image.png')}}';">
+                        <div class="template-details">
+                            <p>{{ $category->name }}</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         @empty
-            <p>No Category</p>
+            <p>No Categories found.</p>
         @endforelse
     </div>
 
-    
-    <form action="{{ route('admin.luxe_store.create') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <input type="hidden" name="id" value="2">
-        <input type="text" name="name"><br>
-        <input type="file" name="image">
-
-        <button type="submit">Done</button>
-    </form>
-
-    <form action="{{ route('admin.luxe_store.delete') }}" method="POST">
-        @method('delete')
-        @csrf
-        <input type="hidden" name="id" value="2">
-        <button type="submit">Delete</button>
-    </form>
+    <div class="d-flex justify-content-center">
+        {{ $categories->links() }}
+    </div>
 </div>
+
 @endsection

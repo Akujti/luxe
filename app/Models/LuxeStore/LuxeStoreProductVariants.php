@@ -20,10 +20,22 @@ class LuxeStoreProductVariants extends Model
     }
 
     public function getMaxValuePriceAttribute() {
-        return $this->values()->get()->max('price');
+        $data = [];
+
+        foreach($this->values()->get() as $row) {
+            $data[] = ($row->sale_price && ($row->sale_price < $row->price)) ? $row->sale_price : $row->price;
+        }
+
+        return max($data);
     }
 
     public function getMinValuePriceAttribute() {
-        return $this->values()->get()->min('price');
+        $data = [];
+
+        foreach($this->values()->get() as $row) {
+            $data[] = ($row->sale_price && ($row->sale_price < $row->price)) ? $row->sale_price : $row->price;
+        }
+
+        return min($data);
     }
 }

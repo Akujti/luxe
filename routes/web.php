@@ -347,11 +347,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     });
 
     Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::post('/', [CategoryController::class, 'create'])->name('create');
         Route::put('/', [CategoryController::class, 'update'])->name('update');
         Route::delete('/', [CategoryController::class, 'delete'])->name('delete');
 
         Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
+            Route::get('/', [StoreController::class, 'admin_products'])->name('index');
+            Route::get('/new-product/{id?}', [StoreController::class, 'new_product'])->name('new_product');
             Route::post('/', [StoreController::class, 'create'])->name('create');
             Route::put('/', [StoreController::class, 'update'])->name('update');
             Route::delete('/', [StoreController::class, 'delete'])->name('delete');

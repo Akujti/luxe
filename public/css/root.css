@@ -169,6 +169,11 @@
     font-family: 'gothicbold';
     color: #262626;
 }
+.box-title .p-show-pages {
+    font-size: 16px !important;
+    font-family: 'gothicregular';
+    color: #262626;
+}
 .template-box {
     box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09);
     background-color: #fff;
@@ -184,6 +189,14 @@
     font-family: 'gothicbold';
     padding: 0px;
     margin: 0px;
+    color: #262626;
+}
+.template-box .template-details #template-details-price {
+    font-size: 18px;
+    font-family: 'gothicregular';
+    padding: 0px;
+    margin: 0px;
+    color: #262626;
 }
 .template-box img {
     border-radius: 10px 10px 0px 0px;
@@ -264,4 +277,99 @@
 }
 #back img {
     margin-right: 5px;
+}
+
+/* Pagination  */
+
+.pagination .page-item .page-link {
+    background-color: #F7F7F7;
+    color: #262626;
+    font-family: 'gothicregular';
+    font-size: 18px;
+    border: 1px solid transparent !important;
+    margin: 5px 10px;
+    border-radius: 10px !important;
+    padding: 10px 17px;
+}
+.pagination .active .page-link {
+    background-color: #262626 !important;
+    color: #F7F7F7 !important;
+}
+
+
+/* Luxe Store  */
+
+.luxe-store #preview-image {
+    width: 100%;
+    object-fit: cover;
+}
+.luxe-store .single-product-details #title {
+    font-size: 32px;
+    color: #262626;
+    font-family: 'gothicregular';
+}
+.luxe-store .single-product-details #price {
+    font-size: 22px;
+    color: #262626;
+    font-family: 'gothicbold';
+}
+.luxe-store .single-product-details #short-desc {
+    font-size: 16px;
+    font-family: 'gothicregular';
+    color: #262626;
+}
+.luxe-store .single-product-details #categories {
+    font-size: 18px !important;
+    font-family: 'gothicregular';
+    color: #262626;
+}
+.luxe-store #quantity-input {
+    background-color: #F7F7F7;
+    border: 2px solid #F7F7F7;
+    width: 80px;
+    border-radius: 10px;
+}
+.luxe-store #show-variants {
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+    padding: 20px 0px;
+}
+.luxe-store #select-option {
+    background-color: #F7F7F7;
+    border: 2px solid #F7F7F7;
+    border-radius: 10px;
+    height: 47px;
+}
+
+.luxe-store .single-product-details #variant-name {
+    font-size: 16px;
+    font-family: 'gothicbold';
+    color: #262626;
+}
+.luxe-store .single-product-details #clear {
+    font-size: 14px;
+    font-family: 'gothicregular';
+    color: #262626;
+    text-decoration: underline;
+    display: none;
+}
+.luxe-store .single-product-details #out-of-stock {
+    font-size: 18px;
+    font-family: 'gothicbold';
+    color: #E82020;
+}
+.luxe-store .single-product-details #sale-price {
+    color: #DEDEDE !important;
+    font-size: 20px;
+    font-family: 'gothicregular';
+}
+.luxe-store .single-product-details .form-inputs label {
+    font-size: 16px;
+    font-family: 'gothicbold';
+    color: #262626;
+}
+.luxe-store .single-product-details .form-inputs input {
+    background-color: #F7F7F7;
+    border: 2px solid #F7F7F7;
+    border-radius: 10px;
 }

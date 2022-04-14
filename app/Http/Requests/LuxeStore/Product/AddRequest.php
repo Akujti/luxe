@@ -24,17 +24,21 @@ class AddRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5|max:200',
+            'name' => 'required|max:200',
             'description' => 'nullable',
             'description_2' => 'nullable',
             'price' => 'nullable|numeric',
+            'sale_price' => 'nullable|numeric',
             'stock' => 'required',
             'preview_image' => 'nullable|image',
             'categories' => 'required|array',
+            'variant_name' => 'nullable',
 
-            'variant_values' => 'required|array',
+            'variant_values' => 'nullable|array',
             'variant_values.*.value' => 'required|string',
-            'variant_values.*.price' => 'required|numeric'
+            'variant_values.*.price' => 'required|numeric',
+
+            'images' => 'nullable|array'
         ];
     }
 }

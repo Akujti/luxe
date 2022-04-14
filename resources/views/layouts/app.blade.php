@@ -141,6 +141,7 @@
             justify-content: center;
             margin-bottom: 10px !important;
         }
+        
     }
 </style>
 

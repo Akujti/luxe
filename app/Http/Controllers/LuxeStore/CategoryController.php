@@ -11,6 +11,18 @@ use App\Http\Requests\LuxeStore\Category\UpdateRequest;
 
 class CategoryController extends Controller
 {
+    public function index() {
+        $categories = LuxeStoreCategory::latest()->paginate(15);
+
+        return view('admin.store.index', compact('categories'));
+    }
+
+    public function index_products($category_id) {
+        $category = LuxeStoreCategory::find($category_id);
+
+        return view('admin.store.products', compact('category'));
+    }
+
     public function create(AddRequest $req)
     {
         $row = new LuxeStoreCategory;
