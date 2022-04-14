@@ -26,6 +26,8 @@ use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\AppointmentAddressController;
 use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\AppointmentTimeslotController;
+use App\Http\Controllers\LuxeStore\CategoryController;
+use App\Http\Controllers\LuxeStore\StoreController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 
@@ -42,7 +44,12 @@ use App\Http\Controllers\WrittenEmailTemplateItemController;
 
 Route::view('office-locations', 'office-locations');
 Route::view('home', 'home-page');
-Route::view('store', 'store');
+
+Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function() {
+    Route::get('/', [StoreController::class, 'index'])->name('index');
+    Route::get('/{category_slug}', [StoreController::class, 'products_index'])->name('products.index');
+    Route::get('/product/{product_slug}', [StoreController::class, 'single_product_index'])->name('single_product');
+});
 
 Route::view('generate-offer', 'generate.web');
 Route::post('generate-offer', [PDFController::class, 'generate_offer'])->name('generate.offer');
@@ -337,5 +344,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::post('/', [MarketingTemplateController::class, 'create'])->name('marketing.create');
         Route::put('/', [MarketingTemplateController::class, 'update'])->name('marketing.update');
         Route::delete('/', [MarketingTemplateController::class, 'destroy'])->name('marketing.delete');
+    });
+
+    Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('index');
+        Route::post('/', [CategoryController::class, 'create'])->name('create');
+        Route::put('/', [CategoryController::class, 'update'])->name('update');
+        Route::delete('/', [CategoryController::class, 'delete'])->name('delete');
+
+        Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
+            Route::get('/', [StoreController::class, 'admin_products'])->name('index');
+            Route::get('/new-product/{id?}', [StoreController::class, 'new_product'])->name('new_product');
+            Route::post('/', [StoreController::class, 'create'])->name('create');
+            Route::put('/', [StoreController::class, 'update'])->name('update');
+            Route::delete('/', [StoreController::class, 'delete'])->name('delete');
+        });
     });
 });

@@ -23,22 +23,22 @@
                         <div class="row">
                             <div class="col-lg-6 mb-3">
                                 <a href="{{route('general.email.index',['folder'=>'leads','form'=>'join-zillow'])}}"
-                                    class="btn btn-luxe w-100 m-2 d-flex align-items-center justify-content-center"
+                                    class="btn btn-luxe w-100 d-flex align-items-center justify-content-center"
                                     style="height: 70px">Join Zillow</a>
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <a href="{{route('general.email.index',['folder'=>'leads','form'=>'request-leads'])}}"
-                                    class="btn btn-luxe w-100 m-2 d-flex align-items-center justify-content-center"
+                                    class="btn btn-luxe w-100 d-flex align-items-center justify-content-center"
                                     style="height: 70px">Request 25 CINC Leads</a>
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <a href="{{route('general.email.index',['folder'=>'leads','form'=>'opcity-leads'])}}"
-                                    class="btn btn-luxe w-100 m-2 d-flex align-items-center justify-content-center"
+                                    class="btn btn-luxe w-100 d-flex align-items-center justify-content-center"
                                     style="height: 70px">Sign Up For Opcity Leads</a>
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <a href="{{route('general.email.index',['folder'=>'leads','form'=>'prime-street-leads'])}}"
-                                    class="btn btn-luxe w-100 m-2 d-flex align-items-center justify-content-center"
+                                    class="btn btn-luxe w-100 d-flex align-items-center justify-content-center"
                                     style="height: 70px">Sign Up For Prime Street Leads</a>
                             </div>
                         </div>

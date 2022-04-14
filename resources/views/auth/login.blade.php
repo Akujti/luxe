@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-    main {
+    /* main {
         background-image: url("{{asset('images/login_bg.jpg')}}") !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
@@ -10,7 +10,7 @@
         min-height: 100vh;
         background: #0000004a;
         background-blend-mode: color;
-    }
+    } */
 
     header {
         background-color: rgba(35, 35, 35, .5) !important;
@@ -28,6 +28,7 @@
 
     .card-header {
         background: transparent !important;
+        color: #262626
     }
 
     .login-logo {
@@ -35,12 +36,12 @@
     }
 
     .card .card-input {
-        background-color: rgba(255, 207, 64, .5);
+        background-color: #F7F7F7;
         min-width: 334px;
         border-radius: 5px;
         border: 1px solid #fff;
         padding: 5px 20px;
-        color: #fff;
+        color: #262626;
         margin-bottom: 10px;
         width: 100%;
         outline: none;
@@ -48,22 +49,28 @@
 
     .card .card-label {
         font-size: 18px;
+        color: #262626
     }
 
     .card .submit-button {
-        background-color: transparent;
+        background-color: #262626;
+        color: #fff;
+        border-radius: 10px;
         border: transparent;
         min-width: 250px;
         text-transform: uppercase;
         font-weight: bold;
         font-size: 24px;
-        padding: 5px 20px;
-        background-image: url(https://myluxehub.com/wp-content/themes/Luxe/img/loginbg.png);
-        background-repeat: no-repeat;
-        background-size: contain;
+        padding: 10px 20px;
+        /* background-image: url(https://myluxehub.com/wp-content/themes/Luxe/img/loginbg.png); */
+        /* background-repeat: no-repeat; */
+        /* background-size: contain; */
         margin-top: 20px;
         line-height: 30px;
         cursor: pointer;
+    }
+    .card {
+        color: #262626 !important
     }
 
     /*.card form{*/
@@ -138,7 +145,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a class="text-white"
+                                        <a class="text-dark"
                                             href="https://myluxehub.com/my-account/lost-password/">Forgot your
                                             password?</a>
                                     </div>
