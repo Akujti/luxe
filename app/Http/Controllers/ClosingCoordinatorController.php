@@ -10,7 +10,15 @@ class ClosingCoordinatorController extends Controller
     public function index()
     {
         $coordinators = ClosingCoordinator::get();
+        if (request()->wantsJson()) {
+            return response()->json(['coordinators' => $coordinators]);
+        }
         return view('pages/form/other/closing-coordinators-agents', compact('coordinators'));
+    }
+
+    public function show(ClosingCoordinator $closingCoordinator)
+    {
+        return response()->json(['coordinator' => $closingCoordinator]);
     }
 
     public function agent($id)
