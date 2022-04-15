@@ -2,7 +2,7 @@
 @section('css')
 @endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
             <img src="{{$template->image}}" alt="" class="w-100" onerror="this.src='{{asset('images/no-image.png')}}';">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group col-12 p-0">
                         <div class="button-group d-flex float-right justify-content-end">
-                            <button type="submit" class="btn btn-luxe" style="height: 39px">Update</button>
+                            <button type="submit" class="btn btn-luxe">Update</button>
                 </form>
                 <form action="{{route('template.delete',[$template->category,$template])}}" class="w-100 col-6"
                     method="POST" name="delete_form" id="delete_form">

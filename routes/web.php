@@ -27,6 +27,7 @@ use App\Http\Controllers\AppointmentAddressController;
 use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\LuxeStore\CategoryController;
+use App\Http\Controllers\LuxeStore\OrderController;
 use App\Http\Controllers\LuxeStore\StoreController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
@@ -47,8 +48,11 @@ Route::view('home', 'home-page');
 
 Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function() {
     Route::get('/', [StoreController::class, 'index'])->name('index');
+    Route::get('/cart', [OrderController::class, 'cartload'])->name('cart');
     Route::get('/{category_slug}', [StoreController::class, 'products_index'])->name('products.index');
     Route::get('/product/{product_slug}', [StoreController::class, 'single_product_index'])->name('single_product');
+    Route::post('/add-to-cart', [OrderController::class, 'addtocart'])->name('addtocart');
+    Route::delete('/cart', [OrderController::class, 'deleteproductcart'])->name('deletecart');
 });
 
 Route::view('generate-offer', 'generate.web');

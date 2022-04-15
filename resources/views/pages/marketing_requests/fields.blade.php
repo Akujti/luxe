@@ -2,16 +2,15 @@
 @section('css')
 @endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row m-0 w-100 justify-content-center">
-        <h3 class="text-center my-4 w-100">{{$template->title}}</h3>
-        <form action="{{route('field.store',['marketingCategory'=>$template->category, 'template'=>$template])}}"
-            class="form w-100" method="POST">
+        <h3 class="text-center w-100">{{$template->title}}</h3>
+        <form action="{{route('field.store',['marketingCategory'=>$template->category, 'template'=>$template])}}" class="form w-100" method="POST">
             @csrf
             <div class="form-group">
                 <div class="row p-3">
                     <input type="text" name="name" placeholder="Name..." class="form-control col mr-1" required>
-                    <select name="type" id="" class="form-control col ml-1" required>
+                    <select name="type" id="" class="form-control col ml-1" required style="height:49px">
                         <option value="">--- Field Type ---</option>
                         <option value="text">Text</option>
                         <option value="textarea">Textarea</option>
@@ -54,15 +53,14 @@
                             </td>
                             <td>
                                 <div class="button-group d-flex">
-                                    <button href="" class="btn btn-luxe mr-2" type="submit" style="height: 39px">Update
+                                    <button href="" class="btn btn-luxe mr-2" type="submit">Update
                                     </button>
 
                     </form>
                     <form action="{{route('field.delete',$field)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button href="" class="btn btn-danger" type="submit"
-                            onclick="return confirm('Are you sure you want to delete this field?');">
+                        <button href="" class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to delete this field?');">
                             Delete
                         </button>
         </div>
@@ -77,8 +75,7 @@
     <p>No fields found.</p>
     @endif
     <div class="row pl-3 w-100 justify-content-center my-4">
-        <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}"
-            class="btn btn-luxe w-75 my-2">Open Template</a>
+        <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}" class="btn btn-luxe w-75 my-2">Open Template</a>
     </div>
 </div>
 </div>

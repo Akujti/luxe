@@ -373,3 +373,10 @@
     border: 2px solid #F7F7F7;
     border-radius: 10px;
 }
+.box-table {
+    display: none;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}

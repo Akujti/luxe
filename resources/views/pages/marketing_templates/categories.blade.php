@@ -2,12 +2,12 @@
 @section('css')
     <style>
         body {
-            background: url('{{asset('images/bg-image1.jpg')}}');
+            /* background: url('{{asset('images/bg-image1.jpg')}}'); */
             height: 100vh;
-            background-size: cover;
+            /* background-size: cover;
             background-position: center;
             background-color: rgba(0, 0, 0, 0.7);
-            background-blend-mode: color;
+            background-blend-mode: color; */
 
         }
 
@@ -26,14 +26,14 @@
             bottom: -10px;
             width: 104px;
             height: 2px;
-            background-color: rgba(255, 207, 64, 1);
+            background-color: #262626;
             left: 50%;
             margin-left: -52px;
         }
 
         .card-header {
             font-size: 18px;
-            color: #ffffff;
+            color: #262626;
             line-height: 22px;
             text-align: center;
             padding: 0;
@@ -49,7 +49,6 @@
     </style>
 @endsection
 @section('content')
-
     <div class="container-fluid">
         <div class="row align-items-center" style="height: 77vh;">
             @foreach($marketing_categories as $category)
@@ -68,6 +67,4 @@
             @endforeach
         </div>
     </div>
-
-
 @endsection

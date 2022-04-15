@@ -17,7 +17,7 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row box-title p-0 m-0">
+    <div class="row box-title p-0 m-0 justify-content-center">
         <h3 class="text-center">Please choose a theme below which you want to use. Just click on it and then you can edit.</h3>
     </div>
     <div class="row my-5 justify-content-start">

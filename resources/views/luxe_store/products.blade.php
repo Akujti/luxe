@@ -36,7 +36,7 @@
                                 @else
                                     {{
                                         ($product->variants[0]->max_value_price == $product->variants[0]->min_value_price) ?
-                                        $product->variants[0]->max_value_price :
+                                        '$'.$product->variants[0]->max_value_price :
                                         '$' . $product->variants[0]->min_value_price . ' - $'. $product->variants[0]->max_value_price
                                     }}
                                 @endif
