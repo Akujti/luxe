@@ -12,9 +12,11 @@ class GuideController extends Controller
     public function index()
     {
 
-        $folder_id = Folder::where('title', 'XNvgkxNbjU')->firstOrFail()->id;
-//        dd($folder_id);
+        $folder_id = Folder::where('title', 'XNvgkxNbjU')->first()->id;
         $files = File::where('folder_id', $folder_id)->latest()->get();
+        if (request()->wantsJson()) {
+            return response()->json(['files' => $files]);
+        }
         return view('pages.guides.index', compact('files', 'folder_id'));
     }
 

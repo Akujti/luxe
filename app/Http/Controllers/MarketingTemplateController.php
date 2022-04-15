@@ -48,7 +48,7 @@ class MarketingTemplateController extends Controller
         $canva = MarketingCanva::with('categories')->find($id);
         $last_order = MarketingCanvaCategory::where('category_id', $id)->latest()->first()->order ?? 0;
         ++$last_order;
-        
+
         return view('admin.marketing.canva.categories', compact('canva', 'last_order'));
     }
     public function admin_templates($marketing_id, $category_id)
@@ -56,13 +56,16 @@ class MarketingTemplateController extends Controller
         $category = MarketingCanvaCategory::with('templates')->find($category_id);
         $last_order = MarketingCanvaTemplate::where('template_id', $category_id)->latest()->first()->order ?? 0;
         ++$last_order;
-        
+
         return view('admin.marketing.canva.templates', compact('category', 'last_order'));
     }
 
     public function index()
     {
         $marketing_categories = MarketingCanva::orderBy('order', 'asc')->get();
+        if (request()->wantsJson()) {
+            return response()->json(['categories' => $marketing_categories]);
+        }
         return view('pages.marketing_templates.categories', compact('marketing_categories'));
     }
 
@@ -125,7 +128,7 @@ class MarketingTemplateController extends Controller
 
         $canva->title = $req->title;
 
-        if($req->image) {
+        if ($req->image) {
             $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
             $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
             $canva->image = $path;
@@ -142,7 +145,7 @@ class MarketingTemplateController extends Controller
 
         $canva_category->title = $req->title;
 
-        if($req->image) {
+        if ($req->image) {
             $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
             $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
             $canva_category->image = $path;
@@ -160,7 +163,7 @@ class MarketingTemplateController extends Controller
         $canva_category->title = $req->title;
         $canva_category->url = $req->url;
 
-        if($req->image) {
+        if ($req->image) {
             $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
             $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
             $canva_category->image = $path;
@@ -213,7 +216,7 @@ class MarketingTemplateController extends Controller
     public function destroy(DeleteRequest $req)
     {
         $row = MarketingCanva::find($req->id);
-        if($row) {
+        if ($row) {
             $row->delete();
         }
         return back()->with('message', 'Deleted successfully');
@@ -222,7 +225,7 @@ class MarketingTemplateController extends Controller
     public function destroy_category(DeleteCategoryRequest $req)
     {
         $row = MarketingCanvaCategory::find($req->id);
-        if($row) {
+        if ($row) {
             $row->delete();
         }
         return back()->with('message', 'Deleted successfully');
@@ -231,7 +234,7 @@ class MarketingTemplateController extends Controller
     public function destroy_template(DeleteTemplateRequest $req)
     {
         $row = MarketingCanvaTemplate::find($req->id);
-        if($row) {
+        if ($row) {
             $row->delete();
         }
         return back()->with('message', 'Deleted successfully');

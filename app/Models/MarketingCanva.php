@@ -16,8 +16,15 @@ class MarketingCanva extends Model
         'image'
     ];
 
+    protected $appends = ['imageUrl'];
+
     public function categories()
     {
         return $this->hasMany(MarketingCanvaCategory::class, 'category_id');
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return asset('storage/' . $this->image);
     }
 }
