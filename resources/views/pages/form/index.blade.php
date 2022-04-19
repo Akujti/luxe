@@ -51,9 +51,13 @@
                             <select name="loan_officer" class="form-control" id="" required>
                                 <option value="-">-</option>
                                 <option value="Alfonso Rojas">Alfonso Rojas</option>
+                                <option value="Ana Arias">Ana Arias</option>
                                 <option value="Anais Delgado">Anais Delgado</option>
+                                <option value="Brandon Beyrle">Brandon Beyrle</option>
+                                <option value="Edward Pena">Edward Pena</option>
                                 <option value="Lissete Garcia">Lissete Garcia</option>
-                                <option value="Monica Estupinan">Monica Estupinan</option>
+                                <option value="Michael Castro">Michael Castro</option>
+                                <option value="Orlando Castillo">Orlando Castillo</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">

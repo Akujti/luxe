@@ -31,8 +31,8 @@
                             <label for="name">Have you closed a minimum of 5 transactions?</label>
                             <select name="have_you_closed_a_minimum_of_5_transactions" class="form-control" id="">
                                 <option value="-">-</option>
-                                <option value="Miami-Dade">Yes</option>
-                                <option value="Broward">No</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
 

@@ -40,7 +40,7 @@ class FormController extends Controller
                 'additional' => $request->additional ?? 'None'
             ];
             $to = ['email@luxeknows.com'];
-            $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com'];
+            $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com', 'ana@luxehomeloan.com', 'orlando@luxehomeloan.com', 'eddie@luxehomeloan.com'];
             Mail::to($to)->cc($cc)->send(new FormMail($details));
 
             FormSubmit::create([
