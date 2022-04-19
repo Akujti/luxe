@@ -380,3 +380,6 @@
     margin-right: -15px;
     margin-left: -15px;
 }
+.checkout #shipping_address {
+    display: none;
+}

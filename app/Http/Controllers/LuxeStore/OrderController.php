@@ -7,11 +7,12 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\LuxeStore\LuxeStoreProduct;
+use App\Models\LuxeStore\LuxeStoreCouponCode;
 use App\Models\LuxeStore\LuxeStoreProductForm;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
+use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
-use App\Models\LuxeStore\LuxeStoreCouponCode;
 
 class OrderController extends Controller
 {
@@ -20,7 +21,7 @@ class OrderController extends Controller
         return view('admin.orders.index', compact('orders'));
     }
 
-    public function create(Request $req) {
+    public function create(AddOrderRequest $req) {
         DB::beginTransaction();
         try {
             $row = new LuxeStoreOrder;
@@ -88,6 +89,12 @@ class OrderController extends Controller
             ]);
 
             $row->billing_details()->create($req->billing);
+
+            if($req->same_as_billing) {
+                $row->shipping_details()->create($req->billing);
+            } else {
+                $row->shipping_details()->create($req->shipping);
+            }
 
             Session::flush('shopping_cart');
             Session::flush('coupon_code');
