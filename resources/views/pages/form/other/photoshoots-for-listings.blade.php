@@ -43,10 +43,14 @@
                     they are always willing to
                     help :)
                     • $200 charge for RENTAL shoots for pictures & video
-                    • $150 charge for RENTAL shoots for pictures only
+                    • $100-$150 charge for RENTAL shoots for pictures only
+                    • $100 surcharge for duplex
+                    • $200 surcharge for triplex
+                    • $300 surcharge for fourplex
+                    • $500 surcharge for 10+ units
                     • $225 charge if property not set up correctly/prepared before photographer arrival
                     • $225 charge if photographer must make a 2nd visit to same property
-                    • $75 Travel Free for any property past W Atlantic Blvd
+                    • $100 Travel Free for any property past W Atlantic Blvd
                     • Only properties in Miami-Dade or Broward county are covered
                     <b>*Please note: If property does not sell (cancelled, expired, or withdrawn), agent will be charged for shoot fee​​.​​*<b></pre>
                 </div>
