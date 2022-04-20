@@ -27,6 +27,7 @@ use App\Http\Controllers\AppointmentAddressController;
 use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\LuxeStore\CategoryController;
+use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\LuxeStore\OrderController;
 use App\Http\Controllers\LuxeStore\StoreController;
 use App\Http\Controllers\WrittenEmailTemplateController;
@@ -49,9 +50,14 @@ Route::view('home', 'home-page');
 Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function() {
     Route::get('/', [StoreController::class, 'index'])->name('index');
     Route::get('/cart', [OrderController::class, 'cartload'])->name('cart');
+    Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::view('/thank-you', 'luxe_store.thank-you')->name('thank_you');
     Route::get('/{category_slug}', [StoreController::class, 'products_index'])->name('products.index');
     Route::get('/product/{product_slug}', [StoreController::class, 'single_product_index'])->name('single_product');
     Route::post('/add-to-cart', [OrderController::class, 'addtocart'])->name('addtocart');
+    Route::post('/apply-coupon', [CouponCodeController::class, 'apply_coupon'])->name('apply_coupon');
+    Route::post('/order', [OrderController::class, 'create'])->name('order.create');
+    Route::put('/order', [OrderController::class, 'update'])->name('order.update');
     Route::delete('/cart', [OrderController::class, 'deleteproductcart'])->name('deletecart');
 });
 
@@ -363,5 +369,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
             Route::put('/', [StoreController::class, 'update'])->name('update');
             Route::delete('/', [StoreController::class, 'delete'])->name('delete');
         });
+    });
+
+    Route::group(['prefix' => 'orders', 'as' => 'orders.'], function() {
+        Route::get('/', [OrderController::class, 'admin_index'])->name('index');
     });
 });
