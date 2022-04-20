@@ -70,7 +70,8 @@
     }
 
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
+        color: #fff;
         padding: 10px;
         display: block;
         font-family: Lato;
@@ -103,7 +104,7 @@
         margin-top: 10px;
         margin-bottom: 5px;
         width: 100%;
-        border: 1px solid #FFCF40;
+        border: 1px solid #262626;
         font-family: Lato;
     }
 
@@ -292,6 +293,13 @@
 
     .d-block {
         display: block;
+    }
+    .btn-luxe {
+        background-color: #262626;
+        color: #fff;
+        padding: 20px 40px;
+        border: none;
+        border-radius: 10px;
     }
 </style>
 
@@ -515,7 +523,7 @@
                 <div>
                     <div class="flex">
                         <div class="" style="width: 345px">
-                            <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                            <button type="submit" name="action" value="Generate" class="btn btn-luxe">Generate</button>
                         </div>
                     </div>
                 </div>

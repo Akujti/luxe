@@ -9,11 +9,10 @@ use Illuminate\Support\Str;
 
 class GuideController extends Controller
 {
-    public function index()
+    public function index(Request $req)
     {
-
         $folder_id = Folder::where('title', 'XNvgkxNbjU')->first()->id;
-        $files = File::where('folder_id', $folder_id)->latest()->get();
+        $files = File::where('folder_id', $folder_id)->orderBy('title', $req->input('sort', 'asc'))->get();
         if (request()->wantsJson()) {
             return response()->json(['files' => $files]);
         }

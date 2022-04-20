@@ -182,5 +182,9 @@
             </div>
         </div>
     </div>
+
+    <div class="d-flex w-100 justify-content-center">
+        {{ $orders->links() }}
+    </div>
 </div>
 @endsection

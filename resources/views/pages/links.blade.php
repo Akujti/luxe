@@ -28,7 +28,9 @@
         padding-top: 8px;
         padding-bottom: 8px;
         font-size: 1.05rem;
-        background: #FFCF40;
+        background: #262626;
+        color: #fff;
+        font-family: 'gothicregular';
     }
 
     @media (min-width: 992px) {
@@ -38,7 +40,7 @@
         }
     }
 </style>
-<div class="container">
+<div class="container-fluid">
     <div class="row my-4">
         <div class="col-12 col-lg-3">
             <div class="link-box">

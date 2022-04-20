@@ -54,17 +54,15 @@
         object-position: top;
     }
 
-    /* .agents .col.my-2 {
-        display: flex;
-        flex-flow: column;
-        align-self: center;
-    } */
+    .h1-luxe {
+        font-family: 'gothicbold';
+    }
 </style>
 @endsection
 @section('content')
 
-<div class="container agents">
-    <h1 class="text-center text-white">CLOSING COORDINATORS</h1>
+<div class="container-fluid agents">
+    <h1 class="text-center h1-luxe">CLOSING COORDINATORS</h1>
     <div class="row">
         @foreach ($coordinators as $coordinator)
         <div class="col my-2">

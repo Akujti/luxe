@@ -3,6 +3,11 @@
     src: local("gothicbold"),
     url("/fonts/index-page/gothicbold.ttf") format("truetype");
 }
+@font-face {
+    font-family: "gothicregular";
+    src: local("gothicregular"),
+    url("/fonts/index-page/gothicregular.ttf") format("truetype");
+}
 .form label {
     font-weight: bold;
 }

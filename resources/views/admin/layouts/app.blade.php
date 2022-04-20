@@ -204,7 +204,7 @@
                             <nav>
                                 <a href="{{ route('admin.index') }}" class="@if(Request::path() == 'admin') active @endif">Dashboard</a>
                                 <a href="{{ route('admin.forms.index') }}" class="@if(Request::path() == 'admin/forms') active @endif">Forms</a>
-                                <a href="#">Videos</a>
+                                <a href="{{ route('admin.videos.index') }}">Videos</a>
                                 <a href="#">Events</a>
                                 <a href="#">Files</a>
                                 <a href="{{ route('admin.canva.marketing.index_admin') }}" class="@if(in_array(Request::route()->getName(), ['admin.canva.marketing.index_admin', 'admin.canva.categories.index', 'admin.canva.categories.templates.index'])) active @endif">Marketing Canva</a>
@@ -261,7 +261,7 @@
                                     <a href="{{ route('admin.forms.index') }}">Forms</a>
                                 </li>
                                 <li class="row m-0 @if(Request::path() == 'admin/videos') active @endif">
-                                    <a href="#">Vidoes</a>
+                                    <a href="{{ route('admin.videos.index') }}">Vidoes</a>
                                 </li>
                                 <li class="row m-0 @if(Request::path() == 'admin/events') active @endif">
                                     <a href="#">Events</a>

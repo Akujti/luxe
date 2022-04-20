@@ -1,8 +1,15 @@
 @extends('layouts.app')
+@section('css')
+<style>
+    .h1-luxe {
+        font-family: 'gothicbold';
+    }
+</style>
+@endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <h1>Written Email Templates</h1>
+        <h1 class="h1-luxe">Written Email Templates</h1>
     </div>
     <div class="row my-4">
         @if(auth()->user()->isAdmin)
@@ -20,7 +27,7 @@
         </div>
         @endforeach
     </div>
-    <div id="createModal" class="modal fade" tabindex="-1" role="dialog">
+    <div id="createModal" class="modal fade modal-new" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -39,8 +46,8 @@
 
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-luxe">Save</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
                 </form>
             </div>

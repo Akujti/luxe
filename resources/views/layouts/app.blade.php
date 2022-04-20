@@ -197,30 +197,10 @@
                                 <a href="{{ url('/home?dir=leads') }}">Leads </a>
                                 <em><img src="/images/plus.png"></em>
                                 <ul class="w-100">
-                                    <li class="row m-0"><a href="#">Zillow Premiere</a>
-                                     <em><img src="/images/plus.png"></em>
-    
-                                    <ul class="w-100">
-                                        <li><a href="#">Social media</a></li>
-                                        <li><a href="#">Security</a></li>
-                                        <li><a href="#">Project</a></li>
-                                        <li><a href="#">Hardware</a></li>
-                                        <li class="row m-0"><a href="#">Activity</a>
-                                         <em><img src="/images/plus.png"></em>
-    
-                                            <ul class="w-100">
-                                                <li><a href="#">Social media</a></li>
-                                                <li><a href="#">Security</a></li>
-                                                <li><a href="#">Project</a></li>
-                                                <li><a href="#">Hardware</a></li>
-                                                <li><a href="#">Activity</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </li>
-                                    <li><a href="#">Request 25 Cinc Leads</a></li>
-                                    <li><a href="#">Sign Up for Opcity Leads</a></li>
-                                    <li><a href="#">Primme Street Leads</a></li>
+                                    <li><a href="{{ url("general/form/leads/index") }}">Zillow Premiere</a></li>
+                                    <li><a href="{{ url("general/form/leads/request-leads") }}">Request 25 Cinc Leads</a></li>
+                                    <li><a href="{{ url("general/form/leads/opcity-leads") }}">Sign Up for Opcity Leads</a></li>
+                                    <li><a href="{{ url("general/form/leads/prime-street-leads") }}">Primme Street Leads</a></li>
                                 </ul>
                             </li>
                             <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active @endif">
@@ -228,34 +208,14 @@
                                  <em><img src="/images/plus.png"></em>
     
                                 <ul class="w-100">
-                                    <li class="row m-0"><a href="#">Training Videos</a>
-                                     <em><img src="/images/plus.png"></em>
-    
-                                    <ul class="w-100">
-                                        <li><a href="#">Social media</a></li>
-                                        <li><a href="#">Security</a></li>
-                                        <li><a href="#">Project</a></li>
-                                        <li><a href="#">Hardware</a></li>
-                                        <li class="row m-0"><a href="#">Activity</a>
-                                         <em><img src="/images/plus.png"></em>
-    
-                                            <ul class="w-100">
-                                                <li><a href="#">Social media</a></li>
-                                                <li><a href="#">Security</a></li>
-                                                <li><a href="#">Project</a></li>
-                                                <li><a href="#">Hardware</a></li>
-                                                <li><a href="#">Activity</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    </li>
-                                    <li><a href="#">Email Templates</a></li>
-                                    <li><a href="#">Link to other services</a></li>
-                                    <li><a href="#">New Agents & Referrals</a></li>
-                                    <li><a href="#">Conference Room</a></li>
-                                    <li><a href="#">Office Documents</a></li>
-                                    <li><a href="#">Photoshoot for Listings</a></li>
-                                    <li><a href="#">Resume Builder</a></li>
+                                    <li><a href="{{ url("user/videos") }}">Training Videos</a></li>
+                                    <li><a href="{{ url("user/written-email-templates") }}">Email Templates</a></li>
+                                    <li><a href="{{ url("user/links") }}">Link to other services</a></li>
+                                    <li><a href="{{ url("general/form/agent_referrals/index") }}">New Agents & Referrals</a></li>
+                                    <li><a href="{{ url("bookings") }}">Conference Room</a></li>
+                                    <li><a href="{{ url("user/files") }}">Office Documents</a></li>
+                                    <li><a href="{{ url("general/form/other/photoshoots-for-listings") }}">Photoshoot for Listings</a></li>
+                                    <li><a href="{{ url("resume") }}">Resume Builder</a></li>
                                 </ul>
                             </li>
                             <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active @endif">
@@ -263,9 +223,9 @@
                                 <em><img src="/images/plus.png"></em>
     
                                 <ul class="w-100">
-                                    <li><a href="#">DIY Marketing</a></li>
-                                    <li><a href="#">Print Marketing</a></li>
-                                    <li><a href="#">Downloadble Guides</a></li>
+                                    <li><a href="{{ url("marketing-home") }}">DIY Marketing</a></li>
+                                    <li><a href="https://realtorprint.com/collections/luxe">Print Marketing</a></li>
+                                    <li><a href="{{ url("user/guides") }}">Downloadble Guides</a></li>
                                     <li><a href="{{ route('canva.marketing.requests') }}">Canva Templates</a></li>
                                 </ul>
                             </li>
@@ -276,16 +236,17 @@
                                 <a href="{{ url('/home?dir=service_staff_requests') }}">Service & Staff Requests</a>
                                 <em><img src="/images/plus.png"></em>
                                 <ul class="w-100">
-                                    <li><a href="#">Rental Escrow Disbursement</a></li>
-                                    <li><a href="#">Closing Coordinators</a></li>
-                                    <li><a href="#">Mentors</a></li>
-                                    <li><a href="#">Photoshoot for Listings</a></li>
-                                    <li><a href="#">Wire Instructions Request</a></li>
-                                    <li><a href="#">Logo Creation Request</a></li>
-                                    <li><a href="#">New Agent Business Plan</a></li>
-                                    <li><a href="#">2022 Business Plan</a></li>
-                                    <li><a href="#">Follow-up Business Plan</a></li>
-                                    <li><a href="#">Open House Signup</a></li>
+                                    <li><a href="{{ url("general/form/escrow/index") }}">Rental Escrow Disbursement</a></li>
+                                    <li><a href="{{ url("listing-coordinators") }}">Listing Coordinators</a></li>
+                                    <li><a href="{{ url("general/form/other/closing-coordinators-agents") }}">Closing Coordinators</a></li>
+                                    <li><a href="{{ url("agreement-agents") }}">Mentors</a></li>
+                                    <li><a href="{{ url("general/form/other/photoshoots-for-listings") }}">Photoshoot for Listings</a></li>
+                                    <li><a href="{{ url("general/form/other/wire-instructions-request") }}">Wire Instructions Request</a></li>
+                                    <li><a href="{{ url("general/form/other/logo-creation-request") }}">Logo Creation Request</a></li>
+                                    <li><a href="{{ url("general/form/staff-request/new-agent-business-plan") }}">New Agent Business Plan</a></li>
+                                    <li><a href="{{ url("general/form/staff-request/2022-business-plan") }}">2022 Business Plan</a></li>
+                                    <li><a href="{{ url("general/form/staff-request/follow-up-business-plan") }}">Follow-up Business Plan</a></li>
+                                    <li><a href="{{ url("appointments/create") }}">Open House Signup</a></li>
                                 </ul>
                             </li>
                             <li class="row m-0 @if(Request::path() == 'store') active @endif">

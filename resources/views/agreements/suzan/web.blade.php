@@ -2,10 +2,11 @@
 @section('content')
 <style>
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
         padding: 10px;
         display: block;
-        border: 1px solid black;
+        color: #fff;
+        font-family: 'gothicbold';
         margin-bottom: 0 !important;
     }
 
@@ -15,8 +16,8 @@
         margin-top: 10px;
         margin-bottom: 5px;
         width: 100%;
-        border: 1px solid #FFCF40;
-        font-family: Lato;
+        border: 1px solid #262626;
+        font-family: 'gothicregular';
     }
 
     .button {
@@ -24,12 +25,14 @@
     }
 
     .generate {
-        font-family: "Lato";
+        font-family: "gothicbold";
         font-weight: 600;
         font-size: 18px;
         padding: 20px;
-        background-color: #FFCF40;
-        /* color: white; */
+        background-color: #262626;
+        color: white;
+        border-radius: 10px;
+        border:none;
         text-decoration: none;
     }
 
@@ -51,13 +54,17 @@
     }
 
     .body {
-        font-family: 'Times New Roman';
+        font-family: 'gothicregular';
     }
 
     .footer {
         width: 100%;
         text-align: center;
         color: gray
+    }
+    .p-luxe {
+        font-family: 'gothicregular';
+        font-size: 20px;
     }
 </style>
 
@@ -72,16 +79,16 @@
 <body>
     <form action="{{ route('agreement.submit') }}" method="POST">
         @csrf
-        <div class="container mb-5">
+        <div class="container mb-5 mt-4">
             <div class="row mb-5">
                 <div class="row-image">
                     <div class="page">
-                        <div class="header">
+                        <div class="">
                             <img src="{{asset('images/generate_logo.jpg')}}" alt="" style="width:270px">
                         </div>
                         <div class="body">
                             <br>
-                            <p class="text-center"><b>{{$agent->name}} - Mentorship Agreement</b></p>
+                            <p class="text-center p-luxe"><b>{{$agent->name}} - Mentorship Agreement</b></p>
                             <ul style="padding: 0">
                                 <li>3 TRANSACTIONS WITH MENTOR</li>
                                 <li>50% OF LISTINGS</li>

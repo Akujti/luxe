@@ -260,8 +260,8 @@
                 <div class="nav-body__view">
                     <p class="m-0 p-0">View:</p>
                     <select name="" id="change_view" onchange="change_view()">
-                        <option value="badge">Badge</option>
-                        <option value="table">Table</option>
+                        <option value="badge" {{ (request('view') == 'badge' || !request('view')) ? 'selected': '' }}>Badge</option>
+                        <option value="table" {{ request('view') == 'table' ? 'selected': '' }}>Table</option>
                     </select>
                 </div>
             </div>
@@ -283,6 +283,7 @@
             </div>
         </div>
     </div>
+        @if(!request('view') || request('view') == 'badge')
         <div class="row box-grid">
             @foreach ($folders as $folder)
             <div class="box-file col-12 col-md-6 col-lg-4">
@@ -334,7 +335,7 @@
                                 <div>
                                     <p>&nbsp;</p>
                                     <p id="date">
-                                        {{ $folder->created_at->toDateString() }}
+                                        {{ $file->created_at->toDateString() }}
                                     </p>
                                 </div>
                                 <div>
@@ -362,6 +363,7 @@
             </div>
             @endforeach
         </div>
+        @else
         <div class="box-table">
             @foreach ($folders as $folder)
             <div class="box-file col-md-12 mb-4" style="height: 84px !important;">
@@ -441,6 +443,7 @@
             </div>
             @endforeach
         </div>
+        @endif
 </div>
 <!-- Create File  -->
 <div class="create-event modal fade modal-new" tabindex="-1" role="dialog">
@@ -567,17 +570,11 @@
     function change_view() {
         var value = document.getElementById('change_view').value;
 
-        if(value == 'badge') {
-            $('.box-grid').show()
-            $('.box-table').hide()
-        } else {
-            $('.box-table').show()
-            $('.box-grid').hide()
-        }
+        window.location.href = '{{ route('files.index') }}?view=' + value + '<?php if(isset($_GET['sort'])) {echo '&sort='. $_GET['sort'];} ?>'
     }
     function change_sort() {
         var value = document.getElementById('change_sort').value;
 
-        window.location.href = '{{ route('files.index') }}?sort=' + value
+        window.location.href = '{{ route('files.index') }}?sort=' + value + '<?php if(isset($_GET['view'])) {echo '&view='. $_GET['view'];} ?>'
     }
 </script>

@@ -27,7 +27,7 @@
                             <label for="name">Mobile Phone Number</label>
                             <input type="text" name="mobile_phone" class="form-control" required>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
                             <label for="name">Have you closed a minimum of 5 transactions?</label>
                             <select name="have_you_closed_a_minimum_of_5_transactions" class="form-control" id="">
                                 <option value="-">-</option>

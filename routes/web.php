@@ -21,15 +21,17 @@ use App\Http\Controllers\AgentEmailController;
 use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\TemplateSubmitController;
-use App\Http\Controllers\MarketingCategoryController;
-use App\Http\Controllers\MarketingTemplateController;
-use App\Http\Controllers\AppointmentAddressController;
-use App\Http\Controllers\ClosingCoordinatorController;
-use App\Http\Controllers\AppointmentTimeslotController;
-use App\Http\Controllers\LuxeStore\CategoryController;
-use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\LuxeStore\OrderController;
 use App\Http\Controllers\LuxeStore\StoreController;
+use App\Http\Controllers\MarketingCategoryController;
+use App\Http\Controllers\MarketingTemplateController;
+use App\Http\Controllers\Video\VideoFolderController;
+use App\Http\Controllers\AppointmentAddressController;
+use App\Http\Controllers\ClosingCoordinatorController;
+use App\Http\Controllers\ListingCoordinatorController;
+use App\Http\Controllers\LuxeStore\CategoryController;
+use App\Http\Controllers\AppointmentTimeslotController;
+use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 
@@ -241,7 +243,9 @@ Route::group(
     function () {
         Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/links', [PageController::class, 'links'])->name('links');
-        Route::get('/videos', [PageController::class, 'videos'])->name('videos');
+        // Route::get('/videos', [PageController::class, 'videos'])->name('videos');
+        Route::get('/videos', [VideoFolderController::class, 'index'])->name('videos');
+        Route::get('/videos/{video_id}', [VideoFolderController::class, 'show'])->name('video.single_video');
         Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::resource('events', EventController::class);
@@ -262,6 +266,14 @@ Route::group(
         Route::view('w-9', 'w-9.web');
         Route::post('w-9', [W9Controller::class, 'store'])->name('w-9');
         Route::get('w-9/download/{id}', [W9Controller::class, 'download'])->name('w-9.download');
+    }
+);
+
+Route::group(
+    ['middleware' => ['auth']],
+    function () {
+        Route::resource('listing-coordinators', ListingCoordinatorController::class);
+        Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
     }
 );
 
@@ -373,5 +385,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
 
     Route::group(['prefix' => 'orders', 'as' => 'orders.'], function() {
         Route::get('/', [OrderController::class, 'admin_index'])->name('index');
+    });
+
+    Route::group(['prefix' => 'videos', 'as' => 'videos.'], function() {
+        Route::get('/', [VideoFolderController::class, 'admin_index'])->name('index');
     });
 });

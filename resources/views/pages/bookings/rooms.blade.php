@@ -8,27 +8,49 @@
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 <style>
-    .btn-luxe {
-        background: #FFCF40;
-        color: black;
+    @font-face {
+        font-family: "gothicbold";
+        src: local("gothicbold"),
+        url("/fonts/index-page/gothicbold.ttf") format("truetype");
+    }
+    @font-face {
+        font-family: "gothicregular";
+        src: local("gothicregular"),
+        url("/fonts/index-page/gothicregular.ttf") format("truetype");
+    }
+    .box {
+        background-color: red;
+        margin: 5px;
+        color: #262626;
+        background-color: #F7F7F7;
+        border-radius: 30px;
+    }
+    .box a {
+        color: #262626 !important;
+        font-family: 'gothicregular';
+    }
+    .card-title h1 {
+        font-family: 'gothicbold';
     }
 </style>
-<body style="background-color: gray">
+<body>
 
-<div class="container d-flex align-items-center" style="height: 100vh">
+<div class="container-fluid d-flex align-items-center" style="height: 100vh">
     <div class="row justify-content-center w-100">
         <div class="col-md-8">
-            <div class="card bg-light">
-                <div class="card-header text-center">
+            <div class="">
+                <div class="card-title text-center">
                     <h1>Select Room</h1>
                 </div>
-                <div class="card-body">
+                <div class="">
                     <div class="row">
                         @foreach($rooms as $room)
                             <div class="col-lg-4">
-                                <a href="{{route('bookings.index',$room->id)}}"
-                                   class="btn btn-luxe w-100 m-2 d-flex align-items-center justify-content-center"
-                                   style="height: 70px">{{$room->name}}</a>
+                                <div class="box">
+                                    <a href="{{route('bookings.index',$room->id)}}"
+                                       class="btn w-100 d-flex align-items-center justify-content-center"
+                                       style="height: 70px">{{$room->name}}</a>
+                                </div>
                             </div>
                         @endforeach
                     </div>

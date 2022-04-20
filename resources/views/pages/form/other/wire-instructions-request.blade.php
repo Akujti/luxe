@@ -7,8 +7,8 @@
         }
     }
 </style>
-<div class="container">
-    <div class="row justify-content-center my-4">
+<div class="container-fluid">
+    <div class="row justify-content-center">
         <div class="col-md-12">
             <div id="popup" class="card">
                 <div class="card-header text-center">
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <form action="{{route('general.email.post')}}" class="card form my-4 p-3 d-none" method="POST"
+            <form action="{{route('general.email.post')}}" class="card form p-3 d-none" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">

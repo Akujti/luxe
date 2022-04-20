@@ -7,7 +7,7 @@
         }
     }
 </style>
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center my-4">
         <div class="col-md-12">
             <div id="popup" class="card">

@@ -374,7 +374,6 @@
     border-radius: 10px;
 }
 .box-table {
-    display: none;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -15px;
