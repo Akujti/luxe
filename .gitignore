@@ -24,4 +24,3 @@ composer.json
 config/app.php
 composer.lock
 public/Generated.zip
-/vendor/

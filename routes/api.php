@@ -7,6 +7,7 @@ use App\Http\Controllers\FolderController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\MarketingTemplateController;
+use App\Http\Controllers\PageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,7 @@ Route::apiResource('user/files', FolderController::class, array("as" => "api"));
 Route::apiResource('user/guides', GuideController::class, array("as" => "api"));
 Route::apiResource('closing-coordinators', ClosingCoordinatorController::class);
 Route::apiResource('marketing-canva', MarketingTemplateController::class);
-
+Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
