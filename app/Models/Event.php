@@ -11,6 +11,7 @@ class Event extends Model
 
     protected $appends = [
         'start',
+        'imageUrl'
     ];
 
     protected $fillable = [
@@ -32,5 +33,10 @@ class Event extends Model
     public function getEndAttribute()
     {
         return $this->date . ' ' . $this->attributes['end_time'];
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return asset('storage/' . str_replace('\\', '/', $this->image));
     }
 }
