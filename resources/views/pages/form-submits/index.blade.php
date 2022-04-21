@@ -13,7 +13,7 @@
                         <th scope="col">Form Name</th>
                         <th scope="col">Agent Name</th>
                         <th scope="col">Agent Email</th>
-                        <th scope="col">Date Sent</th>
+                        <th scope="col" class="col-3">Date Sent</th>
                         <th scope="col">Status Completed</th>
                         <th scope="col">Action</th>
                         <th scope="col">View</th>
@@ -26,7 +26,7 @@
                             @csrf
                             @method('PUT')
 
-                            <th scope="row">{{$loop->iteration}}</th>
+                            <th scope="row">{{((($_REQUEST['page']??1)-1)*50)+$loop->iteration}}</th>
                             <td>{{$submission->form_title}}</td>
                             <td>{{$submission->agent_name}}</td>
                             <td>{{$submission->agent_email}}</td>
@@ -56,6 +56,7 @@
                 </tbody>
             </table>
         </div>
+        {{ $submissions }}
     </div>
 </div>
 @endsection

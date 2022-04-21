@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\FormMail;
 use App\Mail\GeneralMailTemplate;
 use App\Models\FormSubmit;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;
@@ -63,30 +64,41 @@ class FormController extends Controller
 
     public function general_form_post(Request $request)
     {
-        $details = [];
-        $details['form_agent_full_name'] = $request->agent_full_name;
-        $details['form_agent_email'] = $request->agent_email;
-        foreach ($request->except('_token', 'to_email') as $key => $val) {
-            if ($request->hasFile($key)) {
-                $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
-                $request->file($key)->move(public_path('/new-storage/images/marketing'), $name);
-                // $path = Storage::put('public/images/marketing', $val, 'public');
-                $val = 'new-storage/images/marketing/' . $name;
+        try {
+            $details = [];
+            $details['form_agent_full_name'] = $request->agent_full_name;
+            $details['form_agent_email'] = $request->agent_email;
+            foreach ($request->except('_token', 'to_email') as $key => $val) {
+                if ($request->hasFile($key)) {
+                    $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
+                    $request->file($key)->move(public_path('/new-storage/images/marketing'), $name);
+                    // $path = Storage::put('public/images/marketing', $val, 'public');
+                    $val = 'new-storage/images/marketing/' . $name;
+                }
+                $details[strtolower($key)] = $val;
             }
-            $details[strtolower($key)] = $val;
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Form isn\'t saved, there was a problem with the entered data');
         }
-        $to = $request->to_email;
-        array_push($to, $request->agent_email);
-        $cc = [];
-        Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
-
-        FormSubmit::create([
-            'form_title' => $request->form_title,
-            'status' => 0,
-            'agent_name' => $request->agent_full_name,
-            'agent_email' => $request->agent_email,
-            'details' => json_encode($details),
-        ]);
+        try {
+            FormSubmit::create([
+                'form_title' => $request->form_title,
+                'status' => 0,
+                'agent_name' => $request->agent_full_name,
+                'agent_email' => $request->agent_email,
+                'details' => json_encode($details),
+            ]);
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Form couldn\'t be saved');
+        }
+        try {
+            $to = $request->to_email;
+            array_push($to, $request->agent_email);
+            $cc = [];
+            Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Form is saved but there was a problem sending the email');
+        }
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
 
