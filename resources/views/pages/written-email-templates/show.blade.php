@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
 @section('css')
 <style>
     .form-control:disabled,

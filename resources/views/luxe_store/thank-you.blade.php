@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Store'])
 
 @section('css')
 <style>
@@ -17,13 +17,6 @@
         padding: 0px 10px 10px;
     }
 
-    .thankyou-wrapper p {
-        font: 26px Arial, Helvetica, sans-serif;
-        text-align: center;
-        color: #333333;
-        padding: 5px 10px 10px;
-    }
-
     .thankyou-wrapper a {
         text-align: center;
         display: block;
@@ -31,6 +24,13 @@
         width: 250px;
         margin: 10px auto 0px;
         padding: 15px 20px 15px;
+    }
+    .p-luxe {
+        font-family: 'gothicregular' !important;
+        text-align: center;
+        color: #333333;
+        padding: 5px 10px 10px;
+        font-size: 26px;
     }
 </style>
 @endsection
@@ -43,7 +43,7 @@
                     <div class="login-main-container">
                         <div class="thankyou-wrapper">
                             <h1><img src="http://montco.happeningmag.com/wp-content/uploads/2014/11/thankyou.png" alt="thanks" /></h1>
-                            <p>for contacting us, we will get in touch with you soon... </p>
+                            <p class="p-luxe">for contacting us, we will get in touch with you soon... </p>
                             <a class="btn btn-luxe" href="{{ route('luxe_store.index') }}">Back to Store</a>
                             <div class="clr"></div>
                         </div>

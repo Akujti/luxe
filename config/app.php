@@ -177,6 +177,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Vimeo\Laravel\VimeoServiceProvider::class
 
     ],
 

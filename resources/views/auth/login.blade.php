@@ -1,21 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
 <style>
-    /* main {
-        background-image: url("{{asset('images/login_bg.jpg')}}") !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-        min-height: 100vh;
-        background: #0000004a;
-        background-blend-mode: color;
-    } */
-
-    header {
-        background-color: rgba(35, 35, 35, .5) !important;
-    }
-
     .container {
         padding-top: 250px !important;
     }
@@ -28,7 +13,8 @@
 
     .card-header {
         background: transparent !important;
-        color: #262626
+        color: #262626;
+        font-family: 'gothicregular';
     }
 
     .login-logo {
@@ -49,7 +35,17 @@
 
     .card .card-label {
         font-size: 18px;
-        color: #262626
+        color: #262626;
+        font-family: 'gothicbold';
+    }
+    .form-check-label {
+        font-family: 'gothicbold';
+        font-size: 15px;
+    }
+    .forgot-password {
+        font-family: 'gothicbold';
+        color: #262626;
+        font-size: 15px;
     }
 
     .card .submit-button {
@@ -62,9 +58,6 @@
         font-weight: bold;
         font-size: 24px;
         padding: 10px 20px;
-        /* background-image: url(https://myluxehub.com/wp-content/themes/Luxe/img/loginbg.png); */
-        /* background-repeat: no-repeat; */
-        /* background-size: contain; */
         margin-top: 20px;
         line-height: 30px;
         cursor: pointer;
@@ -72,10 +65,6 @@
     .card {
         color: #262626 !important
     }
-
-    /*.card form{*/
-    /*    margin-left: -18%;*/
-    /*}*/
     @media (max-width: 767.98px) {
         .min-input {
             min-width: auto !important;
@@ -90,9 +79,9 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-center" style="background:#FFCF40;font-size:20px;"><img class="login-logo"
-                        src="https://myluxehub.com/wp-content/uploads/2018/10/logo-big-391x130.png" alt=""
-                        height="80px"><br>All templates here. <br>Just login and customize your desired theme.
+                <div class="card-header text-center" style="background:#FFCF40;font-size:20px;">
+                    <img class="login-logo" src="https://myluxehub.com/wp-content/uploads/2018/10/logo-big-391x130.png" alt="" height="100px">
+                    <br>All templates here. <br>Just login and customize your desired theme.
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" class="flex-column">
@@ -145,7 +134,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a class="text-dark"
+                                        <a class="forgot-password"
                                             href="https://myluxehub.com/my-account/lost-password/">Forgot your
                                             password?</a>
                                     </div>

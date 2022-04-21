@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
 @section('content')
 <style>
     @media(min-width:1200px) {

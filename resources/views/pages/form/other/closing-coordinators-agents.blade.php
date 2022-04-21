@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Service&StaffRequests'])
 @section('css')
 <style>
     body {

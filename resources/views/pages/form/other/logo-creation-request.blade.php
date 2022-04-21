@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Service&StaffRequests'])
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+@section('content', ['active' => 'Service&StaffRequests'])
 <style>
     label {
         background-color: #262626;

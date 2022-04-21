@@ -27,9 +27,7 @@
     </style>
 
 </head>
-
 <body>
-
     <div class="container-fluid d-flex align-items-center" style="height: 100vh">
         <div class="row justify-content-center w-100">
             <div class="col-md-12">
@@ -81,31 +79,11 @@
                                     style="height: 70px">Team Dade - Zillow Leads Weeky Update</a>
                                 </div>
                             </div>
-                            <!-- <div class="col-lg-6 mb-3">
-                                <a href="{{route('general.email.index',['folder'=>'leads','form'=>'request-leads'])}}"
-                                    class="btn btn-luxe w-100 d-flex align-items-center justify-content-center"
-                                    style="height: 70px">Request 25 CINC Leads</a>
-                            </div>
-                            <div class="col-lg-6 mb-3">
-                                <a href="{{route('general.email.index',['folder'=>'leads','form'=>'opcity-leads'])}}"
-                                    class="btn btn-luxe w-100 d-flex align-items-center justify-content-center"
-                                    style="height: 70px">Sign Up For Opcity Leads</a>
-                            </div>
-                            <div class="col-lg-6 mb-3">
-                                <a href="{{route('general.email.index',['folder'=>'leads','form'=>'prime-street-leads'])}}"
-                                    class="btn btn-luxe w-100 d-flex align-items-center justify-content-center"
-                                    style="height: 70px">Sign Up For Prime Street Leads</a>
-                            </div> -->
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </body>
-
 </html>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Service&StaffRequests'])
 <style>
 
     @font-face {
@@ -317,6 +317,9 @@
         font-weight: 400;
         font-size: 0.75rem;
     }
+    .card-title {
+        font-family: 'gothicbold';
+    }
 </style>
 
 @section('content')
@@ -343,7 +346,7 @@
             </div>
         </div>
         <form id="regForm" action="{{route('appointments.store')}}" method="POST" class="d-none">
-            <h1 class="position-relative">Appointments
+            <h1 class="position-relative card-title">Appointments
                 @if (Auth::user() && Auth::user()->isAdmin)
                 <a href="{{route('appointment-addresses.index')}}"
                     class="btn btn-dark position-absolute text-white" style="right: 15px;top:15px">Addresses</a>
