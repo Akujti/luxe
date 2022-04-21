@@ -13,7 +13,7 @@
                         <th scope="col">Form Name</th>
                         <th scope="col">Agent Name</th>
                         <th scope="col">Agent Email</th>
-                        <th scope="col" class="col-3">Date Sent</th>
+                        <th scope="col" class="col-2">Date Sent</th>
                         <th scope="col">Status Completed</th>
                         <th scope="col">Action</th>
                         <th scope="col">View</th>

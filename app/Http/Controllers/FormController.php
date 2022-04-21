@@ -40,10 +40,6 @@ class FormController extends Controller
                 'loan_officer' => $request->loan_officer,
                 'additional' => $request->additional ?? 'None'
             ];
-            $to = ['email@luxeknows.com'];
-            $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com', 'ana@luxehomeloan.com', 'orlando@luxehomeloan.com', 'eddie@luxehomeloan.com'];
-            Mail::to($to)->cc($cc)->send(new FormMail($details));
-
             FormSubmit::create([
                 'form_title' => $request->form_title,
                 'status' => 0,
@@ -51,6 +47,11 @@ class FormController extends Controller
                 'agent_email' => $request->agent_email,
                 'details' => json_encode($details),
             ]);
+
+            $to = ['email@luxeknows.com'];
+            $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com', 'ana@luxehomeloan.com', 'orlando@luxehomeloan.com', 'eddie@luxehomeloan.com'];
+            Mail::to($to)->cc($cc)->send(new FormMail($details));
+
 
             return back()->with('message', 'Sent Successfully');
         } catch (\Throwable $th) {
