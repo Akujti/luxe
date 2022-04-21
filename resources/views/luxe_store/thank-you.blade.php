@@ -18,7 +18,8 @@
     }
 
     .thankyou-wrapper p {
-        font: 26px Arial, Helvetica, sans-serif;
+        font-family: 'gothicregular';
+        font-size: 26px;
         text-align: center;
         color: #333333;
         padding: 5px 10px 10px;

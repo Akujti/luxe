@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Rooms</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-</head>
+@extends('layouts.app')
 <style>
     @font-face {
         font-family: "gothicbold";
@@ -33,17 +25,17 @@
         font-family: 'gothicbold';
     }
 </style>
-<body>
 
-<div class="container-fluid d-flex align-items-center" style="height: 100vh">
-    <div class="row justify-content-center w-100">
-        <div class="col-md-8">
+@section('content')
+<div class="container-fluid d-flex align-items-center" style="height: 70vh">
+    <div class="row justify-content-center w-100 m-0 p-0">
+        <div class="col-md-12">
             <div class="">
                 <div class="card-title text-center">
                     <h1>Select Room</h1>
                 </div>
                 <div class="">
-                    <div class="row">
+                    <div class="row m-0 p-0">
                         @foreach($rooms as $room)
                             <div class="col-lg-4">
                                 <div class="box">
@@ -62,6 +54,4 @@
     </div>
 
 </div>
-
-</body>
-</html>
+@endsection

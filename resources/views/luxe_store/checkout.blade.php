@@ -18,6 +18,9 @@
             padding-right: 15px !important;
         }
     }
+    label {
+        font-family: 'gothicbold';
+    }
 </style>
 @endsection
 @section('content')

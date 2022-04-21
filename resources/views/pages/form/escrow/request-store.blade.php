@@ -94,7 +94,7 @@
                             <input type="number" name="amount_dute_to_landlord" class="form-control" required>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <b>Other Required Documents Along With This Form - Must Be Uploaded To Broker
                                 Sumo</b>
                         </div>

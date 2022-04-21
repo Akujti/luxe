@@ -28,7 +28,7 @@
         @endforeach
     </div>
     <div id="createModal" class="modal fade modal-new" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Create new email template directory</h5>

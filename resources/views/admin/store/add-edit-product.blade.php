@@ -104,7 +104,7 @@
 
                                 <div class="form-group">
                                     <label for="">Attribute name</label>
-                                    <input type="text" name="variant_name" class="form-control" value="{{ $product ? $product->variants[0]->variant_name : '' }}">
+                                    <input type="text" name="variant_name" class="form-control" value="{{ ($product && $product->variants->count()) ? $product->variants[0]->variant_name : '' }}">
                                 </div>
                                 
                                 <div class="d-flex align-items-center justify-content-between">
@@ -112,7 +112,7 @@
                                     <button class="btn btn-primary" type="button" onclick="add_new_variant()">+</button>
                                 </div>
                                 <div class="col-12" id="variants-box">
-                                    @if($product)
+                                    @if($product && $product->variants->count())
                                         @if($product->variants[0]->values->count())
                                             @foreach($product->variants[0]->values as $key => $row)
                                                 <div class="d-flex justify-content-between align-items-end mt-2 variant-box">
@@ -166,8 +166,12 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-end mt-5">
-                    <button class="btn btn-luxe">Add</button>
+                <div class="d-flex justify-content-end mt-5 mb-5">
+                    @if($product)
+                        <button class="btn btn-luxe">Edit</button>
+                    @else 
+                        <button class="btn btn-luxe">Add</button>
+                    @endif
                 </div>
             </form>
         </div>
@@ -177,7 +181,7 @@
 
 @section('js')
 <script>
-    var variant_count = "<?php if($product && $product->variants[0]->values->count()) { echo $product->variants[0]->values->count(); } else { echo 0; } ?>"
+    var variant_count = "<?php if($product && $product->variants->count()) { echo $product->variants[0]->values->count(); } else { echo 0; } ?>"
     function create() {
         $('.create-event').modal('show');
     };

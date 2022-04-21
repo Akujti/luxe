@@ -142,188 +142,188 @@
             </div>
         @elseif($_GET['dir'] == 'tools_training_videos')
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("user/videos")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("user/videos")}}'">
                     <div>
+                        <img src="/images/index-page/training_videos.svg" class="icon" alt="">
                         <p>Training Videos</p>
-                        <img src="/images/index-page/training_videos_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("user/written-email-templates")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("user/written-email-templates")}}'">
                     <div>
+                        <img src="/images/index-page/email_templates.svg" class="icon" alt="">
                         <p>Email Templates</p>
-                        <img src="/images/index-page/email_templates_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("user/links")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("user/links")}}'">
                     <div>
+                        <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
                         <p>Links to other services</p>
-                        <img src="/images/index-page/link_to_other_services_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/agent_referrals/index")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/agent_referrals/index")}}'">
                     <div>
+                        <img src="/images/index-page/new_agents_referrals.svg" class="icon" alt="">
                         <p>New Agents & Referrals</p>
-                        <img src="/images/index-page/new_agents_referrals_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("bookings")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("bookings")}}'">
                     <div>
+                        <img src="/images/index-page/conference_room.svg" class="icon" alt="">
                         <p>Conference Room</p>
-                        <img src="/images/index-page/conference_room_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("user/files")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("user/files")}}'">
                     <div>
+                        <img src="/images/index-page/office_documents.svg" class="icon" alt="">
                         <p>Office Documents</p>
-                        <img src="/images/index-page/office_documents_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/other/photoshoots-for-listings")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/other/photoshoots-for-listings")}}'">
                     <div>
+                        <img src="/images/index-page/photoshoot_for_listings.svg" class="icon" alt="">
                         <p>Photoshoot for Listings</p>
-                        <img src="/images/index-page/photoshoot_for_listings_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("resume")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("resume")}}'">
                     <div>
+                        <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
                         <p>Resume Builder</p>
-                        <img src="/images/index-page/resume_builder_dir.png" alt="">
                     </div>
                 </div>
             </div>
         @elseif($_GET['dir'] == 'marketing')
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("marketing-home")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("marketing-home")}}'">
                     <div>
+                        <img src="/images/index-page/diy_marketing.svg" class="icon" alt="">
                         <p>DIY Marketing</p>
-                        <img src="/images/index-page/diy_marketing_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = 'https://realtorprint.com/collections/luxe'">
+                <div class="box-item" onclick="window.location = 'https://realtorprint.com/collections/luxe'">
                     <div>
+                        <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
                         <p>Print Marketing</p>
-                        <img src="/images/index-page/print_marketing_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("user/guides")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("user/guides")}}'">
                     <div>
+                        <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
                         <p>Downloadble Guides</p>
-                        <img src="/images/index-page/downloadble_guides_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ route("canva.marketing.requests") }}'">
+                <div class="box-item" onclick="window.location = '{{ route("canva.marketing.requests") }}'">
                     <div>
+                        <img src="/images/index-page/canva_templates.svg" class="icon" alt="">
                         <p>Canva Templates</p>
-                        <img src="/images/index-page/canva_templates_dir.png" alt="">
                     </div>
                 </div>
             </div>
         @elseif($_GET['dir'] == 'service_staff_requests')
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/escrow/index")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/escrow/index")}}'">
                     <div>
+                        <img src="/images/index-page/rental_escrow.svg" class="icon" alt="">
                         <p>Rental Escrow Disbursement</p>
-                        <img src="/images/index-page/diy_marketing_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("listing-coordinators")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("listing-coordinators")}}'">
                     <div>
+                        <img src="/images/index-page/listing_coordinators.svg" class="icon" alt="">
                         <p>Listing Coordinators</p>
-                        <img src="/images/index-page/print_marketing_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/other/closing-coordinators-agents")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/other/closing-coordinators-agents")}}'">
                     <div>
+                        <img src="/images/index-page/closing_coordinators.svg" class="icon" alt="">
                         <p>Closing Coordinators</p>
-                        <img src="/images/index-page/print_marketing_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("agreement-agents")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("agreement-agents")}}'">
                     <div>
+                        <img src="/images/index-page/mentors.svg" class="icon" alt="">
                         <p>Mentors</p>
-                        <img src="/images/index-page/downloadble_guides_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/other/photoshoots-for-listings")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/other/photoshoots-for-listings")}}'">
                     <div>
+                        <img src="/images/index-page/photoshoot_for_listings.svg" class="icon" alt="">
                         <p>Photoshoot for Listings</p>
-                        <img src="/images/index-page/canva_templates_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/other/wire-instructions-request")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/other/wire-instructions-request")}}'">
                     <div>
+                        <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
                         <p>Wire Instructions Request</p>
-                        <img src="/images/index-page/diy_marketing_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/other/logo-creation-request")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/other/logo-creation-request")}}'">
                     <div>
+                        <img src="/images/index-page/logo_creation_request.svg" class="icon" alt="">
                         <p>Logo Creation Request</p>
-                        <img src="/images/index-page/print_marketing_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/staff-request/new-agent-business-plan")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/staff-request/new-agent-business-plan")}}'">
                     <div>
+                        <img src="/images/index-page/new_agent_business_plan.svg" class="icon" alt="">
                         <p>New Agent Business Plan</p>
-                        <img src="/images/index-page/downloadble_guides_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/staff-request/2022-business-plan")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/staff-request/2022-business-plan")}}'">
                     <div>
+                        <img src="/images/index-page/2022_business_plan.svg" class="icon" alt="">
                         <p>2022 Business Plan</p>
-                        <img src="/images/index-page/canva_templates_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("general/form/staff-request/follow-up-business-plan")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("general/form/staff-request/follow-up-business-plan")}}'">
                     <div>
+                        <img src="/images/index-page/follow_up_business_plan.svg" class="icon" alt="">
                         <p>Follow-up Business Plan</p>
-                        <img src="/images/index-page/diy_marketing_dir.png" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="box-item bg-transparent" onclick="window.location = '{{ url("appointments/create")}}'">
+                <div class="box-item" onclick="window.location = '{{ url("appointments/create")}}'">
                     <div>
+                        <img src="/images/index-page/open_house_signup.svg" class="icon" alt="">
                         <p>Open House Signup</p>
-                        <img src="/images/index-page/print_marketing_dir.png" alt="">
                     </div>
                 </div>
             </div>

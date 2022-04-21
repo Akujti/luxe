@@ -17,11 +17,25 @@
             margin-left: 0px !important;
         }
     }
+    .go_to_cart p {
+        margin: 0px;
+        padding: 0px;
+        font-family: 'gothicbold';
+        margin-right: 30px;
+    }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
     <div class="row m-0 p-0 luxe-store">
+        @if(Session::has('message'))
+            <div class="col-12 go_to_cart mb-5">
+                <div class="d-flex align-items-center">
+                    <p>Successfully added to cart</p>
+                    <button class="btn btn-luxe">Go to Cart</button>
+                </div>
+            </div>
+        @endif
         <div class="col-12 col-md-12 col-lg-5 pl-0 pd-r">
             <div class="row m-0 p-0">
                 <div class="col-12 pl-0 pd-r">

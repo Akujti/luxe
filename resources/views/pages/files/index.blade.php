@@ -425,7 +425,7 @@
                             <div class="col row m-0 p-0 w-100 justify-content-between align-items-center">
                                     <p class="p-0 m-0">&nbsp;</p>
                                     <p id="date" class="p-0 m-0">
-                                        {{ $folder->created_at->toDateString() }}
+                                        {{ $file->created_at->toDateString() }}
                                     </p>
                             </div>
                         </a>
@@ -570,11 +570,11 @@
     function change_view() {
         var value = document.getElementById('change_view').value;
 
-        window.location.href = '{{ route('files.index') }}?view=' + value + '<?php if(isset($_GET['sort'])) {echo '&sort='. $_GET['sort'];} ?>'
+        window.location.href = '{{ route('files.index') }}?view=' + value + '<?php if(isset($_GET['sort'])) {echo '&sort='. $_GET['sort'];} ?>' + '<?php if(isset($_GET['id'])) {echo '&id='. $_GET['id'];} ?>'
     }
     function change_sort() {
         var value = document.getElementById('change_sort').value;
 
-        window.location.href = '{{ route('files.index') }}?sort=' + value + '<?php if(isset($_GET['view'])) {echo '&view='. $_GET['view'];} ?>'
+        window.location.href = '{{ route('files.index') }}?sort=' + value + '<?php if(isset($_GET['view'])) {echo '&view='. $_GET['view'];} ?>' + '<?php if(isset($_GET['id'])) {echo '&id='. $_GET['id'];} ?>'
     }
 </script>

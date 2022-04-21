@@ -36,6 +36,13 @@
             max-width: 700px !important;
         }
     }
+    .h1-luxe {
+        font-family: 'gothicbold';
+    }
+    .btn-secondary {
+        font-size: 18px !important;
+        font-family: 'gothicbold';
+    }
 </style>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -43,7 +50,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <h1>{{$writtenEmailTemplate->title}}</h1>
+        <h1 class="h1-luxe">{{$writtenEmailTemplate->title}}</h1>
     </div>
     <div class="row my-4">
         @if($isAdmin)
@@ -68,7 +75,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade modal-new" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -103,7 +110,7 @@
                             or keyboard (CTRL+C)</i>
                     </p>
                 </div>
-                <div class="modal-footer justify-content-center">
+                <div class="modal-footer1 justify-content-center">
                     <div class="row w-100">
                         <div class="{{$isAdmin ? 'col-lg-6' : 'col-12'}} align-self-center text-center">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -130,7 +137,7 @@
 </div>
 </div>
 @endsection
-<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModal" aria-hidden="true">
+<div class="modal fade modal-new" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -163,7 +170,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-luxe">Save</button>
             </div>
             </form>

@@ -88,6 +88,11 @@
                                         <span>Partners</span>
                                     </a>
                                 </div>
+                                <div class="sidebar__item-menu">
+                                    <a href="{{ url('/home') }}">
+                                        <span>Dashboard</span>
+                                    </a>
+                                </div>
 
                                 @auth
                                 <div class="sidebar__item-menu">
@@ -129,6 +134,9 @@
                                     </a>
                                     <a href="#partners">
                                         <span>Partners</span>
+                                    </a>
+                                    <a href="{{ url('/home') }}">
+                                        <span>Dashboard</span>
                                     </a>
                                 </div>
                             </div>

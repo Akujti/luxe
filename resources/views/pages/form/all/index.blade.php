@@ -2,13 +2,7 @@
 @section('css')
 <style>
     body {
-        background: url('{{asset('images/bg-image1.jpg')}}');
         height: 100vh;
-        background-size: cover;
-        background-position: center;
-        background-color: rgba(0, 0, 0, 0.7);
-        background-blend-mode: color;
-
     }
 
     main,
@@ -27,14 +21,14 @@
         bottom: -10px;
         width: 104px;
         height: 2px;
-        background-color: rgba(255, 207, 64, 1);
+        background-color: #262626;
         left: 50%;
         margin-left: -52px;
     }
 
     .card-header {
         font-size: 18px;
-        color: #ffffff;
+        color: #262626;
         line-height: 22px;
         text-align: center;
         padding: 0;
@@ -42,7 +36,6 @@
         border: none;
         padding-top: 10px;
     }
-
 
     a:hover {
         text-decoration: none;
@@ -52,7 +45,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <div class="row align-items-center" style="height: 70vh;">
         <div class="col my-2">
             <div class="bg-transparent">
                 <a href="{{route('marketing.requests')}}">

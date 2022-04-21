@@ -243,9 +243,9 @@ Route::group(
     function () {
         Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/links', [PageController::class, 'links'])->name('links');
-        // Route::get('/videos', [PageController::class, 'videos'])->name('videos');
-        Route::get('/videos', [VideoFolderController::class, 'index'])->name('videos');
-        Route::get('/videos/{video_id}', [VideoFolderController::class, 'show'])->name('video.single_video');
+        Route::get('/videos', [PageController::class, 'videos'])->name('videos');
+        // Route::get('/videos', [VideoFolderController::class, 'index'])->name('videos');
+        // Route::get('/videos/{video_id}', [VideoFolderController::class, 'show'])->name('video.single_video');
         Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::resource('events', EventController::class);
@@ -387,7 +387,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::get('/', [OrderController::class, 'admin_index'])->name('index');
     });
 
-    Route::group(['prefix' => 'videos', 'as' => 'videos.'], function() {
-        Route::get('/', [VideoFolderController::class, 'admin_index'])->name('index');
-    });
+    // Admin Videos
+    // Route::group(['prefix' => 'videos', 'as' => 'videos.'], function() {
+    //     Route::get('/', [VideoFolderController::class, 'admin_index'])->name('index');
+    // });
 });

@@ -67,7 +67,7 @@ class StoreController extends Controller
             $row->categories()->attach($category);
         }
 
-        if($req->has('variant_name')) {
+        if($req->has('variant_name') && $req->variant_name) {
             $variant = LuxeStoreProductVariants::create([
                 'variant_name' => $req->variant_name,
                 'product_id' => $row->id

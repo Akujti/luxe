@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('css')
+
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -34,7 +35,7 @@
         </div>
         <div class="col-12 col-lg-9">
             <div class="row m-0">
-                <div class="col-12 box px-4">
+                <!-- <div class="col-12 box px-4">
                     <div class="py-4 icon">
                         <p class="p-text text-left m-0">My Tasks Due this Week</p>
                     </div>
@@ -43,7 +44,7 @@
                             There are no Tasks Available...
                         </p>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-7 col-md-12 box mr-4">
                     <div class="py-4 icon">
                         <p class="p-text text-left m-0">Potential Sales Volume</p>
