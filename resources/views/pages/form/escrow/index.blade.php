@@ -1,7 +1,6 @@
 @extends('layouts.app', ['active' => 'Service&StaffRequests'])
 <style>
     .box {
-        background-color: red;
         margin: 5px;
         color: #262626;
         background-color: #F7F7F7;
@@ -9,10 +8,17 @@
     }
     .box a{
         color: #262626 !important;
-        font-family: 'gothicregular';
+        font-family: 'gothicbold';
+        min-height: 100px;
     }
     .card-title h1 {
         font-family: 'gothicbold';
+        margin-bottom: 30px;
+    }
+    @media (max-width: 576px) {
+        .box a {
+            font-size: 13px;
+        }
     }
 </style>
 @section('content')
@@ -25,15 +31,17 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col box">
-                                <a href="{{route('general.email.index',['folder'=>'escrow','form'=>'request-store'])}}"
-                                    class="btn w-100 d-flex align-items-center justify-content-center"
-                                    style="height: 70px">Request Store - Rental Escrow Disbursement</a>
+                            <div class="col mb-4">
+                                <div class="box">
+                                    <a href="{{route('general.email.index',['folder'=>'escrow','form'=>'request-store'])}}"
+                                        class="btn w-100 d-flex align-items-center justify-content-center">Request Store -<br>Rental Escrow Disbursement</a>
+                                </div>
                             </div>
-                            <div class="col box">
-                                <a href="{{route('general.email.index',['folder'=>'escrow','form'=>'request-escrow-letter'])}}"
-                                    class="btn w-100 d-flex align-items-center justify-content-center"
-                                    style="height: 70px;">Request Escrow Letter</a>
+                            <div class="col mb-4">
+                                <div class="box">
+                                    <a href="{{route('general.email.index',['folder'=>'escrow','form'=>'request-escrow-letter'])}}"
+                                        class="btn w-100 d-flex align-items-center justify-content-center">Request Escrow Letter</a>
+                                </div>
                             </div>
                         </div>
                     </div>

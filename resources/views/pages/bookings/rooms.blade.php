@@ -11,7 +11,6 @@
         url("/fonts/index-page/gothicregular.ttf") format("truetype");
     }
     .box {
-        background-color: red;
         margin: 5px;
         color: #262626;
         background-color: #F7F7F7;
@@ -19,10 +18,17 @@
     }
     .box a {
         color: #262626 !important;
-        font-family: 'gothicregular';
+        font-family: 'gothicbold';
+        min-height: 100px;
     }
     .card-title h1 {
         font-family: 'gothicbold';
+        margin-bottom: 30px;
+    }
+    @media (max-width: 576px) {
+        .box a {
+            font-size: 13px;
+        }
     }
 </style>
 
@@ -37,7 +43,7 @@
                 <div class="">
                     <div class="row m-0 p-0">
                         @foreach($rooms as $room)
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 mb-4">
                                 <div class="box">
                                     <a href="{{route('bookings.index',$room->id)}}"
                                        class="btn w-100 d-flex align-items-center justify-content-center"

@@ -56,7 +56,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: auto;
+        height: 114px;
         z-index: 9;
         background: #262626 !important;
         padding-top: 20px;
@@ -66,7 +66,7 @@
     }
     header {
         position: relative;
-        height: 120px;
+        height: 114px;
     }
     .header-call a {
         display: block;
@@ -164,7 +164,7 @@
                             </button>
                         </div>
                         <div class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
-                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="80px"></a>
+                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="73px"></a>
                         </div>
                         <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
@@ -200,7 +200,7 @@
                     </div>
                     <div class="sidebar__item sidebar-navigation">
                         <ul>
-                            <li class="row m-0 @if(Request::path() == 'home' && !isset($_GET['dir'])) active @endif"><a href="{{ url('/home') }}">Dashboard </a></li>
+                            <li class="row m-0 @if(Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif"><a href="{{ url('/home') }}">Dashboard </a></li>
                             <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active selected @endif {{ (isset($active) && $active == 'Leads') ? 'active selected': '' }}">
                                 <a href="{{ url('/home?dir=leads') }}">Leads </a>
                                 <em id="li-plus"><img src="/images/plus.png"></em>
@@ -210,7 +210,7 @@
                                     <li><a href="{{ url("general/form/leads/index") }}">Zillow Premiere</a></li>
                                     <li><a href="{{ url("general/form/leads/request-leads") }}">Request 25 Cinc Leads</a></li>
                                     <li><a href="{{ url("general/form/leads/opcity-leads") }}">Sign Up for Opcity Leads</a></li>
-                                    <li><a href="{{ url("general/form/leads/prime-street-leads") }}">Primme Street Leads</a></li>
+                                    <li><a href="{{ url("general/form/leads/prime-street-leads") }}">Prime Street Leads</a></li>
                                 </ul>
                             </li>
                             <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active selected @endif {{ (isset($active) && $active == 'Tools&TrainingVideos') ? 'active selected': '' }}">
@@ -226,7 +226,7 @@
                                     <li><a href="{{ url("bookings") }}">Conference Room</a></li>
                                     <li><a href="{{ url("user/files") }}">Office Documents</a></li>
                                     <li><a href="{{ url("general/form/other/photoshoots-for-listings") }}">Photoshoot for Listings</a></li>
-                                    <li><a href="{{ url("resume") }}">Resume Builder</a></li>
+                                    <li><a target="_blank" href="{{ url("resume") }}">Resume Builder</a></li>
                                 </ul>
                             </li>
                             <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active selected @endif {{ (isset($active) && $active == 'Marketing') ? 'active selected': '' }}">

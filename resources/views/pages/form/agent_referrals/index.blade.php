@@ -1,7 +1,6 @@
 @extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
 <style>
     .box {
-        background-color: red;
         margin: 5px;
         color: #262626;
         background-color: #F7F7F7;
@@ -9,10 +8,17 @@
     }
     .box a{
         color: #262626 !important;
-        font-family: 'gothicregular';
+        font-family: 'gothicbold';
+        min-height: 100px;
     }
     .card-title h1 {
         font-family: 'gothicbold';
+        margin-bottom: 30px;
+    }
+    @media (max-width: 576px) {
+        .box a {
+            font-size: 13px;
+        }
     }
 </style>
 @section('content')
@@ -23,32 +29,32 @@
                     <div class="card-title text-center">
                         <h1>New Agents & Referrals - Select Form</h1>
                     </div>
-                    <div class="">
+                    <div class="card-body">
                         <div class="row m-0 p-0">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 mb-4">
                                 <div class="box">
                                     <a href="{{route('general.email.index',['folder'=>'agent_referrals','form'=>'agent-form'])}}"
                                         class="btn d-flex align-items-center justify-content-center"
                                         style="height: 70px">Agent Form</a>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 mb-4">
                                 <div class="box">
                                     <a href="{{route('general.email.index',['folder'=>'agent_referrals','form'=>'refer-an-agent'])}}"
                                         class="btn d-flex align-items-center justify-content-center"
                                         style="height: 70px">Refer An Agent</a>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 mb-4">
                                 <div class="box">
                                     <a href="{{route('general.email.index',['folder'=>'agent_referrals','form'=>'flex-agent-form'])}}"
                                         class="btn d-flex align-items-center justify-content-center"
                                         style="height: 70px">Flex Agent Form</a>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 mb-4">
                                 <div class="box">
-                                    <a href="{{url('user/w-9')}}"
+                                    <a target="_blank" href="{{url('user/w-9')}}"
                                         class="btn d-flex align-items-center justify-content-center"
                                         style="height: 70px">W-9 Form</a>
                                 </div>

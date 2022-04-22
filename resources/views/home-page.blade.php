@@ -148,7 +148,7 @@
                 </div>
             </div>
         @elseif($_GET['dir'] == 'tools_training_videos')
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("user/videos")}}'">
                     <div>
                         <img src="/images/index-page/training_videos.svg" class="icon" alt="">
@@ -156,7 +156,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("user/written-email-templates")}}'">
                     <div>
                         <img src="/images/index-page/email_templates.svg" class="icon" alt="">
@@ -172,7 +172,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/agent_referrals/index")}}'">
                     <div>
                         <img src="/images/index-page/new_agents_referrals.svg" class="icon" alt="">
@@ -180,7 +180,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("bookings")}}'">
                     <div>
                         <img src="/images/index-page/conference_room.svg" class="icon" alt="">
@@ -188,7 +188,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("user/files")}}'">
                     <div>
                         <img src="/images/index-page/office_documents.svg" class="icon" alt="">
@@ -196,7 +196,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/other/photoshoots-for-listings")}}'">
                     <div>
                         <img src="/images/index-page/photoshoot_for_listings.svg" class="icon" alt="">
@@ -204,7 +204,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("resume")}}'">
                     <div>
                         <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
@@ -213,7 +213,7 @@
                 </div>
             </div>
         @elseif($_GET['dir'] == 'marketing')
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("marketing-home")}}'">
                     <div>
                         <img src="/images/index-page/diy_marketing.svg" class="icon" alt="">
@@ -221,7 +221,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = 'https://realtorprint.com/collections/luxe'">
                     <div>
                         <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
@@ -229,7 +229,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("user/guides")}}'">
                     <div>
                         <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
@@ -237,7 +237,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ route("canva.marketing.requests") }}'">
                     <div>
                         <img src="/images/index-page/canva_templates.svg" class="icon" alt="">
@@ -246,7 +246,7 @@
                 </div>
             </div>
         @elseif($_GET['dir'] == 'service_staff_requests')
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/escrow/index")}}'">
                     <div>
                         <img src="/images/index-page/rental_escrow.svg" class="icon" alt="">
@@ -254,7 +254,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("listing-coordinators")}}'">
                     <div>
                         <img src="/images/index-page/listing_coordinators.svg" class="icon" alt="">
@@ -262,7 +262,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/other/closing-coordinators-agents")}}'">
                     <div>
                         <img src="/images/index-page/closing_coordinators.svg" class="icon" alt="">
@@ -270,7 +270,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("agreement-agents")}}'">
                     <div>
                         <img src="/images/index-page/mentors.svg" class="icon" alt="">
@@ -278,7 +278,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/other/photoshoots-for-listings")}}'">
                     <div>
                         <img src="/images/index-page/photoshoot_for_listings.svg" class="icon" alt="">
@@ -286,7 +286,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/other/wire-instructions-request")}}'">
                     <div>
                         <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
@@ -294,7 +294,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/other/logo-creation-request")}}'">
                     <div>
                         <img src="/images/index-page/logo_creation_request.svg" class="icon" alt="">
@@ -302,7 +302,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/staff-request/new-agent-business-plan")}}'">
                     <div>
                         <img src="/images/index-page/new_agent_business_plan.svg" class="icon" alt="">
@@ -310,7 +310,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/staff-request/2022-business-plan")}}'">
                     <div>
                         <img src="/images/index-page/2022_business_plan.svg" class="icon" alt="">
@@ -318,7 +318,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/staff-request/follow-up-business-plan")}}'">
                     <div>
                         <img src="/images/index-page/follow_up_business_plan.svg" class="icon" alt="">
@@ -326,7 +326,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location = '{{ url("appointments/create")}}'">
                     <div>
                         <img src="/images/index-page/open_house_signup.svg" class="icon" alt="">
