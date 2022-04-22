@@ -16,10 +16,18 @@
     background-color: #262626 !important;
     color: #fff !important;
     font-weight: bold;
-    padding: 10px;
+    padding: 10px 30px;
     font-family: 'gothicbold';
     font-size: 18px !important;
     border-radius: 33px;
+}
+.form .btn-luxe {
+    width: 200px !important;
+}
+.form .form-footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .form .btn-danger {

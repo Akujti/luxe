@@ -24,9 +24,19 @@
                             <label for="name">Agent Number</label>
                             <input type="text" name="agent_number" class="form-control" required>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
                             <label for="name">Agent Email</label>
                             <input type="text" name="agent_email" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Reason for Zillow Pause</label>
+                            <select name="zillow_team" class="form-control" required id="">
+                                <option value="-">-</option>
+                                <option value="Family">Family</option>
+                                <option value="Sick">Sick</option>
+                                <option value="Vacation">Vacation</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
                         {{-- <div class="form-group col-md-6">
                             <label for="name">Zillow Team</label>
@@ -44,17 +54,8 @@
                             <label for="name">End Pause Date</label>
                             <input type="date" name="end_pause_date" class="form-control" required>
                         </div>
-                        <div class="form-group col-md-12">
-                            <label for="name">Reason for Zillow Pause</label>
-                            <select name="zillow_team" class="form-control" required id="">
-                                <option value="-">-</option>
-                                <option value="Family">Family</option>
-                                <option value="Sick">Sick</option>
-                                <option value="Vacation">Vacation</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-12">
+                        
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

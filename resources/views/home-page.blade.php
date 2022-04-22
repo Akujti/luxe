@@ -164,14 +164,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <!-- <div class="col-12 col-md-6 col-lg-4">
                 <div class="box-item" onclick="window.location = '{{ url("user/links")}}'">
                     <div>
                         <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
                         <p>Links to other services</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="box-item" onclick="window.location = '{{ url("general/form/agent_referrals/index")}}'">
                     <div>

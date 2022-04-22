@@ -144,6 +144,10 @@
             justify-content: center;
             margin-bottom: 10px !important;
         }
+        .container-fluid {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
         
     }
 </style>
@@ -160,7 +164,7 @@
                             </button>
                         </div>
                         <div class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
-                            <a href="{{ url('/') }}"><img src="/images/logo.png" alt="" height="80px"></a>
+                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="80px"></a>
                         </div>
                         <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
@@ -181,7 +185,7 @@
                 <div class="row p-0 m-0 justify-content-center">
                     <div class="sidebar-logo-details row p-0 d-flex d-lg-none d-xl-none m-0 my-3">
                         <div class="w-100 d-flex align-items-center justify-content-between d-md-none">
-                            <img src="/images/logo.png" height="50px" alt="">
+                            <img src="/images/logo.png" height="50px" alt="" onclick="window.location.href = '{{ url("/home") }}'">
                             <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
                                 <img src="/images/index-page/close-icon.svg" width="40px" height="40px" alt="">
                             </button>
@@ -197,9 +201,11 @@
                     <div class="sidebar__item sidebar-navigation">
                         <ul>
                             <li class="row m-0 @if(Request::path() == 'home' && !isset($_GET['dir'])) active @endif"><a href="{{ url('/home') }}">Dashboard </a></li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active @endif {{ (isset($active) && $active == 'Leads') ? 'active': '' }}">
+                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active selected @endif {{ (isset($active) && $active == 'Leads') ? 'active selected': '' }}">
                                 <a href="{{ url('/home?dir=leads') }}">Leads </a>
-                                <em><img src="/images/plus.png"></em>
+                                <em id="li-plus"><img src="/images/plus.png"></em>
+                                <em id="li-minus"><img src="/images/minus.png"></em>
+
                                 <ul class="w-100">
                                     <li><a href="{{ url("general/form/leads/index") }}">Zillow Premiere</a></li>
                                     <li><a href="{{ url("general/form/leads/request-leads") }}">Request 25 Cinc Leads</a></li>
@@ -207,9 +213,10 @@
                                     <li><a href="{{ url("general/form/leads/prime-street-leads") }}">Primme Street Leads</a></li>
                                 </ul>
                             </li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active @endif {{ (isset($active) && $active == 'Tools&TrainingVideos') ? 'active': '' }}">
+                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active selected @endif {{ (isset($active) && $active == 'Tools&TrainingVideos') ? 'active selected': '' }}">
                                 <a href="{{ url('/home?dir=tools_training_videos') }}">Tools & Training Videos</a>
-                                 <em><img src="/images/plus.png"></em>
+                                <em id="li-plus"><img src="/images/plus.png"></em>
+                                <em id="li-minus"><img src="/images/minus.png"></em>
     
                                 <ul class="w-100">
                                     <li><a href="{{ url("user/videos") }}">Training Videos</a></li>
@@ -222,9 +229,10 @@
                                     <li><a href="{{ url("resume") }}">Resume Builder</a></li>
                                 </ul>
                             </li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active @endif {{ (isset($active) && $active == 'Marketing') ? 'active': '' }}">
+                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active selected @endif {{ (isset($active) && $active == 'Marketing') ? 'active selected': '' }}">
                                 <a href="{{ url('/home?dir=marketing') }}">Marketing</a>
-                                <em><img src="/images/plus.png"></em>
+                                <em id="li-plus"><img src="/images/plus.png"></em>
+                                <em id="li-minus"><img src="/images/minus.png"></em>
     
                                 <ul class="w-100">
                                     <li><a href="{{ url("marketing-home") }}">DIY Marketing</a></li>
@@ -236,9 +244,11 @@
                             <li class="row m-0 @if(Request::path() == 'user/events') active @endif">
                                 <a href="{{ url('/user/events') }}">Training & Events</a>
                             </li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'service_staff_requests') active @endif {{ (isset($active) && $active == 'Service&StaffRequests') ? 'active': '' }}">
+                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'service_staff_requests') active selected @endif {{ (isset($active) && $active == 'Service&StaffRequests') ? 'active selected': '' }}">
                                 <a href="{{ url('/home?dir=service_staff_requests') }}">Service & Staff Requests</a>
-                                <em><img src="/images/plus.png"></em>
+                                <em id="li-plus"><img src="/images/plus.png"></em>
+                                <em id="li-minus"><img src="/images/minus.png"></em>
+
                                 <ul class="w-100">
                                     <li><a href="{{ url("general/form/escrow/index") }}">Rental Escrow Disbursement</a></li>
                                     <li><a href="{{ url("listing-coordinators") }}">Listing Coordinators</a></li>
@@ -372,7 +382,9 @@
     $('.toggleSidebar').click(function () {
         $('.sidebar').toggleClass('active');
     })
-    
+    @if(Request::path() !== 'home')
+        $('a[href*="'+document.URL+'"').addClass('active_submenu')
+    @endif
     $(function(){
         var $ul   =   $('.sidebar-navigation > ul');
         

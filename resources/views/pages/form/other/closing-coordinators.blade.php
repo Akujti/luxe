@@ -100,7 +100,7 @@
                             <label for="name">Upload Fully Executed Contract</label>
                             <input type="file" name="contract" class="form-control p-1">
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

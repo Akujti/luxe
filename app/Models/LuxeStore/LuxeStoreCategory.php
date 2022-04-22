@@ -20,6 +20,13 @@ class LuxeStoreCategory extends Model
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
-        $this->attributes['slug'] = LuxeStoreCategory::where('slug', Str::slug($value))->count() ? Str::slug($value) .'-'. uniqid() : Str::slug($value);
+        if($this->id) {
+            $this->attributes['slug'] = LuxeStoreCategory::where([
+                ['slug', Str::slug($value)],
+                ['id', '!=', $this->id]
+            ])->count() ? Str::slug($value) .'-'. uniqid() : Str::slug($value);
+        } else {
+            $this->attributes['slug'] = LuxeStoreCategory::where('slug', Str::slug($value))->count() ? Str::slug($value) .'-'. uniqid() : Str::slug($value);
+        }
     }
 }

@@ -60,7 +60,7 @@
                             <label for="name">Any other additional information may be provided below.</label>
                             <input type="text" name="additional" class="form-control" required value="-">
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

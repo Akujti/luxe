@@ -54,7 +54,7 @@
                             <label for="name">Referring LUXE Agent Name</label>
                             <input type="text" name="referring_LUXE_agent_name" class="form-control" required>
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

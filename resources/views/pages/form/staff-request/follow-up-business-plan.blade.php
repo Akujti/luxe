@@ -122,7 +122,7 @@
                                 <option value="No">No</option>
                             </select>
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

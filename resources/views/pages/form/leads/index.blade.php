@@ -19,7 +19,7 @@
 
 
     <div class="container-fluid d-flex align-items-center" style="height: 70vh">
-        <div class="row justify-content-center w-100">
+        <div class="row justify-content-center w-100 p-0 m-0">
             <div class="col-md-12">
                 <div class="">
                     <div class="card-title text-center">

@@ -16,6 +16,13 @@ class LuxeStoreProductForm extends Model
     public function setInputNameAttribute($value)
     {
         $this->attributes['input_name'] = $value;
-        $this->attributes['input_value'] = LuxeStoreProductForm::where('input_value', Str::slug($value))->count() ? Str::slug($value) .'-'. uniqid() : Str::slug($value);
+        if($this->id) {
+            $this->attributes['input_value'] = LuxeStoreProductForm::where([
+                ['input_value', Str::slug($value)],
+                ['id', '!=', $this->id]
+            ])->count() ? Str::slug($value) .'-'. uniqid() : Str::slug($value);
+        } else {
+            $this->attributes['input_value'] = LuxeStoreProductForm::where('input_value', Str::slug($value))->count() ? Str::slug($value) .'-'. uniqid() : Str::slug($value);
+        }
     }
 }

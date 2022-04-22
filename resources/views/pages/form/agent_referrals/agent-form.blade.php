@@ -122,7 +122,7 @@
                             <label for="name">Notes or Special Requests:</label>
                             <input type="text" name="notes_special_requests" class="form-control" required>
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

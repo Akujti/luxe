@@ -71,7 +71,7 @@
                         <div class="form-group col-md-6">
                             <label for="name">Please list the addresses of the fully executed <b>Zillow</b> contracts
                                 along
-                                with the Buyer Name as it appears on Zillow</label><br><br>
+                                with the Buyer Name as it appears on Zillow</label>
                             <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3"
                                 class="form-control" required>-</textarea>
                         </div>
@@ -187,7 +187,7 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">How many homes have you shown this past week?</label><br><br>
+                            <label for="name">How many homes have you shown this past week?</label>
                             <select name="how_many_home_have_you_shown_this_past_week" class="form-control" required>
                                 <option value="-">-</option>
                                 <option value="0">0</option>
@@ -223,7 +223,7 @@
                                 <option value="30">30</option>
                             </select>
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

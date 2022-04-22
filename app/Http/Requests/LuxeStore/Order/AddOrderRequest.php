@@ -31,11 +31,11 @@ class AddOrderRequest extends FormRequest
             'billing.country' => 'required|string',
             'billing.street_address' => 'required|string',
             'billing.city' => 'required|string',
-            'billing.state' => 'required|string',
+            'billing.state' => 'nullable|string',
             'billing.zip_code' => 'required|string',
             'billing.phone' => 'required|string',
             'billing.email' => 'required|string',
-            'billing.instructions' => 'required|string',
+            'billing.instructions' => 'nullable|string',
             'same_as_billing' => 'nullable'
         ];
     }
