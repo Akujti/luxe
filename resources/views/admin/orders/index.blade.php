@@ -44,7 +44,7 @@
                 <div class="card">
                     <div id="heading{{ $key }}" class="card-header p-0 m-0">
                         <button data-toggle="collapse" style="background:white" data-target="#collapse{{ $key }}" aria-expanded="false" aria-controls="collapse{{ $key }}" class="btn btn p-0 m-0 w-100 border-none collapsed">
-                                <table id="article-table" class="table">
+                                <table id="article-table" class="table m-0">
 
                                     <tbody>
                                         <tr id="tr-row">

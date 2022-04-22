@@ -53,10 +53,10 @@
                         <canvas id="sale_volume" width="100%" height="349px"></canvas>
                     </div>
                     <div class="py-4 icon-up">
-                        <p class="p-text-regular text-center m-0" style="font-size:18px !important;">
+                        <!-- <p class="p-text-regular text-center m-0" style="font-size:18px !important;">
                             Active Listings
                         </p>
-                        <p class="p-text text-center m-0">$ 3,308,800</p>
+                        <p class="p-text text-center m-0">$ 3,308,800</p> -->
                     </div>
                 </div>
                 <div class="col box">

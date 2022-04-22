@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
 @section('css')
 <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
 <style>

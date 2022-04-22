@@ -1,123 +1,4 @@
-@extends('layouts.app')
-<style>
-
-    @font-face {
-        font-family: "gothicbold";
-        src: local("gothicbold"),
-        url("{{ asset('fonts/index-page/gothicbold.ttf')}}") format("truetype");
-    }
-    footer {
-        position: fixed;
-        bottom: 0;
-        border-bottom: 10px solid #FFCF40;
-        height: 5px;
-        width: 100%;
-    }
-
-    header {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        z-index: 9;
-        background: #262626 !important;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-right: 90px;
-        padding-left: 75px;
-    }
-
-    .header-call a {
-        display: block;
-        line-height: 30px;
-        color: #fff;
-        font-size: 20px;
-        font-family: Montserrat;
-    }
-
-    .header-call a img {
-        margin-right: 5px;
-        max-height: 35px;
-    }
-
-    .btn-luxe {
-        background: #262626;
-        color: #fff;
-    }
-
-    .contact-details {
-        height: 100%;
-    }
-
-    .right-contactsd a:first-child {
-        max-width: 330px;
-    }
-
-    .right-contactsd a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        line-height: 25px;
-        color: #FFFFFF;
-        font-weight: normal;
-        font-family: Montserrat;
-        width: auto;
-        margin-left: 40px;
-    }
-
-    .right-contactsd {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        height: 100%;
-    }
-
-    .container {
-        padding-top: 155px;
-    }
-
-    @media screen and (max-width: 500px) {
-        header {
-            padding: 0 !important;
-        }
-
-        .right-contactsd {
-            display: block;
-            justify-content: flex-start;
-            align-items: baseline;
-        }
-
-        .right-contactsd a {
-            justify-content: center;
-            font-size: 14px;
-            margin-top: 5px;
-            margin-left: 0 !important;
-        }
-
-        .right-contactsd a svg {
-            width: 30px !important;
-            margin-right: 5px;
-        }
-
-        .container {
-            padding-top: 20px;
-        }
-
-        header {
-            position: relative;
-        }
-
-        form {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px !important;
-        }
-
-
-    }
-</style>
+@extends('layouts.app', ['active' => 'Service&StaffRequests'])
 <style>
     #regForm {
         background-color: #ffffff;
@@ -125,11 +6,12 @@
         font-family: Raleway;
         padding: 40px;
     }
-
     h1 {
         text-align: center;
     }
-
+    input {
+        font-family: 'gothicregular' !important;
+    }
     /* input {
         margin-right: auto;
         padding: 10px;
@@ -138,36 +20,30 @@
         font-family: Raleway;
         border: 1px solid #aaaaaa;
     } */
-
     /* Mark input boxes that gets an error on validation: */
     input.invalid {
         background-color: #ffdddd;
     }
-
     /* Hide all steps by default: */
     .tab {
         display: none;
         min-height: 300px;
     }
-
     button {
         background-color: #04AA6D;
         color: #ffffff;
         border: none;
         padding: 10px 20px;
         font-size: 17px;
-        font-family: 'gothicbold';
+        font-family: Raleway;
         cursor: pointer;
     }
-
     button:hover {
         opacity: 0.8;
     }
-
     #prevBtn {
         background-color: #bbbbbb;
     }
-
     /* Make circles that indicate the steps of the form: */
     .step {
         height: 15px;
@@ -179,24 +55,18 @@
         display: inline-block;
         opacity: 0.5;
     }
-
     .step.active {
         opacity: 1;
     }
-
     /* Mark the steps that are finished and valid: */
     .step.finish {
-        background-color: #FFCF40;
+        background-color: #262626;
     }
-
     .wrapper h1 {
-        font-weight: 400;
         letter-spacing: 2px;
-        background: transparent;
         padding: 10px;
         border-radius: 10px;
     }
-
     .shadow-box {
         width: 100%;
         display: flex;
@@ -207,23 +77,20 @@
         padding: 20px;
         margin-bottom: 20px;
     }
-
     label {
         margin: 0;
     }
-
     input[type="radio"],
     input[type="checkbox"] {
         width: 20px;
         height: 20px;
-        accent-color: #FFCF40;
+        accent-color: #262626;
     }
 </style>
 <style>
     .ui-datepicker-week-end a {
-        outline: 1px solid #FFCF40;
+        outline: 1px solid #262626;
     }
-
     #ui-datepicker-div {
         display: none;
         background-color: #fff;
@@ -232,7 +99,6 @@
         border-radius: 0.5rem;
         padding: 0.5rem;
     }
-
     .ui-datepicker-calendar thead th {
         padding: 0.25rem 0;
         text-align: center;
@@ -240,13 +106,11 @@
         font-weight: 400;
         color: #78909C;
     }
-
     .ui-datepicker-calendar tbody td {
         width: 2.5rem;
         text-align: center;
         padding: 0;
     }
-
     .ui-datepicker-calendar tbody td a {
         margin-bottom: 4px;
         display: block;
@@ -257,16 +121,13 @@
         font-size: 0.875rem;
         text-decoration: none;
     }
-
     .ui-datepicker-calendar tbody td a:hover {
-        background-color: #ffcf406e;
+        background-color: #262626;
     }
-
     .ui-datepicker-calendar tbody td a.ui-state-active {
-        background-color: #FFCF40;
+        background-color: #262626;
         color: white;
     }
-
     .ui-datepicker-header a.ui-corner-all {
         cursor: pointer;
         position: absolute;
@@ -277,11 +138,9 @@
         border-radius: 0.25rem;
         transition: 0.3s all;
     }
-
     .ui-datepicker-header a.ui-corner-all:hover {
         background-color: #ECEFF1;
     }
-
     .ui-datepicker-header a.ui-datepicker-prev {
         left: 0;
         background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==");
@@ -290,7 +149,6 @@
         background-position: 50%;
         transform: rotate(180deg);
     }
-
     .ui-datepicker-header a.ui-datepicker-next {
         right: 0;
         background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==');
@@ -298,11 +156,9 @@
         background-size: 10px;
         background-position: 50%;
     }
-
     .ui-datepicker-header a>span {
         display: none;
     }
-
     .ui-datepicker-title {
         text-align: center;
         line-height: 2rem;
@@ -311,15 +167,25 @@
         font-weight: 500;
         padding-bottom: 0.25rem;
     }
-
     .ui-datepicker-week-col {
         color: #78909C;
         font-weight: 400;
         font-size: 0.75rem;
     }
+    .h1-luxe, .h4-luxe {
+        font-family: 'gothicbold';
+    }
+    .label {
+        font-family: 'gothicbold';
+    }
+    .btn-previous {
+        font-family: 'gothicbold';
+        font-size: 18px !important;
+    }
 </style>
 
 @section('content')
+<body>
     <div class="container-fluid wrapper">
         <div id="popup" class="card">
             <div class="card-header text-center">
@@ -342,8 +208,8 @@
                 <button onclick="showForm()" class="btn btn-luxe w-100">I Agree</button>
             </div>
         </div>
-        <form id="regForm" action="{{route('appointments.store')}}" method="POST" class="d-none">
-            <h1 class="position-relative">Appointments
+        <form id="regForm" action="{{route('appointments.store')}}" method="POST" class="d-none p-0">
+            <h1 class="h1-luxe position-relative">Appointments
                 @if (Auth::user() && Auth::user()->isAdmin)
                 <a href="{{route('appointment-addresses.index')}}"
                     class="btn btn-dark position-absolute text-white" style="right: 15px;top:15px">Addresses</a>
@@ -352,70 +218,71 @@
             @csrf
             <input type="hidden" class="form-control" name="phone">
             <div class="tab">
-                <h4 class="my-4">1. Choose an address</h4>
+                <h4 class="my-4 h4-luxe">1. Choose an address</h4>
                 <hr>
                 <div class="w-100">
                     @foreach ($addresses as $item)
                     <div class="shadow-box">
-                        <label for="html">{{$item->title}}</label>
+                        <label for="html" class="label p-0 m-0">{{$item->title}}</label>
                         <input type="radio" id="html" name="appointment_address" value="{{$item->id}}">
                     </div>
                     @endforeach
                 </div>
             </div>
             <div class="tab">
-                <h4 class="my-4">2. Date & Time</h4>
+                <h4 class="my-4 h4-luxe">2. Date & Time</h4>
                 <hr>
                 <div class="form-group">
-                    <label for="">Select Date</label>
+                    <label for="" class="label">Select Date</label>
                     <input type="text" id="datepicker" name="date" class="form-control date" autocomplete="off"
                         required>
-                    <i>Available days are Saturday and Sunday</i>
+                    <i class="label">Available days are Saturday and Sunday</i>
                 </div>
-                <label for="html">Select Time Slot</label>
+                <label for="html" class="label">Select Time Slot</label>
                 <div class="form-group time-group">
                 </div>
             </div>
-            <div class="tab">3. Your Information</h4>
+            <div class="tab">
+                <h4  class="my-4 h4-luxe">3. Your Information</h4>
                 <hr>
                 <div class="form-group">
-                    <label for="">Your Name</label>
+                    <label for="" class="label">Your Name</label>
                     <input type="text" class="form-control" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="">Phone</label>
+                    <label for="" class="label">Phone</label>
                     <input type="text" class="form-control" name="phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="">Email</label>
+                    <label for="" class="label">Email</label>
                     <input type="email" class="form-control" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="">Address</label>
+                    <label for="" class="label">Address</label>
                     <input type="text" class="form-control" name="address">
                 </div>
                 <div class="row">
                     <div class="form-group col-4">
-                        <label for="">City</label>
+                        <label for="" class="label">City</label>
                         <input type="text" class="form-control" name="city">
                     </div>
                     <div class="form-group col-4">
-                        <label for="">State</label>
+                        <label for="" class="label">State</label>
                         <input type="text" class="form-control" name="state">
                     </div>
                     <div class="form-group col-4">
-                        <label for="">Zip Code</label>
+                        <label for="" class="label">Zip Code</label>
                         <input type="text" class="form-control" name="zip">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Comments</label>
+                    <label for="" class="label">Comments</label>
                     <input type="text" class="form-control" name="comments">
                 </div>
             </div>
             <div style="overflow:auto;">
                 <div style="float:right;">
-                    <button type="button" id="prevBtn" class="btn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="prevBtn" class="btn btn-previous" onclick="nextPrev(-1)">Previous</button>
                     <button type="button" id="nextBtn" class="btn btn-luxe" onclick="nextPrev(1)">Next</button>
                 </div>
             </div>
@@ -427,7 +294,7 @@
             </div>
         </form>
     </div>
-@endsection
+</body>
 <script>
     function showForm(){
         $('#popup').addClass('d-none')
@@ -435,25 +302,23 @@
         $('#regForm').addClass('d-block')
     }
 
-    $(function () {
-        $("#datepicker").datepicker({
-            duration: "fast",
-            dateFormat: 'yy-mm-dd',
-            beforeShowDay: function(day) {
+    $("#datepicker").datepicker({
+        duration: "fast",
+        dateFormat: 'yy-mm-dd',
+        beforeShowDay: function(day) {
             var day = day.getDay();
             if (day == 1 || day == 2 || day == 3 || day == 4 || day == 5) {
                 return [false]
             } else {
                 return [true]
             }
-            }
-        });
+        }
     });
+    
 </script>
 <script>
     var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
-
 function showTab(n) {
   // This function will display the specified tab of the form...
   var x = document.getElementsByClassName("tab");
@@ -472,7 +337,6 @@ function showTab(n) {
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
 }
-
 function nextPrev(n) {
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
@@ -491,7 +355,6 @@ function nextPrev(n) {
   // Otherwise, display the correct tab:
   showTab(currentTab);
 }
-
 function validateForm() {
   // This function deals with validation of the form fields
   var x, y, i, valid = true;
@@ -511,7 +374,7 @@ function validateForm() {
     }
   }
   if(currentTab == 1){
-      console.log($('input[name=time_slot]:checked'));
+      console.log('asdas',$('input[name=time_slot]:checked'));
       if ($('input[name=time_slot]:checked').length == 0) {
         valid = false;
     }
@@ -523,7 +386,6 @@ function validateForm() {
   }
   return valid; // return the valid status
 }
-
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
   var i, x = document.getElementsByClassName("step");
@@ -553,7 +415,9 @@ function fixStepIndicator(n) {
         document.querySelector('.date').onchange = evt => {
             $('.time-group').empty()
             if (!validate(evt.target.value)) {
-                evt.target.value = '';                
+                evt.target.value = '';   
+            alert('ababa')
+
             }
             else{
                 $.ajax({
@@ -571,72 +435,4 @@ function fixStepIndicator(n) {
         }
     })
 </script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script type="text/javascript">
-    toastr.options = {
-        "closeButton": false,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    };
-</script>
-<script>
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-        toastr.options =
-        {
-            "closeButton": true,
-            "progressBar": true
-        }
-    toastr.error("{{ $error }}");
-    @endforeach
-        @endif
-        @if(Session::has('message'))
-        toastr.options =
-        {
-            "closeButton": true,
-            "progressBar": true
-        }
-    toastr.success("{{ session('message') }}");
-    @endif
-
-        @if(Session::has('error'))
-        toastr.options =
-        {
-            "closeButton": true,
-            "progressBar": true
-        }
-    toastr.error("{{ session('error') }}");
-    @endif
-
-        @if(Session::has('info'))
-        toastr.options =
-        {
-            "closeButton": true,
-            "progressBar": true
-        }
-    toastr.info("{{ session('info') }}");
-    @endif
-
-        @if(Session::has('warning'))
-        toastr.options =
-        {
-            "closeButton": true,
-            "progressBar": true
-        }
-    toastr.warning("{{ session('warning') }}");
-    @endif
-</script>
-
-</html>
+@endsection

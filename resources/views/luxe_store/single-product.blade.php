@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Store'])
 
 @section('css')
 <style>
@@ -32,7 +32,7 @@
             <div class="col-12 go_to_cart mb-5">
                 <div class="d-flex align-items-center">
                     <p>Successfully added to cart</p>
-                    <button class="btn btn-luxe">Go to Cart</button>
+                    <a href="{{ route('luxe_store.cart') }}" class="btn btn-luxe">Go to Cart</a>
                 </div>
             </div>
         @endif

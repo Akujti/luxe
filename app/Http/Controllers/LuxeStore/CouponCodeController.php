@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\LuxeStore\LuxeStoreCouponCode;
-use App\Http\Requests\LuxeStore\Product\AddRequest;
-use App\Http\Requests\LuxeStore\Product\DeleteRequest;
-use App\Http\Requests\LuxeStore\Product\UpdateRequest;
+use App\Http\Requests\LuxeStore\Coupon\AddRequest;
+use App\Http\Requests\LuxeStore\Coupon\DeleteRequest;
+use App\Http\Requests\LuxeStore\Coupon\UpdateRequest;
 
 class CouponCodeController extends Controller
 {
     public function index() {
-        $categories = LuxeStoreCouponCode::latest()->paginate(8); 
-        return view('luxe_store.index', compact('categories'));
+        $coupons = LuxeStoreCouponCode::latest()->paginate(15); 
+        return view('admin.coupons.index', compact('coupons'));
     }
 
     public function apply_coupon(Request $req) {

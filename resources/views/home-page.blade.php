@@ -41,11 +41,18 @@
             font-size: 20px;
         }
     }
+    .title h1 {
+        font-family: 'gothicbold';
+        text-align: center;
+    }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
     <div class="row box-items">
+        <div class="col-12 title mb-3">
+            <h1>Welcome to Luxe</h1>
+        </div>
         @if(!isset($_GET['dir']))
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="box-item" onclick="window.location='{{ url("/home?dir=leads") }}'">
@@ -243,7 +250,7 @@
                 <div class="box-item" onclick="window.location = '{{ url("general/form/escrow/index")}}'">
                     <div>
                         <img src="/images/index-page/rental_escrow.svg" class="icon" alt="">
-                        <p>Rental Escrow Disbursement</p>
+                        <p>Rental Escrow <br> Disbursement</p>
                     </div>
                 </div>
             </div>
@@ -275,7 +282,7 @@
                 <div class="box-item" onclick="window.location = '{{ url("general/form/other/photoshoots-for-listings")}}'">
                     <div>
                         <img src="/images/index-page/photoshoot_for_listings.svg" class="icon" alt="">
-                        <p>Photoshoot for Listings</p>
+                        <p>Photoshoot <br> for Listings</p>
                     </div>
                 </div>
             </div>
@@ -283,7 +290,7 @@
                 <div class="box-item" onclick="window.location = '{{ url("general/form/other/wire-instructions-request")}}'">
                     <div>
                         <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
-                        <p>Wire Instructions Request</p>
+                        <p>Wire Instructions <br> Request</p>
                     </div>
                 </div>
             </div>
@@ -291,7 +298,7 @@
                 <div class="box-item" onclick="window.location = '{{ url("general/form/other/logo-creation-request")}}'">
                     <div>
                         <img src="/images/index-page/logo_creation_request.svg" class="icon" alt="">
-                        <p>Logo Creation Request</p>
+                        <p>Logo Creation <br> Request</p>
                     </div>
                 </div>
             </div>
@@ -299,7 +306,7 @@
                 <div class="box-item" onclick="window.location = '{{ url("general/form/staff-request/new-agent-business-plan")}}'">
                     <div>
                         <img src="/images/index-page/new_agent_business_plan.svg" class="icon" alt="">
-                        <p>New Agent Business Plan</p>
+                        <p>New Agent <br> Business Plan</p>
                     </div>
                 </div>
             </div>
@@ -307,7 +314,7 @@
                 <div class="box-item" onclick="window.location = '{{ url("general/form/staff-request/2022-business-plan")}}'">
                     <div>
                         <img src="/images/index-page/2022_business_plan.svg" class="icon" alt="">
-                        <p>2022 Business Plan</p>
+                        <p>2022 Business <br> Plan</p>
                     </div>
                 </div>
             </div>
@@ -315,7 +322,7 @@
                 <div class="box-item" onclick="window.location = '{{ url("general/form/staff-request/follow-up-business-plan")}}'">
                     <div>
                         <img src="/images/index-page/follow_up_business_plan.svg" class="icon" alt="">
-                        <p>Follow-up Business Plan</p>
+                        <p>Follow-up <br> Business Plan</p>
                     </div>
                 </div>
             </div>

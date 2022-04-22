@@ -204,7 +204,7 @@
             <div class="header-navigation">
                 <div class="container-fluid">
                     <div class="row m-0 d-none d-md-flex d-lg-flex d-xl-flex">
-                        <div class="col-3 col-sm-7 col-md-12 col-lg-4 p-0">
+                        <div class="col-3 col-sm-7 col-md-12 col-lg-6 p-0">
                             <nav>
                                 <a href="{{ route('admin.index') }}" class="@if(Request::path() == 'admin') active @endif">Dashboard</a>
                                 <a href="{{ route('admin.forms.index') }}" class="@if(Request::path() == 'admin/forms') active @endif">Forms</a>
@@ -212,6 +212,7 @@
                                 <a href="{{ route('admin.orders.index') }}" class="@if(in_array(Request::route()->getName(), ['admin.orders.index'])) active @endif">Orders</a>
                                 <a href="{{ route('admin.luxe_store.index') }}" class="@if(in_array(Request::route()->getName(), ['admin.luxe_store.index'])) active @endif">Categories</a>
                                 <a href="{{ route('admin.luxe_store.products.index') }}" class="@if(in_array(Request::route()->getName(), ['admin.luxe_store.products.index'])) active @endif">Products</a>
+                                <a href="{{ route('admin.luxe_store.coupons.index') }}" class="@if(in_array(Request::route()->getName(), ['admin.luxe_store.coupons.index'])) active @endif">Coupons</a>
                             </nav>
                         </div>
                     </div>

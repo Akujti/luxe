@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
 @section('css')
 <style>
     .form-control:disabled,
@@ -93,7 +93,7 @@
                 </div>
                 <div class="form-group col-12 pt-4">
                     <label for="content">Title:</label>
-                    <input type="text" class="form-control modal-title" id="exampleModalLongTitle" name="title"
+                    <input type="text" class="form-control" id="exampleModalLongTitle" name="title"
                         {{$isAdmin ? '' : 'disabled' }} required>
                 </div>
                 <div class="form-group col-12 ">

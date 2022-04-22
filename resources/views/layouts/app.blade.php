@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -193,7 +196,8 @@
                     </div>
                     <div class="sidebar__item sidebar-navigation">
                         <ul>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active @endif">
+                            <li class="row m-0 @if(Request::path() == 'home' && !isset($_GET['dir'])) active @endif"><a href="{{ url('/home') }}">Dashboard </a></li>
+                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active @endif {{ (isset($active) && $active == 'Leads') ? 'active': '' }}">
                                 <a href="{{ url('/home?dir=leads') }}">Leads </a>
                                 <em><img src="/images/plus.png"></em>
                                 <ul class="w-100">
@@ -203,7 +207,7 @@
                                     <li><a href="{{ url("general/form/leads/prime-street-leads") }}">Primme Street Leads</a></li>
                                 </ul>
                             </li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active @endif">
+                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active @endif {{ (isset($active) && $active == 'Tools&TrainingVideos') ? 'active': '' }}">
                                 <a href="{{ url('/home?dir=tools_training_videos') }}">Tools & Training Videos</a>
                                  <em><img src="/images/plus.png"></em>
     
@@ -218,7 +222,7 @@
                                     <li><a href="{{ url("resume") }}">Resume Builder</a></li>
                                 </ul>
                             </li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active @endif">
+                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active @endif {{ (isset($active) && $active == 'Marketing') ? 'active': '' }}">
                                 <a href="{{ url('/home?dir=marketing') }}">Marketing</a>
                                 <em><img src="/images/plus.png"></em>
     
@@ -232,7 +236,7 @@
                             <li class="row m-0 @if(Request::path() == 'user/events') active @endif">
                                 <a href="{{ url('/user/events') }}">Training & Events</a>
                             </li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'service_staff_requests') active @endif">
+                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'service_staff_requests') active @endif {{ (isset($active) && $active == 'Service&StaffRequests') ? 'active': '' }}">
                                 <a href="{{ url('/home?dir=service_staff_requests') }}">Service & Staff Requests</a>
                                 <em><img src="/images/plus.png"></em>
                                 <ul class="w-100">
@@ -249,7 +253,7 @@
                                     <li><a href="{{ url("appointments/create") }}">Open House Signup</a></li>
                                 </ul>
                             </li>
-                            <li class="row m-0 @if(Request::path() == 'store') active @endif">
+                            <li class="row m-0 {{ (isset($active) && $active == 'Store') ? 'active': '' }}">
                                 <a href="{{ url('/store') }}">Luxe Product Store</a>
                             </li>
                             <li class="row m-0 @if(Request::path() == 'form') active @endif">
@@ -296,7 +300,7 @@
 </body>
 @yield('js')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> 
 <script type="text/javascript">
     toastr.options = {
         "closeButton": false,

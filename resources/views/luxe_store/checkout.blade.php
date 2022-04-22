@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Store'])
 
 @section('css')
 <style>
@@ -685,9 +685,8 @@
         </div>
     </div>
 </div>
-
 <script
-    src="https://www.paypal.com/sdk/js?client-id=AXQonrjh3E1Ui0Dn1TO9jLCBXvISTaJ0TcsVHYjxNkO1vKDuBquyJk0aE4BW6hdRAxuXKhtycUeHnV9p&components=buttons">
+    src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&components=buttons">
 </script>
 <script>
     paypal.Buttons({

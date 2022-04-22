@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
 @section('js')
 <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
 @endsection
@@ -20,6 +20,7 @@
 
     .folder p {
         margin: 0;
+        margin-bottom: 20px;
     }
 
     .folder:hover {
@@ -34,19 +35,21 @@
 
     .folder img {
         width: 70%;
+        height: 220px;
+        margin-top: 20px;
     }
 </style>
 @endsection
 @section('content')
 <style>
 </style>
-<div class="container">
+<div class="container-fluid">
     @include('includes.video_title')
-    <div class="row my-4">
+    <div class="row">
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','buyer_representation')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         BUYER REPRESENTATION
                     </p>
@@ -56,7 +59,7 @@
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','seller_representation')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         SELLER REPRESENTATION
                     </p>
@@ -66,7 +69,7 @@
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','tenant_representation')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         TENANT/LANDLORD REPRESENTATION
                     </p>
@@ -76,7 +79,7 @@
         <div class="col-12 col-lg-4 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','working_with_investors')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         WORKING WITH INVESTORS
                     </p>

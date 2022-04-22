@@ -28,7 +28,8 @@
 
     .card-header {
         background: transparent !important;
-        color: #262626
+        color: #262626;
+        font-family: 'gothicbold';
     }
 
     .login-logo {
@@ -49,7 +50,13 @@
 
     .card .card-label {
         font-size: 18px;
-        color: #262626
+        color: #262626;
+        font-family: 'gothicbold';
+    }
+    .form-check-label, .forgot-password {
+        font-family: 'gothicbold';
+        font-size: 15px !important;
+        color: #262626;
     }
 
     .card .submit-button {
@@ -92,7 +99,7 @@
             <div class="card">
                 <div class="card-header text-center" style="background:#FFCF40;font-size:20px;"><img class="login-logo"
                         src="https://myluxehub.com/wp-content/uploads/2018/10/logo-big-391x130.png" alt=""
-                        height="80px"><br>All templates here. <br>Just login and customize your desired theme.
+                        height="110px"><br>All templates here. <br>Just login and customize your desired theme.
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" class="flex-column">
@@ -145,7 +152,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <a class="text-dark"
+                                        <a class="forgot-password"
                                             href="https://myluxehub.com/my-account/lost-password/">Forgot your
                                             password?</a>
                                     </div>

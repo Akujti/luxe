@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
 @section('js')
 <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
 @endsection
@@ -45,9 +45,9 @@
 @section('content')
 <style>
 </style>
-<div class="container">
+<div class="container-fluid">
     @include('includes.video_title')
-    <div class="row my-4">
+    <div class="row">
         <div class="col-12 col-lg-6 mb-4">
             <iframe src="https://player.vimeo.com/video/466617205?h=6ff28ebfca" width="100%" height="328"
                 frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>

@@ -381,11 +381,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
             Route::put('/', [StoreController::class, 'update'])->name('update');
             Route::delete('/', [StoreController::class, 'delete'])->name('delete');
         });
+
+        Route::group(['prefix' => 'coupons', 'as' => 'coupons.'], function() {
+            Route::get('/', [CouponCodeController::class, 'index'])->name('index');
+            Route::post('/', [CouponCodeController::class, 'create'])->name('create');
+            Route::put('/', [CouponCodeController::class, 'update'])->name('update');
+            Route::delete('/', [CouponCodeController::class, 'delete'])->name('delete');
+        });
     });
 
     Route::group(['prefix' => 'orders', 'as' => 'orders.'], function() {
         Route::get('/', [OrderController::class, 'admin_index'])->name('index');
     });
+
+    
 
     // Admin Videos
     // Route::group(['prefix' => 'videos', 'as' => 'videos.'], function() {
