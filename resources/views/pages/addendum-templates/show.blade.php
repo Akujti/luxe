@@ -59,7 +59,7 @@
             <a href="" data-toggle="modal" data-target="#exampleModalCenter" data-id="{{$item->id}}"
                 data-title="{{$item->title}}" data-content="{{$item->content}}" onclick="populateModal(this)"
                 class="btn btn-luxe w-100 show-btn m-2 d-flex align-items-center justify-content-center"
-                style="height: 70px">{{$item->title}}</a>
+                style="height: 70px;white-space: pre-wrap;">{{$item->title}}</a>
         </div>
         @endforeach
         @else
