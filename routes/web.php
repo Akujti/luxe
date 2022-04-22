@@ -47,9 +47,9 @@ use App\Http\Controllers\WrittenEmailTemplateItemController;
 */
 
 Route::view('office-locations', 'office-locations');
-Route::view('home', 'home-page');
+Route::view('home', 'home-page')->middleware('auth');
 
-Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function() {
+Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function () {
     Route::get('/', [StoreController::class, 'index'])->name('index');
     Route::get('/cart', [OrderController::class, 'cartload'])->name('cart');
     Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
@@ -319,11 +319,10 @@ Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryControl
 
 // Canva Marketing
 
-Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function() {
+Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function () {
     Route::get('/', [MarketingTemplateController::class, 'index'])->name('marketing.requests');
     Route::get('/{marketingCanva}', [MarketingTemplateController::class, 'show'])->name('marketing.request');
     Route::get('/{marketingCanva}/{template}', [MarketingTemplateController::class, 'template'])->name('marketing.template');
-    
 });
 
 // End Canva Marketing
@@ -340,15 +339,15 @@ Route::get('general/form/{folder}/{form}', [FormController::class, 'general_form
 Route::get('loginTest', [UserController::class, 'login']);
 
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
 
-    Route::group(['prefix' => 'forms', 'as' => 'forms.'], function() {
+    Route::group(['prefix' => 'forms', 'as' => 'forms.'], function () {
         Route::get('/', [AdminController::class, 'forms'])->name('index');
         Route::put('/', [AdminController::class, 'update_form'])->name('update');
     });
 
-    Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function() {
+    Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function () {
         Route::get('/', [MarketingTemplateController::class, 'index_admin'])->name('marketing.index_admin');
         Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
             Route::get('/{id}', [MarketingTemplateController::class, 'admin_categories'])->name('index');
@@ -382,7 +381,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
             Route::delete('/', [StoreController::class, 'delete'])->name('delete');
         });
 
-        Route::group(['prefix' => 'coupons', 'as' => 'coupons.'], function() {
+        Route::group(['prefix' => 'coupons', 'as' => 'coupons.'], function () {
             Route::get('/', [CouponCodeController::class, 'index'])->name('index');
             Route::post('/', [CouponCodeController::class, 'create'])->name('create');
             Route::put('/', [CouponCodeController::class, 'update'])->name('update');
@@ -390,11 +389,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
         });
     });
 
-    Route::group(['prefix' => 'orders', 'as' => 'orders.'], function() {
+    Route::group(['prefix' => 'orders', 'as' => 'orders.'], function () {
         Route::get('/', [OrderController::class, 'admin_index'])->name('index');
     });
 
-    
+
 
     // Admin Videos
     // Route::group(['prefix' => 'videos', 'as' => 'videos.'], function() {
