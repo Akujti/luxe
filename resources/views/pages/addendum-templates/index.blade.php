@@ -16,7 +16,7 @@
         <div class="col-lg-4">
             <a href="{{route('addendum-templates.show',$template)}}"
                 class="btn btn-luxe w-100 m-2 d-flex align-items-center justify-content-center"
-                style="height: 70px">{{$template->title}}</a>
+                style="height: 70px;white-space: pre-wrap;">{{$template->title}}</a>
         </div>
         @endforeach
     </div>
