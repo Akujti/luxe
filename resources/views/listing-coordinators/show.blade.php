@@ -18,7 +18,7 @@
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">LISTING COORDINATOR - {{$listingCoordinator->name}}</h1>
-                    <h6 id="agent-text" class="text-center" style="font-size: 21px;">LISTING PACKAGE $100</h6>
+                    <h6 id="agent-text" class="text-center" style="font-size: 21px;">LISTING INPUT ONLY $100</h6>
                 </div>
                 <input type="hidden" name="form_title" value="LISTING COORDINATORS - {{$listingCoordinator->name}}">
                 <input type="hidden" name="to_email[]" value="email@luxeknows.com">
