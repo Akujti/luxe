@@ -264,13 +264,13 @@
                                     <li><a href="{{ url("appointments/create") }}">Open House Signup</a></li>
                                 </ul>
                             </li>
-                            <li class="row m-0 {{ (isset($active) && $active == 'Store') ? 'active': '' }}">
+                            <li class="row m-0 {{ (isset($active) && $active == 'Store') ? 'active selected': '' }}">
                                 <a href="{{ url('/store') }}">Luxe Product Store</a>
                             </li>
-                            <li class="row m-0 @if(Request::path() == 'form') active @endif">
+                            <li class="row m-0 @if(Request::path() == 'form') active selected @endif">
                                 <a href="{{ url('/form') }}">Luxe Lending</a>
                             </li>
-                            <li class="row m-0 @if(Request::path() == 'office-locations') active @endif">
+                            <li class="row m-0 @if(Request::path() == 'office-locations') active selected @endif">
                                 <a href="{{ url('/office-locations') }}">Office Locations</a>
                             </li>
                         </ul>

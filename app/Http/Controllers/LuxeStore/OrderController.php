@@ -229,7 +229,7 @@ class OrderController extends Controller
             $cart_data[] = $item_array;
             Session::flush('shopping_cart');
             Session::push('shopping_cart', $cart_data);
-
+            
             return back()->with('message', '"' . $product->name . '" Added to Cart');
         }
     }
