@@ -6,10 +6,12 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\LuxeStore\LuxeStoreProduct;
 use App\Models\LuxeStore\LuxeStoreCategory;
+use App\Models\LuxeStore\LuxeStoreProductVariants;
 use App\Http\Requests\LuxeStore\Product\AddRequest;
 use App\Http\Requests\LuxeStore\Product\DeleteRequest;
 use App\Http\Requests\LuxeStore\Product\UpdateRequest;
-use App\Models\LuxeStore\LuxeStoreProductVariants;
+use App\Http\Requests\LuxeStore\Product\DeleteImageRequest;
+use App\Models\LuxeStore\LuxeStoreProductImage;
 
 class StoreController extends Controller
 {
@@ -158,7 +160,6 @@ class StoreController extends Controller
             $row->inputs()->createMany($formModels);
         }
 
-        $row->images()->delete();
         if($req->has('images')) {
             $formModels = [];
             foreach($req->images as $image) {
@@ -180,5 +181,13 @@ class StoreController extends Controller
             $row->delete();
         }
         return back()->with('message', 'Deleted successfully');
+    }
+
+    public function delete_image_product(DeleteImageRequest $req) {
+        $row = LuxeStoreProductImage::find($req->id);
+
+        $row->delete();
+
+        return response()->json(true);
     }
 }

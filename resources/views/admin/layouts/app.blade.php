@@ -140,13 +140,16 @@
             margin-right: 5px;
         }
         .container-fluid {
-            padding-left: 0px;
-            padding-right: 0px;
+            padding-left: 15px;
+            padding-right: 15px;
         }
         form {
             display: flex;
             justify-content: center;
             margin-bottom: 10px !important;
+        }
+        .h5-luxe {
+            font-size: 25px !important;
         }
     }
     .nav > li > a:hover, .nav > li > a:focus, .dropdown-menu a:hover, .dropdown-menu a:focus{
@@ -167,7 +170,7 @@
                             </button>
                         </div>
                         <div class="col-9 col-md-6 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
-                            <a href="{{ url('/') }}"><img src="/images/logo.png" alt="" height="74px"></a>
+                            <a href="{{ url('/admin') }}"><img src="/images/logo.png" alt="" height="74px"></a>
                         </div>
                         <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-md-flex d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
@@ -206,13 +209,13 @@
                     <div class="row m-0 d-none d-md-flex d-lg-flex d-xl-flex">
                         <div class="col-3 col-sm-7 col-md-12 col-lg-6 p-0">
                             <nav>
-                                <a href="{{ route('admin.index') }}" class="@if(Request::path() == 'admin') active @endif">Dashboard</a>
-                                <a href="{{ route('admin.forms.index') }}" class="@if(Request::path() == 'admin/forms') active @endif">Forms</a>
-                                <a href="{{ route('admin.canva.marketing.index_admin') }}" class="@if(in_array(Request::route()->getName(), ['admin.canva.marketing.index_admin', 'admin.canva.categories.index', 'admin.canva.categories.templates.index'])) active @endif">Marketing Canva</a>
-                                <a href="{{ route('admin.orders.index') }}" class="@if(in_array(Request::route()->getName(), ['admin.orders.index'])) active @endif">Orders</a>
-                                <a href="{{ route('admin.luxe_store.index') }}" class="@if(in_array(Request::route()->getName(), ['admin.luxe_store.index'])) active @endif">Categories</a>
-                                <a href="{{ route('admin.luxe_store.products.index') }}" class="@if(in_array(Request::route()->getName(), ['admin.luxe_store.products.index'])) active @endif">Products</a>
-                                <a href="{{ route('admin.luxe_store.coupons.index') }}" class="@if(in_array(Request::route()->getName(), ['admin.luxe_store.coupons.index'])) active @endif">Coupons</a>
+                                <a href="{{ route('admin.index') }}" class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">Dashboard</a>
+                                <a href="{{ route('admin.forms.index') }}" class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">Forms</a>
+                                <a href="{{ route('admin.canva.marketing.index_admin') }}" class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">Marketing Canva</a>
+                                <a href="{{ route('admin.orders.index') }}" class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">Orders</a>
+                                <a href="{{ route('admin.luxe_store.index') }}" class="{{ (isset($active) && $active == 'Categories') ? 'active selected': '' }}">Categories</a>
+                                <a href="{{ route('admin.luxe_store.products.index') }}" class="{{ (isset($active) && $active == 'Products') ? 'active selected': '' }}">Products</a>
+                                <a href="{{ route('admin.luxe_store.coupons.index') }}" class="{{ (isset($active) && $active == 'Coupons') ? 'active selected': '' }}">Coupons</a>
                             </nav>
                         </div>
                     </div>
@@ -258,17 +261,26 @@
                         </div>
                         <div class="sidebar__item sidebar-navigation">
                             <ul>
-                                <li class="row m-0 @if(Request::path() == 'admin') active @endif">
+                                <li class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.index') }}">Dashboard</a>
                                 </li>
-                                <li class="row m-0 @if(Request::path() == 'admin/forms') active @endif">
+                                <li class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.forms.index') }}">Forms</a>
                                 </li>
-                                <li class="row m-0 @if(Request::path() == 'admin/marketing-canva') active @endif">
+                                <li class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.canva.marketing.index_admin') }}">Marketing Canva</a>
                                 </li>
-                                <li class="row m-0 @if(Request::path() == 'admin/orders') active @endif">
+                                <li class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.orders.index') }}">Orders</a>
+                                </li>
+                                <li class="{{ (isset($active) && $active == 'Categories') ? 'active selected': '' }}">
+                                    <a href="{{ route('admin.luxe_store.index') }}">Categories</a>
+                                </li>
+                                <li class="{{ (isset($active) && $active == 'Products') ? 'active selected': '' }}">
+                                    <a href="{{ route('admin.luxe_store.products.index') }}">Products</a>
+                                </li>
+                                <li class="{{ (isset($active) && $active == 'Coupons') ? 'active selected': '' }}">
+                                    <a href="{{ route('admin.luxe_store.coupons.index') }}">Coupons</a>
                                 </li>
                             </ul>
                         </div>

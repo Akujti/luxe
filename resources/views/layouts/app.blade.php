@@ -117,6 +117,7 @@
         .header {
             padding: 0 !important;
             position: fixed;
+            height: 94px;
         }
         header {
             height: 94px;

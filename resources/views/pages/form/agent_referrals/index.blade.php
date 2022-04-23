@@ -22,8 +22,8 @@
     }
 </style>
 @section('content')
-    <div class="container-fluid d-flex align-items-center" style="height: 70vh">
-        <div class="row justify-content-center w-100 m-0 p-0">
+    <div class="container-fluid d-flex">
+        <div class="row justify-content-center w-100 m-0 p-0 align-items-center" style="height: 70vh">
             <div class="col-md-12">
                 <div class="">
                     <div class="card-title text-center">

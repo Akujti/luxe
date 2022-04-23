@@ -3,7 +3,7 @@
     color: white;
     position: fixed;
     width: 407px;
-    height: 88vh;
+    height: 89vh;
 }
 .sidebar.active {
     display: flex !important;
@@ -202,7 +202,7 @@
 }
 
 @media (min-width: 980px){
-    .sidebar-main {
+    .sidebar-main, .sidebar {
         width: 347px !important;
     }
     .sidebar__item, .sidebar-logo-details {

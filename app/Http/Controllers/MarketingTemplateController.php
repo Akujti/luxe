@@ -37,7 +37,7 @@ class MarketingTemplateController extends Controller
      */
     public function index_admin()
     {
-        $canvas = MarketingCanva::orderBy('order', 'asc')->get();
+        $canvas = MarketingCanva::orderBy('order', 'asc')->paginate(15);
         $last_order = MarketingCanva::latest()->first()->order ?? 0;
         ++$last_order;
         return view('admin.marketing.canva.index', compact('canvas', 'last_order'));

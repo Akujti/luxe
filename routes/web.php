@@ -380,6 +380,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
             Route::post('/', [StoreController::class, 'create'])->name('create');
             Route::put('/', [StoreController::class, 'update'])->name('update');
             Route::delete('/', [StoreController::class, 'delete'])->name('delete');
+            Route::delete('/image', [StoreController::class, 'delete_image_product'])->name('delete_image_product');
         });
 
         Route::group(['prefix' => 'coupons', 'as' => 'coupons.'], function() {

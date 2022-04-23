@@ -244,7 +244,7 @@
 <div class="container-fluid">
     @if(isset($_GET['id']) && !empty($_GET['id']))
     <div>
-        <a href="{{route('files.index')}}" id="back"><img src="/images/files/left-icon.svg" alt=""> Back</a>
+        <a href="{{route('files.index') . (isset($_GET['view']) ? '?view='. $_GET['view'] : '' )}}" id="back"><img src="/images/files/left-icon.svg" alt=""> Back</a>
     </div>
     @endif
     <div class="row m-0 box-title mb-4">
@@ -288,7 +288,7 @@
             @foreach ($folders as $folder)
             <div class="box-file col-12 col-md-6 col-lg-4">
                 <div class="folder">
-                    <div class="w-100" onclick="window.location = '{{route('files.index').'?id='.$folder->id}}'">
+                    <div class="w-100" onclick="window.location = '{{route('files.index').'?id='.$folder->id . (isset($_GET['view']) ? '&view='. $_GET['view'] : '' )}}'">
                         <p id="title">{{ $folder->title }}</p>
                         <div class="row m-0 p-0 w-100 justify-content-between align-items-center">
                             <div>
@@ -368,7 +368,7 @@
             @foreach ($folders as $folder)
             <div class="box-file col-md-12 mb-4" style="height: 84px !important;">
                 <div class="folder" style="min-height: 84px !important;">
-                    <div class="row p-0 m-0 w-100 d-flex align-items-center" onclick="window.location = '{{route('files.index').'?id='.$folder->id}}'">
+                    <div class="row p-0 m-0 w-100 d-flex align-items-center" onclick="window.location = '{{route('files.index').'?id='.$folder->id . (isset($_GET['view']) ? '&view='. $_GET['view'] : '' )}}'">
                         <div class="col d-flex align-items-center">
                                 <div class="mr-4">
                                     <img src="/images/files/folder.png" alt="" width="45px" height="35px">
