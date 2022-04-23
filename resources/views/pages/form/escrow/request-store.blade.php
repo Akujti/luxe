@@ -91,7 +91,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Amount Due To Landlord (if applicable)</label>
-                            <input type="number" name="amount_dute_to_landlord" class="form-control" required>
+                            <input type="number" name="amount_due_to_landlord" class="form-control" required>
                         </div>
 
                         <div class="form-group col-md-6">

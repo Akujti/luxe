@@ -16,12 +16,14 @@ use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
 
 class OrderController extends Controller
 {
-    public function admin_index() {
+    public function admin_index()
+    {
         $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs'])->latest()->paginate(15);
         return view('admin.orders.index', compact('orders'));
     }
 
-    public function create(AddOrderRequest $req) {
+    public function create(AddOrderRequest $req)
+    {
         DB::beginTransaction();
         try {
             $row = new LuxeStoreOrder;
@@ -33,19 +35,19 @@ class OrderController extends Controller
             $row->status = 'Paid';
 
             $row->save();
-            
+
             $sub_total = 0;
             $total_price = 0;
-            if(Session::get('shopping_cart')) {
+            if (Session::get('shopping_cart')) {
                 $cart_data = Session::get('shopping_cart')[0];
 
-                foreach($cart_data as $product) {
+                foreach ($cart_data as $product) {
                     $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
 
                     $productDb->stock = $productDb->stock - $product['item_quantity'];
                     $productDb->save();
                     $sub_total += $product['item_price'] * $product['item_quantity'];
-                    
+
                     $productModels = [
                         'product_id' => $product['item_id'],
                         'price' => $product['item_price'],
@@ -57,8 +59,8 @@ class OrderController extends Controller
 
                     $orderProduct = LuxeStoreOrderProduct::find($order_product[0]->id);
                     $formInputsModels = [];
-                    if($product['item_form']) {
-                        foreach($product['item_form'] as $input) {
+                    if ($product['item_form']) {
+                        foreach ($product['item_form'] as $input) {
                             $formInputsModels[] = [
                                 'product_id' => $orderProduct->id,
                                 'input_name' => $input['input']['input_name'],
@@ -72,7 +74,7 @@ class OrderController extends Controller
 
             $coupon_code = null;
             $total_price = $sub_total;
-            if(Session::get('coupon_code')) {
+            if (Session::get('coupon_code')) {
                 $coupon_code = Session::get('coupon_code');
                 $total_price -= $coupon_code['price'];
 
@@ -90,7 +92,7 @@ class OrderController extends Controller
 
             $row->billing_details()->create($req->billing);
 
-            if($req->same_as_billing) {
+            if ($req->same_as_billing) {
                 $row->shipping_details()->create($req->billing);
             } else {
                 $row->shipping_details()->create($req->shipping);
@@ -99,7 +101,7 @@ class OrderController extends Controller
             Session::flush('shopping_cart');
             Session::flush('coupon_code');
 
-            
+
             DB::commit();
             return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');
         } catch (\Throwable $th) {
@@ -108,17 +110,18 @@ class OrderController extends Controller
         }
     }
 
-    public function update(Request $req) {
+    public function update(Request $req)
+    {
         $key = $req->key;
         $quantity = $req->quantity;
 
-        if(Session::get('shopping_cart')) {
+        if (Session::get('shopping_cart')) {
             $cart_data = Session::get('shopping_cart');
             $checkStock = LuxeStoreProduct::findOrFail($cart_data[0][$key]['item_id']);
 
-            if($checkStock->stock >= $quantity) {
+            if ($checkStock->stock >= $quantity) {
                 $cart_data[0][$key]["item_quantity"] = $quantity;
-    
+
                 Session::flush('shopping_cart');
                 Session::put('shopping_cart', $cart_data);
                 return true;
@@ -128,13 +131,14 @@ class OrderController extends Controller
         }
     }
 
-    public function addtocart(AddToCartRequest $req) {
+    public function addtocart(AddToCartRequest $req)
+    {
         $prod_id = $req->input('product_id');
         $quantity = $req->input('quantity');
         $variant_value = $req->input('variant_value', null);
         $form = $req->input('form', null);
 
-        if(Session::get('shopping_cart')) {
+        if (Session::get('shopping_cart')) {
             $cart_data = Session::get('shopping_cart')[0];
         } else {
             $cart_data = array();
@@ -143,36 +147,36 @@ class OrderController extends Controller
 
         $item_id_list = array_column($cart_data, 'item_id');
 
-        if(in_array($prod_id, $item_id_list) && $product->variants->count() == 0) {
+        if (in_array($prod_id, $item_id_list) && $product->variants->count() == 0) {
             $key = array_search($prod_id, array_column($cart_data, 'item_id'));
             $cart_data[$key]["item_quantity"] = $cart_data[$key]["item_quantity"] + $req->input('quantity');
 
             $checkStock = LuxeStoreProduct::findOrFail($cart_data[$key]["item_id"]);
 
-            if($checkStock->stock >= $cart_data[$key]["item_quantity"]) {
+            if ($checkStock->stock >= $cart_data[$key]["item_quantity"]) {
                 $item_data = $cart_data;
-    
+
                 Session::flush('shopping_cart');
                 Session::push('shopping_cart', $item_data);
-               
-                return back()->with('message', '"'.$cart_data[$key]["item"]["name"].'" Already Added to Cart');
+
+                return back()->with('message', '"' . $cart_data[$key]["item"]["name"] . '" Already Added to Cart');
             } else {
                 return back()->with('error', 'Max stock');
             }
-        } else if(in_array($prod_id, $item_id_list) && $product->variants->count() > 0) {
-            foreach($cart_data as $key => $value) {
+        } else if (in_array($prod_id, $item_id_list) && $product->variants->count() > 0) {
+            foreach ($cart_data as $key => $value) {
                 $value_from_req = $product->variants[0]->values()->where('value', $variant_value)->firstOrFail();
-                if($cart_data[$key]["item_variant"][0]["choosed_id"] == $value_from_req->id) {
+                if ($cart_data[$key]["item_variant"][0]["choosed_id"] == $value_from_req->id) {
 
                     $cart_data[$key]["item_quantity"] = $cart_data[$key]["item_quantity"] + $req->input('quantity');
 
                     $checkStock = LuxeStoreProduct::findOrFail($cart_data[$key]["item_id"]);
 
-                    if($checkStock->stock >= $cart_data[$key]["item_quantity"]) {
+                    if ($checkStock->stock >= $cart_data[$key]["item_quantity"]) {
                         $item_data = $cart_data;
                         Session::flush('shopping_cart');
                         Session::push('shopping_cart', $item_data);
-                        return back()->with('message', '"'.$cart_data[$key]["item"]["name"].'" Already Added to Cart');
+                        return back()->with('message', '"' . $cart_data[$key]["item"]["name"] . '" Already Added to Cart');
                     } else {
                         return back()->with('error', 'Max stock');
                     }
@@ -181,32 +185,32 @@ class OrderController extends Controller
         }
 
         $product = LuxeStoreProduct::find($prod_id);
-            
-        if($product) {
+
+        if ($product) {
             $form_inputs = null;
-            if($product->inputs->count()) {
+            if ($product->inputs->count()) {
                 $form_inputs = [];
-                
-                foreach($form as $key => $value) {
+
+                foreach ($form as $key => $value) {
                     $form_inputs[] = ['input' => LuxeStoreProductForm::select('id', 'input_name')->where('input_value', $key)->firstOrFail()->toArray(), 'value' => $value];
                 }
             }
-            
+
             $variant_input = null;
             $price = 0;
             $name = $product->name;
 
-            if($product->sale_price) {
+            if ($product->sale_price) {
                 $price = $product->sale_price;
             } else {
                 $price = $product->price;
             }
-            if($product->variants->count()) {
+            if ($product->variants->count()) {
                 $choosed = $product->variants[0]->values()->where('value', $variant_value)->firstOrFail();
-                $name .= ' - '.$choosed->value;
+                $name .= ' - ' . $choosed->value;
                 $variant_input[] = ['variant_name' => $product->variants[0]->variant_name, 'choosed' => $choosed->toArray(), 'choosed_id' => $choosed->id];
 
-                if($choosed->sale_price) {
+                if ($choosed->sale_price) {
                     $price = $choosed->sale_price;
                 } else {
                     $price = $choosed->price;
@@ -226,24 +230,25 @@ class OrderController extends Controller
             Session::flush('shopping_cart');
             Session::push('shopping_cart', $cart_data);
 
-            return back()->with('message', '"'.$product->name.'" Added to Cart');
+            return back()->with('message', '"' . $product->name . '" Added to Cart');
         }
     }
-    
+
 
     public function cartload()
     {
+        return redirect('/home');
         $sub_total = 0;
         $total_price = 0;
         $coupon_code = null;
-        if(Session::get('shopping_cart')) {
+        if (Session::get('shopping_cart')) {
             $cart_data = Session::get('shopping_cart')[0];
 
-            foreach($cart_data as $product) {
+            foreach ($cart_data as $product) {
                 $sub_total += ($product['item_quantity'] * $product['item_price']);
             }
             $total_price = $sub_total;
-            if(Session::get('coupon_code')) {
+            if (Session::get('coupon_code')) {
                 $coupon_code = Session::get('coupon_code');
                 $total_price -= $coupon_code['price'];
             }
@@ -259,15 +264,15 @@ class OrderController extends Controller
         $sub_total = 0;
         $total_price = 0;
         $coupon_code = null;
-        if(Session::get('shopping_cart')) {
+        if (Session::get('shopping_cart')) {
             $cart_data = Session::get('shopping_cart')[0];
 
-            foreach($cart_data as $product) {
+            foreach ($cart_data as $product) {
                 $sub_total += ($product['item_quantity'] * $product['item_price']);
             }
             $total_price = $sub_total;
 
-            if(Session::get('coupon_code')) {
+            if (Session::get('coupon_code')) {
                 $coupon_code = Session::get('coupon_code');
                 $total_price -= $coupon_code['price'];
             }
@@ -278,8 +283,9 @@ class OrderController extends Controller
         return view('luxe_store.checkout', compact('cart_data', 'sub_total', 'total_price', 'coupon_code'));
     }
 
-    public function deleteproductcart(Request $req) {
-        if(Session::get('shopping_cart')) {
+    public function deleteproductcart(Request $req)
+    {
+        if (Session::get('shopping_cart')) {
             $cart_data = Session::get('shopping_cart')[0];
 
             unset($cart_data[$req->key]);
