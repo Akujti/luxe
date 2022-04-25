@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
@@ -52,20 +53,29 @@ class LoginController extends Controller
 
         $user_email = $request->email;
         $user_pass = $request->password;
-
-        $user_wp_attempt = Auth::guard('wordpress')->attempt([
-            'user_email' => $user_email,
-            'user_pass' => $user_pass
-        ]);
+        $user_wp_attempt = false;
+        $check_user = User::where('email', $user_email)->where('password', '!=', null)->first();
+        if ($check_user)
+            $user_wp_attempt = true;
+        else
+            $user_wp_attempt = Auth::guard('wordpress')->attempt([
+                'user_email' => $user_email,
+                'user_pass' => $user_pass
+            ]);
         if ($user_wp_attempt) {
-            $user_wp = Auth::guard('wordpress')->user();
             $exist_user = User::where('email', $user_email)->first();
-            if ($exist_user != null && $exist_user->count()) {
+            if ($check_user && Auth::attempt(['email' => $user_email, 'password' =>  Hash::make($user_pass)]))
+                Auth::login($check_user);
+            else if ($exist_user != null && $exist_user->count()) {
+                $exist_user->password = Hash::make($user_pass);
+                $exist_user->save();
                 Auth::login($exist_user);
             } else {
+                $user_wp = Auth::guard('wordpress')->user();
                 $new_user = new User();
                 $response = Http::get('https://myluxehub.com/wp-json/wp/v2/users/' . $user_wp->ID);
                 $new_user->email = $user_wp->user_email;
+                $new_user->password = Hash::make($user_pass);
                 $new_user->wp_id = $user_wp->ID;
                 $new_user->isAdmin = key_exists('slug', $response->json());
                 $new_user->save();

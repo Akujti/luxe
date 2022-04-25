@@ -92,7 +92,7 @@ class FormController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Form couldn\'t be saved');
         }
-
+        // 
         try {
             if (isset($request->form_title_value)) {
                 $to = $this->getEmails($request->form_title_value, $request->to_email);

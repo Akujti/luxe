@@ -39,7 +39,7 @@
                         <div class="form-group col-md-6">
                             <label for="name">Agent Email</label>
                             <input type="text" name="agent_email" class="form-control" required>
-                        </div> --}}
+                        </div>
                         <div class="form-group col-md-6">
                             <label for="name">Address for Listing</label>
                             <input type="text" name="address_for_listing" class="form-control" required>
@@ -108,6 +108,7 @@
                             {{-- <input type="submit" class="btn btn-luxe w-100" value="SUBMIT"> --}}
                             <div id="paypal-button-container"></div>
                         </div>
+                        <input type="submit" value="Submit">
                     </div>
                 </div>
             </form>
