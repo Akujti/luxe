@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Marketing'])
 @section('css')
 <style>
     a {
@@ -17,7 +17,7 @@
 </style>
 @endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <h3 class="text-center font-weight-normal">Please choose one of the
             <strong>{{$marketingCategory->title}}</strong> below which
@@ -58,7 +58,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade modal-new" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -85,7 +85,7 @@
                     @endauth
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-luxe">Save</button>
                 </form>
             </div>

@@ -1,17 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Leads'])
 @section('content')
-<div class="container">
-    <div class="row justify-content-center my-4">
+<div class="container-fluid">
+    <div class="row justify-content-center">
         <div class="col-md-12">
-            <form action="{{route('general.email.post')}}" class="card form my-4 p-3" method="POST">
+            <form action="{{route('general.email.post')}}" class="card form p-3" method="POST">
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">Opcity Leads</h1>
                 </div>
                 <input type="hidden" name="form_title" value="Opcity Leads">
-                <input type="hidden" name="to_email[]" value="email@luxeknows.com">
+                <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="support@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="support@luxeknows.com"> -->
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -39,7 +39,7 @@
                             <input id="years" type="number" name="how_long_have_you_been_in_real_estate"
                                 class="form-control" required value="0" min="0" max="50">
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Service&StaffRequests'])
 @section('content')
 <style>
     #paypal-button-container {
@@ -21,10 +21,10 @@
                     <h6 id="agent-text" class="text-center" style="font-size: 21px;">LISTING INPUT ONLY $100</h6>
                 </div>
                 <input type="hidden" name="form_title" value="LISTING COORDINATORS - {{$listingCoordinator->name}}">
-                <input type="hidden" name="to_email[]" value="email@luxeknows.com">
+                {{-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="operations@luxeknows.com"> --}}
                 <input type="hidden" name="to_email[]" value="{{$listingCoordinator->email}}">
                 <div class="card-body">
                     <div class="row">
@@ -32,7 +32,7 @@
                             <label for="name">Agent Name</label>
                             <input type="text" name="agent_full_name" class="form-control" required>
                         </div>
-                        {{-- <div class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <label for="name">Agent Phone Number</label>
                             <input type="text" name="agent_number" class="form-control" required>
                         </div>
@@ -132,8 +132,7 @@
         }
     }
 </script>
-<script
-    src="https://www.paypal.com/sdk/js?client-id=AVWEKeNPDlWe0JaCLf-eI-mGr_Xsnzpg0nXdM3gHKlD_MCx3j-PncAD46xyj5Wa6zsX1RXj-DwfNpPGT&disable-funding=credit&components=buttons">
+<script src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&components=buttons">
 </script>
 <script>
     paypal.Buttons({

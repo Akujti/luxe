@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
 use App\Mail\FormMail;
-use App\Mail\GeneralMailTemplate;
 use App\Models\FormSubmit;
-use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Mail\GeneralMailTemplate;
+use Exception;
+use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
@@ -81,6 +80,7 @@ class FormController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Form isn\'t saved, there was a problem with the entered data');
         }
+
         try {
             FormSubmit::create([
                 'form_title' => $request->form_title,
@@ -92,13 +92,24 @@ class FormController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Form couldn\'t be saved');
         }
+
         try {
-            $to = $request->to_email;
+            if (isset($request->form_title_value)) {
+                $to = $this->getEmails($request->form_title_value, $request->to_email);
+            } else {
+                $to = $this->getEmails($request->form_title);
+            }
+
             array_push($to, $request->agent_email);
             $cc = [];
             Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
-        } catch (Exception $e) {
+        } catch (\Throwable $th) {
+            // return response()->json('Something went wrong', 500);
             return redirect()->back()->with('error', 'Form is saved but there was a problem sending the email');
+        }
+
+        if ($request->wantsJson()) {
+            return response()->json('success');
         }
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
@@ -115,16 +126,31 @@ class FormController extends Controller
 
     public function submitAgreementAgentForm(Request $request)
     {
-        $details = [];
-        foreach ($request->except('_token', 'to_email', 'agreement_type') as $key => $val) {
-            $details[strtolower($key)] = $val;
+        try {
+            $details = [];
+            foreach ($request->except('_token', 'to_email', 'agreement_type') as $key => $val) {
+                $details[strtolower($key)] = $val;
+            }
+            $details['agreement'] = env('APP_URL') . '/' . $request->agreement_type . '?mentor_name=' . $request->mentor_name . '&agent_full_name=' . $request->agent_full_name . '&date_signed=' . $request->date_signed;
+            $to = $request->to_email;
+            array_push($to, $request->agent_email);
+            $cc = [];
+            Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Something went wrong!');
         }
-        $details['agreement'] = env('APP_URL') . '/' . $request->agreement_type . '?mentor_name=' . $request->mentor_name . '&agent_full_name=' . $request->agent_full_name . '&date_signed=' . $request->date_signed;
-        $to = $request->to_email;
-        array_push($to, $request->agent_email);
-        $cc = [];
-        Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
 
         return redirect()->back()->with('message', 'Agreement has been submitted!');
+    }
+
+    public function getEmails($title, $extraEmail = '')
+    {
+        $form = Form::where('title', $title)->firstOrFail();
+
+        $data = $form->emails()->get()->pluck('email')->toArray();
+        if ($extraEmail) {
+            array_push($data, $extraEmail);
+        }
+        return $data;
     }
 }

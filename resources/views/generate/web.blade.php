@@ -2,7 +2,9 @@
 @section('content')
 <style>
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
+        color: #fff;
+        font-family: 'gothicbold';
         padding: 10px;
         display: block;
         border: 1px solid black;
@@ -15,7 +17,7 @@
         margin-top: 10px;
         margin-bottom: 5px;
         width: 100%;
-        border: 1px solid #FFCF40;
+        border: 1px solid #262626;
         font-family: Lato;
     }
 
@@ -62,11 +64,11 @@
 <body>
     <form action="{{ route('generate.offer') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="container mb-5">
+        <div class="container mb-5 mt-5">
             <div class="row mb-5">
                 <div class="row-image">
                     <div class="page">
-                        <div class="header">
+                        <div class="">
                             <img src="images/generate_logo.jpg" alt="" style="width:300px">
                             <p class="light-gray">55 Merrick Way Suite 402<br>Coral Gables, FL
                                 33134<br>O:
@@ -183,7 +185,7 @@
             <div class="row mt-5">
                 <div class="row-image">
                     <div class="page">
-                        <div class="header">
+                        <div class="">
                             <img src="images/generate_logo.jpg" alt="" style="width:300px">
                             <p class="light-gray">55 Merrick Way Suite 402<br>Coral Gables, FL
                                 33134<br>O:
@@ -291,7 +293,7 @@
                         </div>
                         <div class="" style="margin-top:10px;">
                             <button type="submit" name="action" value="Generate"
-                                class="generate w-100">DOWNLOAD</button>
+                                class="btn btn-luxe generate w-100">DOWNLOAD</button>
                         </div>
                     </div>
                 </div>

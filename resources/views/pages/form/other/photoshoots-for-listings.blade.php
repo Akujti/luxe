@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
 @section('content')
 <style>
     @media(min-width:1200px) {
@@ -7,7 +7,7 @@
         }
     }
 </style>
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center my-4">
         <div class="col-md-12">
             <div id="popup" class="card">
@@ -66,10 +66,10 @@
                     <h1 class="text-center my-4">Photoshoots For Listings</h1>
                 </div>
                 <input type="hidden" name="form_title" value="Photoshoots For Listings">
-                <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
+                <!-- <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="support@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="support@luxeknows.com"> -->
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -127,7 +127,7 @@
                                 been assigned**
                             </h6>
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

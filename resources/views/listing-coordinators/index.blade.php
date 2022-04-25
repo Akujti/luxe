@@ -1,14 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Service&StaffRequests'])
 @section('css')
 <style>
     body {
-        background: url('{{asset('images/bg-image1.jpg')}}');
         height: 100vh;
-        background-size: cover;
-        background-position: center;
-        background-color: rgba(0, 0, 0, 0.7);
-        background-blend-mode: color;
-
     }
 
     main,
@@ -39,7 +33,8 @@
 
     .agent-name {
         margin-top: 20px;
-        background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(255, 255, 255, 0.26) 100%);
+        background-color: #262626;
+        color: #fff;
         border-radius: 15px;
         border: 1px solid #fff;
         padding: 18px 25px;
@@ -53,24 +48,22 @@
         object-position: top;
     }
 
-    /* .agents .col.my-2 {
-        display: flex;
-        flex-flow: column;
-        align-self: center;
-    } */
+    .h1-luxe {
+        font-family: 'gothicbold';
+    }
 </style>
 @endsection
 @section('content')
 
-<div class="container agents">
-    <h1 class="text-center text-white">LISTING COORDINATORS</h1>
+<div class="container-fluid agents">
+    <h1 class="text-center h1-luxe">LISTING COORDINATORS</h1>
     <div class="row">
         @foreach ($coordinators as $coordinator)
         <div class="col-md-4 my-2">
             @if (auth()->user() && auth()->user()->isAdmin)
             <form action="{{route('listing_coordinator.change_status',['id'=>$coordinator->id])}}" method="POST">
                 @csrf
-                <button type="submit" class="btn btn-luxe text-center w-100">{{$coordinator->status ?
+                <button type="submit" class="btn-luxe text-center w-100">{{$coordinator->status ?
                     'Hide':'Show'}}</button>
             </form>
             @endif

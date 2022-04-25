@@ -1,1 +1,1 @@
-<p class="text-center" style="font-size: 28px">Password to watch videos is: Luxe$knows</p>
+<p class="text-center" style="font-size: 28px;font-family: 'gothicbold'">Password to watch videos is: Luxe$knows</p>

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center my-4">
+<div class="container-fluid">
+    <div class="row justify-content-center">
         <div class="col-md-12">
 
-            <form action="{{route('form.store')}}" class="card form my-4 p-3" method="POST">
+            <form action="{{route('form.store')}}" class="card form p-3" method="POST">
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">Pre-Approval Form</h1>
@@ -64,7 +64,7 @@
                             <label for="name">Any other additional information may be provided below.</label>
                             <input type="text" name="additional" class="form-control" required value="-">
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

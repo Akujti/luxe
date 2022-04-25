@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Service&StaffRequests'])
 @section('content')
 <style>
     @media(min-width:1200px) {
@@ -7,8 +7,8 @@
         }
     }
 </style>
-<div class="container">
-    <div class="row justify-content-center my-4">
+<div class="container-fluid">
+    <div class="row justify-content-center">
         <div class="col-md-12">
             <div id="popup" class="card">
                 <div class="card-header text-center">
@@ -31,18 +31,18 @@
                 </div>
             </div>
 
-            <form action="{{route('general.email.post')}}" class="card form my-4 p-3 d-none" method="POST"
+            <form action="{{route('general.email.post')}}" class="card form p-3 d-none" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">WIRE INSTRUCTIONS REQUEST</h1>
                 </div>
                 <input type="hidden" name="form_title" value="WIRE INSTRUCTIONS REQUEST">
-                <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
+                <!-- <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
-                <input type="hidden" name="to_email[]" value="email@luxeknows.com">
+                <input type="hidden" name="to_email[]" value="email@luxeknows.com"> -->
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -70,7 +70,7 @@
                             <label for="name">Property Address For Wire</label>
                             <input type="text" name="property_address_for_wire" class="form-control" required>
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group form-footer col-12">
                             <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                         </div>
                     </div>

@@ -16,8 +16,15 @@ class File extends Model
         'folder_id',
     ];
 
+    protected $appends = ['fileUrl'];
+
     public function folder()
     {
         return $this->hasOne(Folder::class);
+    }
+
+    public function getFileUrlAttribute()
+    {
+        return asset('storage/' . $this->file);
     }
 }

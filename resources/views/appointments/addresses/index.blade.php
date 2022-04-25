@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Service&StaffRequests'])
 @section('js')
 @endsection
 @section('css')
 @endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row m-0 w-100 justify-content-center">
         <div class="position-relative w-100 text-center">
             <h1>Addresses</h1>
@@ -27,7 +27,7 @@
                         <td>{{++$loop->index}}</td>
                         <td>{{$address->title}}</td>
                         <td>{{$address->email}}</td>
-                        <td class="d-flex"><button class="btn btn-primary mr-2" data-toggle="modal"
+                        <td class="d-flex"><button class="btn btn-luxe mr-2" data-toggle="modal"
                                 data-target="#editModal{{$address->id}}">Edit</button>
                             <form action="{{route('appointment-addresses.destroy',$address)}}" method="POST"
                                 onSubmit="return confirm('Are you sure you want to delete this address?');">
@@ -37,7 +37,7 @@
                             </form>
                         </td>
                     </tr>
-                    <div id="editModal{{$address->id}}" class="modal fade" tabindex="-1" role="dialog">
+                    <div id="editModal{{$address->id}}" class="modal fade modal-new" tabindex="-1" role="dialog">
                         <form action="{{route('appointment-addresses.update',$address)}}" method="POST">
                             @method('PUT')
                             @csrf
@@ -62,9 +62,9 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-luxe">Save</button>
-                                        <button type="button" class="btn btn-secondary"
+                                    <button type="button" class="btn"
                                             data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-luxe">Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
         </div>
     </div>
 </div>
-<div id="exampleModal" class="modal fade" tabindex="-1" role="dialog">
+<div id="exampleModal" class="modal fade modal-new" tabindex="-1" role="dialog">
     <form action="{{route('appointment-addresses.store')}}" method="POST">
         @csrf
         <div class="modal-dialog" role="document">
@@ -98,8 +98,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-luxe">Save</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

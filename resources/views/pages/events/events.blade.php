@@ -22,12 +22,12 @@
 </style>
 @endsection
 @section('content')
-<div class="container">
-    <div class="row my-4">
+<div class="container-fluid">
+    <div class="row w-100 m-0">
         <div id='calendar' style="width: 100%; display: inline-block;"></div>
     </div>
     @if ($isAdmin)
-    <div class="create-event modal fade" tabindex="-1" role="dialog">
+    <div class="create-event modal fade modal-new" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -97,7 +97,7 @@
         </div><!-- /.modal-dialog -->
     </div>
     @endif
-    <div class="single-event modal fade" tabindex="-1" role="dialog">
+    <div class="single-event modal fade modal-new" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -162,7 +162,7 @@
                                     disabled>
                                 @endif
                                 <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
-                                    class="btn btn-primary w-100 mt-2" style="color: white !important;">{{ __('OPEN
+                                    class="btn btn-luxe w-100 mt-2" style="color: white !important;">{{ __('OPEN
                                     ZOOM') }}</a>
                             </div>
                         </div>
@@ -178,18 +178,18 @@
                         </div>
                     </div>
                     <div class="modal-footer"
-                        style="flex-direction: row-reverse; display: flex;justify-content: flex-start;">
+                        style="flex-direction:row-reverse;display: flex;justify-content: flex-start;">
                         @if ($isAdmin)
                         <button type="submit" class="btn btn-luxe" id="update_event">Update</button>
                         @endif
 
                 </form>
-                <form action="{{ route('events.destroy',1) }}" method="POST" enctype="multipart/form-data" class="m-0">
+                <form action="{{ route('events.destroy',1) }}" method="POST" enctype="multipart/form-data" class="m-0 w-50">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="event_id" id="event_id">
                     @if ($isAdmin)
-                    <button type="submit" class="btn btn-danger mr-2" id="delete_event"
+                    <button type="submit" class="btn btn-danger mr-2 w-100" id="delete_event"
                         onclick="return confirm('Are you sure you want to delete this event?');">Delete
                     </button>
                     @endif

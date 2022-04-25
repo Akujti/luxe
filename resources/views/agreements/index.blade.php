@@ -1,14 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Service&StaffRequests'])
 @section('css')
 <style>
     body {
-        background: url('{{asset('images/bg-image1.jpg')}}');
         height: 100vh;
-        background-size: cover;
-        background-position: center;
-        background-color: rgba(0, 0, 0, 0.7);
-        background-blend-mode: color;
-
     }
 
     main,
@@ -23,7 +17,7 @@
 
     .card-header {
         font-size: 18px;
-        color: #ffffff;
+        color: #262626;
         line-height: 22px;
         text-align: center;
         padding: 0;
@@ -32,16 +26,15 @@
         padding-top: 10px;
     }
 
-
     a:hover {
         text-decoration: none;
     }
 
     .agent-name {
         margin-top: 20px;
-        background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(255, 255, 255, 0.26) 100%);
+        background: #262626;
         border-radius: 15px;
-        border: 1px solid #fff;
+        color: #fff;
         padding: 18px 30px;
         text-transform: uppercase;
         font-size: 16px;
@@ -54,17 +47,15 @@
         object-position: top;
     }
 
-    /* .agents .col.my-2 {
-        display: flex;
-        flex-flow: column;
-        align-self: center;
-    } */
+    .h1-luxe {
+        font-family: 'gothicbold';
+    }
 </style>
 @endsection
 @section('content')
 
-<div class="container agents">
-    <h1 class="text-center text-white">MENTORS</h1>
+<div class="container-fluid agents">
+    <h1 class="text-center h1-luxe">MENTORS</h1>
     <div class="row">
         @foreach ($agents as $agent)
         <div class="col-12 col-lg-3 my-2">

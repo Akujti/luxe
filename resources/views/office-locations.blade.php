@@ -4,10 +4,11 @@
     .wrapper h1 {
         font-weight: 400;
         letter-spacing: 2px;
-        background: #FFCF40;
+        background: #262626;
         padding: 10px;
         border: 1px solid #dadada;
         border-radius: 10px;
+        color: #fff;
     }
 
     .address {
@@ -20,8 +21,8 @@
         letter-spacing: 1px;
     }
 </style>
-<div class="container">
-    <div class="row justify-content-center my-4">
+<div class="container-fluid">
+    <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card form p-3">
                 <div class="wrapper">

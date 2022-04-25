@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
 @section('js')
 <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
 @endsection
@@ -20,6 +20,7 @@
 
     .folder p {
         margin: 0;
+        margin-bottom: 20px;
     }
 
     .folder:hover {
@@ -34,99 +35,101 @@
 
     .folder img {
         width: 70%;
+        height: 220px;
+        margin-top: 20px;
     }
 </style>
 @endsection
 @section('content')
 <style>
 </style>
-<div class="container">
+<div class="container-fluid">
     @include('includes.video_title')
     <div class="row my-4">
-        <div class="col-12 col-lg-4 mb-4">
+        <div class="col-12 col-lg-3 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','working_with_buyers')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         WORKING WITH BUYERS, SELLERS, & RENTALS
                     </p>
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-4 mb-4">
+        <div class="col-12 col-lg-3 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','lead_generation_conversion')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         LEAD GENERATION & CONVERSION
                     </p>
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-4 mb-4">
+        <div class="col-12 col-lg-3 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','business_planning')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         BUSINESS PLANNING & PERSONAL DEVELOPMENT
                     </p>
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-4 mb-4">
+        <div class="col-12 col-lg-3 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','how_to_do_contracts_forms')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         HOW TO DO CONTRACTS & FORMS
                     </p>
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-4 mb-4">
+        <div class="col-12 col-lg-3 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','contracts_to_close')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         CONTRACTS TO CLOSE
                     </p>
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-4 mb-4">
+        <div class="col-12 col-lg-3 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','technology_walkthrough_how_to')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         TECHNOLOGY WALK-THROUGH & HOW TO
                     </p>
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-4 mb-4">
+        <div class="col-12 col-lg-3 mb-4">
             <div class="folder mb-2">
                 <a href="javascript:void(0)">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         MARKETING & BRANDING
                     </p>
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-4 mb-4">
+        <div class="col-12 col-lg-3 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','inspections_financing_title_insurance')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         INSPECTIONS, FINANCING, TITLE, INSURANCE
                     </p>
                 </a>
             </div>
         </div>
-        <div class="col-12 col-lg-4 mb-4">
+        <div class="col-12 col-lg-3 mb-4">
             <div class="folder mb-2">
                 <a href="{{route('video.folder','commercial_real_estate')}}">
-                    <img src="/images/files/video-folder.png" alt="">
+                    <img src="/images/files/video-folder.svg" alt="">
                     <p>
                         COMMERCIAL REAL ESTATE
                     </p>

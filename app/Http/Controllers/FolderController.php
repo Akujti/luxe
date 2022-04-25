@@ -16,20 +16,24 @@ class FolderController extends Controller
         $filters = [
             'id' => $request->get('id'),
         ];
-        $folders = Folder::where('title', '!=', 'XNvgkxNbjU')->where(function ($query) use ($filters) {
+        $folders = Folder::with('files')->where('title', '!=', 'XNvgkxNbjU')->where(function ($query) use ($filters) {
             if ($filters['id']) {
                 $query->where('parent_id', $filters['id']);
             } else {
                 $query->whereNull('parent_id');
             }
-        })->latest()->get();
+        })->orderBy('title', $request->input('sort', 'asc'))->get();
         $files = File::where(function ($query) use ($filters) {
             if ($filters['id']) {
                 $query->where('folder_id', $filters['id']);
             } else {
                 $query->whereNull('folder_id');
             }
-        })->latest()->get();
+        })->orderBy('title', $request->input('sort', 'asc'))->get();
+
+        if (request()->wantsJson()) {
+            return response()->json(['folders' => $folders, 'files' => $files]);
+        }
         return view('pages.files.index', compact('folders', 'files', 'folder_id'));
     }
 

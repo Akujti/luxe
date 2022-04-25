@@ -15,4 +15,16 @@ class AgreementAgent extends Model
         'agreement_page',
         'image'
     ];
+
+    protected $appends = ['imageUrl', 'status'];
+
+    public function getImageUrlAttribute()
+    {
+        return asset('images/agents/' . $this->image);
+    }
+
+    public function getStatusAttribute()
+    {
+        return true;
+    }
 }

@@ -27,6 +27,9 @@ class PageController extends Controller
     public function agreement_agents()
     {
         $agents = AgreementAgent::get();
+        if (request()->wantsJson()) {
+            return response()->json(['agents' => $agents]);
+        }
         return view('agreements.index', compact('agents'));
     }
 

@@ -17,7 +17,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::get();
+        $events = Event::whereMonth('date', '>=', date('m'))->get();
+        if (request()->wantsJson()) {
+            return response()->json(['events' => $events]);
+        }
         $isAdmin = Auth::user()->isAdmin;
         return view('pages.events.events', compact('events', 'isAdmin'));
     }

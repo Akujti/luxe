@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39.696" height="39.696" viewBox="0 0 39.696 39.696">
+  <g id="vuesax_linear_document-upload" data-name="vuesax/linear/document-upload" transform="translate(-364 -188)">
+    <g id="document-upload" transform="translate(364 188)">
+      <path id="Vector" d="M3.308,9.924V0L0,3.308" transform="translate(11.578 18.194)" fill="none" stroke="#292d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Vector-2" data-name="Vector" d="M0,0,3.308,3.308" transform="translate(14.886 18.194)" fill="none" stroke="#292d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Vector-3" data-name="Vector" d="M33.08,13.232V21.5c0,8.27-3.308,11.578-11.578,11.578H11.578C3.308,33.08,0,29.772,0,21.5V11.578C0,3.308,3.308,0,11.578,0h8.27" transform="translate(3.308 3.308)" fill="none" stroke="#292d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Vector-4" data-name="Vector" d="M13.232,13.232H6.616C1.654,13.232,0,11.578,0,6.616V0Z" transform="translate(23.156 3.308)" fill="none" stroke="#292d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Vector-5" data-name="Vector" d="M0,0H39.7V39.7H0Z" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>
