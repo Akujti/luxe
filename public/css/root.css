@@ -125,7 +125,7 @@
     position: absolute;
     bottom: 0;
     width: 76%;
-    left:50%;
+    left:46%;
     transform: translate(-50%, -0%);
 }
 .sidebar-details p {
@@ -133,7 +133,7 @@
 }
 .sidebar-details p .text {
     font-family: Montserrat;
-    font-size: 18px;
+    font-size: 16px;
 }
 .sidebar-details p span:not(.text) {
     margin-right: 15px;

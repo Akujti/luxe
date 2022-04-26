@@ -12,6 +12,8 @@ class LuxeStoreOrder extends Model
 
     protected $fillable = ['information_seller', 'email', 'phone', 'agent_name', 'agent_surname', 'status'];
 
+    protected $with = ['products', 'payment'];
+
     public function products() {
         return $this->hasMany(LuxeStoreOrderProduct::class, 'order_id');
     }

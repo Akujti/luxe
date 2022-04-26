@@ -164,7 +164,7 @@ class FormSeeder extends Seeder
         ]);
 
         $parent = Form::create([
-            'title' => 'CLOSING COORDINATORS - Accept Params'
+            'title' => 'CLOSING COORDINATORS'
         ]);
         $parent->emails()->createMany([
             ['email' => 'marketing@luxeknows.com'],

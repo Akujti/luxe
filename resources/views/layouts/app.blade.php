@@ -171,7 +171,7 @@
                             <div class="contact-details">
                                 <div class="right-contactsd">
                                     <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
-                                    <a href="#"><img src="/images/account-icon.svg" alt=""></a>
+                                    <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg" alt=""></a>
                                     <a href="#"><img src="/images/search-icon.svg" alt=""></a>
                                 </div>
                             </div>
@@ -194,7 +194,7 @@
                         <div class="w-100 sidebar-logo-details-details d-flex align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
-                                <a href="#"><img src="/images/account-icon.svg" alt=""></a>
+                                <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg" alt=""></a>
                                 <a href="#"><img src="/images/search-icon.svg" alt=""></a>
                             </div>
                         </div>

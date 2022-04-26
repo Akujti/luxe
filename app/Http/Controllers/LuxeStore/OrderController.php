@@ -28,10 +28,7 @@ class OrderController extends Controller
         try {
             $row = new LuxeStoreOrder;
 
-            $row->email = $req->billing['email'];
-            $row->phone = $req->billing['phone'];
-            $row->agent_name = $req->billing['agent_name'];
-            $row->agent_surname = $req->billing['agent_surname'];
+            $row->user_id = auth()->id();
             $row->status = 'Paid';
 
             $row->save();
@@ -98,9 +95,9 @@ class OrderController extends Controller
                 $row->shipping_details()->create($req->shipping);
             }
 
-            Session::flush('shopping_cart');
-            Session::flush('coupon_code');
-
+            Session::forget('shopping_cart');
+            Session::forget('coupon_code');
+            Session::save();
 
             DB::commit();
             return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');
@@ -122,7 +119,8 @@ class OrderController extends Controller
             if ($checkStock->stock >= $quantity) {
                 $cart_data[0][$key]["item_quantity"] = $quantity;
 
-                Session::flush('shopping_cart');
+                Session::forget('shopping_cart');
+                Session::save();
                 Session::put('shopping_cart', $cart_data);
                 return true;
             } else {
@@ -156,7 +154,8 @@ class OrderController extends Controller
             if ($checkStock->stock >= $cart_data[$key]["item_quantity"]) {
                 $item_data = $cart_data;
 
-                Session::flush('shopping_cart');
+                Session::forget('shopping_cart');
+                Session::save();
                 Session::push('shopping_cart', $item_data);
 
                 return back()->with('message', '"' . $cart_data[$key]["item"]["name"] . '" Already Added to Cart');
@@ -174,7 +173,8 @@ class OrderController extends Controller
 
                     if ($checkStock->stock >= $cart_data[$key]["item_quantity"]) {
                         $item_data = $cart_data;
-                        Session::flush('shopping_cart');
+                        Session::forget('shopping_cart');
+                        Session::save();
                         Session::push('shopping_cart', $item_data);
                         return back()->with('message', '"' . $cart_data[$key]["item"]["name"] . '" Already Added to Cart');
                     } else {
@@ -227,7 +227,9 @@ class OrderController extends Controller
                 'item_name' => $name
             );
             $cart_data[] = $item_array;
-            Session::flush('shopping_cart');
+
+            Session::forget('shopping_cart');
+            Session::save();
             Session::push('shopping_cart', $cart_data);
             
             return back()->with('message', '"' . $product->name . '" Added to Cart');
@@ -290,7 +292,8 @@ class OrderController extends Controller
 
             unset($cart_data[$req->key]);
 
-            Session::flush('shopping_cart');
+            Session::forget('shopping_cart');
+            Session::save();
             Session::push('shopping_cart', $cart_data);
         }
 

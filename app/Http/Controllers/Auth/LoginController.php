@@ -79,6 +79,11 @@ class LoginController extends Controller
                 $new_user->wp_id = $user_wp->ID;
                 $new_user->isAdmin = key_exists('slug', $response->json());
                 $new_user->save();
+
+                $user = User::find($new_user->id);
+                $user->profile()->create([
+                    'avatar' => null
+                ]);
                 Auth::login($new_user);
             }
             if ($request->wantsJson()) {

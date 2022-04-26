@@ -296,6 +296,11 @@ Route::group(
         Route::view('w-9', 'w-9.web');
         Route::post('w-9', [W9Controller::class, 'store'])->name('w-9');
         Route::get('w-9/download/{id}', [W9Controller::class, 'download'])->name('w-9.download');
+
+        Route::group(['prefix' => 'profile', 'as' => 'profile.'], function() {
+            Route::get('/', [UserController::class, 'my_profile'])->name('my_profile');
+            Route::put('/', [UserController::class, 'update_profile'])->name('update');
+        });
     }
 );
 
@@ -334,6 +339,8 @@ Route::group(
 
         Route::resource('appointment-addresses', AppointmentAddressController::class);
         Route::resource('agent-emails', AgentEmailController::class);
+
+        Route::get('view-profile/{id}', [UserController::class, 'view_profile']);
     }
 );
 
@@ -402,6 +409,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 
     Route::group(['prefix' => 'orders', 'as' => 'orders.'], function () {
         Route::get('/', [OrderController::class, 'admin_index'])->name('index');
+    });
+
+    Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+        Route::get('/', [UserController::class, 'admin_index'])->name('index');
+        Route::post('/', [UserController::class, 'create'])->name('create');
+        Route::put('/', [UserController::class, 'update'])->name('update');
+        Route::delete('/', [UserController::class, 'delete'])->name('delete');
     });
 
 

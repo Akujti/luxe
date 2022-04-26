@@ -156,6 +156,19 @@
         background-color: #262626 !important;
         color: #fff !important;
     }
+    .update-event {
+        padding-left: 0px !important;
+    }
+    .btn-logout {
+        padding: 0px;
+        margin: 0px;
+        background: none;
+        border: none;
+        color: #262626;
+    }
+    .btn-logout:hover {
+        color: #fff;
+    }
 </style>
 
 <body>
@@ -186,14 +199,17 @@
                                     <li class="nav-item dropdown">
                                         <a class="d-flex align-items-center nav-link dropdown-toggle m-0 p-0" href="#" id="navbarDropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <img id="user-logo-dropdown" src="/images/agents/albert.jpg">
+                                            <img id="user-logo-dropdown" src="{{ auth()->user()->avatar }}">
                                             <span id="user-name-dropdown">Me</span>
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <a class="dropdown-item" href="#">
                                                 <div class="">
-                                                    <span class="item-box">Logout</span>
+                                                    <form action="{{route('logout')}}" method="post" class="">
+                                                        @csrf
+                                                        <button class="btn btn-logout"><span class="item-box">Logout</span></button>
+                                                    </form>
                                                 </div>
                                             </a>
                                         </div>
@@ -211,11 +227,12 @@
                             <nav>
                                 <a href="{{ route('admin.index') }}" class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">Dashboard</a>
                                 <a href="{{ route('admin.forms.index') }}" class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">Forms</a>
-                                <a href="{{ route('admin.canva.marketing.index_admin') }}" class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">Marketing Canva</a>
+                                <a href="{{ route('admin.canva.marketing.index_admin') }}" class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">Canva</a>
                                 <a href="{{ route('admin.orders.index') }}" class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">Orders</a>
                                 <a href="{{ route('admin.luxe_store.index') }}" class="{{ (isset($active) && $active == 'Categories') ? 'active selected': '' }}">Categories</a>
                                 <a href="{{ route('admin.luxe_store.products.index') }}" class="{{ (isset($active) && $active == 'Products') ? 'active selected': '' }}">Products</a>
                                 <a href="{{ route('admin.luxe_store.coupons.index') }}" class="{{ (isset($active) && $active == 'Coupons') ? 'active selected': '' }}">Coupons</a>
+                                <a href="{{ route('admin.users.index') }}" class="{{ (isset($active) && $active == 'Users') ? 'active selected': '' }}">Users</a>
                             </nav>
                         </div>
                     </div>
@@ -243,13 +260,16 @@
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle m-0 p-0" href="#" id="navbarDropdownMenuLink"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <img id="user-logo-dropdown" src="/images/agents/albert.jpg">
+                                                    <img id="user-logo-dropdown" src="{{ auth()->user()->avatar }}">
                                                 </a>
 
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                                     <a class="dropdown-item" href="#">
                                                         <div class="">
-                                                            <span class="item-box">Logout</span>
+                                                        <form action="{{route('logout')}}" method="post" class="p-0 m-0">
+                                                            @csrf
+                                                            <button class="btn btn-logout"><span class="item-box">Logout</span></button>
+                                                        </form>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -281,6 +301,9 @@
                                 </li>
                                 <li class="{{ (isset($active) && $active == 'Coupons') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.luxe_store.coupons.index') }}">Coupons</a>
+                                </li>
+                                <li class="{{ (isset($active) && $active == 'Users') ? 'active selected': '' }}">
+                                    <a href="{{ route('admin.users.index') }}">Users</a>
                                 </li>
                             </ul>
                         </div>
