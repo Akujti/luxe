@@ -6,12 +6,15 @@
         font-family: Raleway;
         padding: 40px;
     }
+
     h1 {
         text-align: center;
     }
+
     input {
         font-family: 'gothicregular' !important;
     }
+
     /* input {
         margin-right: auto;
         padding: 10px;
@@ -24,11 +27,13 @@
     input.invalid {
         background-color: #ffdddd;
     }
+
     /* Hide all steps by default: */
     .tab {
         display: none;
         min-height: 300px;
     }
+
     button {
         background-color: #04AA6D;
         color: #ffffff;
@@ -38,12 +43,15 @@
         font-family: Raleway;
         cursor: pointer;
     }
+
     button:hover {
         opacity: 0.8;
     }
+
     #prevBtn {
         background-color: #bbbbbb;
     }
+
     /* Make circles that indicate the steps of the form: */
     .step {
         height: 15px;
@@ -55,18 +63,22 @@
         display: inline-block;
         opacity: 0.5;
     }
+
     .step.active {
         opacity: 1;
     }
+
     /* Mark the steps that are finished and valid: */
     .step.finish {
         background-color: #262626;
     }
+
     .wrapper h1 {
         letter-spacing: 2px;
         padding: 10px;
         border-radius: 10px;
     }
+
     .shadow-box {
         width: 100%;
         display: flex;
@@ -77,9 +89,11 @@
         padding: 20px;
         margin-bottom: 20px;
     }
+
     label {
         margin: 0;
     }
+
     input[type="radio"],
     input[type="checkbox"] {
         width: 20px;
@@ -91,6 +105,7 @@
     .ui-datepicker-week-end a {
         outline: 1px solid #262626;
     }
+
     #ui-datepicker-div {
         display: none;
         background-color: #fff;
@@ -99,6 +114,7 @@
         border-radius: 0.5rem;
         padding: 0.5rem;
     }
+
     .ui-datepicker-calendar thead th {
         padding: 0.25rem 0;
         text-align: center;
@@ -106,11 +122,13 @@
         font-weight: 400;
         color: #78909C;
     }
+
     .ui-datepicker-calendar tbody td {
         width: 2.5rem;
         text-align: center;
         padding: 0;
     }
+
     .ui-datepicker-calendar tbody td a {
         margin-bottom: 4px;
         display: block;
@@ -121,14 +139,17 @@
         font-size: 0.875rem;
         text-decoration: none;
     }
+
     .ui-datepicker-calendar tbody td a:hover {
         background-color: #262626;
         color: #fff;
     }
+
     .ui-datepicker-calendar tbody td a.ui-state-active {
         background-color: #262626;
         color: #fff;
     }
+
     .ui-datepicker-header a.ui-corner-all {
         cursor: pointer;
         position: absolute;
@@ -139,9 +160,11 @@
         border-radius: 0.25rem;
         transition: 0.3s all;
     }
+
     .ui-datepicker-header a.ui-corner-all:hover {
         background-color: #ECEFF1;
     }
+
     .ui-datepicker-header a.ui-datepicker-prev {
         left: 0;
         background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==");
@@ -150,6 +173,7 @@
         background-position: 50%;
         transform: rotate(180deg);
     }
+
     .ui-datepicker-header a.ui-datepicker-next {
         right: 0;
         background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==');
@@ -157,9 +181,11 @@
         background-size: 10px;
         background-position: 50%;
     }
+
     .ui-datepicker-header a>span {
         display: none;
     }
+
     .ui-datepicker-title {
         text-align: center;
         line-height: 2rem;
@@ -168,17 +194,22 @@
         font-weight: 500;
         padding-bottom: 0.25rem;
     }
+
     .ui-datepicker-week-col {
         color: #78909C;
         font-weight: 400;
         font-size: 0.75rem;
     }
-    .h1-luxe, .h4-luxe {
+
+    .h1-luxe,
+    .h4-luxe {
         font-family: 'gothicbold';
     }
+
     .label {
         font-family: 'gothicbold';
     }
+
     .btn-previous {
         font-family: 'gothicbold';
         font-size: 18px !important;
@@ -186,6 +217,7 @@
 </style>
 
 @section('content')
+
 <body>
     <div class="container-fluid wrapper">
         <div id="popup" class="card">
@@ -205,15 +237,15 @@
                 </b>
                 <p>Listing agent will be the one to provide access instructions for the property.</p>
             </div>
-            <div class="card-footer">
-                <button onclick="showForm()" class="btn btn-luxe w-100">I Agree</button>
+            <div class="card-footer text-center">
+                <button onclick="showForm()" class="btn btn-luxe px-4">I Agree</button>
             </div>
         </div>
         <form id="regForm" action="{{route('appointments.store')}}" method="POST" class="d-none p-0">
             <h1 class="h1-luxe position-relative">Appointments
                 @if (Auth::user() && Auth::user()->isAdmin)
-                <a href="{{route('appointment-addresses.index')}}"
-                    class="btn btn-dark position-absolute text-white" style="right: 15px;top:15px">Addresses</a>
+                <a href="{{route('appointment-addresses.index')}}" class="btn btn-dark position-absolute text-white"
+                    style="right: 15px;top:15px">Addresses</a>
                 @endif
             </h1>
             @csrf
@@ -240,11 +272,12 @@
                     <i class="label">Available days are Saturday and Sunday</i>
                 </div>
                 <label for="html" class="label">Select Time Slot</label>
+                <p id="time-slot-available" class="d-none">No available time slots</p>
                 <div class="form-group time-group">
                 </div>
             </div>
             <div class="tab">
-                <h4  class="my-4 h4-luxe">3. Your Information</h4>
+                <h4 class="my-4 h4-luxe">3. Your Information</h4>
                 <hr>
                 <div class="form-group">
                     <label for="" class="label">Your Name</label>
@@ -425,6 +458,12 @@ function fixStepIndicator(n) {
                     data:'_token = <?php echo csrf_token() ?>',
                     success:function(data) {
                         data = data.time_slots
+                        if(data.length){
+                            document.getElementById('time-slot-available').classList.add('d-none')
+                        }
+                        else{
+                            document.getElementById('time-slot-available').classList.remove('d-none')
+                        }
                         data.forEach(element => {
                             $('.time-group').append('<div class="shadow-box"> <label for="html">'+element.title+'</label><input type="radio" name="time_slot" value="'+element.id+'"></div>')
                         });
