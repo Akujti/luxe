@@ -135,7 +135,8 @@
         }
     }
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
+<script
+    src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
 </script>
 <script>
     paypal.Buttons({
@@ -158,7 +159,7 @@
     },
     onInit: function(data, actions) {
         actions.disable();
-        document.querySelectorAll('input').forEach(item => {
+        document.querySelectorAll('input, textarea').forEach(item => {
             item.addEventListener('input', () => {
                 if (document.getElementById("form").checkValidity()) {
                 actions.enable();
