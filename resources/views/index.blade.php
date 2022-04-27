@@ -48,6 +48,10 @@
         src: local("gothicregular"),
         url("{{ asset('fonts/index-page/gothicregular.ttf')}}") format("truetype");
     }
+    #a-href-login {
+        color: #262626;
+        text-decoration: none;
+    }
 </style>
 
 <body>
@@ -162,8 +166,7 @@
 
                             @endauth
                             @guest
-                            <button class="button py-2" style="font-size: 16px !important;"
-                                onclick="window.location='{{ route('login') }}' role=" button">Log in</button>
+                            <button class="button py-2" style="font-size: 16px !important;"><a id="a-href-login" href="{{ route('login') }}">Log in</a></button>
                             @endguest
                         </div>
                     </div>
