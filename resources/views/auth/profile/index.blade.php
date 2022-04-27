@@ -75,7 +75,6 @@
         padding: 7px;
         height: 45px;
         margin: 0px;
-        width: 75%;
     }
 </style>
 @endsection
@@ -129,7 +128,7 @@
                             </div>
                             <div class="form-group col-12">
                                 <label for="">Language</label>
-                                <div class="input-group">
+                                <div class="d-flex">
                                     <input type="text" class="form-control" id="language" value="">
                                     <button type="button" class="btn btn-luxe px-3 ml-2" onclick="add_language()">+</button>
                                 </div>
@@ -137,8 +136,8 @@
                                     @if(auth()->user()->profile && auth()->user()->profile->languages)
                                         @foreach(auth()->user()->profile->languages as $language)
                                             <div class="language-item">
-                                                <input type="text" name="languages[]" value="{{ $language }}">
-                                                <button type="button" class="btn btn-danger" onclick="remove_language(this)">&times;</button>
+                                                <input type="text" name="languages[]" class="form-control" value="{{ $language }}">
+                                                <button type="button" class="btn btn-danger ml-3" onclick="remove_language(this)">&times;</button>
                                             </div>
                                         @endforeach
                                     @endif

@@ -114,7 +114,7 @@
 
             let html = ''
             for(let i = 0; i < row.profile.languages.length; i++) {
-                html += '<div class="language-item"> <input type="text" name="languages[]" value="' + row.profile.languages[i] + '"> <button type="button" class="btn btn-danger" onclick="remove_language(this)">&times;</button></div>'
+                html += '<div class="language-item"> <input type="text" class="form-control" name="languages[]" value="' + row.profile.languages[i] + '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language(this)">&times;</button></div>'
             }
             $('.update-event').find('.language-section').html(html);
             $('.update-event').find('#support_specialists').val(row.profile.support_specialists);

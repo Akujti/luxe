@@ -61,7 +61,7 @@
                         </div>
                         <div class="form-group col-12 col-md-6 pr-0">
                             <label for="start">Language*</label>
-                            <div class='input-group'>
+                            <div class="d-flex">
                                 <input type="text" class="form-control" id="language">
                                 <button type="button" class="btn btn-luxe px-3 ml-2" onclick="add_language()">+</button>
                             </div>
@@ -96,7 +96,7 @@
 <script>
     function add_language() {
         let input = $('#language').val()
-        let html = '<div class="language-item"> <input type="text" name="languages[]" value="' + input + '"> <button type="button" class="btn btn-danger" onclick="remove_language(this)">&times;</button></div>'
+        let html = '<div class="language-item"> <input type="text" class="form-control" name="languages[]" value="' + input + '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language(this)">&times;</button></div>'
         $('.language-section').append(html)
         $('#language').val("")
     }
