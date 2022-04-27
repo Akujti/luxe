@@ -55,28 +55,34 @@ class LoginController extends Controller
         $user_pass = $request->password;
         $user_wp_attempt = false;
         $check_user = User::where('email', $user_email)->where('password', '!=', null)->first();
-        if ($check_user)
-            $user_wp_attempt = true;
-        else
-            $user_wp_attempt = Auth::guard('wordpress')->attempt([
-                'user_email' => $user_email,
-                'user_pass' => $user_pass
-            ]);
+        // if ($check_user)
+        //     $user_wp_attempt = true;
+        // else
+        $user_wp_attempt = Auth::guard('wordpress')->attempt([
+            'user_email' => $user_email,
+            'user_pass' => $user_pass
+        ]);
         if ($user_wp_attempt) {
             $exist_user = User::where('email', $user_email)->first();
-            if ($check_user && Auth::attempt(['email' => $user_email, 'password' =>  Hash::make($user_pass)])) {
-                if(!$check_user->profile) {
-                    $check_user->profile()->create([
-                        'avatar' => null,
-                        'fullname' => ' '
-                    ]);
+            if ($check_user) {
+                // dd(Auth::guard('wordpress')->user());
+
+                if (Auth::attempt(['email' => $user_email, 'password' =>  Hash::make($user_pass)])) {
+                    if (!$check_user->profile) {
+                        $check_user->profile()->create([
+                            'avatar' => null,
+                            'fullname' => Auth::guard('wordpress')->user()->display_name
+                        ]);
+                    }
+                    Auth::login($check_user);
+                } else {
+                    return redirect()->back()->with('error', 'These credentials do not match our records.');
                 }
-                Auth::login($check_user);
             } else if ($exist_user != null && $exist_user->count()) {
                 $exist_user->password = Hash::make($user_pass);
                 $exist_user->save();
 
-                if(!$exist_user->profile) {
+                if (!$exist_user->profile) {
                     $exist_user->profile()->create([
                         'avatar' => null,
                         'fullname' => ' '
