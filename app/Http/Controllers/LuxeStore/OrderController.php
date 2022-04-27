@@ -18,7 +18,7 @@ class OrderController extends Controller
 {
     public function admin_index()
     {
-        $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs'])->latest()->paginate(15);
+        $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->latest()->paginate(15);
         return view('admin.orders.index', compact('orders'));
     }
 

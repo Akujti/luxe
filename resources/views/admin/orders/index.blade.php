@@ -78,7 +78,7 @@
                                     <tbody>
                                         <tr id="tr-row">
                                             <td id="td-row">#{{ $order->id }}</td>
-                                            <td id="td-row">{{ $order->agent_name }} {{ $order->agent_surname }} </td>
+                                            <td id="td-row">{{ @$order->user->profile ? @$order->user->profile->fullname : '' }} </td>
                                             <td id="td-row">{{ $order->products->count() }} </td>
                                             <td id="td-row">${{ $order->payment->total_price }}</td>
                                             <td id="td-row">{{ $order->created_at->diffForHumans() }}</td>

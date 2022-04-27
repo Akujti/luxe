@@ -417,8 +417,6 @@ function fixStepIndicator(n) {
             $('.time-group').empty()
             if (!validate(evt.target.value)) {
                 evt.target.value = '';   
-            alert('ababa')
-
             }
             else{
                 $.ajax({

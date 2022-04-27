@@ -686,7 +686,7 @@
     </div>
 </div>
 <script
-    src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&components=buttons">
+    src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
 </script>
 <script>
     paypal.Buttons({
