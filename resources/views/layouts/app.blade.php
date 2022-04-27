@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -32,7 +33,6 @@
     @yield('css')
 </head>
 <style>
-
     @font-face {
         font-family: "gothicbold";
         src: local("gothicbold"),
@@ -44,6 +44,7 @@
         src: local("gothicregular"),
         url("{{ asset('fonts/index-page/gothicregular.ttf')}}") format("truetype");
     }
+
     footer {
         position: fixed;
         bottom: 0;
@@ -51,6 +52,7 @@
         height: 5px;
         width: 100%;
     }
+
     .header {
         position: fixed;
         top: 0;
@@ -64,10 +66,12 @@
         padding-right: 90px;
         padding-left: 75px;
     }
+
     header {
         position: relative;
         height: 114px;
     }
+
     .header-call a {
         display: block;
         line-height: 30px;
@@ -75,20 +79,25 @@
         font-size: 20px;
         font-family: Montserrat;
     }
+
     .header-call a img {
         margin-right: 5px;
         max-height: 35px;
     }
+
     .btn-luxe {
         background: #262626;
         color: #fff;
     }
+
     .contact-details {
         height: 100%;
     }
+
     .right-contactsd a:first-child {
         max-width: 330px;
     }
+
     .right-contactsd a {
         display: flex;
         align-items: center;
@@ -101,12 +110,14 @@
         width: auto;
         margin-left: 40px;
     }
+
     .right-contactsd {
         display: flex;
         align-items: center;
         justify-content: flex-end;
         height: 100%;
     }
+
     .container-fluid {
         margin-top: 60px;
         padding-left: 60px;
@@ -119,37 +130,44 @@
             position: fixed;
             height: 94px;
         }
+
         header {
             height: 94px;
         }
+
         .right-contactsd {
             display: block;
             justify-content: flex-start;
             align-items: baseline;
         }
+
         .right-contactsd a {
             justify-content: center;
             font-size: 14px;
             margin-top: 5px;
             margin-left: 0 !important;
         }
+
         .right-contactsd a svg {
             width: 30px !important;
             margin-right: 5px;
         }
+
         .container {
             padding-top: 20px;
         }
+
         form {
             display: flex;
             justify-content: center;
             margin-bottom: 10px !important;
         }
+
         .container-fluid {
             padding-left: 15px !important;
             padding-right: 15px !important;
         }
-        
+
     }
 </style>
 
@@ -159,19 +177,22 @@
             <div class="header">
                 <div class="container-flud">
                     <div class="row m-0">
-                        <div class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
+                        <div
+                            class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
                             <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
                                 <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px" alt="">
                             </button>
                         </div>
-                        <div class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
+                        <div
+                            class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
                             <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="73px"></a>
                         </div>
                         <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
                                 <div class="right-contactsd">
                                     <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
-                                    <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg" alt=""></a>
+                                    <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
+                                            alt=""></a>
                                     <a href="#"><img src="/images/search-icon.svg" alt=""></a>
                                 </div>
                             </div>
@@ -181,123 +202,149 @@
             </div>
         </header>
         <div class="row d-flex w-100 m-0">
-        <div class="sidebar d-none d-lg-flex">
-            <div class="sidebar-main">
-                <div class="row p-0 m-0 justify-content-center">
-                    <div class="sidebar-logo-details row p-0 d-flex d-lg-none d-xl-none m-0 my-3">
-                        <div class="w-100 d-flex align-items-center justify-content-between d-md-none">
-                            <img src="/images/logo.png" height="50px" alt="" onclick="window.location.href = '{{ url("/home") }}'">
-                            <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
-                                <img src="/images/index-page/close-icon.svg" width="40px" height="40px" alt="">
-                            </button>
-                        </div>
-                        <div class="w-100 sidebar-logo-details-details d-flex align-items-center">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
-                                <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg" alt=""></a>
-                                <a href="#"><img src="/images/search-icon.svg" alt=""></a>
+            <div class="sidebar d-none d-lg-flex">
+                <div class="sidebar-main">
+                    <div class="row p-0 m-0 justify-content-center">
+                        <div class="sidebar-logo-details row p-0 d-flex d-lg-none d-xl-none m-0 my-3">
+                            <div class="w-100 d-flex align-items-center justify-content-between d-md-none">
+                                <img src="/images/logo.png" height="50px" alt=""
+                                    onclick="window.location.href = '{{ url("/home") }}'">
+                                <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
+                                    <img src="/images/index-page/close-icon.svg" width="40px" height="40px" alt="">
+                                </button>
+                            </div>
+                            <div class="w-100 sidebar-logo-details-details d-flex align-items-center">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
+                                    <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
+                                            alt=""></a>
+                                    <a href="#"><img src="/images/search-icon.svg" alt=""></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sidebar__item sidebar-navigation">
-                        <ul>
-                            <li class="row m-0 @if(Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif"><a href="{{ url('/home') }}">Dashboard </a></li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active selected @endif {{ (isset($active) && $active == 'Leads') ? 'active selected': '' }}">
-                                <a href="{{ url('/home?dir=leads') }}">Leads </a>
-                                <em id="li-plus"><img src="/images/plus.png"></em>
-                                <em id="li-minus"><img src="/images/minus.png"></em>
+                        <div class="sidebar__item sidebar-navigation">
+                            <ul>
+                                <li
+                                    class="row m-0 @if(Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif">
+                                    <a href="{{ url('/home') }}">Dashboard </a>
+                                </li>
+                                <li
+                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active selected @endif {{ (isset($active) && $active == 'Leads') ? 'active selected': '' }}">
+                                    <a href="{{ url('/home?dir=leads') }}">Leads </a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
 
-                                <ul class="w-100">
-                                    <li><a href="{{ url("general/form/leads/index") }}">Zillow Premiere</a></li>
-                                    <li><a href="{{ url("general/form/leads/request-leads") }}">Request 25 Cinc Leads</a></li>
-                                    <li><a href="{{ url("general/form/leads/opcity-leads") }}">Sign Up for Opcity Leads</a></li>
-                                    <li><a href="{{ url("general/form/leads/prime-street-leads") }}">Prime Street Leads</a></li>
-                                </ul>
-                            </li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active selected @endif {{ (isset($active) && $active == 'Tools&TrainingVideos') ? 'active selected': '' }}">
-                                <a href="{{ url('/home?dir=tools_training_videos') }}">Tools & Training Videos</a>
-                                <em id="li-plus"><img src="/images/plus.png"></em>
-                                <em id="li-minus"><img src="/images/minus.png"></em>
-    
-                                <ul class="w-100">
-                                    <li><a href="{{ url("user/videos") }}">Training Videos</a></li>
-                                    <li><a href="{{ url("user/written-email-templates") }}">Email Templates</a></li>
-                                    <li><a href="{{ url("user/links") }}">Link to other services</a></li>
-                                    <li><a href="{{ url("general/form/agent_referrals/index") }}">New Agents & Referrals</a></li>
-                                    <li><a href="{{ url("bookings") }}">Conference Room</a></li>
-                                    <li><a href="{{ url("user/files") }}">Office Documents</a></li>
-                                    <li><a href="{{ url("general/form/other/photoshoots-for-listings") }}">Photoshoot for Listings</a></li>
-                                    <li><a target="_blank" href="{{ url("resume") }}">Resume Builder</a></li>
-                                </ul>
-                            </li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active selected @endif {{ (isset($active) && $active == 'Marketing') ? 'active selected': '' }}">
-                                <a href="{{ url('/home?dir=marketing') }}">Marketing</a>
-                                <em id="li-plus"><img src="/images/plus.png"></em>
-                                <em id="li-minus"><img src="/images/minus.png"></em>
-    
-                                <ul class="w-100">
-                                    <li><a href="{{ url("marketing-home") }}">DIY Marketing</a></li>
-                                    <li><a href="https://realtorprint.com/collections/luxe">Print Marketing</a></li>
-                                    <li><a href="{{ url("user/guides") }}">Downloadble Guides</a></li>
-                                    <li><a href="{{ route('canva.marketing.requests') }}">Canva Templates</a></li>
-                                </ul>
-                            </li>
-                            <li class="row m-0 @if(Request::path() == 'user/events') active @endif">
-                                <a href="{{ url('/user/events') }}">Training & Events</a>
-                            </li>
-                            <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'service_staff_requests') active selected @endif {{ (isset($active) && $active == 'Service&StaffRequests') ? 'active selected': '' }}">
-                                <a href="{{ url('/home?dir=service_staff_requests') }}">Service & Staff Requests</a>
-                                <em id="li-plus"><img src="/images/plus.png"></em>
-                                <em id="li-minus"><img src="/images/minus.png"></em>
+                                    <ul class="w-100">
+                                        <li><a href="{{ url("general/form/leads/index") }}">Zillow Premiere</a></li>
+                                        <li><a href="{{ url("general/form/leads/request-leads") }}">Request 25 Cinc
+                                                Leads</a></li>
+                                        <li><a href="{{ url("general/form/leads/opcity-leads") }}">Sign Up for Opcity
+                                                Leads</a></li>
+                                        <li><a href="{{ url("general/form/leads/prime-street-leads") }}">Prime Street
+                                                Leads</a></li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active selected @endif {{ (isset($active) && $active == 'Tools&TrainingVideos') ? 'active selected': '' }}">
+                                    <a href="{{ url('/home?dir=tools_training_videos') }}">Tools & Training Videos</a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
 
-                                <ul class="w-100">
-                                    <li><a href="{{ url("general/form/escrow/index") }}">Rental Escrow Disbursement</a></li>
-                                    <li><a href="{{ url("listing-coordinators") }}">Listing Coordinators</a></li>
-                                    <li><a href="{{ url("general/form/other/closing-coordinators-agents") }}">Closing Coordinators</a></li>
-                                    <li><a href="{{ url("agreement-agents") }}">Mentors</a></li>
-                                    <li><a href="{{ url("general/form/other/photoshoots-for-listings") }}">Photoshoot for Listings</a></li>
-                                    <li><a href="{{ url("general/form/other/wire-instructions-request") }}">Wire Instructions Request</a></li>
-                                    <li><a href="{{ url("general/form/other/logo-creation-request") }}">Logo Creation Request</a></li>
-                                    <li><a href="{{ url("general/form/staff-request/new-agent-business-plan") }}">New Agent Business Plan</a></li>
-                                    <li><a href="{{ url("general/form/staff-request/2022-business-plan") }}">2022 Business Plan</a></li>
-                                    <li><a href="{{ url("general/form/staff-request/follow-up-business-plan") }}">Follow-up Business Plan</a></li>
-                                    <li><a href="{{ url("appointments/create") }}">Open House Signup</a></li>
-                                </ul>
-                            </li>
-                            <li class="row m-0 {{ (isset($active) && $active == 'Store') ? 'active selected': '' }}">
-                                <a href="{{ url('/store') }}">Luxe Product Store</a>
-                            </li>
-                            <li class="row m-0 @if(Request::path() == 'form') active selected @endif">
-                                <a href="{{ url('/form') }}">Luxe Lending</a>
-                            </li>
-                            <li class="row m-0 @if(Request::path() == 'office-locations') active selected @endif">
-                                <a href="{{ url('/office-locations') }}">Office Locations</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-details">
-                        <p class="d-flex align-items-center" onclick="window.location = 'https://goo.gl/maps/UxezmFmdTJE8SmJL6'">
-                            <span><img src="/images/index-page/location-icon.svg" alt=""></span>
-                            <span class="text">55 Merrick Way #402 <br> Coral Gables, FL 33134</span>
-                        </p>
-                        <p class="d-flex align-items-center" onclick="window.location = 'http://www.luxeknows.com/'">
-                            <span><img src="/images/index-page/web-icon.svg" alt=""></span>
-                            <span class="text">www.luxeknows.com</span>
-                        </p>
-                        <p class="d-flex align-items-center" onclick="window.location = 'tel:(305) 809-7650'">
-                            <span><img src="/images/index-page/phone-icon-white.svg" alt=""></span>
-                            <span class="text">(305) 809-7650</span>
-                        </p>
+                                    <ul class="w-100">
+                                        <li><a href="{{ url("user/videos") }}">Training Videos</a></li>
+                                        <li><a href="{{ url("user/written-email-templates") }}">Email Templates</a>
+                                        </li>
+                                        <li><a href="{{ url("user/links") }}">Link to other services</a></li>
+                                        <li><a href="{{ url("general/form/agent_referrals/index") }}">New Agents &
+                                                Referrals</a></li>
+                                        <li><a href="{{ url("bookings") }}">Conference Room</a></li>
+                                        <li><a href="{{ url("user/files") }}">Office Documents</a></li>
+                                        <li><a href="{{ url("general/form/other/photoshoots-for-listings")
+                                                }}">Photoshoot for Listings</a></li>
+                                        <li><a target="_blank" href="{{ url("resume") }}">Resume Builder</a></li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active selected @endif {{ (isset($active) && $active == 'Marketing') ? 'active selected': '' }}">
+                                    <a href="{{ url('/home?dir=marketing') }}">Marketing</a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
+
+                                    <ul class="w-100">
+                                        <li><a href="{{ url("marketing-home") }}">DIY Marketing</a></li>
+                                        <li><a href="https://realtorprint.com/collections/luxe">Print Marketing</a></li>
+                                        <li><a href="{{ url("user/guides") }}">Downloadble Guides</a></li>
+                                        <li><a href="{{ route('canva.marketing.requests') }}">Canva Templates</a></li>
+                                    </ul>
+                                </li>
+                                <li class="row m-0 @if(Request::path() == 'user/events') active @endif">
+                                    <a href="{{ url('/user/events') }}">Training & Events</a>
+                                </li>
+                                <li
+                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'service_staff_requests') active selected @endif {{ (isset($active) && $active == 'Service&StaffRequests') ? 'active selected': '' }}">
+                                    <a href="{{ url('/home?dir=service_staff_requests') }}">Service & Staff Requests</a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
+
+                                    <ul class="w-100">
+                                        <li><a href="{{ url("general/form/escrow/index") }}">Rental Escrow
+                                                Disbursement</a></li>
+                                        <li><a href="{{ url("listing-coordinators") }}">Listing Coordinators</a></li>
+                                        <li><a href="{{ url("general/form/other/closing-coordinators-agents")
+                                                }}">Closing Coordinators</a></li>
+                                        <li><a href="{{ url("agreement-agents") }}">Mentors</a></li>
+                                        <li><a href="{{ url("general/form/other/photoshoots-for-listings")
+                                                }}">Photoshoot for Listings</a></li>
+                                        <li><a href="{{ url("general/form/other/wire-instructions-request") }}">Wire
+                                                Instructions Request</a></li>
+                                        <li><a href="{{ url("general/form/other/logo-creation-request") }}">Logo
+                                                Creation Request</a></li>
+                                        <li><a href="{{ url("general/form/staff-request/new-agent-business-plan")
+                                                }}">New Agent Business Plan</a></li>
+                                        <li><a href="{{ url("general/form/staff-request/2022-business-plan") }}">2022
+                                                Business Plan</a></li>
+                                        <li><a href="{{ url("general/form/staff-request/follow-up-business-plan")
+                                                }}">Follow-up Business Plan</a></li>
+                                        <li><a href="{{ url("appointments/create") }}">Open House Signup</a></li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="row m-0 {{ (isset($active) && $active == 'Store') ? 'active selected': '' }}">
+                                    <a href="{{ url('/store') }}">Luxe Product Store</a>
+                                </li>
+                                <li class="row m-0 @if(Request::path() == 'form') active selected @endif">
+                                    <a href="{{ url('/form') }}">Luxe Lending</a>
+                                </li>
+                                <li class="row m-0 @if(Request::path() == 'office-locations') active selected @endif">
+                                    <a href="{{ url('/office-locations') }}">Office Locations</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-details">
+                            <p class="d-flex align-items-center"
+                                onclick="window.location = 'https://goo.gl/maps/UxezmFmdTJE8SmJL6'">
+                                <span><img src="/images/index-page/location-icon.svg" alt=""></span>
+                                <span class="text">55 Merrick Way #402 <br> Coral Gables, FL 33134</span>
+                            </p>
+                            <p class="d-flex align-items-center"
+                                onclick="window.location = 'http://www.luxeknows.com/'">
+                                <span><img src="/images/index-page/web-icon.svg" alt=""></span>
+                                <span class="text">www.luxeknows.com</span>
+                            </p>
+                            <p class="d-flex align-items-center" onclick="window.location = 'tel:(305) 809-7650'">
+                                <span><img src="/images/index-page/phone-icon-white.svg" alt=""></span>
+                                <span class="text">(305) 809-7650</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="col p-0 m-0">
-            <main class="">
-                @yield('content')
-            </main>
-        </div>
+            </div>
+            <div class="col p-0 m-0">
+                <main class="">
+                    @yield('content')
+                </main>
+            </div>
         </div>
     </div>
     @if ($errors->any())
@@ -311,7 +358,7 @@
 </body>
 @yield('js')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript">
     toastr.options = {
         "closeButton": false,
@@ -443,4 +490,5 @@
 
         });
 </script>
+
 </html>

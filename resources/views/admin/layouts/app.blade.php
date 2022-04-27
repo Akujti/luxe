@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -34,7 +35,6 @@
     @yield('css')
 </head>
 <style>
-
     @font-face {
         font-family: "gothicbold";
         src: local("gothicbold"),
@@ -46,6 +46,7 @@
         src: local("gothicregular"),
         url("{{ asset('fonts/index-page/gothicregular.ttf')}}") format("truetype");
     }
+
     footer {
         position: fixed;
         bottom: 0;
@@ -53,6 +54,7 @@
         height: 5px;
         width: 100%;
     }
+
     .header {
         /* position: fixed; */
         width: 100%;
@@ -62,12 +64,13 @@
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    
-    
+
+
     header {
         position: relative;
         /* height: 120px; */
     }
+
     .header-call a {
         display: block;
         line-height: 30px;
@@ -75,20 +78,25 @@
         font-size: 20px;
         font-family: Montserrat;
     }
+
     .header-call a img {
         margin-right: 5px;
         max-height: 35px;
     }
+
     .btn-luxe {
         background: #262626;
         color: #fff;
     }
+
     .contact-details {
         height: 100%;
     }
+
     .right-contactsd a:first-child {
         max-width: 330px;
     }
+
     .right-contactsd a {
         display: flex;
         align-items: center;
@@ -101,17 +109,20 @@
         width: auto;
         margin-left: 40px;
     }
+
     .right-contactsd {
         display: flex;
         align-items: center;
         justify-content: flex-end;
         height: 100%;
     }
+
     .container-fluid {
         margin-top: 40px;
         padding-left: 60px;
         padding-right: 60px;
     }
+
     header .container-fluid {
         margin-top: 0px !important;
     }
@@ -121,44 +132,57 @@
             padding: 0 !important;
             position: fixed;
         }
+
         header {
             height: 94px;
         }
+
         .right-contactsd {
             display: block;
             justify-content: flex-start;
             align-items: baseline;
         }
+
         .right-contactsd a {
             justify-content: center;
             font-size: 14px;
             margin-top: 5px;
             margin-left: 0 !important;
         }
+
         .right-contactsd a svg {
             width: 30px !important;
             margin-right: 5px;
         }
+
         .container-fluid {
             padding-left: 15px;
             padding-right: 15px;
         }
+
         form {
             display: flex;
             justify-content: center;
             margin-bottom: 10px !important;
         }
+
         .h5-luxe {
             font-size: 25px !important;
         }
     }
-    .nav > li > a:hover, .nav > li > a:focus, .dropdown-menu a:hover, .dropdown-menu a:focus{
+
+    .nav>li>a:hover,
+    .nav>li>a:focus,
+    .dropdown-menu a:hover,
+    .dropdown-menu a:focus {
         background-color: #262626 !important;
         color: #fff !important;
     }
+
     .update-event {
         padding-left: 0px !important;
     }
+
     .btn-logout {
         padding: 0px;
         margin: 0px;
@@ -166,6 +190,7 @@
         border: none;
         color: #262626;
     }
+
     .btn-logout:hover {
         color: #fff;
     }
@@ -177,15 +202,18 @@
             <div class="header">
                 <div class="container-fluid">
                     <div class="row m-0">
-                        <div class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none d-md-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
+                        <div
+                            class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none d-md-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
                             <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
                                 <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px" alt="">
                             </button>
                         </div>
-                        <div class="col-9 col-md-6 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
+                        <div
+                            class="col-9 col-md-6 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
                             <a href="{{ url('/admin') }}"><img src="/images/logo.png" alt="" height="74px"></a>
                         </div>
-                        <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-md-flex d-lg-flex d-xl-flex justify-content-end">
+                        <div
+                            class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-md-flex d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
                                 <div class="right-contactsd">
                                     <a href="#"><img src="/images/admin/flash-icon.svg" alt=""></a>
@@ -197,8 +225,9 @@
                             <div class="dropdown-profile">
                                 <ul class="navbar__dropdown d-flex justify-content-center align-items-center">
                                     <li class="nav-item dropdown">
-                                        <a class="d-flex align-items-center nav-link dropdown-toggle m-0 p-0" href="#" id="navbarDropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="d-flex align-items-center nav-link dropdown-toggle m-0 p-0" href="#"
+                                            id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
                                             <img id="user-logo-dropdown" src="{{ auth()->user()->avatar }}">
                                             <span id="user-name-dropdown">Me</span>
                                         </a>
@@ -208,7 +237,8 @@
                                                 <div class="">
                                                     <form action="{{route('logout')}}" method="post" class="">
                                                         @csrf
-                                                        <button class="btn btn-logout"><span class="item-box">Logout</span></button>
+                                                        <button class="btn btn-logout"><span
+                                                                class="item-box">Logout</span></button>
                                                     </form>
                                                 </div>
                                             </a>
@@ -225,14 +255,22 @@
                     <div class="row m-0 d-none d-md-flex d-lg-flex d-xl-flex">
                         <div class="col-3 col-sm-7 col-md-12 col-lg-6 p-0">
                             <nav>
-                                <a href="{{ route('admin.index') }}" class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">Dashboard</a>
-                                <a href="{{ route('admin.forms.index') }}" class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">Forms</a>
-                                <a href="{{ route('admin.canva.marketing.index_admin') }}" class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">Canva</a>
-                                <a href="{{ route('admin.orders.index') }}" class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">Orders</a>
-                                <a href="{{ route('admin.luxe_store.index') }}" class="{{ (isset($active) && $active == 'Categories') ? 'active selected': '' }}">Categories</a>
-                                <a href="{{ route('admin.luxe_store.products.index') }}" class="{{ (isset($active) && $active == 'Products') ? 'active selected': '' }}">Products</a>
-                                <a href="{{ route('admin.luxe_store.coupons.index') }}" class="{{ (isset($active) && $active == 'Coupons') ? 'active selected': '' }}">Coupons</a>
-                                <a href="{{ route('admin.users.index') }}" class="{{ (isset($active) && $active == 'Users') ? 'active selected': '' }}">Users</a>
+                                <a href="{{ route('admin.index') }}"
+                                    class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">Dashboard</a>
+                                <a href="{{ route('admin.forms.index') }}"
+                                    class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">Forms</a>
+                                <a href="{{ route('admin.canva.marketing.index_admin') }}"
+                                    class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">Canva</a>
+                                <a href="{{ route('admin.orders.index') }}"
+                                    class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">Orders</a>
+                                <a href="{{ route('admin.luxe_store.index') }}"
+                                    class="{{ (isset($active) && $active == 'Categories') ? 'active selected': '' }}">Categories</a>
+                                <a href="{{ route('admin.luxe_store.products.index') }}"
+                                    class="{{ (isset($active) && $active == 'Products') ? 'active selected': '' }}">Products</a>
+                                <a href="{{ route('admin.luxe_store.coupons.index') }}"
+                                    class="{{ (isset($active) && $active == 'Coupons') ? 'active selected': '' }}">Coupons</a>
+                                <a href="{{ route('admin.users.index') }}"
+                                    class="{{ (isset($active) && $active == 'Users') ? 'active selected': '' }}">Users</a>
                             </nav>
                         </div>
                     </div>
@@ -258,18 +296,21 @@
                                     <div class="dropdown-profile">
                                         <ul class="navbar__dropdown d-flex justify-content-center align-items-center">
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle m-0 p-0" href="#" id="navbarDropdownMenuLink"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <a class="nav-link dropdown-toggle m-0 p-0" href="#"
+                                                    id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
                                                     <img id="user-logo-dropdown" src="{{ auth()->user()->avatar }}">
                                                 </a>
 
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                                     <a class="dropdown-item" href="#">
                                                         <div class="">
-                                                        <form action="{{route('logout')}}" method="post" class="p-0 m-0">
-                                                            @csrf
-                                                            <button class="btn btn-logout"><span class="item-box">Logout</span></button>
-                                                        </form>
+                                                            <form action="{{route('logout')}}" method="post"
+                                                                class="p-0 m-0">
+                                                                @csrf
+                                                                <button class="btn btn-logout"><span
+                                                                        class="item-box">Logout</span></button>
+                                                            </form>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -287,7 +328,8 @@
                                 <li class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.forms.index') }}">Forms</a>
                                 </li>
-                                <li class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">
+                                <li
+                                    class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.canva.marketing.index_admin') }}">Marketing Canva</a>
                                 </li>
                                 <li class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">
@@ -399,4 +441,5 @@
         $('.sidebar').toggleClass('active');
     })
 </script>
+
 </html>
