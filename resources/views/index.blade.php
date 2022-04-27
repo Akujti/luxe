@@ -163,7 +163,7 @@
                             @endauth
                             @guest
                             <button class="button py-2" style="font-size: 16px !important;"
-                                onclick="window.location='{{ route(" login") }}'" role="button">Log in</button>
+                                onclick="window.location='{{ route('login') }}' role=" button">Log in</button>
                             @endguest
                         </div>
                     </div>
@@ -447,7 +447,8 @@
                                 src="images/index-page/location-icon.svg" class="mr-2"> 55 Merrick Way #402, Coral
                             Gables, FL 33134</p>
                         <p class="p-luxe text-white m-0 mt-2 mt-md-0 mt-lg-0 col-12 col-md-3 d-flex align-items-center">
-                            <img src="images/index-page/phone-icon-white.svg" class="mr-2"> (305) 809-7650</p>
+                            <img src="images/index-page/phone-icon-white.svg" class="mr-2"> (305) 809-7650
+                        </p>
                     </div>
                     <div
                         class="col-12 col-md-6 col-lg-3 col-xl-3 mt-4 mt-md-0 mt-lg-0 justify-self-end ml-0 order-md-1 order-lg-12">
