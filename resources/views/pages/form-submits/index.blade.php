@@ -1,8 +1,30 @@
 @extends('layouts.app')
 @section('css')
+<style>
+    th,td {
+        text-align: center;
+    }
+    th {
+        border:none !important;
+        font-family: 'gothicbold';
+        font-size: 18px;
+        font-weight: bold;
+    }
+    td {
+        font-family: 'gothicregular';
+        height: 120px !important;
+        vertical-align: middle !important;
+    }
+    .btn {
+        border-radius: 10px !important;
+    }
+    #img {
+        border-radius: 10px;
+    }
+</style>
 @endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row m-0 w-100 justify-content-center">
         <h1>Form Submissions</h1>
         <div class="table-responsive">
@@ -26,7 +48,7 @@
                             @csrf
                             @method('PUT')
 
-                            <th scope="row">{{((($_REQUEST['page']??1)-1)*50)+$loop->iteration}}</th>
+                            <th scope="row" style="vertical-align: middle">{{((($_REQUEST['page']??1)-1)*50)+$loop->iteration}}</th>
                             <td>{{$submission->form_title}}</td>
                             <td>{{$submission->agent_name}}</td>
                             <td>{{$submission->agent_email}}</td>

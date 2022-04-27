@@ -4,15 +4,16 @@
     .wrapper h1 {
         font-weight: 400;
         letter-spacing: 2px;
-        background: #FFCF40;
+        background: #262626;
         padding: 10px;
         border: 1px solid #dadada;
         border-radius: 10px;
+        color: #fff;
     }
 </style>
 @endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="wrapper">
         <h1 class="text-center mb-4">Form Submission</h1>
     </div>

@@ -254,6 +254,9 @@
             selectable: true,
             events: data,
             displayEventEnd: true,
+            headerToolbar: {
+                right: 'prev,next'
+            }
         });
         calendar.render();
     });
