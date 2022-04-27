@@ -113,8 +113,10 @@ class UserController extends Controller
                     $image = $path;
                 }
                 $languageJson = [];
-                foreach($req->languages as $language) {
-                    array_push($languageJson, $language);
+                if($req->has('languages') && $req->languages) {
+                    foreach($req->languages as $language) {
+                        array_push($languageJson, $language);
+                    }
                 }
                 $row->profile()->update([
                     'fullname' => $req->profile['fullname'],
@@ -148,8 +150,10 @@ class UserController extends Controller
                     $image = $path;
                 }
                 $languageJson = [];
-                foreach($req->languages as $language) {
-                    array_push($languageJson, $language);
+                if($req->has('languages') && $req->languages) {
+                    foreach($req->languages as $language) {
+                        array_push($languageJson, $language);
+                    }
                 }
                 $row->profile()->update([
                     'fullname' => $req->profile['fullname'],

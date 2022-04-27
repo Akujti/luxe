@@ -25,11 +25,11 @@ class UpdateProfileRequest extends FormRequest
     {
         return [
             'id' => 'required|exists:users,id',
-            'profile' => 'required|array',
-            'profile.fullname' => 'required|string',
-            'profile.address' => 'required|string',
-            'profile.phone' => 'required|string',
-            'languages' => 'required|array',
+            'profile' => 'nullable|array',
+            'profile.fullname' => 'nullable|string',
+            'profile.address' => 'nullable|string',
+            'profile.phone' => 'nullable|string',
+            'languages' => 'nullable|array',
             'profile.avatar' => 'nullable|image',
         ];
     }
