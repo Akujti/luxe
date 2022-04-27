@@ -31,6 +31,7 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
+use App\Http\Controllers\BrokerSumoController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
@@ -297,7 +298,7 @@ Route::group(
         Route::post('w-9', [W9Controller::class, 'store'])->name('w-9');
         Route::get('w-9/download/{id}', [W9Controller::class, 'download'])->name('w-9.download');
 
-        Route::group(['prefix' => 'profile', 'as' => 'profile.'], function() {
+        Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
             Route::get('/', [UserController::class, 'my_profile'])->name('my_profile');
             Route::put('/', [UserController::class, 'update_profile'])->name('update');
         });
@@ -341,6 +342,7 @@ Route::group(
         Route::resource('agent-emails', AgentEmailController::class);
 
         Route::get('view-profile/{id}', [UserController::class, 'view_profile']);
+        Route::resource('broker-sumo', BrokerSumoController::class);
     }
 );
 

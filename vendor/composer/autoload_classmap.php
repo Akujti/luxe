@@ -95,6 +95,7 @@ return array(
     'App\\Models\\AppointmentAddress' => $baseDir . '/app/Models/AppointmentAddress.php',
     'App\\Models\\AppointmentTimeslot' => $baseDir . '/app/Models/AppointmentTimeslot.php',
     'App\\Models\\Booking' => $baseDir . '/app/Models/Booking.php',
+    'App\\Models\\BrokerSumo' => $baseDir . '/app/Models/BrokerSumo.php',
     'App\\Models\\ClosingCoordinator' => $baseDir . '/app/Models/ClosingCoordinator.php',
     'App\\Models\\EmailsForm' => $baseDir . '/app/Models/EmailsForm.php',
     'App\\Models\\Event' => $baseDir . '/app/Models/Event.php',

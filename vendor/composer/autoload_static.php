@@ -710,6 +710,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Models\\AppointmentAddress' => __DIR__ . '/../..' . '/app/Models/AppointmentAddress.php',
         'App\\Models\\AppointmentTimeslot' => __DIR__ . '/../..' . '/app/Models/AppointmentTimeslot.php',
         'App\\Models\\Booking' => __DIR__ . '/../..' . '/app/Models/Booking.php',
+        'App\\Models\\BrokerSumo' => __DIR__ . '/../..' . '/app/Models/BrokerSumo.php',
         'App\\Models\\ClosingCoordinator' => __DIR__ . '/../..' . '/app/Models/ClosingCoordinator.php',
         'App\\Models\\EmailsForm' => __DIR__ . '/../..' . '/app/Models/EmailsForm.php',
         'App\\Models\\Event' => __DIR__ . '/../..' . '/app/Models/Event.php',
