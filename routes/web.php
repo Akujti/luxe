@@ -47,6 +47,7 @@ use App\Http\Controllers\WrittenEmailTemplateItemController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 
 Route::view('office-locations', 'office-locations')->middleware('auth');
 Route::view('home', 'home-page')->middleware('auth');
@@ -262,7 +263,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('loginTest', [UserController::class, 'login']);
 });
 
-Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 
 Route::view('/', 'index');
 

@@ -16,7 +16,7 @@ class AdminController extends Controller
     }
     public function forms()
     {
-        $forms = Form::with('emails')->latest()->paginate(15);
+        $forms = Form::with('emails')->orderBy('title', 'asc')->paginate(20);
         return view('admin.forms', compact('forms'));
     }
 
