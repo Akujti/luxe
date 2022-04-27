@@ -120,7 +120,7 @@ class FormController extends Controller
         if (str_starts_with($path, 'storage/')) {
             $path = str_replace("storage/", "new-storage/", $path);
         }
-        // dd($path);
+        dd($path);
         return response()->download($path);
     }
 
