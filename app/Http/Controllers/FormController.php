@@ -120,7 +120,11 @@ class FormController extends Controller
         if (str_starts_with($path, 'storage/')) {
             $path = str_replace("storage/", "new-storage/", $path);
         }
-        return response()->download($path);
+        return response()->withHeaders([
+            'Cache-Control' => 'no-cache, no-store, must-revalidate',
+            'Pragma' => 'no-cache',
+            'Expires' => '0'
+        ])->download($path);
     }
 
     public function submitAgreementAgentForm(Request $request)

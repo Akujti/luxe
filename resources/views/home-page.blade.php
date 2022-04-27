@@ -205,7 +205,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-                <div class="box-item" onclick="window.location = '{{ url("resume")}}'">
+                <div class="box-item" onclick="window.open('{{ url("resume")}}')">
                     <div>
                         <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
                         <p>Resume Builder</p>

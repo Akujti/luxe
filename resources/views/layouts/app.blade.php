@@ -254,7 +254,7 @@
                                         <li><a href="{{ url("user/videos") }}">Training Videos</a></li>
                                         <li><a href="{{ url("user/written-email-templates") }}">Email Templates</a>
                                         </li>
-                                        <li><a href="{{ url("user/links") }}">Link to other services</a></li>
+                                        <!-- <li><a href="{{ url("user/links") }}">Link to other services</a></li> -->
                                         <li><a href="{{ url("general/form/agent_referrals/index") }}">New Agents &
                                                 Referrals</a></li>
                                         <li><a href="{{ url("bookings") }}">Conference Room</a></li>
