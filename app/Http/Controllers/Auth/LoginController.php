@@ -65,9 +65,7 @@ class LoginController extends Controller
         if ($user_wp_attempt) {
             $exist_user = User::where('email', $user_email)->first();
             if ($check_user) {
-                // dd(Auth::guard('wordpress')->user());
-
-                if (Auth::attempt(['email' => $user_email, 'password' =>  Hash::make($user_pass)])) {
+                if (Auth::attempt(['email' => $user_email, 'password' =>  $user_pass])) {
                     if (!$check_user->profile) {
                         $check_user->profile()->create([
                             'avatar' => null,
