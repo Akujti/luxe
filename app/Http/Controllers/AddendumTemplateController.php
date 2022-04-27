@@ -34,7 +34,6 @@ class AddendumTemplateController extends Controller
 
     public function show(Request $request, WrittenEmailTemplate $writtenEmailTemplate)
     {
-        dd($request);
         $isAdmin = Auth::user()->isAdmin;
         $items = $writtenEmailTemplate ? $writtenEmailTemplate->items : [];
         return view('pages.addendum-templates.show', compact('items', 'writtenEmailTemplate', 'isAdmin'));

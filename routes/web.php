@@ -23,6 +23,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\LuxeStore\OrderController;
 use App\Http\Controllers\LuxeStore\StoreController;
+use App\Http\Controllers\AddendumTemplateController;
 use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\Video\VideoFolderController;
@@ -253,7 +254,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('marketing/{marketingCategory}/{template}/email/send', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
     Route::post('general/form/send', [FormController::class, 'general_form_post'])->name('general.email.post');
-    Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 
     Route::get('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'index']);
     Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
@@ -261,6 +261,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('general/form/{folder}/{form}', [FormController::class, 'general_form_index'])->name('general.email.index');
     Route::get('loginTest', [UserController::class, 'login']);
 });
+
+Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 
 Route::view('/', 'index');
 

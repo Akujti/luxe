@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <h1>Addendum Templates</h1>
     </div>
@@ -20,7 +20,7 @@
         </div>
         @endforeach
     </div>
-    <div id="createModal" class="modal fade" tabindex="-1" role="dialog">
+    <div id="createModal" class="modal fade modal-new" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -39,8 +39,8 @@
 
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-luxe">Save</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
                 </form>
             </div>
