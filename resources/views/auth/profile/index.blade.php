@@ -134,12 +134,14 @@
                                     <button type="button" class="btn btn-luxe px-3 ml-2" onclick="add_language()">+</button>
                                 </div>
                                 <div class="language-section mt-2">
-                                    @foreach(auth()->user()->profile->languages as $language)
-                                        <div class="language-item">
-                                            <input type="text" name="languages[]" value="{{ $language }}">
-                                            <button type="button" class="btn btn-danger" onclick="remove_language(this)">&times;</button>
-                                        </div>
-                                    @endforeach
+                                    @if(auth()->user()->profile && auth()->user()->profile->languages)
+                                        @foreach(auth()->user()->profile->languages as $language)
+                                            <div class="language-item">
+                                                <input type="text" name="languages[]" value="{{ $language }}">
+                                                <button type="button" class="btn btn-danger" onclick="remove_language(this)">&times;</button>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
     

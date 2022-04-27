@@ -16,7 +16,7 @@ class FolderController extends Controller
         $filters = [
             'id' => $request->get('id'),
         ];
-        $folders = Folder::with('files')->where('title', '!=', 'XNvgkxNbjU')->where(function ($query) use ($filters) {
+        $folders = Folder::with(['files', 'children'])->where('title', '!=', 'XNvgkxNbjU')->where(function ($query) use ($filters) {
             if ($filters['id']) {
                 $query->where('parent_id', $filters['id']);
             } else {

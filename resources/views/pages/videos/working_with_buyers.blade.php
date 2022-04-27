@@ -34,8 +34,7 @@
     }
 
     .folder img {
-        width: 70%;
-        height: 220px;
+        width: 50%;
         margin-top: 20px;
     }
 </style>

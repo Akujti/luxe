@@ -123,10 +123,11 @@
     }
     .ui-datepicker-calendar tbody td a:hover {
         background-color: #262626;
+        color: #fff;
     }
     .ui-datepicker-calendar tbody td a.ui-state-active {
         background-color: #262626;
-        color: white;
+        color: #fff;
     }
     .ui-datepicker-header a.ui-corner-all {
         cursor: pointer;

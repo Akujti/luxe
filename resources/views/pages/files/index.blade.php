@@ -293,7 +293,7 @@
                         <div class="row m-0 p-0 w-100 justify-content-between align-items-center">
                             <div>
                                 <p id="num_of_file">
-                                    Number of files: {{$folder->files->count() }}
+                                    Number of items: {{ $folder->files->count() + $folder->children->count() }}
                                 </p>
                                 <p id="date">
                                     {{ $folder->created_at->toDateString() }}
@@ -377,7 +377,7 @@
                         </div>
                         <div class="col row m-0 p-0 w-100 justify-content-between align-items-center">
                             <p id="num_of_file" class="m-0 p-0">
-                                Number of files: {{$folder->files->count() }}
+                                Number of items: {{ $folder->files->count() + $folder->children->count() }}
                             </p>
                             <p id="date" class="m-0 p-0">
                                 {{ $folder->created_at->toDateString() }}

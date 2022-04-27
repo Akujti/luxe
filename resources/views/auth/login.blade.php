@@ -2,20 +2,6 @@
 
 @section('content')
 <style>
-    /* main {
-        background-image: url("{{asset('images/login_bg.jpg')}}") !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-        min-height: 100vh;
-        background: #0000004a;
-        background-blend-mode: color;
-    } */
-
-    header {
-        background-color: rgba(35, 35, 35, .5) !important;
-    }
-
     .container {
         padding-top: 250px !important;
     }
@@ -69,9 +55,6 @@
         font-weight: bold;
         font-size: 24px;
         padding: 10px 20px;
-        /* background-image: url(https://myluxehub.com/wp-content/themes/Luxe/img/loginbg.png); */
-        /* background-repeat: no-repeat; */
-        /* background-size: contain; */
         margin-top: 20px;
         line-height: 30px;
         cursor: pointer;
@@ -79,10 +62,6 @@
     .card {
         color: #262626 !important
     }
-
-    /*.card form{*/
-    /*    margin-left: -18%;*/
-    /*}*/
     @media (max-width: 767.98px) {
         .min-input {
             min-width: auto !important;
@@ -93,8 +72,8 @@
         }
     }
 </style>
-<div class="container custom-padding">
-    <div class="row justify-content-center">
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center" style="height:70vh">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-center" style="background:#FFCF40;font-size:20px;"><img class="login-logo"

@@ -62,7 +62,6 @@
                             <input type="text" name="upgrades_or_special_features" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <br>
                             <label for="name">Open house date?</label>
                             <input type="text" name="open_house_date" class="form-control" required>
                         </div>
@@ -136,7 +135,7 @@
         }
     }
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&components=buttons">
+<script src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
 </script>
 <script>
     paypal.Buttons({
