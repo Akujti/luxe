@@ -11,7 +11,7 @@ class BrokerSumoController extends Controller
 {
     public function index()
     {
-        return $this->updateAgentsTransactions();
+        // return $this->updateAgentsTransactions();
         // return AgentTransaction::where('agent_name', 'Pedro Bobea, LLC')->first();
         $results = DB::select(DB::raw("SELECT * FROM agents_transactions
         INNER JOIN (SELECT agent_name, MAX(total_points) AS Maxtotal_points FROM agents_transactions GROUP BY agent_name) 
@@ -225,9 +225,6 @@ class BrokerSumoController extends Controller
 
             $user_data->update(['agent_gross' => $current_gross, 'total_points' => $total_points, 'new_point' => $new_points, 'total_listing' => $total_listing, 'data_arrays' => $data_arrays, 'total_amounts' => $new_total]);
             $user_data->save();
-            if ($user_data && $user_data->agent_name == 'Pedro Bobea, LLC') {
-                Log::debug($user_data);
-            }
             return 'yes';
         } else {
             return 'no';
