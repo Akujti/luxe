@@ -52,7 +52,7 @@
         font-family: 'gothicregular';
     }
     .singleproject__reviews-title h2{
-        font-size: 20px;
+        font-size: 24px;
         font-family: 'gothicbold';
         color: #262626;
     }
@@ -118,7 +118,7 @@
         justify-content: center;
     }
     label {
-        font-family: 'gothicbold';
+        font-family: 'gothicregular';
     }
     iframe {
         height: 527px;
@@ -139,6 +139,9 @@
     }
     .btn-luxe {
         border-radius: 10px !important;
+    }
+    .regular {
+        font-family: 'gothicregular';
     }
 </style>
 @endsection
@@ -201,11 +204,11 @@
                 </div>
             </div>
             <div class="w-100 my-4 review-box d-none">
-                <form action="{{ route('video.create_review') }}" method="POST" class="row p-0 m-0 col-md-6 col-12">
+                <form action="{{ route('video.create_review') }}" method="POST" class="row p-0 m-0 col-md-12 col-12">
                     @csrf
                     <input type="hidden" name="video_id" value="{{ $video->id }}">
                     <input type="hidden" name="stars" value="0" id="stars-input">
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 p-0">
                         <label for="">Rate</label>
                         <div class="input-group">
                             <div class="d-flex justify-content-center star-box">
@@ -232,13 +235,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-12 mt-4">
+                    <div class="form-group col-12 mt-4 p-0">
                         <label for="">Text</label>
                         <div class="input-group">
                             <textarea name="comment" class="form-control" id="" cols="30" rows="3"></textarea>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 p-0">
                         <button type="submit" class="btn btn-luxe px-3 py-2">Submit</button>
                     </div>
                 </form>
@@ -264,12 +267,22 @@
                 </div>
             </div>
             @empty
-            <div class="d-flex w-100 justify-content-center py-5" style="font-family: 'gothicregular';">
-                No Review Found.
+            <div class="d-flex w-100 justify-content-center py-5 regular">
+                No Reviews found.
             </div>
             @endforelse
             <div class="col-12 border-bottom"></div>
-            <div class="w-100 my-4 review-box">
+
+            <div class="singleproject__reviews row p-0 m-0 py-4 w-100 align-items-center">
+                <div class="singleproject__reviews-title">
+                    <h2 class="p-0 m-0">Comments</h2>
+                </div>
+                
+                <div class="singleproject__reviews-button">
+                    <button type="button" onclick="toggleFormComment()">Add Comment</button>
+                </div>
+            </div>
+            <div class="w-100 my-4 comment-box d-none">
                 <form action="{{ route('video.create_comment') }}" method="POST" class="row p-0 m-0 col-md-12 col-12">
                     @csrf
                     <input type="hidden" name="video_id" value="{{ $video->id }}">
@@ -280,7 +293,7 @@
                         </div>
                     </div>
                     <div class="col-12 p-0">
-                        <button type="submit" class="btn btn-luxe px-3 py-2">Comment</button>
+                        <button type="submit" class="btn btn-luxe px-3 py-2">Submit</button>
                     </div>
                 </form>
             </div>
@@ -297,8 +310,8 @@
                 </div>
             </div>
             @empty
-            <div class="d-flex w-100 justify-content-center py-5" style="font-family: 'gothicregular';">
-                No Comment Found.
+            <div class="d-flex w-100 justify-content-center py-5 regular">
+                No Comments found.
             </div>
             @endforelse
         </div>
@@ -309,6 +322,10 @@
     function toggleForm() {
         $('.review-box').toggleClass('d-none')
         $('.review-box').toggleClass('d-flex')
+    }
+    function toggleFormComment() {
+        $('.comment-box').toggleClass('d-none')
+        $('.comment-box').toggleClass('d-flex')
     }
     function changeStarNum(num) {
         $('#stars-input').val(num)
