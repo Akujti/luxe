@@ -279,6 +279,7 @@ Route::group(
         Route::get('/videos', [VideoFolderController::class, 'index'])->name('videos');
         Route::get('/videos/{video_id}', [VideoFolderController::class, 'show'])->name('video.single_video');
         Route::post('/videos/review', [VideoFolderController::class, 'create_review'])->name('video.create_review');
+        Route::post('/videos/review/comment', [VideoFolderController::class, 'create_comment'])->name('video.create_comment');
         Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::resource('events', EventController::class);

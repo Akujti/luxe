@@ -4,6 +4,7 @@ namespace App\Models\Video;
 
 use Carbon\Carbon;
 use Vimeo\Laravel\Facades\Vimeo;
+use App\Models\Video\VideoReviewStar;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -18,7 +19,7 @@ class Video extends Model
     public function getVimeoDetailsAttribute() {
         $response = Vimeo::request('/videos/'. $this->video_id, [ ], 'GET');
         
-        if($response['status'] != 404) {
+        if($response && $response['status'] != 404) {
             $data = [
                 'name' => $response['body']['name'],
                 'description' => $response['body']['description'],
@@ -40,6 +41,9 @@ class Video extends Model
 
     public function reviews() {
         return $this->hasMany(VideoReview::class, 'video_id');
+    }
+    public function comments() {
+        return $this->hasMany(VideoComment::class, 'video_id');
     }
 
     public function files() {

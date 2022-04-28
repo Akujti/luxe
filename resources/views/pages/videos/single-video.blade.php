@@ -144,6 +144,7 @@
 @endsection
 @section('content')
 <div class="container-fluid">
+@include('includes.video_title')
     <div class="singleproject row p-0 m-0">
         <div class="singleproject__item col-12 col-md-12 col-lg-8">
             <div class="singleproject__item-img">
@@ -232,7 +233,7 @@
                         </div>
                     </div>
                     <div class="form-group col-12 mt-4">
-                        <label for="">Comment</label>
+                        <label for="">Text</label>
                         <div class="input-group">
                             <textarea name="comment" class="form-control" id="" cols="30" rows="3"></textarea>
                         </div>
@@ -264,12 +265,42 @@
             </div>
             @empty
             <div class="d-flex w-100 justify-content-center py-5" style="font-family: 'gothicregular';">
+                No Review Found.
+            </div>
+            @endforelse
+            <div class="col-12 border-bottom"></div>
+            <div class="w-100 my-4 review-box">
+                <form action="{{ route('video.create_comment') }}" method="POST" class="row p-0 m-0 col-md-12 col-12">
+                    @csrf
+                    <input type="hidden" name="video_id" value="{{ $video->id }}">
+                    <div class="form-group col-12 mt-4 p-0">
+                        <label for="">Comment</label>
+                        <div class="input-group">
+                            <textarea name="comment" class="form-control" id="" cols="30" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0">
+                        <button type="submit" class="btn btn-luxe px-3 py-2">Comment</button>
+                    </div>
+                </form>
+            </div>
+            @forelse($comments as $comment)
+            <div class="singleproject__comments">
+                <div class="singleproject__comments-profile">
+                    <div class="singleproject__comment-profile-item">
+                        <img src="{{ $comment->user->avatar }}" alt="">
+                        <p class="p-0 m-0">{{ $comment->user->profile->fullname }}</p>
+                    </div>
+                </div>
+                <div class="singleprojects__comments-cm">
+                    <p>{{ $comment->comment }}</p>
+                </div>
+            </div>
+            @empty
+            <div class="d-flex w-100 justify-content-center py-5" style="font-family: 'gothicregular';">
                 No Comment Found.
             </div>
             @endforelse
-            <div class="d-flex w-100 justify-content-center">
-                {{ $reviews->links() }}
-            </div>
         </div>
     </div>
 </div>

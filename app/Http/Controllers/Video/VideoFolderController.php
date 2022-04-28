@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Video;
 use App\Models\Video\Video;
 use Illuminate\Http\Request;
 use App\Models\Video\VideoReview;
+use App\Models\Video\VideoComment;
 use App\Models\Video\VideoFolders;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Video\Video\AddReviewRequest;
 use App\Http\Requests\Video\VideoFolder\AddRequest;
 use App\Http\Requests\Video\VideoFolder\DeleteRequest;
 use App\Http\Requests\Video\VideoFolder\UpdateRequest;
+use App\Http\Requests\Video\Video\AddReviewCommentRequest;
 
 class VideoFolderController extends Controller
 {
@@ -36,9 +38,10 @@ class VideoFolderController extends Controller
 
     public function show($video_id) {
         $video = Video::findOrFail($video_id);
-        $reviews = $video->reviews()->orderBy('created_at', 'desc')->paginate(15);
+        $reviews = $video->reviews()->orderBy('created_at', 'desc')->get()->take(10);
+        $comments = $video->comments()->orderBy('created_at', 'desc')->get()->take(10);
 
-        return view('pages.videos.single-video', compact('video', 'reviews'));
+        return view('pages.videos.single-video', compact('video', 'reviews', 'comments'));
     }
     public function admin_index(Request $req) {
         $folder_id = $req->input('id', null);
@@ -96,6 +99,15 @@ class VideoFolderController extends Controller
         $row->user_id = auth()->id();
         $row->save();
 
-        return back()->with('message', 'Successfully commented!');
+        return back()->with('message', 'Successfully added!');
+    }
+
+    public function create_comment(AddReviewCommentRequest $req) {
+        $row = new VideoComment;
+        $row->fill($req->only('comment', 'video_id'));
+        $row->user_id = auth()->id();
+        $row->save();
+
+        return back()->with('message', 'Successfully added!');
     }
 }

@@ -181,4 +181,14 @@ class UserController extends Controller
 
         return back()->with('message', 'Successfully Deleted');
     }
+
+    public function search(Request $req) {
+        if($req->search) {
+            $users = UserProfile::where('fullname', 'like', '%'.$req->search.'%')->get();
+
+            return response()->json([
+                'users' => $users
+            ]);
+        }
+    }
 }
