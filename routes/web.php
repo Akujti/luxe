@@ -34,6 +34,8 @@ use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\BrokerSumoController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
+use App\Http\Controllers\Video\VideoController;
+use App\Http\Controllers\Video\VideoFileController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 
@@ -273,9 +275,10 @@ Route::group(
     function () {
         Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/links', [PageController::class, 'links'])->name('links');
-        Route::get('/videos', [PageController::class, 'videos'])->name('videos');
-        // Route::get('/videos', [VideoFolderController::class, 'index'])->name('videos');
-        // Route::get('/videos/{video_id}', [VideoFolderController::class, 'show'])->name('video.single_video');
+        // Route::get('/videos', [PageController::class, 'videos'])->name('videos');
+        Route::get('/videos', [VideoFolderController::class, 'index'])->name('videos');
+        Route::get('/videos/{video_id}', [VideoFolderController::class, 'show'])->name('video.single_video');
+        Route::post('/videos/review', [VideoFolderController::class, 'create_review'])->name('video.create_review');
         Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::resource('events', EventController::class);
@@ -424,7 +427,22 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 
 
     // Admin Videos
-    // Route::group(['prefix' => 'videos', 'as' => 'videos.'], function() {
-    //     Route::get('/', [VideoFolderController::class, 'admin_index'])->name('index');
-    // });
+    Route::group(['prefix' => 'videos', 'as' => 'videos.'], function() {
+        Route::get('/', [VideoFolderController::class, 'admin_index'])->name('index');
+        Route::post('/', [VideoFolderController::class, 'create'])->name('create');
+        Route::put('/', [VideoFolderController::class, 'update'])->name('update');
+        Route::delete('/', [VideoFolderController::class, 'delete'])->name('delete');
+
+        Route::group(['prefix' => 'video', 'as' => 'video.'], function() {
+            Route::post('/', [VideoController::class, 'create'])->name('create');
+            Route::put('/', [VideoController::class, 'update'])->name('update');
+            Route::delete('/', [VideoController::class, 'delete'])->name('delete');
+        });
+
+        Route::group(['prefix' => 'file', 'as' => 'file.'], function() {
+            Route::post('/', [VideoFileController::class, 'create'])->name('create');
+            Route::put('/', [VideoFileController::class, 'update'])->name('update');
+            Route::delete('/', [VideoFileController::class, 'delete'])->name('delete');
+        });
+    });
 });

@@ -271,6 +271,8 @@
                                     class="{{ (isset($active) && $active == 'Coupons') ? 'active selected': '' }}">Coupons</a>
                                 <a href="{{ route('admin.users.index') }}"
                                     class="{{ (isset($active) && $active == 'Users') ? 'active selected': '' }}">Users</a>
+                                <a href="{{ route('admin.videos.index') }}"
+                                    class="{{ (isset($active) && $active == 'Videos') ? 'active selected': '' }}">Videos</a>
                             </nav>
                         </div>
                     </div>
@@ -346,6 +348,9 @@
                                 </li>
                                 <li class="{{ (isset($active) && $active == 'Users') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.users.index') }}">Users</a>
+                                </li>
+                                <li class="{{ (isset($active) && $active == 'Videos') ? 'active selected': '' }}">
+                                    <a href="{{ route('admin.videos.index') }}">Videos</a>
                                 </li>
                             </ul>
                         </div>

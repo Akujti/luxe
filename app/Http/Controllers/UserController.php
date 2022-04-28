@@ -156,7 +156,6 @@ class UserController extends Controller
                     }
                 }
                 $row->profile()->update([
-                    'fullname' => $req->profile['fullname'],
                     'address' => $req->profile['address'],
                     'phone' => $req->profile['phone'],
                     'languages' => json_encode($languageJson),

@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Models\Video;
+
+use Carbon\Carbon;
+use Vimeo\Laravel\Facades\Vimeo;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Video extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['video_id', 'folder_id'];
+
+    protected $appends = ['vimeo_details'];
+
+    public function getVimeoDetailsAttribute() {
+        $response = Vimeo::request('/videos/'. $this->video_id, [ ], 'GET');
+        
+        if($response['status'] != 404) {
+            $data = [
+                'name' => $response['body']['name'],
+                'description' => $response['body']['description'],
+                'thumbnail' => $response['body']['pictures']['base_link'],
+                'embed_url' => $response['body']['player_embed_url'],
+                'created_at' => Carbon::parse($response['body']['created_time'])->diffForHumans()
+            ];
+        } else {
+            $data = [
+                'name' => '',
+                'description' => '',
+                'thumbnail' => '',
+                'embed_url' => '',
+                'created_at' => ''
+            ];
+        }
+        return $data;
+    }
+
+    public function reviews() {
+        return $this->hasMany(VideoReview::class, 'video_id');
+    }
+
+    public function files() {
+        return $this->hasMany(VideoFile::class, 'video_id');
+    }
+}

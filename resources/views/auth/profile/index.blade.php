@@ -111,7 +111,7 @@
                             <div class="form-group col-12">
                                 <label for="">Full Name</label>
                                 <div class="input-group">
-                                    <input type="text" name="profile[fullname]" class="form-control" value="{{ auth()->user()->profile->fullname }}">
+                                    <input type="text" name="profile[fullname]" class="form-control" value="{{ auth()->user()->profile->fullname }}" readonly>
                                 </div>
                             </div>
                             <div class="form-group col-12">

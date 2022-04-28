@@ -11,19 +11,31 @@
 
     .fc-daygrid-event,
     .fc-daygrid-event:hover {
-        background: #FFCF40;
-        border: 1px solid rgb(136, 136, 136);
+        background: #F2F2F2;
+        border: 1px solid #F2F2F2;
         margin-bottom: 3px;
+        padding:5px;
+        border-radius: 5px;
     }
 
     .fc-daygrid-event-dot {
         display: none !important;
     }
+    .fc .fc-daygrid-day.fc-day-today {
+        background-color: transparent !important;
+    }
+    .fc .fc-daygrid-day {
+        padding: 0px 5px;
+    }
+    .fc .fc-button {
+        border-radius: 10px;
+        padding:10px 20px;
+    }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row w-100 m-0">
+    <div class="row w-100 m-0 mb-5">
         <div id='calendar' style="width: 100%; display: inline-block;"></div>
     </div>
     @if ($isAdmin)
