@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['active' => 'Orders'])
+@extends('layouts.app')
 
 @section('css')
 <style>
@@ -25,13 +25,6 @@
         font-family: 'gothicbold';
         text-align: start;
     }
-    .card {
-        border: none !important;
-    }
-    .card-header {
-        border-top: 1px solid rgba(0,0,0,.125);
-        border-bottom: 1px solid transparent !important;
-    }
     th {
         font-family: 'gothicbold' !important;
     }
@@ -56,14 +49,14 @@
 <div class="container-fluid">
     <div class="row m-0">
         <div class="w-100 d-flex justify-content-between align-items-center mb-2">
-            <h5 class="h5-luxe">Order #{{ $order->id }} details</h5>
+            <h5 class="h5-luxe bold">Order #{{ $order->id }} details</h5>
         </div>
         
         <div class="w-100">
             <p>Payment via PayPal. Paid on {{ $order->created_at }}</p>
-
+            <hr>
             <div class="row p-0 m-0">
-                <div class="col-4">
+                <div class="col-4 pl-0">
                     <h5 class="bold">General</h5>
                     <div class="form-group">
                         <label for="">Date created:</label>
@@ -75,13 +68,6 @@
                         <label for="">Status:</label>
                         <div class="input-group">
                             <p>{{ $order->status}}</p>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Customer:</label>
-                        <div class="input-group">
-                            <p>{{ !$order->user->profile ? '' : $order->user->profile->fullname }}</p>
                         </div>
                     </div>
                 </div>
@@ -112,15 +98,12 @@
 
                         <label>Phone:</label>
                         <p><a href="tel:{{ $order->shipping_details->phone }}">{{ $order->shipping_details->phone }}</a></p>
-
-                        <label>Customer provided note:</label>
-                        <p>{{ $order->billing_details->instructions }}</p>
+                       
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="row p-0 m-0 w-100">
+        <div class="row p-0 m-0 w-100 mt-4 pt-4">
             <div class="col-12 col-md-12 col-lg-7">
                 <h6 class="h6-luxe">Items</h6>
     
@@ -165,7 +148,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-12 col-lg-5">
+            <div class="col-12 col-md-5 col-lg-5">
                 <h6 class="h6-luxe">Custom Fields</h6>
 
                 <div class="table-responsive">

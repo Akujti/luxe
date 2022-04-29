@@ -60,8 +60,9 @@ class UserController extends Controller
     public function view_profile($id)
     {
         $user = User::with('profile')->find($id);
-        $orders = $user->orders()->latest()->get()->take(5);
-        return view('admin.users.view-profile', compact('user', 'orders'));
+        $orders = $user->orders()->latest()->get()->take(3);
+        $notes = $user->notes()->latest()->get()->take(3);
+        return view('admin.users.view-profile', compact('user', 'orders', 'notes'));
     }
 
     public function view_notes(Request $req, $id)
@@ -77,8 +78,9 @@ class UserController extends Controller
     public function agent_profile($id)
     {
         $user = User::with('profile')->find($id);
-        $orders = $user->orders()->latest()->get()->take(5);
-        return view('pages.agent-profile', compact('user', 'orders'));
+        $orders = $user->orders()->latest()->get()->take(3);
+        $notes = $user->notes()->latest()->get()->take(3);
+        return view('pages.agent-profile', compact('user', 'orders', 'notes'));
     }
 
     public function agent_list() {

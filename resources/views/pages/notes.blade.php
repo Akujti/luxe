@@ -194,8 +194,7 @@
                                 <p>Language</p>
                                 @if ($user->profile && $user->profile->languages)
                                 @foreach($user->profile->languages as $key => $language)
-                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif
-                                </h4>
+                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif</h4>
                                 @endforeach
                                 @endif
                             </div>
@@ -209,8 +208,9 @@
             </div>
             <div class="col-12 col-lg-8 col-md-12 mt-3">
                 <div class="row p-0 m-0">
-                    <div class="box-title mb-4">
-                        <h3>Notes</h3>
+                    <div class="box-title mb-4 d-flex justify-content-between align-items-center w-100">
+                        <h3 class="p-0 m-0">Notes</h3>
+                        <button class="btn btn-luxe" onclick="toggleNoteForm()">Add Note</button>
                     </div>
                     <div class="col-12 p-0">
                         @forelse($notes as $note)
@@ -218,8 +218,7 @@
                             <div class="row-details">
                                 <img src="{{ $note->user_author->avatar }}" alt="">
                                 <div>
-                                    <h4>{{ !$note->user_author->profile ? '': $note->user_author->profile->fullname }}
-                                    </h4>
+                                    <h4>{{ $note->user_author->profile->fullname }}</h4>
                                     <p>{{ $note->body}}</p>
                                 </div>
                             </div>
@@ -234,9 +233,32 @@
                     <div class="w-100 d-flex justify-content-center">
                         {{ $notes->links() }}
                     </div>
+
+                    <div class="col-12 p-0 mb-4 d-none" id="create-note-section">
+                        <form action="{{ route('create_note') }}" method="POST" class="row p-0 m-0">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+                            <div class="form-group col-12 p-0">
+                                <label for="">Text</label>
+                                <div class="input-group">
+                                    <textarea name="body" id="note-text" class="form-control"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-12 p-0">
+                                <button type="submit" class="btn btn-luxe">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    function toggleNoteForm() {
+        $('#create-note-section').toggleClass('d-none')
+        $('#note-text').focus()
+    }
+</script>
 @endsection

@@ -22,13 +22,22 @@ class OrderController extends Controller
 {
     public function admin_index()
     {
-        $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->latest()->paginate(15);
+        $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->latest()->paginate(20);
         return view('admin.orders.index', compact('orders'));
     }
 
     public function show($id) {
         $order = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->findOrFail($id);
         return view('admin.orders.show', compact('order'));
+    }
+
+    public function my_orders() {
+        $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->where('user_id', auth()->id())->latest()->paginate(20);
+        return view('auth.orders.index', compact('orders'));
+    }
+    public function show_agent($id) {
+        $order = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->findOrFail($id);
+        return view('auth.orders.show', compact('order'));
     }
 
     public function create(AddOrderRequest $req)

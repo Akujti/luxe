@@ -191,8 +191,7 @@
                                 <p>Language</p>
                                 @if ($user->profile && $user->profile->languages)
                                 @foreach($user->profile->languages as $key => $language)
-                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif
-                                </h4>
+                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif</h4>
                                 @endforeach
                                 @endif
                             </div>
@@ -209,15 +208,14 @@
                     <div class="form-group col-12 col-md-6">
                         <label for="">Support Specialist</label>
                         <div class="input-group">
-                            <input type="text" class="form-control"
-                                value="{{ $user->profile->support_specialist_name }}" readonly>
+                            <input type="text" class="form-control" value="{{ $user->profile->support_specialist_name }}"
+                                readonly>
                         </div>
                     </div>
                     <div class="form-group col-12 col-md-6 p-0">
                         <label for="">Loan Officer</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" value="{{ $user->profile->loan_officer_name }}"
-                                readonly>
+                            <input type="text" class="form-control" value="{{ $user->profile->loan_officer_name }}" readonly>
                         </div>
                     </div>
 
@@ -280,7 +278,24 @@
                     <div class="col-12 border-bottom mt-3"></div>
                     <div class="box-title mt-3 mb-3 d-flex justify-content-between w-100">
                         <h3>Add Notes</h3>
-                        <a href="{{ route('notes', $user->id) }}?staff=true" class="btn btn-luxe">View Notes</a>
+                        <a href="{{ route('notes', $user->id) }}?staff=true" class="btn btn-luxe">View All Notes</a>
+                    </div>
+                    <div class="col-12 p-0 mb-4">
+                        @forelse($notes as $note)
+                        <div class="row-col" style="border:none">
+                            <div class="row-details">
+                                <img src="{{ $note->user_author->avatar }}" alt="">
+                                <div>
+                                    <h4>{{ !$note->user_author->profile ? '' : $note->user_author->profile->fullname }}</h4>
+                                    <p>{{ $note->body }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @empty
+                        <div>
+                            <p>No Notes Found.</p>
+                        </div>
+                        @endforelse
                     </div>
                     <div class="col-12 p-0 mb-4">
                         <form action="{{ route('create_note') }}" method="POST" class="row p-0 m-0">
