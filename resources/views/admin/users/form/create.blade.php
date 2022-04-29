@@ -114,13 +114,13 @@
                             </div>
                         </div>
                         <div class="form-group col-12 col-md-6 pr-0">
-                            <label for="start">Phone*</label>
+                            <label for="start">Phone</label>
                             <div class='input-group'>
-                                <input type="text" class="w-100 form-control" name="profile[phone]" required>
+                                <input type="text" class="w-100 form-control" name="profile[phone]">
                             </div>
                         </div>
                         <div class="form-group col-12 col-md-6 pl-0">
-                            <label for="start">Language*</label>
+                            <label for="start">Languages</label>
                             <div class="d-flex">
                                 <input type="text" class="form-control" id="language-new">
                                 <button type="button" class="btn btn-luxe px-3 ml-2" onclick="add_language_new()">+</button>
@@ -131,9 +131,9 @@
                             </div>
                         </div>
                         <div class="form-group col-6 pr-0">
-                            <label for="start">Address*</label>
+                            <label for="start">Address</label>
                             <div class='input-group'>
-                                <input type="text" class="w-100 form-control" name="profile[address]" required>
+                                <input type="text" class="w-100 form-control" name="profile[address]">
                             </div>
                         </div>
                     </div>

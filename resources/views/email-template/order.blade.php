@@ -70,7 +70,7 @@
             <div class="box">
                 <h3>A new order has been added</h3>
 
-                <h5><a href="{{ route('admin.orders.index') }}">Go to orders</a></h5>
+                <h5><a href="{{ route('admin.orders.show', $details['data']->id) }}">Go to orders</a></h5>
             </div>
         @else
             <div class="box">

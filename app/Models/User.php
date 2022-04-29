@@ -56,7 +56,7 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne(UserProfile::class);
+        return $this->hasOne(UserProfile::class)->withDefault();
     }
 
     public function getAvatarAttribute()
@@ -65,9 +65,10 @@ class User extends Authenticatable
             if ($this->profile->avatar) {
                 return asset('storage/' . $this->profile->avatar);
             }
-            return 'https://ui-avatars.com/api/?name=' . $this->profile->fullname;
-        } else {
-            return 'https://ui-avatars.com/api/?name='. $this->email;
+            if($this->profile->fullname) {
+                return 'https://ui-avatars.com/api/?name=' . $this->profile->fullname;
+            }
         }
+        return 'https://ui-avatars.com/api/?name='. $this->email;
     }
 }

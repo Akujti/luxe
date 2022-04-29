@@ -256,7 +256,7 @@
                 <div class="container-fluid">
                     <div class="row m-0 d-none d-md-flex d-lg-flex d-xl-flex">
                         <div class="col-3 col-sm-7 col-md-12 col-lg-12 p-0">
-                            <nav>
+                            <nav class="row">
                                 <a href="{{ route('admin.index') }}"
                                     class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">Dashboard</a>
                                 <a href="{{ route('admin.forms.index') }}"

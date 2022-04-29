@@ -26,6 +26,11 @@ class OrderController extends Controller
         return view('admin.orders.index', compact('orders'));
     }
 
+    public function show($id) {
+        $order = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->findOrFail($id);
+        return view('admin.orders.show', compact('order'));
+    }
+
     public function create(AddOrderRequest $req)
     {
         DB::beginTransaction();
@@ -52,8 +57,8 @@ class OrderController extends Controller
                     } else {
                         $productDb->stock = $productDb->stock - $product['item_quantity'];
                         $productDb->save();
-                        $sub_total += $product['item_price'] * $product['item_quantity'];
                     }
+                    $sub_total += $product['item_price'] * $product['item_quantity'];
 
                     $productModels = [
                         'product_id' => $product['item_id'],

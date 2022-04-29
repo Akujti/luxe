@@ -107,8 +107,10 @@ class UserController extends Controller
                 }
             }
             $languageJson = [];
-            foreach ($req->languages as $language) {
-                array_push($languageJson, $language);
+            if ($req->has('languages') && $req->languages) {
+                foreach ($req->languages as $language) {
+                    array_push($languageJson, $language);
+                }
             }
             $row->profile()->create([
                 'fullname' => $req->profile['fullname'],

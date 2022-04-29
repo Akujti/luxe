@@ -108,6 +108,18 @@
                             <input type="hidden" name="id" value="{{ auth()->id() }}">
                             <input type="hidden" name="remove_image" id="remove-image-input" value="0">
                             <input type="file" name="profile[avatar]" id="avatar-input" style="display:none" onchange="onFileChanged(this)">
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Support Specialist</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->support_specialist_name }}" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="">Loan Officer</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->loan_officer_name }}" readonly>
+                                </div>
+                            </div>
                             <div class="form-group col-12">
                                 <label for="">Full Name</label>
                                 <div class="input-group">

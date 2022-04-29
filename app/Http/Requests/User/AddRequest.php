@@ -30,9 +30,9 @@ class AddRequest extends FormRequest
 
             'profile' => 'required|array',
             'profile.fullname' => 'required|string',
-            'profile.address' => 'required|string',
-            'profile.phone' => 'required|string',
-            'languages' => 'required|array',
+            'profile.address' => 'nullable|string',
+            'profile.phone' => 'nullable|string',
+            'languages' => 'nullable|array',
             'profile.avatar' => 'nullable|image',
         ];
     }

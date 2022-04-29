@@ -180,7 +180,7 @@
         <div class="singleproject__item w-100">
             <div class="row p-0 m-0">
                 <div class="col-12 col-md-12 col-lg-7">
-                    <div class="singleproject__item-title pb-0" style="border: none;">
+                    <div class="singleproject__item-title pb-3" style="border: none;">
                         <h2 class="m-0 p-0">{{ $video->vimeo_details['name'] }}</h2>
                     </div>
                     <div class="singleproject__item-img">
@@ -199,13 +199,13 @@
                         @endif
 
                         <div class="w-100 d-flex justify-content-between mt-2">
-                            <p class="bold">Speaker: {{ $video->presenter_name}}</p>
+                            <p class="bold"> @if($video->presenter_name) Speaker: {{ $video->presenter_name}} @endif</p>
                             <p class="time">{{ $video->date}}</p>
                         </div>
-                        <p class="time">{{ $video->vimeo_details['description'] }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, pariatur? Hic eveniet iure, iusto consequatur, quam non nemo dolores necessitatibus eligendi voluptates nam vero perspiciatis sit? Dolor facere quod obcaecati?</p>
+                        <p class="time">{{ $video->vimeo_details['description'] }}</p>
                         <div class="singleproject__item-title-logo row p-0 m-0">
                             <p class=" time m-0 p-0">{{ $video->vimeo_details['created_at'] }}</p>
-                            <div class="d-flex align-items-center col-3 col-lg-4 p-0">
+                            <div class="d-flex align-items-center col-5 col-md-3 col-lg-4 p-0">
                                 <img src="/images/videos/logo.png" class="mr-2" alt="">
                                 <p class="p-0 m-0 bold">LUXE Properties</p>
                             </div>

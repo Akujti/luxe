@@ -427,6 +427,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 
     Route::group(['prefix' => 'orders', 'as' => 'orders.'], function () {
         Route::get('/', [OrderController::class, 'admin_index'])->name('index');
+        Route::get('/{id}', [OrderController::class, 'show'])->name('show');
     });
 
     Route::group(['prefix' => 'users', 'as' => 'users.'], function () {

@@ -119,13 +119,13 @@
                             </div>
                         </div>
                         <div class="form-group col-12 col-md-6 pr-0">
-                            <label for="start">Phone*</label>
+                            <label for="start">Phone</label>
                             <div class='input-group'>
-                                <input type="text" class="w-100 form-control" name="profile[phone]" value="{{ $user->profile->phone }}" required>
+                                <input type="text" class="w-100 form-control" name="profile[phone]" value="{{ $user->profile->phone }}">
                             </div>
                         </div>
                         <div class="form-group col-12 col-md-6 pl-0">
-                            <label for="start">Language*</label>
+                            <label for="start">Languages</label>
                             <div class="d-flex">
                                 <input type="text" class="form-control" id="language">
                                 <button type="button" class="btn btn-luxe px-3 ml-2" onclick="add_language()">+</button>
@@ -143,9 +143,9 @@
                             </div>
                         </div>
                         <div class="form-group col-6 pr-0">
-                            <label for="start">Address*</label>
+                            <label for="start">Address</label>
                             <div class='input-group'>
-                                <input type="text" class="w-100 form-control" name="profile[address]" value="{{ $user->profile->address }}" required>
+                                <input type="text" class="w-100 form-control" name="profile[address]" value="{{ $user->profile->address }}">
                             </div>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                 <div class="col-6">
                     <div class="row p-0 m-0">
                         <div class="form-group col-12 col-md-6 pl-0">
-                            <label for="start">Support Specialists</label>
+                            <label for="start">Support Specialist</label>
                             <div class='input-group'>
                                 <input type="hidden" class="w-100 form-control" name="profile[support_specialists]" id="support-specialist-back">
                                 <select class="support-specialists" class="w-100" id="support-specialist-input"></select>
