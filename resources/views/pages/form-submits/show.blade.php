@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app', ['active' => 'Forms'])
 @section('css')
 <style>
     .wrapper h1 {
@@ -14,8 +14,8 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="wrapper">
-        <h1 class="text-center mb-4">Form Submission</h1>
+    <div class="w-100 d-flex justify-content-between align-items-center mb-5">
+        <h5 class="h5-luxe">Form Submission</h5>
     </div>
     <div class="row m-0 w-100">
         @foreach($details as $key=>$val)

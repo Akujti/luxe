@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['active' => 'Form_submits'])
+@extends('admin.layouts.app', ['active' => 'Forms'])
 @section('css')
 <style>
     th,
@@ -63,12 +63,12 @@
                             <td>{{Carbon\Carbon::parse($submission->created_at)->format('m-d-Y')}}</td>
                             <td>{{$submission->status ? 'Completed':'Pending'}}</td>
                             <td>
-                                <div class="button-group d-flex">
-                                    <button {{$submission->status ? 'disabled':''}} href="" class="btn btn-luxe mr-2"
-                                        type="submit"
-                                        style="height: 39px">Complete
+                                @if (!$submission->status)
+                                <div class="button-group">
+                                    <button class="btn btn-luxe mr-2" type="submit" style="height: 39px">Complete
                                     </button>
                                 </div>
+                                @endif
                             </td>
                         </form>
                         <td>
