@@ -28,7 +28,6 @@ class BrokerSumoController extends Controller
     {
         try {
             $brokersumos = $this->zoho_get_brokersumo_data();
-            return $brokersumos;
             $startdate = date('Y-m-d', strtotime("1 Jan 2000"));
             $enddate = date('Y-m-d');
             if (!empty($brokersumos)) {
