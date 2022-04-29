@@ -54,8 +54,8 @@
                     • Only properties in Miami-Dade or Broward county are covered
                     <b>*Please note: If property does not sell (cancelled, expired, or withdrawn), agent will be charged for shoot fee​​.​​*<b></pre>
                 </div>
-                <div class="card-footer">
-                    <button onclick="showForm()" class="btn btn-luxe w-100">I Agree</button>
+                <div class="card-footer text-center">
+                    <button onclick="showForm()" class="btn btn-luxe px-4">I Agree</button>
                 </div>
             </div>
 

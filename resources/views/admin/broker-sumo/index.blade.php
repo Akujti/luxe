@@ -14,9 +14,8 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Total Listings</th>
-                        <th>Total Points</th>
-                        <th>New Points</th>
+                        <th>Total Transactions</th>
+                        <th>Total Amount</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,14 +23,15 @@
                     <tr>
                         <td>{{$result->id}}</td>
                         <td>{{$result->agent_name}}</td>
-                        <td>{{$result->total_listing}} Listings</td>
-                        <td>{{$result->total_points}}</td>
-                        <td>{{$result->new_point}}</td>
+                        <td>{{$result->total_listing}} Transactions</td>
+                        <td>{{'$' . number_format($result->total_amounts)}}
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
+        {{ $results->links() }}
     </div>
 </div>
 @section('js')

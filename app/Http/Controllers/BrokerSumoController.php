@@ -11,13 +11,16 @@ class BrokerSumoController extends Controller
 {
     public function index()
     {
-        // return $this->updateAgentsTransactions();
-        // return AgentTransaction::where('agent_name', 'Pedro Bobea, LLC')->first();
-        $results = DB::select(DB::raw("SELECT * FROM agents_transactions
-        INNER JOIN (SELECT agent_name, MAX(total_points) AS Maxtotal_points FROM agents_transactions GROUP BY agent_name) 
-        toptotal_points ON agents_transactions.agent_name = toptotal_points.agent_name
-        AND agents_transactions.total_points = toptotal_points.maxtotal_points
-        ORDER BY total_points DESC"));
+        // $this->updateAgentsTransactions();
+        // $results = DB::select(DB::raw("SELECT * FROM agents_transactions
+        // INNER JOIN (SELECT agent_name, MAX(total_points) AS Maxtotal_points FROM agents_transactions GROUP BY agent_name) 
+        // toptotal_points ON agents_transactions.agent_name = toptotal_points.agent_name
+        // AND agents_transactions.total_points = toptotal_points.maxtotal_points
+        // ORDER BY total_points DESC"));
+        $results = AgentTransaction::orderBy(
+            'total_amounts',
+            'DESC'
+        )->paginate(50);
         return view('admin.broker-sumo.index', compact('results'));
     }
 
@@ -26,8 +29,8 @@ class BrokerSumoController extends Controller
         try {
             $brokersumos = $this->zoho_get_brokersumo_data();
             return $brokersumos;
-            $startdate = date('Y-m-d', strtotime("1 Jan 2020"));
-            $enddate = date('Y-m-d', strtotime("31 Dec 2020"));
+            $startdate = date('Y-m-d', strtotime("1 Jan 2000"));
+            $enddate = date('Y-m-d');
             if (!empty($brokersumos)) {
                 AgentTransaction::truncate();
                 foreach ($brokersumos as $brokersumo) {
@@ -37,11 +40,7 @@ class BrokerSumoController extends Controller
                         $bkdate = str_replace(",", '', $bkdate);
                         $bkdate = date('Y-m-d', strtotime($bkdate));
                         if (!empty($brokersumo[9]) && !empty($brokersumo[23]) && ($brokersumo[20] == "Listing" || $brokersumo[20] == "Selling" || $brokersumo[20] == "Dual" || $brokersumo[20] == "Rental" || $brokersumo[20] == "Referral") && ($brokersumo[23] == "Closed") && ($bkdate >= $startdate && $bkdate <= $enddate)) {
-                            if ($brokersumo[20] == "Referral") {
-                                $listing_current = 0;
-                            } else {
-                                $listing_current = 1;
-                            }
+                            $listing_current = 1;
                             $current_gross = intval($brokersumo[4]);
 
                             $sales_price = intval($brokersumo[18]);
@@ -53,6 +52,7 @@ class BrokerSumoController extends Controller
                                 } elseif ($brokersumo[20] == "Selling") {
                                     $new_points = 10;
                                 } elseif ($brokersumo[20] == "Dual") {
+                                    $sales_price = $sales_price * 2;
                                     $new_points = 20;
                                 } elseif ($brokersumo[20] == "Referral") {
                                     $new_points = 0;
@@ -90,13 +90,7 @@ class BrokerSumoController extends Controller
                                     'total_listing' => $listing_current,
                                     'total_amounts' => $sales_price,
                                 );
-                                $format = array('%s', '%d');
-                                // try {
-                                //code...
                                 AgentTransaction::create($data);
-                                // } catch (\Throwable $th) {
-                                //     dd($data);
-                                // }
                             }
                         }
                     }
@@ -181,7 +175,7 @@ class BrokerSumoController extends Controller
             $transaction_type = $user_data['transaction_type'];
             $data_arrays = $user_data['data_arrays'];
             $old_amounts = $user_data['total_amounts'];
-            $new_total = $total_amounts + intval($old_amounts);
+
 
             $data_arrays = json_decode($data_arrays, true);
 
@@ -214,12 +208,17 @@ class BrokerSumoController extends Controller
                 $new_points = 5;
             }
 
-            if ($types == "Referral") {
-                $total_listing = $total_listing;
-            } else {
-                $total_listing = $total_listing + 1;
-            }
+            // if ($types == "Referral") {
+            //     $total_listing = $total_listing;
+            // } else {
+            $total_listing = $total_listing + 1;
+            // }
             //        }
+            $new_total = $total_amounts + intval($old_amounts);
+            if ($types == 'Dual') {
+                $total_listing = $total_listing;
+                $new_total = 2 * $total_amounts + intval($old_amounts);
+            }
 
             $data_arrays = json_encode($data_arrays);
 

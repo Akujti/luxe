@@ -38,42 +38,45 @@ class UserController extends Controller
         }
     }
 
-    public function admin_index() {
+    public function admin_index()
+    {
         $users = User::with('profile')->orderBy(UserProfile::select('fullname')->whereColumn('user_profile.user_id', 'users.id'))->paginate(50);
 
         return view('admin.users.index', compact('users'));
     }
 
-    public function my_profile() {
+    public function my_profile()
+    {
         return view('auth.profile.index');
     }
 
-    public function view_profile($id) {
-        $user = User::with('orders')->find($id);
-
+    public function view_profile($id)
+    {
+        $user = User::with('orders', 'profile')->find($id);
         return view('admin.users.view-profile', compact('user'));
     }
 
-    public function create(AddRequest $req) {
+    public function create(AddRequest $req)
+    {
         try {
             $row = new User;
-    
+
             $row->email = $req->email;
             $row->password = Hash::make($req->password);
             $row->isAdmin = ($req->role == 'admin') ? 1 : 0;
             $row->role = $req->role;
             $row->save();
-    
+
             $image = null;
-            if(isset($req->profile['avatar'])) {
-                if($req->profile['avatar']) {
+            if (isset($req->profile['avatar'])) {
+                if ($req->profile['avatar']) {
                     $name = time() . Str::random(10) . '.' . $req->profile['avatar']->getClientOriginalExtension();
                     $path = $req->profile['avatar']->storeAs('/users', $name, 'public');
                     $image = $path;
                 }
             }
             $languageJson = [];
-            foreach($req->languages as $language) {
+            foreach ($req->languages as $language) {
                 array_push($languageJson, $language);
             }
             $row->profile()->create([
@@ -92,29 +95,30 @@ class UserController extends Controller
         return back()->with('message', 'Successfully Created');
     }
 
-    public function update(UpdateRequest $req) {
+    public function update(UpdateRequest $req)
+    {
         try {
             $row = User::find($req->id);
-    
+
             $row->email = $req->email;
-            if($req->password) {
+            if ($req->password) {
                 $row->password = Hash::make($req->password);
             }
             $row->isAdmin = ($req->role == 'admin') ? 1 : 0;
             $row->role = $req->role;
-    
+
             $row->save();
-            
-            if(isset($req->profile)) {
+
+            if (isset($req->profile)) {
                 $image = $row->profile->avatar;
-                if(isset($req->profile['avatar'])) {
+                if (isset($req->profile['avatar'])) {
                     $name = time() . Str::random(10) . '.' . $req->profile['avatar']->getClientOriginalExtension();
                     $path = $req->profile['avatar']->storeAs('/users', $name, 'public');
                     $image = $path;
                 }
                 $languageJson = [];
-                if($req->has('languages') && $req->languages) {
-                    foreach($req->languages as $language) {
+                if ($req->has('languages') && $req->languages) {
+                    foreach ($req->languages as $language) {
                         array_push($languageJson, $language);
                     }
                 }
@@ -135,23 +139,24 @@ class UserController extends Controller
         return back()->with('message', 'Successfully Updated');
     }
 
-    public function update_profile(UpdateProfileRequest $req) {
+    public function update_profile(UpdateProfileRequest $req)
+    {
         try {
             $row = User::find($req->id);
-            if(isset($req->profile)) {
+            if (isset($req->profile)) {
 
                 $image = $row->profile->avatar;
-                if($req->remove_image == 1) {
+                if ($req->remove_image == 1) {
                     $image = null;
                 }
-                if(isset($req->profile['avatar'])) {
+                if (isset($req->profile['avatar'])) {
                     $name = time() . Str::random(10) . '.' . $req->profile['avatar']->getClientOriginalExtension();
                     $path = $req->profile['avatar']->storeAs('/users', $name, 'public');
                     $image = $path;
                 }
                 $languageJson = [];
-                if($req->has('languages') && $req->languages) {
-                    foreach($req->languages as $language) {
+                if ($req->has('languages') && $req->languages) {
+                    foreach ($req->languages as $language) {
                         array_push($languageJson, $language);
                     }
                 }
@@ -169,7 +174,8 @@ class UserController extends Controller
         return back()->with('message', 'Successfully Updated');
     }
 
-    public function delete(DeleteRequest $req) {
+    public function delete(DeleteRequest $req)
+    {
         try {
             $row = User::find($req->id);
 
@@ -177,7 +183,7 @@ class UserController extends Controller
         } catch (Exception $e) {
             return back()->with('error', 'Something went wrong! User has not been deleted');
         }
-        
+
 
         return back()->with('message', 'Successfully Deleted');
     }

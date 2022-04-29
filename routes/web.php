@@ -49,6 +49,7 @@ use App\Http\Controllers\WrittenEmailTemplateItemController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 
 Route::view('office-locations', 'office-locations')->middleware('auth');
@@ -348,7 +349,6 @@ Route::group(
         Route::resource('agent-emails', AgentEmailController::class);
 
         Route::get('view-profile/{id}', [UserController::class, 'view_profile']);
-        Route::resource('broker-sumo', BrokerSumoController::class);
     }
 );
 
@@ -366,6 +366,10 @@ Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => [
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::get('/', [AdminController::class, 'index'])->name('index');
+
+    Route::get('broker-sumo/updateAgents', [BrokerSumoController::class, 'updateAgentsTransactions']);
+    Route::resource('broker-sumo', BrokerSumoController::class);
 
     Route::group(['prefix' => 'forms', 'as' => 'forms.'], function () {
         Route::get('/', [AdminController::class, 'forms'])->name('index');

@@ -4,7 +4,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <img src="{{$template->image}}" alt="" class="w-100" onerror="this.src='{{asset('images/no-image.png')}}';">
             @auth()
             @if(Auth::user()->isAdmin)
@@ -45,7 +45,7 @@
     @endif
     @endauth
 </div>
-<div class=" col-md-6">
+<div class=" col-md-8">
     <form action="{{route('marketing.email',[$template->category, $template])}}" method="POST" class="form row"
         enctype="multipart/form-data">
         @csrf

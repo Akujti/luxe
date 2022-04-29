@@ -54,12 +54,13 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class);
     }
 
-    public function getAvatarAttribute() {
-        if($this->profile) {
-            if($this->profile->avatar) {
-                return asset('storage/'. $this->profile->avatar);
+    public function getAvatarAttribute()
+    {
+        if ($this->profile) {
+            if ($this->profile->avatar) {
+                return asset('storage/' . $this->profile->avatar);
             }
-            return 'https://ui-avatars.com/api/?name='. $this->profile->fullname;
+            return 'https://ui-avatars.com/api/?name=' . $this->profile->fullname;
         } else {
             return 'https://ui-avatars.com/api/?name=';
         }

@@ -2,61 +2,71 @@
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <style>
-    .singleproject{
+    .singleproject {
         display: flex;
         justify-content: center;
     }
-    .singleproject__item{
-    }
-    .singleproject__item-img{
+
+    .singleproject__item {}
+
+    .singleproject__item-img {
         width: 100%;
         margin-bottom: 30px;
     }
+
     .singleproject__item-title {
         padding-bottom: 30px;
         border-bottom: 1px solid #E6E6E6;
     }
-    .singleproject__item-title h2{
+
+    .singleproject__item-title h2 {
         width: 100%;
         margin-bottom: 30px;
         font-size: 26px;
         font-family: 'gothicbold';
         color: #262626;
     }
-    .singleproject__item-title-logo{
+
+    .singleproject__item-title-logo {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    .singleproject__item-title-logo-name{
+
+    .singleproject__item-title-logo-name {
         display: flex;
         align-items: center;
         gap: 10px;
-        
+
     }
+
     .singleproject__item-title-logo-name p {
         font-family: 'gothicbold';
         font-size: 16px;
     }
-    .singleproject__reviews{
+
+    .singleproject__reviews {
         padding: 30px 0px;
         border-bottom: 1px solid #E6E6E6;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
-    .singleproject__reviews-star{
+
+    .singleproject__reviews-star {
         display: flex;
         gap: 10px;
         font-size: 16px;
         font-family: 'gothicregular';
     }
-    .singleproject__reviews-title h2{
+
+    .singleproject__reviews-title h2 {
         font-size: 24px;
         font-family: 'gothicbold';
         color: #262626;
     }
-    .singleproject__reviews-button button{
+
+    .singleproject__reviews-button button {
         padding: 14px 30px;
         background: #262626;
         color: white;
@@ -66,48 +76,57 @@
         font-family: 'gothicregular';
         cursor: pointer;
     }
-    .singleproject__comments{
+
+    .singleproject__comments {
         padding-top: 30px;
-        margin-bottom: 30px;
     }
-    .singleproject__comments-profile{
+
+    .singleproject__comments-profile {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
-    .singleproject__comment-profile-item{
+
+    .singleproject__comment-profile-item {
         display: flex;
         gap: 10px;
         align-items: center;
         font-size: 16px;
         font-family: 'gothicbold';
     }
+
     .singleproject__comment-profile-item img {
         width: 43px;
         height: 43px;
         border-radius: 50%;
     }
-    .singleproject__comment-profile-item-star{
+
+    .singleproject__comment-profile-item-star {
         display: flex;
         gap: 10px;
         font-family: 'gothicregular';
     }
-    .singleproject__comments-profile{
+
+    .singleproject__comments-profile {
         margin-bottom: 10px;
     }
-    .singleprojects__comments-cm{
+
+    .singleprojects__comments-cm {
         font-size: 16px;
         font-family: 'gothicregular';
         color: #262626;
     }
+
     .time {
         font-size: 16px;
         font-family: 'gothicregular';
         color: #262626;
     }
+
     .star-box {
-        gap:10px;
+        gap: 10px;
     }
+
     .star-box button {
         background: none;
         border: none;
@@ -117,29 +136,36 @@
         align-items: center;
         justify-content: center;
     }
+
     label {
         font-family: 'gothicregular';
     }
+
     iframe {
         height: 527px;
     }
+
     @media (max-width: 576px) {
         iframe {
             height: 200px !important;
         }
+
         .singleproject__item-title-logo-name,
         .singleproject__item-title-logo-name div:first-child {
             padding-left: 0px !important;
         }
     }
+
     @media (min-width: 577px) and (max-width: 992px) {
         iframe {
             height: 411px;
         }
     }
+
     .btn-luxe {
         border-radius: 10px !important;
     }
+
     .regular {
         font-family: 'gothicregular';
     }
@@ -147,21 +173,26 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-@include('includes.video_title')
+    @include('includes.video_title')
     <div class="singleproject row p-0 m-0">
         <div class="singleproject__item col-12 col-md-12 col-lg-8">
             <div class="singleproject__item-img">
                 <iframe src="{{ $video->vimeo_details['embed_url'] }}" width="100%" frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="singleproject__item-title">
                 <h2>{{ $video->vimeo_details['name'] }}</h2>
+                <p>{{ $video->vimeo_details['description'] ?? 'Some text here that serves as a description'}}</p>
                 <div class="singleproject__item-title-logo row p-0 m-0">
+                    {{-- <p class="col-12 col-md-6 col-lg-4 time m-0 p-0">{{ $video->vimeo_details['description'] }}</p>
+                    --}}
                     <p class="col-12 col-md-6 col-lg-4 time m-0 p-0">{{ $video->vimeo_details['created_at'] }}</p>
-                    <div class="singleproject__item-title-logo-name col-12 col-md-6 col-lg-7 row m-0 d-flex align-items-center justify-content-end">
+                    <div
+                        class="singleproject__item-title-logo-name col-12 col-md-6 col-lg-7 row m-0 d-flex align-items-center justify-content-end">
                         @if($video->files->count())
                         <div class="col-lg-6 col-md-9">
-                            <a href="{{ $video->files->first()->file_url }}" download="" class="btn btn-luxe mt-2">Download Presentation</a>
+                            <a href="{{ $video->files->first()->file_url }}" download=""
+                                class="btn btn-luxe mt-2">Download Presentation</a>
                         </div>
                         @endif
                         <div class="d-flex align-items-center col-12 col-md-7 col-lg-4 p-0">
@@ -183,18 +214,18 @@
                     <p class="m-0 p-0 d-flex align-items-center">
                         @php $rating = $video->reviews->avg('stars'); @endphp
                         @foreach(range(1,5) as $i)
-                            <span class="fa-stack" style="width:1em">
-                                <i class="far fa-star fa-stack-1x"></i>
+                        <span class="fa-stack" style="width:1em">
+                            <i class="far fa-star fa-stack-1x"></i>
 
-                                @if($rating > 0)
-                                    @if($rating > 0.5)
-                                        <i class="fas fa-star fa-stack-1x"></i>
-                                    @else
-                                        <i class="fas fa-star-half fa-stack-1x"></i>
-                                    @endif
-                                @endif
-                                @php $rating--; @endphp
-                            </span>
+                            @if($rating > 0)
+                            @if($rating > 0.5)
+                            <i class="fas fa-star fa-stack-1x"></i>
+                            @else
+                            <i class="fas fa-star-half fa-stack-1x"></i>
+                            @endif
+                            @endif
+                            @php $rating--; @endphp
+                        </span>
                         @endforeach
                     </p>
                     <p class="m-0 p-0 d-flex align-items-center">({{ $video->reviews->count() }} Reviews)</p>
@@ -213,24 +244,34 @@
                         <div class="input-group">
                             <div class="d-flex justify-content-center star-box">
                                 <button onclick="changeStarNum(1)" type="button">
-                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-1" class="star-nfilled d-flex" alt="">
-                                    <img src="/images/videos/star-icon.svg" id="star-1" class="star-filled d-none" alt="">
+                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-1"
+                                        class="star-nfilled d-flex" alt="">
+                                    <img src="/images/videos/star-icon.svg" id="star-1" class="star-filled d-none"
+                                        alt="">
                                 </button>
                                 <button onclick="changeStarNum(2)" type="button">
-                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-2" class="star-nfilled d-flex" alt="">
-                                    <img src="/images/videos/star-icon.svg" id="star-2" class="star-filled d-none" alt="">
+                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-2"
+                                        class="star-nfilled d-flex" alt="">
+                                    <img src="/images/videos/star-icon.svg" id="star-2" class="star-filled d-none"
+                                        alt="">
                                 </button>
                                 <button onclick="changeStarNum(3)" type="button">
-                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-3" class="star-nfilled d-flex" alt="">
-                                    <img src="/images/videos/star-icon.svg" id="star-3" class="star-filled d-none" alt="">
+                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-3"
+                                        class="star-nfilled d-flex" alt="">
+                                    <img src="/images/videos/star-icon.svg" id="star-3" class="star-filled d-none"
+                                        alt="">
                                 </button>
                                 <button onclick="changeStarNum(4)" type="button">
-                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-4" class="star-nfilled d-flex" alt="">
-                                    <img src="/images/videos/star-icon.svg" id="star-4" class="star-filled d-none" alt="">
+                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-4"
+                                        class="star-nfilled d-flex" alt="">
+                                    <img src="/images/videos/star-icon.svg" id="star-4" class="star-filled d-none"
+                                        alt="">
                                 </button>
                                 <button onclick="changeStarNum(5)" type="button">
-                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-5" class="star-nfilled d-flex" alt="">
-                                    <img src="/images/videos/star-icon.svg" id="star-5" class="star-filled d-none" alt="">
+                                    <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-5"
+                                        class="star-nfilled d-flex" alt="">
+                                    <img src="/images/videos/star-icon.svg" id="star-5" class="star-filled d-none"
+                                        alt="">
                                 </button>
                             </div>
                         </div>
@@ -246,40 +287,42 @@
                     </div>
                 </form>
             </div>
-            @forelse($reviews as $review)
-            <div class="singleproject__comments">
-                <div class="singleproject__comments-profile">
-                    <div class="singleproject__comment-profile-item">
-                        <img src="{{ $review->user->avatar }}" alt="">
-                        <p class="p-0 m-0">{{ $review->user->profile->fullname }}</p>
+            <div class="mb-5">
+                @forelse($reviews as $review)
+                <div class="singleproject__comments">
+                    <div class="singleproject__comments-profile">
+                        <div class="singleproject__comment-profile-item">
+                            <img src="{{ $review->user->avatar }}" alt="">
+                            <p class="p-0 m-0">{{ $review->user->profile->fullname }}</p>
+                        </div>
+                        <div class="singleproject__comment-profile-item-star d-flex align-items-center">
+                            <p class="p-0 m-0"><b>{{ $review->stars }}</b></p>
+                            <p class="p-0 m-0 d-flex align-items-center">
+                                @for($i = 0; $i < $review->stars; $i++)
+                                    <img src="/images/videos/star-icon.svg" alt="">
+                                    @endfor
+                            </p>
+                        </div>
                     </div>
-                    <div class="singleproject__comment-profile-item-star d-flex align-items-center">
-                        <p class="p-0 m-0"><b>{{ $review->stars }}</b></p>
-                        <p class="p-0 m-0 d-flex align-items-center">
-                            @for($i = 0; $i < $review->stars; $i++)
-                                <img src="/images/videos/star-icon.svg" alt="">
-                            @endfor
-                        </p>
+                    <div class="singleprojects__comments-cm">
+                        <p>{{ $review->comment }}</p>
                     </div>
                 </div>
-                <div class="singleprojects__comments-cm">
-                    <p>{{ $review->comment }}</p>
+                @empty
+                <div class="d-flex w-100 justify-content-center py-5 regular">
+                    No reviews found.
                 </div>
+                @endforelse
             </div>
-            @empty
-            <div class="d-flex w-100 justify-content-center py-5 regular">
-                No Reviews found.
-            </div>
-            @endforelse
             <div class="col-12 border-bottom"></div>
 
             <div class="singleproject__reviews row p-0 m-0 py-4 w-100 align-items-center">
                 <div class="singleproject__reviews-title">
                     <h2 class="p-0 m-0">Comments</h2>
                 </div>
-                
+
                 <div class="singleproject__reviews-button">
-                    <button type="button" onclick="toggleFormComment()">Add Comment</button>
+                    <button type="button" onclick="toggleFormComment()">Add a Comment</button>
                 </div>
             </div>
             <div class="w-100 my-4 comment-box d-none">
@@ -297,23 +340,25 @@
                     </div>
                 </form>
             </div>
-            @forelse($comments as $comment)
-            <div class="singleproject__comments">
-                <div class="singleproject__comments-profile">
-                    <div class="singleproject__comment-profile-item">
-                        <img src="{{ $comment->user->avatar }}" alt="">
-                        <p class="p-0 m-0">{{ $comment->user->profile->fullname }}</p>
+            <div class="mb-5">
+                @forelse($comments as $comment)
+                <div class="singleproject__comments">
+                    <div class="singleproject__comments-profile">
+                        <div class="singleproject__comment-profile-item">
+                            <img src="{{ $comment->user->avatar }}" alt="">
+                            <p class="p-0 m-0">{{ $comment->user->profile->fullname }}</p>
+                        </div>
+                    </div>
+                    <div class="singleprojects__comments-cm">
+                        <p>{{ $comment->comment }}</p>
                     </div>
                 </div>
-                <div class="singleprojects__comments-cm">
-                    <p>{{ $comment->comment }}</p>
+                @empty
+                <div class="d-flex w-100 justify-content-center py-5 regular">
+                    No comments found.
                 </div>
+                @endforelse
             </div>
-            @empty
-            <div class="d-flex w-100 justify-content-center py-5 regular">
-                No Comments found.
-            </div>
-            @endforelse
         </div>
     </div>
 </div>

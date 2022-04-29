@@ -231,7 +231,7 @@ class OrderController extends Controller
             Session::forget('shopping_cart');
             Session::save();
             Session::push('shopping_cart', $cart_data);
-            
+
             return back()->with('message', '"' . $product->name . '" Added to Cart');
         }
     }
@@ -239,7 +239,7 @@ class OrderController extends Controller
 
     public function cartload()
     {
-        return redirect('/home');
+        // return redirect('/home');
         $sub_total = 0;
         $total_price = 0;
         $coupon_code = null;
