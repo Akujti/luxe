@@ -172,12 +172,14 @@
                                 $user->profile->badge['title']}}</p>
                             <div class="d-flex justify-content-center">
                                 <div class="w-50 d-flex justify-content-between">
-                                    @for ($i = 0; $i < !$user->profile ? 0:$user->profile->badge['level']; $i++)
+                                    @if ($user->profile)
+                                    @for ($i = 0; $i < $user->profile->badge['level']; $i++)
                                         <span class="filled"></span>
                                         @endfor
-                                        @for ($i = 0; $i <8-(!$user->profile ? 0:$user->profile->badge['level']); $i++)
+                                        @for ($i = 0; $i <8-$user->profile->badge['level']; $i++)
                                             <span></span>
                                             @endfor
+                                            @endif
                                 </div>
                             </div>
                             <div class="level-title mt-2">
