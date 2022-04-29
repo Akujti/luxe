@@ -14,7 +14,7 @@ class TemplateSubmitController extends Controller
      */
     public function index()
     {
-        $submissions = TemplateSubmit::latest()->get();
+        $submissions = TemplateSubmit::latest()->paginate(30);
         return view('pages.template-submits.index', compact('submissions'));
     }
 

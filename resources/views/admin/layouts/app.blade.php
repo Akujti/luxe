@@ -265,6 +265,9 @@
                                     class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">Orders</a>
                                 <a href="{{ route('admin.luxe_store.index') }}"
                                     class="{{ (isset($active) && $active == 'Categories') ? 'active selected': '' }}">Categories</a>
+                                <a href="{{ route('admin.marketing-requests.index') }}"
+                                    class="{{ (isset($active) && $active == 'Marketing_requests') ? 'active selected': '' }}">Marketing
+                                    Requests</a>
                                 <a href="{{ route('admin.luxe_store.products.index') }}"
                                     class="{{ (isset($active) && $active == 'Products') ? 'active selected': '' }}">Products</a>
                                 <a href="{{ route('admin.luxe_store.coupons.index') }}"
@@ -330,9 +333,12 @@
                                 <li class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.forms.index') }}">Forms</a>
                                 </li>
+                                <a href="{{ route('admin.marketing-requests.index') }}"
+                                    class="{{ (isset($active) && $active == 'Marketing_requests') ? 'active selected': '' }}">Marketing
+                                    Requests</a>
                                 <li
                                     class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">
-                                    <a href="{{ route('admin.canva.marketing.index_admin') }}">Marketing Canva</a>
+                                    <a href="{{ route('admin.canva.marketing.index_admin') }}">Canva</a>
                                 </li>
                                 <li class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.orders.index') }}">Orders</a>

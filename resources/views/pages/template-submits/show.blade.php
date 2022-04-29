@@ -4,17 +4,17 @@
     .wrapper h1 {
         font-weight: 400;
         letter-spacing: 2px;
-        background: #FFCF40;
+        background: #262626;
         padding: 10px;
-        border: 1px solid #dadada;
+        color: white;
         border-radius: 10px;
     }
 </style>
 @endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="wrapper">
-        <h1 class="text-center mb-4">Form Submission</h1>
+        <h1 class="text-center mb-4">Marketing Request</h1>
     </div>
     <div class="row m-0 w-100 justify-content-center">
         @foreach($details as $key=>$val)

@@ -340,7 +340,6 @@ Route::group(
         Route::put('written-email-template-item/update/item', [WrittenEmailTemplateItemController::class, 'update'])->name('written-email-templates.item.update');
 
 
-        Route::resource('template-submit', TemplateSubmitController::class);
         Route::resource('form-submit', FormSubmitController::class);
         Route::post('form-submit', [FormSubmitController::class, 'getCsv'])->name('getCsv');
         Route::delete('deleteSubmissions', [FormSubmitController::class, 'deleteSubmissions'])->name('deleteSubmissions');
@@ -366,7 +365,7 @@ Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => [
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
-    Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::resource('marketing-requests', TemplateSubmitController::class);
 
     Route::get('broker-sumo/updateAgents', [BrokerSumoController::class, 'updateAgentsTransactions']);
     Route::resource('broker-sumo', BrokerSumoController::class);
@@ -432,19 +431,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 
 
     // Admin Videos
-    Route::group(['prefix' => 'videos', 'as' => 'videos.'], function() {
+    Route::group(['prefix' => 'videos', 'as' => 'videos.'], function () {
         Route::get('/', [VideoFolderController::class, 'admin_index'])->name('index');
         Route::post('/', [VideoFolderController::class, 'create'])->name('create');
         Route::put('/', [VideoFolderController::class, 'update'])->name('update');
         Route::delete('/', [VideoFolderController::class, 'delete'])->name('delete');
 
-        Route::group(['prefix' => 'video', 'as' => 'video.'], function() {
+        Route::group(['prefix' => 'video', 'as' => 'video.'], function () {
             Route::post('/', [VideoController::class, 'create'])->name('create');
             Route::put('/', [VideoController::class, 'update'])->name('update');
             Route::delete('/', [VideoController::class, 'delete'])->name('delete');
         });
 
-        Route::group(['prefix' => 'file', 'as' => 'file.'], function() {
+        Route::group(['prefix' => 'file', 'as' => 'file.'], function () {
             Route::post('/', [VideoFileController::class, 'create'])->name('create');
             Route::put('/', [VideoFileController::class, 'update'])->name('update');
             Route::delete('/', [VideoFileController::class, 'delete'])->name('delete');
