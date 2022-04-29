@@ -1,7 +1,37 @@
 @extends('admin.layouts.app', ['active' => 'Broker Sumo'])
-
 @section('css')
-@endsection
+<style>
+    th,
+    td {
+        text-align: center;
+    }
+
+    th {
+        border: none !important;
+        font-family: 'gothicbold';
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center !important
+    }
+
+    td {
+        font-family: 'gothicregular';
+        height: 90px !important;
+        vertical-align: middle !important;
+    }
+
+    .btn {
+        border-radius: 10px !important;
+    }
+
+    #img {
+        border-radius: 10px;
+    }
+
+    #add-new-button {
+        font-size: 30px !important;
+    }
+</style>
 @section('content')
 <div class="container-fluid">
     <div class="row m-0">
