@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Template;
 use App\Models\TemplateSubmit;
 use Illuminate\Http\Request;
 
@@ -45,9 +46,9 @@ class TemplateSubmitController extends Controller
      * @param  \App\Models\TemplateSubmit  $templateSubmit
      * @return \Illuminate\Http\Response
      */
-    public function show(TemplateSubmit $templateSubmit)
+    public function show($id)
     {
-        $details = json_decode($templateSubmit->details);
+        $details = json_decode(TemplateSubmit::findOrFail($id)->details);
         return view('pages.template-submits.show', compact('details'));
     }
 

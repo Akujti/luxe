@@ -1,23 +1,28 @@
-@extends('layouts.app')
+@extends('admin.layouts.app', ['active' => 'Form_submits'])
 @section('css')
 <style>
-    th,td {
+    th,
+    td {
         text-align: center;
     }
+
     th {
-        border:none !important;
+        border: none !important;
         font-family: 'gothicbold';
         font-size: 18px;
         font-weight: bold;
     }
+
     td {
         font-family: 'gothicregular';
         height: 120px !important;
         vertical-align: middle !important;
     }
+
     .btn {
         border-radius: 10px !important;
     }
+
     #img {
         border-radius: 10px;
     }
@@ -26,7 +31,9 @@
 @section('content')
 <div class="container-fluid">
     <div class="row m-0 w-100 justify-content-center">
-        <h1>Form Submissions</h1>
+        <div class="w-100 d-flex justify-content-between align-items-center mb-5">
+            <h5 class="h5-luxe">Form Submissions</h5>
+        </div>
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
@@ -44,11 +51,12 @@
                 <tbody>
                     @foreach($submissions as $submission)
                     <tr>
-                        <form action="{{route('form-submit.update',$submission)}}" method="POST">
+                        <form action="{{route('admin.form-submit.update',$submission)}}" method="POST">
                             @csrf
                             @method('PUT')
 
-                            <th scope="row" style="vertical-align: middle">{{((($_REQUEST['page']??1)-1)*50)+$loop->iteration}}</th>
+                            <td scope="row" style="vertical-align: middle">
+                                {{((($_REQUEST['page']??1)-1)*50)+$loop->iteration}}</td>
                             <td>{{$submission->form_title}}</td>
                             <td>{{$submission->agent_name}}</td>
                             <td>{{$submission->agent_email}}</td>
@@ -68,7 +76,7 @@
                             <button disabled class=" btn btn-luxe mr-2">View
                             </button>
                             @else
-                            <a class=" btn btn-luxe mr-2" href="{{route('form-submit.show',$submission->id)}}"
+                            <a class=" btn btn-luxe mr-2" href="{{route('admin.form-submit.show',$submission->id)}}"
                                 style="height: 39px">View
                             </a>
                             @endif

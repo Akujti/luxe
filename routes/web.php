@@ -340,7 +340,6 @@ Route::group(
         Route::put('written-email-template-item/update/item', [WrittenEmailTemplateItemController::class, 'update'])->name('written-email-templates.item.update');
 
 
-        Route::resource('form-submit', FormSubmitController::class);
         Route::post('form-submit', [FormSubmitController::class, 'getCsv'])->name('getCsv');
         Route::delete('deleteSubmissions', [FormSubmitController::class, 'deleteSubmissions'])->name('deleteSubmissions');
 
@@ -366,6 +365,7 @@ Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => [
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('marketing-requests', TemplateSubmitController::class);
+    Route::resource('form-submit', FormSubmitController::class);
 
     Route::get('broker-sumo/updateAgents', [BrokerSumoController::class, 'updateAgentsTransactions']);
     Route::resource('broker-sumo', BrokerSumoController::class);

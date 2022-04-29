@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app', ['active' => 'Marketing_requests'])
 @section('css')
 <style>
     .wrapper h1 {
@@ -13,10 +13,10 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="wrapper">
-        <h1 class="text-center mb-4">Marketing Request</h1>
+    <div class="w-100 mb-5">
+        <h5 class="h5-luxe border-bottom pb-4">Marketing Request</h5>
     </div>
-    <div class="row m-0 w-100 justify-content-center">
+    <div class="row m-0 w-100">
         @foreach($details as $key=>$val)
         @if ($loop->even)
         <div class="col-12 col-md-6">

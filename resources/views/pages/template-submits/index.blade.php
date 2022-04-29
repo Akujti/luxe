@@ -1,5 +1,36 @@
 @extends('admin.layouts.app', ['active' => 'Marketing_requests'])
 @section('css')
+<style>
+    th,
+    td {
+        text-align: center;
+    }
+
+    th {
+        border: none !important;
+        font-family: 'gothicbold';
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    td {
+        font-family: 'gothicregular';
+        height: 90px !important;
+        vertical-align: middle !important;
+    }
+
+    .btn {
+        border-radius: 10px !important;
+    }
+
+    #img {
+        border-radius: 10px;
+    }
+
+    #add-new-button {
+        font-size: 30px !important;
+    }
+</style>
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -8,40 +39,39 @@
             <h5 class="h5-luxe">Marketing Requests</h5>
         </div>
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Template Name</th>
-                        <th scope="col">Agent Name</th>
-                        <th scope="col">Agent Email</th>
-                        <th scope="col">Date Sent</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
-                        <th scope="col">View</th>
+                        <th>#</th>
+                        <th>Template Name</th>
+                        <th>Agent Name</th>
+                        <th>Agent Email</th>
+                        <th>Date Sent</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>View</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($submissions as $submission)
                     <tr>
-                        <form action="{{route('admin.marketing-requests.update',$submission)}}" method="POST">
-                            @csrf
-                            @method('PUT')
-
-                            <th scope="row">{{$loop->iteration}}</th>
-                            <td>{{$submission->template->title}}</td>
-                            <td>{{$submission->agent_name}}</td>
-                            <td>{{$submission->agent_email}}</td>
-                            <td>{{Carbon\Carbon::parse($submission->created_at)->format('m-d-Y')}}</td>
-                            <td>{{$submission->status ? 'Completed':'Pending'}}</td>
-                            <td>
-                                <div class="button-group d-flex">
-                                    @if (!$submission->status)
-                                    <button href="" class="btn btn-luxe mr-2" type="submit">Complete</button>
-                                    @endif
-                                </div>
-                            </td>
-                        </form>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$submission->template->title}}</td>
+                        <td>{{$submission->agent_name}}</td>
+                        <td>{{$submission->agent_email}}</td>
+                        <td>{{Carbon\Carbon::parse($submission->created_at)->format('m-d-Y')}}</td>
+                        <td>{{$submission->status ? 'Completed':'Pending'}}</td>
+                        <td>
+                            <div class="button-group ">
+                                @if (!$submission->status)
+                                <form action="{{route('admin.marketing-requests.update',$submission)}}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <button href="" class="btn btn-luxe" type="submit">Complete</button>
+                                </form>
+                                @endif
+                            </div>
+                        </td>
                         <td>
                             @if ($submission->details == null)
                             <button disabled class=" btn btn-luxe mr-2">View
@@ -57,7 +87,9 @@
                     @endforeach
                 </tbody>
             </table>
-            {{$submissions->links()}}
+            <div class="d-flex justify-content-center w-100">
+                {{$submissions->links()}}
+            </div>
         </div>
     </div>
 </div>
