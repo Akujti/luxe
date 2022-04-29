@@ -233,12 +233,12 @@
                                     <a href="{{ url('/home') }}">Dashboard </a>
                                 </li>
                                 @auth
-                                    @if(auth()->user()->role == 'other')
-                                        <li
-                                            class="row m-0 {{ (isset($active) && $active == 'Agents') ? 'active selected': '' }}">
-                                            <a href="{{ route('agent_list') }}">Agents</a>
-                                        </li>
-                                    @endif
+                                @if(auth()->user()->role == 'other')
+                                <li
+                                    class="row m-0 {{ (isset($active) && $active == 'Agents') ? 'active selected': '' }}">
+                                    <a href="{{ route('agent_list') }}">Agents</a>
+                                </li>
+                                @endif
                                 @endauth
                                 <li
                                     class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active selected @endif {{ (isset($active) && $active == 'Leads') ? 'active selected': '' }}">
@@ -285,8 +285,9 @@
                                     <ul class="w-100">
                                         <li><a href="{{ url("marketing-home") }}">DIY Marketing</a></li>
                                         <li><a href="https://realtorprint.com/collections/luxe">Print Marketing</a></li>
-                                        <li><a href="{{ url("user/guides") }}">Downloadble Guides</a></li>
+                                        <li><a href="{{ url("user/guides") }}">Downloadable Guides</a></li>
                                         <li><a href="{{ route('canva.marketing.requests') }}">Canva Templates</a></li>
+                                        <li><a href="{{ url("marketing-home") }}">Marketing Requests</a></li>
                                     </ul>
                                 </li>
                                 <li class="row m-0 @if(Request::path() == 'user/events') active @endif">
