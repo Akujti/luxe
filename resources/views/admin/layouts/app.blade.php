@@ -253,7 +253,7 @@
             <div class="header-navigation">
                 <div class="container-fluid">
                     <div class="row m-0 d-none d-md-flex d-lg-flex d-xl-flex">
-                        <div class="col-3 col-sm-7 col-md-12 col-lg-6 p-0">
+                        <div class="col-3 col-sm-7 col-md-12 col-lg-12 p-0">
                             <nav>
                                 <a href="{{ route('admin.index') }}"
                                     class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">Dashboard</a>
@@ -333,9 +333,11 @@
                                 <li class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.forms.index') }}">Forms</a>
                                 </li>
-                                <a href="{{ route('admin.marketing-requests.index') }}"
-                                    class="{{ (isset($active) && $active == 'Marketing_requests') ? 'active selected': '' }}">Marketing
-                                    Requests</a>
+                                <li
+                                    class="{{ (isset($active) && $active == 'Marketing_requests') ? 'active selected': '' }}">
+                                    <a href="{{ route('admin.marketing-requests.index') }}">Marketing
+                                        Requests</a>
+                                </li>
                                 <li
                                     class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">
                                     <a href="{{ route('admin.canva.marketing.index_admin') }}">Canva</a>
