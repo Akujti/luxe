@@ -83,7 +83,7 @@ return [
             'unix_socket' => env('WP_DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => 'wp_',
+            'prefix' => 'luxe_',
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
