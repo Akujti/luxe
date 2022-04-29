@@ -70,8 +70,9 @@ class TemplateSubmitController extends Controller
      * @param  \App\Models\TemplateSubmit  $templateSubmit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TemplateSubmit $templateSubmit)
+    public function update(Request $request, $id)
     {
+        $templateSubmit = TemplateSubmit::findOrFail($id);
         $templateSubmit->status = 1;
         $templateSubmit->save();
         return back()->with('message', 'Submission Updated');
