@@ -222,7 +222,7 @@
                     <div class="form-group col-12 col-md-6 p-0">
                         <label for="">Loan Officer</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" value="{{ !$user->profile->loan_officer_name }}"
+                            <input type="text" class="form-control" value="{{ $user->profile->loan_officer_name }}"
                                 readonly>
                         </div>
                     </div>

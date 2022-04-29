@@ -61,12 +61,12 @@ class UserProfile extends Model
     {
         if ($this->support_specialists) {
             return UserProfile::where('user_id', $this->support_specialists)->first()->fullname;
-        } else return "";
+        }
     }
     public function getLoanOfficerNameAttribute()
     {
         if ($this->loan_officer) {
             return UserProfile::where('user_id', $this->loan_officer)->first()->fullname;
-        } else return "";
+        }
     }
 }
