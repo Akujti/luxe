@@ -339,7 +339,9 @@
                                     </p>
                                 </div>
                                 <div>
-                                    @if ($file->type == 'img')
+                                    @if($file->thumbnail)
+                                        <img class="preview-img" src="{{'/storage/'.$file->thumbnail}}" style="width:75px !important; height: 75px !important">
+                                    @elseif ($file->type == 'img')
                                         <img class="preview-img" src="{{'/storage/'.$file->file}}" id="folder-img">
                                     @elseif($file->type == 'doc')
                                         <img src="{{'/images/files/'.$file->type.'.png'}}" width="45px" height="60px">
@@ -410,7 +412,9 @@
                         <a href="{{'/storage/'.$file->file}}" download target="_blank" class="row m-0 p-0 w-100">
                             <div class="col d-flex align-items-center">
                                 <div class="mr-4">
-                                    @if ($file->type == 'img')
+                                    @if($file->thumbnail)
+                                        <img class="preview-img" src="{{'/storage/'.$file->thumbnail}}" style="width:60px !important; height: 60px !important">
+                                    @elseif ($file->type == 'img')
                                         <img class="preview-img" src="{{'/storage/'.$file->file}}" style="width:60px !important; height: 60px !important">
                                     @elseif($file->type == 'doc')
                                         <img src="{{'/images/files/'.$file->type.'.png'}}" width="45px" height="55px">
@@ -477,11 +481,23 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <label for="start">{{ __('Select File') }}</label>
                             <div class="custom-file">
                                 <input type="file" name="file" class="form-control" id="inputGroupFile01" style="padding: 3px;" required>
                             </div>
+                        </div>
+
+                        <div class="form-group pt-3">
+                            <label for="start">Thumbnail</label>
+                            <div class="custom-file">
+                                <input type="file" name="thumbnail" class="form-control" id="inputGroupFile01"
+                                    style="padding: 3px;" onchange="onFileChanged(this)">
+                            </div>
+                        </div>
+                        <div class="w-100">
+                            <img src="" alt="" id="preview-image" class="mt-3 d-none w-100">
                         </div>
                     </div>
             </div>
@@ -576,5 +592,14 @@
         var value = document.getElementById('change_sort').value;
 
         window.location.href = '{{ route('files.index') }}?sort=' + value + '<?php if(isset($_GET['view'])) {echo '&view='. $_GET['view'];} ?>' + '<?php if(isset($_GET['id'])) {echo '&id='. $_GET['id'];} ?>'
+    }
+
+    function onFileChanged(e) {
+        const [file] = e.files 
+        console.log(URL.createObjectURL(file))
+        if (file) {
+            $('#preview-image').attr("src", URL.createObjectURL(file));
+            $('#preview-image').toggleClass('d-none')
+        }
     }
 </script>

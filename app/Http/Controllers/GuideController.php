@@ -36,8 +36,14 @@ class GuideController extends Controller
         );
         if (isset($request->file)) {
             $name = time() . Str::random(10) . '.' . $request->file->getClientOriginalExtension();
-            $path = $request->file->storeAs('/files', $name, 'public');;
+            $path = $request->file->storeAs('/files', $name, 'public');
             $file->file = $path;
+            $file->save();
+        }
+        if (isset($request->thumbnail)) {
+            $name = time() . Str::random(10) . '.' . $request->thumbnail->getClientOriginalExtension();
+            $path = $request->thumbnail->storeAs('/files', $name, 'public');
+            $file->thumbnail = $path;
             $file->save();
         }
         return redirect()->route('guides.index', ['id' => $request->folder_id])->with('message', 'File has been uploaded');

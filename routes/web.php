@@ -309,6 +309,8 @@ Route::group(
             Route::get('/', [UserController::class, 'my_profile'])->name('my_profile');
             Route::put('/', [UserController::class, 'update_profile'])->name('update');
         });
+
+        Route::get('/agent-list', [UserController::class, 'agent_list'])->name('agent_list');
     }
 );
 
@@ -347,6 +349,11 @@ Route::group(
         Route::resource('agent-emails', AgentEmailController::class);
 
         Route::get('view-profile/{id}', [UserController::class, 'view_profile']);
+        Route::get('agent-profile/{id}', [UserController::class, 'agent_profile']);
+
+        Route::post('create-note', [UserController::class, 'create_note'])->name('create_note');
+        Route::get('/notes/{id}', [UserController::class, 'view_notes'])->name('notes');
+
     }
 );
 
@@ -424,6 +431,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 
     Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
         Route::get('/', [UserController::class, 'admin_index'])->name('index');
+        Route::view('/create', 'admin.users.form.create')->name('create_form');
+        Route::get('/update/{id}', [UserController::class, 'update_form'])->name('update_form');
+        Route::get('/search', [UserController::class, 'search'])->name('search');
         Route::post('/', [UserController::class, 'create'])->name('create');
         Route::put('/', [UserController::class, 'update'])->name('update');
         Route::delete('/', [UserController::class, 'delete'])->name('delete');
@@ -449,4 +459,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
             Route::delete('/', [VideoFileController::class, 'delete'])->name('delete');
         });
     });
+
+    Route::get('update-role', [UserController::class, 'update_role']);
 });

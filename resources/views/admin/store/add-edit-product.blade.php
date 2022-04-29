@@ -148,6 +148,10 @@
                                         <label for="" class="label">Sale Price</label>
                                         <input type="number" name="variant_values[{{ $key }}][sale_price]" class="form-control" value="{{ $row->sale_price }}">
                                     </div>
+                                    <div class="form-group col p-0 m-0 mr-1">
+                                        <label for="" class="label">Stock</label>
+                                        <input type="number" name="variant_values[{{ $key }}][stock]" class="form-control" value="{{ $row->stock }}">
+                                    </div>
                                     <button class="btn btn-danger btn-rounded" type="button" onclick="remove_variant(this)">-</button>
                                 </div>
                                 @endforeach
@@ -248,6 +252,10 @@
             '<div class="form-group col p-0 m-0 mr-1">' +
             '<label for="" class="label">Sale Price</label>' +
             '<input type="number" name="variant_values[' + variant_count + '][sale_price]" class="form-control">' +
+            '</div>' +
+            '<div class="form-group col p-0 m-0 mr-1">' +
+            '<label for="" class="label">Stock</label>' +
+            '<input type="number" name="variant_values[' + variant_count + '][stock]" class="form-control">' +
             '</div>' +
             '<button class="btn btn-danger btn-rounded" type="button" onclick="remove_variant(this)">-</button>' +
             '</div>'

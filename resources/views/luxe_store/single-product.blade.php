@@ -65,14 +65,14 @@
                             <p id="price">${{ $product->price }}</p>
                         @endif
                     </div>
-                    <p id="short-desc" class="mb-4">{{ $product->description_2 }}</p>
+                    <p id="short-desc" class="mb-4">{!! $product->description_2 !!}</p>
                 @else
                     <p id="price" class="mb-4">{{
                         ($product->variants[0]->max_value_price == $product->variants[0]->min_value_price) ?
                         '$'.$product->variants[0]->max_value_price :
                         '$'.$product->variants[0]->min_value_price . ' - $'. $product->variants[0]->max_value_price
                     }}</p>
-                    <p id="short-desc" class="mb-4">{{ $product->description_2 }}</p>
+                    <p id="short-desc" class="mb-4">{!! $product->description_2 !!}</p>
 
                     <div id="show-variants" class="col-12 col-md-8">
                         @foreach($product->variants as $variant)
@@ -110,19 +110,26 @@
                     <div class="col-12 col-md-5 col-lg-4 d-flex align-items-center pd-r pd-l">
                             <input type="number" id="quantity-input" name="quantity" class="form-control py-2 mr-2" value="1" max="{{ $product->stock }}">
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                            <button class="btn btn-luxe py-2 px-4" type="submit" style="border-radius:10px;" {{ (!$product->stock) ? 'disabled': ''}}>Add To cart</button>
+                            <button class="btn btn-luxe py-2 px-4" type="submit" style="border-radius:10px;" id="btn-submit" {{ (!$product->stock) ? 'disabled': ''}}>Add To cart</button>
                     </div>
                     <div class="col-12 col-md-7 d-flex align-items-center md-l pd-r pd-l">
                         @if($product->stock)
-                            <p id="price" class="p-0 m-0">{{ $product->stock }}</p>
-                            <p id="categories" class="p-0 m-0 ml-1">in stock</p>
+                            @if($product->stock < 500000)
+                                <p id="price" class="p-0 m-0 stock-product">{{ $product->stock }}</p>
+                            @endif
+                            <p id="categories" class="p-0 m-0 ml-1 stock-product">in stock</p>
                         @else
-                            <p id="out-of-stock" class="p-0 m-0 ml-1">Out of Stock</p>
+                            <p id="out-of-stock" class="p-0 m-0 ml-1 stock-product">Out of Stock</p>
                         @endif
+                        <div class="stock-variant d-flex justify-content-between align-items-center"></div>
+                        
+
                     </div>
                 </div>
 
                 <p id="categories">Categories: @foreach($product->categories as $key => $category) {{ $category->name }} @if($key == ($product->categories->count() - 1)) @else , @endif  @endforeach</p>
+
+                <p id="short-desc">{!! $product->description !!}</p>
             </form>
         </div>
     </div>
@@ -131,18 +138,32 @@
 @section('js')
 <script>
     function option_value() {
+        $('.stock-product').removeClass('d-none')
+        $('.stock-variant').removeClass('d-flex')
+        $('.stock-variant').addClass('d-none')
         $('#show-option-value').html('')
         var option = document.getElementById("select-option").value;
 
         if(option) {
             var options = JSON.parse('<?php echo json_encode(@$product->variants[0]->values) ?>')
             var row = options.filter(x => x.value == option)[0]
-    
+            
             if(row.sale_price) {
                 $('#show-option-value').append('<p id="price" class="mr-3">$' + row.sale_price + '</p>')
                 $('#show-option-value').append('<p id="sale-price"><del>$' +row.price + '</del></p>')
             } else {
                 $('#show-option-value').append('<p id="price">$' + row.price + '</p>')
+            }
+            if(row.stock) {
+                $('.stock-variant').html('<p id="price" class="p-0 m-0">' + row.stock + '</p><p id="categories" class="p-0 m-0 ml-1">in stock</p>')
+                $('.stock-variant').removeClass('d-none')
+                $('.stock-variant').addClass('d-flex')
+                $('.stock-product').addClass('d-none')
+            } else {
+                $('.stock-variant').html('<p id="out-of-stock" class="p-0 m-0 ml-1">Out of Stock</p>')
+                $('#btn-submit').attr('disabled', true)
+                $('.stock-variant').removeClass('d-none')
+                $('.stock-product').addClass('d-none')
             }
             $('#clear').show();
         } else {
@@ -155,6 +176,9 @@
         document.getElementById("select-option").value = '';
         $('#clear').toggle();
         $('#show-option-value').text('')
+        $('.stock-product').removeClass('d-none')
+        $('.stock-variant').removeClass('d-flex')
+        $('.stock-variant').addClass('d-none')
     }
 
     function make_preview_image(e) {

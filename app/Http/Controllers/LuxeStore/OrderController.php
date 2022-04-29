@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\LuxeStore;
 
 use Illuminate\Http\Request;
+use App\Mail\OrderMailTemplate;
+use App\Mail\GeneralMailTemplate;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use App\Models\LuxeStore\LuxeStoreProduct;
 use App\Models\LuxeStore\LuxeStoreCouponCode;
@@ -13,6 +16,7 @@ use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
 use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
+use App\Models\LuxeStore\LuxeStoreProductVariantValues;
 
 class OrderController extends Controller
 {
@@ -41,9 +45,15 @@ class OrderController extends Controller
                 foreach ($cart_data as $product) {
                     $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
 
-                    $productDb->stock = $productDb->stock - $product['item_quantity'];
-                    $productDb->save();
-                    $sub_total += $product['item_price'] * $product['item_quantity'];
+                    if(isset($product['item_variant'])) {
+                        $orderProductVariant = LuxeStoreProductVariantValues::find($product['item_variant'][0]['choosed_id']);
+                        $orderProductVariant->stock = $orderProductVariant->stock - $product['item_quantity'];
+                        $orderProductVariant->save();
+                    } else {
+                        $productDb->stock = $productDb->stock - $product['item_quantity'];
+                        $productDb->save();
+                        $sub_total += $product['item_price'] * $product['item_quantity'];
+                    }
 
                     $productModels = [
                         'product_id' => $product['item_id'],
@@ -98,6 +108,15 @@ class OrderController extends Controller
             Session::forget('shopping_cart');
             Session::forget('coupon_code');
             Session::save();
+
+            $cc = [];
+            $details['type'] = 'admin';
+            $details['data'] = $row;
+            Mail::to('marketing@luxeknows.com')->cc($cc)->send(new OrderMailTemplate($details));
+
+            $details['type'] = 'agent';
+            $details['data'] = $row;
+            Mail::to(auth()->user()->email)->cc($cc)->send(new OrderMailTemplate($details));
 
             DB::commit();
             return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');

@@ -20,6 +20,20 @@
                             <input type="text" class="w-100 form-control" name="video_id" required>
                         </div>
                     </div>
+
+                    <div class="form-group col-12 pl-0">
+                        <label for="start">Presenter Name</label>
+                        <div class='input-group'>
+                            <input type="text" class="w-100 form-control" name="presenter_name">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12 pl-0">
+                        <label for="start">Date</label>
+                        <div class='input-group'>
+                            <input type="date" class="w-100 form-control" name="date">
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

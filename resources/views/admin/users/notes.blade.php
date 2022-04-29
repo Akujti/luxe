@@ -197,10 +197,8 @@
                                 @if ($user->profile && $user->profile->languages)
                                 @foreach($user->profile->languages as $key => $language)
                                 <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif</h4>
-                                
                                 @endforeach
                                 @endif
-
                             </div>
                             <div class="col-12 mt-3">
                                 <p>Address</p>
@@ -212,104 +210,30 @@
             </div>
             <div class="col-12 col-lg-8 col-md-12 mt-3">
                 <div class="row p-0 m-0">
-                    @if($user->role == 'agent')
-                        <div class="form-group col-12 col-md-6 pl-0">
-                            <label for="">Support Specialist</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control"
-                                    value="{{ !$user->profile ? '':$user->profile->support_specialist_name }}" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group col-12 col-md-6 p-0">
-                            <label for="">Loan Officer</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control"
-                                    value="{{ !$user->profile ? '':$user->profile->loan_officer_name }}" readonly>
-                            </div>
-                        </div>
-                        <div class="w-100 mb-5"></div>
-                    @endif
-
                     <div class="box-title mb-4">
-                        <h3>Referrals</h3>
+                        <h3>Notes</h3>
                     </div>
-
                     <div class="col-12 p-0">
+                        @forelse($notes as $note)
                         <div class="row-col">
                             <div class="row-details">
-                                <img src="/images/agents/ana.jpg" alt="">
+                                <img src="{{ $note->user_author->avatar }}" alt="">
                                 <div>
-                                    <h4>John Doe</h4>
-                                    <p>English</p>
+                                    <h4>{{ !$note->user_author->profile ? '': $note->user_author->profile->fullname }}</h4>
+                                    <p>{{ $note->body}}</p>
                                 </div>
-                            </div>
-                            <div class="row-date">
-                                <p>Date Registered: <b>03.11.2022</b></p>
-                            </div>
-                        </div>
-                        <div class="row-col">
-                            <div class="row-details">
-                                <img src="/images/agents/ana.jpg" alt="">
-                                <div>
-                                    <h4>John Doe</h4>
-                                    <p>English</p>
-                                </div>
-                            </div>
-                            <div class="row-date">
-                                <p>Date Registered: <b>03.11.2022</b></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="box-title mt-5 mb-4">
-                        <h3>Orders</h3>
-                    </div>
-
-                    <div class="col-12 p-0">
-                        @forelse($orders as $order)
-                        <div class="row-col">
-                            <div class="row-details">
-                                <!-- <img src="/images/agents/ana.jpg" alt=""> -->
-                                <div>
-                                    <h4>#{{ $order->id }}</h4>
-                                    <p>Total: ${{ $order->payment->total_price }}</p>
-                                </div>
-                            </div>
-                            <div class="row-date">
-                                <p>Date Registered: <b>{{ $order->created_at->toDateString() }}</b></p>
                             </div>
                         </div>
                         @empty
                         <div>
-                            <p>No Orders Found.</p>
+                            <p>No Notes Found.</p>
                         </div>
                         @endforelse
                     </div>
-                                
-                    @if($user->role == 'agent')
-                        <div class="col-12 border-bottom mt-3"></div>
-                        <div class="box-title mt-3 mb-3 d-flex justify-content-between w-100">
-                            <h3>Add Notes</h3>
-                            <a href="{{ route('notes', $user->id) }}" class="btn btn-luxe">View Notes</a>
-                        </div>
-                        <div class="col-12 p-0 mb-4">
-                            <form action="{{ route('create_note') }}" method="POST" class="row p-0 m-0">
-                                @csrf
-                                <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                <div class="form-group col-12 p-0">
-                                    <label for="">Text</label>
-                                    <div class="input-group">
-                                        <textarea name="body" class="form-control"></textarea>
-                                    </div>
-                                </div>
 
-                                <div class="col-12 p-0">
-                                    <button type="submit" class="btn btn-luxe">Submit</button>
-                                </div>
-
-                            </form>
-                        </div>
-                    @endif
+                    <div class="w-100 d-flex justify-content-center">
+                        {{ $notes->links() }}
+                    </div>
                 </div>
             </div>
         </div>

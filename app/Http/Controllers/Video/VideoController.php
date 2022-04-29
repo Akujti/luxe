@@ -13,7 +13,7 @@ class VideoController extends Controller
     public function create(AddRequest $req) {
         $row = new Video;
 
-        $row->fill($req->only('video_id', 'folder_id'));
+        $row->fill($req->only('video_id', 'folder_id', 'presenter_name', 'date'));
         $row->save();
 
         return back()->with('message', 'Successfully Created');
@@ -22,7 +22,7 @@ class VideoController extends Controller
     public function update(UpdateRequest $req) {
         $row = Video::find($req->id);
 
-        $row->fill($req->only('video_id', 'folder_id'));
+        $row->fill($req->only('video_id', 'folder_id', 'presenter_name', 'date'));
         $row->save();
 
         return back()->with('message', 'Successfully Updated');

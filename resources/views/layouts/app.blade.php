@@ -232,6 +232,14 @@
                                     class="row m-0 @if(Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif">
                                     <a href="{{ url('/home') }}">Dashboard </a>
                                 </li>
+                                @auth
+                                    @if(auth()->user()->role == 'other')
+                                        <li
+                                            class="row m-0 {{ (isset($active) && $active == 'Agents') ? 'active selected': '' }}">
+                                            <a href="{{ route('agent_list') }}">Agents</a>
+                                        </li>
+                                    @endif
+                                @endauth
                                 <li
                                     class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active selected @endif {{ (isset($active) && $active == 'Leads') ? 'active selected': '' }}">
                                     <a href="{{ url('/home?dir=leads') }}">Leads </a>

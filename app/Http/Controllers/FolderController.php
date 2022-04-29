@@ -76,6 +76,12 @@ class FolderController extends Controller
             $file->file = $path;
             $file->save();
         }
+        if (isset($request->thumbnail)) {
+            $name = time() . Str::random(10) . '.' . $request->thumbnail->getClientOriginalExtension();
+            $path = $request->thumbnail->storeAs('/files', $name, 'public');
+            $file->thumbnail = $path;
+            $file->save();
+        }
         return redirect()->route('files.index', ['id' => $request->folder_id])->with('message', 'File has been uploaded');
     }
 

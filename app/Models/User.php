@@ -49,6 +49,11 @@ class User extends Authenticatable
         return $this->hasMany(LuxeStoreOrder::class, 'user_id');
     }
 
+    public function notes()
+    {
+        return $this->hasMany(UserNote::class, 'user_id');
+    }
+
     public function profile()
     {
         return $this->hasOne(UserProfile::class);
@@ -62,7 +67,7 @@ class User extends Authenticatable
             }
             return 'https://ui-avatars.com/api/?name=' . $this->profile->fullname;
         } else {
-            return 'https://ui-avatars.com/api/?name=';
+            return 'https://ui-avatars.com/api/?name='. $this->email;
         }
     }
 }

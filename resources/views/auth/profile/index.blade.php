@@ -111,19 +111,19 @@
                             <div class="form-group col-12">
                                 <label for="">Full Name</label>
                                 <div class="input-group">
-                                    <input type="text" name="profile[fullname]" class="form-control" value="{{ auth()->user()->profile->fullname }}" readonly>
+                                    <input type="text" name="profile[fullname]" class="form-control" value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->fullname }}" readonly>
                                 </div>
                             </div>
                             <div class="form-group col-12">
                                 <label for="">Phone Number</label>
                                 <div class="input-group">
-                                    <input type="text" name="profile[phone]" class="form-control" value="{{ auth()->user()->profile->phone }}">
+                                    <input type="text" name="profile[phone]" class="form-control" value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->phone }}">
                                 </div>
                             </div>
                             <div class="form-group col-12">
                                 <label for="">Address</label>
                                 <div class="input-group">
-                                    <input type="text" name="profile[address]" class="form-control" value="{{ auth()->user()->profile->address }}">
+                                    <input type="text" name="profile[address]" class="form-control" value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->address }}">
                                 </div>
                             </div>
                             <div class="form-group col-12">
@@ -169,7 +169,7 @@
     }
     function remove_image() {
         $('#remove-image-input').val(1);
-        $('#image-profile').attr("src", "https://ui-avatars.com/api/?name={{ auth()->user()->profile->fullname }}" );
+        $('#image-profile').attr("src", "https://ui-avatars.com/api/?name={{ !auth()->user()->profile ? '' : auth()->user()->profile->fullname }}" );
     }
 
     function add_language() {

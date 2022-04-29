@@ -217,6 +217,8 @@
         $('.update-event-video').modal('show');
         $('.update-event-video').find('#id').val(row.id);
         $('.update-event-video').find('#video_id').val(row.video_id);
+        $('.update-event-video').find('#presenter_name').val(row.presenter_name);
+        $('.update-event-video').find('#date').val(row.date);
     };
 
     function create_file() {

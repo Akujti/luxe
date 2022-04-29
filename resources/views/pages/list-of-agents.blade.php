@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['active' => 'Users'])
+@extends('layouts.app', ['active' => 'Agents'])
 
 @section('css')
 <style>
@@ -46,10 +46,7 @@
 <div class="container-fluid">
     <div class="row m-0">
         <div class="w-100 d-flex justify-content-between align-items-center mb-5">
-            <h5 class="h5-luxe">Users</h5>
-            <div>
-                <button class="btn btn-luxe px-5 py-2"><a class="text-light" href="{{ route('admin.users.create_form' ) }}">Create</a></button>
-            </div>
+            <h5 class="h5-luxe">Agents</h5>
         </div>
         
         <div class="table-responsive">
@@ -74,9 +71,7 @@
                         <td>{{ $user->role }}</td>
                         <td>{{ $user->created_at->diffForHumans() }}</td>
                         <td>
-                            <button class="btn btn-luxe px-4 py-2"><a class="text-light" href="{{ route('admin.users.update_form', $user->id) }}">Edit</a></button>
-                            <button class="btn btn-danger py-2" onclick="delete_event({{ $user }})">Delete</button>
-                            <button class="btn btn-primary py-2" onclick="window.location.href = '{{ url('view-profile/'. $user->id) }}'">View</button>
+                            <button class="btn btn-primary py-2" onclick="window.location.href = '{{ url('agent-profile/'. $user->id) }}'">View</button>
                         </td>
                     </tr>
                     @endforeach
@@ -90,7 +85,6 @@
     </div>
 </div>
 
-@include('admin.users.modals.delete')
 
 @section('js')
 <script>

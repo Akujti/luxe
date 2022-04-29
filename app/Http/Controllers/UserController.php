@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\User;
+use App\Models\UserNote;
+use App\Models\UserProfile;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\User\AddRequest;
+use App\Http\Requests\User\NoteRequest;
 use App\Http\Requests\User\DeleteRequest;
 use App\Http\Requests\User\UpdateRequest;
 use App\Http\Requests\User\UpdateProfileRequest;
-use App\Models\UserProfile;
 
 class UserController extends Controller
 {
@@ -21,6 +23,11 @@ class UserController extends Controller
         $user_id = Auth::id();
         $user = User::find($user_id);
         return $user;
+    }
+    public function update_form($id) {
+        $user = User::findOrFail($id);
+
+        return view('admin.users.form.update', compact('user'));
     }
 
     public function login()
@@ -52,8 +59,32 @@ class UserController extends Controller
 
     public function view_profile($id)
     {
-        $user = User::with('orders', 'profile')->find($id);
-        return view('admin.users.view-profile', compact('user'));
+        $user = User::with('profile')->find($id);
+        $orders = $user->orders()->latest()->get()->take(5);
+        return view('admin.users.view-profile', compact('user', 'orders'));
+    }
+
+    public function view_notes(Request $req, $id)
+    {
+        $user = User::with('profile')->find($id);
+        $notes = $user->notes()->latest()->paginate(20);
+        if($req->staff) {
+            return view('pages.notes', compact('user', 'notes'));
+        }
+        return view('admin.users.notes', compact('user', 'notes'));
+    }
+
+    public function agent_profile($id)
+    {
+        $user = User::with('profile')->find($id);
+        $orders = $user->orders()->latest()->get()->take(5);
+        return view('pages.agent-profile', compact('user', 'orders'));
+    }
+
+    public function agent_list() {
+        $users = User::where('role', 'agent')->latest()->paginate(20);
+
+        return view('pages.list-of-agents', compact('users'));
     }
 
     public function create(AddRequest $req)
@@ -92,7 +123,7 @@ class UserController extends Controller
             return back()->with('error', 'Something went wrong');
         }
 
-        return back()->with('message', 'Successfully Created');
+        return redirect()->route('admin.users.index')->with('message', 'Successfully Created');
     }
 
     public function update(UpdateRequest $req)
@@ -128,15 +159,15 @@ class UserController extends Controller
                     'phone' => $req->profile['phone'],
                     'languages' => json_encode($languageJson),
                     'avatar' => $image,
-                    'support_specialists' => $req->profile['support_specialists'],
-                    'loan_officer' => $req->profile['loan_officer'],
+                    'support_specialists' => $req->profile['support_specialists'] ? $req->profile['support_specialists'] : $row->profile->support_specialists,
+                    'loan_officer' => $req->profile['loan_officer'] ? $req->profile['loan_officer'] : $row->profile->loan_officer,
                 ]);
             }
         } catch (Exception $e) {
             return back()->with('error', 'Something went wrong');
         }
 
-        return back()->with('message', 'Successfully Updated');
+        return redirect()->route('admin.users.index')->with('message', 'Successfully Updated');
     }
 
     public function update_profile(UpdateProfileRequest $req)
@@ -191,10 +222,27 @@ class UserController extends Controller
     public function search(Request $req) {
         if($req->search) {
             $users = UserProfile::where('fullname', 'like', '%'.$req->search.'%')->get();
-
+            
             return response()->json([
                 'users' => $users
             ]);
         }
+    }
+
+    public function create_note(NoteRequest $req) {
+        $row = new UserNote;
+
+        $row->body = $req->body;
+        $row->user_id = $req->user_id;
+        $row->author = auth()->id();
+        $row->save();
+
+        return back()->with('message', 'Successfully Added!');
+    }
+
+    public function update_role() {
+        User::where('isAdmin', 1)->update(['role' => 'admin']);
+        User::where('isAdmin', 0)->update(['role' => 'agent']);
+        return back();
     }
 }

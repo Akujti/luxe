@@ -12,7 +12,7 @@ class Video extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['video_id', 'folder_id'];
+    protected $fillable = ['video_id', 'folder_id', 'presenter_name', 'date'];
 
     protected $appends = ['vimeo_details'];
 

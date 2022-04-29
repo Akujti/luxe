@@ -21,6 +21,7 @@ class UserProfile extends Model
             $model->languages = json_decode($model->languages);
         });
     }
+    protected $appends = ['support_specialist_name', 'loan_officer_name'];
 
     public function getBadgeAttribute()
     {
@@ -53,6 +54,17 @@ class UserProfile extends Model
                 $badge['level'] = 8;
             }
             return $badge;
+        }
+    }
+
+    public function getSupportSpecialistNameAttribute() {
+        if($this->support_specialists) {
+            return UserProfile::where('user_id', $this->support_specialists)->first()->fullname;
+        }
+    }
+    public function getLoanOfficerNameAttribute() {
+        if($this->loan_officer) {
+            return UserProfile::where('user_id', $this->loan_officer)->first()->fullname;
         }
     }
 }

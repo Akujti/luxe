@@ -76,7 +76,7 @@
 <style>
 </style>
 <div class="container-fluid">
-    @include('includes.video_title')
+    {{-- @include('includes.video_title') --}}
     <div class="row">
 
         @foreach($videoFolders as $folder)
