@@ -159,44 +159,48 @@
                         </div>
                         <div id="phone-box">
                             <img src="/images/index-page/phone-black.svg"
-                                onclick="window.location = 'tel:{{ $user->profile?->phone }}'" alt="">
+                                onclick="window.location = 'tel:{{ !$user->profile ? '':$user->profile->phone  }}'"
+                                alt="">
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="profile-title">
-                            <h4>{{ $user->profile->fullname }}</h4>
+                            <h4>{{ !$user->profile ? '':$user->profile->fullname }}</h4>
                         </div>
                         <div class="profile-level">
-                            <p class="text-center"><b>Badge:</b> {{$user->profile?->badge['title']}}</p>
+                            <p class="text-center"><b>Badge:</b> {{!$user->profile ? '':
+                                $user->profile->badge['title']}}</p>
                             <div class="d-flex justify-content-center">
                                 <div class="w-50 d-flex justify-content-between">
-                                    @for ($i = 0; $i < $user->profile->badge['level']; $i++)
+                                    @for ($i = 0; $i < !$user->profile ? 0:$user->profile->badge['level']; $i++)
                                         <span class="filled"></span>
                                         @endfor
-                                        @for ($i = 0; $i <8-$user->profile->badge['level']; $i++)
+                                        @for ($i = 0; $i <8-(!$user->profile ? 0:$user->profile->badge['level']); $i++)
                                             <span></span>
                                             @endfor
                                 </div>
                             </div>
                             <div class="level-title mt-2">
-                                <p id="bold">Level {{$user->profile?->badge['level']}}</p>
+                                <p id="bold">Level {{!$user->profile ? '': $user->profile->badge['level']}}</p>
                                 <p id="regular">&nbsp;/ 8</p>
                             </div>
                         </div>
                         <div class="profile-details row p-0 m-0">
                             <div class="col-12 col-md-7">
                                 <p>Phone</p>
-                                <h4>{{ $user->profile?->phone }}</h4>
+                                <h4>{{ !$user->profile ? '': $user->profile->phone }}</h4>
                             </div>
                             <div class="col-12 col-md-5">
                                 <p>Language</p>
-                                @foreach($user->profile?->languages as $language)
+                                @if ($user->profile)
+                                @foreach($user->profile->languages as $language)
                                 <h4>{{ $language }}</h4>
                                 @endforeach
+                                @endif
                             </div>
                             <div class="col-12 mt-3">
                                 <p>Address</p>
-                                <h4>{{ $user->profile?->address }}</h4>
+                                <h4>{{ !$user->profile ? '':$user->profile->address }}</h4>
                             </div>
                         </div>
                     </div>
@@ -207,15 +211,15 @@
                     <div class="form-group col-12 col-md-6">
                         <label for="">Support Specialists</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" value="{{ $user->profile?->support_specialists }}"
-                                readonly>
+                            <input type="text" class="form-control"
+                                value="{{ !$user->profile ? '':$user->profile->support_specialists }}" readonly>
                         </div>
                     </div>
                     <div class="form-group col-12 col-md-6 p-0">
                         <label for="">Loan Officer</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" value="{{ $user->profile?->loan_officer }}"
-                                readonly>
+                            <input type="text" class="form-control"
+                                value="{{ !$user->profile ? '':$user->profile->loan_officer }}" readonly>
                         </div>
                     </div>
 

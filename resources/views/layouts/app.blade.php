@@ -14,7 +14,7 @@
 
     <!-- Tidio live chat script -->
 
-    <script src="//code.tidio.co/wyv1gcmfhmesxopg3odmuaf97mtmlq1i.js" async></script>
+    <script src="//code.tidio.co/frrxptsvozhi8x0bfw3gg5xbrc3leqdo.js" async></script>
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
