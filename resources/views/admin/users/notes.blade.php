@@ -159,17 +159,15 @@
                         </div>
                         <div id="phone-box">
                             <img src="/images/index-page/phone-black.svg"
-                                onclick="window.location = 'tel:{{ !$user->profile ? '':$user->profile->phone  }}'"
-                                alt="">
+                                onclick="window.location = 'tel:{{ $user->profile->phone  }}'" alt="">
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="profile-title">
-                            <h4>{{ !$user->profile ? '':$user->profile->fullname }}</h4>
+                            <h4>{{ $user->profile->fullname }}</h4>
                         </div>
                         <div class="profile-level">
-                            <p class="text-center"><b>Badge:</b> {{!$user->profile ? '':
-                                $user->profile->badge['title']}}</p>
+                            <p class="text-center"><b>Badge:</b> {{$user->profile->badge['title']}}</p>
                             <div class="d-flex justify-content-center">
                                 <div class="w-50 d-flex justify-content-between">
                                     @if ($user->profile)
@@ -183,26 +181,27 @@
                                 </div>
                             </div>
                             <div class="level-title mt-2">
-                                <p id="bold">Level {{!$user->profile ? '': $user->profile->badge['level']}}</p>
+                                <p id="bold">Level {{$user->profile->badge['level']}}</p>
                                 <p id="regular">&nbsp;/ 8</p>
                             </div>
                         </div>
                         <div class="profile-details row p-0 m-0">
                             <div class="col-12 col-md-7">
                                 <p>Phone</p>
-                                <h4>{{ !$user->profile ? '': $user->profile->phone }}</h4>
+                                <h4>{{ $user->profile->phone }}</h4>
                             </div>
                             <div class="col-12 col-md-5">
                                 <p>Languages</p>
                                 @if ($user->profile && $user->profile->languages)
                                 @foreach($user->profile->languages as $key => $language)
-                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif</h4>
+                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif
+                                </h4>
                                 @endforeach
                                 @endif
                             </div>
                             <div class="col-12 mt-3">
                                 <p>Address</p>
-                                <h4>{{ !$user->profile ? '':$user->profile->address }}</h4>
+                                <h4>{{ $user->profile->address }}</h4>
                             </div>
                         </div>
                     </div>
@@ -219,7 +218,8 @@
                             <div class="row-details">
                                 <img src="{{ $note->user_author->avatar }}" alt="">
                                 <div>
-                                    <h4>{{ !$note->user_author->profile ? '': $note->user_author->profile->fullname }}</h4>
+                                    <h4>{{ !$note->user_author->profile ? '': $note->user_author->profile->fullname }}
+                                    </h4>
                                     <p>{{ $note->body}}</p>
                                 </div>
                             </div>

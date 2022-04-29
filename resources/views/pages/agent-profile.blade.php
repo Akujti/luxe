@@ -1,4 +1,3 @@
-
 @extends('layouts.app', ['active' => 'Agents'])
 @section('css')
 <style>
@@ -166,7 +165,7 @@
                         <div class="profile-title">
                             <h4>{{ $user->profile->fullname }}</h4>
                         </div>
-                        <div class="profile-level">
+                        {{-- <div class="profile-level">
                             <p class="text-center"><b>Badge:</b> {{$user->profile->badge['title']}}</p>
                             <div class="d-flex justify-content-center">
                                 <div class="w-50 d-flex justify-content-between">
@@ -182,7 +181,7 @@
                                 <p id="bold">Level {{$user->profile->badge['level']}}</p>
                                 <p id="regular">&nbsp;/ 8</p>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="profile-details row p-0 m-0">
                             <div class="col-12 col-md-7">
                                 <p>Phone</p>
@@ -192,7 +191,8 @@
                                 <p>Language</p>
                                 @if ($user->profile && $user->profile->languages)
                                 @foreach($user->profile->languages as $key => $language)
-                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif</h4>
+                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif
+                                </h4>
                                 @endforeach
                                 @endif
                             </div>
@@ -209,14 +209,15 @@
                     <div class="form-group col-12 col-md-6">
                         <label for="">Support Specialist</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" value="{{ $user->profile->support_specialist_name }}"
-                                readonly>
+                            <input type="text" class="form-control"
+                                value="{{ $user->profile->support_specialist_name }}" readonly>
                         </div>
                     </div>
                     <div class="form-group col-12 col-md-6 p-0">
                         <label for="">Loan Officer</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" value="{{ $user->profile->loan_officer_name }}" readonly>
+                            <input type="text" class="form-control" value="{{ $user->profile->loan_officer_name }}"
+                                readonly>
                         </div>
                     </div>
 

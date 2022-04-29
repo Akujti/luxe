@@ -90,7 +90,7 @@ class LoginController extends Controller
             } else {
                 $user_wp = Auth::guard('wordpress')->user();
                 $new_user = new User();
-                $response = Http::get('https://myluxehub.com/wp-json/wp/v2/users/' . $user_wp->ID);
+                $response = Http::get('https://wordpress-749479-2599216.cloudwaysapps.com/wp-json/wp/v2/users/' . $user_wp->ID);
                 $new_user->email = $user_wp->user_email;
                 $new_user->password = Hash::make($user_pass);
                 $new_user->wp_id = $user_wp->ID;

@@ -65,10 +65,8 @@ class User extends Authenticatable
             if ($this->profile->avatar) {
                 return asset('storage/' . $this->profile->avatar);
             }
-            if($this->profile->fullname) {
-                return 'https://ui-avatars.com/api/?name=' . $this->profile->fullname;
-            }
+            return 'https://ui-avatars.com/api/?name=' . $this->profile->fullname;
         }
-        return 'https://ui-avatars.com/api/?name='. $this->email;
+        return 'https://ui-avatars.com/api/?name=' . $this->email;
     }
 }

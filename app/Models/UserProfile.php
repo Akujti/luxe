@@ -26,8 +26,8 @@ class UserProfile extends Model
     public function getBadgeAttribute()
     {
         $agent = AgentTransaction::where('agent_name', $this->fullname)->first();
+        $badge = ['title' => 'None', 'level' => 0];
         if ($agent) {
-            $badge = ['title', 'level'];
             if ($agent->total_amounts < 5000000) {
                 $badge['title'] = '5 Million Dollar Club';
                 $badge['level'] = 1;
@@ -53,17 +53,19 @@ class UserProfile extends Model
                 $badge['title'] = '100 Million Dollar Club';
                 $badge['level'] = 8;
             }
-            return $badge;
         }
+        return $badge;
     }
 
-    public function getSupportSpecialistNameAttribute() {
-        if($this->support_specialists) {
+    public function getSupportSpecialistNameAttribute()
+    {
+        if ($this->support_specialists) {
             return UserProfile::where('user_id', $this->support_specialists)->first()->fullname;
         }
     }
-    public function getLoanOfficerNameAttribute() {
-        if($this->loan_officer) {
+    public function getLoanOfficerNameAttribute()
+    {
+        if ($this->loan_officer) {
             return UserProfile::where('user_id', $this->loan_officer)->first()->fullname;
         }
     }

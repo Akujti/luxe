@@ -33,11 +33,14 @@ use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\BrokerSumoController;
+use App\Http\Controllers\DiyTemplateCategoryController;
+use App\Http\Controllers\DiyTemplateController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\Video\VideoController;
 use App\Http\Controllers\Video\VideoFileController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
+use App\Models\DiyTemplateCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -311,6 +314,9 @@ Route::group(
         });
 
         Route::get('/agent-list', [UserController::class, 'agent_list'])->name('agent_list');
+
+        Route::get('diy-templates', [DiyTemplateCategoryController::class, 'agent_index'])->name('user.diy-templates');
+        Route::get('diy-templates/{diyTemplateCategory}', [DiyTemplateCategoryController::class, 'agent_show'])->name('user.diy-templates.show');
     }
 );
 
@@ -353,7 +359,6 @@ Route::group(
 
         Route::post('create-note', [UserController::class, 'create_note'])->name('create_note');
         Route::get('/notes/{id}', [UserController::class, 'view_notes'])->name('notes');
-
     }
 );
 
@@ -381,6 +386,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
         Route::get('/', [AdminController::class, 'forms'])->name('index');
         Route::put('/', [AdminController::class, 'update_form'])->name('update');
     });
+
+    Route::resource('diy-categories', DiyTemplateCategoryController::class);
 
     Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function () {
         Route::get('/', [MarketingTemplateController::class, 'index_admin'])->name('marketing.index_admin');
