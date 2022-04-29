@@ -182,7 +182,7 @@
             </div>
             <div class="singleproject__item-title">
                 <h2>{{ $video->vimeo_details['name'] }}</h2>
-                <p>{{ $video->vimeo_details['description'] ?? 'Some text here that serves as a description'}}</p>
+                <p>{{ $video->vimeo_details['description'] }}</p>
                 <div class="singleproject__item-title-logo row p-0 m-0">
                     {{-- <p class="col-12 col-md-6 col-lg-4 time m-0 p-0">{{ $video->vimeo_details['description'] }}</p>
                     --}}
@@ -201,9 +201,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="my-3">
-                <p class="time">{{ $video->vimeo_details['description'] }}</p>
             </div>
             <div class="singleproject__reviews row p-0 m-0 py-4 w-100 align-items-center">
                 <div class="singleproject__reviews-title">
