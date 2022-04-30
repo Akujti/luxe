@@ -4,13 +4,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Marketing Category</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.canva.marketing.update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.diy-categories.update',0) }}" method="POST" enctype="multipart/form-data">
                     @method('put')
                     @csrf
-                    <input type="hidden" name="id" id="canva_id" value="">
+                    <input type="hidden" name="id" id="id" value="">
                     <div class="row m-0 p-0">
                         <div class="form-group">
                             <label for="start">Title</label>
@@ -18,7 +19,7 @@
                                 <input type="text" class="w-100 form-control" id="title" name="title" required>
                             </div>
                         </div>
-                       
+
                         <div class="form-group">
                             <label for="start">{{ __('Select File') }}</label>
                             <div class="custom-file">
@@ -29,7 +30,8 @@
                         <div class="form-group mt-3">
                             <label for="start">Order</label>
                             <div class="custom-file">
-                                <input type="number" name="order" class="form-control" id="order" value="{{ $last_order }}" required>
+                                <input type="number" name="order" class="form-control" id="order"
+                                    value="{{ $last_order }}" required>
                             </div>
                         </div>
                     </div>

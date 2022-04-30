@@ -63,9 +63,8 @@
                         <td>{{ $item->created_at->diffForHumans() }}</td>
                         <td>{{ $item->order }}</td>
                         <td>
-                            {{-- <button class="btn btn-luxe px-4 py-2"
-                                onclick="update_event({{ $category }})">Edit</button> --}}
-                            <button class="btn btn-danger py-2" onclick="delete_event({{ $category }})">Delete</button>
+                            <button class="btn btn-luxe px-4 py-2" onclick="update_event({{ $item }})">Edit</button>
+                            <button class="btn btn-danger py-2" onclick="delete_event({{ $item }})">Delete</button>
                             {{--<button class="btn btn-primary px-3 py-2"
                                 onclick="window.location = '{{ route('admin.diy.show', $category->id) }}'">View</button>
                             --}}
@@ -102,12 +101,11 @@
                             <td>{{ $template->order }}</td>
                             <td>
                                 <button class="btn btn-luxe px-4 py-2"
-                                    onclick="update_event({{ $template }})">Edit</button>
+                                    onclick="update_template({{ $template }})">Edit</button>
                                 <button class="btn btn-danger py-2"
-                                    onclick="delete_event({{ $template }})">Delete</button>
-                                {{-- <button class="btn btn-primary px-3 py-2"
-                                    onclick="window.location = '{{ route('admin.diy-categories.show', $template->id) }}'">View</button>
-                                --}}
+                                    onclick="delete_template({{$template}})">Delete</button>
+                                <button class="btn btn-primary px-3 py-2"
+                                    onclick="window.location = '{{ $template->url }}'">View</button>
 
                             </td>
                         </tr>
@@ -121,8 +119,10 @@
 
 @include('admin.marketing.diy.modals.create')
 @include('admin.marketing.diy.modals.templates.create')
-{{-- @include('admin.marketing.canva.modals.delete')
-@include('admin.marketing.canva.modals.update') --}}
+@include('admin.marketing.diy.modals.delete')
+@include('admin.marketing.diy.modals.templates.delete')
+@include('admin.marketing.diy.modals.update')
+@include('admin.marketing.diy.modals.templates.update')
 
 @section('js')
 <script>
@@ -134,13 +134,25 @@
     };
     function delete_event(item) {
         $('.delete-category').modal('show');
-        $('.delete-category').find('#id').val(item.id);
+        $('.delete-category').find('#category_id').val(item.id);
     };
-    function update_event(canva) {
+    function delete_template(item) {
+        $('.delete-template').modal('show');
+        $('.delete-template').find('#id').val(item.id);
+    };
+    function update_event(item) {
         $('.update-event').modal('show');
-        $('.update-event').find('#canva_id').val(canva.id);
-        $('.update-event').find('#title').val(canva.title);
-        $('.update-event').find('#order').val(canva.order);
+        $('.update-event').find('#id').val(item.id);
+        $('.update-event').find('#title').val(item.title);
+        $('.update-event').find('#order').val(item.order);
+    };
+    function update_template(item) {
+        console.log(item);
+        $('.update-template').modal('show');
+        $('.update-template').find('#id').val(item.id);
+        $('.update-template').find('#title').val(item.title);
+        $('.update-template').find('#url').val(item.url);
+        $('.update-template').find('#order').val(item.order);
     };
 </script>
 @endsection

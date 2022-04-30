@@ -89,26 +89,27 @@ class DiyTemplateCategoryController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\DiyTemplateCategory  $diyTemplateCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(DiyTemplateCategory $diyTemplateCategory)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateDiyTemplateCategoryRequest  $request
      * @param  \App\Models\DiyTemplateCategory  $diyTemplateCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDiyTemplateCategoryRequest $request, DiyTemplateCategory $diyTemplateCategory)
+    public function update(UpdateDiyTemplateCategoryRequest $request)
     {
-        //
+        dd($request->all());
+        $diyTemplateCategory = DiyTemplateCategory::findOrFail($request->id);
+        $diyTemplateCategory->title = $request->title;
+
+        if ($request->image) {
+            $name = time() . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
+            $path = $request->image->storeAs('/marketing/canva', $name, 'public');;
+            $diyTemplateCategory->image = $path;
+        }
+        $diyTemplateCategory->order = $request->order ?? ++DiyTemplateCategory::where('category_id', $request->category_id)->latest()->first()->order;
+        $diyTemplateCategory->save();
+
+        return back()->with('message', 'Updated successfully');
     }
 
     /**

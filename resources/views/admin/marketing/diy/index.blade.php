@@ -78,7 +78,7 @@
 @include('admin.marketing.diy.modals.create')
 {{-- @include('admin.marketing.diy.modals.templates.create') --}}
 @include('admin.marketing.diy.modals.delete')
-{{--@include('admin.marketing.canva.modals.update') --}}
+@include('admin.marketing.diy.modals.update')
 
 @section('js')
 <script>
@@ -92,11 +92,11 @@
         $('.delete-category').modal('show');
         $('.delete-category').find('#category_id').val(item.id);
     };
-    function update_event(canva) {
+    function update_event(item) {
         $('.update-event').modal('show');
-        $('.update-event').find('#canva_id').val(canva.id);
-        $('.update-event').find('#title').val(canva.title);
-        $('.update-event').find('#order').val(canva.order);
+        $('.update-event').find('#id').val(item.id);
+        $('.update-event').find('#title').val(item.title);
+        $('.update-event').find('#order').val(item.order);
     };
 </script>
 @endsection

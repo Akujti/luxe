@@ -56,38 +56,21 @@ class DiyTemplateController extends Controller
         return back()->with('message', 'Created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\DiyTemplate  $diyTemplate
-     * @return \Illuminate\Http\Response
-     */
-    public function show(DiyTemplate $diyTemplate)
+    public function update(UpdateDiyTemplateRequest $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\DiyTemplate  $diyTemplate
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(DiyTemplate $diyTemplate)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateDiyTemplateRequest  $request
-     * @param  \App\Models\DiyTemplate  $diyTemplate
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateDiyTemplateRequest $request, DiyTemplate $diyTemplate)
-    {
-        //
+        $template = DiyTemplate::findOrFail($request->id);
+        $template->title = $request->title;
+        $template->url = $request->url;
+        if ($request->image) {
+            $name = time() . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
+            $path = $request->image->storeAs('/marketing/canva', $name, 'public');
+            $template->image = $path;
+        } else if ($request->image_url) {
+            $template->image = $request->image_url;
+        }
+        $template->order = $request->order ?? ++DiyTemplate::where('category_id', $request->category_id)->latest()->first()->order;
+        $template->save();
+        return back()->with('message', 'Updated successfully');
     }
 
     /**
@@ -96,8 +79,9 @@ class DiyTemplateController extends Controller
      * @param  \App\Models\DiyTemplate  $diyTemplate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DiyTemplate $diyTemplate)
+    public function destroy(UpdateDiyTemplateRequest $request)
     {
-        //
+        DiyTemplate::findOrFail($request->id)->delete();
+        return back()->with('message', 'Deleted Successfully');
     }
 }

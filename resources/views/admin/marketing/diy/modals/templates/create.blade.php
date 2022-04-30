@@ -36,8 +36,6 @@
                             <input type="text" class="w-100 form-control" name="image_url"
                                 placeholder="Or paste the image URL here">
                         </div>
-
-
                         <div class="form-group mt-3">
                             <label for="start">Order</label>
                             <div class="custom-file">
