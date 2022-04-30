@@ -22,7 +22,6 @@
             edit.</h3>
     </div>
     <div class="row my-5 justify-content-start">
-        @if($category->categories->count())
         @foreach($category->categories as $item)
         <div class="col d-flex justify-content-center">
             <div class="template-box">
@@ -49,7 +48,8 @@
             </div>
         </div>
         @endforeach
-        @else <p>No templates found.</p>
+        @if (!$category->templates->count() && !$category->categories->count())
+        <p>No templates found.</p>
         @endif
     </div>
 </div>

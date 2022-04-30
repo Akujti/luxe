@@ -56,6 +56,7 @@ Route::get('general/form/file/download/', [FormController::class, 'file_download
 
 Route::view('office-locations', 'office-locations')->middleware('auth');
 Route::view('home', 'home-page')->middleware('auth');
+Route::redirect('/', 'home');
 
 Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function () {
     Route::get('/', [StoreController::class, 'index'])->name('index');
@@ -400,7 +401,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
         //     Route::put('/', [MarketingTemplateController::class, 'update_category'])->name('update');
         //     Route::delete('/', [MarketingTemplateController::class, 'destroy_category'])->name('delete');
 
-            
+
         // });
         Route::group(['prefix' => 'templates', 'as' => 'templates.'], function () {
             Route::get('/{marketing_id}/categories/{category_id}', [MarketingTemplateController::class, 'admin_templates'])->name('index');

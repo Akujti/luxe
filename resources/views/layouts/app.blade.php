@@ -198,6 +198,18 @@
                                     <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
                                             alt=""></a>
                                     <a href="#"><img src="/images/search-icon.svg" alt=""></a>
+                                    @auth
+                                    <div class="sidebar__item-menu">
+                                        <a href="#">
+                                            <form action="{{route('logout')}}" method="post" class="">
+                                                @csrf
+                                                <button class="btn btn-link text-white p-0"><img
+                                                        src="/images/logout.svg" alt=""></button>
+                                            </form>
+                                        </a>
+                                    </div>
+
+                                    @endauth
                                 </div>
                             </div>
                         </div>
@@ -223,6 +235,16 @@
                                     <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
                                             alt=""></a>
                                     <a href="#"><img src="/images/search-icon.svg" alt=""></a>
+                                    @auth
+                                    <a href="#">
+                                        <form action="{{route('logout')}}" method="post" class="m-0">
+                                            @csrf
+                                            <button class="btn btn-link text-white p-0 "><img src="/images/logout.svg"
+                                                    alt=""></button>
+                                        </form>
+                                    </a>
+
+                                    @endauth
                                 </div>
                             </div>
                         </div>

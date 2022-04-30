@@ -58,7 +58,11 @@
 <div class="container-fluid">
     <div class="row box-items">
         <div class="col-12 title mb-3">
+            @if(isset($_GET['dir']))
+            <h1>Welcome to <span class="text-capitalize">{{str_replace('_',' ',$_GET['dir'])}}</span></h1>
+            @else
             <h1>Welcome to Luxe</h1>
+            @endif
         </div>
         @if(!isset($_GET['dir']))
         <div class="col-12 col-md-6 col-lg-3">
