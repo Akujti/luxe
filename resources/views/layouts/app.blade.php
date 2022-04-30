@@ -173,16 +173,19 @@
         }
 
     }
+
     #search-input {
-        background:transparent;
+        background: transparent;
         padding: 7px;
         border: none;
         border-bottom: 1px solid #fff;
         color: #fff;
     }
+
     #search-input::placeholder {
         color: #F3F3F3;
     }
+
     #search-input:focus {
         outline: none;
     }
@@ -213,7 +216,8 @@
                                     <div class="sidebar__item-menu search-box d-none">
                                         <a href="#">
                                             <form action="{{route('user.search')}}" method="get" class="">
-                                                <input type="search" id="search-input" name="search" placeholder="Search and press Enter.">
+                                                <input type="search" id="search-input" name="search"
+                                                    placeholder="Search and press Enter.">
                                             </form>
                                         </a>
                                     </div>
@@ -275,6 +279,11 @@
                                     <a href="{{ url('/home') }}">Dashboard </a>
                                 </li>
                                 @auth
+                                @if(auth()->user()->role == 'admin')
+                                <li class="row m-0">
+                                    <a href="{{ route('admin.index') }}">Admin Dashboard</a>
+                                </li>
+                                @endif
                                 @if(auth()->user()->role == 'other')
                                 <li
                                     class="row m-0 {{ (isset($active) && $active == 'Agents') ? 'active selected': '' }}">
