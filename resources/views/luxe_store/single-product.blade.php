@@ -23,6 +23,9 @@
         font-family: 'gothicbold';
         margin-right: 30px;
     }
+    ul {
+        margin-bottom: 0px !important;
+    }
 </style>
 @endsection
 @section('content')
@@ -65,14 +68,14 @@
                             <p id="price">${{ $product->price }}</p>
                         @endif
                     </div>
-                    <p id="short-desc" class="mb-4">{!! $product->description_2 !!}</p>
+                    <p id="short-desc" class="mb-4">{!! nl2br($product->description_2) !!}</p>
                 @else
                     <p id="price" class="mb-4">{{
                         ($product->variants[0]->max_value_price == $product->variants[0]->min_value_price) ?
                         '$'.$product->variants[0]->max_value_price :
                         '$'.$product->variants[0]->min_value_price . ' - $'. $product->variants[0]->max_value_price
                     }}</p>
-                    <p id="short-desc" class="mb-4">{!! $product->description_2 !!}</p>
+                    <p id="short-desc" class="mb-4">{!! nl2br($product->description_2) !!}</p>
 
                     <div id="show-variants" class="col-12 col-md-8">
                         @foreach($product->variants as $variant)
@@ -129,7 +132,7 @@
 
                 <p id="categories">Categories: @foreach($product->categories as $key => $category) {{ $category->name }} @if($key == ($product->categories->count() - 1)) @else , @endif  @endforeach</p>
 
-                <p id="short-desc">{!! $product->description !!}</p>
+                <p id="short-desc">{!! nl2br($product->description) !!}</p>
             </form>
         </div>
     </div>
