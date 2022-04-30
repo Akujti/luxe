@@ -38,6 +38,8 @@ use App\Http\Controllers\Video\VideoController;
 use App\Http\Controllers\Video\VideoFileController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
+use App\Http\Controllers\DiyTemplateCategoryController;
+use App\Http\Controllers\DiyTemplateController;
 
 /*
 |--------------------------------------------------------------------------
