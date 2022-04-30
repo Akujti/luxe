@@ -46,7 +46,7 @@
                         <div class="template-details d-flex justify-content-between align-items-center">
                             <p>{{$template->title}}</p>
                             <div>
-                                <span><img src="/images/index-page/download-icon.svg" alt=""></span>
+                                {{-- <span><img src="/images/index-page/download-icon.svg" alt=""></span> --}}
                                 <span><img src="/images/index-page/edit-icon.svg" alt=""></span>
                             </div>
                         </div>
