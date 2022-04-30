@@ -210,7 +210,7 @@
                         <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
                                 <div class="right-contactsd">
-                                    <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
+                                    {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
                                     <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
                                             alt=""></a>
                                     <div class="sidebar__item-menu search-box d-none">
@@ -255,7 +255,7 @@
                             </div>
                             <div class="w-100 sidebar-logo-details-details d-flex align-items-center">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
+                                    {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
                                     <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
                                             alt=""></a>
                                     <a href="#"><img src="/images/search-icon.svg" alt=""></a>

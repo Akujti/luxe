@@ -21,11 +21,13 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Agent Name</label>
-                            <input type="text" name="agent_full_name" class="form-control" value="{{auth()->user()->profile->fullname}}" required>
+                            <input type="text" name="agent_full_name" class="form-control"
+                                value="{{auth()->user()->profile->fullname}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent Email</label>
-                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}" required>
+                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}"
+                                required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Property Address</label>
@@ -94,7 +96,7 @@
                             <input type="number" name="amount_due_to_landlord" class="form-control" required>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <b>Other Required Documents Along With This Form - Must Be Uploaded To Broker
                                 Sumo</b>
                         </div>

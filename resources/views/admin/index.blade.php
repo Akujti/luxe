@@ -43,7 +43,7 @@
         </div>
         <div class="col-md-3 box">
             <div class="py-4 icon">
-                <p class="p-text text-left m-0">Active Transaction Types</p>
+                <p class="p-text text-left m-0">Zillow Leads Weekly Update/p>
             </div>
             <div class="py-4">
                 <canvas id="active_transaction_type" width="100%" height="349px"></canvas>

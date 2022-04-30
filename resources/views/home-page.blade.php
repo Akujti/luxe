@@ -224,7 +224,7 @@
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.open('{{ route('addendum-templates.index')}}')">
+            <div class="box-item" onclick="window.location = ('{{ route('addendum-templates.index')}}')">
                 <div>
                     <img src="/images/index-page/email_templates.svg" class="icon" alt="">
                     <p>Addendum Templates</p>

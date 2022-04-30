@@ -218,9 +218,9 @@
                             class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-md-flex d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
                                 <div class="right-contactsd">
-                                    <a href="#"><img src="/images/admin/flash-icon.svg" alt=""></a>
+                                    {{-- <a href="#"><img src="/images/admin/flash-icon.svg" alt=""></a>
                                     <a href="#"><img src="/images/admin/notification-icon.svg" alt=""></a>
-                                    <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
+                                    <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
                                 </div>
                             </div>
 
@@ -263,15 +263,15 @@
                                     class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">Forms</a>
                                 <a href="{{ route('admin.diy-categories.index') }}"
                                     class="{{ (isset($active) && $active == 'Diy') ? 'active selected': '' }}">DIY</a>
+                                <a href="{{ route('admin.marketing-requests.index') }}"
+                                    class="{{ (isset($active) && $active == 'Marketing_requests') ? 'active selected': '' }}">Marketing
+                                    Requests</a>
                                 <a href="{{ route('admin.canva.marketing.index_admin') }}"
                                     class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">Canva</a>
                                 <a href="{{ route('admin.orders.index') }}"
                                     class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">Orders</a>
                                 <a href="{{ route('admin.luxe_store.index') }}"
                                     class="{{ (isset($active) && $active == 'Categories') ? 'active selected': '' }}">Categories</a>
-                                <a href="{{ route('admin.marketing-requests.index') }}"
-                                    class="{{ (isset($active) && $active == 'Marketing_requests') ? 'active selected': '' }}">Marketing
-                                    Requests</a>
                                 <a href="{{ route('admin.luxe_store.products.index') }}"
                                     class="{{ (isset($active) && $active == 'Products') ? 'active selected': '' }}">Products</a>
                                 <a href="{{ route('admin.luxe_store.coupons.index') }}"
