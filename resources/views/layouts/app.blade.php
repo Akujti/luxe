@@ -171,7 +171,13 @@
             padding-left: 15px !important;
             padding-right: 15px !important;
         }
+        #search-input {
+            width: 100% !important;
+        }
 
+        .search-box-mobile form {
+            padding-left: 0px !important;
+        }
     }
 
     #search-input {
@@ -187,6 +193,12 @@
     }
 
     #search-input:focus {
+        outline: none;
+    }
+    .search-box-mobile input {
+        width: 80%;
+    }
+    .active_submenu:focus {
         outline: none;
     }
 </style>
@@ -253,12 +265,12 @@
                                     <img src="/images/index-page/close-icon.svg" width="40px" height="40px" alt="">
                                 </button>
                             </div>
-                            <div class="w-100 sidebar-logo-details-details d-flex align-items-center">
-                                <div class="d-flex justify-content-between align-items-center">
+                            <div class="w-100 sidebar-logo-details-details row p-0 m-0 align-items-center mt-4">
+                                <div class="d-flex justify-content-start align-items-center">
                                     {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
-                                    <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
+                                    <a class="mr-4" href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
                                             alt=""></a>
-                                    <a href="#"><img src="/images/search-icon.svg" alt=""></a>
+                                    {{-- <a href="#"><img src="/images/search-icon.svg" alt=""></a> --}}
                                     @auth
                                     <a href="#">
                                         <form action="{{route('logout')}}" method="post" class="m-0">
@@ -269,6 +281,11 @@
                                     </a>
 
                                     @endauth
+                                </div>
+                                <div class="w-100 search-box-mobile">
+                                    <form action="{{ route('user.search') }}" method="get" class="w-100 pl-5 mt-3 d-flex justify-content-center">
+                                        <input type="text" name="search" id="search-input" placeholder="Search and press Enter.">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -298,12 +315,12 @@
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
                                     <ul class="w-100">
-                                        <li><a href="{{ url("general/form/leads/index") }}">Zillow Premiere</a></li>
-                                        <li><a href="{{ url("general/form/leads/request-leads") }}">Request 25 Cinc
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'zillow_premiere') ? 'active_submenu': '' }}" href="{{ url("general/form/leads/index") }}">Zillow Premiere</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'request_25_cinc') ? 'active_submenu': '' }}" href="{{ url("general/form/leads/request-leads") }}">Request 25 Cinc
                                                 Leads</a></li>
-                                        <li><a href="{{ url("general/form/leads/opcity-leads") }}">Sign Up for Opcity
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'signup_opcity_leads') ? 'active_submenu': '' }}" href="{{ url("general/form/leads/opcity-leads") }}">Sign Up for Opcity
                                                 Leads</a></li>
-                                        <li><a href="{{ url("general/form/leads/prime-street-leads") }}">Prime Street
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'prime_street_leads') ? 'active_submenu': '' }}" href="{{ url("general/form/leads/prime-street-leads") }}">Prime Street
                                                 Leads</a></li>
                                     </ul>
                                 </li>
@@ -314,18 +331,18 @@
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
                                     <ul class="w-100">
-                                        <li><a href="{{ url("user/videos") }}">Training Videos</a></li>
-                                        <li><a href="{{ url("user/written-email-templates") }}">Email Templates</a>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'training_videos') ? 'active_submenu': '' }}" href="{{ url("user/videos") }}">Training Videos</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'email_templates') ? 'active_submenu': '' }}" href="{{ url("user/written-email-templates") }}">Email Templates</a>
                                         </li>
                                         <!-- <li><a href="{{ url("user/links") }}">Link to other services</a></li> -->
-                                        <li><a href="{{ url("general/form/agent_referrals/index") }}">New Agents &
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'agents_referrals') ? 'active_submenu': '' }}" href="{{ url("general/form/agent_referrals/index") }}">New Agents &
                                                 Referrals</a></li>
-                                        <li><a href="{{ url("bookings") }}">Conference Room</a></li>
-                                        <li><a href="{{ url("user/files") }}">Office Documents</a></li>
-                                        <li><a href="{{ url("general/form/other/photoshoots-for-listings")
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'conference_room') ? 'active_submenu': '' }}" href="{{ url("bookings") }}">Conference Room</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'office_documents') ? 'active_submenu': '' }}" href="{{ url("user/files") }}">Office Documents</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'photoshoot_listings') ? 'active_submenu': '' }}" href="{{ url("general/form/other/photoshoots-for-listings")
                                                 }}">Photoshoot for Listings</a></li>
                                         <li><a target="_blank" href="{{ url("resume") }}">Resume Builder</a></li>
-                                        <li><a target="_blank" href="{{ route('addendum-templates.index') }}">Addendum
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'addendum_templates') ? 'active_submenu': '' }}" target="_blank" href="{{ route('addendum-templates.index') }}">Addendum
                                                 Templates</a></li>
                                     </ul>
                                 </li>
@@ -336,14 +353,14 @@
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
                                     <ul class="w-100">
-                                        <li><a href="{{ route('user.diy-templates') }}">DIY Marketing</a></li>
-                                        <li><a href="https://realtorprint.com/collections/luxe">Print Marketing</a></li>
-                                        <li><a href="{{ url("user/guides") }}">Downloadable Guides</a></li>
-                                        <li><a href="{{ route('canva.marketing.requests') }}">Canva Templates</a></li>
-                                        <li><a href="{{ url("marketing-home") }}">Marketing Requests</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'diy_marketing') ? 'active_submenu': '' }}" href="{{ route('user.diy-templates') }}">DIY Marketing</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'print_marketing') ? 'active_submenu': '' }}" href="https://realtorprint.com/collections/luxe">Print Marketing</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'downloadable_guides') ? 'active_submenu': '' }}" href="{{ url("user/guides") }}">Downloadable Guides</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'canva_templates') ? 'active_submenu': '' }}" href="{{ route('canva.marketing.requests') }}">Canva Templates</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'marketing_requests') ? 'active_submenu': '' }}" href="{{ url("marketing-home") }}">Marketing Requests</a></li>
                                     </ul>
                                 </li>
-                                <li class="row m-0 @if(Request::path() == 'user/events') active @endif">
+                                <li class="row m-0 @if(Request::path() == 'user/events') active selected @endif">
                                     <a href="{{ url('/user/events') }}">Training & Events</a>
                                 </li>
                                 <li
@@ -353,25 +370,25 @@
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
                                     <ul class="w-100">
-                                        <li><a href="{{ url("general/form/escrow/index") }}">Rental Escrow
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'rental_escrow') ? 'active_submenu': '' }}" href="{{ url("general/form/escrow/index") }}">Rental Escrow
                                                 Disbursement</a></li>
-                                        <li><a href="{{ url("listing-coordinators") }}">Listing Coordinators</a></li>
-                                        <li><a href="{{ url("general/form/other/closing-coordinators-agents")
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'listing_coordinators') ? 'active_submenu': '' }}" href="{{ url("listing-coordinators") }}">Listing Coordinators</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'closing_coordinators') ? 'active_submenu': '' }}" href="{{ url("general/form/other/closing-coordinators-agents")
                                                 }}">Closing Coordinators</a></li>
-                                        <li><a href="{{ url("agreement-agents") }}">Mentors</a></li>
-                                        <li><a href="{{ url("general/form/other/photoshoots-for-listings")
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'mentors') ? 'active_submenu': '' }}" href="{{ url("agreement-agents") }}">Mentors</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'marketing_requests') ? 'active_submenu': '' }}" href="{{ url("general/form/other/photoshoots-for-listings")
                                                 }}">Photoshoot for Listings</a></li>
-                                        <li><a href="{{ url("general/form/other/wire-instructions-request") }}">Wire
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'wire_instructions') ? 'active_submenu': '' }}" href="{{ url("general/form/other/wire-instructions-request") }}">Wire
                                                 Instructions Request</a></li>
-                                        <li><a href="{{ url("general/form/other/logo-creation-request") }}">Logo
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'logo_creation') ? 'active_submenu': '' }}" href="{{ url("general/form/other/logo-creation-request") }}">Logo
                                                 Creation Request</a></li>
-                                        <li><a href="{{ url("general/form/staff-request/new-agent-business-plan")
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'new_agent_business_plan') ? 'active_submenu': '' }}" href="{{ url("general/form/staff-request/new-agent-business-plan")
                                                 }}">New Agent Business Plan</a></li>
-                                        <li><a href="{{ url("general/form/staff-request/2022-business-plan") }}">2022
+                                        <li><a class="{{ (isset($subactive) && $subactive == '2022_business_plan') ? 'active_submenu': '' }}" href="{{ url("general/form/staff-request/2022-business-plan") }}">2022
                                                 Business Plan</a></li>
-                                        <li><a href="{{ url("general/form/staff-request/follow-up-business-plan")
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'follow_business_plan') ? 'active_submenu': '' }}" href="{{ url("general/form/staff-request/follow-up-business-plan")
                                                 }}">Follow-up Business Plan</a></li>
-                                        <li><a href="{{ url("appointments/create") }}">Open House Signup</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'open_house_signup') ? 'active_submenu': '' }}" href="{{ url("appointments/create") }}">Open House Signup</a></li>
                                     </ul>
                                 </li>
                                 <li
@@ -496,9 +513,7 @@
     $('.toggleSidebar').click(function () {
         $('.sidebar').toggleClass('active');
     })
-    @if(Request::path() !== 'home')
-        $('a[href*="'+document.URL+'"').addClass('active_submenu')
-    @endif
+   
     $(function(){
         var $ul   =   $('.sidebar-navigation > ul');
         
@@ -559,6 +574,8 @@
         function toggleSearch() {
             $('.search-box').toggleClass('d-none')
         }
+
+        $('.active_submenu').focus()
 </script>
 
 </html>

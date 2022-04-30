@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Service&StaffRequests'])
+@extends('layouts.app', ['active' => 'Service&StaffRequests', 'subactive' => 'closing_coordinators'])
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">

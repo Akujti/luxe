@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Service&StaffRequests'])
+@extends('layouts.app', ['active' => 'Service&StaffRequests', 'subactive' => 'closing_coordinators'])
 @section('css')
 <style>
     body {

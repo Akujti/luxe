@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'training_videos'])
 @section('js')
 <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
 @endsection

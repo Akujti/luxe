@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Service&StaffRequests'])
+@extends('layouts.app', ['active' => 'Service&StaffRequests', 'subactive' => 'open_house_signup'])
 @section('js')
 @endsection
 @section('css')

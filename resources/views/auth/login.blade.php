@@ -78,7 +78,7 @@
 </style>
 <div class="container-fluid">
     <div class="row justify-content-center align-items-center" style="height:70vh">
-        <div class="col-md-6">
+        <div class="col-md-10 col-lg-6">
             <div class="card">
                 <div class="card-header text-center" style="background:#FFCF40;font-size:20px;"><img class="login-logo"
                         src="{{asset('images/logo-black.png')}}" alt="" height="110px"><br>All templates here. <br>Just
@@ -135,11 +135,11 @@
                                             </label>
                                         </div> --}}
                                     </div>
-                                    {{-- <div class="col-6">
+                                    <div class="col-6 text-right">
                                         <a class="forgot-password"
-                                            href="https://myluxehub.com/my-account/lost-password/">Forgot your
+                                            href="{{ route('password.request') }}">Forgot your
                                             password?</a>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>

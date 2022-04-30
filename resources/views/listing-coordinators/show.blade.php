@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Service&StaffRequests'])
+@extends('layouts.app', ['active' => 'Service&StaffRequests', 'subactive' => 'listing_coordinators'])
 @section('content')
 <style>
     #paypal-button-container {

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Marketing'])
+@extends('layouts.app', ['active' => 'Marketing', 'subactive' => 'downloadable_guides'])
 @section('css')
 <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
 <style>

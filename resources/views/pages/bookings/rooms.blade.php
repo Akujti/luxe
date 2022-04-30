@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'conference_room'])
 <style>
     @font-face {
         font-family: "gothicbold";

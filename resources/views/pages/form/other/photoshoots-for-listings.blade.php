@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'photoshoot_listings'])
 @section('content')
 <style>
     @media(min-width:1200px) {
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <form action="{{route('general.email.post')}}" class="card form my-4 p-3 d-none" method="POST"
+            <form action="{{route('general.email.post')}}" class="card form mb-4 p-3 d-none" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">

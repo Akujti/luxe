@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'email_templates'])
 @section('css')
 <style>
     .h1-luxe {

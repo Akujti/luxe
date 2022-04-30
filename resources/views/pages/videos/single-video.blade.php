@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'training_videos'])
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <style>
@@ -6,8 +6,6 @@
         display: flex;
         justify-content: center;
     }
-
-    .singleproject__item {}
 
     .singleproject__item-img {
         width: 100%;

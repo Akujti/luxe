@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Leads'])
+@extends('layouts.app', ['active' => 'Leads', 'subactive' => 'prime_street_leads'])
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">

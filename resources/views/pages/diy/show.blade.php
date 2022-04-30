@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Marketing'])
+@extends('layouts.app', ['active' => 'Marketing', 'subactive' => 'diy_marketing'])
 @section('css')
 <style>
     a {
