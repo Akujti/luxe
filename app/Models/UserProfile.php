@@ -21,6 +21,7 @@ class UserProfile extends Model
             $model->languages = json_decode($model->languages);
         });
     }
+
     protected $appends = ['support_specialist_name', 'loan_officer_name'];
 
     public function getBadgeAttribute()

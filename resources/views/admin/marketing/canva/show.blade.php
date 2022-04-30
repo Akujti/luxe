@@ -34,7 +34,7 @@
 <div class="container-fluid">
     <div class="row m-0">
         <div class="w-100 d-flex justify-content-between align-items-center mb-5">
-            <h5 class="h5-luxe">DIY - {{$category->title}}</h5>
+            <h5 class="h5-luxe">Canva - {{$category->title}}</h5>
             <div>
                 <button class="btn btn-luxe px-5 py-2" onclick="create()">Create Category</button>
                 <button class="btn btn-luxe px-5 py-2" onclick="create_template()">Create Template</button>
@@ -63,8 +63,7 @@
                         <td>{{ $item->created_at->diffForHumans() }}</td>
                         <td>{{ $item->order }}</td>
                         <td>
-                            <button class="btn btn-luxe px-4 py-2"
-                                onclick="update_event({{ $item }})">Edit</button>
+                            <button class="btn btn-luxe px-4 py-2" onclick="update_event({{ $item }})">Edit</button>
                             <button class="btn btn-danger py-2" onclick="delete_event({{ $item }})">Delete</button>
                             <button class="btn btn-primary px-3 py-2"
                                 onclick="window.location = '{{ route('admin.canva.marketing.show', $item->id) }}'">View</button>
@@ -102,7 +101,7 @@
                                     onclick="update_template({{ $template }})">Edit</button>
                                 <button class="btn btn-danger py-2"
                                     onclick="delete_template({{ $template }})">Delete</button>
-                                
+
                             </td>
                         </tr>
                         @endforeach

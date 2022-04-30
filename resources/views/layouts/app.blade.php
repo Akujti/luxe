@@ -274,6 +274,8 @@
                                         <li><a href="{{ url("general/form/other/photoshoots-for-listings")
                                                 }}">Photoshoot for Listings</a></li>
                                         <li><a target="_blank" href="{{ url("resume") }}">Resume Builder</a></li>
+                                        <li><a target="_blank" href="{{ route('addendum-templates.index') }}">Addendum
+                                                Templates</a></li>
                                     </ul>
                                 </li>
                                 <li
@@ -283,7 +285,7 @@
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
                                     <ul class="w-100">
-                                        <li><a href="{{ url("marketing-home") }}">DIY Marketing</a></li>
+                                        <li><a href="{{ route('user.diy-templates') }}">DIY Marketing</a></li>
                                         <li><a href="https://realtorprint.com/collections/luxe">Print Marketing</a></li>
                                         <li><a href="{{ url("user/guides") }}">Downloadable Guides</a></li>
                                         <li><a href="{{ route('canva.marketing.requests') }}">Canva Templates</a></li>
