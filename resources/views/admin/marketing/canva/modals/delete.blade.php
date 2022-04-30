@@ -1,5 +1,5 @@
 <!-- Create File  -->
-<div class="delete-event modal fade modal-new" tabindex="-1" role="dialog">
+<div class="delete-category modal fade modal-new" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,7 +10,7 @@
                 <form action="{{ route('admin.canva.marketing.delete') }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <input type="hidden" name="id" id="canva_id" value="">
+                    <input type="hidden" name="id" id="id" value="">
                     <div class="row m-0 p-0">
                         <h6 class="h6-luxe">Are you sure you want to delete this?</h6>
                     </div>

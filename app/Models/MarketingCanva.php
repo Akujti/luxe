@@ -13,14 +13,20 @@ class MarketingCanva extends Model
 
     protected $fillable = [
         'title',
-        'image'
+        'image',
+        'parent_id'
     ];
 
     protected $appends = ['imageUrl'];
 
     public function categories()
     {
-        return $this->hasMany(MarketingCanvaCategory::class, 'category_id');
+        return $this->hasMany(MarketingCanva::class, 'parent_id');
+    }
+
+    public function templates()
+    {
+        return $this->hasMany(MarketingCanvaTemplate::class, 'category_id');
     }
 
     public function getImageUrlAttribute()

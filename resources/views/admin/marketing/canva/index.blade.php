@@ -58,7 +58,7 @@
                         <td>
                             <button class="btn btn-luxe px-4 py-2" onclick="update_event({{ $canva }})">Edit</button>
                             <button class="btn btn-danger py-2" onclick="delete_event({{ $canva }})">Delete</button>
-                            <button class="btn btn-primary px-3 py-2" onclick="window.location = '{{ route("admin.canva.categories.index", $canva->id) }}'">View</button>
+                            <button class="btn btn-primary px-3 py-2" onclick="window.location = '{{ route("admin.canva.marketing.show", $canva->id) }}'">View</button>
                         </td>
                     </tr>
                     @endforeach
@@ -82,8 +82,8 @@
         $('.create-event').modal('show');
     };
     function delete_event(canva) {
-        $('.delete-event').modal('show');
-        $('.delete-event').find('#canva_id').val(canva.id);
+        $('.delete-category').modal('show');
+        $('.delete-category').find('#id').val(canva.id);
     };
     function update_event(canva) {
         $('.update-event').modal('show');

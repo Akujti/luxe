@@ -9,6 +9,9 @@
             <div class="modal-body">
                 <form action="{{ route('admin.canva.marketing.create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @if(isset($category))
+                        <input type="hidden" name="parent_id" value="{{ $category->id }}">
+                    @endif
                     <div class="row m-0 p-0">
                         <div class="form-group">
                             <label for="start">Title</label>

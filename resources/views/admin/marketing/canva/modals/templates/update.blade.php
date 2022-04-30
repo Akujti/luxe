@@ -1,5 +1,5 @@
 <!-- Create File  -->
-<div class="update-event modal fade modal-new" tabindex="-1" role="dialog">
+<div class="update-template modal fade modal-new" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,10 +7,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.canva.categories.templates.update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.canva.templates.update') }}" method="POST" enctype="multipart/form-data">
                     @method('put')
                     @csrf
-                    <input type="hidden" name="id" id="canva_id" value="{{ $category->id }}">
+                    <input type="hidden" name="id" id="id">
                     <div class="row m-0 p-0">
                         <div class="form-group">
                             <label for="start">Title</label>

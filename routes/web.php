@@ -18,11 +18,15 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AgentEmailController;
+use App\Http\Controllers\BrokerSumoController;
 use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DiyTemplateController;
+use App\Http\Controllers\Video\VideoController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\LuxeStore\OrderController;
 use App\Http\Controllers\LuxeStore\StoreController;
+use App\Http\Controllers\Video\VideoFileController;
 use App\Http\Controllers\AddendumTemplateController;
 use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\MarketingTemplateController;
@@ -32,14 +36,10 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
-use App\Http\Controllers\BrokerSumoController;
+use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
-use App\Http\Controllers\Video\VideoController;
-use App\Http\Controllers\Video\VideoFileController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
-use App\Http\Controllers\DiyTemplateCategoryController;
-use App\Http\Controllers\DiyTemplateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -393,18 +393,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 
     Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function () {
         Route::get('/', [MarketingTemplateController::class, 'index_admin'])->name('marketing.index_admin');
-        Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
-            Route::get('/{id}', [MarketingTemplateController::class, 'admin_categories'])->name('index');
-            Route::post('/', [MarketingTemplateController::class, 'create_category'])->name('create');
-            Route::put('/', [MarketingTemplateController::class, 'update_category'])->name('update');
-            Route::delete('/', [MarketingTemplateController::class, 'destroy_category'])->name('delete');
+        Route::get('/{id}', [MarketingTemplateController::class, 'admin_categories'])->name('marketing.show');
+        // Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
+        //     Route::get('/{id}', [MarketingTemplateController::class, 'admin_categories'])->name('index');
+        //     Route::post('/', [MarketingTemplateController::class, 'create_category'])->name('create');
+        //     Route::put('/', [MarketingTemplateController::class, 'update_category'])->name('update');
+        //     Route::delete('/', [MarketingTemplateController::class, 'destroy_category'])->name('delete');
 
-            Route::group(['prefix' => 'templates', 'as' => 'templates.'], function () {
-                Route::get('/{marketing_id}/categories/{category_id}', [MarketingTemplateController::class, 'admin_templates'])->name('index');
-                Route::post('/', [MarketingTemplateController::class, 'create_template'])->name('create');
-                Route::put('/', [MarketingTemplateController::class, 'update_template'])->name('update');
-                Route::delete('/', [MarketingTemplateController::class, 'destroy_template'])->name('delete');
-            });
+            
+        // });
+        Route::group(['prefix' => 'templates', 'as' => 'templates.'], function () {
+            Route::get('/{marketing_id}/categories/{category_id}', [MarketingTemplateController::class, 'admin_templates'])->name('index');
+            Route::post('/', [MarketingTemplateController::class, 'create_template'])->name('create');
+            Route::put('/', [MarketingTemplateController::class, 'update_template'])->name('update');
+            Route::delete('/', [MarketingTemplateController::class, 'destroy_template'])->name('delete');
         });
         Route::post('/', [MarketingTemplateController::class, 'create'])->name('marketing.create');
         Route::put('/', [MarketingTemplateController::class, 'update'])->name('marketing.update');
