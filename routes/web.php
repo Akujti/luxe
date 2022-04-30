@@ -58,7 +58,7 @@ Route::view('office-locations', 'office-locations')->middleware('auth');
 Route::view('home', 'home-page')->middleware('auth');
 Route::redirect('/', 'home');
 
-Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function () {
+Route::group(['prefix' => 'store', 'as' => 'luxe_store.', 'middleware' => ['auth']], function () {
     Route::get('/', [StoreController::class, 'index'])->name('index');
     Route::get('/cart', [OrderController::class, 'cartload'])->name('cart');
     Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
@@ -303,6 +303,7 @@ Route::group(
         Route::resource('addendum-templates', AddendumTemplateController::class)->except(['show']);
         Route::get('addendum-templates/{writtenEmailTemplate}', [WrittenEmailTemplateController::class, 'show'])->name('addendum-templates.show');
 
+        Route::get('/search', [VideoController::class, 'search'])->name('user.search');
         // W-9
         Route::view('w-9', 'w-9.web');
         Route::post('w-9', [W9Controller::class, 'store'])->name('w-9');
@@ -474,4 +475,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     });
 
     Route::get('update-role', [UserController::class, 'update_role']);
+    Route::get('update-videos', [VideoController::class, 'update_videos']);
 });

@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Personal Email:</label>
-                            value="{{auth()->user()->email}}"
+                            {{-- value="{{auth()->user()->email}}" --}}
                             <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}"
                                 required>
                         </div>

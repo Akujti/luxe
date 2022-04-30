@@ -17,15 +17,15 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Full name</label>
-                            <input type="text" name="agent_full_name" class="form-control" required>
+                            <input type="text" name="agent_full_name" class="form-control" value="{{auth()->user()->profile->fullname}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Phone</label>
-                            <input type="text" name="phone" class="form-control" required>
+                            <input type="text" name="phone" class="form-control" value="{{auth()->user()->profile->phone}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Email</label>
-                            <input type="text" name="agent_email" class="form-control" required>
+                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Which CINC are you on?</label>

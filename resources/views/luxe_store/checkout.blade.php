@@ -648,7 +648,7 @@
 
                     <div class="mt-5 border-bottom py-2">
                         @foreach($cart_data as $key => $product)
-                            <div class="w-100 d-flex align-items-center">
+                            <div class="w-100 d-flex align-items-center mb-2">
                                 <img src="{{ asset('storage/'. $product['item']['preview_image']) }}" height="80px" alt="">
                                 <div class="ml-3">
                                     <p>{{ $product['item_name'] }}</p>

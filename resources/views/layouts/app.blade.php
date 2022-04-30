@@ -173,6 +173,19 @@
         }
 
     }
+    #search-input {
+        background:transparent;
+        padding: 7px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        color: #fff;
+    }
+    #search-input::placeholder {
+        color: #F3F3F3;
+    }
+    #search-input:focus {
+        outline: none;
+    }
 </style>
 
 <body>
@@ -197,7 +210,14 @@
                                     <a href="#"><img src="/images/feedback-icon.svg" alt=""></a>
                                     <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
                                             alt=""></a>
-                                    <a href="#"><img src="/images/search-icon.svg" alt=""></a>
+                                    <div class="sidebar__item-menu search-box d-none">
+                                        <a href="#">
+                                            <form action="{{route('user.search')}}" method="get" class="">
+                                                <input type="search" id="search-input" name="search" placeholder="Search and press Enter.">
+                                            </form>
+                                        </a>
+                                    </div>
+                                    <a href="#" onclick="toggleSearch()"><img src="/images/search-icon.svg" alt=""></a>
                                     @auth
                                     <div class="sidebar__item-menu">
                                         <a href="#">
@@ -526,6 +546,10 @@
         }
 
         });
+
+        function toggleSearch() {
+            $('.search-box').toggleClass('d-none')
+        }
 </script>
 
 </html>

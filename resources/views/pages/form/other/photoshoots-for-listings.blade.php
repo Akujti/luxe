@@ -74,15 +74,15 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Agent Name</label>
-                            <input type="text" name="agent_full_name" class="form-control" required>
+                            <input type="text" name="agent_full_name" class="form-control" value="{{auth()->user()->profile->fullname}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent Phone Number</label>
-                            <input type="text" name="agent_number" class="form-control" required>
+                            <input type="text" name="agent_number" class="form-control" value="{{auth()->user()->profile->phone}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent Email</label>
-                            <input type="text" name="agent_email" class="form-control" required>
+                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Property Address For Shoot</label>

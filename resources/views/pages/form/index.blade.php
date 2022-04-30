@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent's Email *</label>
-                            <input type="email" name="agent_email" class="form-control" required>
+                            <input type="email" name="agent_email" class="form-control" value="{{auth()->user()->email}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Referring Agent *</label>
