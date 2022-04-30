@@ -147,7 +147,12 @@ class OrderController extends Controller
 
         if (Session::get('shopping_cart')) {
             $cart_data = Session::get('shopping_cart');
-            $checkStock = LuxeStoreProduct::findOrFail($cart_data[0][$key]['item_id']);
+
+            if(isset($cart_data[0][$key]['item_variant'])) {
+                $checkStock = LuxeStoreProductVariantValues::findOrFail($cart_data[0][$key]['item_variant'][0]['choosed_id']);
+            } else {
+                $checkStock = LuxeStoreProduct::findOrFail($cart_data[0][$key]['item_id']);
+            }
 
             if ($checkStock->stock >= $quantity) {
                 $cart_data[0][$key]["item_quantity"] = $quantity;

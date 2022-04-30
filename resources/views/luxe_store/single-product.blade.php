@@ -148,7 +148,7 @@
         var option = document.getElementById("select-option").value;
 
         if(option) {
-            var options = JSON.parse('<?php echo json_encode(@$product->variants[0]->values) ?>')
+            var options = JSON.parse(JSON.stringify(<?php echo json_encode(@$product->variants[0]->values) ?>))
             var row = options.filter(x => x.value == option)[0]
             
             if(row.sale_price) {
@@ -158,7 +158,11 @@
                 $('#show-option-value').append('<p id="price">$' + row.price + '</p>')
             }
             if(row.stock) {
-                $('.stock-variant').html('<p id="price" class="p-0 m-0">' + row.stock + '</p><p id="categories" class="p-0 m-0 ml-1">in stock</p>')
+                if(row.stock < 500000) {
+                    $('.stock-variant').html('<p id="price" class="p-0 m-0">' + row.stock + '</p><p id="categories" class="p-0 m-0 ml-1">in stock</p>')
+                } else {
+                    $('.stock-variant').html('<p id="categories" class="p-0 m-0 ml-1">in stock</p>')
+                }
                 $('.stock-variant').removeClass('d-none')
                 $('.stock-variant').addClass('d-flex')
                 $('.stock-product').addClass('d-none')
