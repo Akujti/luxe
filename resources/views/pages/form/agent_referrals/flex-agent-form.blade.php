@@ -21,7 +21,8 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Legal Name</label>
-                            <input type="text" name="agent_full_name" class="form-control" required>
+                            <input type="text" name="agent_full_name" class="form-control"
+                                value="{{auth()->user()->profile->fullname}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">If applicable: Preferred Name to be used by Marketing:</label>
@@ -41,7 +42,8 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Personal Email:</label>
-                            <input type="text" name="agent_email" class="form-control" required>
+                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}"
+                                required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Date of Birth - Month/Day:</label>
