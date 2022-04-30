@@ -261,6 +261,8 @@
                                     class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">Dashboard</a>
                                 <a href="{{ route('admin.forms.index') }}"
                                     class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">Forms</a>
+                                <a href="{{ route('admin.diy-categories.index') }}"
+                                    class="{{ (isset($active) && $active == 'Diy') ? 'active selected': '' }}">DIY</a>
                                 <a href="{{ route('admin.canva.marketing.index_admin') }}"
                                     class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">Canva</a>
                                 <a href="{{ route('admin.orders.index') }}"

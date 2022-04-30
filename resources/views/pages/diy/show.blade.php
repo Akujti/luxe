@@ -23,32 +23,32 @@
     </div>
     <div class="row my-5 justify-content-start">
         @if($category->categories->count())
-        @foreach($category->categories as $category)
+        @foreach($category->categories as $item)
         <div class="col d-flex justify-content-center">
             <div class="template-box">
-                <a href="{{route('user.diy-templates.show',$category)}}">
-                    <img src="{{ asset('storage/'. $category->image) }}" alt="No image found" width="100%"
-                        height="303px" onerror="this.src='{{asset('images/no-image.png')}}';">
+                <a href="{{route('user.diy-templates.show',$item)}}">
+                    <img src="{{ asset('storage/'. $item->image) }}" alt="No image found" width="100%" height="303px"
+                        onerror="this.src='{{asset('images/no-image.png')}}';">
                     <div class="template-details">
-                        <p>{{$category->title}}</p>
+                        <p>{{$item->title}}</p>
                     </div>
                 </a>
             </div>
         </div>
         @endforeach
-        {{-- @foreach($category->templates as $template)
+        @foreach($category->templates as $template)
         <div class="col d-flex justify-content-center">
             <div class="template-box">
-                <a href="">
-                    <img src="{{ asset('storage/'. $template->image) }}" alt="No image found" width="100%"
-                        height="303px" onerror="this.src='{{asset('images/no-image.png')}}';">
+                <a href="{{$template->url}}">
+                    <img src="{{ $template->image }}" alt="No image found" width="100%" height="303px"
+                        onerror="this.src='{{asset('images/no-image.png')}}';">
                     <div class="template-details">
                         <p>{{$template->title}}</p>
                     </div>
                 </a>
             </div>
         </div>
-        @endforeach --}}
+        @endforeach
         @else <p>No templates found.</p>
         @endif
     </div>

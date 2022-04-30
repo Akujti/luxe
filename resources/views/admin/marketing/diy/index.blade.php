@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['active' => 'Marketing_canva'])
+@extends('admin.layouts.app', ['active' => 'Diy'])
 
 @section('css')
 <style>
@@ -36,7 +36,7 @@
         <div class="w-100 d-flex justify-content-between align-items-center mb-5">
             <h5 class="h5-luxe">DIY Categories</h5>
             <div>
-                <button class="btn btn-luxe px-5 py-2" onclick="create()">Create</button>
+                <button class="btn btn-luxe px-5 py-2" onclick="create()">Create Category</button>
             </div>
         </div>
         <div class="table-responsive">
@@ -53,20 +53,19 @@
                 </thead>
 
                 <tbody>
-                    @foreach($categories as $category)
+                    @foreach($categories as $item)
                     <tr>
-                        <td>{{ $category->id }}</td>
-                        <td>{{ $category->title }}</td>
-                        <td><img src="{{ asset('storage/'.$category->image) }}" id="img" width="75px" height="75px">
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->title }}</td>
+                        <td><img src="{{ asset('storage/'.$item->image) }}" id="img" width="75px" height="75px">
                         </td>
-                        <td>{{ $category->created_at->diffForHumans() }}</td>
-                        <td>{{ $category->order }}</td>
+                        <td>{{ $item->created_at->diffForHumans() }}</td>
+                        <td>{{ $item->order }}</td>
                         <td>
-                            <button class="btn btn-luxe px-4 py-2" onclick="update_event({{ $category }})">Edit</button>
-                            <button class="btn btn-danger py-2" onclick="delete_event({{ $category }})">Delete</button>
+                            <button class="btn btn-luxe px-4 py-2" onclick="update_event({{ $item }})">Edit</button>
+                            <button class="btn btn-danger py-2" onclick="delete_event({{ $item }})">Delete</button>
                             <button class="btn btn-primary px-3 py-2"
-                                onclick="window.location = '{{ route('admin.diy-categories.show', $category->id) }}'">View</button>
-
+                                onclick="window.location = '{{ route('admin.diy-categories.show', $item->id) }}'">View</button>
                         </td>
                     </tr>
                     @endforeach
@@ -77,17 +76,21 @@
 </div>
 
 @include('admin.marketing.diy.modals.create')
-{{-- @include('admin.marketing.canva.modals.delete')
-@include('admin.marketing.canva.modals.update') --}}
+{{-- @include('admin.marketing.diy.modals.templates.create') --}}
+@include('admin.marketing.diy.modals.delete')
+{{--@include('admin.marketing.canva.modals.update') --}}
 
 @section('js')
 <script>
     function create() {
         $('.create-event').modal('show');
     };
-    function delete_event(canva) {
-        $('.delete-event').modal('show');
-        $('.delete-event').find('#canva_id').val(canva.id);
+    function create_template() {
+        $('.create-template').modal('show');
+    };
+    function delete_event(item) {
+        $('.delete-category').modal('show');
+        $('.delete-category').find('#category_id').val(item.id);
     };
     function update_event(canva) {
         $('.update-event').modal('show');

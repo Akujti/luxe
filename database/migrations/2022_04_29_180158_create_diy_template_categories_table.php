@@ -18,7 +18,7 @@ class CreateDiyTemplateCategoriesTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->integer('order')->nullable();
-            $table->foreignId('parent_id')->nullable()->constrained('diy_template_categories');
+            $table->foreignId('parent_id')->nullable()->constrained('diy_template_categories')->cascadeOnDelete();
             $table->timestamps();
         });
     }

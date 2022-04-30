@@ -388,6 +388,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     });
 
     Route::resource('diy-categories', DiyTemplateCategoryController::class);
+    Route::resource('diy-templates', DiyTemplateController::class);
 
     Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.'], function () {
         Route::get('/', [MarketingTemplateController::class, 'index_admin'])->name('marketing.index_admin');

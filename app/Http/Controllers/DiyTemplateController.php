@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\DiyTemplate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDiyTemplateRequest;
@@ -39,7 +40,20 @@ class DiyTemplateController extends Controller
      */
     public function store(StoreDiyTemplateRequest $request)
     {
-        //
+        $template = new DiyTemplate();
+        $template->title = $request->title;
+        $template->url = $request->url;
+        if ($request->image) {
+            $name = time() . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
+            $path = $request->image->storeAs('/marketing/canva', $name, 'public');
+            $template->image = $path;
+        } else if ($request->image_url) {
+            $template->image = $request->image_url;
+        }
+        $template->category_id = $request->category_id;
+        $template->order = $request->order ?? ++DiyTemplate::where('category_id', $request->category_id)->latest()->first()->order;
+        $template->save();
+        return back()->with('message', 'Created successfully');
     }
 
     /**

@@ -7,6 +7,9 @@ use App\Models\DiyTemplateCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDiyTemplateCategoryRequest;
 use App\Http\Requests\UpdateDiyTemplateCategoryRequest;
+use App\Models\DiyTemplate;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Client\Request as ClientRequest;
 
 class DiyTemplateCategoryController extends Controller
 {
@@ -23,16 +26,17 @@ class DiyTemplateCategoryController extends Controller
 
     public function agent_show(DiyTemplateCategory $diyTemplateCategory)
     {
-        $category = $diyTemplateCategory->load('categories');
+        $category = $diyTemplateCategory->load('categories', 'templates');
         return view('pages.diy.show', compact('category'));
     }
 
     public function index()
     {
-        $categories = DiyTemplateCategory::whereNull('parent_id')->orderBy('order')->get();
+        $categories = DiyTemplateCategory::whereNull('parent_id')->with('categories', 'templates')->orderBy('order')->get();
+        $templates = DiyTemplate::whereNull('category_id')->orderBy('order')->get();
         $last_order = DiyTemplateCategory::latest()->first()->order ?? 0;
         ++$last_order;
-        return view('admin.marketing.diy.index', compact('categories', 'last_order'));
+        return view('admin.marketing.diy.index', compact('categories', 'templates', 'last_order'));
     }
 
     /**
@@ -76,9 +80,12 @@ class DiyTemplateCategoryController extends Controller
     public function show($id)
     {
         $category = DiyTemplateCategory::findOrFail($id)->load('categories');
-        $last_order = DiyTemplateCategory::latest()->first()->order ?? 0;
+        $last_order = DiyTemplateCategory::where('parent_id', $category->id)->latest()->first()->order ?? 0;
+        $templates = $category->templates;
         ++$last_order;
-        return view('admin.marketing.diy.show', compact('category', 'last_order'));
+        $last_order_template = DiyTemplate::where('category_id', $category->id)->latest()->first()->order ?? 0;
+        ++$last_order_template;
+        return view('admin.marketing.diy.show', compact('category', 'templates', 'last_order', 'last_order_template'));
     }
 
     /**
@@ -110,8 +117,9 @@ class DiyTemplateCategoryController extends Controller
      * @param  \App\Models\DiyTemplateCategory  $diyTemplateCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DiyTemplateCategory $diyTemplateCategory)
+    public function destroy(UpdateDiyTemplateCategoryRequest $request)
     {
-        //
+        DiyTemplateCategory::findOrFail($request->id)->delete();
+        return back()->with('message', 'Deleted successfully');
     }
 }
