@@ -71,7 +71,7 @@
                         <td>{{ $user->role }}</td>
                         <td>{{ $user->created_at->diffForHumans() }}</td>
                         <td>
-                            <button class="btn btn-primary py-2" onclick="window.location.href = '{{ url('agent-profile/'. $user->id) }}'">View</button>
+                            <a class="btn btn-link py-2" href="{{ url('agent-profile/'. $user->id) }}">View</a>
                         </td>
                     </tr>
                     @endforeach

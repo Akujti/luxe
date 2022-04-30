@@ -33,14 +33,11 @@ use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\BrokerSumoController;
-use App\Http\Controllers\DiyTemplateCategoryController;
-use App\Http\Controllers\DiyTemplateController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\Video\VideoController;
 use App\Http\Controllers\Video\VideoFileController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
-use App\Models\DiyTemplateCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -317,6 +314,8 @@ Route::group(
 
         Route::get('diy-templates', [DiyTemplateCategoryController::class, 'agent_index'])->name('user.diy-templates');
         Route::get('diy-templates/{diyTemplateCategory}', [DiyTemplateCategoryController::class, 'agent_show'])->name('user.diy-templates.show');
+        Route::get('/orders', [OrderController::class, 'my_orders'])->name('my_orders');
+        Route::get('/orders/{id}', [OrderController::class, 'show_agent'])->name('my_orders.show');
     }
 );
 

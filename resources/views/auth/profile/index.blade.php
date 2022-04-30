@@ -80,8 +80,9 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row box-title p-0 m-0">
-        <h3>My Profile</h3>
+    <div class="row box-title p-0 m-0 justify-content-between align-items-center">
+        <h3 class="p-0 m-0">My Profile</h3>
+        <a href="{{ route('my_orders') }}" class="btn btn-luxe">My Orders</a>
     </div>
     <div class="row my-3 justify-content-center">
         <div class="col-12 col-md-10 col-lg-6">
@@ -108,6 +109,7 @@
                             <input type="hidden" name="id" value="{{ auth()->id() }}">
                             <input type="hidden" name="remove_image" id="remove-image-input" value="0">
                             <input type="file" name="profile[avatar]" id="avatar-input" style="display:none" onchange="onFileChanged(this)">
+                            @if(auth()->user()->role == 'agent')
                             <div class="form-group col-12 col-md-6">
                                 <label for="">Support Specialist</label>
                                 <div class="input-group">
@@ -120,6 +122,7 @@
                                     <input type="text" class="form-control" value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->loan_officer_name }}" readonly>
                                 </div>
                             </div>
+                            @endif
                             <div class="form-group col-12">
                                 <label for="">Full Name</label>
                                 <div class="input-group">
