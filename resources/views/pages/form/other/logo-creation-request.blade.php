@@ -3,16 +3,17 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            @if (auth()->user() && auth()->user()->isAdmin)
+            <div class="form-group text-center">
+                <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
+            </div>
+            @endif
             <form action="{{route('general.email.post')}}" class="card form p-3" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4 text-uppercase">Logo Creation Request</h1>
-                    @if (auth()->user() && auth()->user()->isAdmin)
-                    <div class="form-group text-center">
-                        <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
-                    </div>
-                    @endif
+
                 </div>
                 <input type="hidden" name="form_title" value="Logo Creation Request">
                 <!-- <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">

@@ -351,7 +351,7 @@ Route::group(
         Route::put('written-email-template-item/update/item', [WrittenEmailTemplateItemController::class, 'update'])->name('written-email-templates.item.update');
 
 
-        Route::post('form-submit', [FormSubmitController::class, 'getCsv'])->name('getCsv');
+        Route::post('get-csv', [FormSubmitController::class, 'getCsv'])->name('getCsv');
         Route::delete('deleteSubmissions', [FormSubmitController::class, 'deleteSubmissions'])->name('deleteSubmissions');
 
         Route::resource('appointment-addresses', AppointmentAddressController::class);

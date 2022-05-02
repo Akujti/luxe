@@ -3,17 +3,17 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
-
+            @if (auth()->user() && auth()->user()->isAdmin)
+            <div class="form-group text-center">
+                <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
+                <button class="btn btn-danger" onclick="deleteSubmissions()">DELETE SUBMISSIONS</button>
+            </div>
+            @endif
             <form action="{{route('general.email.post')}}" class="card form mb-5 p-3" method="POST">
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">TEAM DADE - ZILLOW LEADS WEEKLY UPDATE</h1>
-                    @if (auth()->user() && auth()->user()->isAdmin)
-                    <div class="form-group text-center">
-                        <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
-                        <button class="btn btn-danger" onclick="deleteSubmissions()">DELETE SUBMISSIONS</button>
-                    </div>
-                    @endif
+
                 </div>
                 <input type="hidden" name="form_title" value="TEAM DADE - ZILLOW LEADS WEEKLY UPDATE">
                 <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
@@ -24,11 +24,13 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Agent Name</label>
-                            <input type="text" name="agent_full_name" class="form-control" value="{{auth()->user()->profile->fullname}}" required>
+                            <input type="text" name="agent_full_name" class="form-control"
+                                value="{{auth()->user()->profile->fullname}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Email</label>
-                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}" required>
+                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}"
+                                required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Number of <b>Total</b> FULLY executed <b>Zillow</b> contracts. Sorry to
