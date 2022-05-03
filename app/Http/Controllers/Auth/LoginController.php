@@ -62,7 +62,7 @@ class LoginController extends Controller
             'user_email' => $user_email,
             'user_pass' => $user_pass
         ]);
-        if ($user_wp_attempt) {
+        if ($check_user || $user_wp_attempt) {
             $exist_user = User::where('email', $user_email)->first();
             if ($check_user) {
                 if (Auth::attempt(['email' => $user_email, 'password' =>  $user_pass])) {
