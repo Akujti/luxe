@@ -188,6 +188,14 @@
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
+            <div class="box-item" onclick="window.location = 'https://realtorprint.com/collections/luxe'">
+                <div>
+                    <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
+                    <p>Print Marketing</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location = '{{ url('user/guides')}}'">
                 <div>
                     <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
@@ -412,7 +420,7 @@
         <div class="col-12 title mb-3">
             <h1>Welcome to Training & Knowledge Center</h1>
         </div>
-        @foreach (App\Models\Video\Video::take(4)->get() as $video)
+        @foreach (App\Models\Video\Video::take(2)->get() as $video)
         <div class="col-12 col-lg-6 mb-4">
             <div class="video mb-2">
                 <a href="{{route('video.single_video', $video->id)}}">
