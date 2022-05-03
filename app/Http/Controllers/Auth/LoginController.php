@@ -80,7 +80,7 @@ class LoginController extends Controller
                 $exist_user->password = Hash::make($user_pass);
                 $exist_user->save();
 
-                if (!$check_user->profile->id) {
+                if ($check_user && !$check_user->profile->id) {
                     $exist_user->profile()->create([
                         'avatar' => null,
                         'fullname' => ' '
