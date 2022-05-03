@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'isAdmin', 'wp_id', 'role'
+        'email', 'password', 'isAdmin', 'wp_id', 'role', 'optin'
     ];
 
     protected $appends = ['avatar'];
@@ -61,12 +61,12 @@ class User extends Authenticatable
 
     public function getAvatarAttribute()
     {
-        if ($this->profile) {
+        if ($this->profile->id) {
             if ($this->profile->avatar) {
                 return asset('storage/' . $this->profile->avatar);
             }
-            return 'https://ui-avatars.com/api/?name=' . $this->profile->fullname;
+            return 'https://ui-avatars.com/api/name=' . $this->profile->fullname . '?size=256';
         }
-        return 'https://ui-avatars.com/api/?name=' . $this->email;
+        return 'https://ui-avatars.com/api/name=' . $this->email . '?size=256';
     }
 }

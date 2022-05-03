@@ -191,7 +191,8 @@
                                 <p>Language</p>
                                 @if ($user->profile && $user->profile->languages)
                                 @foreach($user->profile->languages as $key => $language)
-                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif</h4>
+                                <h4>{{ $language }}@if($key == (count($user->profile->languages) - 1)) @else , @endif
+                                </h4>
                                 @endforeach
                                 @endif
                             </div>
@@ -208,17 +209,18 @@
                     <div class="form-group col-12 col-md-6">
                         <label for="">Support Specialist</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" value="{{ $user->profile->support_specialist_name }}"
-                                readonly>
+                            <input type="text" class="form-control"
+                                value="{{ $user->profile->support_specialist_name }}" readonly>
                         </div>
                     </div>
                     <div class="form-group col-12 col-md-6 p-0">
                         <label for="">Loan Officer</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" value="{{ $user->profile->loan_officer_name }}" readonly>
+                            <input type="text" class="form-control" value="{{ $user->profile->loan_officer_name }}"
+                                readonly>
                         </div>
                     </div>
-
+                    {{--
                     <div class="box-title mt-5 mb-4">
                         <h3>Referrals</h3>
                     </div>
@@ -248,7 +250,7 @@
                                 <p>Date Registered: <b>03.11.2022</b></p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="box-title mt-5 mb-4">
                         <h3>Orders</h3>
@@ -270,7 +272,7 @@
                         </div>
                         @empty
                         <div>
-                            <p>No Orders Found.</p>
+                            <p>No orders found</p>
                         </div>
                         @endforelse
                     </div>
@@ -286,7 +288,8 @@
                             <div class="row-details">
                                 <img src="{{ $note->user_author->avatar }}" alt="">
                                 <div>
-                                    <h4>{{ !$note->user_author->profile ? '' : $note->user_author->profile->fullname }}</h4>
+                                    <h4>{{ !$note->user_author->profile ? '' : $note->user_author->profile->fullname }}
+                                    </h4>
                                     <p>{{ $note->body }}</p>
                                 </div>
                             </div>

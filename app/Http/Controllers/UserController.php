@@ -24,7 +24,8 @@ class UserController extends Controller
         $user = User::find($user_id);
         return $user;
     }
-    public function update_form($id) {
+    public function update_form($id)
+    {
         $user = User::findOrFail($id);
 
         return view('admin.users.form.update', compact('user'));
@@ -69,7 +70,7 @@ class UserController extends Controller
     {
         $user = User::with('profile')->find($id);
         $notes = $user->notes()->latest()->paginate(20);
-        if($req->staff) {
+        if ($req->staff) {
             return view('pages.notes', compact('user', 'notes'));
         }
         return view('admin.users.notes', compact('user', 'notes'));
@@ -83,7 +84,8 @@ class UserController extends Controller
         return view('pages.agent-profile', compact('user', 'orders', 'notes'));
     }
 
-    public function agent_list() {
+    public function agent_list()
+    {
         $users = User::where('role', 'agent')->latest()->paginate(20);
 
         return view('pages.list-of-agents', compact('users'));
@@ -177,9 +179,9 @@ class UserController extends Controller
     public function update_profile(UpdateProfileRequest $req)
     {
         try {
-            $row = User::find($req->id);
+            $row = User::findOrFail($req->id);
+            $row->update(['optin' => $req->optin ? true : false]);
             if (isset($req->profile)) {
-
                 $image = $row->profile->avatar;
                 if ($req->remove_image == 1) {
                     $image = null;
@@ -199,7 +201,7 @@ class UserController extends Controller
                     'address' => $req->profile['address'],
                     'phone' => $req->profile['phone'],
                     'languages' => json_encode($languageJson),
-                    'avatar' => $image
+                    'avatar' => $image,
                 ]);
             }
         } catch (Exception $e) {
@@ -223,17 +225,19 @@ class UserController extends Controller
         return back()->with('message', 'Successfully Deleted');
     }
 
-    public function search(Request $req) {
-        if($req->search) {
-            $users = UserProfile::where('fullname', 'like', '%'.$req->search.'%')->get();
-            
+    public function search(Request $req)
+    {
+        if ($req->search) {
+            $users = UserProfile::where('fullname', 'like', '%' . $req->search . '%')->get();
+
             return response()->json([
                 'users' => $users
             ]);
         }
     }
 
-    public function create_note(NoteRequest $req) {
+    public function create_note(NoteRequest $req)
+    {
         $row = new UserNote;
 
         $row->body = $req->body;
@@ -244,7 +248,8 @@ class UserController extends Controller
         return back()->with('message', 'Successfully Added!');
     }
 
-    public function update_role() {
+    public function update_role()
+    {
         User::where('isAdmin', 1)->update(['role' => 'admin']);
         User::where('isAdmin', 0)->update(['role' => 'agent']);
         return back();

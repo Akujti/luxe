@@ -66,10 +66,10 @@ class LoginController extends Controller
             $exist_user = User::where('email', $user_email)->first();
             if ($check_user) {
                 if (Auth::attempt(['email' => $user_email, 'password' =>  $user_pass])) {
-                    if (!$check_user->profile) {
+                    if (!$check_user->profile->id) {
                         $check_user->profile()->create([
                             'avatar' => null,
-                            'fullname' => Auth::guard('wordpress')->user()->display_name
+                            'fullname' => Auth::guard('wordpress')->user() ? Auth::guard('wordpress')->user()->display_name : null
                         ]);
                     }
                     Auth::login($check_user);
@@ -80,7 +80,7 @@ class LoginController extends Controller
                 $exist_user->password = Hash::make($user_pass);
                 $exist_user->save();
 
-                if (!$exist_user->profile) {
+                if (!$check_user->profile->id) {
                     $exist_user->profile()->create([
                         'avatar' => null,
                         'fullname' => ' '

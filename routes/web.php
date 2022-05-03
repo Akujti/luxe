@@ -38,6 +38,7 @@ use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
+use App\Http\Controllers\OptinController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 
@@ -324,8 +325,16 @@ Route::group(
 );
 
 Route::group(
+    ['middleware' => ['auth', 'staff']],
+    function () {
+        Route::get('agent-profile/{id}', [UserController::class, 'agent_profile']);
+    }
+);
+
+Route::group(
     ['middleware' => ['auth']],
     function () {
+        Route::get('optin-agents', [OptinController::class, 'index'])->name('optin.agents.index');
         Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
         Route::resource('listing-coordinators', ListingCoordinatorController::class);
         Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
@@ -358,7 +367,6 @@ Route::group(
         Route::resource('agent-emails', AgentEmailController::class);
 
         Route::get('view-profile/{id}', [UserController::class, 'view_profile']);
-        Route::get('agent-profile/{id}', [UserController::class, 'agent_profile']);
 
         Route::post('create-note', [UserController::class, 'create_note'])->name('create_note');
         Route::get('/notes/{id}', [UserController::class, 'view_notes'])->name('notes');

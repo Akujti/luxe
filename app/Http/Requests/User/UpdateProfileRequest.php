@@ -31,6 +31,7 @@ class UpdateProfileRequest extends FormRequest
             'profile.phone' => 'nullable|string',
             'languages' => 'nullable|array',
             'profile.avatar' => 'nullable|image',
+            'optin' => 'nullable',
         ];
     }
 }

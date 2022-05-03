@@ -6,42 +6,55 @@
     td {
         text-align: center;
     }
-    #td-row, #th-row {
+
+    #td-row,
+    #th-row {
         width: 17% !important;
         text-align: center;
         border: none !important
     }
+
     #td-row {
         height: 90px;
     }
+
     .title {
         background-color: #262626;
         color: #fff;
         padding: 8px;
         font-family: 'gothicbold';
     }
+
     .title-item {
         font-family: 'gothicbold';
         text-align: start;
     }
+
     .card {
         border: none !important;
     }
+
     .card-header {
-        border-top: 1px solid rgba(0,0,0,.125);
+        border-top: 1px solid rgba(0, 0, 0, .125);
         border-bottom: 1px solid transparent !important;
     }
+
     th {
         font-family: 'gothicbold' !important;
     }
+
     td {
         vertical-align: middle !important;
         font-family: 'gothicregular' !important;
     }
+
     @media screen and (max-width: 500px) {
-        #td-row, #th-row {
+
+        #td-row,
+        #th-row {
             width: 50% !important;
         }
+
         .card-body {
             width: 473px !important;
         }
@@ -78,11 +91,12 @@
                         <td id="td-row">${{ $order->payment->total_price }}</td>
                         <td id="td-row">{{ $order->created_at->diffForHumans() }}</td>
                         <td id="td-row">{{ $order->status }}</td>
-                        <td id="td-row"><a class="btn btn-link" href="{{ route('my_orders.show', $order->id) }}">View</a></td>
+                        <td id="td-row"><a class="btn btn-link"
+                                href="{{ route('my_orders.show', $order->id) }}">View</a></td>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="7">No Orders Found.</td>
+                        <td colspan="7">No orders found</td>
                     </tr>
                     @endforelse
                 </tbody>
