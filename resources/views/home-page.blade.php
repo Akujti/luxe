@@ -59,7 +59,7 @@
     <div class="row box-items">
         @if(!isset($_GET['dir']))
         <div class="col-12 title mb-3">
-            <h1>Welcome to Luxe</h1>
+            <h1>Welcome to LUXE</h1>
         </div>
         @endif
         @if(!isset($_GET['dir']))

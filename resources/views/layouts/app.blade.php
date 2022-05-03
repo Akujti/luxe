@@ -257,6 +257,7 @@
             </div>
         </header>
         <div class="row d-flex w-100 m-0">
+            @if (auth()->user())
             <div class="sidebar d-none d-lg-flex">
                 <div class="sidebar-main">
                     <div class="row p-0 m-0 justify-content-center">
@@ -294,6 +295,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="sidebar__item sidebar-navigation">
                             <ul>
                                 <li
@@ -462,6 +464,7 @@
                 </div>
 
             </div>
+            @endif
             <div class="col p-0 m-0">
                 <main class="">
                     @yield('content')
