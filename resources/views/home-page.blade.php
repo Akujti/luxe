@@ -180,7 +180,7 @@
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location='{{ route('user.diy-templates') }}'">
+            <div class="box-item" onclick="window.location='{{ route('canva.marketing.requests') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/canva_templates.svg" alt="">
                     <p>Canva Marketing <br>Designer</p>
