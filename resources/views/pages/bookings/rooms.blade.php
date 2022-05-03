@@ -1,30 +1,35 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'conference_room'])
+@extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'conference_room_reservations'])
 <style>
     @font-face {
         font-family: "gothicbold";
         src: local("gothicbold"),
-        url("/fonts/index-page/gothicbold.ttf") format("truetype");
+            url("/fonts/index-page/gothicbold.ttf") format("truetype");
     }
+
     @font-face {
         font-family: "gothicregular";
         src: local("gothicregular"),
-        url("/fonts/index-page/gothicregular.ttf") format("truetype");
+            url("/fonts/index-page/gothicregular.ttf") format("truetype");
     }
+
     .box {
         margin: 5px;
         color: #262626;
         background-color: #F7F7F7;
         border-radius: 30px;
     }
+
     .box a {
         color: #262626 !important;
         font-family: 'gothicbold';
         min-height: 100px;
     }
+
     .card-title h1 {
         font-family: 'gothicbold';
         margin-bottom: 30px;
     }
+
     @media (max-width: 576px) {
         .box a {
             font-size: 13px;
@@ -43,13 +48,13 @@
                 <div class="">
                     <div class="row m-0 p-0">
                         @foreach($rooms as $room)
-                            <div class="col-lg-4 mb-4">
-                                <div class="box">
-                                    <a href="{{route('bookings.index',$room->id)}}"
-                                       class="btn w-100 d-flex align-items-center justify-content-center"
-                                       style="height: 70px">{{$room->name}}</a>
-                                </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="box">
+                                <a href="{{route('bookings.index',$room->id)}}"
+                                    class="btn w-100 d-flex align-items-center justify-content-center"
+                                    style="height: 70px">{{$room->name}}</a>
                             </div>
+                        </div>
                         @endforeach
                     </div>
 

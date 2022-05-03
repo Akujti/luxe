@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Service&StaffRequests', 'subactive' => 'open_house_signup'])
+@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'open_house_signup'])
 <style>
     #regForm {
         background-color: #ffffff;

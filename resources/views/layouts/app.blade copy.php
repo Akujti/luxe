@@ -171,7 +171,6 @@
             padding-left: 15px !important;
             padding-right: 15px !important;
         }
-
         #search-input {
             width: 100% !important;
         }
@@ -196,11 +195,9 @@
     #search-input:focus {
         outline: none;
     }
-
     .search-box-mobile input {
         width: 80%;
     }
-
     .active_submenu:focus {
         outline: none;
     }
@@ -271,8 +268,8 @@
                             <div class="w-100 sidebar-logo-details-details row p-0 m-0 align-items-center mt-4">
                                 <div class="d-flex justify-content-start align-items-center">
                                     {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
-                                    <a class="mr-4" href="{{ route('profile.my_profile') }}"><img
-                                            src="/images/account-icon.svg" alt=""></a>
+                                    <a class="mr-4" href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
+                                            alt=""></a>
                                     {{-- <a href="#"><img src="/images/search-icon.svg" alt=""></a> --}}
                                     @auth
                                     <a href="#">
@@ -286,10 +283,8 @@
                                     @endauth
                                 </div>
                                 <div class="w-100 search-box-mobile">
-                                    <form action="{{ route('user.search') }}" method="get"
-                                        class="w-100 pl-5 mt-3 d-flex justify-content-center">
-                                        <input type="text" name="search" id="search-input"
-                                            placeholder="Search and press Enter.">
+                                    <form action="{{ route('user.search') }}" method="get" class="w-100 pl-5 mt-3 d-flex justify-content-center">
+                                        <input type="text" name="search" id="search-input" placeholder="Search and press Enter.">
                                     </form>
                                 </div>
                             </div>
@@ -314,131 +309,97 @@
                                 @endif
                                 @endauth
                                 <li
-                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ (isset($active) && $active == 'marketing_branding') ? 'active selected': '' }}">
-                                    <a href="{{url("/home?dir=marketing_branding") }}">Marketing & Branding </a>
+                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads') active selected @endif {{ (isset($active) && $active == 'Leads') ? 'active selected': '' }}">
+                                    <a href="{{ url('/home?dir=leads') }}">Leads </a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
                                     <ul class="w-100">
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'online_marketing_designer') ? 'active_submenu': '' }}"
-                                                href="{{route('user.diy-templates')}}">Online Marketing
-                                                Designer</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'canva_marketing_designer') ? 'active_submenu': '' }}"
-                                                href="{{route('user.diy-templates') }}">Canva Marketing
-                                                Designer</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'downloadable_presentations') ? 'active_submenu': '' }}"
-                                                href="{{ url('user/guides') }}">Downloadable
-                                                Presentations</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'signs_photo_design_requests') ? 'active_submenu': '' }}"
-                                                href="{{ url('/home?dir=signs_photo_design_requests') }}">Signs, Photo,
-                                                & Design Requests</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'resume_builder') ? 'active_submenu': '' }}"
-                                                href="{{ url("resume") }}">Resume
-                                                Builder</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'zillow_premiere') ? 'active_submenu': '' }}" href="{{ url("general/form/leads/index") }}">Zillow Premiere</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'request_25_cinc') ? 'active_submenu': '' }}" href="{{ url("general/form/leads/request-leads") }}">Request 25 Cinc
+                                                Leads</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'signup_opcity_leads') ? 'active_submenu': '' }}" href="{{ url("general/form/leads/opcity-leads") }}">Sign Up for Opcity
+                                                Leads</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'prime_street_leads') ? 'active_submenu': '' }}" href="{{ url("general/form/leads/prime-street-leads") }}">Prime Street
+                                                Leads</a></li>
                                     </ul>
                                 </li>
                                 <li
-                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'training_knowledge_center') active selected @endif {{ (isset($active) && $active == 'Tools&TrainingVideos') ? 'active selected': '' }}">
-                                    <a href="{{ url('/home?dir=training_knowledge_center') }}">Training & Knowledge
-                                        Center</a>
+                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'tools_training_videos') active selected @endif {{ (isset($active) && $active == 'Tools&TrainingVideos') ? 'active selected': '' }}">
+                                    <a href="{{ url('/home?dir=tools_training_videos') }}">Tools & Training Videos</a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
                                     <ul class="w-100">
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'training_videos') ? 'active_submenu': '' }}"
-                                                href="{{ url("user/videos") }}">LUXE Online University</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'events') ? 'active_submenu': '' }}"
-                                                href="{{ url("/user/events") }}">Events</a>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'training_videos') ? 'active_submenu': '' }}" href="{{ url("user/videos") }}">Training Videos</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'email_templates') ? 'active_submenu': '' }}" href="{{ url("user/written-email-templates") }}">Email Templates</a>
                                         </li>
                                         <!-- <li><a href="{{ url("user/links") }}">Link to other services</a></li> -->
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'downloadable_guides') ? 'active_submenu': '' }}"
-                                                href="{{ url("user/files") }}">Downloadable
-                                                Docs, Guides & Excels</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'mentors') ? 'active_submenu': '' }}"
-                                                href="{{ url("agreement-agents") }}">Mentors</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'email_addendum_verbiage_builder') ? 'active_submenu': '' }}"
-                                                href="{{url('/home?dir=email_addendum_verbiage_builder') }}">Email &
-                                                Addendum Verbiage Builder</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li
-                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'leads_services_support') active selected @endif {{ (isset($active) && $active == 'leads_services_support') ? 'active selected': '' }}">
-                                    <a href="{{ url('/home?dir=leads_services_support') }}">Leads, Services &
-                                        Support</a>
-                                    <em id="li-plus"><img src="/images/plus.png"></em>
-                                    <em id="li-minus"><img src="/images/minus.png"></em>
-
-                                    <ul class="w-100">
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'get_leads') ? 'active_submenu': '' }}"
-                                                href="{{ url('/home?dir=leads') }}">Get Leads</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'request_listing_closing_coordinators') ? 'active_submenu': '' }}"
-                                                href="{{url('/home?dir=request_listing_closing_coordinators')}}">Request
-                                                Listing/Closing
-                                                Coordinators</a>
-                                        </li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'rental_escrow_disbursement') ? 'active_submenu': '' }}"
-                                                href="{{ url("general/form/escrow/index") }}">Rental Escrow
-                                                Disbursement</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'open_house_signup') ? 'active_submenu': '' }}"
-                                                href="{{ url("appointments/create") }}">Open House Signup</a>
-                                        </li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'get_contract_help') ? 'active_submenu': '' }}"
-                                                href="{{url('/home?dir=coming_soon') }}">Get Contract Help</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'design_requests') ? 'active_submenu': '' }}"
-                                                href="{{ route('marketing.requests') }}">Design Requests</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'wire_instructions_requests') ? 'active_submenu': '' }}"
-                                                href="{{ url("general/form/other/wire-instructions-request") }}">Wire
-                                                Instructions
-                                                Request</a></li>
-                                    </ul>
-                                </li>
-                                <li class="row m-0 @if(Request::path() == 'form') active selected @endif">
-                                    <a href="{{ url("/form") }}">Referral Partners</a>
-                                </li>
-                                <li
-                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ (isset($active) && $active == 'luxe_apparel') ? 'active selected': '' }}">
-                                    <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Apparel</a>
-                                    <em id="li-plus"><img src="/images/plus.png"></em>
-                                    <em id="li-minus"><img src="/images/minus.png"></em>
-
-                                    <ul class="w-100">
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'rental_escrow') ? 'active_submenu': '' }}"
-                                                href="{{ url('store/grab-go-merchandise') }}">Grab & Go Merchandise</a>
-                                        </li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'listing_coordinators') ? 'active_submenu': '' }}"
-                                                href="{{ url('store/luxe-apparel') }}">LUXE Apparel</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'closing_coordinators') ? 'active_submenu': '' }}"
-                                                href="{{ url('store/product/sign-post-login-realpost') }}">Sign
-                                                Post</a></li>
-                                    </ul>
-                                </li>
-                                <li
-                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'office_staff_directory') active selected @endif {{ (isset($active) && $active == 'office_staff_directory') ? 'active selected': '' }}">
-                                    <a href="{{ url('/home?dir=office_staff_directory') }}">Office & Staff Directory</a>
-                                    <em id="li-plus"><img src="/images/plus.png"></em>
-                                    <em id="li-minus"><img src="/images/minus.png"></em>
-
-                                    <ul class="w-100">
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'office_locations') ? 'active_submenu': '' }}"
-                                                href="{{ url('/office-locations') }}">Office Locations</a>
-                                        </li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'conference_room_reservations') ? 'active_submenu': '' }}"
-                                                href="{{ url("bookings") }}">Conference Room Reservations</a>
-                                        </li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'your_luxe_staff') ? 'active_submenu': '' }}"
-                                                href="{{ url('/home?dir=coming_soon') }}">Your LUXE
-                                                Staff</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'new_agents_referrals') ? 'active_submenu': '' }}"
-                                                href="{{ url('general/form/agent_referrals/index')}}">New Agents &
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'agents_referrals') ? 'active_submenu': '' }}" href="{{ url("general/form/agent_referrals/index") }}">New Agents &
                                                 Referrals</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'conference_room') ? 'active_submenu': '' }}" href="{{ url("bookings") }}">Conference Room</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'office_documents') ? 'active_submenu': '' }}" href="{{ url("user/files") }}">Office Documents</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'photoshoot_listings') ? 'active_submenu': '' }}" href="{{ url("general/form/other/photoshoots-for-listings")
+                                                }}">Photoshoot for Listings</a></li>
+                                        <li><a target="_blank" href="{{ url("resume") }}">Resume Builder</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'addendum_templates') ? 'active_submenu': '' }}" target="_blank" href="{{ route('addendum-templates.index') }}">Addendum
+                                                Templates</a></li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing') active selected @endif {{ (isset($active) && $active == 'Marketing') ? 'active selected': '' }}">
+                                    <a href="{{ url('/home?dir=marketing') }}">Marketing</a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
+
+                                    <ul class="w-100">
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'diy_marketing') ? 'active_submenu': '' }}" href="{{ route('user.diy-templates') }}">DIY Marketing</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'print_marketing') ? 'active_submenu': '' }}" href="https://realtorprint.com/collections/luxe">Print Marketing</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'downloadable_guides') ? 'active_submenu': '' }}" href="{{ url("user/guides") }}">Downloadable Guides</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'canva_templates') ? 'active_submenu': '' }}" href="{{ route('canva.marketing.requests') }}">Canva Templates</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'marketing_requests') ? 'active_submenu': '' }}" href="{{ url("marketing-home") }}">Marketing Requests</a></li>
                                     </ul>
                                 </li>
                                 <li class="row m-0 @if(Request::path() == 'user/events') active selected @endif">
-                                    <a href="{{ url('/user/events') }}">Events</a>
+                                    <a href="{{ url('/user/events') }}">Training & Events</a>
                                 </li>
-                                <li class="row m-0 @if(Request::path() == 'user/profile') active selected @endif">
-                                    <a href="{{ route('profile.my_profile') }}">My Profile</a>
+                                <li
+                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'service_staff_requests') active selected @endif {{ (isset($active) && $active == 'Service&StaffRequests') ? 'active selected': '' }}">
+                                    <a href="{{ url('/home?dir=service_staff_requests') }}">Service & Staff Requests</a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
+
+                                    <ul class="w-100">
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'rental_escrow') ? 'active_submenu': '' }}" href="{{ url("general/form/escrow/index") }}">Rental Escrow
+                                                Disbursement</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'listing_coordinators') ? 'active_submenu': '' }}" href="{{ url("listing-coordinators") }}">Listing Coordinators</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'closing_coordinators') ? 'active_submenu': '' }}" href="{{ url("general/form/other/closing-coordinators-agents")
+                                                }}">Closing Coordinators</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'mentors') ? 'active_submenu': '' }}" href="{{ url("agreement-agents") }}">Mentors</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'marketing_requests') ? 'active_submenu': '' }}" href="{{ url("general/form/other/photoshoots-for-listings")
+                                                }}">Photoshoot for Listings</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'wire_instructions') ? 'active_submenu': '' }}" href="{{ url("general/form/other/wire-instructions-request") }}">Wire
+                                                Instructions Request</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'logo_creation') ? 'active_submenu': '' }}" href="{{ url("general/form/other/logo-creation-request") }}">Logo
+                                                Creation Request</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'new_agent_business_plan') ? 'active_submenu': '' }}" href="{{ url("general/form/staff-request/new-agent-business-plan")
+                                                }}">New Agent Business Plan</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == '2022_business_plan') ? 'active_submenu': '' }}" href="{{ url("general/form/staff-request/2022-business-plan") }}">2022
+                                                Business Plan</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'follow_business_plan') ? 'active_submenu': '' }}" href="{{ url("general/form/staff-request/follow-up-business-plan")
+                                                }}">Follow-up Business Plan</a></li>
+                                        <li><a class="{{ (isset($subactive) && $subactive == 'open_house_signup') ? 'active_submenu': '' }}" href="{{ url("appointments/create") }}">Open House Signup</a></li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="row m-0 {{ (isset($active) && $active == 'Store') ? 'active selected': '' }}">
+                                    <a href="{{ url('/store') }}">Luxe Product Store</a>
+                                </li>
+                                <li class="row m-0 @if(Request::path() == 'form') active selected @endif">
+                                    <a href="{{ url('/form') }}">Luxe Lending</a>
+                                </li>
+                                <li class="row m-0 @if(Request::path() == 'office-locations') active selected @endif">
+                                    <a href="{{ url('/office-locations') }}">Office Locations</a>
                                 </li>
                             </ul>
                         </div>

@@ -14,28 +14,34 @@
         background: #F2F2F2;
         border: 1px solid #F2F2F2;
         margin-bottom: 3px;
-        padding:5px;
+        padding: 5px;
         border-radius: 5px;
     }
 
     .fc-daygrid-event-dot {
         display: none !important;
     }
+
     .fc .fc-daygrid-day.fc-day-today {
         background-color: transparent !important;
     }
+
     .fc .fc-daygrid-day {
         padding: 0px 5px;
     }
+
     .fc .fc-button {
         border-radius: 10px;
-        padding:10px 20px;
+        padding: 10px 20px;
     }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
     <div class="row w-100 m-0 mb-5">
+        <div class="col-12 title mb-3 text-center">
+            <h1>Welcome to Luxe Events</h1>
+        </div>
         <div id='calendar' style="width: 100%; display: inline-block;"></div>
     </div>
     @if ($isAdmin)
@@ -196,7 +202,8 @@
                         @endif
 
                 </form>
-                <form action="{{ route('events.destroy',1) }}" method="POST" enctype="multipart/form-data" class="m-0 w-50">
+                <form action="{{ route('events.destroy',1) }}" method="POST" enctype="multipart/form-data"
+                    class="m-0 w-50">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="event_id" id="event_id">
