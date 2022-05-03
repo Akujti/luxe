@@ -99,7 +99,7 @@
             <div class="box-item" onclick="window.location='{{ url("/home?dir=luxe_apparel") }}'">
                 <div>
                     <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
-                    <p>LUXE Apparel, Print Materials, Signage & Realtor Needs</p>
+                    <p>LUXE MARKETPLACE</p>
                 </div>
             </div>
         </div>
@@ -533,7 +533,7 @@
         </div>
         @elseif($_GET['dir'] == 'luxe_apparel')
         <div class="col-12 title mb-3 text-center">
-            <h1>Welcome to LUXE Apparel, Print Materials, Signage & Realtor Needs</h1>
+            <h1>Welcome to LUXE MARKETPLACE</h1>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location='{{ url('store/grab-go-merchandise') }}'">
