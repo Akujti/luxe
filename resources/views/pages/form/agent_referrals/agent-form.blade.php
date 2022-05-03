@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
+@extends('layouts.app',['active' => 'office_staff_directory', 'subactive' => 'new_agents_referrals'])
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
