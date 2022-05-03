@@ -326,7 +326,7 @@
                                                 href="{{route('user.diy-templates')}}">Online Marketing
                                                 Designer</a></li>
                                         <li><a class="{{ (isset($subactive) && $subactive == 'canva_marketing_designer') ? 'active_submenu': '' }}"
-                                                href="{{route('user.diy-templates') }}">Canva Marketing
+                                                href="{{route('canva.marketing.requests') }}">Canva Marketing
                                                 Designer</a></li>
                                         <li><a class="{{ (isset($subactive) && $subactive == 'downloadable_presentations') ? 'active_submenu': '' }}"
                                                 href="{{ url('user/guides') }}">Downloadable

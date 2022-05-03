@@ -379,6 +379,11 @@
                             </div>
                         </div>
                     </a>
+                    <div class="edit-form">
+                        <button class="edit-button" type="submit" onclick="show_edit_file_modal({{$file}})">
+                            <img src="{{asset('images/files/pencil-icon.svg')}}" alt="" width="34px" height="34px">
+                        </button>
+                    </div>
                     <div class="delete-form">
                         <form action="{{ route('file.destroy',$file->id) }}" method="post">
                             @csrf
@@ -427,11 +432,6 @@
                         </button>
                     </form>
                 </div>
-                <div class="edit-form">
-                    <button class="edit-button" type="submit" onclick="show_edit_modal({{$folder}})">
-                        <img src="{{asset('images/files/pencil-icon.svg')}}" alt="" width="34px" height="34px">
-                    </button>
-                </div>
                 @endif
             </div>
         </div>
@@ -475,6 +475,11 @@
                                 <img src="{{asset('images/files/delete-icon.svg')}}" alt="">
                             </button>
                         </form>
+                    </div>
+                    <div class="edit-form">
+                        <button class="edit-button" type="submit" onclick="show_edit_file_modal({{$file}})">
+                            <img src="{{asset('images/files/pencil-icon.svg')}}" alt="" width="34px" height="34px">
+                        </button>
                     </div>
                 </div>
             </div>
@@ -605,6 +610,42 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
+{{-- Edit File --}}
+<div class="edit-file modal fade modal-new" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit File</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('file.update') }}" method="POST" class="m-0" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input id="file_id" type="hidden" name="file_id">
+                    <div class="form-group m-0">
+                        <label for="start">{{ __('File Name') }}</label>
+                        <div class='input-group'>
+                            <input id="file_title" type="text" class="w-100 form-control" name="title">
+                        </div>
+                    </div>
+                    <div class="form-group pt-3">
+                        <label for="start">Thumbnail</label>
+                        <div class="custom-file">
+                            <input type="file" name="thumbnail" class="form-control" id="inputGroupFile01"
+                                style="padding: 3px;" onchange="onFileChanged(this)">
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-luxe" id="save-event">Update</button>
+            </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
 @endsection
 <script>
     function show_modal() {
@@ -615,7 +656,12 @@
         $('.edit-folder').modal('show');
         $('.edit-folder').find('#folder_id').val(folder.id);
         $('.edit-folder').find('#folder_title').val(folder.title);
-        console.log(folder);
+    };
+
+    function show_edit_file_modal(file) {
+        $('.edit-file').modal('show');
+        $('.edit-file').find('#file_id').val(file.id);
+        $('.edit-file').find('#file_title').val(file.title);
     };
 
     function create_folder() {

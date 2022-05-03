@@ -96,6 +96,22 @@ class FolderController extends Controller
         return back()->with('message', 'Directory has been updated!');
     }
 
+    public function file_update(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string'
+        ]);
+        $file = File::findOrFail($request->file_id);
+        $file->title = $request->title;
+        if (isset($request->thumbnail)) {
+            $name = time() . Str::random(10) . '.' . $request->thumbnail->getClientOriginalExtension();
+            $path = $request->file('thumbnail')->storeAs('/files', $name, 'public');
+            $file->thumbnail = $path;
+        }
+        $file->save();
+        return back()->with('message', 'File has been updated!');
+    }
+
     public function folder_destroy($id)
     {
         $folder = Folder::findOrFail($id);

@@ -293,6 +293,7 @@ Route::group(
         Route::resource('files', FolderController::class);
         Route::delete('folder-destory/{id}', [FolderController::class, 'folder_destroy'])->name('folder.destroy');
         Route::put('folder-update', [FolderController::class, 'folder_update'])->name('folder.update');
+        Route::put('file-update', [FolderController::class, 'file_update'])->name('file.update');
         Route::delete('file-destory/{id}', [FolderController::class, 'file_destroy'])->name('file.destroy');
         Route::post('files/open-house-directory', [FolderController::class, 'create_directory'])->name('files.open-house.directory');
         Route::resource('guides', GuideController::class);
