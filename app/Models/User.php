@@ -61,11 +61,13 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class)->withDefault();
     }
 
-    public function form_submits() {
+    public function form_submits()
+    {
         return $this->hasMany(FormSubmit::class, 'agent_email', 'email')->orderBy('id', 'desc');
     }
 
-    public function template_submits() {
+    public function template_submits()
+    {
         return $this->hasMany(TemplateSubmit::class, 'agent_email', 'email')->orderBy('id', 'desc');
     }
 
@@ -74,8 +76,9 @@ class User extends Authenticatable
         if ($this->profile->id) {
             if ($this->profile->avatar) {
                 return asset('storage/' . $this->profile->avatar);
-            }
-            return 'https://ui-avatars.com/api/name=' . $this->profile->fullname . '?size=256';
+            } else if ($this->profile->fullname != " ")
+                return 'https://ui-avatars.com/api/name=' . $this->profile->fullname . '?size=256';
+            return 'https://ui-avatars.com/api/name=' . $this->email . '?size=256';
         }
         return 'https://ui-avatars.com/api/name=' . $this->email . '?size=256';
     }
