@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Marketing', 'subactive' => 'canva_templates'])
+@extends('layouts.app', ['active' => 'marketing_branding', 'subactive' => 'canva_marketing_designer'])
 @section('css')
 @endsection
 @section('content')

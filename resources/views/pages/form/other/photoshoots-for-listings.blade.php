@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'photoshoot_listings'])
+@extends('layouts.app', ['active' => 'marketing_branding', 'subactive' => 'signs_photo_design_requests'])
 @section('content')
 <style>
     @media(min-width:1200px) {

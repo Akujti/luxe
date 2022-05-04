@@ -316,7 +316,7 @@
                                 @endif
                                 @endauth
                                 <li
-                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ (isset($active) && $active == 'marketing_branding') ? 'active selected': '' }}">
+                                    class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if(isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ (isset($active) && $active == 'marketing_branding') ? 'active selected': '' }}">
                                     <a href="{{url("/home?dir=marketing_branding") }}">Marketing & Branding </a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
                                     <em id="li-minus"><img src="/images/minus.png"></em>
@@ -331,7 +331,7 @@
                                         <li><a class="{{ (isset($subactive) && $subactive == 'downloadable_presentations') ? 'active_submenu': '' }}"
                                                 href="{{ url('user/guides') }}">Downloadable
                                                 Presentations</a></li>
-                                        <li><a class="{{ (isset($subactive) && $subactive == 'signs_photo_design_requests') ? 'active_submenu': '' }}"
+                                        <li><a class="@if(isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active_submenu @endif {{ (isset($subactive) && $subactive == 'signs_photo_design_requests') ? 'active_submenu': '' }}"
                                                 href="{{ url('/home?dir=signs_photo_design_requests') }}">Signs, Photo,
                                                 & Design Requests</a></li>
                                         <li><a class="{{ (isset($subactive) && $subactive == 'resume_builder') ? 'active_submenu': '' }}"
@@ -400,7 +400,7 @@
                                 </li>
                                 <li
                                     class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ (isset($active) && $active == 'luxe_apparel') ? 'active selected': '' }}">
-                                    <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Apparel</a>
+                                    <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE MARKETPLACE</a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 

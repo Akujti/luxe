@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'addendum_templates'])
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'email_addendum_verbiage_builder'])
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
