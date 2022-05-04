@@ -34,6 +34,9 @@
         border-radius: 10px;
         padding: 10px 20px;
     }
+    .title h1 {
+        font-family: 'gothicbold';
+    }
 </style>
 @endsection
 @section('content')

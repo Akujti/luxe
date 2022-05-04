@@ -42,6 +42,12 @@
         margin: 0px;
         padding: 0px;
     }
+    h1 {
+        font-family: 'gothicbold';
+    }
+    label {
+        font-family: 'gothicregular';
+    }
 </style>
 <div class="container-fluid">
     <div class="row justify-content-center">
