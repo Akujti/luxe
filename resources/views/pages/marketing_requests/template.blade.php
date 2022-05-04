@@ -60,11 +60,11 @@
         @csrf
         <div class="form-group col-md-12">
             <label for="form_agent_full_name">Your Full Name:</label>
-            <input type="text" required class="form-control" name="form_agent_full_name">
+            <input type="text" required class="form-control" name="form_agent_full_name" value="{{ auth()->user()->profile->fullname }}">
         </div>
         <div class="form-group col-md-12">
             <label for="form_agent_email">Your Email:</label>
-            <input type="text" required class="form-control" name="form_agent_email">
+            <input type="text" required class="form-control" name="form_agent_email" value="{{ auth()->user()->email }}">
         </div>
         @if($template->fields->count())
         @foreach($template->fields as $field)

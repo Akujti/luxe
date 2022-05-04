@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\LuxeStore\Order\LuxeStoreOrder;
+use App\Models\FormSubmit;
+use App\Models\TemplateSubmit;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -57,6 +59,14 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(UserProfile::class)->withDefault();
+    }
+
+    public function form_submits() {
+        return $this->hasMany(FormSubmit::class, 'agent_email', 'email')->orderBy('id', 'desc');
+    }
+
+    public function template_submits() {
+        return $this->hasMany(TemplateSubmit::class, 'agent_email', 'email')->orderBy('id', 'desc');
     }
 
     public function getAvatarAttribute()

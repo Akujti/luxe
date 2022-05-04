@@ -40,6 +40,9 @@
         .box-item p {
             font-size: 18px;
         }
+        .logs div {
+            font-size: 13px !important;
+        }
     }
 
     @media (min-width: 768px) and (max-width: 980px) {
@@ -52,14 +55,103 @@
         font-family: 'gothicbold';
         text-align: center;
     }
+    .logs, .agent-logs input {
+        font-family: 'gothicregular';
+    }
+
+    .agent-logs label, .log-title {
+        font-family: 'gothicbold';
+    }
+    .logs {
+        display: flex;
+        height: 200px;
+        padding: 10px 20px;
+    }
+    .logs div {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+    .logs div span {
+        font-family: 'gothicbold';
+    }
+    .log-item {
+        height: 200px !important;
+    }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
+    @if(auth()->user()->role == 'agent')
+    <div class="col-12 title mb-3">
+        <h1>Welcome to LUXE</h1>
+    </div>
+
+    <div class="row p-0 m-0 mb-5 mt-4">
+        <div class="col-12 col-lg-6">
+            <div class="mb-2 log-title">
+                Form Requests
+            </div>
+            <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                <div class="row m-0 logs">
+                    @forelse(auth()->user()->load('form_submits')->form_submits->take(3) as $form_submit)
+                        <div>
+                            <span>{{$form_submit->form_title}}&nbsp;</span>- {{ $form_submit->created_at->diffForHumans() }} - {{ $form_submit->status ? 'Completed' : 'Pending' }}
+                        </div>
+                    @empty
+                        <div>
+                            No form submissions found.
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="log-title mb-2">
+                Marketing Requests
+            </div>
+            <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                <div class="row m-0 logs">
+                    
+                    @forelse(auth()->user()->load('template_submits')->template_submits->take(3) as $template_submit)
+                        <div>
+                            <span>{{json_decode($template_submit->details, true)['template'] }}&nbsp;</span>- {{ $template_submit->created_at->diffForHumans() }} - {{ $template_submit->status ? 'Completed' : 'Pending' }}
+                        </div>
+                    @empty
+                        <div>
+                            No marketing request submissions found.
+                        </div>
+                    @endforelse
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 d-flex align-items-center mt-3 agent-logs">
+            <div class="w-100">
+                <div class="form-group">
+                    <label for="">Support Specialist</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control p-2" value="{{ auth()->user()->profile->support_specialist_name }}" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 d-flex align-items-center mt-3 agent-logs">
+            <div class="w-100">
+                <div class="form-group">
+                    <label for="">Loan Officer</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control p-2" value="{{ auth()->user()->profile->loan_officer_name }}" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
     <div class="row box-items">
         @if(!isset($_GET['dir']))
         <div class="col-12 title mb-3">
-            <h1>Welcome to LUXE</h1>
+            <h1>LUXE Services</h1>
         </div>
         @endif
         @if(!isset($_GET['dir']))
