@@ -420,8 +420,8 @@
         <div class="col-12 title mb-3">
             <h1>Welcome to Training & Knowledge Center</h1>
         </div>
-        @foreach (App\Models\Video\Video::take(2)->get() as $video)
-        <div class="col-12 col-lg-6 mb-4">
+        @foreach (App\Models\Video\Video::take(3)->get() as $video)
+        <div class="col-12 col-lg-4 mb-4">
             <div class="video mb-2">
                 <a href="{{route('video.single_video', $video->id)}}">
                     <!-- /images/files/video-folder.svg -->
