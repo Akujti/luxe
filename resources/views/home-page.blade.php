@@ -82,7 +82,7 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    @if(auth()->user()->role == 'agent')
+    @if(auth()->user()->role == 'agent' && !isset($_GET['dir']))
     <div class="col-12 title mb-3">
         <h1>Welcome to LUXE</h1>
     </div>
