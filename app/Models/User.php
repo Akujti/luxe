@@ -46,6 +46,11 @@ class User extends Authenticatable
         return $this->hasMany(Event::class);
     }
 
+    public function attending_events()
+    {
+        return $this->belongsToMany(Event::class);
+    }
+
     public function orders()
     {
         return $this->hasMany(LuxeStoreOrder::class, 'user_id');

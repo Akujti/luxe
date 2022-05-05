@@ -288,6 +288,7 @@ Route::group(
         Route::post('/videos/review/comment', [VideoFolderController::class, 'create_comment'])->name('video.create_comment');
         Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
+        Route::post('events/attend', [EventController::class, 'attend'])->name('events.attend');
         Route::resource('events', EventController::class);
         //        Route::get('bookings', [BookingController::class, 'index'])->name('bookings.index');
 

@@ -11,7 +11,9 @@ class Event extends Model
 
     protected $appends = [
         'start',
-        'imageUrl'
+        'imageUrl',
+        'className',
+        'fullType',
     ];
 
     protected $fillable = [
@@ -23,7 +25,23 @@ class Event extends Model
         'end_time',
         'rsvp',
         'zoom',
+        'type'
     ];
+
+    public function attendees()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function getClassNameAttribute()
+    {
+        return $this->type;
+    }
+
+    public function getFullTypeAttribute()
+    {
+        return str_replace('_', ' ', $this->type);
+    }
 
     public function getStartAttribute()
     {
