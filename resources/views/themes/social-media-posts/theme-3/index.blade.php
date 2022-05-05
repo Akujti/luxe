@@ -11,15 +11,14 @@
         </div> --}}
         <div class="row theme">
             <div class="box-col-image">
-                <div class="preview-image" id="preview-image-box">
+                <div class="preview-image" id="preview-image-box" style="background:url('/images/themes/assets/theme-3/tbt.jpg');">
                     <div class="frame-box" id="frame-box">
                         <div class="box-items">
                             <p class="frame-price"></p>
                             <p class="frame-title"></p>
                         </div>
-                        <img src="/images/themes/assets/frame.png" id="frame-image" alt="">
+                        <img src="/images/themes/assets/theme-3/tbt.png" id="frame-image" alt="">
                     </div>
-                    <img src="/images/themes/assets/black.jpg" id="image-uploaded" alt="">
                 </div>
             </div>
             <div class="box-col-tools">
@@ -54,7 +53,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-luxe" type="button" onclick="getScreenShot()">Generate</button>
+                        <button class="btn-luxe" type="button" onclick="getScreenShot('preview-image-box')">Generate</button>
                     </div>
                 </div>
             </div>
@@ -63,9 +62,6 @@
 </div>
 
 @section('js')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -81,9 +77,9 @@
         const [file] = e.files 
         if (file) {
             $('#image-uploaded').remove();
-            $('.preview-image').append("<img id='image-uploaded' src='" + URL.createObjectURL(file) + "'>");
-            $('#image-duplicate').attr("src", URL.createObjectURL(file));
-            oldBlob = $('#image-uploaded').attr('src')
+            $('.preview-image').append("<img id='image-uploaded' src='" + URL.createObjectURL(file) + "' style='display:none'> ");
+            $('.preview-image').css('background-image','url('+ URL.createObjectURL(file) +')');
+            oldBlob = URL.createObjectURL(file)
         }
     }
     var cropper;
@@ -97,6 +93,7 @@
     }
     function save_crop(){
         cropper.getCroppedCanvas().toBlob((blob) => {
+            $('.preview-image').css('background-image','url('+ URL.createObjectURL(blob) +')');
             $('#image-uploaded').attr('src', URL.createObjectURL(blob))
         });
         cropper.destroy()
@@ -104,34 +101,13 @@
     }
     function reverse_default() {
         $('#image-uploaded').attr('src', oldBlob)
+        $('.preview-image').css('background-image','url('+ oldBlob +')');
     }
     function priceChanged(e) {
         $('.frame-price').html(e.value)
     }
     function titleChanged(e) {
         $('.frame-title').html(e.value)
-    }
-
-    function getScreenShot() {
-       
-        let c = document.getElementById('preview-image-box');
-        html2canvas(c, {
-            letterRendering: 1,
-            allowTaint : true,
-            useCORS: true,
-            scale: 3,
-        }).then((canvas) => {
-            var t = canvas.toDataURL().replace("data:image/png;base64,", "");
-            this.downloadBase64File('image/png',t,'luxe-image');
-        })
-    }
-
-    function downloadBase64File(contentType, base64Data, fileName) {
-        const linkSource = `data:${contentType};base64,${base64Data}`;
-        const downloadLink = document.createElement("a");
-        downloadLink.href = linkSource;
-        downloadLink.download = fileName;
-        downloadLink.click();
     }
 </script>
 @endsection

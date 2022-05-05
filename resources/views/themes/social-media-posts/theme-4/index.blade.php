@@ -23,14 +23,13 @@
         </div> --}}
         <div class="row theme">
             <div class="box-col-image">
-                <div class="preview-image" id="preview-image-box">
+                <div class="preview-image" id="preview-image-box" style="background:url('/images/themes/assets/theme-4/tbt.jpg');">
                     <div class="frame-box" id="frame-box">
                         <div class="box-items">
                             <p class="frame-title"></p>
                         </div>
                         <img src="/images/themes/assets/theme-4/tbt.png" id="frame-image" alt="">
                     </div>
-                    <img src="/images/themes/assets/theme-4/tbt.jpg" id="image-uploaded" alt="">
                 </div>
             </div>
             <div class="box-col-tools">
@@ -66,10 +65,6 @@
 </div>
 
 @section('js')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
-<script src="{{ asset('js/themes/main.js') }}"></script>
 
 <script>
     $(document).ready(function() {
@@ -84,9 +79,9 @@
         const [file] = e.files 
         if (file) {
             $('#image-uploaded').remove();
-            $('.preview-image').append("<img id='image-uploaded' src='" + URL.createObjectURL(file) + "'>");
-            $('#image-duplicate').attr("src", URL.createObjectURL(file));
-            oldBlob = $('#image-uploaded').attr('src')
+            $('.preview-image').append("<img id='image-uploaded' src='" + URL.createObjectURL(file) + "' style='display:none'> ");
+            $('.preview-image').css('background-image','url('+ URL.createObjectURL(file) +')');
+            oldBlob = URL.createObjectURL(file)
         }
     }
     var cropper;
@@ -100,6 +95,7 @@
     }
     function save_crop(){
         cropper.getCroppedCanvas().toBlob((blob) => {
+            $('.preview-image').css('background-image','url('+ URL.createObjectURL(blob) +')');
             $('#image-uploaded').attr('src', URL.createObjectURL(blob))
         });
         cropper.destroy()
@@ -107,6 +103,7 @@
     }
     function reverse_default() {
         $('#image-uploaded').attr('src', oldBlob)
+        $('.preview-image').css('background-image','url('+ oldBlob +')');
     }
     function nameChanged(e) {
         $('.frame-title').html(e.value)
