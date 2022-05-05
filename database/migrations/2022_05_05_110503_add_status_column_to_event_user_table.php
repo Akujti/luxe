@@ -14,7 +14,7 @@ class AddStatusColumnToEventUserTable extends Migration
     public function up()
     {
         Schema::table('event_user', function (Blueprint $table) {
-            $table->boolean('status');
+            $table->boolean('status')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddStatusColumnToEventUserTable extends Migration
     public function down()
     {
         Schema::table('event_user', function (Blueprint $table) {
-            //
+            $table->dropColumn('status');
         });
     }
 }
