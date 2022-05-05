@@ -56,6 +56,8 @@ body,html {
 .theme .preview-image {
     position: relative;
     width: 729px;
+    background-size:cover !important;
+    height:568px;
 }
 .theme #image-uploaded {
     object-fit: cover;
