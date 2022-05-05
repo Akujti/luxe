@@ -15,6 +15,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GuideController;
+use App\Http\Controllers\OptinController;
+use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AgentEmailController;
@@ -38,7 +40,6 @@ use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
-use App\Http\Controllers\OptinController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 
@@ -485,4 +486,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 
     Route::get('update-role', [UserController::class, 'update_role']);
     Route::get('update-videos', [VideoController::class, 'update_videos']);
+});
+Route::group(['prefix' => 'themes', 'middleware' => ['auth']], function () {
+    Route::get('/{path}', ThemeController::class)->where('path', '(.*)')->name('themes.page');
 });
