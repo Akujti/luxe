@@ -1,0 +1,55 @@
+#person-image-div {
+    width: 220px !important;
+    height: 335px !important;
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    background-size:cover !important;
+    background-repeat: no-repeat !important;
+}
+.preview-image {
+    width: 470px !important;
+    height: 574px !important;
+    margin: auto;
+}
+.preview-image img {
+    width: 470px !important;
+    height: 574px !important;
+}
+.preview {
+    width:404px;
+    height:504px;
+    margin-left: 100px;
+}
+.preview #person-image {
+    max-width: 100%;
+    display:block
+}
+.box-items {
+    font-family: 'gothicregular' !important;
+    left: 50px;
+    top: unset !important;
+    bottom: 50px;
+    padding-left: 15px;
+    border-left: 5px solid #000;
+    font-size: 18px;
+}
+.box-items .frame-phone, .box-items .frame-email {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.box-items .frame-phone img, .box-items .frame-email img {
+    width: 20px !important;
+    height: 20px !important;
+}
+.box-items .frame-name {
+    color: #fff;
+    text-transform: uppercase;
+}
+.d-none {
+    display: none;
+}
+.d-flex {
+    display: flex;
+}
