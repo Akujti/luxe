@@ -1,36 +1,38 @@
 @font-face {
-    font-family: 'Avenir';
-    src: url('/fonts/themes/Avenir-Black/Avenir-Black.woff2') format('woff2'),
-        url('/fonts/themes/Avenir-Black/Avenir-Black.woff') format('woff');
+    font-family: "Avenir";
+    src: url("/fonts/themes/Avenir-Black/Avenir-Black.woff2") format("woff2"),
+        url("/fonts/themes/Avenir-Black/Avenir-Black.woff") format("woff");
     font-weight: 900;
     font-style: normal;
 }
 @font-face {
-    font-family: 'AvenirBook';
-    src: url('/fonts/themes/Avenir-Book/AvenirBook.eot');
-    src: url('/fonts/themes/Avenir-Book/AvenirBook.eot') format('embedded-opentype'),
-         url('/fonts/themes/Avenir-Book/AvenirBook.woff2') format('woff2'),
-         url('/fonts/themes/Avenir-Book/AvenirBook.woff') format('woff'),
-         url('/fonts/themes/Avenir-Book/AvenirBook.ttf') format('truetype'),
-         url('/fonts/themes/Avenir-Book/AvenirBook.svg#AvenirBook') format('svg');
+    font-family: "AvenirBook";
+    src: url("/fonts/themes/Avenir-Book/AvenirBook.eot");
+    src: url("/fonts/themes/Avenir-Book/AvenirBook.eot")
+            format("embedded-opentype"),
+        url("/fonts/themes/Avenir-Book/AvenirBook.woff2") format("woff2"),
+        url("/fonts/themes/Avenir-Book/AvenirBook.woff") format("woff"),
+        url("/fonts/themes/Avenir-Book/AvenirBook.ttf") format("truetype"),
+        url("/fonts/themes/Avenir-Book/AvenirBook.svg#AvenirBook") format("svg");
 }
 
 @font-face {
     font-family: "gothicbold";
     src: local("gothicbold"),
-    url("/fonts/index-page/gothicbold.ttf") format("truetype");
+        url("/fonts/index-page/gothicbold.ttf") format("truetype");
 }
 @font-face {
     font-family: "gothicregular";
     src: local("gothicregular"),
-    url("/fonts/index-page/gothicregular.ttf") format("truetype");
+        url("/fonts/index-page/gothicregular.ttf") format("truetype");
 }
-body,html {
+body,
+html {
     padding: 0px;
     margin: 0px;
 }
 .theme-container {
-    width:80%;
+    width: 80%;
     margin: 60px auto;
 }
 .theme.row {
@@ -45,7 +47,7 @@ body,html {
 }
 .theme .theme-title h3 {
     font-size: 24px;
-    font-family: 'Arial';
+    font-family: "Arial";
 }
 .theme .w-100 {
     width: 100%;
@@ -56,8 +58,8 @@ body,html {
 .theme .preview-image {
     position: relative;
     width: 729px;
-    background-size:cover !important;
-    height:568px;
+    background-size: cover !important;
+    height: 568px;
 }
 .theme #image-uploaded {
     object-fit: cover;
@@ -82,12 +84,12 @@ body,html {
     margin: 0px;
 }
 .theme .frame-box .frame-price {
-    font-family: 'AvenirBook';
+    font-family: "AvenirBook";
     font-size: 43px;
     letter-spacing: 2px;
 }
 .theme .frame-box .frame-title {
-    font-family: 'Avenir';
+    font-family: "Avenir";
     font-size: 39pt;
     line-height: 50px;
 }
@@ -99,43 +101,46 @@ body,html {
     width: 50%;
     background-color: #262626;
     color: #fff;
-    padding:10px;
+    padding: 10px;
     margin-bottom: 10px;
 }
 .form-group .form-input input {
-    border:1px solid #262626;
+    border: 1px solid #262626;
     color: #000;
-    padding:11px;
+    padding: 11px;
     width: 100%;
 }
 label {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
 }
 button {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
 }
 .btn-luxe {
     border-radius: 10px;
     background-color: #262626;
-    color: #fff;
     padding: 15px 40px !important;
     border: 1px solid #262626;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     font-size: 18px;
 }
 .box-tools {
     width: 100%;
 }
 .box-tools button {
-    background-color: #262626;
-    border: 1px solid #262626;
+    background-color: #e8e8e8;
+    border: 1px solid #e8e8e8;
     padding: 10px;
     border-radius: 10px;
-    color: #fff;
     margin-bottom: 10px;
 }
+.file-input-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5px;
+}
 input {
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
 }
 button {
     cursor: pointer;
