@@ -65,7 +65,7 @@
     <div class="row w-100 m-0 mb-5">
         <div class="col-12 title mb-3 text-center">
             <h1>Welcome to LUXE Events</h1>
-            <a class="btn btn-luxe" href="{{route('my.events')}}">My Events</a>
+            {{-- <a class="btn btn-luxe" href="{{route('my.events')}}">My Events</a> --}}
         </div>
         <div id='calendar' style="width: 100%; display: inline-block;"></div>
     </div>
@@ -121,7 +121,7 @@
                                 <input type="url" id="zoom" name="zoom" class="w-100 form-control">
                             </div>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="start">Event Type</label>
                             <select class="form-group form-select mb-0" name="type">
                                 <option value="-" selected>Select event type</option>
@@ -130,7 +130,7 @@
                                 <option value="tours">Tours</option>
                                 <option value="team_office_meetings">Team/Office Meetings</option>
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="start">{{ __('Event Image') }}</label>
                             <div class="custom-file">
@@ -173,9 +173,9 @@
                     @method('PUT')
                     <input type="hidden" name="event_id" id="event_id_1">
                     <div class="modal-body">
-                        @if($isAdmin)
+                        {{-- @if($isAdmin)
                         <a class="btn btn-luxe mb-3" href="" id="event_stats_link">Show attendance</a>
-                        @endif
+                        @endif --}}
                         <div class="form-group">
                             <div class="">
                                 <label for="start">{{ __('Title') }}</label>
@@ -219,7 +219,7 @@
                                 <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
                                     class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
                                 <a id="add_to_calendar" href="" target="_blank" rel="noopener noreferrer"
-                                    class="btn btn-luxe w-100 mt-2" style="color: white !important;">
+                                    class="btn btn-luxe w-100 mt-2 d-none" style="color: white !important;">
                                     ADD TO CALENDAR</a>
                             </div>
                         </div>
@@ -235,7 +235,7 @@
                                     {{ __('OPEN ZOOM')}}</a>
                             </div>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="start">Event Type</label>
                             @if ($isAdmin)
                             <select class="form-group form-select mb-0" name="type">
@@ -248,7 +248,7 @@
                             @else
                             <input type="text" id="event_type" class="w-100 form-control text-capitalize" disabled>
                             @endif
-                        </div>
+                        </div> --}}
                         <div class="form-group image_group d-none">
                             <label for="image">{{ __('Event Image') }}</label>
                             <input type="file" name="image" class="form-control update_field" disabled
