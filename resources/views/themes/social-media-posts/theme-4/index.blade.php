@@ -64,7 +64,7 @@ Social Media Two -
                             </div>
                         </div>
 
-                        <button class="btn-luxe white" type="button" onclick="getScreenShot('preview-image-box')">Generate</button>
+                        <button class="btn-luxe" type="button" onclick="getScreenShot('preview-image-box')">Generate</button>
                     </div>
                 </div>
             </div>
