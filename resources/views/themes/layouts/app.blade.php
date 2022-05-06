@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>{{ env('APP_NAME', 'LUXE') }}</title>
+        <title>@yield('title') Luxe</title>
         <link rel="stylesheet" href="{{ asset('css/theme/theme.css') }}">
         
         @yield('css')

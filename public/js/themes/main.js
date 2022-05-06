@@ -6,6 +6,7 @@ function getScreenShot(div_id) {
         allowTaint : true,
         useCORS: true,
         scale: 3,
+        scrollY: -window.scrollY
     }).then((canvas) => {
         var t = canvas.toDataURL().replace("data:image/png;base64,", "");
         this.downloadBase64File('image/png',t,'luxe-image');

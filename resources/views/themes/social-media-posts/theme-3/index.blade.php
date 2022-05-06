@@ -1,5 +1,7 @@
 @extends('themes.layouts.app')
-
+@section('title')
+Social Media One -
+@endsection
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css" />
 @endsection
@@ -26,7 +28,7 @@
                 <div class="box-tools">
                     <div class="w-100">
                         <div class="row theme">
-                            <div class="form-group w-100">
+                            <div class="form-group w-100 mt-0">
                                 <div class="form-label">
                                     <label for="">Background Image</label>
                                 </div>
@@ -61,7 +63,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-luxe" type="button"
+                        <button class="btn-luxe white" type="button"
                             onclick="getScreenShot('preview-image-box')">Generate</button>
                     </div>
                 </div>

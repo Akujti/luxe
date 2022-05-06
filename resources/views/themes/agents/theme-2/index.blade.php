@@ -1,4 +1,7 @@
 @extends('themes.layouts.app')
+@section('title')
+Agent Template 2 -
+@endsection
 
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css"/>
@@ -16,7 +19,7 @@
                             <p class="frame-name">AGENT NAME</p>
                             <p class="frame-address">Realtor, LUXE Properties LLC</p>
                             <p class="frame-phone"><img src="/images/index-page/phone-icon-white.svg" alt=""> <span>(XXX) XXX-XXXX</span></p>
-                            <p class="frame-email"><img src="/images/index-page/email-icon.svg" alt=""> <span>email@luxeknows.com</span></p>
+                            <p class="frame-email"><img src="/images/index-page/email-white-icon.svg" alt=""> <span>email@luxeknows.com</span></p>
                         </div>
                         <img src="/images/themes/assets/agents/theme-2/tbt.png" id="frame-image" alt="">
                     </div>
@@ -30,13 +33,18 @@
                 <div class="box-tools">
                     <div class="w-100">
                         <div class="row theme">
-                            <button type="button" class="w-100" onclick="toggleFileInput()">Choose image</button>
-                            <input type="file" name="file" id="preview-image-input" onchange="onFileChanged(this)" style="display: none;">
-                            <div style="display: flex; gap:5px;width:100%;">
-                                <button type="button" class="w-50" onclick="startCropper()">Crop</button>
-                                <button type="button" class="w-50" onclick="save_crop()">Save Crop</button>
+                            <div class="form-group w-100 mt-0">
+                                <div class="form-label">
+                                    <label for="">Background Image</label>
+                                </div>
                             </div>
-                            <button type="button" class="w-100" onclick="reverse_default()">Default</button>
+                            <input type="file" name="file" id="preview-image-input" onchange="onFileChanged(this)" style="display: none;">
+                            <div class="file-input-wrapper">
+                                <button type="button" class="" onclick="toggleFileInput()">Choose image</button>
+                                <button type="button" class="w-auto" onclick="startCropper()">Crop</button>
+                                <button type="button" class="" onclick="save_crop()">Save Crop</button>
+                                <button type="button" class="" onclick="reverse_default()">Default</button>
+                            </div>
                         </div>
                     </div>
     
@@ -66,7 +74,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-luxe" type="button" onclick="getScreenShot('preview-image-box')">Generate</button>
+                        <button class="btn-luxe white" type="button" onclick="getScreenShot('preview-image-box')">Generate</button>
                     </div>
                 </div>
             </div>

@@ -1,42 +1,60 @@
 @extends('themes.layouts.app')
 @section('title')
-Social Media Three -
+Agent Template 3 -
 @endsection
+
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css"/>
 
 <style>
-    
-   .frame-price {
-       position: absolute;
-       left: -52px;
-       font-weight: bold;
-   }
-   .frame-title {
-       position: absolute;
-       left: -10px;
-       top: 51px;
-       text-transform: uppercase;
-       font-size: 56px !important;
-   }
+    .frame-title {
+        color: #fff;
+        font-size: 22px !important;
+        font-family: 'gothicregular' !important;
+    }
+    .box-items {
+        top: unset !important;
+        bottom: 67px !important;
+        left: 57% !important;
+        padding-left: 28px;
+        z-index: 999;
+    }
+    .inner-image {
+        width: 656px;
+        height: 470px;
+        position: absolute;
+        z-index: 0;
+        left: 39px;
+        top: 34px;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+    #frame-image {
+        position: relative;
+    }
+    .preview {
+        width: 700px;
+        height: 500px;
+    }
 </style>
 @endsection
 @section('content')
 <div class="">
     <div class="row theme">
-        {{-- <div class="theme-title">
-            <h3>This is the Social Media One you selected. You can only edit the items below</h3>
-        </div> --}}
         <div class="row theme">
             <div class="box-col-image">
-                <div class="preview-image" id="preview-image-box" style="background:url('/images/themes/assets/social-media-posts/theme-5/tbt.jpg');">
+                <div class="preview-image" id="preview-image-box" style="background-color: #000;">
                     <div class="frame-box" id="frame-box">
+                        <div class="inner-image" style="background:url('/images/themes/assets/agents/theme-3/person.jpg');">
+                        </div>
                         <div class="box-items">
-                            <p class="frame-price"></p>
                             <p class="frame-title"></p>
                         </div>
-                        <img src="/images/themes/assets/social-media-posts/theme-5/tbt.png" id="frame-image" alt="">
+                        <img src="/images/themes/assets/agents/theme-3/tbt.png" id="frame-image" alt="">
                     </div>
+                </div>
+                <div class="preview d-none">
+                    <img src="/images/themes/assets/agents/theme-3/person.jpg" id="person-image">
                 </div>
             </div>
             <div class="box-col-tools">
@@ -61,18 +79,10 @@ Social Media Three -
                     <div class="row theme">
                         <div class="w-100 form-group">
                             <div class="form-label">
-                                <label for="">Price</label>
-                            </div>
-                            <div class="form-input">
-                                <input type="text" name="price" id="price" value="LUXE" onkeyup="priceChanged(this)">
-                            </div>
-                        </div>
-                        <div class="w-100 form-group">
-                            <div class="form-label">
                                 <label for="">Name</label>
                             </div>
                             <div class="form-input">
-                                <input type="text" name="title" id="title" value="Spots" onkeyup="titleChanged(this)">
+                                <input type="text" name="name" id="name" value="ELISSA M. URQUIAGA" onkeyup="nameChanged(this)">
                             </div>
                         </div>
 
@@ -88,27 +98,26 @@ Social Media Three -
 
 <script>
     $(document).ready(function() {
-        $('.frame-price').html($('#price').val())
-        $('.frame-title').html($('#title').val())
+        $('.frame-title').html($('#name').val())
     })
     function toggleFileInput() {
         $('#preview-image-input').click()
     }
-    var oldBlob = '/images/themes/assets/social-media-posts/theme-5/tbt.jpg';
+    var oldBlob = '/images/themes/assets/agents/theme-3/person.jpg';
 
     function onFileChanged(e) {
         const [file] = e.files 
         if (file) {
-            $('#image-uploaded').remove();
-            $('.preview-image').append("<img id='image-uploaded' src='" + URL.createObjectURL(file) + "' style='display:none'> ");
-            $('.preview-image').css('background-image','url('+ URL.createObjectURL(file) +')');
+            $('#person-image').attr("src", URL.createObjectURL(file));
+            $('.inner-image').css('background-image','url('+ URL.createObjectURL(file) +')');
             oldBlob = URL.createObjectURL(file)
         }
     }
     var cropper;
     function startCropper(){
-        var image = document.getElementById("image-uploaded");
-        $(".frame-box").css("display", "none");
+        var image = document.getElementById("person-image");
+        $(".preview-image").css("display", "none");
+        $(".preview").toggleClass('d-none')
         cropper = new Cropper(image, {
             aspectRatio: null,
             dragMode: 'move',
@@ -121,20 +130,18 @@ Social Media Three -
     }
     function save_crop(){
         cropper.getCroppedCanvas().toBlob((blob) => {
-            $('.preview-image').css('background-image','url('+ URL.createObjectURL(blob) +')');
-            $('#image-uploaded').attr('src', URL.createObjectURL(blob))
+            $('.inner-image').css('background-image','url('+ URL.createObjectURL(blob) +')');
+            $('#person-image').attr('src', URL.createObjectURL(blob))
         });
         cropper.destroy()
-        $('.frame-box').css('display', 'flex')
+        $('.preview-image').css('display', 'flex')
+        $(".preview").toggleClass('d-none')
     }
     function reverse_default() {
-        $('#image-uploaded').attr('src', oldBlob)
-        $('.preview-image').css('background-image','url('+ oldBlob +')');
+        $('#person-image').attr('src', oldBlob)
+        $('.inner-image').css('background-image','url('+ oldBlob +')');
     }
-    function priceChanged(e) {
-        $('.frame-price').html(e.value)
-    }
-    function titleChanged(e) {
+    function nameChanged(e) {
         $('.frame-title').html(e.value)
     }
 
