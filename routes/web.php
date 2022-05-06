@@ -290,6 +290,7 @@ Route::group(
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::post('events/attend', [EventController::class, 'attend'])->name('events.attend');
         Route::resource('events', EventController::class);
+        Route::get('/events/{event}/attendance', [EventController::class, 'attendance'])->name('events.attendance');
         //        Route::get('bookings', [BookingController::class, 'index'])->name('bookings.index');
 
         Route::resource('files', FolderController::class);

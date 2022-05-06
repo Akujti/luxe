@@ -159,7 +159,7 @@
                             </div>
                             <div class="form-group col-12 mb-0">
                                 <label>
-                                    Do you like to opt in?
+                                    Would you like to opt-in to be displayed as a referral agent within LUXE?
                                 </label>
                                 <input class="" type="checkbox" name="optin" {{auth()->user()->optin ? 'checked':''}}>
                             </div>

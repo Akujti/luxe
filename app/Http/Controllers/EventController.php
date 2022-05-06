@@ -27,9 +27,15 @@ class EventController extends Controller
         return view('pages.events.events', compact('events', 'isAdmin'));
     }
 
+    public function attendance(Event $event)
+    {
+        $agents = $event->attendees()->withPivot('status')->get();
+        return view('pages.events.attendance', compact('agents', 'event'));
+    }
+
     public function my_events()
     {
-        $events = Auth::user()->events;
+        $events = Auth::user()->attending_events()->orderBy('date')->paginate(30);
         return view('pages.events.my-events', compact('events'));
     }
     public function attend(Request $request)
@@ -96,13 +102,14 @@ class EventController extends Controller
             'end_time' => 'required',
             'rsvp' => 'nullable|url',
             'zoom' => 'nullable|url',
+            'type' => 'nullable',
         ], [
             'image.image' => 'The chosen file must be an image type',
             'rsvp.url' => 'RSVP must be a valid web link.',
             'zoom.url' => 'ZOOM must be a valid web link.',
         ]);
         $event = Event::find($request->event_id);
-        $event->update($validated);
+        $event->update(array_filter($validated));
         if (isset($request->image)) {
             $name = time() . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
             $path = $request->image->storeAs('images\events', $name, 'public');;

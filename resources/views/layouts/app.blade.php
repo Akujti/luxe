@@ -204,6 +204,11 @@
     .active_submenu:focus {
         outline: none;
     }
+
+    .h5-luxe {
+        font-family: "gothicbold";
+        font-size: 40px;
+    }
 </style>
 
 <body>

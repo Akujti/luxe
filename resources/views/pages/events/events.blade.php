@@ -65,6 +65,7 @@
     <div class="row w-100 m-0 mb-5">
         <div class="col-12 title mb-3 text-center">
             <h1>Welcome to LUXE Events</h1>
+            <a class="btn btn-luxe" href="{{route('my.events')}}">My Events</a>
         </div>
         <div id='calendar' style="width: 100%; display: inline-block;"></div>
     </div>
@@ -156,18 +157,25 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
-                <form id="event_attend_form" action="{{route('events.attend')}}" method="POST">
-                    @csrf
-                    <input type="hidden" name="event_id" id="event_id_attend">
-                    <input type="hidden" name="status" id="event_attend_status">
-                    <button class="btn btn-luxe" onclick="attend_event(0)">No Attend</button>
-                    <button class="btn btn-luxe" onclick="attend_event(1)">Attend</button>
-                </form>
+                <div class="modal-body mb-0 pb-0" id="event_attend_form_wrapper">
+                    <form id="event_attend_form" action="{{route('events.attend')}}" method="POST" class="m-0 p-0">
+                        @csrf
+                        <input type="hidden" name="event_id" id="event_id_attend">
+                        <input type="hidden" name="status" id="event_attend_status">
+                        <label>Are you going to attend this event?</label>
+                        <br>
+                        <button class="btn btn-luxe" onclick="attend_event(1)">Yes</button>
+                        <button class="btn btn-luxe" onclick="attend_event(0)">No</button>
+                    </form>
+                </div>
                 <form action="{{route('events.update',0)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="event_id" id="event_id_1">
                     <div class="modal-body">
+                        @if($isAdmin)
+                        <a class="btn btn-luxe mb-3" href="" id="event_stats_link">Show attendance</a>
+                        @endif
                         <div class="form-group">
                             <div class="">
                                 <label for="start">{{ __('Title') }}</label>
@@ -210,6 +218,9 @@
                                 @endif
                                 <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
                                     class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
+                                <a id="add_to_calendar" href="" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-luxe w-100 mt-2" style="color: white !important;">
+                                    ADD TO CALENDAR</a>
                             </div>
                         </div>
                         <div class="form-group" id="zoom_group">
@@ -226,9 +237,9 @@
                         </div>
                         <div class="form-group">
                             <label for="start">Event Type</label>
-                            @if (false)
+                            @if ($isAdmin)
                             <select class="form-group form-select mb-0" name="type">
-                                <option value="-">Select event type</option>
+                                <option value>Select event type</option>
                                 <option value="in_person_trainings">In Person Traninings</option>
                                 <option value="zoom_trainings">Zoom Trainings</option>
                                 <option value="tours">Tours</option>
@@ -254,7 +265,6 @@
                         @if ($isAdmin)
                         <button type="submit" class="btn btn-luxe" id="update_event">Update</button>
                         @endif
-
                 </form>
                 <form action="{{ route('events.destroy',1) }}" method="POST" enctype="multipart/form-data"
                     class="m-0 w-50">
@@ -279,8 +289,6 @@
         $('#event_attend_form').submit();
     }
     document.addEventListener('DOMContentLoaded', function () {
-
-
         const data = @json($events);
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -288,11 +296,18 @@
                 $('.create-event').modal('show');
                 $('#date').val(start.startStr);
             },
-            eventClick: function (event, element) {
+            eventClick: function (event) {
+                console.log(event);
                 var event = event.event;
-                // Display the modal and set the values to the event values.
                 $('.single-event').modal('show');
                 $('.single-event').find('#event_id').val(event._def.publicId);
+                $(".single-event").find('#event_stats_link').attr("href", '/user/events/'+event._def.publicId+'/attendance')
+                var startdt = event.extendedProps.fullDate+'T'+event.extendedProps.start_time
+                var enddt = event.extendedProps.fullDate+'T'+event.extendedProps.end_time
+                var location = event.extendedProps.location
+                var body = event.extendedProps.fullType
+                var calendar_link = 'https://outlook.office.com/calendar/0/deeplink/compose?body='+body+'&enddt='+enddt+'&location='+location+'&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt='+startdt+'&subject='+event.title
+                $(".single-event").find('#add_to_calendar').attr("href", calendar_link)
                 $('.single-event').find('#event_id_1').val(event._def.publicId);
                 $('.single-event').find('#event_id_attend').val(event._def.publicId);
                 $('.single-event').find('#title').val(event.title);
@@ -303,6 +318,12 @@
                 $('.single-event').find('#rsvp1').val(event.extendedProps.rsvp);
                 $('.single-event').find('#zoom1').val(event.extendedProps.zoom);
                 $('.single-event').find('#event_type').val(event.extendedProps.fullType);
+                if(event.extendedProps.attending){
+                    $('#event_attend_form_wrapper').css('display', 'none');
+                }
+                else{
+                    $('#event_attend_form_wrapper').css('display', 'block');
+                }
                 if (event.extendedProps.rsvp != null || {{$isAdmin}}) {
                     $('.single-event').find('#rsvp').attr('href', event.extendedProps.rsvp);
                     $('#rsvp_group').css('display', 'block');

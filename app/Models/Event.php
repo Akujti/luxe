@@ -14,6 +14,8 @@ class Event extends Model
         'imageUrl',
         'className',
         'fullType',
+        'fullDate',
+        'attending',
     ];
 
     protected $fillable = [
@@ -28,9 +30,25 @@ class Event extends Model
         'type'
     ];
 
+    public function getFullDateAttribute()
+    {
+        return $this->date;
+    }
+
     public function attendees()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function getStatusAttribute()
+    {
+        $event = EventUser::where('event_id', $this->id)->where('user_id', auth()->user()->id)->first();
+        if ($event) return $event->status;
+    }
+
+    public function getAttendingAttribute()
+    {
+        return auth()->user()->attending_events()->where('event_id', $this->id)->first() != null;
     }
 
     public function getClassNameAttribute()
@@ -40,7 +58,7 @@ class Event extends Model
 
     public function getFullTypeAttribute()
     {
-        return str_replace('_', ' ', $this->type);
+        return ucwords(str_replace('_', ' ', $this->type));
     }
 
     public function getStartAttribute()
