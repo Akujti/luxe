@@ -11,13 +11,13 @@
         </div> --}}
         <div class="row theme">
             <div class="box-col-image">
-                <div class="preview-image" id="preview-image-box" style="background:url('/images/themes/assets/theme-3/tbt.jpg');">
+                <div class="preview-image" id="preview-image-box" style="background:url('/images/themes/assets/social-media-posts/theme-3/tbt.jpg');">
                     <div class="frame-box" id="frame-box">
                         <div class="box-items">
                             <p class="frame-price"></p>
                             <p class="frame-title"></p>
                         </div>
-                        <img src="/images/themes/assets/theme-3/tbt.png" id="frame-image" alt="">
+                        <img src="/images/themes/assets/social-media-posts/theme-3/tbt.png" id="frame-image" alt="">
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
     function toggleFileInput() {
         $('#preview-image-input').click()
     }
-    var oldBlob;
+    var oldBlob = '/images/themes/assets/social-media-posts/theme-3/tbt.jpg';
 
     function onFileChanged(e) {
         const [file] = e.files 
@@ -87,8 +87,13 @@
         var image = document.getElementById("image-uploaded");
         $(".frame-box").css("display", "none");
         cropper = new Cropper(image, {
-            aspectRatio: 1,
-            minContainerHeight: 500
+            aspectRatio: null,
+            dragMode: 'move',
+            autoCropArea: 1,
+            restore: false,
+            guides: false,
+            center: false,
+            highlight: false,
         });
     }
     function save_crop(){
