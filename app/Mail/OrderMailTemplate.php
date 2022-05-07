@@ -28,6 +28,6 @@ class OrderMailTemplate extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->details['form_title'] ?? 'Form Submission')->view('email-template.order');
+        return $this->subject('New Order')->view('email-template.order');
     }
 }

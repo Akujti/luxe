@@ -405,7 +405,7 @@
                                 </li>
                                 <li
                                     class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ (isset($active) && $active == 'luxe_apparel') ? 'active selected': '' }}">
-                                    <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE MARKETPLACE</a>
+                                    <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Marketplace</a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
