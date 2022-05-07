@@ -65,7 +65,6 @@
 
                 <form method="POST" action="{{ route('luxe_store.addtocart') }}" class="d-block">
                     @csrf
-
                     @if (!$product->variants->count())
                         <div class="d-flex align-items-center mb-4">
                             @if ($product->sale_price)
@@ -102,7 +101,6 @@
                             @endforeach
                         </div>
                     @endif
-
 
                     <div id="show-option-value" class="d-flex align-items-center mt-3"></div>
 
