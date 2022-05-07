@@ -57,6 +57,7 @@ use App\Http\Controllers\WrittenEmailTemplateItemController;
 Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 
 Route::view('office-locations', 'office-locations')->middleware('auth');
+Route::view('maps', 'maps');
 Route::view('home', 'home-page')->middleware('auth');
 Route::redirect('/', 'home');
 

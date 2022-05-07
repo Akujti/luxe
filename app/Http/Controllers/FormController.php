@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\GeneralMailTemplate;
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
@@ -104,6 +105,7 @@ class FormController extends Controller
             $cc = [];
             Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
         } catch (\Throwable $th) {
+            Log::alert($th);
             // return response()->json('Something went wrong', 500);
             return redirect()->back()->with('error', 'Form is saved but there was a problem sending the email');
         }
@@ -144,9 +146,9 @@ class FormController extends Controller
 
     public function getEmails($title, $extraEmail = '')
     {
-        $form = Form::where('title', $title)->firstOrFail();
+        $form = Form::where('title', $title)->first();
 
-        $data = $form->emails()->get()->pluck('email')->toArray();
+        $data = $form ? $form->emails()->get()->pluck('email')->toArray() : [];
         if ($extraEmail) {
             array_push($data, $extraEmail);
         }
