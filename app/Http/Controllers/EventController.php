@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AddToEmailCalendar;
 use App\Models\Event;
 use App\Models\EventUser;
+use Exception;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class EventController extends Controller
@@ -51,10 +54,101 @@ class EventController extends Controller
                     'status' => $request->status,
                 ]
             );
+            if ($request->status) {
+                $this->attend_email($event);
+            }
             return back()->with('message', 'Success');
         } catch (\Throwable $th) {
             Log::alert($th);
             return back()->with('error', 'Something went wrong!');
+        }
+    }
+
+    public function attend_email($event)
+    {
+        try {
+            $from_name = 'LUXE Events';
+            $from_address = 'email@luxeknows.com';
+            $to_name = auth()->user()->profile->fullname;
+            $description = $event->title . ' attendance';
+            $to_address = auth()->user()->email;
+            $startTime = $event->fullDate . 'T' . $event->start_time;
+            $endTime = $event->fullDate . 'T' . $event->end_time;
+            $subject = $event->title;
+            $location = $event->location;
+
+            //Create Email Headers
+            $mime_boundary = "----LUXE Event----" . MD5(TIME());
+
+            $headers = "MIME-Version: 1.0\n";
+            $headers .= "Content-Type: multipart/alternative; boundary=\"$mime_boundary\"\n";
+            $headers .= "Content-class: urn:content-classes:calendarmessage\n";
+
+            //Create Email Body (HTML)
+            $message = "--$mime_boundary\r\n";
+            $message .= "Content-Type: text/html; charset=UTF-8\n";
+            $message .= "Content-Transfer-Encoding: 8bit\n\n";
+            $message .= "<html>\n";
+            $message .= "<body>\n";
+            $message .= '<p>Dear ' . $to_name . ',</p>';
+            $message .= '<p>' . $description . '</p>';
+            $message .= "</body>\n";
+            $message .= "</html>\n";
+            $message .= "--$mime_boundary\r\n";
+
+            $ical = 'BEGIN:VCALENDAR' . "\r\n" .
+                'PRODID:-//Microsoft Corporation//Outlook 10.0 MIMEDIR//EN' . "\r\n" .
+                'VERSION:2.0' . "\r\n" .
+                'METHOD:REQUEST' . "\r\n" .
+                'BEGIN:VTIMEZONE' . "\r\n" .
+                'TZID:Eastern Time' . "\r\n" .
+                'BEGIN:STANDARD' . "\r\n" .
+                'DTSTART:20091101T020000' . "\r\n" .
+                'RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=1SU;BYMONTH=11' . "\r\n" .
+                'TZOFFSETFROM:-0400' . "\r\n" .
+                'TZOFFSETTO:-0500' . "\r\n" .
+                'TZNAME:EST' . "\r\n" .
+                'END:STANDARD' . "\r\n" .
+                'BEGIN:DAYLIGHT' . "\r\n" .
+                'DTSTART:20090301T020000' . "\r\n" .
+                'RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=2SU;BYMONTH=3' . "\r\n" .
+                'TZOFFSETFROM:-0500' . "\r\n" .
+                'TZOFFSETTO:-0400' . "\r\n" .
+                'TZNAME:EDST' . "\r\n" .
+                'END:DAYLIGHT' . "\r\n" .
+                'END:VTIMEZONE' . "\r\n" .
+                'BEGIN:VEVENT' . "\r\n" .
+                'ORGANIZER;CN="' . $from_name . '":MAILTO:' . $from_address . "\r\n" .
+                'ATTENDEE;CN="' . $to_name . '";ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:' . $to_address . "\r\n" .
+                'LAST-MODIFIED:' . date("Ymd\TGis") . "\r\n" .
+                'UID:' . date("Ymd\TGis", strtotime($startTime)) . rand() . "\r\n" .
+                'DTSTAMP:' . date("Ymd\TGis") . "\r\n" .
+                'DTSTART;TZID="Eastern Time":' . date("Ymd\THis", strtotime($startTime)) . "\r\n" .
+                'DTEND;TZID="Eastern Time":' . date("Ymd\THis", strtotime($endTime)) . "\r\n" .
+                'TRANSP:OPAQUE' . "\r\n" .
+                'SEQUENCE:1' . "\r\n" .
+                'SUMMARY:' . $subject . "\r\n" .
+                'LOCATION:' . $location . "\r\n" .
+                'CLASS:PUBLIC' . "\r\n" .
+                'PRIORITY:5' . "\r\n" .
+                'BEGIN:VALARM' . "\r\n" .
+                'TRIGGER:-PT15M' . "\r\n" .
+                'ACTION:DISPLAY' . "\r\n" .
+                'DESCRIPTION:Reminder' . "\r\n" .
+                'END:VALARM' . "\r\n" .
+                'END:VEVENT' . "\r\n" .
+                'END:VCALENDAR' . "\r\n";
+            $message .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST' . "\n";
+            $message .= "Content-Transfer-Encoding: 8bit\n\n";
+            $message .= $ical;
+
+            $details['message'] = $message;
+            $details['event'] = $event;
+
+            Mail::to($to_address)->send(new AddToEmailCalendar($details));
+        } catch (\Throwable $th) {
+            Log::error('Send calendar email FAILED');
+            Log::error(auth()->user());
         }
     }
 

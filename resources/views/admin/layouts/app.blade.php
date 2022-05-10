@@ -40,13 +40,13 @@
     @font-face {
         font-family: "gothicbold";
         src: local("gothicbold"),
-        url("{{ asset('fonts/index-page/gothicbold.ttf')}}") format("truetype");
+            url("{{ asset('fonts/index-page/gothicbold.ttf') }}") format("truetype");
     }
 
     @font-face {
         font-family: "gothicregular";
         src: local("gothicregular"),
-        url("{{ asset('fonts/index-page/gothicregular.ttf')}}") format("truetype");
+            url("{{ asset('fonts/index-page/gothicregular.ttf') }}") format("truetype");
     }
 
     footer {
@@ -196,6 +196,7 @@
     .btn-logout:hover {
         color: #fff;
     }
+
 </style>
 
 <body>
@@ -212,7 +213,7 @@
                         </div>
                         <div
                             class="col-9 col-md-6 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
-                            <a href="{{ url('/admin') }}"><img src="/images/logo.png" alt="" height="74px"></a>
+                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="74px"></a>
                         </div>
                         <div
                             class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-md-flex d-lg-flex d-xl-flex justify-content-end">
@@ -237,7 +238,8 @@
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <a class="dropdown-item" href="#">
                                                 <div class="">
-                                                    <form action="{{route('logout')}}" method="post" class="">
+                                                    <form action="{{ route('logout') }}" method="post"
+                                                        class="">
                                                         @csrf
                                                         <button class="btn btn-logout"><span
                                                                 class="item-box">Logout</span></button>
@@ -258,28 +260,28 @@
                         <div class="col-3 col-sm-7 col-md-12 col-lg-12 p-0">
                             <nav class="row">
                                 <a href="{{ route('admin.index') }}"
-                                    class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">Dashboard</a>
+                                    class="{{ isset($active) && $active == 'Dashboard' ? 'active selected' : '' }}">Dashboard</a>
                                 <a href="{{ route('admin.forms.index') }}"
-                                    class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">Forms</a>
+                                    class="{{ isset($active) && $active == 'Forms' ? 'active selected' : '' }}">Forms</a>
                                 <a href="{{ route('admin.diy-categories.index') }}"
-                                    class="{{ (isset($active) && $active == 'Diy') ? 'active selected': '' }}">DIY</a>
+                                    class="{{ isset($active) && $active == 'Diy' ? 'active selected' : '' }}">DIY</a>
                                 <a href="{{ route('admin.marketing-requests.index') }}"
-                                    class="{{ (isset($active) && $active == 'Marketing_requests') ? 'active selected': '' }}">Marketing
+                                    class="{{ isset($active) && $active == 'Marketing_requests' ? 'active selected' : '' }}">Marketing
                                     Requests</a>
                                 <a href="{{ route('admin.canva.marketing.index_admin') }}"
-                                    class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">Canva</a>
+                                    class="{{ isset($active) && $active == 'Marketing_canva' ? 'active selected' : '' }}">Canva</a>
                                 <a href="{{ route('admin.orders.index') }}"
-                                    class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">Orders</a>
+                                    class="{{ isset($active) && $active == 'Orders' ? 'active selected' : '' }}">Orders</a>
                                 <a href="{{ route('admin.luxe_store.index') }}"
-                                    class="{{ (isset($active) && $active == 'Categories') ? 'active selected': '' }}">Categories</a>
+                                    class="{{ isset($active) && $active == 'Categories' ? 'active selected' : '' }}">Categories</a>
                                 <a href="{{ route('admin.luxe_store.products.index') }}"
-                                    class="{{ (isset($active) && $active == 'Products') ? 'active selected': '' }}">Products</a>
+                                    class="{{ isset($active) && $active == 'Products' ? 'active selected' : '' }}">Products</a>
                                 <a href="{{ route('admin.luxe_store.coupons.index') }}"
-                                    class="{{ (isset($active) && $active == 'Coupons') ? 'active selected': '' }}">Coupons</a>
+                                    class="{{ isset($active) && $active == 'Coupons' ? 'active selected' : '' }}">Coupons</a>
                                 <a href="{{ route('admin.users.index') }}"
-                                    class="{{ (isset($active) && $active == 'Users') ? 'active selected': '' }}">Users</a>
+                                    class="{{ isset($active) && $active == 'Users' ? 'active selected' : '' }}">Users</a>
                                 <a href="{{ route('admin.videos.index') }}"
-                                    class="{{ (isset($active) && $active == 'Videos') ? 'active selected': '' }}">Videos</a>
+                                    class="{{ isset($active) && $active == 'Videos' ? 'active selected' : '' }}">Videos</a>
                             </nav>
                         </div>
                     </div>
@@ -314,7 +316,7 @@
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                                     <a class="dropdown-item" href="#">
                                                         <div class="">
-                                                            <form action="{{route('logout')}}" method="post"
+                                                            <form action="{{ route('logout') }}" method="post"
                                                                 class="p-0 m-0">
                                                                 @csrf
                                                                 <button class="btn btn-logout"><span
@@ -331,37 +333,37 @@
                         </div>
                         <div class="sidebar__item sidebar-navigation">
                             <ul>
-                                <li class="{{ (isset($active) && $active == 'Dashboard') ? 'active selected': '' }}">
+                                <li class="{{ isset($active) && $active == 'Dashboard' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.index') }}">Dashboard</a>
                                 </li>
-                                <li class="{{ (isset($active) && $active == 'Forms') ? 'active selected': '' }}">
+                                <li class="{{ isset($active) && $active == 'Forms' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.forms.index') }}">Forms</a>
                                 </li>
                                 <li
-                                    class="{{ (isset($active) && $active == 'Marketing_requests') ? 'active selected': '' }}">
+                                    class="{{ isset($active) && $active == 'Marketing_requests' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.marketing-requests.index') }}">Marketing
                                         Requests</a>
                                 </li>
                                 <li
-                                    class="{{ (isset($active) && $active == 'Marketing_canva') ? 'active selected': '' }}">
+                                    class="{{ isset($active) && $active == 'Marketing_canva' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.canva.marketing.index_admin') }}">Canva</a>
                                 </li>
-                                <li class="{{ (isset($active) && $active == 'Orders') ? 'active selected': '' }}">
+                                <li class="{{ isset($active) && $active == 'Orders' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.orders.index') }}">Orders</a>
                                 </li>
-                                <li class="{{ (isset($active) && $active == 'Categories') ? 'active selected': '' }}">
+                                <li class="{{ isset($active) && $active == 'Categories' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.luxe_store.index') }}">Categories</a>
                                 </li>
-                                <li class="{{ (isset($active) && $active == 'Products') ? 'active selected': '' }}">
+                                <li class="{{ isset($active) && $active == 'Products' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.luxe_store.products.index') }}">Products</a>
                                 </li>
-                                <li class="{{ (isset($active) && $active == 'Coupons') ? 'active selected': '' }}">
+                                <li class="{{ isset($active) && $active == 'Coupons' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.luxe_store.coupons.index') }}">Coupons</a>
                                 </li>
-                                <li class="{{ (isset($active) && $active == 'Users') ? 'active selected': '' }}">
+                                <li class="{{ isset($active) && $active == 'Users' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.users.index') }}">Users</a>
                                 </li>
-                                <li class="{{ (isset($active) && $active == 'Videos') ? 'active selected': '' }}">
+                                <li class="{{ isset($active) && $active == 'Videos' ? 'active selected' : '' }}">
                                     <a href="{{ route('admin.videos.index') }}">Videos</a>
                                 </li>
                             </ul>
@@ -376,11 +378,11 @@
         </main>
     </div>
     @if ($errors->any())
-    @foreach ($errors->all() as $error)
-    @php
-    toastr()->error($error);
-    @endphp
-    @endforeach
+        @foreach ($errors->all() as $error)
+            @php
+                toastr()->error($error);
+            @endphp
+        @endforeach
     @endif
 
 </body>
@@ -409,52 +411,47 @@
 <script>
     @if ($errors->any())
         @foreach ($errors->all() as $error)
-        toastr.options =
-        {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ $error }}");
+        @endforeach
+    @endif
+    @if (Session::has('message'))
+        toastr.options = {
             "closeButton": true,
             "progressBar": true
         }
-    toastr.error("{{ $error }}");
-    @endforeach
-        @endif
-        @if(Session::has('message'))
-        toastr.options =
-        {
-            "closeButton": true,
-            "progressBar": true
-        }
-    toastr.success("{{ session('message') }}");
+        toastr.success("{{ session('message') }}");
     @endif
 
-        @if(Session::has('error'))
-        toastr.options =
-        {
+    @if (Session::has('error'))
+        toastr.options = {
             "closeButton": true,
             "progressBar": true
         }
-    toastr.error("{{ session('error') }}");
+        toastr.error("{{ session('error') }}");
     @endif
 
-        @if(Session::has('info'))
-        toastr.options =
-        {
+    @if (Session::has('info'))
+        toastr.options = {
             "closeButton": true,
             "progressBar": true
         }
-    toastr.info("{{ session('info') }}");
+        toastr.info("{{ session('info') }}");
     @endif
 
-        @if(Session::has('warning'))
-        toastr.options =
-        {
+    @if (Session::has('warning'))
+        toastr.options = {
             "closeButton": true,
             "progressBar": true
         }
-    toastr.warning("{{ session('warning') }}");
+        toastr.warning("{{ session('warning') }}");
     @endif
 </script>
 <script>
-    $('.toggleSidebar').click(function () {
+    $('.toggleSidebar').click(function() {
         $('.sidebar').toggleClass('active');
     })
 </script>

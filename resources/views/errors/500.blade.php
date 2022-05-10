@@ -1,25 +1,34 @@
-<html>
-<head>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+<style>
+    .sidebar.d-none.d-lg-flex {
+        display: none !important
+    }
 
-    <title>LUXE - PROPERTIES LLC</title>
+    .container {
+        height: 88vh;
+    }
 
-</head>
-<body>
-<div class="container h-100">
-    <div class="row justify-content-center h-100">
-        <div class="col-md-8 align-self-center text-center">
-            <img src="{{asset('500.jpg')}}" alt=""
-                 class="my-4 w-100">
+    .container * {
+        font-family: "gothicregular";
+    }
+
+    h1 {
+        font-size: 4rem !important
+    }
+
+    p {
+        font-size: 2rem
+    }
+
+</style>
+@section('content')
+    <div class="container">
+        <div class="row align-items-center h-100">
+            <div class="col-12">
+                <h1 class="m-0">500</h1>
+                <p>Ooops, something went wrong</p>
+            </div>
         </div>
     </div>
-</div>
-</body>
-</html>
+@endsection

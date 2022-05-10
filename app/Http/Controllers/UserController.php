@@ -46,9 +46,32 @@ class UserController extends Controller
         }
     }
 
-    public function admin_index()
+    public function admin_index(Request $request)
     {
-        $users = User::with('profile')->orderBy(UserProfile::select('fullname')->whereColumn('user_profile.user_id', 'users.id'))->paginate(50);
+        $filters = [
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+        ];
+        // $agents = User::whereHas('profile', function ($query) use ($filters) {
+        //     if ($filters['address']) {
+        //         $query->where('address', 'like', '%' . $filters['address'] . '%');
+        //     } else if ($filters['language']) {
+        //         $query->where('languages', 'like', "%\"{$filters['language']}\"%");
+        //     }
+        // })->whereOptin(true)->paginate(20);
+        // dd($users = User::orWhere('email', 'like', $filters['email'] . '%')->with('profile')->orWhereHas('profile', function ($query) use ($filters) {
+        //     $query->where('fullname', 'like', $filters['name'] . '%');
+        // })->orderBy(UserProfile::select('fullname')->whereColumn('user_profile.user_id', 'users.id'))->toSql());
+        $users = User::query();
+        if ($filters['email']) {
+            $users = User::where('email', 'like', $filters['email'] . '%')->with('profile')->orderBy(UserProfile::select('fullname')->whereColumn('user_profile.user_id', 'users.id'))->paginate(50);
+        } else if ($filters['name']) {
+            $users = User::whereHas('profile', function ($query) use ($filters) {
+                $query->where('fullname', 'like', $filters['name'] . '%');
+            })->orderBy(UserProfile::select('fullname')->whereColumn('user_profile.user_id', 'users.id'))->paginate(50);
+        } else {
+            $users = User::with('profile')->orderBy(UserProfile::select('fullname')->whereColumn('user_profile.user_id', 'users.id'))->paginate(50);
+        }
 
         return view('admin.users.index', compact('users'));
     }
