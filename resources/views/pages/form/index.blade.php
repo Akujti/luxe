@@ -3,16 +3,16 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
-
+            @if (auth()->user() && auth()->user()->isAdmin)
+            <div class="form-group text-center">
+                <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
+            </div>
+            @endif
             <form action="{{route('form.store')}}" class="card form p-3" method="POST">
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">Pre-Approval Form</h1>
-                    @if (auth()->user() && auth()->user()->isAdmin)
-                    <div class="form-group text-center">
-                        <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
-                    </div>
-                    @endif
+
                 </div>
                 <input type="hidden" name="form_title" value="Pre-Approval Form">
                 <div class="card-body">
@@ -31,7 +31,8 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent's Email *</label>
-                            <input type="email" name="agent_email" class="form-control" required>
+                            <input type="email" name="agent_email" class="form-control"
+                                value="{{auth()->user()->email}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Referring Agent *</label>
@@ -51,9 +52,13 @@
                             <select name="loan_officer" class="form-control" id="" required>
                                 <option value="-">-</option>
                                 <option value="Alfonso Rojas">Alfonso Rojas</option>
+                                <option value="Ana Arias">Ana Arias</option>
                                 <option value="Anais Delgado">Anais Delgado</option>
+                                <option value="Brandon Beyrle">Brandon Beyrle</option>
+                                <option value="Edward Pena">Edward Pena</option>
                                 <option value="Lissete Garcia">Lissete Garcia</option>
-                                <option value="Monica Estupinan">Monica Estupinan</option>
+                                <option value="Michael Castro">Michael Castro</option>
+                                <option value="Orlando Castillo">Orlando Castillo</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">

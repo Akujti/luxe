@@ -9,5 +9,7 @@ class LuxeStoreProductVariantValues extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['value', 'image', 'price', 'sale_price', 'variant_id'];
+    protected $fillable = [
+        'value', 'image', 'price', 'sale_price', 'variant_id', 'stock'
+    ];
 }

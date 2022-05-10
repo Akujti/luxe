@@ -27,7 +27,7 @@ class AddTemplateRequest extends FormRequest
             'title' => 'required',
             'image' => 'required|image',
             'url' => 'required|url',
-            'template_id' => 'required|exists:marketing_canva_categories,id',
+            'category_id' => 'required|exists:marketing_canva,id',
             'order' => 'required'
         ];
     }

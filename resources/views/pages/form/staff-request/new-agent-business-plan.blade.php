@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Service&StaffRequests'])
+@extends('layouts.app', ['active' => 'Service&StaffRequests', 'subactive' => 'new_agent_business_plan'])
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
@@ -17,11 +17,13 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Agent Name</label>
-                            <input type="text" name="agent_full_name" class="form-control" required>
+                            <input type="text" name="agent_full_name" class="form-control"
+                                value="{{auth()->user()->profile->fullname}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent Email</label>
-                            <input type="text" name="agent_email" class="form-control" required>
+                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}"
+                                required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">What is your Gross Commission Income goal?</label><br><br>

@@ -1,0 +1,100 @@
+.center-text {
+    position: relative;
+    font-family: 'gothicregular';
+    top: 236px;
+    text-align: center;
+    width: 333px;
+}
+.center-text p {
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 24px;
+}
+.center-text p.white {
+    color: #fff;
+}
+.footer-text {
+    position: absolute;
+    top: 469px;
+    width: 333px;
+    text-align: center;
+    font-family: 'gothicregular';
+}
+.footer-text .footer-title {
+    font-size: 29px;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    line-height: 22px;
+}
+.footer-text #author-text {
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+    font-size: 17px;
+    margin: 0;
+}
+.form-group .form-input select {
+    padding: 11px;
+    border:1px solid #262626;
+    font-family: 'gothicregular';
+    margin-top: 3px;
+    width: 130px;
+}
+.box-col-image {
+    width: 500px;
+}
+.box-col-tools{
+    width:791px;
+    gap: 20px;
+}
+@media (max-width:1307px) {
+    .box-col-tools {
+        flex-wrap: wrap;
+        width: 350px !important;
+    }
+}
+#content-1-text {
+    font-size: 22px;
+    line-height: 25px;
+    margin: 0;
+}
+#content-2-text {
+    font-size: 33px;
+    line-height: 31px;
+    margin: 0;
+}
+#content-3-text {
+    font-size: 22px;
+    line-height: 25px;
+    margin: 0;
+}
+#content-4-text {
+    background-color: #c4a567;
+    padding-left: 3px;
+    margin: 0;
+    color: #fff;
+    font-size: 33px;
+    display: inline-block;
+    padding-right: 5px;
+    line-height: 29px;
+    margin-bottom: 3px;
+}
+#content-5-text {
+    margin: 0;
+    background-color: #c4a567;
+    padding-left: 3px;
+    font-size: 33px;
+    line-height: 30px;
+    width: 193px;
+}
+#content-name-text {
+    font-size: 10px;
+    color: #000;
+    text-align: right;
+    line-height: 22px;
+    position: relative;
+    top: -5px;
+}

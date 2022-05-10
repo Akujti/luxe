@@ -338,7 +338,7 @@
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
                 <input hidden name="img_1_input" id="img_1_input" value="images/flyers/template6/bg.jpg">
 
-                <div class="page">
+                <div class="page" id="page-box">
                     {{-- Images --}}
                     <div class="absolute" style="top:0;left:0;">
                         <img src="images/flyers/template6/main.png" alt="">
@@ -429,6 +429,7 @@
                 <div class="flex" style="margin-top:20px;">
                     <div class="" style="width: 345px;">
                         <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                        {{-- <button type="button" onclick="getScreenShot()">Generate png</button> --}}
                         <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
@@ -439,7 +440,7 @@
         </div>
     </form>
 </body>
-
+{{-- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> --}}
 <script>
     $("textarea").change(function(event) {
         var event_id = event.target.id;
@@ -556,6 +557,27 @@
             callback(base64)
         })
     }
+
+    // Generate PNG Code
+    // function getScreenShot() {
+    //     let c = document.getElementById('page-box');
+    //     html2canvas(c, {
+    //         letterRendering: 1,
+    //         allowTaint : true,
+    //         useCORS: true,
+    //     }).then((canvas) => {
+    //         var t = canvas.toDataURL().replace("data:image/png;base64,", "");
+    //         this.downloadBase64File('image/png',t,'luxe-image');
+    //     })
+    // }
+
+    // function downloadBase64File(contentType, base64Data, fileName) {
+    //     const linkSource = `data:${contentType};base64,${base64Data}`;
+    //     const downloadLink = document.createElement("a");
+    //     downloadLink.href = linkSource;
+    //     downloadLink.download = fileName;
+    //     downloadLink.click();
+    // }
 </script>
 
 </html>

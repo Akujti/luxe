@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\LuxeStore;
 
 use Illuminate\Http\Request;
+use App\Mail\OrderMailTemplate;
+use App\Mail\GeneralMailTemplate;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use App\Models\LuxeStore\LuxeStoreProduct;
 use App\Models\LuxeStore\LuxeStoreCouponCode;
@@ -13,13 +16,31 @@ use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
 use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
+use App\Models\LuxeStore\LuxeStoreProductVariantValues;
 
 class OrderController extends Controller
 {
     public function admin_index()
     {
-        $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs'])->latest()->paginate(15);
+        $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->latest()->paginate(20);
         return view('admin.orders.index', compact('orders'));
+    }
+
+    public function show($id)
+    {
+        $order = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->findOrFail($id);
+        return view('admin.orders.show', compact('order'));
+    }
+
+    public function my_orders()
+    {
+        $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->where('user_id', auth()->id())->latest()->paginate(20);
+        return view('auth.orders.index', compact('orders'));
+    }
+    public function show_agent($id)
+    {
+        $order = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->findOrFail($id);
+        return view('auth.orders.show', compact('order'));
     }
 
     public function create(AddOrderRequest $req)
@@ -28,10 +49,7 @@ class OrderController extends Controller
         try {
             $row = new LuxeStoreOrder;
 
-            $row->email = $req->billing['email'];
-            $row->phone = $req->billing['phone'];
-            $row->agent_name = $req->billing['agent_name'];
-            $row->agent_surname = $req->billing['agent_surname'];
+            $row->user_id = auth()->id();
             $row->status = 'Paid';
 
             $row->save();
@@ -44,8 +62,14 @@ class OrderController extends Controller
                 foreach ($cart_data as $product) {
                     $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
 
-                    $productDb->stock = $productDb->stock - $product['item_quantity'];
-                    $productDb->save();
+                    if (isset($product['item_variant'])) {
+                        $orderProductVariant = LuxeStoreProductVariantValues::find($product['item_variant'][0]['choosed_id']);
+                        $orderProductVariant->stock = $orderProductVariant->stock - $product['item_quantity'];
+                        $orderProductVariant->save();
+                    } else {
+                        $productDb->stock = $productDb->stock - $product['item_quantity'];
+                        $productDb->save();
+                    }
                     $sub_total += $product['item_price'] * $product['item_quantity'];
 
                     $productModels = [
@@ -98,9 +122,19 @@ class OrderController extends Controller
                 $row->shipping_details()->create($req->shipping);
             }
 
-            Session::flush('shopping_cart');
-            Session::flush('coupon_code');
+            Session::forget('shopping_cart');
+            Session::forget('coupon_code');
+            Session::save();
 
+            $cc = [];
+            $details['type'] = 'admin';
+            $details['data'] = $row;
+            Mail::to('marketing@luxeknows.com')->cc($cc)->send(new OrderMailTemplate($details));
+
+            $details['type'] = 'agent';
+            $details['data'] = $row;
+            $details['form_title'] = 'New Order';
+            Mail::to(auth()->user()->email)->cc($cc)->send(new OrderMailTemplate($details));
 
             DB::commit();
             return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');
@@ -117,12 +151,18 @@ class OrderController extends Controller
 
         if (Session::get('shopping_cart')) {
             $cart_data = Session::get('shopping_cart');
-            $checkStock = LuxeStoreProduct::findOrFail($cart_data[0][$key]['item_id']);
+
+            if (isset($cart_data[0][$key]['item_variant'])) {
+                $checkStock = LuxeStoreProductVariantValues::findOrFail($cart_data[0][$key]['item_variant'][0]['choosed_id']);
+            } else {
+                $checkStock = LuxeStoreProduct::findOrFail($cart_data[0][$key]['item_id']);
+            }
 
             if ($checkStock->stock >= $quantity) {
                 $cart_data[0][$key]["item_quantity"] = $quantity;
 
-                Session::flush('shopping_cart');
+                Session::forget('shopping_cart');
+                Session::save();
                 Session::put('shopping_cart', $cart_data);
                 return true;
             } else {
@@ -156,7 +196,8 @@ class OrderController extends Controller
             if ($checkStock->stock >= $cart_data[$key]["item_quantity"]) {
                 $item_data = $cart_data;
 
-                Session::flush('shopping_cart');
+                Session::forget('shopping_cart');
+                Session::save();
                 Session::push('shopping_cart', $item_data);
 
                 return back()->with('message', '"' . $cart_data[$key]["item"]["name"] . '" Already Added to Cart');
@@ -174,7 +215,8 @@ class OrderController extends Controller
 
                     if ($checkStock->stock >= $cart_data[$key]["item_quantity"]) {
                         $item_data = $cart_data;
-                        Session::flush('shopping_cart');
+                        Session::forget('shopping_cart');
+                        Session::save();
                         Session::push('shopping_cart', $item_data);
                         return back()->with('message', '"' . $cart_data[$key]["item"]["name"] . '" Already Added to Cart');
                     } else {
@@ -227,9 +269,11 @@ class OrderController extends Controller
                 'item_name' => $name
             );
             $cart_data[] = $item_array;
-            Session::flush('shopping_cart');
+
+            Session::forget('shopping_cart');
+            Session::save();
             Session::push('shopping_cart', $cart_data);
-            
+
             return back()->with('message', '"' . $product->name . '" Added to Cart');
         }
     }
@@ -237,7 +281,7 @@ class OrderController extends Controller
 
     public function cartload()
     {
-        return redirect('/home');
+        // return redirect('/home');
         $sub_total = 0;
         $total_price = 0;
         $coupon_code = null;
@@ -290,7 +334,8 @@ class OrderController extends Controller
 
             unset($cart_data[$req->key]);
 
-            Session::flush('shopping_cart');
+            Session::forget('shopping_cart');
+            Session::save();
             Session::push('shopping_cart', $cart_data);
         }
 

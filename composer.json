@@ -21,6 +21,7 @@
         "laravel/ui": "3",
         "maatwebsite/excel": "^3.1",
         "spatie/pdf-to-image": "^2.1",
+        "vimeo/laravel": "^5.7",
         "yoeunes/toastr": "^1.2"
     },
     "require-dev": {

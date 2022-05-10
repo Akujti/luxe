@@ -37,7 +37,7 @@ class MarketingTemplateController extends Controller
      */
     public function index_admin()
     {
-        $canvas = MarketingCanva::orderBy('order', 'asc')->paginate(15);
+        $canvas = MarketingCanva::whereNull('parent_id')->orderBy('order', 'asc')->paginate(15);
         $last_order = MarketingCanva::latest()->first()->order ?? 0;
         ++$last_order;
         return view('admin.marketing.canva.index', compact('canvas', 'last_order'));
@@ -45,11 +45,14 @@ class MarketingTemplateController extends Controller
 
     public function admin_categories($id)
     {
-        $canva = MarketingCanva::with('categories')->find($id);
-        $last_order = MarketingCanvaCategory::where('category_id', $id)->latest()->first()->order ?? 0;
+        $category = MarketingCanva::findOrFail($id)->load('categories');
+        $last_order = MarketingCanva::where('parent_id', $category->id)->latest()->first()->order ?? 0;
+        $templates = $category->templates;
         ++$last_order;
+        $last_order_template = MarketingCanvaTemplate::where('category_id', $category->id)->latest()->first()->order ?? 0;
+        ++$last_order_template;
 
-        return view('admin.marketing.canva.categories', compact('canva', 'last_order'));
+        return view('admin.marketing.canva.show', compact('category', 'templates', 'last_order', 'last_order_template'));
     }
     public function admin_templates($marketing_id, $category_id)
     {
@@ -62,11 +65,16 @@ class MarketingTemplateController extends Controller
 
     public function index()
     {
-        $marketing_categories = MarketingCanva::orderBy('order', 'asc')->get();
+        $marketing_categories = MarketingCanva::whereNull('parent_id')->orderBy('order', 'asc')->get();
         if (request()->wantsJson()) {
             return response()->json(['categories' => $marketing_categories]);
         }
         return view('pages.marketing_templates.categories', compact('marketing_categories'));
+    }
+
+    public function agent_show(MarketingCanva $canvaTemplateCategory) {
+        $category = $canvaTemplateCategory->load('categories', 'templates');
+        return view('pages.marketing_templates.show', compact('category'));
     }
 
     /**
@@ -81,9 +89,12 @@ class MarketingTemplateController extends Controller
         $canva->title = $req->title;
 
         $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
-        $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
+        $path = $req->image->storeAs('/marketing/canva', $name, 'public');
         $canva->image = $path;
         $canva->order = $req->order ?? ++MarketingCanva::latest()->first()->order;
+        if($req->parent_id) {
+            $canva->parent_id = $req->parent_id;
+        }
         $canva->save();
 
         return back()->with('message', 'Created successfully');
@@ -112,9 +123,9 @@ class MarketingTemplateController extends Controller
         $canva_template->title = $req->title;
 
         $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
-        $path = $req->image->storeAs('/marketing/canva', $name, 'public');;
+        $path = $req->image->storeAs('/marketing/canva', $name, 'public');
         $canva_template->image = $path;
-        $canva_template->template_id = $req->template_id;
+        $canva_template->category_id = $req->category_id;
         $canva_template->order = $req->order ?? ++MarketingCanvaTemplate::latest()->first()->order;
         $canva_template->url = $req->url;
         $canva_template->save();
@@ -198,8 +209,8 @@ class MarketingTemplateController extends Controller
      */
     public function show(MarketingCanva $marketingCanva)
     {
-        $templates = $marketingCanva->categories()->orderBy('order', 'asc')->get();
-        return view('pages.marketing_templates.templates', compact('templates', 'marketingCanva'));
+        $category = $marketingCanva->load('categories', 'templates');
+        return view('pages.marketing_templates.templates', compact('category'));
     }
 
     public function template(MarketingCanva $marketingCanva, MarketingCanvaCategory $template)

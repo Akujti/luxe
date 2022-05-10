@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -18,8 +19,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="{{ asset('css/index-page/style.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 </head>
 <style>
     .section-header {
@@ -45,6 +48,10 @@
         src: local("gothicregular"),
         url("{{ asset('fonts/index-page/gothicregular.ttf')}}") format("truetype");
     }
+    #a-href-login {
+        color: #262626;
+        text-decoration: none;
+    }
 </style>
 
 <body>
@@ -55,16 +62,24 @@
                     <nav class="navbar navbar-light light-blue lighten-4 d-flex d-lg-none d-xl-none">
 
                         <a class="navbar-brand" href="#"><img src="images/logo.png" alt="" height="74px"></a>
-                        <button class="navbar-toggler toggler-example text-white p-0 m-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false" class="hamburger-menu">
+                        <button class="navbar-toggler toggler-example text-white p-0 m-0" type="button"
+                            data-toggle="collapse" data-target="#navbarSupportedContent1"
+                            aria-controls="navbarSupportedContent1" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30"
+                                focusable="false" class="hamburger-menu">
                                 <title>Menu</title>
-                                <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
+                                <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
                             </svg>
                         </button>
                         <div class="sidebar">
                             <div class="sidebar__item">
                                 <div class="mb-5">
-                                    <button class="navbar-toggler toggler-example text-white p-0 m-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                                    <button class="navbar-toggler toggler-example text-white p-0 m-0" type="button"
+                                        data-toggle="collapse" data-target="#navbarSupportedContent1"
+                                        aria-controls="navbarSupportedContent1" aria-expanded="false"
+                                        aria-label="Toggle navigation">
                                         <span class="close">&times;</span>
                                     </button>
                                 </div>
@@ -99,7 +114,8 @@
                                     <a href="#">
                                         <form action="{{route('logout')}}" method="post" class="">
                                             @csrf
-                                            <button class="btn btn-link text-dark p-0" style="font-size: 18px !important;">Log out</button>
+                                            <button class="btn btn-link text-dark p-0"
+                                                style="font-size: 18px !important;">Log out</button>
                                         </form>
                                     </a>
                                 </div>
@@ -150,7 +166,7 @@
 
                             @endauth
                             @guest
-                            <button class="button py-2" style="font-size: 16px !important;" onclick="window.location='{{ route("login") }}'" role="button">Log in</button>
+                            <button class="button py-2" style="font-size: 16px !important;"><a id="a-href-login" href="{{ route('login') }}">Log in</a></button>
                             @endguest
                         </div>
                     </div>
@@ -167,7 +183,9 @@
         <section class="section-right-move" id="approach">
             <div class="container p-0">
                 <h3 class="section-right-move-title pb-4">Make the right move</h3>
-                <p class="p-luxe pb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore alias blanditiis quibusdam sapiente dignissimos molestiae animi consequuntur cupiditate beatae temporibus, ullam fugit officiis dolores nemo quas, doloremque perspiciatis soluta!</p>
+                <p class="p-luxe pb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore alias
+                    blanditiis quibusdam sapiente dignissimos molestiae animi consequuntur cupiditate beatae temporibus,
+                    ullam fugit officiis dolores nemo quas, doloremque perspiciatis soluta!</p>
 
                 <div class="row pt-4 m-0">
                     <div class="col-12 col-md-6 col-lg-3 text-center br-right">
@@ -202,16 +220,20 @@
             <div class="container p-0">
                 <ul class="nav nav-tabs row m-0 mx-2 mx-md-0 mx-lg-0 mx-xl-0" id="myTab" role="tablist">
                     <li class="nav-item col-6 col-md-3 m-0 p-0">
-                        <a class="nav-link mrsm active" id="social-media-tab" data-toggle="tab" href="#social-media" role="tab" aria-controls="social-media" aria-selected="true">Social Media Posts</a>
+                        <a class="nav-link mrsm active" id="social-media-tab" data-toggle="tab" href="#social-media"
+                            role="tab" aria-controls="social-media" aria-selected="true">Social Media Posts</a>
                     </li>
                     <li class="nav-item col-6 col-md-3 m-0 p-0">
-                        <a class="nav-link" id="door-hangers-tab" data-toggle="tab" href="#door-hangers" role="tab" aria-controls="door-hangers" aria-selected="false">Door Hangers</a>
+                        <a class="nav-link" id="door-hangers-tab" data-toggle="tab" href="#door-hangers" role="tab"
+                            aria-controls="door-hangers" aria-selected="false">Door Hangers</a>
                     </li>
                     <li class="nav-item col-6 col-md-3 m-0 p-0">
-                        <a class="nav-link mrsm" id="flyers-tab" data-toggle="tab" href="#flyers" role="tab" aria-controls="flyers" aria-selected="false">Flyers</a>
+                        <a class="nav-link mrsm" id="flyers-tab" data-toggle="tab" href="#flyers" role="tab"
+                            aria-controls="flyers" aria-selected="false">Flyers</a>
                     </li>
                     <li class="nav-item col-6 col-md-3 m-0 p-0">
-                        <a class="nav-link" id="presentations-tab" data-toggle="tab" href="#presentations" role="tab" aria-controls="presentations" aria-selected="false">Presentations</a>
+                        <a class="nav-link" id="presentations-tab" data-toggle="tab" href="#presentations" role="tab"
+                            aria-controls="presentations" aria-selected="false">Presentations</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -221,21 +243,29 @@
 
                             <div class="social-media-text">
                                 <h6 class="h6-luxe pb-3">Social Media Done Right</h6>
-                                <p class="p-luxe">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, veniam vitae dignissimos temporibus error quis.</p>
+                                <p class="p-luxe">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Reprehenderit, veniam vitae dignissimos temporibus error quis.</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade text-center pt-5" id="door-hangers" role="tabpanel">
                         <h6 class="h6-luxe pb-3">Door Hangers</h6>
-                        <p class="p-luxe">he standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                        <p class="p-luxe">he standard chunk of Lorem Ipsum used since the 1500s is reproduced below for
+                            those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by
+                            Cicero are also reproduced in their exact original form, accompanied by English versions
+                            from the 1914 translation by H. Rackham.</p>
                     </div>
                     <div class="tab-pane fade text-center pt-5" id="flyers" role="tabpanel">
                         <h6 class="h6-luxe pb-3">Flyers</h6>
-                        <p class="p-luxe">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+                        <p class="p-luxe">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                            roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                        </p>
                     </div>
                     <div class="tab-pane fade text-center pt-5" id="presentations" role="tabpanel">
                         <h6 class="h6-luxe pb-3">Presentations</h6>
-                        <p class="p-luxe">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                        <p class="p-luxe">There are many variations of passages of Lorem Ipsum available, but the
+                            majority have suffered alteration in some form, by injected humour, or randomised words
+                            which don't look even slightly believable.</p>
                     </div>
                 </div>
             </div>
@@ -245,7 +275,9 @@
             <div class="container p-0 text-center">
                 <h6 class="h6-luxe pb-4">Our Team</h6>
 
-                <p class="p-luxe pb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat assumenda ipsum libero dolorem in corporis quisquam, possimus quo, consequuntur incidunt ducimus id rerum minus est vero dolore tenetur animi natus!</p>
+                <p class="p-luxe pb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat assumenda ipsum
+                    libero dolorem in corporis quisquam, possimus quo, consequuntur incidunt ducimus id rerum minus est
+                    vero dolore tenetur animi natus!</p>
 
                 <div class="row m-0 border-bottom mb-5 pb-5">
                     <div class="col-12 col-md-6 d-flex text-left">
@@ -256,7 +288,8 @@
                             <h6>Denisse Uyema</h6>
                             <p class="p-luxe">Real Estate Professional, Luxe Properties Associate</p>
 
-                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978 - 6801</p>
+                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978
+                                - 6801</p>
 
                             <p class="our-team-text-email"><a href="#">Email Me</a></p>
                         </div>
@@ -269,7 +302,8 @@
                             <h6>Denisse Uyema</h6>
                             <p class="p-luxe">Real Estate Professional, Luxe Properties Associate</p>
 
-                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978 - 6801</p>
+                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978
+                                - 6801</p>
 
                             <p class="our-team-text-email"><a href="#">Email Me</a></p>
                         </div>
@@ -282,7 +316,8 @@
                             <h6>Denisse Uyema</h6>
                             <p class="p-luxe">Real Estate Professional, Luxe Properties Associate</p>
 
-                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978 - 6801</p>
+                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978
+                                - 6801</p>
 
                             <p class="our-team-text-email"><a href="#">Email Me</a></p>
                         </div>
@@ -295,7 +330,8 @@
                             <h6>Denisse Uyema</h6>
                             <p class="p-luxe">Real Estate Professional, Luxe Properties Associate</p>
 
-                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978 - 6801</p>
+                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978
+                                - 6801</p>
 
                             <p class="our-team-text-email"><a href="#">Email Me</a></p>
                         </div>
@@ -339,7 +375,9 @@
         <section class="section-priceless">
             <div>
                 <p class="h4-luxe text-white">Your Time is Priceless</p>
-                <p class="p-luxe text-white pb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores dolorum esse quaerat molestias impedit laboriosam non, consequatur voluptas culpa qui id cumque quidem deserunt ab possimus ipsam saepe, asperiores aut.</p>
+                <p class="p-luxe text-white pb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                    dolorum esse quaerat molestias impedit laboriosam non, consequatur voluptas culpa qui id cumque
+                    quidem deserunt ab possimus ipsam saepe, asperiores aut.</p>
 
                 <button class="btn button px-5 py-3">book interview</button>
             </div>
@@ -380,7 +418,9 @@
                             <img src="images/index-page/client_3.png" id="img" alt="">
                             <div class="text-center px-5 col-12 col-md order-1 order-md-0">
                                 <img src="images/index-page/client_4.png" id="center-img" alt="">
-                                <p class="p-luxe mb-4">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et fugiat obcaecati cum officiis hic voluptate, cumque repellendus ad quisquam voluptates error iure animi dignissimos."</p>
+                                <p class="p-luxe mb-4">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                                    fugiat obcaecati cum officiis hic voluptate, cumque repellendus ad quisquam
+                                    voluptates error iure animi dignissimos."</p>
                                 <h6>Jackie Watson</h6>
                                 <p class="p-luxe">Owner of Property</p>
                             </div>
@@ -404,11 +444,17 @@
                     <div class="col-12 col-md-6 col-lg-2 col-xl-2">
                         <img src="/images/logo.png" alt="" height="74px">
                     </div>
-                    <div class="col-12 order-md-12 order-lg-1 col-md-12 col-lg-7 col-xl-7 row m-0 d-flex justify-content-around align-items-center border-left mt-4 mt-md-0 mt-lg-0">
-                        <p class="p-luxe text-white m-0 col-12 col-md-8 d-flex align-items-center"><img src="images/index-page/location-icon.svg" class="mr-2"> 55 Merrick Way #402, Coral Gables, FL 33134</p>
-                        <p class="p-luxe text-white m-0 mt-2 mt-md-0 mt-lg-0 col-12 col-md-3 d-flex align-items-center"><img src="images/index-page/phone-icon-white.svg" class="mr-2"> (305) 809-7650</p>
+                    <div
+                        class="col-12 order-md-12 order-lg-1 col-md-12 col-lg-7 col-xl-7 row m-0 d-flex justify-content-around align-items-center border-left mt-4 mt-md-0 mt-lg-0">
+                        <p class="p-luxe text-white m-0 col-12 col-md-8 d-flex align-items-center"><img
+                                src="images/index-page/location-icon.svg" class="mr-2"> 55 Merrick Way #402, Coral
+                            Gables, FL 33134</p>
+                        <p class="p-luxe text-white m-0 mt-2 mt-md-0 mt-lg-0 col-12 col-md-3 d-flex align-items-center">
+                            <img src="images/index-page/phone-icon-white.svg" class="mr-2"> (305) 809-7650
+                        </p>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-3 col-xl-3 mt-4 mt-md-0 mt-lg-0 justify-self-end ml-0 order-md-1 order-lg-12">
+                    <div
+                        class="col-12 col-md-6 col-lg-3 col-xl-3 mt-4 mt-md-0 mt-lg-0 justify-self-end ml-0 order-md-1 order-lg-12">
                         <div class="subscribe">
                             <input type="email" placeholder="Email Address">
                             <button>Subscribe</button>
@@ -420,7 +466,9 @@
                 <div class="container-fluid">
                     <div class="row m-0 copyrights justify-content-between">
                         <div>
-                            <p>&copy; <?php echo date('Y') ?> Luxe Properties. All rights reserved.</p>
+                            <p>&copy;
+                                <?php echo date('Y') ?> Luxe Properties. All rights reserved.
+                            </p>
                         </div>
 
                         <div class="social-icons text-center">
@@ -440,7 +488,9 @@
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
 
 
 <script>

@@ -11,7 +11,11 @@ class Event extends Model
 
     protected $appends = [
         'start',
-        'imageUrl'
+        'imageUrl',
+        'className',
+        'fullType',
+        'fullDate',
+        'attending',
     ];
 
     protected $fillable = [
@@ -23,7 +27,39 @@ class Event extends Model
         'end_time',
         'rsvp',
         'zoom',
+        'type'
     ];
+
+    public function getFullDateAttribute()
+    {
+        return $this->date;
+    }
+
+    public function attendees()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function getStatusAttribute()
+    {
+        $event = EventUser::where('event_id', $this->id)->where('user_id', auth()->user()->id)->first();
+        if ($event) return $event->status;
+    }
+
+    public function getAttendingAttribute()
+    {
+        return auth()->user()->attending_events()->where('event_id', $this->id)->first() != null;
+    }
+
+    public function getClassNameAttribute()
+    {
+        return $this->type;
+    }
+
+    public function getFullTypeAttribute()
+    {
+        return ucwords(str_replace('_', ' ', $this->type));
+    }
 
     public function getStartAttribute()
     {

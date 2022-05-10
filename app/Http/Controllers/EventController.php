@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\EventUser;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class EventController extends Controller
@@ -25,28 +27,37 @@ class EventController extends Controller
         return view('pages.events.events', compact('events', 'isAdmin'));
     }
 
+    public function attendance(Event $event)
+    {
+        $agents = $event->attendees()->withPivot('status')->get();
+        return view('pages.events.attendance', compact('agents', 'event'));
+    }
+
     public function my_events()
     {
-        $events = Auth::user()->events;
+        $events = Auth::user()->attending_events()->orderBy('date')->paginate(30);
         return view('pages.events.my-events', compact('events'));
     }
-
-    /**
-     * Show the form for creating a open-house resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function attend(Request $request)
     {
-        //
+        try {
+            $event = Event::findOrFail($request->event_id);
+            EventUser::updateOrCreate(
+                [
+                    'event_id' => $event->id,
+                    'user_id' => auth()->user()->id,
+                ],
+                [
+                    'status' => $request->status,
+                ]
+            );
+            return back()->with('message', 'Success');
+        } catch (\Throwable $th) {
+            Log::alert($th);
+            return back()->with('error', 'Something went wrong!');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         if (!Auth::user()->isAdmin) {
@@ -59,6 +70,7 @@ class EventController extends Controller
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
             'start_time' => 'nullable',
             'end_time' => 'nullable',
+            'type' => 'nullable',
             'rsvp' => 'nullable|url',
             'zoom' => 'nullable|url',
         ], [
@@ -77,35 +89,6 @@ class EventController extends Controller
         return redirect()->route('events.index')->with('message', 'Event has been created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Event $event
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Event $event)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Event $event
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Event $event)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Event $event
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request)
     {
         if (!Auth::user()->isAdmin) {
@@ -119,13 +102,14 @@ class EventController extends Controller
             'end_time' => 'required',
             'rsvp' => 'nullable|url',
             'zoom' => 'nullable|url',
+            'type' => 'nullable',
         ], [
             'image.image' => 'The chosen file must be an image type',
             'rsvp.url' => 'RSVP must be a valid web link.',
             'zoom.url' => 'ZOOM must be a valid web link.',
         ]);
         $event = Event::find($request->event_id);
-        $event->update($validated);
+        $event->update(array_filter($validated));
         if (isset($request->image)) {
             $name = time() . Str::random(10) . '.' . $request->image->getClientOriginalExtension();
             $path = $request->image->storeAs('images\events', $name, 'public');;
@@ -136,12 +120,6 @@ class EventController extends Controller
         return back()->with('message', 'Event has been updated.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Event $event
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         $event = Event::find($request->event_id);

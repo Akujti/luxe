@@ -1,11 +1,12 @@
-@extends('layouts.app', ['active' => 'Marketing'])
+@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'design_requests'])
 @section('css')
 @endsection
 @section('content')
 <div class="container-fluid">
     <div class="row m-0 w-100 justify-content-center">
         <h3 class="text-center w-100">{{$template->title}}</h3>
-        <form action="{{route('field.store',['marketingCategory'=>$template->category, 'template'=>$template])}}" class="form w-100" method="POST">
+        <form action="{{route('field.store',['marketingCategory'=>$template->category, 'template'=>$template])}}"
+            class="form w-100" method="POST">
             @csrf
             <div class="form-group">
                 <div class="row p-3">
@@ -60,7 +61,8 @@
                     <form action="{{route('field.delete',$field)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button href="" class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to delete this field?');">
+                        <button href="" class="btn btn-danger" type="submit"
+                            onclick="return confirm('Are you sure you want to delete this field?');">
                             Delete
                         </button>
         </div>
@@ -75,7 +77,8 @@
     <p>No fields found.</p>
     @endif
     <div class="row pl-3 w-100 justify-content-center my-4">
-        <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}" class="btn btn-luxe w-75 my-2">Open Template</a>
+        <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}"
+            class="btn btn-luxe my-2">Open Template</a>
     </div>
 </div>
 </div>

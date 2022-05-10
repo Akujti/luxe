@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Leads'])
+@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'get_leads'])
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
@@ -17,22 +17,22 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Full Name</label>
-                            <input type="text" name="agent_full_name" class="form-control" required>
+                            <input type="text" name="agent_full_name" class="form-control" value="{{auth()->user()->profile->fullname}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Email</label>
-                            <input type="text" name="agent_email" class="form-control" required>
+                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Mobile Phone Number</label>
-                            <input type="text" name="mobile_phone" class="form-control" required>
+                            <input type="text" name="mobile_phone" class="form-control" value="{{auth()->user()->profile->phone}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Have you closed a minimum of 5 transactions?</label>
                             <select name="have_you_closed_a_minimum_of_5_transactions" class="form-control" id="">
                                 <option value="-">-</option>
-                                <option value="Miami-Dade">Yes</option>
-                                <option value="Broward">No</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
 

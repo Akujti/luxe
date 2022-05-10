@@ -27,7 +27,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-luxe" id="save-event">Price</button>
+                <button type="submit" class="btn btn-luxe" id="save-event">Create</button>
             </div>
             </form>
         </div><!-- /.modal-content -->

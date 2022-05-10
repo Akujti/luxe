@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Marketing'])
+@extends('layouts.app', ['active' => 'marketing_branding', 'subactive' => 'canva_marketing_designer'])
 @section('css')
 <style>
     a {
@@ -21,21 +21,39 @@
         <h3 class="text-center">Please choose a theme below which you want to use. Just click on it and then you can edit.</h3>
     </div>
     <div class="row my-5 justify-content-start">
-        @if($templates->count())
-            @foreach($templates as $template)
+        @if($category->categories->count())
+            @foreach($category->categories as $item)
             <div class="col d-flex justify-content-center">
                 <div class="template-box">
-                    <a href="{{route('canva.marketing.template',['marketingCanva' => $template->canva, 'template' => $template])}}">
-                        <img src="{{ asset('storage/'. $template->image) }}" alt="No image found" width="100%" height="303px"
+                    <a href="{{route('canva.marketing.request',['marketingCanva' => $item])}}">
+                        <img src="{{ asset('storage/'. $item->image) }}" alt="No image found" width="100%" height="303px"
                         onerror="this.src='{{asset('images/no-image.png')}}';">
                         <div class="template-details">
-                            <p>{{$template->title}}</p>
+                            <p>{{$item->title}}</p>
                         </div>
                     </a>
                 </div>
             </div>
             @endforeach
-        @else <p>No templates found.</p>
+        @endif
+
+        @if($category->templates->count())
+        @foreach($category->templates as $template)
+            <div class="col d-flex justify-content-center">
+                <div class="template-box">
+                    <a href="{{ $template->url }}" target="_blank">
+                        <img src="{{ asset('storage/'. $template->image) }}" alt="No image found" width="100%" height="303px" onerror="this.src='{{asset('images/no-image.png')}}';">
+                        <div class="template-details d-flex justify-content-between align-items-center">
+                            <p>{{$template->title}}</p>
+                            <div>
+                                {{-- <span><img src="/images/index-page/download-icon.svg" alt=""></span> --}}
+                                <span><img src="/images/index-page/edit-icon.svg" alt=""></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        @endforeach
         @endif
     </div>
 </div>

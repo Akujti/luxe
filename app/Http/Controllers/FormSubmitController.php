@@ -11,14 +11,14 @@ class FormSubmitController extends Controller
 {
     public function index()
     {
-        $submissions = FormSubmit::latest()->get();
+        $submissions = FormSubmit::latest()->paginate(50);
         return view('pages.form-submits.index', compact('submissions'));
     }
 
     public function show(FormSubmit $formSubmit)
     {
         $details = json_decode($formSubmit->details);
-        return view('pages.template-submits.show', compact('details'));
+        return view('pages.form-submits.show', compact('details'));
     }
 
     public function update(Request $request, FormSubmit $formSubmit)

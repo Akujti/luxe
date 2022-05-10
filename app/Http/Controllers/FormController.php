@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\GeneralMailTemplate;
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
@@ -39,10 +40,6 @@ class FormController extends Controller
                 'loan_officer' => $request->loan_officer,
                 'additional' => $request->additional ?? 'None'
             ];
-            $to = ['email@luxeknows.com'];
-            $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com'];
-            Mail::to($to)->cc($cc)->send(new FormMail($details));
-
             FormSubmit::create([
                 'form_title' => $request->form_title,
                 'status' => 0,
@@ -50,6 +47,11 @@ class FormController extends Controller
                 'agent_email' => $request->agent_email,
                 'details' => json_encode($details),
             ]);
+
+            $to = ['email@luxeknows.com'];
+            $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com', 'ana@luxehomeloan.com', 'orlando@luxehomeloan.com', 'eddie@luxehomeloan.com'];
+            Mail::to($to)->cc($cc)->send(new FormMail($details));
+
 
             return back()->with('message', 'Sent Successfully');
         } catch (\Throwable $th) {
@@ -76,7 +78,7 @@ class FormController extends Controller
                 }
                 $details[strtolower($key)] = $val;
             }
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with('error', 'Form isn\'t saved, there was a problem with the entered data');
         }
 
@@ -103,10 +105,11 @@ class FormController extends Controller
             $cc = [];
             Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
         } catch (\Throwable $th) {
+            Log::alert($th);
             // return response()->json('Something went wrong', 500);
             return redirect()->back()->with('error', 'Form is saved but there was a problem sending the email');
         }
-        
+
         if ($request->wantsJson()) {
             return response()->json('success');
         }
@@ -119,7 +122,6 @@ class FormController extends Controller
         if (str_starts_with($path, 'storage/')) {
             $path = str_replace("storage/", "new-storage/", $path);
         }
-        // dd($path);
         return response()->download($path);
     }
 
@@ -135,7 +137,7 @@ class FormController extends Controller
             array_push($to, $request->agent_email);
             $cc = [];
             Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with('error', 'Something went wrong!');
         }
 
@@ -144,9 +146,9 @@ class FormController extends Controller
 
     public function getEmails($title, $extraEmail = '')
     {
-        $form = Form::where('title', $title)->firstOrFail();
+        $form = Form::where('title', $title)->first();
 
-        $data = $form->emails()->get()->pluck('email')->toArray();
+        $data = $form ? $form->emails()->get()->pluck('email')->toArray() : [];
         if ($extraEmail) {
             array_push($data, $extraEmail);
         }

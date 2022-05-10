@@ -49,7 +49,7 @@ class FormSeeder extends Seeder
             ['email' => 'email@luxeknows.com'],
             ['email' => 'yesenia@luxeknows.com'],
         ]);
-        
+
         $parent = Form::create([
             'title' => 'Request Escrow Letter'
         ]);
@@ -164,7 +164,7 @@ class FormSeeder extends Seeder
         ]);
 
         $parent = Form::create([
-            'title' => 'CLOSING COORDINATORS - Accept Params'
+            'title' => 'CLOSING COORDINATORS'
         ]);
         $parent->emails()->createMany([
             ['email' => 'marketing@luxeknows.com'],
@@ -172,6 +172,15 @@ class FormSeeder extends Seeder
             ['email' => 'email@luxeknows.com'],
             ['email' => 'support@luxeknows.com'],
             ['email' => 'receptionist@luxeknows.com'],
+        ]);
+
+        $parent = Form::create([
+            'title' => 'LISTING COORDINATORS'
+        ]);
+        $parent->emails()->createMany([
+            ['email' => 'support@luxeknows.com'],
+            ['email' => 'receptionist@luxeknows.com'],
+            ['email' => 'operations@luxeknows.com'],
         ]);
 
         $parent = Form::create([

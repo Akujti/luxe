@@ -97,9 +97,9 @@
     'bold' => $fontDir . '/montserrat-bold_6beb6e27cd8907eec374534ce0d119ec',
     '800' => $fontDir . '/montserrat-800_3593059443dde0e05fef2d4793944645',
     '900' => $fontDir . '/montserrat-900_112533be530cce45147fe268f78174dc',
-    '600' => $fontDir . '/montserrat-600_2706209d34f92d9eace7ffd8f3cb569a',
+    '600' => $fontDir . '/montserrat-600_f97af35255e21c92a9a0ce314fd1f754',
     '500' => $fontDir . '/montserrat-500_f99c806a7c955d6cafe5ed7742c302d3',
-    'italic' => $fontDir . '/montserrat-italic_bc1a187783549e02f9d23ac5682fbdb0',
+    'italic' => $fontDir . '/montserrat-italic_9f2777e486c3bc6f95029ab6c49afef5',
   ),
   'gochi hand' => array(
     'normal' => $fontDir . '/gochi-hand-normal_95d4ede7972d8166612d4a9d2482935b',
@@ -108,13 +108,13 @@
     'normal' => $fontDir . '/roboto-normal_b7834828abc03e1e6aa6b18153302986',
   ),
   'oswald' => array(
-    'normal' => $fontDir . '/oswald-normal_c7d0bb3698d3d1ed82893ba38c2e0f4c',
-    '500' => $fontDir . '/oswald-500_466c397fb9750018b3329d9e7a251dd9',
-    '600' => $fontDir . '/oswald-600_01bddfb0b3c91888925894a2fb53b46b',
+    'normal' => $fontDir . '/oswald-normal_a1350b3dec404b3592fd403970020c47',
+    '500' => $fontDir . '/oswald-500_4fe61de3d28e32e24b3c5f946bef6435',
+    '600' => $fontDir . '/oswald-600_e24a371e7ab1d557b704592865144d76',
   ),
   'ibm plex sans' => array(
-    'normal' => $fontDir . '/ibm-plex-sans-normal_ce60a5625c0559a35982dda17f12a84d',
-    '500' => $fontDir . '/ibm-plex-sans-500_8bd3e82e249bf69fd493e2614b1b0454',
+    'normal' => $fontDir . '/ibm-plex-sans-normal_baa3d360a5694978c4577f635c0b18c7',
+    '500' => $fontDir . '/ibm-plex-sans-500_7aa76545a56cb5a16bbd2aac667cabad',
   ),
   'poppins' => array(
     'normal' => $fontDir . '/poppins-normal_c1b7381dfaadf37a84cf14d786076e6d',

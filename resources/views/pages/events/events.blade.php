@@ -11,19 +11,62 @@
 
     .fc-daygrid-event,
     .fc-daygrid-event:hover {
-        background: #FFCF40;
-        border: 1px solid rgb(136, 136, 136);
+        background: #F2F2F2;
+        border: 1px solid #F2F2F2;
         margin-bottom: 3px;
+        padding: 5px;
+        border-radius: 5px;
     }
 
     .fc-daygrid-event-dot {
         display: none !important;
     }
+
+    .fc .fc-daygrid-day.fc-day-today {
+        background-color: transparent !important;
+    }
+
+    .fc .fc-daygrid-day {
+        padding: 0px 5px;
+    }
+
+    .fc .fc-button {
+        border-radius: 10px;
+        padding: 10px 20px;
+    }
+
+    .title h1 {
+        font-family: 'gothicbold';
+    }
+
+    .fc-daygrid-event.in_person_trainings {
+        border: 1px solid #569e56;
+    }
+
+    .fc-daygrid-event.zoom_trainings {
+        border: 1px solid #257dd7;
+    }
+
+    .fc-daygrid-event.tours {
+        border: 1px solid #cccc00;
+    }
+
+    .fc-daygrid-event.team_office_meetings {
+        border: 1px solid #f0a3b1;
+    }
+
+    .modal-new select {
+        border-radius: 3px;
+    }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row w-100 m-0">
+    <div class="row w-100 m-0 mb-5">
+        <div class="col-12 title mb-3 text-center">
+            <h1>Welcome to LUXE Events</h1>
+            {{-- <a class="btn btn-luxe" href="{{route('my.events')}}">My Events</a> --}}
+        </div>
         <div id='calendar' style="width: 100%; display: inline-block;"></div>
     </div>
     @if ($isAdmin)
@@ -78,7 +121,16 @@
                                 <input type="url" id="zoom" name="zoom" class="w-100 form-control">
                             </div>
                         </div>
-
+                        {{-- <div class="form-group">
+                            <label for="start">Event Type</label>
+                            <select class="form-group form-select mb-0" name="type">
+                                <option value="-" selected>Select event type</option>
+                                <option value="in_person_trainings">In Person Traninings</option>
+                                <option value="zoom_trainings">Zoom Trainings</option>
+                                <option value="tours">Tours</option>
+                                <option value="team_office_meetings">Team/Office Meetings</option>
+                            </select>
+                        </div> --}}
                         <div class="form-group">
                             <label for="start">{{ __('Event Image') }}</label>
                             <div class="custom-file">
@@ -105,11 +157,25 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
+                {{-- <div class="modal-body mb-0 pb-0" id="event_attend_form_wrapper">
+                    <form id="event_attend_form" action="{{route('events.attend')}}" method="POST" class="m-0 p-0">
+                        @csrf
+                        <input type="hidden" name="event_id" id="event_id_attend">
+                        <input type="hidden" name="status" id="event_attend_status">
+                        <label>Are you going to attend this event?</label>
+                        <br>
+                        <button class="btn btn-luxe" onclick="attend_event(1)">Yes</button>
+                        <button class="btn btn-luxe" onclick="attend_event(0)">No</button>
+                    </form>
+                </div> --}}
                 <form action="{{route('events.update',0)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="event_id" id="event_id_1">
                     <div class="modal-body">
+                        {{-- @if($isAdmin)
+                        <a class="btn btn-luxe mb-3" href="" id="event_stats_link">Show attendance</a>
+                        @endif --}}
                         <div class="form-group">
                             <div class="">
                                 <label for="start">{{ __('Title') }}</label>
@@ -152,6 +218,9 @@
                                 @endif
                                 <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
                                     class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
+                                <a id="add_to_calendar" href="" target="_blank" rel="noopener noreferrer"
+                                    class="btn btn-luxe w-100 mt-2 d-none" style="color: white !important;">
+                                    ADD TO CALENDAR</a>
                             </div>
                         </div>
                         <div class="form-group" id="zoom_group">
@@ -162,10 +231,24 @@
                                     disabled>
                                 @endif
                                 <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
-                                    class="btn btn-luxe w-100 mt-2" style="color: white !important;">{{ __('OPEN
-                                    ZOOM') }}</a>
+                                    class="btn btn-luxe w-100 mt-2" style="color: white !important;">
+                                    {{ __('OPEN ZOOM')}}</a>
                             </div>
                         </div>
+                        {{-- <div class="form-group">
+                            <label for="start">Event Type</label>
+                            @if ($isAdmin)
+                            <select class="form-group form-select mb-0" name="type">
+                                <option value>Select event type</option>
+                                <option value="in_person_trainings">In Person Traninings</option>
+                                <option value="zoom_trainings">Zoom Trainings</option>
+                                <option value="tours">Tours</option>
+                                <option value="team_office_meetings">Team/Office Meetings</option>
+                            </select>
+                            @else
+                            <input type="text" id="event_type" class="w-100 form-control text-capitalize" disabled>
+                            @endif
+                        </div> --}}
                         <div class="form-group image_group d-none">
                             <label for="image">{{ __('Event Image') }}</label>
                             <input type="file" name="image" class="form-control update_field" disabled
@@ -182,9 +265,9 @@
                         @if ($isAdmin)
                         <button type="submit" class="btn btn-luxe" id="update_event">Update</button>
                         @endif
-
                 </form>
-                <form action="{{ route('events.destroy',1) }}" method="POST" enctype="multipart/form-data" class="m-0 w-50">
+                <form action="{{ route('events.destroy',1) }}" method="POST" enctype="multipart/form-data"
+                    class="m-0 w-50">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="event_id" id="event_id">
@@ -201,22 +284,32 @@
 </div>
 @endsection
 <script>
+    function attend_event(status){
+        $('.single-event').find('#event_attend_status').val(status);
+        $('#event_attend_form').submit();
+    }
     document.addEventListener('DOMContentLoaded', function () {
         const data = @json($events);
-        console.log(data);
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             select: function (start, end, allDay, jsEvent, view) {
                 $('.create-event').modal('show');
                 $('#date').val(start.startStr);
             },
-            eventClick: function (event, element) {
+            eventClick: function (event) {
+                console.log(event);
                 var event = event.event;
-                console.log(event._def.publicId);
-                // Display the modal and set the values to the event values.
                 $('.single-event').modal('show');
                 $('.single-event').find('#event_id').val(event._def.publicId);
+                $(".single-event").find('#event_stats_link').attr("href", '/user/events/'+event._def.publicId+'/attendance')
+                var startdt = event.extendedProps.fullDate+'T'+event.extendedProps.start_time
+                var enddt = event.extendedProps.fullDate+'T'+event.extendedProps.end_time
+                var location = event.extendedProps.location
+                var body = event.extendedProps.fullType
+                var calendar_link = 'https://outlook.office.com/calendar/0/deeplink/compose?body='+body+'&enddt='+enddt+'&location='+location+'&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt='+startdt+'&subject='+event.title
+                $(".single-event").find('#add_to_calendar').attr("href", calendar_link)
                 $('.single-event').find('#event_id_1').val(event._def.publicId);
+                $('.single-event').find('#event_id_attend').val(event._def.publicId);
                 $('.single-event').find('#title').val(event.title);
                 $('.single-event').find('#location').val(event.extendedProps.location);
                 $('.single-event').find('#start_time').val(event.extendedProps.start_time);
@@ -224,6 +317,13 @@
                 $('.single-event').find('#user_id').val(event.extendedProps.user_id);
                 $('.single-event').find('#rsvp1').val(event.extendedProps.rsvp);
                 $('.single-event').find('#zoom1').val(event.extendedProps.zoom);
+                $('.single-event').find('#event_type').val(event.extendedProps.fullType);
+                if(event.extendedProps.attending){
+                    $('#event_attend_form_wrapper').css('display', 'none');
+                }
+                else{
+                    $('#event_attend_form_wrapper').css('display', 'block');
+                }
                 if (event.extendedProps.rsvp != null || {{$isAdmin}}) {
                     $('.single-event').find('#rsvp').attr('href', event.extendedProps.rsvp);
                     $('#rsvp_group').css('display', 'block');
@@ -254,6 +354,9 @@
             selectable: true,
             events: data,
             displayEventEnd: true,
+            headerToolbar: {
+                right: 'prev,next'
+            }
         });
         calendar.render();
     });

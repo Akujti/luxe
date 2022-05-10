@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos'])
+@extends('layouts.app', ['active' => 'marketing_branding', 'subactive' => 'signs_photo_design_requests'])
 @section('content')
 <style>
     @media(min-width:1200px) {
@@ -43,19 +43,23 @@
                     they are always willing to
                     help :)
                     • $200 charge for RENTAL shoots for pictures & video
-                    • $150 charge for RENTAL shoots for pictures only
+                    • $100-$150 charge for RENTAL shoots for pictures only
+                    • $100 surcharge for duplex
+                    • $200 surcharge for triplex
+                    • $300 surcharge for fourplex
+                    • $500 surcharge for 10+ units
                     • $225 charge if property not set up correctly/prepared before photographer arrival
                     • $225 charge if photographer must make a 2nd visit to same property
-                    • $75 Travel Free for any property past W Atlantic Blvd
+                    • $100 Travel Free for any property past W Atlantic Blvd
                     • Only properties in Miami-Dade or Broward county are covered
                     <b>*Please note: If property does not sell (cancelled, expired, or withdrawn), agent will be charged for shoot fee​​.​​*<b></pre>
                 </div>
-                <div class="card-footer">
-                    <button onclick="showForm()" class="btn btn-luxe w-100">I Agree</button>
+                <div class="card-footer text-center">
+                    <button onclick="showForm()" class="btn btn-luxe px-4">I Agree</button>
                 </div>
             </div>
 
-            <form action="{{route('general.email.post')}}" class="card form my-4 p-3 d-none" method="POST"
+            <form action="{{route('general.email.post')}}" class="card form mb-4 p-3 d-none" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">
@@ -70,19 +74,31 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Agent Name</label>
-                            <input type="text" name="agent_full_name" class="form-control" required>
+                            <input type="text" name="agent_full_name" class="form-control" value="{{auth()->user()->profile->fullname}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent Phone Number</label>
-                            <input type="text" name="agent_number" class="form-control" required>
+                            <input type="text" name="agent_number" class="form-control" value="{{auth()->user()->profile->phone}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Agent Email</label>
-                            <input type="text" name="agent_email" class="form-control" required>
+                            <input type="text" name="agent_email" class="form-control" value="{{auth()->user()->email}}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Property Address For Shoot</label>
                             <input type="text" name="property_address" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="name">Property Type</label>
+                            <select type="text" name="property_type" class="form-control" required>
+                                <option value="Single Family">Single Family</option>
+                                <option value="Condo/Apartment">Condo/Apartment</option>
+                                <option value="Duplex">Duplex</option>
+                                <option value="Triplex">Triplex</option>
+                                <option value="Quadplex">Quadplex</option>
+                                <option value="Entire Condo Building">Entire Condo Building</option>
+                                <option value="Commercial">Commercial</option>
+                            </select>
                         </div>
                         <div class="form-group col-12 text-center">
                             <h6>**Photoshoots can only be scheduled between 8AM-3PM**</h6>

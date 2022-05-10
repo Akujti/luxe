@@ -20,13 +20,13 @@
     width: 10px;
 }
 .sidebar-main .sidebar__item::-webkit-scrollbar-track {
-    background: transparent !important; 
+    background: transparent !important;
 }
 .sidebar-main .sidebar__item::-webkit-scrollbar-thumb {
-    background: #555; 
+    background: #555;
 }
 .sidebar-main .sidebar__item::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #555;
 }
 
 .sidebar {
@@ -34,11 +34,12 @@
     width: 407px;
     height: 100%;
 }
-.sidebar__item, .sidebar-logo-details {
+.sidebar__item,
+.sidebar-logo-details {
     width: 100%;
     padding-left: 60px;
     padding-right: 60px;
-    margin:20px auto;
+    margin: 20px auto;
 }
 .sidebar__item .active ul {
     display: block;
@@ -98,11 +99,12 @@
     -moz-transition: all 0.3s linear;
     -o-transition: all 0.3s linear;
     transition: all 0.3s linear;
-    color: #A8A8A8;
-    font-size: 17px;
-    font-family: 'gothicregular';
+    color: #a8a8a8;
+    font-size: 16px;
+    font-family: "gothicregular";
 }
-.sidebar-navigation ul li:hover > a, .sidebar-navigation ul li.selected > a {
+.sidebar-navigation ul li:hover > a,
+.sidebar-navigation ul li.selected > a {
     color: white;
 }
 .sidebar-navigation ul li ul {
@@ -111,7 +113,8 @@
 .sidebar-navigation ul li ul.open {
     display: block;
 }
-.sidebar-navigation ul li ul li:hover > a:before, .sidebar-navigation ul li ul li.selected > a:before {
+.sidebar-navigation ul li ul li:hover > a:before,
+.sidebar-navigation ul li ul li.selected > a:before {
     margin-right: 10px;
 }
 .sidebar-navigation ul li ul li.selected.selected--last > a {
@@ -125,7 +128,7 @@
     position: absolute;
     bottom: 0;
     width: 76%;
-    left:50%;
+    left: 46%;
     transform: translate(-50%, -0%);
 }
 .sidebar-details p {
@@ -133,22 +136,22 @@
 }
 .sidebar-details p .text {
     font-family: Montserrat;
-    font-size: 18px;
+    font-size: 14px;
 }
 .sidebar-details p span:not(.text) {
     margin-right: 15px;
 }
 .toggleSidebar {
     outline: none;
-    border:none;
+    border: none;
 }
 .toggleSidebar:focus {
-    box-shadow: 0 0 0.2rem rgba(255, 255, 255, 0) !important
+    box-shadow: 0 0 0.2rem rgba(255, 255, 255, 0) !important;
 }
 @media screen and (max-width: 500px) {
     .sidebar {
         top: 0;
-        background: rgba(0,0,0,0.40) !important
+        background: rgba(0, 0, 0, 0.4) !important;
     }
     .sidebar__item {
         padding-left: 0px !important;
@@ -164,9 +167,10 @@
     .sidebar .sidebar__item {
         height: 56vh;
     }
-    .sidebar__item, .sidebar-logo-details {
+    .sidebar__item,
+    .sidebar-logo-details {
         width: 85%;
-        margin:20px auto;
+        margin: 20px auto;
     }
     .sidebar-navigation ul li a {
         padding: 7px 0px;
@@ -181,11 +185,11 @@
 
     .box-title h3 {
         font-size: 18px !important;
-        font-family: 'gothicbold';
+        font-family: "gothicbold";
         color: #262626;
     }
 }
-@media (min-width: 768px) and (max-width: 980px){
+@media (min-width: 768px) and (max-width: 980px) {
     .sidebar-main {
         height: 90vh;
     }
@@ -201,11 +205,13 @@
     }
 }
 
-@media (min-width: 980px){
-    .sidebar-main, .sidebar {
+@media (min-width: 980px) {
+    .sidebar-main,
+    .sidebar {
         width: 347px !important;
     }
-    .sidebar__item, .sidebar-logo-details {
+    .sidebar__item,
+    .sidebar-logo-details {
         padding-left: 30px !important;
         padding-right: 30px !important;
     }
@@ -213,12 +219,12 @@
 
 .box-title h3 {
     font-size: 26px;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     color: #262626;
 }
 .box-title .p-show-pages {
     font-size: 16px !important;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     color: #262626;
 }
 .template-box {
@@ -233,20 +239,22 @@
 }
 .template-box .template-details p {
     font-size: 18px;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     padding: 0px;
     margin: 0px;
     color: #262626;
 }
 .template-box .template-details #template-details-price {
     font-size: 18px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     padding: 0px;
     margin: 0px;
     color: #262626;
 }
 .template-box img {
     border-radius: 10px 10px 0px 0px;
+    object-position: top;
+    object-fit: cover;
 }
 .template-box a {
     color: #262626;
@@ -261,16 +269,17 @@
 }
 .modal-new .modal-title {
     font-size: 26px !important;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
 }
 .modal-new label {
     font-size: 18px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
 }
-.modal-new input, .modal-new select {
-    border:1px solid #CCCCCC !important;
+.modal-new input,
+.modal-new select {
+    border: 1px solid #cccccc !important;
     font-size: 18px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     /* padding: 13px !important; */
     height: 55px;
     line-height: 40px;
@@ -282,41 +291,43 @@
     padding-right: 10px !important;
 }
 .modal-new .modal-footer {
-    border: none !important
+    border: none !important;
 }
 .modal-new .modal-dialog {
     max-width: 704px !important;
 }
-.modal-new .modal-body, .modal-new .modal-footer, .modal-new .modal-header {
+.modal-new .modal-body,
+.modal-new .modal-footer,
+.modal-new .modal-header {
     padding: 28px;
 }
 .modal-new .modal-footer button {
     width: 50%;
 }
 .modal-new .modal-footer button:first-child {
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
 }
 .modal-new .modal-footer button:not(.btn-danger):last-child {
     background-color: #262626;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 .modal-new .modal-footer {
     gap: 7px;
 }
 .modal-new .modal-footer button {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     font-size: 18px;
     border-radius: 10px !important;
     padding: 10px;
 }
 .modal-new .modal-content {
-    border: none !important
+    border: none !important;
 }
 .modal-new .form-group {
     width: 100%;
 }
 #back {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     font-size: 18px;
     color: #262626;
     display: flex;
@@ -329,9 +340,9 @@
 /* Pagination  */
 
 .pagination .page-item .page-link {
-    background-color: #F7F7F7;
+    background-color: #f7f7f7;
     color: #262626;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     font-size: 18px;
     border: 1px solid transparent !important;
     margin: 5px 10px;
@@ -340,9 +351,8 @@
 }
 .pagination .active .page-link {
     background-color: #262626 !important;
-    color: #F7F7F7 !important;
+    color: #f7f7f7 !important;
 }
-
 
 /* Luxe Store  */
 
@@ -353,71 +363,71 @@
 .luxe-store .single-product-details #title {
     font-size: 32px;
     color: #262626;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
 }
 .luxe-store .single-product-details #price {
     font-size: 22px;
     color: #262626;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
 }
 .luxe-store .single-product-details #short-desc {
     font-size: 16px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     color: #262626;
 }
 .luxe-store .single-product-details #categories {
     font-size: 18px !important;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     color: #262626;
 }
 .luxe-store #quantity-input {
-    background-color: #F7F7F7;
-    border: 2px solid #F7F7F7;
+    background-color: #f7f7f7;
+    border: 2px solid #f7f7f7;
     width: 80px;
     border-radius: 10px;
 }
 .luxe-store #show-variants {
-    border-top: 1px solid #E6E6E6;
-    border-bottom: 1px solid #E6E6E6;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
     padding: 20px 0px;
 }
 .luxe-store #select-option {
-    background-color: #F7F7F7;
-    border: 2px solid #F7F7F7;
+    background-color: #f7f7f7;
+    border: 2px solid #f7f7f7;
     border-radius: 10px;
     height: 47px;
 }
 
 .luxe-store .single-product-details #variant-name {
     font-size: 16px;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     color: #262626;
 }
 .luxe-store .single-product-details #clear {
     font-size: 14px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     color: #262626;
     text-decoration: underline;
     display: none;
 }
 .luxe-store .single-product-details #out-of-stock {
     font-size: 18px;
-    font-family: 'gothicbold';
-    color: #E82020;
+    font-family: "gothicbold";
+    color: #e82020;
 }
 .luxe-store .single-product-details #sale-price {
-    color: #DEDEDE !important;
+    color: #dedede !important;
     font-size: 20px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
 }
 .luxe-store .single-product-details .form-inputs label {
     font-size: 16px;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     color: #262626;
 }
 .luxe-store .single-product-details .form-inputs input {
-    background-color: #F7F7F7;
-    border: 2px solid #F7F7F7;
+    background-color: #f7f7f7;
+    border: 2px solid #f7f7f7;
     border-radius: 10px;
 }
 .box-table {

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Service&StaffRequests'])
+@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'request_listing_closing_coordinators'])
 @section('css')
 <style>
     body {
@@ -47,6 +47,7 @@
         object-fit: cover;
         object-position: top;
     }
+
     .h1-luxe {
         font-family: 'gothicbold';
     }

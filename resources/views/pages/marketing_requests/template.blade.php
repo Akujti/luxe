@@ -1,10 +1,19 @@
-@extends('layouts.app', ['active' => 'Marketing'])
+@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'design_requests'])
 @section('css')
+<style>
+    @media (min-width: 768px) {
+        .sticky-col {
+            position: sticky;
+            top: 125px;
+            height: fit-content;
+        }
+    }
+</style>
 @endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4 sticky-col">
             <img src="{{$template->image}}" alt="" class="w-100" onerror="this.src='{{asset('images/no-image.png')}}';">
             @auth()
             @if(Auth::user()->isAdmin)
@@ -26,14 +35,14 @@
                         <input type="url" name="image" class="form-control" id="image" value="{{$template->image}}">
                     </div>
                     <div class="form-group col-12 p-0">
-                        <div class="button-group d-flex float-right justify-content-end">
+                        <div class="button-group d-flex">
                             <button type="submit" class="btn btn-luxe">Update</button>
                 </form>
                 <form action="{{route('template.delete',[$template->category,$template])}}" class="w-100 col-6"
                     method="POST" name="delete_form" id="delete_form">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger"
+                    <button type="submit" class="btn btn-danger w-100"
                         onclick="return confirm('Are you sure you want to delete this template?');">
                         Delete
                     </button>
@@ -45,17 +54,17 @@
     @endif
     @endauth
 </div>
-<div class=" col-md-6">
+<div class=" col-md-8">
     <form action="{{route('marketing.email',[$template->category, $template])}}" method="POST" class="form row"
         enctype="multipart/form-data">
         @csrf
         <div class="form-group col-md-12">
             <label for="form_agent_full_name">Your Full Name:</label>
-            <input type="text" required class="form-control" name="form_agent_full_name">
+            <input type="text" required class="form-control" name="form_agent_full_name" value="{{ auth()->user()->profile->fullname }}">
         </div>
         <div class="form-group col-md-12">
             <label for="form_agent_email">Your Email:</label>
-            <input type="text" required class="form-control" name="form_agent_email">
+            <input type="text" required class="form-control" name="form_agent_email" value="{{ auth()->user()->email }}">
         </div>
         @if($template->fields->count())
         @foreach($template->fields as $field)
@@ -66,7 +75,8 @@
                 class="form-control"></textarea>
             @else
             <input type="{{strtolower($field->type)}}" id="{{strtolower($field->name)}}"
-                name="{{strtolower($field->name)}}" class="form-control">
+                name="{{strtolower($field->name)}}"
+                class="form-control {{strtolower($field->type == 'file' ? 'p-1':'')}}">
             @endif
         </div>
         @endforeach

@@ -1,50 +1,51 @@
 .h1-luxe {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     font-size: 80px;
 }
 
 .h2-luxe {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     font-size: 70px;
 }
 
 .h3-luxe {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     font-size: 60px;
 }
 
 .h4-luxe {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     font-size: 50px;
 }
 
 .h5-luxe {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     font-size: 40px;
 }
 
 .h6-luxe {
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     font-size: 30px;
     color: #262626;
 }
 .header-navigation {
     background: #262626 !important;
-    border-top: 1px solid #4B4B4B;
+    border-top: 1px solid #4b4b4b;
 }
 .header-navigation a.active {
     color: #fff;
     font-size: 18px;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     border-top: 3px solid #fff;
     line-height: 72px;
 }
 .header-navigation a {
-    color: #A8A8A8;
+    color: #a8a8a8;
     font-size: 18px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     height: 80px;
     line-height: 80px;
+    margin-right: 35px;
 }
 .header-navigation a:hover {
     color: #fff;
@@ -53,7 +54,6 @@
 .header-navigation nav {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 #user-logo-dropdown {
@@ -88,12 +88,12 @@ ul {
 .dropdown-profile .dropdown-menu a {
     color: #262626 !important;
     font-size: 18px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
 }
 #user-name-dropdown {
     padding: 0px 8px;
     font-size: 18px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
 }
 .sidebar .dropdown-profile {
     margin: 0px;
@@ -101,7 +101,7 @@ ul {
 }
 .sidebar .dropdown-profile .navbar__dropdown {
     padding: 0px;
-    margin: 0px
+    margin: 0px;
 }
 
 .box {
@@ -118,24 +118,24 @@ ul {
 }
 .box .p-count {
     font-size: 71px;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     color: #262626;
     padding: 0px;
     margin: 0px;
 }
 .box .p-text {
     font-size: 22px;
-    font-family: 'gothicbold';
+    font-family: "gothicbold";
     color: #262626;
 }
 .box .p-text-regular {
     font-size: 20px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     color: #262626;
 }
 .box .legend-chart-text {
     font-size: 15px;
-    font-family: 'gothicregular';
+    font-family: "gothicregular";
     color: #262626;
 }
 

@@ -16,7 +16,7 @@ class FolderController extends Controller
         $filters = [
             'id' => $request->get('id'),
         ];
-        $folders = Folder::with('files')->where('title', '!=', 'XNvgkxNbjU')->where(function ($query) use ($filters) {
+        $folders = Folder::with(['files', 'children'])->where('title', '!=', 'XNvgkxNbjU')->where(function ($query) use ($filters) {
             if ($filters['id']) {
                 $query->where('parent_id', $filters['id']);
             } else {
@@ -76,6 +76,12 @@ class FolderController extends Controller
             $file->file = $path;
             $file->save();
         }
+        if (isset($request->thumbnail)) {
+            $name = time() . Str::random(10) . '.' . $request->thumbnail->getClientOriginalExtension();
+            $path = $request->thumbnail->storeAs('/files', $name, 'public');
+            $file->thumbnail = $path;
+            $file->save();
+        }
         return redirect()->route('files.index', ['id' => $request->folder_id])->with('message', 'File has been uploaded');
     }
 
@@ -88,6 +94,22 @@ class FolderController extends Controller
         $folder->title = $request->title;
         $folder->save();
         return back()->with('message', 'Directory has been updated!');
+    }
+
+    public function file_update(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string'
+        ]);
+        $file = File::findOrFail($request->file_id);
+        $file->title = $request->title;
+        if (isset($request->thumbnail)) {
+            $name = time() . Str::random(10) . '.' . $request->thumbnail->getClientOriginalExtension();
+            $path = $request->file('thumbnail')->storeAs('/files', $name, 'public');
+            $file->thumbnail = $path;
+        }
+        $file->save();
+        return back()->with('message', 'File has been updated!');
     }
 
     public function folder_destroy($id)

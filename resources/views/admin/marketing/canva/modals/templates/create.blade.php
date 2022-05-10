@@ -1,5 +1,5 @@
 <!-- Create File  -->
-<div class="create-event modal fade modal-new" tabindex="-1" role="dialog">
+<div class="create-template modal fade modal-new" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,9 +7,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.canva.categories.templates.create') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.canva.templates.create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="template_id" id="canva_id" value="{{ $category->id }}">
+                    <input type="hidden" name="category_id" id="canva_id" value="{{ $category->id }}">
                     <div class="row m-0 p-0">
                         <div class="form-group">
                             <label for="start">Title</label>
@@ -35,7 +35,7 @@
                         <div class="form-group mt-3">
                             <label for="start">Order</label>
                             <div class="custom-file">
-                                <input type="number" name="order" class="form-control" value="{{ $last_order }}" required>
+                                <input type="number" name="order" class="form-control" value="{{ $last_order_template }}" required>
                             </div>
                         </div>
                     </div>

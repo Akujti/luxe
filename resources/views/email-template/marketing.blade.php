@@ -54,7 +54,7 @@
 <body>
     <div class="wrap">
         <div style="text-align: center">
-            <img src="https://project.myluxehub.com/images/logo.png" alt="">
+            <img src="{{url('/images/logo-black.png')}}" alt="">
         </div>
         <div class="" style="width: 100%">
             @foreach($details as $key=>$val)

@@ -17,8 +17,11 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->isAdmin)
+        if (
+            Auth::user()->isAdmin ||
+            Auth::user()->role == 'admin'
+        )
             return $next($request);
-        return back()->with('error', 'You dont have access for it');
+        return back()->with('error', 'You don\'t have access');
     }
 }

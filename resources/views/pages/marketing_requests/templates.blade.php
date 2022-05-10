@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Marketing'])
+@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'design_requests'])
 @section('css')
 <style>
     a {
@@ -25,7 +25,8 @@
             want
             to use. Just
             click on it and then
-            you can give your info.</h3>
+            you can give your info.
+        </h3>
         @auth()
         @if(Auth::user()->isAdmin)
         <button type="button" class="btn btn-luxe my-4" data-toggle="modal" data-target="#exampleModal">
@@ -37,11 +38,11 @@
     <div class="row my-4">
         @if($templates->count())
         @foreach($templates as $template)
-        <div class="col-md-3">
+        <div class="col-md-3 text-center">
             <a href="{{route('marketing.template',['marketingCategory'=>$template->category, 'template'=>$template])}}">
                 <p class="text-center">{{$template->title}}</p>
                 <img src="{{$template->image}}" alt="No image found" style="width: 262px !important;"
-                    onerror="this.src='{{asset('images/no-image.png')}}';">
+                    onerror="this.src='{{asset('images/no-image.png')}}';" class="text-center">
             </a>
             @auth()
             @if(Auth::user()->isAdmin)

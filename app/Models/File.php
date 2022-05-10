@@ -14,6 +14,7 @@ class File extends Model
         'file',
         'type',
         'folder_id',
+        'thumbnail'
     ];
 
     protected $appends = ['fileUrl'];

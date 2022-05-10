@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Template;
 use App\Models\TemplateSubmit;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class TemplateSubmitController extends Controller
      */
     public function index()
     {
-        $submissions = TemplateSubmit::latest()->get();
+        $submissions = TemplateSubmit::latest()->paginate(30);
         return view('pages.template-submits.index', compact('submissions'));
     }
 
@@ -45,9 +46,9 @@ class TemplateSubmitController extends Controller
      * @param  \App\Models\TemplateSubmit  $templateSubmit
      * @return \Illuminate\Http\Response
      */
-    public function show(TemplateSubmit $templateSubmit)
+    public function show($id)
     {
-        $details = json_decode($templateSubmit->details);
+        $details = json_decode(TemplateSubmit::findOrFail($id)->details);
         return view('pages.template-submits.show', compact('details'));
     }
 
@@ -69,8 +70,9 @@ class TemplateSubmitController extends Controller
      * @param  \App\Models\TemplateSubmit  $templateSubmit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TemplateSubmit $templateSubmit)
+    public function update(Request $request, $id)
     {
+        $templateSubmit = TemplateSubmit::findOrFail($id);
         $templateSubmit->status = 1;
         $templateSubmit->save();
         return back()->with('message', 'Submission Updated');

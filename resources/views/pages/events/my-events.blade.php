@@ -12,8 +12,9 @@
 </style>
 @endsection
 @section('content')
-<div class="container">
-    <table class="table table-bordered">
+<div class="container-fluid">
+    <h5 class="h5-luxe mb-4">My Events</h5>
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -33,11 +34,17 @@
                 <td>{{$event->start_time}}</td>
                 <td>{{$event->end_time}}</td>
                 <td>
-                    <form action="" method="post"></form>
+                    <form id="event_attend_form" action="{{route('events.attend')}}" method="POST" class="m-0 p-0">
+                        @csrf
+                        <input type="hidden" name="event_id" value="{{$event->id}}">
+                        <input type="hidden" name="status" value="{{!$event->status}}">
+                        <button class="btn btn-luxe" type="submit">{{$event->status ? 'Cancel':'Attend'}}</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    {{$events->links()}}
 </div>
 @endsection

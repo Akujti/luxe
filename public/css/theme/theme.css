@@ -1,0 +1,178 @@
+@font-face {
+    font-family: "Avenir";
+    src: url("/fonts/themes/Avenir-Black/Avenir-Black.woff2") format("woff2"),
+        url("/fonts/themes/Avenir-Black/Avenir-Black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: "AvenirBook";
+    src: url("/fonts/themes/Avenir-Book/AvenirBook.eot");
+    src: url("/fonts/themes/Avenir-Book/AvenirBook.eot")
+            format("embedded-opentype"),
+        url("/fonts/themes/Avenir-Book/AvenirBook.woff2") format("woff2"),
+        url("/fonts/themes/Avenir-Book/AvenirBook.woff") format("woff"),
+        url("/fonts/themes/Avenir-Book/AvenirBook.ttf") format("truetype"),
+        url("/fonts/themes/Avenir-Book/AvenirBook.svg#AvenirBook") format("svg");
+}
+
+@font-face {
+    font-family: "gothicbold";
+    src: local("gothicbold"),
+        url("/fonts/index-page/gothicbold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "gothicregular";
+    src: local("gothicregular"),
+        url("/fonts/index-page/gothicregular.ttf") format("truetype");
+}
+body,
+html {
+    padding: 0px;
+    margin: 0px;
+}
+.theme-container {
+    width: 80%;
+    margin: 60px auto;
+}
+.theme.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 99%;
+    padding: 5px;
+}
+.theme .theme-title {
+    width: 100%;
+    text-align: center;
+}
+.theme .theme-title h3 {
+    font-size: 24px;
+    font-family: "Arial";
+}
+.theme .w-100 {
+    width: 100%;
+}
+.w-50 {
+    width: 50%;
+}
+.theme .preview-image {
+    position: relative;
+    width: 729px;
+    background-size: cover !important;
+    height: 568px;
+}
+.theme #image-uploaded {
+    object-fit: cover;
+}
+.theme .preview-image img {
+    width: 729px;
+    height: 568px;
+}
+.theme .frame-box {
+    position: absolute;
+}
+.theme .frame-box .box-items {
+    position: absolute;
+    left: 68px;
+    top: 8px;
+}
+.theme.row .col-6 {
+    width: 50%;
+}
+.theme .frame-box p {
+    padding: 0px;
+    margin: 0px;
+}
+.theme .frame-box .frame-price {
+    font-family: "AvenirBook";
+    font-size: 43px;
+    letter-spacing: 2px;
+}
+.theme .frame-box .frame-title {
+    font-family: "Avenir";
+    font-size: 39pt;
+    line-height: 50px;
+}
+.form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-group .form-label {
+    width: 50%;
+    background-color: #262626;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.form-group .form-input input {
+    border: 1px solid #262626;
+    color: #000;
+    padding: 11px;
+    width: 100%;
+}
+label {
+    font-family: "gothicbold";
+}
+button {
+    font-family: "gothicbold";
+}
+.btn-luxe {
+    border-radius: 10px;
+    background-color: #262626;
+    padding: 15px 40px !important;
+    border: 1px solid #262626;
+    font-family: "gothicbold";
+    font-size: 18px;
+}
+.box-tools {
+    width: 100%;
+}
+.box-tools button {
+    background-color: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.file-input-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5px;
+}
+input {
+    font-family: "gothicregular";
+}
+button {
+    cursor: pointer;
+}
+button.w-50 {
+    width: 49.3%;
+}
+.box-col-tools {
+    display: flex;
+    justify-content: start;
+    width: 350px;
+    margin-top: 40px;
+}
+.box-col-image {
+    width: 769px;
+}
+.form-group .form-input textarea {
+    border:1px solid #262626;
+    width: 100%;
+    color: #000;
+    padding: 11px;
+    font-family: 'gothicregular';
+}
+.d-none {
+    display: none;
+}
+.d-flex {
+    display: flex;
+}
+.white {
+    color: #fff !important;
+}
+.mt-0 {
+    margin-top: 0px;
+}
