@@ -144,6 +144,12 @@ class OrderController extends Controller
         }
     }
 
+    public function complete(LuxeStoreOrder $order)
+    {
+        $order->update(['status' => 'Completed']);
+        return back()->with('message', 'Order Completed');
+    }
+
     public function update(Request $req)
     {
         $key = $req->key;
