@@ -20,3 +20,16 @@ function downloadBase64File(contentType, base64Data, fileName) {
     downloadLink.download = fileName;
     downloadLink.click();
 }
+
+function getDayName() {
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var d = new Date();
+
+    return days[d.getDay()];
+}
+function getDateName() {
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var m = new Date();
+
+    return months[m.getMonth()] + ' ' + m.getDay() + ', ' + m.getFullYear();
+}
