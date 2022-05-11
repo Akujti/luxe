@@ -16,6 +16,7 @@ use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
 use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
+use App\Mail\OrderCompleted;
 use App\Models\LuxeStore\LuxeStoreProductVariantValues;
 
 class OrderController extends Controller
@@ -142,6 +143,14 @@ class OrderController extends Controller
             DB::rollBack();
             throw $th;
         }
+    }
+
+    public function complete(LuxeStoreOrder $order)
+    {
+        $order->update(['status' => 'Completed']);
+        $details['order'] = $order;
+        Mail::to($order->user->email)->send(new OrderCompleted($details));
+        return back()->with('message', 'Order Completed');
     }
 
     public function update(Request $req)
