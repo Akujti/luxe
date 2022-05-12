@@ -21,6 +21,9 @@
     label {
         font-family: 'gothicbold';
     }
+    button {
+        cursor: pointer;
+    }
 </style>
 @endsection
 @section('content')
@@ -677,8 +680,14 @@
                     <div class="w-100 d-flex justify-content-center mt-5 mb-3">
                         <h3>${{ $total_price}}</h3>
                     </div>
-    
+                    
+                    @if($total_price > 0)
                     <div id="paypal-button-container"></div>
+                    @else
+                    <div class="d-flex justify-content-center">
+                        <button type="button" onclick="submit_form()" class="btn-luxe w-100">Finish Order</button>
+                    </div>
+                    @endif
                 </div>
 
             </div>
