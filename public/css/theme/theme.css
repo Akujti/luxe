@@ -46,6 +46,15 @@
     font-family: "Helvetica3";
     src: url("/fonts/themes/Helvetica/HelveticaNeueLTStd-Cn.woff2") format("woff2");
 }
+@font-face {
+    font-family: "Lato2";
+    src: url("/fonts/themes/Lato/lato.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Avenir LT Std";
+    src: url("/fonts/themes/AvenirLTStd/AvenirLTStd-Black.woff2") format("woff2");
+    font-style: normal;
+}
 body,
 html {
     padding: 0px;

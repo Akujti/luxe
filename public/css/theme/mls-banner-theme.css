@@ -1,9 +1,4 @@
 @font-face {
-    font-family: "Avenir LT Std";
-    src: url("/fonts/themes/AvenirLTStd/AvenirLTStd-Black.woff2") format("woff2");
-    font-style: normal;
-}
-@font-face {
     font-family: Lato;
     src: url("/fonts/Lato-Regular.ttf");
 }
