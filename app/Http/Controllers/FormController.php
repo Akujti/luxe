@@ -63,6 +63,11 @@ class FormController extends Controller
         return view('pages/form/' . $folder . '/' . $form);
     }
 
+    public function agent_form()
+    {
+        return view('pages/form/agent_referrals/agent-form');
+    }
+
     public function general_form_post(Request $request)
     {
         try {

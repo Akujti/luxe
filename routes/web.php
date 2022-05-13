@@ -75,6 +75,9 @@ Route::group(['prefix' => 'store', 'as' => 'luxe_store.', 'middleware' => ['auth
     Route::delete('/cart', [OrderController::class, 'deleteproductcart'])->name('deletecart');
 });
 
+Route::get('general/form/agent_referrals/agent-form', [FormController::class, 'agent_form']);
+Route::post('general/form/send', [FormController::class, 'general_form_post'])->name('general.email.post');
+
 Route::group(['middleware' => ['auth']], function () {
     Route::view('generate-offer', 'generate.web');
     Route::post('generate-offer', [PDFController::class, 'generate_offer'])->name('generate.offer');
@@ -263,7 +266,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
 
     Route::post('marketing/{marketingCategory}/{template}/email/send', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
-    Route::post('general/form/send', [FormController::class, 'general_form_post'])->name('general.email.post');
 
     Route::get('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'index']);
     Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
