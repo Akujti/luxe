@@ -241,7 +241,6 @@ Full Service Brokerage</textarea>
         const li = e.value.split(/\r?\n/)
 
         for(let i = 0; i < li.length; i++) {
-            console.log(li[i])
             $('.middle-checkmark ul').append('<li class="image-li">' + li[i] + '</li>')
         }
     }

@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900');
+* {
+    font-family: 'Lato';
+}
+
+.gochi {
+    font-family: 'Gochi Hand', cursive;
+    font-weight: 400;
+}
+
+.lato {
+    font-family: 'Lato';
+    font-weight: normal;
+}
+
+.ibm {
+    font-family: 'IBM Plex Sans';
+    font-weight: 400;
+}
+
+.ibm-med {
+    font-family: 'IBM Plex Sans';
+    font-weight: 500;
+}
+
+.oswald {
+    font-family: 'Oswald';
+    font-weight: 400;
+}
+
+.oswald-med {
+    font-family: 'Oswald';
+    font-weight: 500;
+}
+
+.oswald-bold {
+    font-family: 'Oswald';
+    font-weight: 600;
+}
+
+.roboto {
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+.mt-1 {
+    margin-top: 5px;
+}
+.preview {
+    width: 400px;
+    height: 350px;
+}
+.preview img {
+    max-width: 100%;
+    height: auto;
+}
+
+@page {
+    padding: 0px;
+    margin: 0px;
+    size: 324px 810px;
+}
+
+.page_break {
+    page-break-before: always;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.gold {
+    color: #C5A467;
+}
+
+.white {
+    color: white;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.extra-bold {
+    font-weight: 900;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+.mr-3 {
+    margin-right: 8px;
+}
+
+.title {
+    font-size: 90px;
+}
+
+.white-border {
+    border: 5px solid white;
+}
+
+.w-100 {
+    width: 100%;
+}
+.d-flex {
+    display: flex;
+}
+.justify-content-start {
+    justify-content: start;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.align-items-start {
+    align-items:flex-start;
+}
+.all-pages {
+    width: 378px;
+}

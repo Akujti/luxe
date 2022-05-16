@@ -33,3 +33,19 @@ function getDateName() {
 
     return months[m.getMonth()] + ' ' + m.getDay() + ', ' + m.getFullYear();
 }
+
+function generatePDF() {
+    const el = document.getElementById('el');
+    var opt = {
+        margin:       [0, 0],
+        filename:     'Template.pdf',
+        html2canvas: {
+            dpi: 192,
+            scale:4,
+            letterRendering: true,
+            useCORS: true
+          },
+        jsPDF:        { unit: 'mm', format: [100, 254.6]}
+      };
+    html2pdf().set(opt).from(el).save()
+}

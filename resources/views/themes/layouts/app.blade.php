@@ -2,6 +2,7 @@
     <head>
         <title>@yield('title') Luxe</title>
         <link rel="stylesheet" href="{{ asset('css/theme/theme.css') }}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
         
         @yield('css')
     </head>

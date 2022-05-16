@@ -107,6 +107,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::view('door-hanger-template-4', 'door-hangers.template4.web');
     Route::post('door-hanger-template-4', [PDFController::class, 'door_hanger_template_4'])->name('door-hanger-template-4');
 
+    Route::view('door-hanger-template-5', 'door-hangers.template5.web');
+    Route::view('door-hanger-template-6', 'door-hangers.template6.web');
     //Flyers
     Route::view('flyer-template-6', 'flyers.template6.web');
     Route::post('flyer-template-6', [PDFController::class, 'flyer_template_6'])->name('flyer-template-6');
