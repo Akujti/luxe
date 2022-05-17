@@ -48,6 +48,7 @@ class Video extends Model
                 'created_at' => ''
             ];
         }
+        return $data;
     }
 
     public function reviews()
