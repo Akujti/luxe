@@ -12,14 +12,26 @@ class Video extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['video_id', 'folder_id', 'presenter_name', 'date', 'title'];
+    protected $fillable = ['video_id', 'folder_id', 'presenter_name', 'date', 'title', 'description', 'thumbnail', 'embed_url'];
 
     protected $appends = ['vimeo_details'];
 
-    public function getVimeoDetailsAttribute() {
-        $response = Vimeo::request('/videos/'. $this->video_id, [ ], 'GET');
-        
-        if($response && $response['status'] != 404) {
+    public function getVimeoDetailsAttribute()
+    {
+        $data = [
+            'name' => $this->title,
+            'description' => $this->description,
+            'thumbnail' => $this->thumbnail,
+            'embed_url' => $this->embed_url,
+            'created_at' => $this->created_at
+        ];
+
+        return $data;
+
+        //Not needed
+        $response = Vimeo::request('/videos/' . $this->video_id, [], 'GET');
+
+        if ($response && $response['status'] != 404) {
             $data = [
                 'name' => $response['body']['name'],
                 'description' => $response['body']['description'],
@@ -36,17 +48,19 @@ class Video extends Model
                 'created_at' => ''
             ];
         }
-        return $data;
     }
 
-    public function reviews() {
+    public function reviews()
+    {
         return $this->hasMany(VideoReview::class, 'video_id');
     }
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany(VideoComment::class, 'video_id');
     }
 
-    public function files() {
+    public function files()
+    {
         return $this->hasMany(VideoFile::class, 'video_id');
     }
 }
