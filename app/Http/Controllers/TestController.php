@@ -13,17 +13,32 @@ class TestController extends Controller
 {
     public function index()
     {
-        $videos = Video::get();
-        // dd($videos[0]->vimeo_details, $videos[1]->vimeo_details, $videos[2]->vimeo_details);
-        foreach ($videos as $video) {
-            $video->update(
-                [
-                    'description' => $video->vimeo_details['description'],
-                    'thumbnail' => $video->vimeo_details['thumbnail'],
-                    'embed_url' => $video->vimeo_details['embed_url']
-                ]
-            );
-        }
+        // $videos = Video::get();
+        // // dd($videos[0]->vimeo_details, $videos[1]->vimeo_details, $videos[2]->vimeo_details);
+        // foreach ($videos as $video) {
+        //     $video->update(
+        //         [
+        //             'description' => $video->vimeo_details['description'],
+        //             'thumbnail' => $video->vimeo_details['thumbnail'],
+        //             'embed_url' => $video->vimeo_details['embed_url']
+        //         ]
+        //     );
+        // }
+    }
+
+    public function update_vimeo()
+    {
+        // $videos = Video::get();
+        // // dd($videos[0]->vimeo_details, $videos[1]->vimeo_details, $videos[2]->vimeo_details);
+        // foreach ($videos as $video) {
+        //     $video->update(
+        //         [
+        //             'description' => $video->vimeo_details['description'],
+        //             'thumbnail' => $video->vimeo_details['thumbnail'],
+        //             'embed_url' => $video->vimeo_details['embed_url']
+        //         ]
+        //     );
+        // }
     }
 
     public function submit(Request $request)

@@ -18,15 +18,15 @@ class Video extends Model
 
     public function getVimeoDetailsAttribute()
     {
-        // $data = [
-        //     'name' => $this->title,
-        //     'description' => $this->description,
-        //     'thumbnail' => $this->thumbnail,
-        //     'embed_url' => $this->embed_url,
-        //     'created_at' => $this->created_at
-        // ];
+        $data = [
+            'name' => $this->title,
+            'description' => $this->description,
+            'thumbnail' => $this->thumbnail,
+            'embed_url' => $this->embed_url,
+            'created_at' => $this->created_at
+        ];
 
-        // return $data;
+        return $data;
 
         //Not needed
         $response = Vimeo::request('/videos/' . $this->video_id, [], 'GET');
