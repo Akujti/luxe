@@ -208,7 +208,7 @@
                                     <label for="end">{{ __('End Time') }}</label>
                                     <div class='input-group date'>
                                         <input type="time" id="end_time" name="end_time"
-                                            class="w-100 form-control update_field" disabled required>
+                                            class="w-100 form-control update_field" disabled>
                                     </div>
                                 </div>
                             </div>
