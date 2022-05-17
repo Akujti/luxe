@@ -54,6 +54,10 @@ class VideoController extends Controller
 
             if ($response && $response['status'] != 404) {
                 $row->title = $response['body']['name'];
+                $row->description = $response['body']['description'];
+                $row->thumbnail = $response['body']['pictures']['base_link'];
+                $row->embed_url = $response['body']['player_embed_url'];
+                $row->created_at = Carbon::parse($response['body']['created_time'])->diffForHumans();
             } else {
                 return back()->with('error', 'Something went wrong!');
             }
