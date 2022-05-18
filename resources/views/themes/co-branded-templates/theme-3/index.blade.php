@@ -1,6 +1,6 @@
 @extends('themes.layouts.app')
 @section('title')
-    Co-Branded Templates 2 -
+    Co-Branded Templates 3 -
 @endsection
 
 @section('css')

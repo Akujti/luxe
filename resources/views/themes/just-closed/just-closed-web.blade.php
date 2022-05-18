@@ -15,11 +15,13 @@
     }
 
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
+        color: #fff;
         padding: 10px;
         display: block;
         width: 150px;
-        font-family: Lato;
+        font-family: 'gothicbold';
+        font-size: 15px;
     }
 
     .row {
@@ -48,9 +50,16 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 5px;
-        width: 100%;
-        border: 1px solid #FFCF40;
-        font-family: Lato;
+        width: calc(100% - 20px);
+        border: 1px solid #262626;
+        font-family: 'gothicregular';
+        padding: 10px;
+    }
+
+    select {
+        border: 1px solid #262626;
+        font-family: 'gothicregular';
+        padding: 10px;
     }
 
     .button {
@@ -58,13 +67,15 @@
     }
 
     .generate {
-        font-family: "Lato";
+        font-family: "gothicbold";
         font-weight: 600;
         font-size: 18px;
-        padding: 20px;
-        background-color: #FFCF40;
-        color: white;
+        padding: 15px 40px;
+        border:1px solid #e8e8e8;
+        background-color: #e8e8e8;
+        color: #000;
         text-decoration: none;
+        border-radius: 10px;
     }
 
     .flex {
@@ -154,6 +165,21 @@
         display: none;
         margin-top: 10px;
     }
+
+    button {
+        background-color: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        padding: 10px;
+        color: #262626;
+        font-family: 'gothicbold';
+        border-radius: 10px;
+    }
+    .mt-1 {
+        margin-top: 5px;
+    }
+    .mt-3 {
+        margin-top: 15px;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -196,7 +222,7 @@
                     </div>
                     <div class="absolute"
                         style="right: -178px;font-size: 8px;top: 495px;transform: rotate(-90deg);width: 450px;text-align:center;">
-                        <h1 class="font-400 page-1-text-13 white" style="">WWW.LUXEKNOWS.COM</h1>
+                        <h1 class="font-400 page-1-text-13 white">WWW.LUXEKNOWS.COM</h1>
                     </div>
                 </div>
             </div>
@@ -260,10 +286,11 @@
                 </div>
 
                 <div class="">
-                    <div class="">
+                    <div class="mt-3">
                         <label for="page-1-img-1">Background Image</label>
-                        <input type="file" id="img-1-input" onchange="img_1_change()">
-                        <button type="button" onclick="startCropper()">Crop</button>
+                        <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose Image</button><br>
+                        <input type="file" id="img-1-input" onchange="img_1_change()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="img_1_crop()">Save Crop</button>
                     </div>
                     <div id="img-1-input-disclaimer" class="img-upload">
@@ -274,10 +301,10 @@
                 <div class="flex">
                     <div class="button" style="width: 345px;">
                         <button type="submit" name="action" value="Generate" class="generate">Generate</button>
-                        <button type="submit" name="action" value="Save" class="generate">Save</button>
+                        {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
-                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
+                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">--}}
                     </div>
                 </div>
             </div>
@@ -435,6 +462,9 @@
             var base64=canvas.toDataURL("image/png");
             callback(base64)
         })
+    }
+    function openInputFile(id) {
+        $('#' + id).click()
     }
 </script>
 

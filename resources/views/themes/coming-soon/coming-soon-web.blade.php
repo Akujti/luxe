@@ -14,11 +14,13 @@
     }
 
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
+        color: #fff;
         padding: 10px;
         display: block;
         width: 150px;
-        font-family: Lato;
+        font-family: 'gothicbold';
+        font-size: 15px;
     }
 
     .row {
@@ -47,9 +49,16 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 5px;
-        width: 100%;
-        border: 1px solid #FFCF40;
-        font-family: Lato;
+        width: calc(100% - 20px);
+        border: 1px solid #262626;
+        padding: 10px;
+        font-family: 'gothicregular';
+    }
+
+    select {
+        border: 1px solid #262626;
+        padding: 10px;
+        font-family: 'gothicregular';
     }
 
     .button {
@@ -57,13 +66,15 @@
     }
 
     .generate {
-        font-family: "Lato";
+        font-family: "gothicbold";
         font-weight: 600;
         font-size: 18px;
-        padding: 20px;
-        background-color: #FFCF40;
-        color: white;
+        padding: 15px 40px;
+        border:1px solid #e8e8e8;
+        background-color: #e8e8e8;
+        color: #000;
         text-decoration: none;
+        border-radius: 10px;
     }
 
     .flex {
@@ -253,10 +264,10 @@
                 <div class="flex">
                     <div class="button" style="width: 345px;">
                         <button type="submit" name="action" value="Generate" class="generate">Generate</button>
-                        <button type="submit" name="action" value="Save" class="generate">Save</button>
+                        {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
-                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
+                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">--}}
                     </div>
                 </div>
             </div>

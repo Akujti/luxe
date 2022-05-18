@@ -68,11 +68,13 @@
     }
 
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
         padding: 10px;
         display: block;
         width: 150px;
-        font-family: Lato;
+        font-family: 'gothicbold';
+        color: #fff;
+        margin-top: 10px;
     }
 
     .row {
@@ -102,8 +104,14 @@
         margin-top: 10px;
         margin-bottom: 5px;
         width: 100%;
-        border: 1px solid #FFCF40;
-        font-family: Lato;
+        border: 1px solid #262626;
+        padding: 10px;
+        font-family: 'gothicregular';
+    }
+    select {
+        border: 1px solid #262626;
+        padding: 10px;
+        font-family: 'gothicregular';
     }
 
     .button {
@@ -111,13 +119,15 @@
     }
 
     .generate {
-        font-family: "Lato";
+        font-family: "gothicbold";
         font-weight: 600;
         font-size: 18px;
-        padding: 20px;
-        background-color: #FFCF40;
-        color: white;
+        padding: 15px 40px;
+        border:1px solid #e8e8e8;
+        background-color: #e8e8e8;
+        color: #000;
         text-decoration: none;
+        border-radius: 10px;
     }
 
     .flex {
@@ -320,6 +330,17 @@
     .text-3.large {
         font-size: 76px;
     }
+    button {
+        background-color: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        padding: 10px;
+        color: #262626;
+        font-family: 'gothicbold';
+        border-radius: 10px;
+    }
+    .mt-1 {
+        margin-top: 5px;
+    }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -420,20 +441,21 @@
                 <div class="">
                     <div class="file-input-width">
                         <label for="page-1-img-1">Main Image</label>
-                        <input type="file" id="img-1-input"
-                            onchange="image_change('img-1-input',['img_1'],'img_1_input')">
-                        <button type="button" onclick="startCropper(1909/1211)">Crop</button>
+                        <button type="button" class="mt-1" onclick="openInputFile()">Choose Image</button>
+                        <input type="file" class="mt-1" id="img-1-input"
+                            onchange="image_change('img-1-input',['img_1'],'img_1_input')" style="display:none">
+                        <button type="button" class="mt-1" onclick="startCropper(1909/1211)">Crop</button>
                         <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
                     </div>
                 </div>
                 <div class="flex" style="margin-top:20px;">
                     <div class="" style="width: 345px;">
                         <button type="submit" name="action" value="Generate" class="generate">Generate</button>
-                        {{-- <button type="button" onclick="getScreenShot()">Generate png</button> --}}
+                        {{-- <button type="button" onclick="getScreenShot()">Generate png</button>
                         <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
-                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
+                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()"> --}}
                     </div>
                 </div>
             </div>
@@ -578,6 +600,10 @@
     //     downloadLink.download = fileName;
     //     downloadLink.click();
     // }
+
+    function openInputFile() {
+        $('#img-1-input').click()
+    }
 </script>
 
 </html>
