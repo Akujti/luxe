@@ -75,6 +75,7 @@
         font-family: 'gothicbold';
         color: #fff;
         margin-top: 10px;
+        font-size: 15px;
     }
 
     .row {
