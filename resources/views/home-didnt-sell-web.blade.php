@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Didn't Sell</title>
-
+    @include('includes.fonts')
     <style>
         @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
         @import url('https://fonts.googleapis.com/css?family=Lato:600');
@@ -222,11 +222,13 @@
         }
 
         label {
-            background-color: #FFCF40;
+            background-color: #262626;
+            color: #fff;
             padding: 10px;
             display: block;
             width: 150px;
-            font-family: Lato;
+            font-family: 'gothicbold';
+            font-size: 15px;
         }
 
         .row {
@@ -256,9 +258,10 @@
             font-size: 15px;
             margin-top: 10px;
             margin-bottom: 5px;
-            width: 100%;
-            border: 1px solid #FFCF40;
-            font-family: Lato;
+            width: calc(100% - 20px);
+            border: 1px solid #262626;
+            padding: 10px;
+            font-family: 'gothicregular';
         }
 
         .button {
@@ -266,13 +269,15 @@
         }
 
         .generate {
-            font-family: "Lato";
+            font-family: "gothicbold";
             font-weight: 600;
             font-size: 18px;
-            padding: 20px;
-            background-color: #FFCF40;
-            color: white;
+            padding: 15px 40px;
+            border:1px solid #e8e8e8;
+            background-color: #e8e8e8;
+            color: #000;
             text-decoration: none;
+            border-radius: 10px;
         }
 
         .flex {
@@ -303,6 +308,20 @@
             position: fixed !important;
             top: -100px !important;
             z-index: 100;
+        }
+        button {
+            background-color: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            padding: 10px;
+            color: #262626;
+            font-family: 'gothicbold';
+            border-radius: 10px;
+        }
+        .mt-1 {
+            margin-top: 5px;
+        }
+        .mt-3 {
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -383,8 +402,9 @@
                 </div>
                 <div>
                     <label for="page-1-img-1">Main Image</label>
-                    <input type="file" id="img-1-input" onchange="image_change('img-1-input',['img_1'],'img_1_input')">
-                    <button type="button" onclick="startCropper(1.28)">Crop</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose Image</button><br>
+                    <input type="file" id="img-1-input" onchange="image_change('img-1-input',['img_1'],'img_1_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1.28)">Crop</button>
                     <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
                 </div>
             </div>
@@ -432,9 +452,10 @@
             <div class="row-input">
                 <div class="mb-5">
                     <label for="page-1-img-1">Main Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-2-input')">Choose Image</button><br>
                     <input type="file" id="img-2-input"
-                        onchange="image_change('img-2-input',['img_2','img_2_1'],'img_2_input')">
-                    <button type="button" onclick="startCropper(1.4)">Crop</button>
+                        onchange="image_change('img-2-input',['img_2','img_2_1'],'img_2_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1.4)">Crop</button>
                     <button type="button" onclick="crop_image(['img_2','img_2_1'],'img_2_input')">Save Crop</button>
                 </div>
                 <div>
@@ -760,11 +781,12 @@ I’m the neighborhood specialist.
             </div>
             <div class="column-divider"></div>
             <div class="row-input">
-                <div class="mb-5">
+                <div class="mb-5 mt-1">
                     <label for="page-1-img-1">Main Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-3-input')">Choose Image</button><br>
                     <input type="file" id="img-3-input"
-                        onchange="image_change('img-3-input',['img_3','img_3_1'],'img_3_input')">
-                    <button type="button" onclick="startCropper(1.22)">Crop</button>
+                        onchange="image_change('img-3-input',['img_3','img_3_1'],'img_3_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1.22)">Crop</button>
                     <button type="button" onclick="crop_image(['img_3','img_3_1'],'img_3_input')">Save Crop</button>
                 </div>
                 <div>
@@ -857,9 +879,10 @@ I’m the neighborhood specialist.
             <div class="row-input">
                 <div class="mb-5">
                     <label for="page-1-img-1">Main Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-4-input')">Choose Image</button><br>
                     <input type="file" id="img-4-input"
-                        onchange="image_change('img-4-input',['img_4','img_4_1'],'img_4_input')">
-                    <button type="button" onclick="startCropper(.69)">Crop</button>
+                        onchange="image_change('img-4-input',['img_4','img_4_1'],'img_4_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(.69)">Crop</button>
                     <button type="button" onclick="crop_image(['img_4','img_4_1'],'img_4_input')">Save Crop</button>
                 </div>
                 <div>
@@ -969,7 +992,7 @@ I’m the neighborhood specialist.
             <div class="column-divider"></div>
             <div class="row-input">
                 <div>
-                    <label for="text-1">Title 1</label>
+                    <label for="text-1" class="mt-1">Title 1</label>
                     <input type="text" id="text-38" name="text_38" value="Your Dreams">
                 </div>
                 <div>
@@ -1176,11 +1199,12 @@ I’m the neighborhood specialist.
             </div>
             <div class="column-divider"></div>
             <div class="row-input">
-                <div class="mb-5">
+                <div class="mb-5 mt-1">
                     <label for="page-1-img-1">First Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-5-input')">Choose Image</button><br>
                     <input type="file" id="img-5-input"
-                        onchange="image_change('img-5-input',['img_5','img_5_1'],'img_5_input')">
-                    <button type="button" onclick="startCropper(1.18)">Crop</button>
+                        onchange="image_change('img-5-input',['img_5','img_5_1'],'img_5_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1.18)">Crop</button>
                     <button type="button" onclick="crop_image(['img_5','img_5_1'],'img_5_input')">Save Crop</button>
                 </div>
                 <div>
@@ -1192,9 +1216,10 @@ I’m the neighborhood specialist.
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Second Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-6-input')">Choose Image</button><br>
                     <input type="file" id="img-6-input"
-                        onchange="image_change('img-6-input',['img_6','img_6_1'],'img_6_input')">
-                    <button type="button" onclick="startCropper(.82)">Crop</button>
+                        onchange="image_change('img-6-input',['img_6','img_6_1'],'img_6_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(.82)">Crop</button>
                     <button type="button" onclick="crop_image(['img_6','img_6_1'],'img_6_input')">Save Crop</button>
                 </div>
                 <div>
@@ -1218,8 +1243,9 @@ I’m the neighborhood specialist.
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Third Image</label>
-                    <input type="file" id="img-7-input" onchange="image_change('img-7-input',['img_7'],'img_7_input')">
-                    <button type="button" onclick="startCropper(1.64)">Crop</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-7-input')">Choose Image</button><br>
+                    <input type="file" id="img-7-input" onchange="image_change('img-7-input',['img_7'],'img_7_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1.64)">Crop</button>
                     <button type="button" onclick="crop_image(['img_7'],'img_7_input')">Save Crop</button>
                 </div>
             </div>
@@ -1508,11 +1534,12 @@ I’m the neighborhood specialist.
             </div>
             <div class="column-divider"></div>
             <div class="row-input">
-                <div class="mb-5">
+                <div class="mb-5 mt-1">
                     <label for="page-1-img-1">First Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-18-input')">Choose Image</button><br>
                     <input type="file" id="img-18-input"
-                        onchange="image_change('img-18-input',['img_18'],'img_18_input')">
-                    <button type="button" onclick="startCropper(111/55)">Crop</button>
+                        onchange="image_change('img-18-input',['img_18'],'img_18_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(111/55)">Crop</button>
                     <button type="button" onclick="crop_image(['img_18'],'img_18_input')">Save Crop</button>
                 </div>
                 <div>
@@ -1533,9 +1560,10 @@ I’m the neighborhood specialist.
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Second Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-19-input')">Choose Image</button><br>
                     <input type="file" id="img-19-input"
-                        onchange="image_change('img-19-input',['img_19'],'img_19_input')">
-                    <button type="button" onclick="startCropper(37/80)">Crop</button>
+                        onchange="image_change('img-19-input',['img_19'],'img_19_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(37/80)">Crop</button>
                     <button type="button" onclick="crop_image(['img_19'],'img_19_input')">Save Crop</button>
                 </div>
                 <div>
@@ -1552,9 +1580,10 @@ I’m the neighborhood specialist.
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Third Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-20-input')">Choose Image</button><br>
                     <input type="file" id="img-20-input"
-                        onchange="image_change('img-20-input',['img_20'],'img_20_input')">
-                    <button type="button" onclick="startCropper(100/29)">Crop</button>
+                        onchange="image_change('img-20-input',['img_20'],'img_20_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(100/29)">Crop</button>
                     <button type="button" onclick="crop_image(['img_20'],'img_20_input')">Save Crop</button>
                 </div>
             </div>
@@ -1623,37 +1652,42 @@ I’m the neighborhood specialist.
             </div>
             <div class="column-divider"></div>
             <div class="row-input">
-                <div class="mb-5">
+                <div class="mb-5 mt-1">
                     <label for="page-1-img-1">First Image</label>
-                    <input type="file" id="img-8-input" onchange="image_change('img-8-input',['img_8'],'img_8_input')">
-                    <button type="button" onclick="startCropper(421/265)">Crop</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-8-input')">Choose Image</button><br>
+                    <input type="file" id="img-8-input" onchange="image_change('img-8-input',['img_8'],'img_8_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(421/265)">Crop</button>
                     <button type="button" onclick="crop_image(['img_8'],'img_8_input')">Save Crop</button>
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Column Image 1</label>
-                    <input type="file" id="img-9-input" onchange="image_change('img-9-input',['img_9'],'img_9_input')">
-                    <button type="button" onclick="startCropper(38/25)">Crop</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-9-input')">Choose Image</button><br>
+                    <input type="file" id="img-9-input" onchange="image_change('img-9-input',['img_9'],'img_9_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(38/25)">Crop</button>
                     <button type="button" onclick="crop_image(['img_9'],'img_9_input')">Save Crop</button>
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Column Image 2</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-10-input')">Choose Image</button><br>
                     <input type="file" id="img-10-input"
-                        onchange="image_change('img-10-input',['img_10'],'img_10_input')">
-                    <button type="button" onclick="startCropper(10/7)">Crop</button>
+                        onchange="image_change('img-10-input',['img_10'],'img_10_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(10/7)">Crop</button>
                     <button type="button" onclick="crop_image(['img_10'],'img_10_input')">Save Crop</button>
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Column Image 3</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-11-input')">Choose Image</button><br>
                     <input type="file" id="img-11-input"
-                        onchange="image_change('img-11-input',['img_11'],'img_11_input')">
-                    <button type="button" onclick="startCropper(10/7)">Crop</button>
+                        onchange="image_change('img-11-input',['img_11'],'img_11_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(10/7)">Crop</button>
                     <button type="button" onclick="crop_image(['img_11'],'img_11_input')">Save Crop</button>
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Column Image 4</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-12-input')">Choose Image</button><br>
                     <input type="file" id="img-12-input"
-                        onchange="image_change('img-12-input',['img_12'],'img_12_input')">
-                    <button type="button" onclick="startCropper(10/7)">Crop</button>
+                        onchange="image_change('img-12-input',['img_12'],'img_12_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(10/7)">Crop</button>
                     <button type="button" onclick="crop_image(['img_12'],'img_12_input')">Save Crop</button>
                 </div>
                 <div>
@@ -1670,9 +1704,10 @@ I’m the neighborhood specialist.
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Bottom Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-13-input')">Choose Image</button><br>
                     <input type="file" id="img-13-input"
-                        onchange="image_change('img-13-input',['img_13'],'img_13_input')">
-                    <button type="button" onclick="startCropper(617/230)">Crop</button>
+                        onchange="image_change('img-13-input',['img_13'],'img_13_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(617/230)">Crop</button>
                     <button type="button" onclick="crop_image(['img_13'],'img_13_input')">Save Crop</button>
                 </div>
             </div>
@@ -1776,7 +1811,7 @@ I’m the neighborhood specialist.
             <div class="column-divider"></div>
             <div class="row-input">
                 <div>
-                    <label for="text-1">Text 1</label>
+                    <label for="text-1" class="mt-1">Text 1</label>
                     <textarea type="text" id="text-73" name="text_73" rows="7">It’s time for a new agent, new marketing, new buyers, and most of all… new possibilities. Ultimately, our goal is to
                     sell your property for the most money possible. In the process we want to reconnect you with the excitement you
                     originally felt upon first listing. It takes more than the MLS, realtor.com, Trulia, Zillow and an office caravan or
@@ -1905,7 +1940,7 @@ I’m the neighborhood specialist.
             <div class="column-divider"></div>
             <div class="row-input">
                 <div>
-                    <label for="text-1">Text 1</label>
+                    <label for="text-1" class="mt-1">Text 1</label>
                     <textarea type="text" id="text-85" name="text_85" rows="7">Most agents simply print the MLS page or something they create on their computer for the information they hand to
                     prospective buyers. At Luxe Properties we have a brochure/ flyer professionally printed for all of our listings. Your
                     property deserves to be presented to the market in the highest possible way, not just a Xerox print out. We also have
@@ -1981,18 +2016,20 @@ I’m the neighborhood specialist.
                 <div class="mb-5">
                     <label for="page-1-img-1">First Site</label>
                     <input type="text" id="text-95" name="text_95" value="WWW.LUXEKNOWS.COM">
+                    <button type="button" class="mt-1" onclick="openInputFile('img-14-input')">Choose Image</button><br>
                     <input type="file" id="img-14-input"
-                        onchange="image_change('img-14-input',['img_14'],'img_14_input')">
-                    <button type="button" onclick="startCropper(158/107)">Crop</button>
+                        onchange="image_change('img-14-input',['img_14'],'img_14_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(158/107)">Crop</button>
                     <button type="button" onclick="crop_image(['img_14'],'img_14_input')">Save Crop</button>
                 </div>
 
-                <div class="mb-5">
+                <div class="mb-5 mt-3">
                     <label for="page-1-img-1">Second Site</label>
                     <input type="text" id="text-96" name="text_96" value="WWW.ALLMIAMIHOUSESFORSALE.COM">
+                    <button type="button" class="mt-1" onclick="openInputFile('img-15-input')">Choose Image</button><br>
                     <input type="file" id="img-15-input"
-                        onchange="image_change('img-15-input',['img_15'],'img_15_input')">
-                    <button type="button" onclick="startCropper(158/107)">Crop</button>
+                        onchange="image_change('img-15-input',['img_15'],'img_15_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(158/107)">Crop</button>
                     <button type="button" onclick="crop_image(['img_15'],'img_15_input')">Save Crop</button>
                 </div>
             </div>
@@ -2098,9 +2135,10 @@ I’m the neighborhood specialist.
                 </div>
                 <div class="mb-5">
                     <label for="page-1-img-1">Background Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-16-input')">Choose Image</button><br>
                     <input type="file" id="img-16-input"
-                        onchange="image_change_bg('img-16-input',['img_16'],'img_16_input')">
-                    <button type="button" onclick="startCropper(798/884)">Crop</button>
+                        onchange="image_change_bg('img-16-input',['img_16'],'img_16_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(798/884)">Crop</button>
                     <button type="button" onclick="crop_image_bg(['img_16'],'img_16_input')">Save Crop</button>
                 </div>
             </div>
@@ -2370,9 +2408,10 @@ I’m the neighborhood specialist.
             <div class="row-input">
                 <div class="mb-5">
                     <label for="page-1-img-1">Main Image</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-17-input')">Choose Image</button><br>
                     <input type="file" id="img-17-input"
-                        onchange="image_change_bg('img-17-input',['img_17'],'img_17_input')">
-                    <button type="button" onclick="startCropper(213/59)">Crop</button>
+                        onchange="image_change_bg('img-17-input',['img_17'],'img_17_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(213/59)">Crop</button>
                     <button type="button" onclick="crop_image_bg(['img_17'],'img_17_input')">Save Crop</button>
                 </div>
                 <div>
@@ -2621,12 +2660,12 @@ I’m the neighborhood specialist.
             <div class="column-divider"></div>
             <div class="row-input">
                 <div class="button">
-                    <button type="submit" name="action" value="Generate" class="generate" style="">Generate</button>
-                    <button type="submit" name="action" value="Save" class="generate">Save</button>
+                    <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                    {{--<button type="submit" name="action" value="Save" class="generate">Save</button>
 
                     <br />
                     JSON Upload:
-                    <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()" />
+                    <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()" />--}}
                 </div>
             </div>
         </div>
@@ -2838,7 +2877,9 @@ I’m the neighborhood specialist.
     $(item).trigger("change");
     });
     }
-  
+    function openInputFile(id) {
+        $('#' + id).click()
+    }
 </script>
 
 </html>
