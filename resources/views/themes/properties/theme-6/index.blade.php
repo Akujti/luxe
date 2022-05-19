@@ -1,6 +1,6 @@
 @extends('themes.layouts.app')
 @section('title')
-    Flyer -
+    Properties 6 -
 @endsection
 @section('css')
 @include('includes.fonts')
@@ -91,7 +91,7 @@
     .page {
         position: absolute;
         left: 0;
-        background-image: url('images/themes/just-listed/img-sq.jpg');
+        background-image: url('/images/themes/just-listed/img-sq.jpg');
         background-position: center bottom;
         background-repeat: no-repeat;
         background-size: 900px;
@@ -192,10 +192,10 @@
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-                <input hidden name="img_1_input" id="img_1_input" value="images/themes/just-listed/img-sq.jpg">
+                <input hidden name="img_1_input" id="img_1_input" value="/images/themes/just-listed/img-sq.jpg">
                 <div class="page" id="page-box">
                     <div>
-                        <img id="img1" src="images/themes/just-closed/main.png" alt="" width="900px">
+                        <img id="img1" src="/images/themes/just-closed/main.png" alt="" width="900px">
                     </div>
                     <div class="absolute" style="top: 4.3%;text-align:right;right:30px;">
                         <h1><span class="page-1-text-11 normal">JUST</span> <span

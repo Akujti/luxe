@@ -1,6 +1,6 @@
 @extends('themes.layouts.app')
 @section('title')
-    Flyer -
+    Properties 4 -
 @endsection
 @section('css')
 @include('includes.fonts')
@@ -83,7 +83,7 @@
     .page {
         position: absolute;
         left: 0;
-        background-image: url('images/themes/just-listed/main.png');
+        background-image: url('/images/themes/just-listed/main.png');
         background-position: top right;
         background-repeat: no-repeat;
         background-size: 900px;
@@ -168,18 +168,18 @@
     <div class="row">
         <div class="row-image">
             <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-            <input hidden name="img_1_input" id="img_1_input" value="images/themes/for-sale/bg.png">
-            <input hidden name="img_2_input" id="img_2_input" value="images/themes/for-sale/house-1.jpg">
-            <input hidden name="img_3_input" id="img_3_input" value="images/themes/for-sale/house-2.jpg">
-            <input hidden name="img_4_input" id="img_4_input" value="images/themes/for-sale/house-3.jpg">
+            <input hidden name="img_1_input" id="img_1_input" value="/images/themes/for-sale/bg.png">
+            <input hidden name="img_2_input" id="img_2_input" value="/images/themes/for-sale/house-1.jpg">
+            <input hidden name="img_3_input" id="img_3_input" value="/images/themes/for-sale/house-2.jpg">
+            <input hidden name="img_4_input" id="img_4_input" value="/images/themes/for-sale/house-3.jpg">
             <div class="page" id="page-box">
                 <div>
-                    <img id="img1" src="images/themes/just-listed/img-1.jpg" alt="" class="absolute img-1"
+                    <img id="img1" src="/images/themes/just-listed/img-1.jpg" alt="" class="absolute img-1"
                          width="500px"
                          style="top: 3.7%;left: 33px;width: 642px;height: 467px;border-top-left-radius: 125px;">
                 </div>
                 <div>
-                    <img src="images/themes/just-listed/main-2.png" alt="" class="absolute" width="900px">
+                    <img src="/images/themes/just-listed/main-2.png" alt="" class="absolute" width="900px">
                 </div>
                 <div class="absolute" style="right:3.4%;top:235px;text-align:right;">
                     <h1 class="font-800 bold page-1-text-11" style="font-size:58px;">Just</h1>
@@ -203,15 +203,15 @@
                 </div>
 
                 <div class="absolute circle" style="left:73px">
-                    <img id="img2" src="images/themes/for-sale/house-1.jpg" alt="" class="circle"
+                    <img id="img2" src="/images/themes/for-sale/house-1.jpg" alt="" class="circle"
                          style="border-top-left-radius: 35px">
                 </div>
                 <div class="absolute circle" style="left:344px">
-                    <img id="img3" src="images/themes/for-sale/house-2.jpg" alt="" class="circle"
+                    <img id="img3" src="/images/themes/for-sale/house-2.jpg" alt="" class="circle"
                          style="width: 244px">
                 </div>
                 <div class="absolute circle" style="left:627px">
-                    <img id="img4" src="images/themes/for-sale/house-3.jpg" alt="" class="circle"
+                    <img id="img4" src="/images/themes/for-sale/house-3.jpg" alt="" class="circle"
                          style="border-bottom-right-radius: 35px;">
                 </div>
 

@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Just Sold</title>
-</head>
+@extends('themes.layouts.app')
+@section('title')
+    Flyer -
+@endsection
+@section('css')
 @include('includes.fonts')
 <style>
     * {
@@ -50,7 +46,7 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 5px;
-        width: calc(100% - 20px);
+        width: 100%;
         border: 1px solid #262626;
         padding: 10px;
         font-family: 'gothicregular';
@@ -182,7 +178,7 @@
         margin-top: 15px;
     }
 </style>
-
+@endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
     integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
@@ -191,16 +187,16 @@
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
 
-<body>
+@section('content')
     <form action="{{ route('theme-just-sold') }}" method="POST">
         @csrf
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
                 <input hidden name="img_1_input" id="img_1_input" value="images/themes/for-sale/bg.png">
-                <div class="page">
+                <div class="page" id="page-box">
                     <div>
-                        <img id="" src="images/themes/just-sold/main.png" alt="" width="900px">
+                        <img id="img1" src="images/themes/just-sold/main.png" alt="" width="900px">
                     </div>
                     <div class="absolute"
                         style="top: 806px;width: 600px;transform: rotate(-90deg);font-size: 9px;left: 577px;text-align: center;">
@@ -292,7 +288,7 @@
                     <div class="">
                         <label for="page-1-img-1">Background Image</label>
                         <button type="button" class="mt-3" onclick="openInputFile()">Choose Image</button><br>
-                        <input type="file" id="img-1-input" onchange="img_1_change()" style="display: none;">
+                        <input type="file" id="img-1-input" onchange="img_1_change(this)" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="img_1_crop()">Save Crop</button>
                     </div>
@@ -300,7 +296,7 @@
 
                 <div class="flex">
                     <div class="button" style="width: 345px;">
-                        <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                        <button type="button" name="action" value="Generate" class="generate" onclick="getScreenShot('page-box')">Generate</button>
                         {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
@@ -310,7 +306,7 @@
             </div>
         </div>
     </form>
-</body>
+@endsection
 
 <script>
     function change_font_size(select_input){
@@ -336,213 +332,21 @@
         });
     });
 
-    function img_4_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-4-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img4").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_4_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_4_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img4").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_4_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("display", "block");
-            }
-        });
-
-        }/*, 'image/png' */);
-    }
-
-    function img_3_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-3-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img3").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_3_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_3_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img3").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_3_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("display", "block");
-            }
-        });
-
-        }/*, 'image/png' */);
-    }
-
-    function img_2_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-2-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img2").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_2_input]").val('uploadedimages/' + output);
-                });
-            }
-        });
-    }
-
-    function img_2_crop(){
-        cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img2").attr('src', 'uploadedimages/' + output)
-                    $("input[name=img_2_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("display", "block");
-            }
-        });
-
-        }/*, 'image/png' */);
-    }
-
-    function img_1_change(){
-        var form_data = new FormData();
-        form_data.append("file", $("#img-1-input")[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $(".page").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $("input[name=img_1_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("display", "block");
-            }
-        });
+    function img_1_change(e) {
+        const [file] = e.files
+        if (file) {
+            $("#image").attr('src', URL.createObjectURL(file))
+            $(".page").css('background-image', 'url(' + URL.createObjectURL(file) + ')')
+        }
     }
 
     function img_1_crop(){
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $(".page").css('background-image', 'url(uploadedimages/' + output + ')')
-                    $("input[name=img_1_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("display", "block");
-            }
+            $('#image').attr('src', URL.createObjectURL(blob))
+            $(".page").css('background-image', 'url(' + URL.createObjectURL(blob) + ')')
         });
-
-        }/*, 'image/png' */);
+        cropper.destroy();
+        $(".page").css("display", "block");
     }
 
     var cropper;
