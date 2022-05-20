@@ -50,7 +50,7 @@
     textarea {
         font-size: 15px;
         margin-top: 10px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         width: 100%;
         border: 1px solid #262626;
         padding: 10px;
@@ -76,10 +76,6 @@
     .flex {
         display: flex;
         justify-content: flex-end;
-    }
-
-    .flex label {
-        margin: 10px auto 30px auto !important;
     }
 
     .row-image {
@@ -200,8 +196,8 @@
                 </div>
             </div>
             <div class="column-divider"></div>
-            <div class="row-input" style="max-width: 350px;">
-                <div class="flex">
+            <div class="row-input mt-3" style="max-width: 350px;">
+                <div class="flex mt-3">
                     <div class="pr-10">
                         <label for="page-1-1-text-1">Title</label>
                         <input type="text" id="page-1-text-1" name="page_1_text_1" value="THROWBACK">
