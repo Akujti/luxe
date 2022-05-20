@@ -40,19 +40,19 @@
         }
 
         .fc-daygrid-event.in_person_trainings {
-            border: 1px solid #569e56;
+            border: 3px solid #569e56;
         }
 
         .fc-daygrid-event.zoom_trainings {
-            border: 1px solid #257dd7;
+            border: 3px solid #257dd7;
         }
 
         .fc-daygrid-event.tours {
-            border: 1px solid #cccc00;
+            border: 3px solid #cccc00;
         }
 
         .fc-daygrid-event.team_office_meetings {
-            border: 1px solid #f0a3b1;
+            border: 3px solid #f0a3b1;
         }
 
         .modal-new select {
