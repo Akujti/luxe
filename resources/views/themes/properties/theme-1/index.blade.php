@@ -1,6 +1,6 @@
 @extends('themes.layouts.app')
 @section('title')
-    Flyer -
+    Properties 1 -
 @endsection
 @section('css')
 @include('includes.fonts')
@@ -356,19 +356,19 @@
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-                <input hidden name="img_1_input" id="img_1_input" value="images/flyers/template6/bg.jpg">
+                <input hidden name="img_1_input" id="img_1_input" value="/images/flyers/template6/bg.jpg">
 
                 <div class="page" id="page-box">
                     {{-- Images --}}
                     <div class="absolute" style="top:0;left:0;">
-                        <img src="images/flyers/template6/main.png" alt="">
+                        <img src="/images/flyers/template6/main.png" alt="">
                     </div>
                     <div class="absolute" style="top:219px;left:0px;">
-                        <img id="img_1" src="images/flyers/template6/bg.jpg" alt="" width="1909px"
+                        <img id="img_1" src="/images/flyers/template6/bg.jpg" alt="" width="1909px"
                             height="1213px">
                     </div>
                     <div class="absolute" style="top:220px;left:1397px;">
-                        <img src="images/flyers/template6/box.png" alt="" width="463px">
+                        <img src="/images/flyers/template6/box.png" alt="" width="463px">
                     </div>
 
                     {{-- Text --}}

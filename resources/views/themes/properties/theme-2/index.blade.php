@@ -1,6 +1,6 @@
 @extends('themes.layouts.app')
 @section('title')
-    Open House -
+    Properties 2 -
 @endsection
 @section('css')
 @include('includes.fonts')
@@ -92,7 +92,7 @@
     .page {
         position: absolute;
         left: 0;
-        background-image: url('images/themes/new/bg.png');
+        background-image: url('/images/themes/new/bg.png');
         background-position: top right;
         background-repeat: no-repeat;
         width: 1080px;
@@ -230,10 +230,10 @@
     <div class="row">
         <div class="row-image">
             <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-            <input hidden name="bg_image" id="bg_image" value="images/themes/new/bg.png">
+            <input hidden name="bg_image" id="bg_image" value="/images/themes/new/bg.png">
             <div class="page" id="page-box">
                 <div class="absolute" style="top:0px;left:0px; z-index: -1">
-                    <img src="images/themes/new/ellipse.png" alt="">
+                    <img src="/images/themes/new/ellipse.png" alt="">
                 </div>
                 <div class="absolute title-text normal"
                      style="height: 120px;">
@@ -269,7 +269,7 @@
 
                 <div class="absolute"
                      style="width: 240px; height: 100px; background: black; left: 43px; bottom: 51px; border-radius: 50px 0 0 50px">
-                    <img src="images/themes/new/Logo.png" alt="" style="padding: 16px 0 0 16px; ">
+                    <img src="/images/themes/new/Logo.png" alt="" style="padding: 16px 0 0 16px; ">
                 </div>
 
                 <div class="absolute" style="transform: rotate(-90deg); left: -247px">
@@ -415,57 +415,12 @@
             $(".page").css('background-image', 'url('+ URL.createObjectURL(file) +')')
         }
         $(".page").css("display", "block");
-
-        // var form_data = new FormData();
-        // form_data.append("file", $("#bg-image")[0].files[0]);
-        // $.ajax({
-        //     url: '/uploadimage',
-        //     data: form_data,
-        //     type: 'post',
-        //     cache: false,
-        //     contentType: false,
-        //     processData: false,
-        //     headers: {
-        //         'X-CSRF-Token': $('[name="_token"]').val()
-        //     },
-        //     success: function (output) {
-        //         $("#image").attr('src', 'uploadedimages/' + output)
-        //         getBase64Image(document.getElementById("image"), function (base64) {
-        //             $(".page").css('background-image', 'url(uploadedimages/' + output + ')')
-        //             $("input[name=bg_image]").val('uploadedimages/' + output);
-        //         });
-        //         $(".page").css("display", "block");
-        //     }
-        // });
     }
 
     function img_1_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr('src', URL.createObjectURL(blob))
             $(".page").css('background-image', 'url(' + URL.createObjectURL(blob) + ')')
-            
-            // const form_data = new FormData();
-            // form_data.append('file', blob, 'example.png');
-            // $.ajax({
-            //     url: '/uploadimage',
-            //     data: form_data,
-            //     type: 'post',
-            //     cache: false,
-            //     contentType: false,
-            //     processData: false,
-            //     headers: {
-            //         'X-CSRF-Token': $('[name="_token"]').val()
-            //     },
-            //     success: function (output) {
-            //         cropper.destroy();
-            //         $("#image").attr('src', 'uploadedimages/' + output)
-            //         getBase64Image(document.getElementById("image"), function (base64) {
-            //             $(".page").css('background-image', 'url(uploadedimages/' + output + ')')
-            //             $("input[name=bg_image]").val('uploadedimages/' + output);
-            //         });
-            //         $(".page").css("display", "block");
-            //     }
-            // });
         });
         cropper.destroy()
         $(".page").css("display", "block");

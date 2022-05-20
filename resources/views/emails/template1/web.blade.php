@@ -21,16 +21,18 @@
     }
 
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
+        color: #fff;
         padding: 10px;
         display: block;
         width: 150px;
-        font-family: Lato;
+        font-family: 'gothicbold';
+        font-size: 15px;
+        margin-top:5px;
     }
 
     .row {
         display: flex;
-        /* justify-content: center; */
     }
 
     .row-divider {
@@ -54,9 +56,15 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 5px;
-        width: 100%;
-        border: 1px solid #FFCF40;
-        font-family: Lato;
+        width: calc(100% - 20px);
+        border: 1px solid #262626;
+        font-family: 'gothicregular';
+        padding: 10px;
+    }
+    select {
+        border: 1px solid #262626;
+        font-family: 'gothicregular';
+        padding: 10px;
     }
 
     .button {
@@ -64,24 +72,21 @@
     }
 
     .generate {
-        font-family: "Lato";
+        font-family: "gothicbold";
         font-weight: 600;
         font-size: 18px;
-        padding: 20px;
-        background-color: #FFCF40;
-        color: white;
+        padding: 15px 40px;
+        border:1px solid #e8e8e8;
+        background-color: #e8e8e8;
+        color: #000;
         text-decoration: none;
+        border-radius: 10px;
     }
 
     .flex {
         display: flex;
         justify-content: flex-end;
     }
-
-    .flex label {
-        margin: 10px auto 10px auto !important;
-    }
-
     .row-image {
         width: 800px;
         height: auto;
@@ -168,12 +173,6 @@
         height: 200px;
         border: 10px solid white;
     }
-
-    h1:after {
-        /* font: normal normal normal 30px/1 FontAwesome;
-    content: '\f083'; */
-    }
-
     .personal {
         left: 480px;
     }
@@ -211,6 +210,20 @@
     .text-17.normal,
     .text-24.normal {
         font-size: 25px !important;
+    }
+    button {
+        background-color: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        padding: 10px;
+        color: #262626;
+        font-family: 'gothicbold';
+        border-radius: 10px;
+    }
+    .mt-1 {
+        margin-top: 5px;
+    }
+    .mt-3 {
+        margin-top: 15px;
     }
 </style>
 
@@ -389,11 +402,12 @@
             </div>
             <div class="column-divider"></div>
             <div class="row-input" style="max-width: 350px;height:3600px;">
-                <div class="absolute" style="top: 400px;">
+                <div class="absolute" style="top: 250px;">
                     <div class="file-input-width">
                         <label for="page-1-img-1">Main Image</label>
-                        <input type="file" id="img-1-input" onchange="img_1_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
+                        <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose Image</button>
+                        <input type="file" id="img-1-input" onchange="img_1_change()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="img_1_crop()">Save Crop</button>
                     </div>
                 </div>
@@ -437,33 +451,36 @@
                         <input type="text" id="text-8" name="text_8" value="LIVING AREA: 6,800 SQFT">
                     </div>
                 </div>
-                <div class="absolute" style="top:1400px">
+                <div class="absolute" style="top:1331px">
                     <div>
                         <div class="file-input-width">
                             <label for="page-1-img-1">Circle 1</label>
-                            <input type="file" id="img-2-input" onchange="img_2_change()">
-                            <button type="button" onclick="startCropper(1)">Crop</button>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-2-input')">Choose Image</button>
+                            <input type="file" id="img-2-input" onchange="img_2_change()" style="display: none;">
+                            <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                             <button type="button" onclick="img_2_crop()">Save Crop</button>
                         </div>
                     </div>
-                    <div>
+                    <div class="mt-3">
                         <div class="file-input-width">
                             <label for="page-1-img-1">Circle 2</label>
-                            <input type="file" id="img-3-input" onchange="img_3_change()">
-                            <button type="button" onclick="startCropper(1)">Crop</button>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-3-input')">Choose Image</button>
+                            <input type="file" id="img-3-input" onchange="img_3_change()" style="display: none;">
+                            <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                             <button type="button" onclick="img_3_crop()">Save Crop</button>
                         </div>
                     </div>
-                    <div>
+                    <div class="mt-3">
                         <div class="file-input-width">
                             <label for="page-1-img-1">Circle 3</label>
-                            <input type="file" id="img-4-input" onchange="img_4_change()">
-                            <button type="button" onclick="startCropper(1)">Crop</button>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-4-input')">Choose Image</button>
+                            <input type="file" id="img-4-input" onchange="img_4_change()" style="display: none;">
+                            <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                             <button type="button" onclick="img_4_crop()">Save Crop</button>
                         </div>
                     </div>
                 </div>
-                <div class="flex absolute" style="top:1715px;">
+                <div class="flex absolute" style="top:1772px;">
                     <div class="pr-10">
                         <label for="text-9">Button</label>
                         <input type="text" id="text-9" name="text_9" value="EXPLORE ALL">
@@ -476,13 +493,13 @@
                 <div class="absolute" style="top:1890px;">
                     <div>
                         <label for="text-10">Text</label>
-                        <textarea type="text" id="text-11" name="text_11" rows="5" cols="40">A life in luxury is something conducive to living in a state of joy and great comfort. A luxury house should belong to
+                        <textarea type="text" id="text-11" name="text_11" rows="7" cols="40">A life in luxury is something conducive to living in a state of joy and great comfort. A luxury house should belong to
                         its surroundings and then it should belong to the people that are going to live in it. Harmony and ease are the ultimate
                         sophistication in a home. The <strong>MiraMar</strong> house is meticulously crafted to deliver that essential comfort in your daily
                         life.</textarea>
                     </div>
                 </div>
-                <div class="absolute" style="top:2425px;">
+                <div class="absolute" style="top:2407px;">
                     <div>
                         <label for="text-12">Button</label>
                         <input type="text" id="text-12" name="text_12" value="VISIT SITE">
@@ -492,8 +509,9 @@
                     <div>
                         <div class="file-input-width">
                             <label for="page-1-img-5">Agent 1</label>
-                            <input type="file" id="img-5-input" onchange="img_5_change()">
-                            <button type="button" onclick="startCropper(1)">Crop</button>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-5-input')">Choose Image</button>
+                            <input type="file" id="img-5-input" onchange="img_5_change()" style="display: none;">
+                            <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                             <button type="button" onclick="img_5_crop()">Save Crop</button>
                         </div>
                     </div>
@@ -541,11 +559,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="absolute" style="top:2985px;">
+                <div class="absolute" style="top:3085px;">
                     <div class="file-input-width">
                         <label for="page-1-img-6">Agent 2</label>
-                        <input type="file" id="img-6-input" onchange="img_6_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
+                        <button type="button" class="mt-3" onclick="openInputFile('img-6-input')">Choose Image</button>
+                        <input type="file" id="img-6-input" onchange="img_6_change()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="img_6_crop()">Save Crop</button>
                     </div>
 
@@ -593,7 +612,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex absolute" style="top:3455px;">
+                <div class="flex absolute" style="top:3664px;">
                     <div class="pr-10">
                         <label for="text-27">Footer 1</label>
                         <input type="text" id="text-27" name="text_27"
@@ -606,13 +625,14 @@
                     </div>
                 </div>
 
-                <div class="flex absolute" style="top:3560px;">
+                <div class="flex absolute" style="top:3775px;">
                     <div class="" style="width: 345px;">
                         <button type="submit" name="action" value="Generate" class="generate">Generate</button>
-                        <button type="submit" name="action" value="Save" class="generate">Save</button>
+                        {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
-                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
+                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()"> --}}
+                        <div class="mt-3"></div>
                     </div>
                 </div>
             </div>
@@ -997,6 +1017,9 @@
             var base64=canvas.toDataURL("image/png");
             callback(base64)
         })
+    }
+    function openInputFile(id) {
+        $('#' + id).click()
     }
 </script>
 
