@@ -351,7 +351,7 @@
     crossorigin="anonymous" />
 
 @section('content')
-    <form action="{{ route('flyer-template-6') }}" method="POST">
+    <form action="" method="POST">
         @csrf
         <div class="row">
             <div class="row-image">

@@ -225,7 +225,7 @@
       crossorigin="anonymous"/>
 
 @section('content')
-<form action="{{ route('theme-open-house') }}" method="POST">
+<form action="" method="POST">
     @csrf
     <div class="row">
         <div class="row-image">

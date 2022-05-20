@@ -163,7 +163,7 @@
       crossorigin="anonymous"/>
 
 @section('content')
-<form action="{{ route('theme-just-listed') }}" method="POST">
+<form action="" method="POST">
     @csrf
     <div class="row">
         <div class="row-image">

@@ -149,10 +149,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('create-theme-just-listed-story', [PDFController::class, 'theme_just_listed_story'])->name('theme-just-listed-story');
 
-    Route::get('/coming-soon', function () {
-        return view('themes.coming-soon.coming-soon-web');
-    });
-    Route::post('create-theme-coming-soon', [PDFController::class, 'theme_coming_soon'])->name('theme-coming-soon');
+    // Route::get('/coming-soon', function () {
+    //     return view('themes.coming-soon.coming-soon-web');
+    // });
+    // Route::post('create-theme-coming-soon', [PDFController::class, 'theme_coming_soon'])->name('theme-coming-soon');
 
     Route::get('/just-closed-story', function () {
         return view('themes.just-closed-story.just-closed-story-web');
@@ -177,10 +177,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     ////
 
-    Route::get('/joined-luxe', function () {
-        return view('themes.joined-luxe.joined-luxe-web');
-    });
-    Route::post('create-theme-joined-luxe', [PDFController::class, 'theme_just_joined'])->name('theme-joined-luxe');
+    // Route::get('/joined-luxe', function () {
+    //     return view('themes.joined-luxe.joined-luxe-web');
+    // });
+    // Route::post('create-theme-joined-luxe', [PDFController::class, 'theme_just_joined'])->name('theme-joined-luxe');
 
     Route::get('/just-closed', function () {
         return view('themes.just-closed.just-closed-web');
@@ -192,10 +192,10 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::post('create-theme-just-listed', [PDFController::class, 'theme_just_listed'])->name('theme-just-listed');
 
-    Route::get('/tbt', function () {
-        return view('themes.tbt.tbt-web');
-    });
-    Route::post('create-theme-tbt', [PDFController::class, 'theme_tbt'])->name('theme-tbt');
+    // Route::get('/tbt', function () {
+    //     return view('themes.tbt.tbt-web');
+    // });
+    // Route::post('create-theme-tbt', [PDFController::class, 'theme_tbt'])->name('theme-tbt');
     ////
 
     Route::get('/just-sold-story', function () {

@@ -1,6 +1,6 @@
 @extends('themes.layouts.app')
 @section('title')
-    Properties 6 -
+    Agent Template 1 -
 @endsection
 @section('css')
 @include('includes.fonts')
@@ -48,14 +48,14 @@
         margin-bottom: 5px;
         width: 100%;
         border: 1px solid #262626;
-        font-family: 'gothicregular';
         padding: 10px;
+        font-family: 'gothicregular';
     }
 
     select {
         border: 1px solid #262626;
-        font-family: 'gothicregular';
         padding: 10px;
+        font-family: 'gothicregular';
     }
 
     .button {
@@ -91,10 +91,11 @@
     .page {
         position: absolute;
         left: 0;
-        background-image: url('/images/themes/just-listed/img-sq.jpg');
-        background-position: center bottom;
+        background-image: url('/images/themes/joined-luxe/person.jpg');
+        background-position: top right;
         background-repeat: no-repeat;
-        background-size: 900px;
+        /* background-size: 80%; */
+        background-size: 510px 710px;
     }
 
     .absolute {
@@ -115,6 +116,7 @@
 
     ul li {
         display: inline;
+        color: white;
         font-size: 20px;
         margin-right: 10px;
     }
@@ -145,23 +147,69 @@
         width: 175px;
     }
 
-    span.small {
+    .page-1-text-11.small {
+        font-size: 32px;
+    }
+
+    .page-1-text-11.normal {
         font-size: 40px;
     }
 
-    span.normal {
-        font-size: 53px;
+    .page-1-text-11.large {
+        font-size: 48px;
     }
 
-    span.large {
-        font-size: 66px;
+    .page-1-text-12.extra-small {
+        font-size: 44px;
     }
 
-    .img-upload {
-        display: none;
-        margin-top: 10px;
+    .page-1-text-12.small {
+        font-size: 80px;
     }
 
+    .page-1-text-12.normal {
+        font-size: 100px;
+    }
+
+    .page-1-text-12.large {
+        font-size: 120px;
+    }
+
+    .page-1-text-1.small {
+        font-size: 38px;
+    }
+
+    .page-1-text-1.normal {
+        font-size: 48px;
+    }
+
+    .page-1-text-1.large {
+        font-size: 57px;
+    }
+
+    .page-1-text-2.small {
+        font-size: 45px;
+    }
+
+    .page-1-text-2.normal {
+        font-size: 60px;
+    }
+
+    .page-1-text-2.large {
+        font-size: 75px;
+    }
+
+    .page-1-text-1 {
+        width: max-content;
+        background: white;
+        padding: 10px 60px 10px 20px;
+    }
+
+    .page-1-text-2 {
+        width: max-content;
+        background: #C5A467;
+        padding: 0px 50px 0px 20px;
+    }
     button {
         background-color: #e8e8e8;
         border: 1px solid #e8e8e8;
@@ -192,33 +240,39 @@
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
-                <input hidden name="img_1_input" id="img_1_input" value="/images/themes/just-listed/img-sq.jpg">
+                <input hidden name="img_1_input" id="img_1_input" value="/images/themes/joined-luxe/person.jpg">
                 <div class="page" id="page-box">
                     <div>
-                        <img id="img1" src="/images/themes/just-closed/main.png" alt="" width="900px">
+                        <img id="img1" src="/images/themes/joined-luxe/main-new.png" alt="" width="900px">
                     </div>
-                    <div class="absolute" style="top: 4.3%;text-align:right;right:30px;">
-                        <h1><span class="page-1-text-11 normal">JUST</span> <span
-                                class="bold page-1-text-12 normal">CLOSED</span></h1>
-                    </div>
-                    <div class="absolute" style="bottom: 4.3%;">
-                        <ul>
-                            <li class="page-1-text-1">3 BEDS</li>
-                            <li>|</li>
-                            <li class="page-1-text-2">2 BATHS</li>
-                            <li>|</li>
-                            <li class="page-1-text-3">1,700 SQFT</li>
-                        </ul>
-                    </div>
-                    <div class="absolute" style="top: 89.5%;right: 50px;text-align: right;">
-                        <h1 class="gold bold page-1-text-4" style="font-size: 25px;line-height:28px;">55 MERRICK WAY
-                            #402</h1>
-                        <h1 class="white page-1-text-5" style="font-size: 21px;line-height:20px;">CORAL GABLES, FL 33134
+                    <div class="absolute" style="left:48px;top:235px;">
+                        <h1 class="font-800 bold white page-1-text-11 normal" style="margin-left:5px;">I
+                            JOINED
+                        </h1>
+                        <h1 class="font-800 bold gold page-1-text-12 normal"
+                            style="line-height: 80px;max-width: 282px;">
+                            LUXE
                         </h1>
                     </div>
-                    <div class="absolute"
-                        style="right: -178px;font-size: 8px;top: 495px;transform: rotate(-90deg);width: 450px;text-align:center;">
-                        <h1 class="font-400 page-1-text-13 white">WWW.LUXEKNOWS.COM</h1>
+                    <div class="absolute" style="bottom: 24.5%;left: 60px;">
+                        <h1 class="page-1-text-1 bold normal" style="line-height: 35px;">
+                            YOUR
+                        </h1>
+                        <h1 class="page-1-text-2 bold large" style="line-height: 87px;">
+                            NAME
+                        </h1>
+                    </div>
+                    <div class="absolute" style="bottom: 19.5%;left: 18px;">
+                        <ul>
+                            <li class="page-1-text-3">LICENSED AGENT | REAL ESTATE SPECIALIST</li>
+                        </ul>
+                    </div>
+                    <div class="absolute" style="top: 87.5%;left: 120px;">
+                        <h1 class="white page-1-text-4"
+                            style="font-size: 15px;line-height: 25px;font-weight: 400;letter-spacing: 4px;">
+                            EMAIL@LUXEKNOWS.COM
+                        </h1>
+                        <h1 class="gold bold page-1-text-5" style="font-size: 30px;line-height: 26px;">305-986-7041</h1>
                     </div>
                 </div>
             </div>
@@ -227,7 +281,7 @@
                 <div class="flex">
                     <div class="pr-10">
                         <label for="page-1-1-text-11">Title</label>
-                        <input type="text" id="page-1-text-11" name="page_1_text_11" value="JUST">
+                        <input type="text" id="page-1-text-11" name="page_1_text_11" value="I JOINED">
                         <select name="page_1_text_11_select" id="page_1_text_11_select"
                             data-id-to-change="page-1-text-11" onchange="change_font_size(this)">
                             <option value="small">Small</option>
@@ -237,9 +291,10 @@
                     </div>
                     <div>
                         <label for="page-1-text-12">Title</label>
-                        <input type="text" id="page-1-text-12" name="page_1_text_12" value="CLOSED">
+                        <input type="text" id="page-1-text-12" name="page_1_text_12" value="LUXE">
                         <select name="page_1_text_12_select" id="page_1_text_12_select"
                             data-id-to-change="page-1-text-12" onchange="change_font_size(this)">
+                            <option value="extra-small">Extra Small</option>
                             <option value="small">Small</option>
                             <option value="normal" selected>Medium</option>
                             <option value="large">Large</option>
@@ -248,36 +303,43 @@
                 </div>
                 <div class="flex">
                     <div class="pr-10">
-                        <label for="page-1-1-text-1">BEDS</label>
-                        <input type="text" id="page-1-text-1" name="page_1_text_1" value="3 BEDS">
+                        <label for="page-1-1-text-1">First Name</label>
+                        <input type="text" id="page-1-text-1" name="page_1_text_1" value="YOUR">
+                        <select name="page_1_text_1_select" id="page_1_text_1_select" data-id-to-change="page-1-text-1"
+                            onchange="change_font_size(this)">
+                            <option value="small">Small</option>
+                            <option value="normal" selected>Medium</option>
+                            <option value="large">Large</option>
+                        </select>
                     </div>
                     <div>
-                        <label for="page-1-text-2">BATHS</label>
-                        <input type="text" id="page-1-text-2" name="page_1_text_2" value="2 BATHS">
+                        <label for="page-1-text-2">Last Name</label>
+                        <input type="text" id="page-1-text-2" name="page_1_text_2" value="NAME">
+                        <select name="page_1_text_2_select" id="page_1_text_2_select" data-id-to-change="page-1-text-2"
+                            onchange="change_font_size(this)">
+                            <option value="small">Small</option>
+                            <option value="normal">Medium</option>
+                            <option value="large" selected>Large</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="" style="margin-top:10px;">
+                    <div class="pr-10">
+                        <label for="page-1-text-3">Title</label>
+                        <input type="text" id="page-1-text-3" name="page_1_text_3"
+                            value="LICENSED AGENT  |  REAL ESTATE SPECIALIST">
                     </div>
                 </div>
 
                 <div class="flex">
                     <div class="pr-10">
-                        <label for="page-1-text-3">SURFACE</label>
-                        <input type="text" id="page-1-text-3" name="page_1_text_3" value="1,700 SQFT">
-                    </div>
-                    <div class="">
-                        <div class="">
-                            <label for="page-1-text-13">WEBSITE</label>
-                            <input type="text" id="page-1-text-13" name="page_1_text_13" value="WWW.LUXEKNOWS.COM">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex">
-                    <div class="pr-10">
-                        <label for="page-1-text-4">Address 1</label>
-                        <input type="text" id="page-1-text-4" name="page_1_text_4" value="55 MERRICK WAY #402">
+                        <label for="page-1-text-4">E - Mail</label>
+                        <input type="text" id="page-1-text-4" name="page_1_text_4" value="EMAIL@LUXEKNOWS.COM">
                     </div>
                     <div>
-                        <label for="page-1-text-5">Address 2</label>
-                        <input type="text" id="page-1-text-5" name="page_1_text_5" value="CORAL GABLES, FL 33134">
+                        <label for="page-1-text-5">Phone</label>
+                        <input type="text" id="page-1-text-5" name="page_1_text_5" value="305-986-7041">
                     </div>
                 </div>
 
@@ -289,9 +351,6 @@
                         <button type="button" class="mt-1" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="img_1_crop()">Save Crop</button>
                     </div>
-                    <div id="img-1-input-disclaimer" class="img-upload">
-                        <i>Image is being uploaded...</i>
-                    </div>
                 </div>
 
                 <div class="flex">
@@ -300,7 +359,7 @@
                         {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
-                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">--}}
+                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()"> --}}
                     </div>
                 </div>
             </div>
@@ -323,6 +382,7 @@
         $("."+element+"").removeClass('normal');
         $("."+element+"").removeClass('large');
     }
+
     $(document).ready(function() {
         $("input").change(function(event) {
             var event_id = event.target.id;
@@ -332,61 +392,21 @@
         });    
     });
 
-    function enable_buttons(disclaimer){
-        $("#"+disclaimer).css('display','none');
-        $('button').prop("disabled",false);
-    }
-
-    function disable_buttons(disclaimer){
-        $("#"+disclaimer).css('display','block');
-        $('button').prop("disabled",true);
-    }
-
-    function img_1_change(e){
+    function img_1_change(e) {
         const [file] = e.files
         if (file) {
             $("#image").attr('src', URL.createObjectURL(file))
-            $(".page").css('background-image', 'url(' + URL.createObjectURL(file) + ')');
+            $(".page").css('background-image', 'url(' + URL.createObjectURL(file) + ')')
         }
         $(".page").css("display", "block");
     }
 
-    function encodeBase64(elm,is_id,element) {
-        var file = elm.files[0];
-        var imgReader = new FileReader();
-        imgReader.onloadend = function() {
-            if(is_id){
-                $("#"+element).attr('src', imgReader.result);
-            }
-            else{
-                $("."+element).css('background-image', 'url(' + imgReader.result + ')');
-            }
-        }
-        imgReader.readAsDataURL(file);
-        return imgReader.result;
-    }
-
-    function encodeBase64_crop(elm,is_id,element) {
-        var file = elm;
-        var imgReader = new FileReader();
-        imgReader.onloadend = function() {
-            if(is_id){
-                $("#"+element).attr('src', imgReader.result);
-            }
-            else{
-                $("."+element).css('background-image', 'url(' + imgReader.result + ')');
-            }
-        }
-        imgReader.readAsDataURL(file);
-        return imgReader.result;
-    }
-
-    function img_1_crop(){
+    function img_1_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr('src', URL.createObjectURL(blob))
-            $(".page").css('background-image', 'url(' + URL.createObjectURL(blob) + ')');
+            $(".page").css('background-image', 'url(' + URL.createObjectURL(blob) + ')')
         });
-        cropper.destroy()
+        cropper.destroy();
         $(".page").css("display", "block");
     }
 
@@ -395,8 +415,8 @@
         var image = document.getElementById("image");
         $(".page").css("display", "none");
         cropper = new Cropper(image, {
-            aspectRatio: 1,
-            minContainerHeight: 500
+            minContainerHeight: 500,
+            aspectRatio: 0.718,
         });
     }
 

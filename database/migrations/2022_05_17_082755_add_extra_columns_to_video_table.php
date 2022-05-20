@@ -27,8 +27,10 @@ class AddExtraColumnsToVideoTable extends Migration
      */
     public function down()
     {
-        Schema::table('video', function (Blueprint $table) {
-            //
+        Schema::table('videos', function (Blueprint $table) {
+            $table->dropColumn('description');
+            $table->dropColumn('thumbnail');
+            $table->dropColumn('embed_url');
         });
     }
 }
