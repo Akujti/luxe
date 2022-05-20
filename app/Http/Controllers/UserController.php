@@ -15,6 +15,7 @@ use App\Http\Requests\User\NoteRequest;
 use App\Http\Requests\User\DeleteRequest;
 use App\Http\Requests\User\UpdateRequest;
 use App\Http\Requests\User\UpdateProfileRequest;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller
 {
@@ -129,8 +130,13 @@ class UserController extends Controller
             if (isset($req->profile['avatar'])) {
                 if ($req->profile['avatar']) {
                     $name = time() . Str::random(10) . '.' . $req->profile['avatar']->getClientOriginalExtension();
-                    $path = $req->profile['avatar']->storeAs('/users', $name, 'public');
-                    $image = $path;
+                    $img = Image::make($req->profile['avatar']);
+
+                    $img->fit(205, 205, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    $img->save(storage_path('app/public/users/' . $name));
+                    $image = 'users/'. $name;
                 }
             }
             $languageJson = [];
@@ -173,8 +179,13 @@ class UserController extends Controller
                 $image = $row->profile->avatar;
                 if (isset($req->profile['avatar'])) {
                     $name = time() . Str::random(10) . '.' . $req->profile['avatar']->getClientOriginalExtension();
-                    $path = $req->profile['avatar']->storeAs('/users', $name, 'public');
-                    $image = $path;
+                    $img = Image::make($req->profile['avatar']);
+
+                    $img->fit(205, 205, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    $img->save(storage_path('app/public/users/' . $name));
+                    $image = 'users/'. $name;
                 }
                 $languageJson = [];
                 if ($req->has('languages') && $req->languages) {
@@ -211,8 +222,13 @@ class UserController extends Controller
                 }
                 if (isset($req->profile['avatar'])) {
                     $name = time() . Str::random(10) . '.' . $req->profile['avatar']->getClientOriginalExtension();
-                    $path = $req->profile['avatar']->storeAs('/users', $name, 'public');
-                    $image = $path;
+                    $img = Image::make($req->profile['avatar']);
+
+                    $img->fit(205, 205, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    $img->save(storage_path('app/public/users/' . $name));
+                    $image = 'users/'. $name;
                 }
                 $languageJson = [];
                 if ($req->has('languages') && $req->languages) {

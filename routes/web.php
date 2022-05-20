@@ -143,37 +143,37 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('email-template-4', [PDFController::class, 'email_template_4'])->name('email-template-4');
 
     //Themes
-    Route::get('/just-listed-story', function () {
-        return view('themes.just-listed-story.just-listed-story-web');
-    });
+    // Route::get('/just-listed-story', function () {
+    //     return view('themes.just-listed-story.just-listed-story-web');
+    // });
 
-    Route::post('create-theme-just-listed-story', [PDFController::class, 'theme_just_listed_story'])->name('theme-just-listed-story');
+    // Route::post('create-theme-just-listed-story', [PDFController::class, 'theme_just_listed_story'])->name('theme-just-listed-story');
 
     // Route::get('/coming-soon', function () {
     //     return view('themes.coming-soon.coming-soon-web');
     // });
     // Route::post('create-theme-coming-soon', [PDFController::class, 'theme_coming_soon'])->name('theme-coming-soon');
 
-    Route::get('/just-closed-story', function () {
-        return view('themes.just-closed-story.just-closed-story-web');
-    });
-    Route::post('create-theme-just-closed-story', [PDFController::class, 'theme_just_closed_story'])->name('theme-just-closed-story');
+    // Route::get('/just-closed-story', function () {
+    //     return view('themes.just-closed-story.just-closed-story-web');
+    // });
+    // Route::post('create-theme-just-closed-story', [PDFController::class, 'theme_just_closed_story'])->name('theme-just-closed-story');
 
-    Route::get('/tbt-story', function () {
-        return view('themes.tbt-story.tbt-story-web');
-    });
-    Route::post('create-theme-tbt-story', [PDFController::class, 'theme_tbt_story'])->name('theme-tbt-story');
+    // Route::get('/tbt-story', function () {
+    //     return view('themes.tbt-story.tbt-story-web');
+    // });
+    // Route::post('create-theme-tbt-story', [PDFController::class, 'theme_tbt_story'])->name('theme-tbt-story');
 
-    Route::get('/joined-luxe-story', function () {
-        return view('themes.joined-luxe-story.joined-luxe-story-web');
-    });
-    Route::post('create-theme-joined-luxe-story', [PDFController::class, 'theme_just_joined_story'])->name('theme-joined-luxe-story');
+    // Route::get('/joined-luxe-story', function () {
+    //     return view('themes.joined-luxe-story.joined-luxe-story-web');
+    // });
+    // Route::post('create-theme-joined-luxe-story', [PDFController::class, 'theme_just_joined_story'])->name('theme-joined-luxe-story');
 
     //New Theme
-    Route::get('/open-house-theme', function () {
-        return view('themes.open-house.open-house-web');
-    });
-    Route::post('create-theme-open-house', [PDFController::class, 'theme_open_house'])->name('theme-open-house');
+    // Route::get('/open-house-theme', function () {
+    //     return view('themes.open-house.open-house-web');
+    // });
+    // Route::post('create-theme-open-house', [PDFController::class, 'theme_open_house'])->name('theme-open-house');
 
     ////
 
@@ -182,15 +182,15 @@ Route::group(['middleware' => ['auth']], function () {
     // });
     // Route::post('create-theme-joined-luxe', [PDFController::class, 'theme_just_joined'])->name('theme-joined-luxe');
 
-    Route::get('/just-closed', function () {
-        return view('themes.just-closed.just-closed-web');
-    });
-    Route::post('create-theme-just-closed', [PDFController::class, 'theme_just_closed'])->name('theme-just-closed');
+    // Route::get('/just-closed', function () {
+    //     return view('themes.just-closed.just-closed-web');
+    // });
+    // Route::post('create-theme-just-closed', [PDFController::class, 'theme_just_closed'])->name('theme-just-closed');
 
-    Route::get('/just-listed', function () {
-        return view('themes.just-listed.just-listed-web');
-    });
-    Route::post('create-theme-just-listed', [PDFController::class, 'theme_just_listed'])->name('theme-just-listed');
+    // Route::get('/just-listed', function () {
+    //     return view('themes.just-listed.just-listed-web');
+    // });
+    // Route::post('create-theme-just-listed', [PDFController::class, 'theme_just_listed'])->name('theme-just-listed');
 
     // Route::get('/tbt', function () {
     //     return view('themes.tbt.tbt-web');
@@ -198,25 +198,25 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::post('create-theme-tbt', [PDFController::class, 'theme_tbt'])->name('theme-tbt');
     ////
 
-    Route::get('/just-sold-story', function () {
-        return view('themes.just-sold-story.just-sold-story-web');
-    });
-    Route::get('/just-sold', function () {
-        return view('themes.just-sold.just-sold-web');
-    });
+    // Route::get('/just-sold-story', function () {
+    //     return view('themes.just-sold-story.just-sold-story-web');
+    // });
+    // Route::get('/just-sold', function () {
+    //     return view('themes.just-sold.just-sold-web');
+    // });
 
-    Route::get('/for-sale', function () {
-        return view('themes.for-sale.for-sale-web');
-    });
-    Route::get('/for-sale-story', function () {
-        return view('themes.for-sale-story.for-sale-story-web');
-    });
+    // Route::get('/for-sale', function () {
+    //     return view('themes.for-sale.for-sale-web');
+    // });
+    // Route::get('/for-sale-story', function () {
+    //     return view('themes.for-sale-story.for-sale-story-web');
+    // });
 
-    Route::post('create-theme-for-sale', [PDFController::class, 'theme_for_sale'])->name('theme-for-sale');
-    Route::post('create-theme-for-sale-story', [PDFController::class, 'theme_for_sale_story'])->name('theme-for-sale-story');
+    // Route::post('create-theme-for-sale', [PDFController::class, 'theme_for_sale'])->name('theme-for-sale');
+    // Route::post('create-theme-for-sale-story', [PDFController::class, 'theme_for_sale_story'])->name('theme-for-sale-story');
 
-    Route::post('create-theme-just-sold', [PDFController::class, 'theme_just_sold'])->name('theme-just-sold');
-    Route::post('create-theme-just-sold-story', [PDFController::class, 'theme_just_sold_story'])->name('theme-just-sold-story');
+    // Route::post('create-theme-just-sold', [PDFController::class, 'theme_just_sold'])->name('theme-just-sold');
+    // Route::post('create-theme-just-sold-story', [PDFController::class, 'theme_just_sold_story'])->name('theme-just-sold-story');
     //End
 
 

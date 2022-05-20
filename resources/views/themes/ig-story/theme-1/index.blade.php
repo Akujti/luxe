@@ -199,7 +199,7 @@
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
                 <input hidden name="img_3_input" id="img_3_input" value="/images/themes/for-sale/bg.png">
                 <input hidden name="img_2_input" id="img_2_input" value="/images/themes/just-sold-story/second-bg.jpg">
-                <div class="page" id="page-box">
+                <div class="page" id="page-box" style="width: 900px; height:1600px">
                     <div>
                         <img id="img3" class="absolute bg-image" src="/images/themes/for-sale/bg.png" alt=""
                             style="height: 730px;width: 900px;">
