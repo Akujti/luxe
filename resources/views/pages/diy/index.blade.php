@@ -46,21 +46,62 @@
 
     a:hover {
         text-decoration: none;
+        color: #262626;
+    }
+    .box-item {
+        background-color: #F7F7F7;
+        text-align: center;
+        height: 311px;
+        margin-bottom: 26px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .box-item img {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .box-item .icon {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+    }
+
+    .box-item p {
+        font-size: 25px;
+        font-family: 'gothicregular';
+    }
+    a {
+        color: #262626;
+    }
+    .title h1 {
+        font-family: 'gothicbold';
+        text-align: center;
+    }
+    .title p {
+        font-family: 'gothicregular';
+        text-align: center;
     }
 </style>
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row align-items-center" style="height: 77vh;">
+    <div class="col-12 title mb-3">
+        <h1>Online Marketing Designer</h1>
+        <p>Please select category which you like to design.</p>
+    </div>
+    <div class="row align-items-center box-items">
         @foreach($categories as $category)
-        <div class="col my-2">
-            <div class="bg-transparent">
+        <div class="col-12 col-md-6 col-lg-3 my-2">
+            <div class="box-item">
                 <a href="{{route('user.diy-templates.show', $category)}}">
-                    <div class="card-body text-center p-0">
-                        <img src="{{ asset('storage/'.$category->image) }}" alt="" width="92" height="92">
-                    </div>
-                    <div class="card-header">
-                        {{$category->title}}
+                    <div>
+                        <img class="icon" src="{{ asset('storage/'.$category->image) }}" alt="">
+                        <p>{{$category->title}}</p>
                     </div>
                 </a>
             </div>

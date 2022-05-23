@@ -31,9 +31,43 @@
     }
 
     @media (max-width: 576px) {
-        .box a {
+        .box-item a {
             font-size: 13px;
         }
+    }
+    .box-item {
+        background-color: #F7F7F7;
+        text-align: center;
+        height: 311px;
+        margin-bottom: 26px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .box-item img {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .box-item .icon {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+    }
+
+    .box-item a {
+        font-size: 25px;
+        font-family: 'gothicregular';
+        color: #262626;
+    }
+    .box-item a:hover {
+        color: #262626;
+    }
+    a:focus {
+        outline: none;
     }
 </style>
 
@@ -43,13 +77,13 @@
         <div class="col-md-12">
             <div class="">
                 <div class="card-title text-center">
-                    <h1>Select Room</h1>
+                    <h1>Select Conference Room Location</h1>
                 </div>
                 <div class="">
                     <div class="row m-0 p-0">
                         @foreach($rooms as $room)
-                        <div class="col-lg-4 mb-4">
-                            <div class="box">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="box-item">
                                 <a href="{{route('bookings.index',$room->id)}}"
                                     class="btn w-100 d-flex align-items-center justify-content-center"
                                     style="height: 70px">{{$room->name}}</a>
