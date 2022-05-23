@@ -73,7 +73,7 @@
 </style>
 
 @section('content')
-<div class="container-fluid d-flex align-items-center" style="height: 70vh">
+<div class="container-fluid d-flex align-items-center">
     <div class="row justify-content-center w-100 m-0 p-0">
         <div class="col-md-12">
             <div class="">
@@ -96,8 +96,6 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 @endsection
