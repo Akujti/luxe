@@ -44,7 +44,7 @@
         }
 
         .fc-daygrid-event.zoom_trainings {
-            background-color: #6196F1;
+            background-color: #A5C6FF;
         }
 
         .fc-daygrid-event.tours {

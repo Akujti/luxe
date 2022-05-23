@@ -52,7 +52,7 @@
         font-size: 20px;
         font-family: 'gothicbold';
         color: #262626;
-        margin-bottom: 40px;
+        height: 100px;
         padding-top: 0px;
         margin-top: 0px;
     }

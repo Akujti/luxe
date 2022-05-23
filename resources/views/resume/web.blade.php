@@ -333,7 +333,7 @@
         @csrf
         <div class="col-12 title mb-3">
             <h1>Resume Builder</h1>
-            <p>scroll down to edit text and photo.</p>
+            <p>Scroll down to edit text and photo.</p>
         </div>
         <div class="row">
             <div class="row-image">

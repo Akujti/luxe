@@ -943,7 +943,7 @@
             <div class="box-item" onclick="window.location = '{{ url("home?dir=coming_soon")}}'">
                 <div>
                     <img src="/images/index-page/tax_accountants.svg" class="icon" alt="">
-                    <p>Tax accountants</p>
+                    <p>Tax Accountants</p>
                 </div>
             </div>
         </div>

@@ -91,7 +91,7 @@
 <div class="container-fluid">
     <div class="col-12 title mb-3">
         <h1>Design Requests</h1>
-        <p>Please select category which you like to design.</p>
+        <p>Please select the category which you would like to design.</p>
     </div>
     <div class="row align-items-center">
         @foreach($marketing_categories as $category)

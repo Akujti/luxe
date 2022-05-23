@@ -62,6 +62,7 @@
         font-size: 25px;
         font-family: 'gothicregular';
         color: #262626;
+        white-space: break-spaces;
     }
     .box-item a:hover {
         color: #262626;
