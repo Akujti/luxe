@@ -962,7 +962,7 @@
         <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location='{{ url("/form") }}'">
                 <div>
-                    <p>Pre approval Form</p>
+                    <p>Pre-Approval Form</p>
                 </div>
             </div>
         </div>
