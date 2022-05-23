@@ -8,6 +8,7 @@ use App\Models\LuxeStore\LuxeStoreCategory;
 use App\Http\Requests\LuxeStore\Category\AddRequest;
 use App\Http\Requests\LuxeStore\Category\DeleteRequest;
 use App\Http\Requests\LuxeStore\Category\UpdateRequest;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class CategoryController extends Controller
 {
@@ -31,8 +32,13 @@ class CategoryController extends Controller
 
         if($req->image) {
             $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
-            $path = $req->image->storeAs('/luxe_store', $name, 'public');;
-            $row->image = $path;
+            $img = Image::make($req->image);
+
+            $img->fit(304, 303, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save(storage_path('app/public/luxe_store/' . $name));
+            $row->image = 'luxe_store/'.$name;
         }
         $row->save();
 
@@ -47,8 +53,13 @@ class CategoryController extends Controller
 
         if($req->image) {
             $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
-            $path = $req->image->storeAs('/luxe_store', $name, 'public');;
-            $row->image = $path;
+            $img = Image::make($req->image);
+
+            $img->fit(304, 303, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save(storage_path('app/public/luxe_store/' . $name));
+            $row->image = 'luxe_store/'.$name;
         }
         $row->save();
 

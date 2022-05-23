@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flyer</title>
-</head>
+@extends('themes.layouts.app')
+@section('title')
+    Flyer -
+@endsection
+@section('css')
 @include('includes.fonts')
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
@@ -68,11 +64,14 @@
     }
 
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
         padding: 10px;
         display: block;
         width: 150px;
-        font-family: Lato;
+        font-family: 'gothicbold';
+        color: #fff;
+        margin-top: 10px;
+        font-size: 15px;
     }
 
     .row {
@@ -102,8 +101,14 @@
         margin-top: 10px;
         margin-bottom: 5px;
         width: 100%;
-        border: 1px solid #FFCF40;
-        font-family: Lato;
+        border: 1px solid #262626;
+        padding: 10px;
+        font-family: 'gothicregular';
+    }
+    select {
+        border: 1px solid #262626;
+        padding: 10px;
+        font-family: 'gothicregular';
     }
 
     .button {
@@ -111,13 +116,15 @@
     }
 
     .generate {
-        font-family: "Lato";
+        font-family: "gothicbold";
         font-weight: 600;
         font-size: 18px;
-        padding: 20px;
-        background-color: #FFCF40;
-        color: white;
+        padding: 15px 40px;
+        border:1px solid #e8e8e8;
+        background-color: #e8e8e8;
+        color: #000;
         text-decoration: none;
+        border-radius: 10px;
     }
 
     .flex {
@@ -320,7 +327,20 @@
     .text-3.large {
         font-size: 76px;
     }
+    button {
+        background-color: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        padding: 10px;
+        color: #262626;
+        font-family: 'gothicbold';
+        border-radius: 10px;
+    }
+    .mt-1 {
+        margin-top: 5px;
+    }
 </style>
+@endsection
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
@@ -330,7 +350,7 @@
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
 
-<body>
+@section('content')
     <form action="{{ route('flyer-template-6') }}" method="POST">
         @csrf
         <div class="row">
@@ -344,7 +364,7 @@
                         <img src="images/flyers/template6/main.png" alt="">
                     </div>
                     <div class="absolute" style="top:219px;left:0px;">
-                        <img id="img_1" src="images/flyers/template6/bg.jpg" alt="" style="" width="1909px"
+                        <img id="img_1" src="images/flyers/template6/bg.jpg" alt="" width="1909px"
                             height="1213px">
                     </div>
                     <div class="absolute" style="top:220px;left:1397px;">
@@ -420,27 +440,26 @@
                 <div class="">
                     <div class="file-input-width">
                         <label for="page-1-img-1">Main Image</label>
-                        <input type="file" id="img-1-input"
-                            onchange="image_change('img-1-input',['img_1'],'img_1_input')">
-                        <button type="button" onclick="startCropper(1909/1211)">Crop</button>
+                        <button type="button" class="mt-1" onclick="openInputFile()">Choose Image</button>
+                        <input type="file" class="mt-1" id="img-1-input"
+                            onchange="image_change(this, 'img-1-input',['img_1'],'img_1_input')" style="display:none">
+                        <button type="button" class="mt-1" onclick="startCropper(1909/1211)">Crop</button>
                         <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
                     </div>
                 </div>
                 <div class="flex" style="margin-top:20px;">
                     <div class="" style="width: 345px;">
-                        <button type="submit" name="action" value="Generate" class="generate">Generate</button>
-                        {{-- <button type="button" onclick="getScreenShot()">Generate png</button> --}}
-                        <button type="submit" name="action" value="Save" class="generate">Save</button>
+                        <button type="button" name="action" value="Generate" class="generate" onclick="getScreenShot('page-box')">Generate</button>
+                        {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
-                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
+                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()"> --}}
                     </div>
                 </div>
             </div>
         </div>
     </form>
-</body>
-{{-- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> --}}
+@endsection
 <script>
     $("textarea").change(function(event) {
         var event_id = event.target.id;
@@ -474,57 +493,24 @@
         }); 
     });
 
-    function image_change(file_input,image_src,image_input) {
-        var form_data = new FormData();
-        form_data.append("file", $("#"+file_input)[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-            'X-CSRF-Token': $('[name="_token"]').val()
-        },
-        success: function(output) {
-            $("#image").attr('src', 'uploadedimages/' + output)
-            getBase64Image(document.getElementById('image'), function(base64) {
-                image_src.forEach(element => {
-                    $("#"+element).attr('src', 'uploadedimages/' + output);
-                });
-                $("input[name="+image_input+"]").val('uploadedimages/' + output);
+    function image_change(e, file_input,image_src,image_input) {
+        const [file] = e.files
+        if (file) {
+            image_src.forEach(element => {
+                $("#"+element).attr('src', URL.createObjectURL(file));
             });
+            $("#image").attr('src', URL.createObjectURL(file))
         }
-        });
     }
     
     function crop_image(image,image_input) {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-            'X-CSRF-Token': $('[name="_token"]').val()
-        },
-        success: function(output) {
-            cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"), function(base64) {
-                    image.forEach(element => {
-                        $("#"+element).attr('src', 'uploadedimages/' + output);
-                    });
-                    $("input[name="+image_input+"]").val('uploadedimages/' + output);
-                });
-            }
+            $('#image').attr('src', URL.createObjectURL(blob))
+            image.forEach(element => {
+                $("#"+element).attr('src', URL.createObjectURL(blob));
+            });
         });
-        });
+        cropper.destroy()
         $(".page").css("opacity", "1");
     }
 
@@ -558,26 +544,9 @@
         })
     }
 
-    // Generate PNG Code
-    // function getScreenShot() {
-    //     let c = document.getElementById('page-box');
-    //     html2canvas(c, {
-    //         letterRendering: 1,
-    //         allowTaint : true,
-    //         useCORS: true,
-    //     }).then((canvas) => {
-    //         var t = canvas.toDataURL().replace("data:image/png;base64,", "");
-    //         this.downloadBase64File('image/png',t,'luxe-image');
-    //     })
-    // }
-
-    // function downloadBase64File(contentType, base64Data, fileName) {
-    //     const linkSource = `data:${contentType};base64,${base64Data}`;
-    //     const downloadLink = document.createElement("a");
-    //     downloadLink.href = linkSource;
-    //     downloadLink.download = fileName;
-    //     downloadLink.click();
-    // }
+    function openInputFile() {
+        $('#img-1-input').click()
+    }
 </script>
 
 </html>

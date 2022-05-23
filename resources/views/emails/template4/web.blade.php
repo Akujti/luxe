@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Email Blasts</title>
-</head>
+@extends('themes.layouts.app')
+@section('css')
 @include('includes.fonts')
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -16,22 +9,18 @@
     * {
         font-family: 'Montserrat';
     }
-
-    div {
-        /* border: 1px solid red; */
-    }
-
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
+        color: #fff;
         padding: 10px;
         display: block;
         width: 150px;
-        font-family: Lato;
+        font-family: 'gothicbold';
+        font-size: 15px;
     }
 
     .row {
         display: flex;
-        /* justify-content: center; */
     }
 
     .row-divider {
@@ -55,9 +44,10 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 5px;
-        width: 100%;
-        border: 1px solid #FFCF40;
-        font-family: Lato;
+        width: calc(100% - 20px);
+        border: 1px solid #262626;
+        padding: 10px;
+        font-family: 'gothicregular';
     }
 
     .button {
@@ -65,13 +55,15 @@
     }
 
     .generate {
-        font-family: "Lato";
+        font-family: "gothicbold";
         font-weight: 600;
         font-size: 18px;
-        padding: 20px;
-        background-color: #FFCF40;
-        color: white;
+        padding: 15px 40px;
+        border:1px solid #e8e8e8;
+        background-color: #e8e8e8;
+        color: #000;
         text-decoration: none;
+        border-radius: 10px;
     }
 
     .flex {
@@ -246,8 +238,23 @@
     .text-right {
         text-align: right;
     }
-</style>
 
+    button {
+        background-color: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        padding: 10px;
+        color: #262626;
+        font-family: 'gothicbold';
+        border-radius: 10px;
+    }
+    .mt-1 {
+        margin-top: 5px;
+    }
+    .mt-3 {
+        margin-top: 15px;
+    }
+</style>
+@endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
     integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
@@ -256,10 +263,10 @@
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
 
-<body>
+@section('content')
     <form action="{{ route('email-template-4') }}" method="POST">
         @csrf
-        <div class="row">
+        <div class="row" style="padding: 10px;">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
                 <input hidden name="img_1_input" id="img_1_input" value="images/emails/template4/house-1.jpg">
@@ -268,7 +275,7 @@
                 <input hidden name="img_4_input" id="img_4_input" value="images/emails/template4/house-4.jpg">
                 <input hidden name="img_5_input" id="img_5_input" value="images/emails/template4/agent.jpg">
                 <div class="page-wrapper">
-                    <div class="page">
+                    <div class="page" id="el">
                         {{-- Images --}}
                         <div class="absolute">
                             <img src="images/emails/template4/main.jpg" alt="" style="width: 1000px;height:3523px;">
@@ -421,7 +428,7 @@
                                 33134</h1>
                         </div>
                         <div class="absolute w-100" style="text-align: center;top:3483px;">
-                            <h1 class="" style="font-size:18px;font-weight:400;color:#9e9e9e">Copyright © 2021 LUXE
+                            <h1 class="" style="font-size:18px;font-weight:400;color:#9e9e9e">Copyright © {{ date('Y') }} LUXE
                                 Properties, LLC, All rights reserved.</h1>
                         </div>
                     </div>
@@ -435,8 +442,9 @@
                 </div>
                 <div class="pr-10" style="margin-bottom:10px">
                     <label for="page-1-img-1">First Image</label>
-                    <input type="file" id="img-1-input" onchange="image_change('img-1-input',['img_1'],'img_1_input')">
-                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose Image</button><br>
+                    <input type="file" id="img-1-input" onchange="image_change(this, 'img-1-input',['img_1'],'img_1_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                     <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
                 </div>
                 <div class="">
@@ -449,8 +457,9 @@
                 </div>
                 <div class="pr-10" style="margin-bottom:10px">
                     <label for="page-1-img-1">Second Image</label>
-                    <input type="file" id="img-2-input" onchange="image_change('img-2-input',['img_2'],'img_2_input')">
-                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-2-input')">Choose Image</button><br>
+                    <input type="file" id="img-2-input" onchange="image_change(this, 'img-2-input',['img_2'],'img_2_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                     <button type="button" onclick="crop_image(['img_2'],'img_2_input')">Save Crop</button>
                 </div>
                 <div class="">
@@ -463,8 +472,9 @@
                 </div>
                 <div class="pr-10" style="margin-bottom:10px">
                     <label for="page-1-img-1">Third Image</label>
-                    <input type="file" id="img-3-input" onchange="image_change('img-3-input',['img_3'],'img_3_input')">
-                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-3-input')">Choose Image</button><br>
+                    <input type="file" id="img-3-input" onchange="image_change(this, 'img-3-input',['img_3'],'img_3_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                     <button type="button" onclick="crop_image(['img_3'],'img_3_input')">Save Crop</button>
                 </div>
                 <div class="">
@@ -477,8 +487,9 @@
                 </div>
                 <div class="pr-10" style="margin-bottom:10px">
                     <label for="page-1-img-1">Fourth Image</label>
-                    <input type="file" id="img-4-input" onchange="image_change('img-4-input',['img_4'],'img_4_input')">
-                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-4-input')">Choose Image</button><br>
+                    <input type="file" id="img-4-input" onchange="image_change(this, 'img-4-input',['img_4'],'img_4_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                     <button type="button" onclick="crop_image(['img_4'],'img_4_input')">Save Crop</button>
                 </div>
                 <div class="">
@@ -499,8 +510,9 @@
                 </div>
                 <div class="pr-10" style="margin-bottom:10px">
                     <label for="page-1-img-1">Agent Image</label>
-                    <input type="file" id="img-5-input" onchange="image_change('img-5-input',['img_5'],'img_5_input')">
-                    <button type="button" onclick="startCropper(1)">Crop</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-5-input')">Choose Image</button><br>
+                    <input type="file" id="img-5-input" onchange="image_change(this, 'img-5-input',['img_5'],'img_5_input')" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                     <button type="button" onclick="crop_image(['img_5'],'img_5_input')">Save Crop</button>
                 </div>
                 <div class="">
@@ -523,18 +535,20 @@
                 </div>
                 <div class="flex">
                     <div class="" style="width: 345px;">
-                        <button type="submit" name="action" value="Generate" class="generate">Generate</button>
-                        <button type="submit" name="action" value="Save" class="generate">Save</button>
+                        <button type="button" name="action" value="Generate" class="generate" onclick="beforePDF()">Generate</button>
+                        {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
-                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
+                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">--}}
                     </div>
                 </div>
             </div>
         </div>
         </div>
     </form>
-</body>
+@include('includes.loader')
+@endsection
+
 
 <script>
     function change_font_size(select_input){
@@ -560,57 +574,24 @@
         });    
     });
 
-    function image_change(file_input,image_src,image_input) {
-        var form_data = new FormData();
-        form_data.append("file", $("#"+file_input)[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-            'X-CSRF-Token': $('[name="_token"]').val()
-        },
-        success: function(output) {
-        $("#image").attr('src', 'uploadedimages/' + output)
-        getBase64Image(document.getElementById('image'), function(base64) {
+    function image_change(e, file_input,image_src,image_input) {
+        const [file] = e.files
+        if (file) {
+            $('#image').attr("src", URL.createObjectURL(file));
             image_src.forEach(element => {
-            $("#"+element).attr('src', 'uploadedimages/' + output);
+                $("#"+element).attr('src', URL.createObjectURL(file));
             });
-            $("input[name="+image_input+"]").val('uploadedimages/' + output);
-        });
         }
-        });
     }
     
     function crop_image(image,image_input) {
         cropper.getCroppedCanvas().toBlob((blob) => {
-            const form_data = new FormData();
-            form_data.append('file', blob, 'example.png');
-            $.ajax({
-                url: '/uploadimage',
-                data: form_data,
-                type: 'post',
-                cache: false,
-                contentType: false,
-                processData: false,
-                headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output) {
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"), function(base64) {
-                    image.forEach(element => {
-                    $("#"+element).attr('src', 'uploadedimages/' + output);
-                    });
-                    $("input[name="+image_input+"]").val('uploadedimages/' + output);
-                });
-            }
+            $('#image').attr("src", URL.createObjectURL(blob));
+            image.forEach(element => {
+                $("#"+element).attr('src', URL.createObjectURL(blob));
             });
         });
+        cropper.destroy();
         $(".page").css("opacity", "1");
     }
     
@@ -650,6 +631,18 @@
             var base64=canvas.toDataURL("image/png");
             callback(base64)
         })
+    }
+    function openInputFile(id) {
+        $('#' + id).click()
+    }
+    async function beforePDF() {
+        $('.page').css('zoom', 0)
+        $('.loader').css('display', 'flex')
+        const result = await generatePDF(264, 932)
+        if(result) {
+            $('.page').css('zoom', '.7')
+            $('.loader').css('display', 'none')
+        }
     }
 </script>
 

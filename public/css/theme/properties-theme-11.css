@@ -1,0 +1,132 @@
+.frame-box { width: 100%; height: 100%;}
+
+.frame-box .bottom-details {
+    width: 100%;
+    bottom: 0px;
+    position: absolute;
+    height: 201px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.frame-box .left-details {
+    background: black;
+    width: 50%;
+    padding: 15px;
+    height: 204px;
+    display: flex;
+    align-items: center;
+
+}
+.frame-box .left-details div {
+    padding-left: 10px;
+}
+.frame-box .left-details p {
+    margin-bottom: 5px !important;
+}
+#frame-name {
+    font-family: 'Avenir';
+    font-size: 20px;
+    width: 168px;
+    word-wrap: anywhere;
+    color: #C4A366;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 700;
+}
+#address-static {
+    font-family: 'Helvetica3';
+    color: #fff;
+    font-size: 14px;
+}
+#frame-phone, #frame-email {
+    font-family: 'Helvetica3';
+    color: #fff;
+    font-size: 14px;
+}
+#frame-phone img, #frame-email img {
+    width: 14px !important;
+    height: auto !important;
+}
+#frame-address, #frame-city, #frame-state {
+    display: inline-block;
+    line-height: 33px;
+}
+.left-details #logo {
+    max-width: 132px;
+    height: auto !important;
+    padding-top: 17px;
+}
+.right-details {
+    height: 189px;
+    background-color: #C4A366;
+    color: #000;
+    font-size: 24px;
+    width: 50%;
+    font-weight: 500;
+    font-family: 'Helvetica3';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.right-details div {
+    padding-left: 20px;
+}
+.inner-image {
+    width: 100%;
+    height: 489px;
+    position: absolute;
+    background-size: cover !important;
+}
+.together {
+    background-color: #292929;
+    height: 155px;
+    bottom: 13px;
+    width: 94%;
+    position: absolute;
+}
+.top-details {
+    position: absolute;
+    z-index: 999;
+    left: 33px;
+    top: 5px;
+    width: 173px;
+    background-color: rgba(0,0,0, .6);
+    height: 123px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-details #frame-title-1 {
+    font-family: 'Avenir';
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: 4px;
+    font-weight: 900;
+    text-align: center;
+}
+.top-details #frame-title-2 {
+    font-weight: 900;
+    font-family: 'Helvetica Neue LT Std';
+    line-height: 43px;
+    font-size: 43px;
+    letter-spacing: .2px;
+    color: #9B8152;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+}
+.top-details::after {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 11px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.4);
+    z-index: -1;
+}

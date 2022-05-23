@@ -81,10 +81,10 @@
     'normal' => $fontDir . '/lato-regular-normal_3a6ce22796916dc1af95ef41eff8f888',
   ),
   'lato' => array(
-    'normal' => $fontDir . '/lato-normal_74ff5cee88f1fe435fef13fd8d255d28',
-    'bold' => $fontDir . '/lato-bold_8297c6567077ba29f107792a3a0184b4',
-    '300' => $fontDir . '/lato-300_dc52991881b98bbc9b3c8b8ab171576e',
-    '900' => $fontDir . '/lato-900_b0313240e1032353db66dc2f769fc0e4',
+    'normal' => $fontDir . '/lato-normal_e84d821566a5c4c11d867dc495c5d1d6',
+    'bold' => $fontDir . '/lato-bold_390c1eb4db6823132bd56ad1e5f68b57',
+    '300' => $fontDir . '/lato-300_d373f81d94c374f69890de6eec0e8ca5',
+    '900' => $fontDir . '/lato-900_afe7ed65fe68e861f4e12df839d37a08',
   ),
   'lato-light' => array(
     'normal' => $fontDir . '/lato-light-normal_ef5928dd8316c68a95aed8fe190c8d01',
@@ -108,9 +108,9 @@
     'normal' => $fontDir . '/roboto-normal_b7834828abc03e1e6aa6b18153302986',
   ),
   'oswald' => array(
-    'normal' => $fontDir . '/oswald-normal_a1350b3dec404b3592fd403970020c47',
-    '500' => $fontDir . '/oswald-500_4fe61de3d28e32e24b3c5f946bef6435',
-    '600' => $fontDir . '/oswald-600_e24a371e7ab1d557b704592865144d76',
+    'normal' => $fontDir . '/oswald-normal_3d7dcf655e138f914848f8b120670d5c',
+    '500' => $fontDir . '/oswald-500_9911ed0a69c6d24c1db2fd625698d6c5',
+    '600' => $fontDir . '/oswald-600_6616e74316b4ffa8ce3b511328229b51',
   ),
   'ibm plex sans' => array(
     'normal' => $fontDir . '/ibm-plex-sans-normal_baa3d360a5694978c4577f635c0b18c7',

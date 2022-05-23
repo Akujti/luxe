@@ -239,7 +239,7 @@
                                             <a class="dropdown-item" href="#">
                                                 <div class="">
                                                     <form action="{{ route('logout') }}" method="post"
-                                                        class="">
+                                                        class="m-0">
                                                         @csrf
                                                         <button class="btn btn-logout"><span
                                                                 class="item-box">Logout</span></button>

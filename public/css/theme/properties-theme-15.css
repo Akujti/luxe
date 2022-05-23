@@ -1,0 +1,87 @@
+#frame-image {
+    position: relative;
+}
+
+.preview {
+    width: 700px;
+    height: 500px;
+}
+
+#frame-title-1, #frame-title-2, #frame-day, #frame-time, #frame-offer, #frame-price, #frame-location {
+    position: absolute;
+    z-index: 999;
+}
+#frame-title-1 {
+    font-family: 'Lato';
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 39px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    top: -3px;
+}
+#frame-title-2 {
+    font-weight: 900;
+    font-family: 'gothicbold';
+    font-size: 50px;
+    color: #fff;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    top: 34px;
+}
+#frame-location {
+    left: 194px;
+    bottom: 23px;
+    font-size: 22px;
+    font-weight: 300;
+    font-family: 'gothicregular';
+    color: #fff;
+}
+#frame-day {
+    width: 100%;
+    text-align: center;
+    top: 93px;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 32px;
+    color: #fff;
+    font-family: 'gothicbold';
+    text-transform: uppercase;
+}
+#frame-day::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 32%;
+    right: 33%;
+    height: 2px;
+    background: #fff;
+}
+#frame-time {
+    width: 100%;
+    text-align: center;
+    top: 126px;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 32px;
+    color: #fff;
+    font-family: 'gothicbold';
+    text-transform: uppercase;
+}
+#frame-offer {
+    font-size: 20px;
+    color: #fff;
+    font-family: 'gothicregular';
+    bottom: 68px;
+    left: 58px;
+}
+#frame-price {
+    font-size: 32px;
+    color: #fff;
+    font-family: 'gothicregular';
+    bottom: 65px;
+    left: 182px;
+}

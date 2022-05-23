@@ -13,16 +13,14 @@
         font-family: 'Montserrat';
     }
 
-    div {
-        /* border: 1px solid red; */
-    }
-
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
+        color: #fff;
         padding: 10px;
         display: block;
         width: 150px;
-        font-family: Lato;
+        font-family: 'gothicbold';
+        font-size: 15px;
     }
 
     .row {
@@ -51,9 +49,11 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 5px;
-        width: 100%;
-        border: 1px solid #FFCF40;
-        font-family: Lato;
+        width: calc(100% - 20px);
+        border: 1px solid #262626;
+        padding: 10px;
+        font-family: 'gothicregular';
+        margin-top:5px;
     }
 
     .button {
@@ -61,22 +61,20 @@
     }
 
     .generate {
-        font-family: "Lato";
+        font-family: "gothicbold";
         font-weight: 600;
         font-size: 18px;
-        padding: 20px;
-        background-color: #FFCF40;
-        color: white;
+        padding: 15px 40px;
+        border:1px solid #e8e8e8;
+        background-color: #e8e8e8;
+        color: #000;
         text-decoration: none;
+        border-radius: 10px;
     }
 
     .flex {
         display: flex;
         justify-content: flex-end;
-    }
-
-    .flex label {
-        margin: 10px auto 10px auto !important;
     }
 
     .row-image {
@@ -207,6 +205,20 @@
         position: fixed !important;
         top: -135% !important;
         z-index: 100;
+    }
+    button {
+        background-color: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        padding: 10px;
+        color: #262626;
+        font-family: 'gothicbold';
+        border-radius: 10px;
+    }
+    .mt-1 {
+        margin-top: 5px;
+    }
+    .mt-3 {
+        margin-top: 15px;
     }
 </style>
 
@@ -376,8 +388,9 @@
                 <div class="absolute" style="top: 400px;">
                     <div class="file-input-width">
                         <label for="page-1-img-1">Main Image</label>
-                        <input type="file" id="img-1-input" onchange="img_1_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
+                        <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose Image</button>
+                        <input type="file" id="img-1-input" onchange="img_1_change()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="img_1_crop()">Save Crop</button>
                     </div>
                 </div>
@@ -426,22 +439,27 @@
                             <input type="text" id="text-8" name="text_8" value="S. Broward">
                         </div>
                     </div>
-                    <div class="file-input-width" style="margin-top: 15px;">
-                        <label for="page-1-img-1">Map 1 Image</label>
-                        <input type="file" id="img-2-input" onchange="img_2_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
-                        <button type="button" onclick="img_2_crop()">Save Crop</button>
-                    </div>
-                    <div class="file-input-width" style="margin-top: 15px;">
-                        <label for="page-1-img-1">Map 2 Image</label>
-                        <input type="file" id="img-3-input" onchange="img_3_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
-                        <button type="button" onclick="img_3_crop()">Save Crop</button>
+                    <div class="flex" style="justify-content: space-between;">
+                        <div class="file-input-width" style="margin-top: 15px;">
+                            <label for="page-1-img-1">Map 1 Image</label>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-2-input')">Choose Image</button>
+                            <input type="file" id="img-2-input" onchange="img_2_change()" style="display: none;">
+                            <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
+                            <button type="button" onclick="img_2_crop()">Save Crop</button>
+                        </div>
+                        <div class="file-input-width" style="margin-top: 15px;">
+                            <label for="page-1-img-1">Map 2 Image</label>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-3-input')">Choose Image</button>
+                            <input type="file" id="img-3-input" onchange="img_3_change()" style="display: none;">
+                            <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
+                            <button type="button" onclick="img_3_crop()">Save Crop</button>
+                        </div>
                     </div>
                     <div class="file-input-width" style="margin-top: 15px;">
                         <label for="page-1-img-1">Map 3 Image</label>
-                        <input type="file" id="img-4-input" onchange="img_4_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
+                        <button type="button" class="mt-3" onclick="openInputFile('img-4-input')">Choose Image</button>
+                        <input type="file" id="img-4-input" onchange="img_4_change()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="img_4_crop()">Save Crop</button>
                     </div>
                 </div>
@@ -465,11 +483,12 @@
                 <div class="absolute" style="top: 2700px">
                     <div class="file-input-width">
                         <label for="page-1-img-1">Agent 1 Image</label>
-                        <input type="file" id="img-5-input" onchange="img_5_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
+                        <button type="button" class="mt-3" onclick="openInputFile('img-5-input')">Choose Image</button>
+                        <input type="file" id="img-5-input" onchange="img_5_change()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="img_5_crop()">Save Crop</button>
                     </div>
-                    <div class="flex">
+                    <div class="flex mt-3">
                         <div class="pr-10">
                             <label for="text-12">Agent 1</label>
                             <input type="text" id="text-12" name="text_12" value="Wesley Ulloa">
@@ -496,14 +515,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="absolute" style="top: 3090px">
+                <div class="absolute" style="top: 3119px">
                     <div class="file-input-width">
                         <label for="page-1-img-1">Agent 2 Image</label>
-                        <input type="file" id="img-6-input" onchange="img_6_change()">
-                        <button type="button" onclick="startCropper(1)">Crop</button>
+                        <button type="button" class="mt-3" onclick="openInputFile('img-6-input')">Choose Image</button>
+                        <input type="file" id="img-6-input" onchange="img_6_change()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="img_6_crop()">Save Crop</button>
                     </div>
-                    <div class="flex">
+                    <div class="flex mt-3">
                         <div class="pr-10">
                             <label for="text-17">Agent 2</label>
                             <input type="text" id="text-17" name="text_17" value="Wesley Ulloa">
@@ -530,7 +550,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="absolute" style="top:3470px">
+                <div class="absolute" style="top:3542px">
                     <div>
                         <label for="text-22">Footer 1</label>
                         <input type="text" id="text-22" name="text_22"
@@ -545,10 +565,11 @@
                     <div class="flex">
                         <div class="" style="width: 345px;">
                             <button type="submit" name="action" value="Generate" class="generate">Generate</button>
-                            <button type="submit" name="action" value="Save" class="generate">Save</button>
+                            {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                             <br>
                             JSON Upload:
-                            <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
+                            <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">--}}
+                            <div class="mt-3"></div>
                         </div>
                     </div>
                 </div>
@@ -922,6 +943,9 @@
             var base64=canvas.toDataURL("image/png");
             callback(base64)
         })
+    }
+    function openInputFile(id) {
+        $('#' + id).click()
     }
 </script>
 

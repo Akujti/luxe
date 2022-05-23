@@ -101,7 +101,7 @@
                             <td>{{ $template->order }}</td>
                             <td>
                                 <button class="btn btn-luxe px-4 py-2"
-                                    onclick="update_template({{ $template }})">Edit</button>
+                                    onclick="update_template({{ $template }}, '{{ $template->url }}')">Edit</button>
                                 <button class="btn btn-danger py-2"
                                     onclick="delete_template({{$template}})">Delete</button>
                                 <button class="btn btn-primary px-3 py-2"
@@ -146,12 +146,11 @@
         $('.update-event').find('#title').val(item.title);
         $('.update-event').find('#order').val(item.order);
     };
-    function update_template(item) {
-        console.log(item);
+    function update_template(item, url) {
         $('.update-template').modal('show');
         $('.update-template').find('#id').val(item.id);
         $('.update-template').find('#title').val(item.title);
-        $('.update-template').find('#url').val(item.url);
+        $('.update-template').find('#url').val(url);
         $('.update-template').find('#order').val(item.order);
     };
 </script>

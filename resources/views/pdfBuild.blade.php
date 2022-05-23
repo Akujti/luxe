@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Selling</title>
 </head>
+@include('includes.fonts')
 <style>
     @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
     @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
@@ -16,10 +17,13 @@
     }
 
     label {
-        background-color: #FFCF40;
+        background-color: #262626;
+        color: #fff;
         padding: 10px;
         display: block;
         width: 150px;
+        font-family: 'gothicbold';
+        font-size: 15px;
     }
 
     .row {
@@ -49,8 +53,10 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 30px;
-        width: 100%;
-        border: 1px solid #FFCF40;
+        width: calc(100% - 20px);
+        border: 1px solid #262626;
+        padding: 10px;
+        font-family: 'gothicregular';
     }
 
     .button {
@@ -58,13 +64,15 @@
     }
 
     .generate {
-        font-family: "Lato";
+        font-family: "gothicbold";
         font-weight: 600;
         font-size: 18px;
-        padding: 20px;
-        background-color: #FFCF40;
-        color: white;
+        padding: 15px 40px;
+        border:1px solid #e8e8e8;
+        background-color: #e8e8e8;
+        color: #000;
         text-decoration: none;
+        border-radius: 10px;
     }
 
     .flex {
@@ -851,6 +859,20 @@
     .bold {
         font-weight: 500 !important;
     }
+    button {
+        background-color: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        padding: 10px;
+        color: #262626;
+        font-family: 'gothicbold';
+        border-radius: 10px;
+    }
+    .mt-1 {
+        margin-top: 5px;
+    }
+    .mt-3 {
+        margin-top: 15px;
+    }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
@@ -916,9 +938,10 @@
                 <div class="column-divider"></div>
                 <div class="row-input">
                     <div class="button">
+                        <button type="button" onclick="openInputFile('imageBackgroundInput-page-2-1')">Choose Image</button><br>
                         <input type="file" id="imageBackgroundInput-page-2-1"
-                            onchange="imageBackgroundInputChanged_page_2_1()">
-                        <button type="button" onclick="startCropper_page_2_1()">Crop</button>
+                            onchange="imageBackgroundInputChanged_page_2_1()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper_page_2_1()">Crop</button>
                         <button type="button" onclick="cropImage_page_2_1()">Save Crop</button>
                     </div>
                 </div>
@@ -997,9 +1020,10 @@
                 <div class="column-divider"></div>
                 <div class="row-input">
                     <div class="button">
+                        <button type="button" onclick="openInputFile('imageBackgroundInput-page-3-1')">Choose Image</button><br>
                         <input type="file" id="imageBackgroundInput-page-3-1"
-                            onchange="imageBackgroundInputChanged_page_3_1()">
-                        <button type="button" onclick="startCropper_page_3_1()">Crop</button>
+                            onchange="imageBackgroundInputChanged_page_3_1()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper_page_3_1()">Crop</button>
                         <button type="button" onclick="cropImage_page_3_1()">Save Crop</button>
                     </div>
                 </div>
@@ -1117,8 +1141,9 @@
                 <div class="column-divider"></div>
                 <div class="row-input">
                     <div class="button">
-                        <input type="file" id="imageBackgroundInput" onchange="imageBackgroundInputChanged()">
-                        <button type="button" onclick="startCropper()">Crop</button>
+                        <button type="button" onclick="openInputFile('imageBackgroundInput')">Choose Image</button><br>
+                        <input type="file" id="imageBackgroundInput" onchange="imageBackgroundInputChanged()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper()">Crop</button>
                         <button type="button" onclick="cropImage()">Save Crop</button>
                     </div>
                 </div>
@@ -1246,9 +1271,10 @@
                 <div class="column-divider"></div>
                 <div class="row-input">
                     <div class="button">
+                        <button type="button" onclick="openInputFile('imageBackgroundInput-page-5-1')">Choose Image</button><br>
                         <input type="file" id="imageBackgroundInput-page-5-1"
-                            onchange="imageBackgroundInputChanged_page_5_1()">
-                        <button type="button" onclick="startCropper_page_5_1()">Crop</button>
+                            onchange="imageBackgroundInputChanged_page_5_1()" style="display: none;">
+                        <button type="button" class="mt-1" onclick="startCropper_page_5_1()">Crop</button>
                         <button type="button" onclick="cropImage_page_5_1()">Save Crop</button>
                     </div>
                 </div>
@@ -1363,8 +1389,9 @@ Signage including web domain riders</textarea>
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button">
-                <input type="file" id="imageBackgroundInput-page-6-1" onchange="imageBackgroundInputChanged_page_6_1()">
-                <button type="button" onclick="startCropper_page_6_1()">Crop</button>
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-6-1')">Choose Image</button><br>
+                <input type="file" id="imageBackgroundInput-page-6-1" onchange="imageBackgroundInputChanged_page_6_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_6_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_6_1()">Save Crop</button>
             </div>
         </div>
@@ -1563,21 +1590,24 @@ Review with client to make adjustments if needed</textarea>
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-7-1-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-7-1-1"
-                    onchange="imageBackgroundInputChanged_page_7_1_1()">
-                <button type="button" onclick="startCropper_page_7_1_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_7_1_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_7_1_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_7_1_1()">Save Crop</button>
             </div>
             <div class="button">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-7-1-2')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-7-1-2"
-                    onchange="imageBackgroundInputChanged_page_7_1_2()">
-                <button type="button" onclick="startCropper_page_7_1_2()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_7_1_2()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_7_1_2()">Crop</button>
                 <button type="button" onclick="cropImage_page_7_1_2()">Save Crop</button>
             </div>
             <div class="button">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-7-1-3')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-7-1-3"
-                    onchange="imageBackgroundInputChanged_page_7_1_3()">
-                <button type="button" onclick="startCropper_page_7_1_3()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_7_1_3()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_7_1_3()">Crop</button>
                 <button type="button" onclick="cropImage_page_7_1_3()">Save Crop</button>
             </div>
         </div>
@@ -1879,16 +1909,18 @@ Saved Searches</textarea>
         <div class="row-input">
             <div class="button" style="margin-left: 164px;">
                 <label>Image 1</label>
+                <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-9-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-9-1"
-                    onchange="imageBackgroundInputChanged_page_9_1()" />
-                <button type="button" onclick="startCropper_page_9_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_9_1()" style="display: none;"/>
+                <button type="button" class="mt-1" onclick="startCropper_page_9_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_9_1()">Save Crop</button>
             </div>
             <div class="button" style="margin-left: 164px;">
                 <label>Image 2</label>
+                <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-9-2')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-9-2"
-                    onchange="imageBackgroundInputChanged_page_9_2()" />
-                <button type="button" onclick="startCropper_page_9_2()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_9_2()" style="display: none;"/>
+                <button type="button" class="mt-1" onclick="startCropper_page_9_2()">Crop</button>
                 <button type="button" onclick="cropImage_page_9_2()">Save Crop</button>
             </div>
         </div>
@@ -2016,9 +2048,10 @@ Mobile Optimization </textarea>
             </div>
 
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-10-1-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-10-1-1"
-                    onchange="imageBackgroundInputChanged_page_10_1_1()">
-                <button type="button" onclick="startCropper_page_10_1_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_10_1_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_10_1_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_10_1_1()">Save Crop</button>
             </div>
 
@@ -2028,9 +2061,10 @@ Mobile Optimization </textarea>
             </div>
 
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-10-1-2')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-10-1-2"
-                    onchange="imageBackgroundInputChanged_page_10_1_2()">
-                <button type="button" onclick="startCropper_page_10_1_2()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_10_1_2()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_10_1_2()">Crop</button>
                 <button type="button" onclick="cropImage_page_10_1_2()">Save Crop</button>
             </div>
         </div>
@@ -2197,10 +2231,11 @@ Mobile Optimization </textarea>
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
-                <label>Top</label>
+                <label class="mt-1">Top</label>
+                <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-11-1-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-11-1-1"
-                    onchange="imageBackgroundInputChanged_page_11_1_1()">
-                <button type="button" onclick="startCropper_page_11_1_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_11_1_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_11_1_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_11_1_1()">Save Crop</button>
             </div>
             <div class="flex">
@@ -2218,49 +2253,55 @@ Mobile Optimization </textarea>
                 <input type="text" id="page-11-1-text-3" name="page_11_1_text_3" value="$4,499,000">
             </div>
             <div class="flex">
-                <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <div class="button" style="width:50%;margin-top: 0;margin-bottom:50px;">
                     <label style="margin: 0 !important">Left Top</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-11-1-2')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-11-1-2"
-                        onchange="imageBackgroundInputChanged_page_11_1_2()">
-                    <button type="button" onclick="startCropper_page_11_1_2()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_11_1_2()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_11_1_2()">Crop</button>
                     <button type="button" onclick="cropImage_page_11_1_2()">Save Crop</button>
                 </div>
                 <div class="button" style="margin-top: 0;margin-bottom:50px;">
                     <label style="margin: 0 !important">Right 1</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-11-1-3')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-11-1-3"
-                        onchange="imageBackgroundInputChanged_page_11_1_3()">
-                    <button type="button" onclick="startCropper_page_11_1_3()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_11_1_3()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_11_1_3()">Crop</button>
                     <button type="button" onclick="cropImage_page_11_1_3()">Save Crop</button>
                 </div>
             </div>
             <div class="flex">
-                <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <div class="button" style="width:50%;margin-top: 0;margin-bottom:50px;">
                     <label style="margin: 0 !important">Right 2</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-11-1-4')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-11-1-4"
-                        onchange="imageBackgroundInputChanged_page_11_1_4()">
-                    <button type="button" onclick="startCropper_page_11_1_4()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_11_1_4()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_11_1_4()">Crop</button>
                     <button type="button" onclick="cropImage_page_11_1_4()">Save Crop</button>
                 </div>
                 <div class="button" style="margin-top: 0;margin-bottom:50px;">
                     <label style="margin: 0 !important">Right 3</label>
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-11-1-5')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-11-1-5"
-                        onchange="imageBackgroundInputChanged_page_11_1_5()">
-                    <button type="button" onclick="startCropper_page_11_1_5()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_11_1_5()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_11_1_5()">Crop</button>
                     <button type="button" onclick="cropImage_page_11_1_5()">Save Crop</button>
                 </div>
             </div>
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
                 <label>Right 4</label>
+                <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-11-1-6')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-11-1-6"
-                    onchange="imageBackgroundInputChanged_page_11_1_6()">
-                <button type="button" onclick="startCropper_page_11_1_6()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_11_1_6()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_11_1_6()">Crop</button>
                 <button type="button" onclick="cropImage_page_11_1_6()">Save Crop</button>
             </div>
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
                 <label>Bottom</label>
+                <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-11-1-7')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-11-1-7"
-                    onchange="imageBackgroundInputChanged_page_11_1_7()">
-                <button type="button" onclick="startCropper_page_11_1_7()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_11_1_7()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_11_1_7()">Crop</button>
                 <button type="button" onclick="cropImage_page_11_1_7()">Save Crop</button>
             </div>
         </div>
@@ -2367,9 +2408,10 @@ Mobile Optimization </textarea>
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-12-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-12-1"
-                    onchange="imageBackgroundInputChanged_page_12_1()">
-                <button type="button" onclick="startCropper_page_12_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_12_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_12_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_12_1()">Save Crop</button>
             </div>
         </div>
@@ -2537,9 +2579,10 @@ Mobile Optimization </textarea>
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-13-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-13-1"
-                    onchange="imageBackgroundInputChanged_page_13_1()">
-                <button type="button" onclick="startCropper_page_13_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_13_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_13_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_13_1()">Save Crop</button>
             </div>
         </div>
@@ -2659,9 +2702,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
+            <button type="button" onclick="openInputFile('imageBackgroundInput-page-14-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-14-1"
-                    onchange="imageBackgroundInputChanged_page_14_1()">
-                <button type="button" onclick="startCropper_page_14_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_14_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_14_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_14_1()">Save Crop</button>
             </div>
         </div>
@@ -2698,9 +2742,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-15-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-15-1"
-                    onchange="imageBackgroundInputChanged_page_15_1()">
-                <button type="button" onclick="startCropper_page_15_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_15_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_15_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_15_1()">Save Crop</button>
             </div>
         </div>
@@ -2793,9 +2838,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-16-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-16-1"
-                    onchange="imageBackgroundInputChanged_page_16_1()">
-                <button type="button" onclick="startCropper_page_16_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_16_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_16_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_16_1()">Save Crop</button>
             </div>
         </div>
@@ -2909,10 +2955,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             <div class="flex">
                 <label for="page-16-2-text-1">Slot 1 Title</label>
                 <input type="text" id="page-16-2-text-1" name="page_16_2_text_1" value="6495 SW 15 TERRACE">
-                <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <div class="button" style="width:70%;margin-top: 0;margin-bottom:50px;padding-left:5px;">
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-16-2-1')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-16-2-1"
-                        onchange="imageBackgroundInputChanged_page_16_2_1()">
-                    <button type="button" onclick="startCropper_page_16_2_1()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_16_2_1()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_16_2_1()">Crop</button>
                     <button type="button" onclick="cropImage_page_16_2_1()">Save Crop</button>
                 </div>
             </div>
@@ -2931,10 +2978,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             <div class="flex">
                 <label for="page-16-2-text-6">Slot 2 Title</label>
                 <input type="text" id="page-16-2-text-6" name="page_16_2_text_6" value="6495 SW 15 TERRACE">
-                <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <div class="button" style="width:70%;margin-top: 0;margin-bottom:50px;padding-left:5px;">
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-16-2-2')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-16-2-2"
-                        onchange="imageBackgroundInputChanged_page_16_2_2()">
-                    <button type="button" onclick="startCropper_page_16_2_2()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_16_2_2()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_16_2_2()">Crop</button>
                     <button type="button" onclick="cropImage_page_16_2_2()">Save Crop</button>
                 </div>
             </div>
@@ -2954,10 +3002,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             <div class="flex">
                 <label for="page-16-2-text-11">Slot 3 Title</label>
                 <input type="text" id="page-16-2-text-11" name="page_16_2_text_11" value="6495 SW 15 TERRACE">
-                <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <div class="button" style="width:70%;margin-top: 0;margin-bottom:50px;padding-left:5px;">
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-16-2-3')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-16-2-3"
-                        onchange="imageBackgroundInputChanged_page_16_2_3()">
-                    <button type="button" onclick="startCropper_page_16_2_3()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_16_2_3()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_16_2_3()">Crop</button>
                     <button type="button" onclick="cropImage_page_16_2_3()">Save Crop</button>
                 </div>
             </div>
@@ -2977,10 +3026,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             <div class="flex">
                 <label for="page-16-2-text-16">Slot 4 Title</label>
                 <input type="text" id="page-16-2-text-16" name="page_16_2_text_16" value="6495 SW 15 TERRACE">
-                <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <div class="button" style="width:70%;margin-top: 0;margin-bottom:50px;padding-left:5px;">
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-16-2-4')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-16-2-4"
-                        onchange="imageBackgroundInputChanged_page_16_2_4()">
-                    <button type="button" onclick="startCropper_page_16_2_4()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_16_2_4()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_16_2_4()">Crop</button>
                     <button type="button" onclick="cropImage_page_16_2_4()">Save Crop</button>
                 </div>
             </div>
@@ -3021,9 +3071,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-17-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-17-1"
-                    onchange="imageBackgroundInputChanged_page_17_1()">
-                <button type="button" onclick="startCropper_page_17_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_17_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_17_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_17_1()">Save Crop</button>
             </div>
         </div>
@@ -3178,9 +3229,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 <input type="text" id="page-17-2-text-6" name="page_17_2_text_6" value="DAYS ON MARKET: 7">
             </div>
             <div class="button" style="margin-top: 0">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-17-2-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-17-2-1"
-                    onchange="imageBackgroundInputChanged_page_17_2_1()">
-                <button type="button" onclick="startCropper_page_17_2_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_17_2_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_17_2_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_17_2_1()">Save Crop</button>
             </div>
 
@@ -3205,9 +3257,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 <input type="text" id="page-17-2-text-12" name="page_17_2_text_12" value="DAYS ON MARKET: 7">
             </div>
             <div class="button" style="margin-top: 0">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-17-2-2')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-17-2-2"
-                    onchange="imageBackgroundInputChanged_page_17_2_2()">
-                <button type="button" onclick="startCropper_page_17_2_2()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_17_2_2()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_17_2_2()">Crop</button>
                 <button type="button" onclick="cropImage_page_17_2_2()">Save Crop</button>
             </div>
 
@@ -3232,9 +3285,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 <input type="text" id="page-17-2-text-18" name="page_17_2_text_18" value="DAYS ON MARKET: 7">
             </div>
             <div class="button" style="margin-top: 0">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-17-2-3')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-17-2-3"
-                    onchange="imageBackgroundInputChanged_page_17_2_3()">
-                <button type="button" onclick="startCropper_page_17_2_3()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_17_2_3()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_17_2_3()">Crop</button>
                 <button type="button" onclick="cropImage_page_17_2_3()">Save Crop</button>
             </div>
 
@@ -3258,10 +3312,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
                 <label for="page-17-2-text-24">Days on Market </label>
                 <input type="text" id="page-17-2-text-24" name="page_17_2_text_24" value="DAYS ON MARKET: 7">
             </div>
-            <div class="button" style="margin-top: 0">
+            <div class="button" style="margin-top: 0;margin-bottom: 5px;">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-17-2-4')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-17-2-4"
-                    onchange="imageBackgroundInputChanged_page_17_2_4()">
-                <button type="button" onclick="startCropper_page_17_2_4()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_17_2_4()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_17_2_4()">Crop</button>
                 <button type="button" onclick="cropImage_page_17_2_4()">Save Crop</button>
             </div>
         </div>
@@ -3290,9 +3345,10 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         <div class="column-divider"></div>
         <div class="row-input">
             <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <button type="button" onclick="openInputFile('imageBackgroundInput-page-18-1')">Choose Image</button><br>
                 <input type="file" id="imageBackgroundInput-page-18-1"
-                    onchange="imageBackgroundInputChanged_page_18_1()">
-                <button type="button" onclick="startCropper_page_18_1()">Crop</button>
+                    onchange="imageBackgroundInputChanged_page_18_1()" style="display: none;">
+                <button type="button" class="mt-1" onclick="startCropper_page_18_1()">Crop</button>
                 <button type="button" onclick="cropImage_page_18_1()">Save Crop</button>
             </div>
         </div>
@@ -3376,10 +3432,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             <div class="flex">
                 <label for="page-18-2-text-2">Testimonial 1 Client</label>
                 <input type="text" id="page-18-2-text-2" name="page_18_2_text_2" value="- Mrs. Mercy">
-                <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <div class="button" style="width:70%;margin-top: 0;margin-bottom:50px;padding-left:5px;">
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-19-1')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-19-1"
-                        onchange="imageBackgroundInputChanged_page_19_1()">
-                    <button type="button" onclick="startCropper_page_19_1()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_19_1()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_19_1()">Crop</button>
                     <button type="button" onclick="cropImage_page_19_1()">Save Crop</button>
                 </div>
             </div>
@@ -3391,10 +3448,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             <div class="flex">
                 <label for="page-18-2-text-4">Testimonial 2 Client</label>
                 <input type="text" id="page-18-2-text-4" name="page_18_2_text_4" value="- Mrs. Mercy">
-                <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <div class="button" style="width:70%;margin-top: 0;margin-bottom:50px;padding-left:5px;">
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-19-2')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-19-2"
-                        onchange="imageBackgroundInputChanged_page_19_2()">
-                    <button type="button" onclick="startCropper_page_19_2()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_19_2()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_19_2()">Crop</button>
                     <button type="button" onclick="cropImage_page_19_2()">Save Crop</button>
                 </div>
             </div>
@@ -3406,10 +3464,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             <div class="flex">
                 <label for="page-18-2-text-6">Testimonial 3 Client</label>
                 <input type="text" id="page-18-2-text-6" name="page_18_2_text_6" value="- Mrs. Mercy">
-                <div class="button" style="margin-top: 0;margin-bottom:50px;">
+                <div class="button" style="width:70%;margin-top: 0;margin-bottom:50px;padding-left:5px;">
+                    <button type="button" class="mt-3" onclick="openInputFile('imageBackgroundInput-page-19-3')">Choose Image</button><br>
                     <input type="file" id="imageBackgroundInput-page-19-3"
-                        onchange="imageBackgroundInputChanged_page_19_3()">
-                    <button type="button" onclick="startCropper_page_19_3()">Crop</button>
+                        onchange="imageBackgroundInputChanged_page_19_3()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper_page_19_3()">Crop</button>
                     <button type="button" onclick="cropImage_page_19_3()">Save Crop</button>
                 </div>
             </div>
@@ -3429,11 +3488,11 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
         <div class="row-input">
             <div class="button">
                 <button type="submit" name="action" value="Generate" class="generate">Generate</button>
-                <button type="submit" name="action" value="Save" class="generate">Save</button>
+                {{--<button type="submit" name="action" value="Save" class="generate">Save</button>
 
                 <br>
                 JSON Upload:
-                <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">
+                <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">--}}
             </div>
         </div>
     </div>
@@ -5905,6 +5964,9 @@ Creative out-of-the-box methods to attract potential buyers such as food trucks,
             });
 
         } /*, 'image/png' */ );
+    }
+    function openInputFile(id) {
+        $('#' + id).click()
     }
 </script>
 

@@ -12,6 +12,7 @@ use App\Http\Requests\LuxeStore\Product\DeleteRequest;
 use App\Http\Requests\LuxeStore\Product\UpdateRequest;
 use App\Http\Requests\LuxeStore\Product\DeleteImageRequest;
 use App\Models\LuxeStore\LuxeStoreProductImage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class StoreController extends Controller
 {
@@ -61,7 +62,13 @@ class StoreController extends Controller
         if($req->preview_image) {
             $name = time() . Str::random(10) . '.' . $req->preview_image->getClientOriginalExtension();
             $path = $req->preview_image->storeAs('/luxe_store', $name, 'public');
-            $row->preview_image = $path;
+            $img = Image::make($req->preview_image);
+
+            $img->fit(624, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save(storage_path('app/public/luxe_store/' . $name));
+            $row->preview_image = 'luxe_store/'. $name;
         }
         $row->save();
         
@@ -98,8 +105,13 @@ class StoreController extends Controller
             $formModels = [];
             foreach($req->images as $image) {
                 $name = time() . Str::random(10) . '.' . $image->getClientOriginalExtension();
-                $path = $image->storeAs('/luxe_store', $name, 'public');
-                $formModels[] = ['image' => $path];
+                $img = Image::make($image);
+
+                $img->fit(624, 500, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save(storage_path('app/public/luxe_store/' . $name));
+                $formModels[] = ['image' => 'luxe_store/'. $name];
             }
 
             $row->images()->createMany($formModels);
@@ -123,7 +135,13 @@ class StoreController extends Controller
         if($req->preview_image) {
             $name = time() . Str::random(10) . '.' . $req->preview_image->getClientOriginalExtension();
             $path = $req->preview_image->storeAs('/luxe_store', $name, 'public');
-            $row->preview_image = $path;
+            $img = Image::make($req->preview_image);
+
+            $img->fit(624, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save(storage_path('app/public/luxe_store/' . $name));
+            $row->preview_image = 'luxe_store/'. $name;
         }
         $row->save();
         
@@ -164,8 +182,13 @@ class StoreController extends Controller
             $formModels = [];
             foreach($req->images as $image) {
                 $name = time() . Str::random(10) . '.' . $image->getClientOriginalExtension();
-                $path = $image->storeAs('/luxe_store', $name, 'public');
-                $formModels[] = ['image' => $path];
+                $img = Image::make($image);
+
+                $img->fit(624, 500, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save(storage_path('app/public/luxe_store/' . $name));
+                $formModels[] = ['image' => 'luxe_store/'. $name];
             }
 
             $row->images()->createMany($formModels);

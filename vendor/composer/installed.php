@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a10b18d18db604851338632e1d3f2200521d4440',
+        'reference' => 'c7c5fdc482c19e71255fa7706cac590a9b1e24d4',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -451,6 +451,15 @@
                 0 => 'v8.83.9',
             ),
         ),
+        'intervention/image' => array(
+            'pretty_version' => '2.7.1',
+            'version' => '2.7.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'reference' => '744ebba495319501b873a4e48787759c72e3fb8c',
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -472,7 +481,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a10b18d18db604851338632e1d3f2200521d4440',
+            'reference' => 'c7c5fdc482c19e71255fa7706cac590a9b1e24d4',
             'dev_requirement' => false,
         ),
         'laravel/sanctum' => array(

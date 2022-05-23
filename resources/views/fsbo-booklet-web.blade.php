@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fsbo-Booklet</title>
-
+    @include('includes.fonts')
     <style>
         @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
@@ -17,10 +17,13 @@
         }
 
         label {
-            background-color: #FFCF40;
+            background-color: #262626;
+            color: #fff;
             padding: 10px;
             display: block;
             width: 150px;
+            font-family: 'gothicbold';
+            font-size: 15px;
         }
 
         .row {
@@ -50,8 +53,10 @@
             font-size: 15px;
             margin-top: 10px;
             margin-bottom: 30px;
-            width: 100%;
-            border: 1px solid #FFCF40;
+            width: calc(100% - 20px);
+            border: 1px solid #262626;
+            padding: 10px;
+            font-family: 'gothicregular';
         }
 
         .button {
@@ -59,13 +64,15 @@
         }
 
         .generate {
-            font-family: "Lato";
+            font-family: "gothicbold";
             font-weight: 600;
             font-size: 18px;
-            padding: 20px;
-            background-color: #FFCF40;
-            color: white;
+            padding: 15px 40px;
+            border:1px solid #e8e8e8;
+            background-color: #e8e8e8;
+            color: #000;
             text-decoration: none;
+            border-radius: 10px;
         }
 
         .page-background {
@@ -141,6 +148,20 @@
 
         .abs {
             position: absolute;
+        }
+        button {
+            background-color: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            padding: 10px;
+            color: #262626;
+            font-family: 'gothicbold';
+            border-radius: 10px;
+        }
+        .mt-1 {
+            margin-top: 5px;
+        }
+        .mt-3 {
+            margin-top: 15px;
         }
     </style>
 
@@ -249,8 +270,9 @@
                     rows="4">There are many reasons that folks choose to go the FSBO route when selling their homes. FSBO means 'For Sale by Owner' in the world of real estate. It sounds like 'fizbo' when said aloud, and the concept most definitely has some serious pros.</textarea>
                 <i style="font-size: 12px">The description is limited to 500 characters</i>
                 <div class="button">
-                    <input type="file" id="imageBackgroundInput" onchange="imageBackgroundInputChanged()">
-                    <button type="button" onclick="startCropper()">Crop</button>
+                    <button type="button" onclick="openInputFile('imageBackgroundInput')">Choose Image</button><br>
+                    <input type="file" id="imageBackgroundInput" onchange="imageBackgroundInputChanged()" style="display: none;">
+                    <button type="button" class="mt-1" onclick="startCropper()">Crop</button>
                     <button type="button" onclick="cropImage()">Save Crop</button>
                 </div>
             </div>
@@ -584,10 +606,10 @@
             <div class="column-divider"></div>
             <div class="row-input">
                 <div class="button">
-                    <button type="submit" name="action" value="Generate" class="generate" style="">Generate</button>
-                    <button type="submit" name="action" value="Save" class="generate">Save</button>
+                    <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                    {{--<button type="submit" name="action" value="Save" class="generate">Save</button>
 
-                    {{-- <br>
+                    <br>
                     JSON Upload:
                     <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()"> --}}
                 </div>
@@ -754,6 +776,9 @@
             var base64 = canvas.toDataURL("image/png");
             callback(base64)
         })
+    }
+    function openInputFile(id) {
+        $('#' + id).click()
     }
 </script>
 
