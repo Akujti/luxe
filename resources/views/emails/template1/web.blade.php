@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Email Blasts</title>
-</head>
+@extends('themes.layouts.app')
+@section('css')
 @include('includes.fonts')
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
@@ -56,7 +49,7 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 5px;
-        width: calc(100% - 20px);
+        width: 100%;
         border: 1px solid #262626;
         font-family: 'gothicregular';
         padding: 10px;
@@ -226,7 +219,7 @@
         margin-top: 15px;
     }
 </style>
-
+@endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
     integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
@@ -235,7 +228,7 @@
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
 
-<body>
+@section('content')
     <form action="{{ route('email-template-1') }}" method="POST">
         @csrf
         <div class="row">
@@ -248,7 +241,7 @@
                 <input hidden name="img_5_input" id="img_5_input" value="images/emails/template1/agent-1.jpg">
                 <input hidden name="img_6_input" id="img_6_input" value="images/emails/template1/agent-2.jpg">
 
-                <div class="page">
+                <div class="page" id="el">
                     {{-- Images --}}
                     <div class="absolute">
                         <img id="img_1" src="images/emails/template1/bg.jpg" alt=""
@@ -394,7 +387,7 @@
                             33134</h1>
                     </div>
                     <div class="absolute" style="text-align: center;top:98.8%;width: 100%;">
-                        <h1 class="text-28" style="font-size:16px;font-weight:400;color:#9e9e9e">Copyright © 2021 LUXE
+                        <h1 class="text-28" style="font-size:16px;font-weight:400;color:#9e9e9e">Copyright © {{ date('Y') }} LUXE
                             Properties, LLC, All
                             rights reserved.</h1>
                     </div>
@@ -627,7 +620,7 @@
 
                 <div class="flex absolute" style="top:3775px;">
                     <div class="" style="width: 345px;">
-                        <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                        <button type="button" name="action" value="Generate" class="generate" onclick="beforePDF()">Generate</button>
                         {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
@@ -638,7 +631,8 @@
             </div>
         </div>
     </form>
-</body>
+@include('includes.loader')
+@endsection
 
 <script>
     $("textarea").change(function(event) {
@@ -1020,6 +1014,13 @@
     }
     function openInputFile(id) {
         $('#' + id).click()
+    }
+    async function beforePDF() {
+        $('.loader').css('display', 'flex')
+        const result = await generatePDF(264, 977.7)
+        if(result) {
+            $('.loader').css('display', 'none')
+        }
     }
 </script>
 
