@@ -102,7 +102,7 @@
                         Form Requests
                     </div>
                     <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
-                        <div class="row m-0 logs">
+                        <div class="row m-0 logs w-100">
                             @forelse(auth()->user()->load('form_submits')->form_submits->take(3) as $form_submit)
                                 <div>
                                     <span>{{ $form_submit->form_title }}&nbsp;</span>-
@@ -110,7 +110,7 @@
                                     - {{ $form_submit->status ? 'Completed' : 'Pending' }}
                                 </div>
                             @empty
-                                <div>
+                                <div class="w-100">
                                     No form submissions found.
                                 </div>
                             @endforelse
@@ -127,13 +127,52 @@
                             @forelse(auth()->user()->load('template_submits')->template_submits->take(3) as $template_submit)
                                 <div>
                                     <span>{{ json_decode($template_submit->details, true)['template'] }}&nbsp;</span>-
-                                    {{ $template_submit->created_at->diffForHumans() }}
-                                    -
+                                    {{ $template_submit->created_at->diffForHumans() }} -
                                     {{ $template_submit->status ? 'Completed' : 'Pending' }}
                                 </div>
                             @empty
                                 <div>
                                     No marketing request submissions found.
+                                </div>
+                            @endforelse
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 mt-2">
+                    <div class="mb-2 log-title">
+                        Orders
+                    </div>
+                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                        <div class="row m-0 logs">
+                            @forelse(auth()->user()->load('orders')->orders->take(3) as $order)
+                                <div>
+                                    <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
+                                    - {{ $order->status }}
+                                </div>
+                            @empty
+                                <div>
+                                    No orders found.
+                                </div>
+                            @endforelse
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 mt-2">
+                    <div class="log-title mb-2">
+                        Attending Events
+                    </div>
+                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                        <div class="row m-0 logs">
+
+                            @forelse(auth()->user()->load('attending_events')->attending_events->take(3) as $attend_event)
+                                <div>
+                                    <span>{{ $attend_event->title }}&nbsp;</span>-
+                                    {{ $attend_event->created_at->diffForHumans() }}
+                                </div>
+                            @empty
+                                <div>
+                                    No attending events found.
                                 </div>
                             @endforelse
                         </div>
@@ -175,7 +214,7 @@
                     <div class="box-item" onclick="window.location='{{ url('/home?dir=marketing_branding') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/services_staff_requests-icon.svg" alt="">
-                            <p>Marketing & Branding</p>
+                            <p>Marketing & Branding<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -193,15 +232,15 @@
                         onclick="window.location='{{ url('/home?dir=leads_services_support') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/leads-icon.svg" alt="">
-                            <p>Leads, Services & Support</p>
+                            <p>Leads, Services & Support<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item" onclick="window.location='{{ url('/form') }}'">
+                    <div class="box-item" onclick="window.location='{{ url('/home?dir=referral_partners') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/luxe_lending-icon.svg" alt="">
-                            <p>Referral Partners</p>
+                            <p>Referral Partners<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -280,7 +319,7 @@
                 </div>
             @elseif($_GET['dir'] == 'marketing_branding')
                 <div class="col-12 title mb-3">
-                    <h1>Welcome to Marketing & Branding</h1>
+                    <h1>Marketing & Branding</h1>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="box-item" onclick="window.location='{{ route('user.diy-templates') }}'">
@@ -302,7 +341,7 @@
                     <div class="box-item" onclick="window.location = 'https://realtorprint.com/collections/luxe'">
                         <div>
                             <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                            <p>Print Marketing</p>
+                            <p>Print Marketing<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -327,75 +366,20 @@
                     <div class="box-item" onclick="window.open('{{ url('resume') }}')">
                         <div>
                             <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
-                            <p>Resume Builder</p>
-                        </div>
-                    </div>
-                </div>
-                <style>
-                    .flex-box-2-col {
-                        display: flex;
-                        flex-flow: wrap;
-                    }
-
-                    .flex-box-2-col div {
-                        justify-content: center;
-                        display: flex;
-                        flex: 45%;
-                        text-align: center;
-                        background: #F7F7F7;
-                        margin: 15px;
-                        border-radius: 10px;
-                        padding: 20px;
-                    }
-
-                    .flex-box-2-col div p {
-                        margin: 0;
-                    }
-
-                </style>
-                <div class="row mt-5">
-                    <div class="col-md-6">
-                        <h2 class="text-center">Submit custom <br>marketing request</h2>
-                        <div class="flex-box-2-col">
-                            @php
-                                $categories = \App\Models\DiyTemplateCategory::whereNull('parent_id')
-                                    ->orderBy('order')
-                                    ->get();
-                            @endphp
-                            @foreach ($categories as $category)
-                                <div>
-                                    <p>{{ $category->title }}</p>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="col-md-6 mt-4 mt-md-auto">
-                        <h2 class="text-center">Downloadable <br>Guides</h2>
-                        <div class="flex-box-2-col">
-                            @php
-                                $folder_id = \App\Models\Folder::where('title', 'XNvgkxNbjU')->first()->id;
-                                $files = \App\Models\File::where('folder_id', $folder_id)
-                                    ->latest()
-                                    ->get();
-                            @endphp
-                            @foreach ($files as $file)
-                                <div>
-                                    <p>{{ $file->title }}</p>
-                                </div>
-                            @endforeach
+                            <p>Resume Builder<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
             @elseif($_GET['dir'] == 'signs_photo_design_requests')
                 <div class="col-12 title mb-3">
-                    <h1>Welcome to Signs, Photo, & Design Requests</h1>
+                    <h1>Signs, Photo, & Design Requests</h1>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="box-item"
                         onclick="window.location = '{{ url('general/form/other/logo-creation-request') }}'">
                         <div>
                             <img src="/images/index-page/logo_creation_request.svg" class="icon" alt="">
-                            <p>Create A Logo</p>
+                            <p>Create A Logo<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -412,7 +396,7 @@
                     <div class="box-item" onclick="window.location = '{{ url('/store/photo-fees') }}'">
                         <div>
                             <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
-                            <p>Photo Fees</p>
+                            <p>Photo Fees<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -420,7 +404,7 @@
                     <div class="box-item" onclick="window.location = '{{ url('/store/custom-items') }}'">
                         <div>
                             <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
-                            <p>Custom Signs</p>
+                            <p>Custom Signs<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -434,13 +418,13 @@
                 </div>
             @elseif($_GET['dir'] == 'leads_services_support')
                 <div class="col-12 title mb-3">
-                    <h1>Welcome to Leads, Services, & Support</h1>
+                    <h1>Leads, Services, & Support</h1>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="box-item" onclick="window.location='{{ url('/home?dir=leads') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/services_staff_requests-icon.svg" alt="">
-                            <p>Get Leads</p>
+                            <p>Get Leads<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -465,7 +449,7 @@
                     <div class="box-item" onclick="window.location = '{{ url('appointments/create') }}'">
                         <div>
                             <img src="/images/index-page/open_house_signup.svg" class="icon" alt="">
-                            <p>Open House Signup</p>
+                            <p>Open House Signup<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -473,7 +457,7 @@
                     <div class="box-item" onclick="window.location = '{{ url('/home?dir=coming_soon') }}'">
                         <div>
                             <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
-                            <p>Get Contract Help</p>
+                            <p>Get Contract Help<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -481,7 +465,7 @@
                     <div class="box-item" onclick="window.location = '{{ route('marketing.requests') }}'">
                         <div>
                             <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                            <p>Design Requests</p>
+                            <p>Design Requests<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -500,7 +484,7 @@
                 $subactive = 'request_listing_closing_coordinators';
                 ?>
                 <div class="col-12 title mb-3">
-                    <h1>Welcome to Request Listing/Closing Coordinators</h1>
+                    <h1>Request Listing/Closing Coordinators</h1>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="box-item" onclick="window.location = '{{ url('listing-coordinators') }}'">
@@ -525,7 +509,7 @@
                 $subactive = 'get_leads';
                 ?>
                 <div class="col-12 title mb-3">
-                    <h1>Welcome to Leads</h1>
+                    <h1>Leads</h1>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="box-item" onclick="window.location = '{{ url('general/form/leads/index') }}'">
@@ -594,7 +578,7 @@
 
                 </style>
                 <div class="col-12 title mb-3">
-                    <h1>Welcome to Training & Knowledge Center</h1>
+                    <h1>Training & Knowledge Center</h1>
                 </div>
                 @foreach (App\Models\Video\Video::take(3)->get() as $video)
                     <div class="col-12 col-lg-4 mb-4">
@@ -620,7 +604,7 @@
                     <div class="box-item" onclick="window.location = '{{ url('user/videos') }}'">
                         <div>
                             <img src="/images/index-page/training_videos.svg" class="icon" alt="">
-                            <p>LUXE Online University</p>
+                            <p>LUXE Online University<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -628,7 +612,7 @@
                     <div class="box-item" onclick="window.location='{{ url('/user/events') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
-                            <p>Events</p>
+                            <p>Events<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -644,7 +628,7 @@
                     <div class="box-item" onclick="window.location = '{{ url('agreement-agents') }}'">
                         <div>
                             <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                            <p>Mentors</p>
+                            <p>Mentors<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -663,7 +647,7 @@
                 $subactive = 'email_addendum_verbiage_builder';
                 ?>
                 <div class="col-12 title mb-3">
-                    <h1>Welcome to Email & Addendum Verbiage Builder</h1>
+                    <h1>Email & Addendum Verbiage Builder</h1>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="box-item" onclick="window.location = '{{ url('user/written-email-templates') }}'">
@@ -683,13 +667,13 @@
                 </div>
             @elseif($_GET['dir'] == 'office_staff_directory')
                 <div class="col-12 title mb-3">
-                    <h1>Welcome to Office & Staff Directory</h1>
+                    <h1>Office & Staff Directory</h1>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="box-item" onclick="window.location='{{ url('/office-locations') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/office_locations-icon.svg" alt="">
-                            <p>Office Locations</p>
+                            <p>Office Locations<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -705,7 +689,7 @@
                     <div class="box-item" onclick="window.location = '{{ url('/home?dir=coming_soon') }}'">
                         <div>
                             <img src="/images/index-page/leads-icon.svg" class="icon" alt="">
-                            <p>Your LUXE Staff</p>
+                            <p>Your LUXE Staff<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -714,13 +698,13 @@
                         onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
                         <div>
                             <img src="/images/index-page/new_agents_referrals.svg" class="icon" alt="">
-                            <p>New Agents & Referrals</p>
+                            <p>New Agents & Referrals<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>
             @elseif($_GET['dir'] == 'luxe_apparel')
                 <div class="col-12 title mb-3 text-center">
-                    <h1>Welcome to LUXE Marketplace</h1>
+                    <h1>LUXE Marketplace</h1>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="box-item" onclick="window.location='{{ url('store/grab-go-merchandise') }}'">
@@ -765,13 +749,13 @@
                     </div>
                 </div>
                 <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                        <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                        <p>Links to other services</p>
-                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                            </div> -->
+                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                        <div>
+                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                            <p>Links to other services</p>
+                        </div>
+                    </div>
+                </div> -->
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="box-item"
                         onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
@@ -962,6 +946,60 @@
             @elseif($_GET['dir'] == 'coming_soon')
                 <div class="col-12 title mb-3">
                     <h1>Coming Soon ...</h1>
+                </div>
+            @elseif($_GET['dir'] == 'referral_partners')
+                <div class="col-12 title mb-3">
+                    <h1>Referral Partners</h1>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="box-item" onclick="window.location = '{{ url('home?dir=landing_services') }}'">
+                        <div>
+                            <img src="/images/index-page/landing_services.svg" class="icon" alt="">
+                            <p>Landing Services</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
+                        <div>
+                            <img src="/images/index-page/inspectors.svg" class="icon" alt="">
+                            <p>Inspectors</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
+                        <div>
+                            <img src="/images/index-page/tax_accountants.svg" class="icon" alt="">
+                            <p>Tax Accountants</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
+                        <div>
+                            <img src="/images/index-page/insurance.svg" class="icon" alt="">
+                            <p>Insurance</p>
+                        </div>
+                    </div>
+                </div>
+            @elseif($_GET['dir'] == 'landing_services')
+                <div class="col-12 title mb-3">
+                    <h1>Landing Services</h1>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="box-item" onclick="window.location='{{ url('/form') }}'">
+                        <div>
+                            <p>Pre-Approval Form</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
+                        <div>
+                            <p>Contact Information</p>
+                        </div>
+                    </div>
                 </div>
             @endif
         </div>
