@@ -1,11 +1,5 @@
 @extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'get_leads'])
 <style>
-    .box {
-        margin: 5px;
-        color: #262626;
-        background-color: #F7F7F7;
-        border-radius: 30px;
-    }
 
     .box a {
         color: #262626 !important;
@@ -19,9 +13,43 @@
     }
 
     @media (max-width: 576px) {
-        .box a {
+        .box-item a {
             font-size: 13px;
         }
+    }
+    .box-item {
+        background-color: #F7F7F7;
+        text-align: center;
+        height: 311px;
+        margin-bottom: 26px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .box-item img {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .box-item .icon {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+    }
+
+    .box-item a {
+        font-size: 25px;
+        font-family: 'gothicregular';
+        color: #262626;
+    }
+    .box-item a:hover {
+        color: #262626;
+    }
+    a:focus {
+        outline: none;
     }
 
 </style>
@@ -34,46 +62,46 @@
                         <h1>Leads - Select Form</h1>
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-4 mb-4">
-                                <div class="box">
+                        <div class="row box-items">
+                            <div class="col-lg-3 mb-4">
+                                <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'join-zillow']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Join Zillow</a>
                                 </div>
                             </div>
                             {{-- <div class="col-lg-4 mb-4">
-                            <div class="box">
+                            <div class="box-item">
                                 <a href="{{route('general.email.index',['folder'=>'leads','form'=>'team-dade-pause-request'])}}"
                                     class="btn w-100 d-flex align-items-center justify-content-center">Team Dade - Pause
                                     Request</a>
                             </div>
                         </div>
                         <div class="col-lg-4 mb-4">
-                            <div class="box">
+                            <div class="box-item">
                                 <a href="{{route('general.email.index',['folder'=>'leads','form'=>'pause-request'])}}"
                                     class="btn w-100 d-flex align-items-center justify-content-center">Team Flex - Pause
                                     Request</a>
                             </div>
                         </div> --}}
-                            <div class="col-lg-4 mb-4">
-                                <div class="box">
+                            <div class="col-lg-3 mb-4">
+                                <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'request-zillow-nurtures']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Request Zillow
                                         Nurtures</a>
                                 </div>
                             </div>
-                            <div class="col-lg-4 mb-4">
-                                <div class="box">
+                            <div class="col-lg-3 mb-4">
+                                <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-leads-weekly-update']) }}"
-                                        class="btn w-100 d-flex align-items-center justify-content-center">Team Flex - <br>
-                                        Zillow Leads Weeky Update</a>
+                                        class="btn w-100 d-flex align-items-center justify-content-center">Team Flex - 
+                                        Zillow <br>Leads Weeky Update</a>
                                 </div>
                             </div>
-                            <div class="col-lg-4 mb-4">
-                                <div class="box">
+                            <div class="col-lg-3 mb-4">
+                                <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'team-dade-zillow-leads-weekly-update']) }}"
-                                        class="btn w-100 d-flex align-items-center justify-content-center">Team Dade -<br>
-                                        Zillow Leads Weeky Update</a>
+                                        class="btn w-100 d-flex align-items-center justify-content-center">Team Dade -
+                                        Zillow <br>Leads Weeky Update</a>
                                 </div>
                             </div>
                         </div>

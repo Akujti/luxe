@@ -2,12 +2,20 @@
 @section('js')
 @endsection
 @section('css')
+<style>
+    .gothic-bold {
+        font-family: 'gothicbold';
+    }
+    th {
+        font-family: 'gothicbold';
+    }
+</style>
 @endsection
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row m-0 w-100 justify-content-center">
         <div class="position-relative w-100 text-center">
-            <h1>Emails</h1>
+            <h1 class="gothic-bold">Emails</h1>
             <button class="btn btn-luxe position-absolute" data-toggle="modal" data-target="#exampleModal"
                 style="right: 0;top:0">New</button>
         </div>
@@ -69,7 +77,7 @@
         </div>
     </div>
 </div>
-<div id="exampleModal" class="modal fade" tabindex="-1" role="dialog">
+<div id="exampleModal" class="modal fade modal-new" tabindex="-1" role="dialog">
     <form action="{{route('agent-emails.store')}}" method="POST">
         @csrf
         <div class="modal-dialog" role="document">
@@ -87,8 +95,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-luxe">Save</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

@@ -310,7 +310,9 @@
             $('#avatar-1').css('background-image', 'url(' + URL.createObjectURL(file) + ')');
             oldBlob = URL.createObjectURL(file)
             image_src = URL.createObjectURL(file)
-            cropper1.destroy()
+            if(cropper1) {
+                cropper1.destroy()
+            }
         }
     }
     var cropper;
@@ -337,7 +339,9 @@
             $('#avatar-1').css('background-image', 'url(' + URL.createObjectURL(blob) + ')');
             $('#preview-image').attr('src', URL.createObjectURL(blob))
         });
-        cropper.destroy()
+        if(cropper) {
+            cropper.destroy()
+        }
         $('#myModal').css('display', 'none')
     }
 
@@ -360,13 +364,17 @@
             $('#img-1').css('background-image', 'url(' + URL.createObjectURL(file) + ')');
             oldBlob1 = URL.createObjectURL(file)
             image_src1 = URL.createObjectURL(file)
-            cropper.destroy()
+            if(cropper) {
+                cropper.destroy()
+            }
         }
     }
     var cropper1;
     function startCropper1(input) {
         if (document.getElementById(input).files.length) {
-            cropper.destroy()
+            if(cropper) {
+                cropper.destroy()
+            }
             $('#myModal').css('display', 'block')
             $('#preview-image').attr('src', image_src1);
             var image = document.getElementById("preview-image");
@@ -388,7 +396,9 @@
             $('#img-1').css('background-image', 'url(' + URL.createObjectURL(blob) + ')');
             $('#preview-image').attr('src', URL.createObjectURL(blob))
         });
-        cropper1.destroy()
+        if(cropper1) {
+            cropper1.destroy()
+        }
         $('#myModal').css('display', 'none')
     }
 

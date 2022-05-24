@@ -40,19 +40,19 @@
         }
 
         .fc-daygrid-event.in_person_trainings {
-            border: 3px solid #569e56;
+            background-color: #6BE386;
         }
 
         .fc-daygrid-event.zoom_trainings {
-            border: 3px solid #257dd7;
+            background-color: #A5C6FF;
         }
 
         .fc-daygrid-event.tours {
-            border: 3px solid #cccc00;
+            background-color: #F2F256;
         }
 
         .fc-daygrid-event.team_office_meetings {
-            border: 3px solid #f0a3b1;
+            background-color: #f0a3b1;
         }
 
         .modal-new select {
@@ -65,7 +65,7 @@
     <div class="container-fluid">
         <div class="row w-100 m-0 mb-5">
             <div class="col-12 title mb-3 text-center">
-                <h1>Welcome to LUXE Events</h1>
+                <h1>LUXE Events</h1>
                 <a class="btn btn-luxe" href="{{ route('my.events') }}">My Events</a>
             </div>
             <div id='calendar' style="width: 100%; display: inline-block;"></div>

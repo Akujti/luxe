@@ -39,7 +39,7 @@
         font-size: 20px;
         font-family: 'gothicbold';
         color: #262626;
-        margin-bottom: 40px;
+        height: 100px;
         padding-top: 0px;
         margin-top: 0px;
     }
@@ -319,6 +319,7 @@
                             </div>
                         </div>
                     </a>
+                    @if (Auth::user()->isAdmin)
                     <div class="delete-form">
                         <form action="{{ route('file.destroy',$file->id) }}" method="post">
                             @csrf
@@ -329,11 +330,12 @@
                             </button>
                         </form>
                     </div>
-                    <div class="edit-form">
+                    {{--<div class="edit-form">
                         <button class="edit-button" type="submit" onclick="show_edit_file_modal({{$file}})">
                             <img src="{{asset('images/files/pencil-icon.svg')}}" alt="" width="34px" height="34px">
                         </button>
-                    </div>
+                    </div>--}}
+                    @endif
                 </div>
             </div>
         </div>
@@ -371,6 +373,7 @@
                             </p>
                         </div>
                     </a>
+                    @if (Auth::user()->isAdmin)
                     <div class="delete-form">
                         <form action="{{ route('file.destroy',$file->id) }}" method="post">
                             @csrf
@@ -381,6 +384,7 @@
                             </button>
                         </form>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

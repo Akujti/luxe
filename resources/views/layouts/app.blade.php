@@ -209,6 +209,11 @@
         font-family: "gothicbold";
         font-size: 40px;
     }
+    @media (min-width:994px) and (max-width: 1588px) {
+        .box-item {
+            height: 250px;
+        }
+    }
 </style>
 
 <body>
@@ -400,8 +405,8 @@
                                                 Request</a></li>
                                     </ul>
                                 </li>
-                                <li class="row m-0 @if(Request::path() == 'form') active selected @endif">
-                                    <a href="{{ url("/form") }}">Referral Partners</a>
+                                <li class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if(Request::path() == 'form') active selected @endif">
+                                    <a href="{{ url('/home?dir=referral_partners') }}">Referral Partners</a>
                                 </li>
                                 <li
                                     class="row m-0 @if(isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ (isset($active) && $active == 'luxe_apparel') ? 'active selected': '' }}">

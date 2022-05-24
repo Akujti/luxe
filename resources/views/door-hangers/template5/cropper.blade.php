@@ -82,6 +82,8 @@
     }
     .modal__header {
         padding-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
         border-bottom: 1px solid gray;
     }
     .modal__header h2 {
@@ -105,9 +107,9 @@
     <div class="home-modal">
         <div id="myModal" class="modal">
             <div class="modal-content">
-                <button class="close" onclick="closeModal()">&times;</button>
                 <div class="modal__header">
                     <h2>Cropper</h2>
+                    <button class="close" onclick="closeModal()">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="preview">

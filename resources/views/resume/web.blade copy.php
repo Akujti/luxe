@@ -1,5 +1,12 @@
-@extends('layouts.app')
-@section('css')
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Resume</title>
+</head>
 @include('includes.fonts')
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
@@ -9,114 +16,120 @@
         font-family: 'Montserrat';
     }
 
-    .form-resume .gochi {
+    .gochi {
         font-family: 'Gochi Hand', cursive;
         font-weight: 400;
     }
 
-    .form-resume .lato {
+    .lato {
         font-family: 'Lato';
         font-weight: normal;
     }
 
-    .form-resume .ibm {
+    .ibm {
         font-family: 'IBM Plex Sans';
         font-weight: 400;
     }
 
-    .form-resume .ibm-med {
+    .ibm-med {
         font-family: 'IBM Plex Sans';
         font-weight: 500;
     }
 
-    .form-resume .oswald {
+    .oswald {
         font-family: 'Oswald';
         font-weight: 400;
     }
 
-    .form-resume .oswald-med {
+    .oswald-med {
         font-family: 'Oswald';
         font-weight: 500;
     }
 
-    .form-resume .oswald-bold {
+    .oswald-bold {
         font-family: 'Oswald';
         font-weight: 600;
     }
 
-    .form-resume .roboto {
+    .roboto {
         font-family: 'Roboto';
         font-weight: 400;
     }
 
-    .form-resume .bold {
+    .bold {
         font-weight: bold;
     }
 
-    .form-resume .extra-bold {
+    .extra-bold {
         font-weight: 800;
     }
 
-    .form-resume .bold-600 {
+    .bold-600 {
         font-weight: 600;
     }
 
-    .form-resume label {
+    label {
         background-color: #262626;
         padding: 10px;
         display: block;
         width: 250px;
-        font-family: 'gothicbold';
+        font-family: Lato;
         color: #fff;
-        font-size: 15px;
     }
 
-    .form-resume .row {
+    .row {
         display: flex;
         height: 1280px;
-        margin: 0px;
-        padding-left: 20px;
     }
 
-    .form-resume .row-divider {
+    .row-divider {
         height: 3px;
         background-color: black;
     }
 
-    .form-resume .row-input {
+    .row-input {
         min-width: 300px;
-        padding-left: 51px;
-        padding-top: 30px;
     }
 
-    .form-resume input,
-    .form-resume textarea {
+    input,
+    textarea {
         font-size: 15px;
+        margin-top: 10px;
         margin-bottom: 5px;
         width: 100%;
         border: 1px solid #262626;
-        font-family: 'gothicregular';
-        padding: 10px;
+        font-family: Lato;
     }
 
-    .form-resume .button {
+    .button {
         margin-top: 50px;
     }
-    .form-resume .flex {
+
+    .generate {
+        font-family: "Lato";
+        font-weight: 600;
+        font-size: 18px;
+        padding: 20px;
+        background-color: #FFCF40;
+        color: white;
+        text-decoration: none;
+    }
+
+    .flex {
         display: flex;
         justify-content: flex-start;
     }
 
-    .form-resume .flex label {
+    .flex label {
         margin: 10px auto 10px auto !important;
     }
 
-    .form-resume .row-image {
+    .row-image {
         height: auto;
         width: 1035px;
     }
 
-    .form-resume .page {
+    .page {
         width: 2000px;
         position: relative;
         height: 2572px;
@@ -126,40 +139,40 @@
         background-size: 1140px;
     }
 
-    .form-resume .absolute {
+    .absolute {
         position: absolute;
     }
 
-    .form-resume .gold {
+    .gold {
         color: #C5A467 !important;
     }
 
-    .form-resume .white {
+    .white {
         color: white;
     }
 
-    .form-resume .bold {
+    .bold {
         font-weight: 700;
     }
 
-    .form-resume ul li {
+    ul li {
         display: inline;
         font-size: 20px;
         margin-right: 10px;
     }
 
-    .form-resume h1,
-    .form-resume h2,
-    .form-resume h3,
-    .form-resume p {
+    h1,
+    h2,
+    h3,
+    p {
         margin: 0;
     }
 
-    .form-resume div.circle {
+    div.circle {
         top: 37%;
     }
 
-    .form-resume img.circle {
+    img.circle {
         border: 10px solid #C9A668;
         border-radius: 50%;
         width: 285px;
@@ -167,103 +180,103 @@
         object-fit: cover;
     }
 
-    .form-resume .pr-10 {
+    .pr-10 {
         padding-right: 10px;
     }
 
-    .form-resume .file-input-width {
+    .file-input-width {
         width: 175px;
     }
 
-    .form-resume h1.small {
+    h1.small {
         font-size: 70px;
     }
 
-    .form-resume h1.normal {
+    h1.normal {
         font-size: 90px;
     }
 
-    .form-resume h1.large {
+    h1.large {
         font-size: 110px;
     }
 
-    .form-resume h1.main {
+    h1.main {
         font-family: 'Lato';
         font-weight: 900;
     }
 
-    .form-resume .list {
+    .list {
         font-size: 23px;
         letter-spacing: -1px;
     }
 
-    .form-resume .mr-3 {
+    .mr-3 {
         margin-right: 8px;
     }
 
-    .form-resume .title {
+    .title {
         font-size: 90px;
     }
 
-    .form-resume .social {
+    .social {
         font-size: 14px;
     }
 
-    .form-resume .white-border {
+    .white-border {
         border: 5px solid white;
     }
 
-    .form-resume .cropper-container {
+    .cropper-container {
         position: fixed !important;
         top: -100px !important;
         z-index: 100;
     }
 
-    .form-resume .page {
-        zoom: 50%;
+    .page {
+        zoom: 50% !important;
     }
 
-    .form-resume .text-right {
+    .text-right {
         text-align: right
     }
 
-    .form-resume .mb-10 {
+    .mb-10 {
         margin-bottom: 10px
     }
 
-    .form-resume .w-100 {
+    .w-100 {
         width: 100%;
     }
 
-    .form-resume .text-center {
+    .text-center {
         text-align: center;
     }
 
     @media(max-width:1300px) {
-        .form-resume .row-input {
+        .row-input {
             width: 580px
         }
     }
 
-    .form-resume .table-title {
+    .table-title {
         color: white;
         font-size: 40px;
         font-weight: 300;
     }
 
-    .form-resume .page * {
+    .page * {
         color: rgb(25, 23, 24)
     }
 
-    .form-resume .listings * {
+    .listings * {
         line-height: 30px;
         font-size: 20px;
     }
 
-    .form-resume .mb-10 {
+    .mb-10 {
         margin-bottom: 10px;
     }
-    .form-resume .btn-luxe {
+    .btn-luxe {
         color: #fff;
         background-color: #262626;
         padding: 20px 40px;
@@ -271,55 +284,8 @@
         border-radius: 10px;
         margin-bottom: 20px;
     }
-    button {
-        background-color: #e8e8e8;
-        border: 1px solid #e8e8e8;
-        padding: 10px;
-        color: #262626;
-        font-family: 'gothicbold';
-        border-radius: 10px;
-        font-size: 13px !important;
-    }
-    .mt-1 {
-        margin-top: 5px;
-    }
-    .mt-3 {
-        margin-top: 15px;
-    }
-    .generate {
-        font-family: "gothicbold";
-        font-weight: 600;
-        font-size: 18px !important;
-        padding: 15px 40px;
-        border:1px solid #e8e8e8;
-        background-color: #e8e8e8;
-        color: #000;
-        text-decoration: none;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
-    .col.p-0.m-0 {
-        width: calc(100% - 347px);
-    }
-    .title h1 {
-        font-family: 'gothicbold';
-        text-align: center;
-        margin-top: 60px;
-    }
-    .title p {
-        font-family: 'gothicregular';
-        text-align: center;
-        font-size: 16px;
-        margin-bottom: 20px;
-
-    }
-    @media (max-width: 1310px) {
-        .page {
-            zoom: 44% !important;
-        }
-    }
 </style>
-@endsection
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
     integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
@@ -328,18 +294,14 @@
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
 
-@section('content')
-    <form action="{{ route('resume') }}" method="POST" class="form-resume">
+<body>
+    <form action="{{ route('resume') }}" method="POST">
         @csrf
-        <div class="col-12 title mb-3">
-            <h1>Resume Builder</h1>
-            <p>Scroll down to edit text and photo.</p>
-        </div>
         <div class="row">
             <div class="row-image">
                 <img src="" id="image" data-replace-attribute="src" data-name-replace="image" style="display: none;">
                 <input hidden name="img_1_input" id="img_1_input" value="images/resume/qr.jpg">
-                <div class="page" id="el">
+                <div class="page">
                     {{-- Image --}}
                     <div class="absolute" style="top: 0;left:0;">
                         <img src="images/resume/main.jpg" alt="">
@@ -360,7 +322,7 @@
                         <p class="bold" style="font-size: 30px;margin-top:30px">CORAL GABLES REALTOR</p>
                     </div>
                     <div class="absolute" style="top: 560px;left:145px;width:460px;text-align:justify;font-size:25px">
-                        <p class="text-1" style="font-size: 28px;line-height: 36px;">Wesley Ulloa is the founder of LUXE Properties, born
+                        <p class="text-1" style="font-size: 28px;">Wesley Ulloa is the founder of LUXE Properties, born
                             and raised in
                             Miami, she has
                             more than
@@ -374,7 +336,7 @@
                     </div>
                     <div class="absolute" style="top: 1260px;left:145px;width:460px;text-align:justify;font-size:25px">
                         <p class="bold gold" style="font-size: 30px;">Objective</p>
-                        <p class="text-2" style="font-size: 28px;line-height:37px;">My objectives are to get you the most money possible,
+                        <p class="text-2" style="font-size: 28px;">My objectives are to get you the most money possible,
                             sell your home
                             as quickly as I
                             can, and
@@ -382,7 +344,7 @@
                     </div>
                     <div class="absolute" style="top: 1630px;left:145px;width:460px;text-align:justify;font-size:25px">
                         <p class="bold gold" style="font-size: 30px;">LUXE Properties</p>
-                        <p class="text-3">55 Merrick Way #402,<br>
+                        <p class="text-3" style="">55 Merrick Way #402,<br>
                             Coral Gables, FL 33134</p>
                     </div>
                     <div class="absolute"
@@ -484,41 +446,40 @@
                 </div>
             </div>
             <div class="column-divider"></div>
-            <div class="row-input">
+            <div class="row-input" style="">
                 <div>
                     <label for="text-2">Agent</label>
                     <input type="text" placeholder="Title" name="text_name_1" id="text_name_1" value="WESLEY">
                     <input type="text" placeholder="Subtitle" name="text_name_2" id="text_name_2" value="ULLOA">
                 </div>
                 <div>
-                    <label for="text-2" class="mt-3">Text 1</label>
+                    <label for="text-2">Text 1</label>
                     <textarea name="text_1" id="text-1" cols="30"
                         rows="5">Wesley Ulloa is the founder of LUXE Properties, born and raised in Miami, she has more than fourteen years of experience in South Florida real estate. Selling on average over $20 million a year, she specializes in creative marketing for listings and sells at 98% list to sales price ratio with 45 days on market. Wesley has a passion for historic homes and loves sharing her knowledge of working with, renovating, researching, owning and of course selling historic homes in South Florida.</textarea>
                 </div>
                 <div>
-                    <label for="text-2" class="mt-3">Text 2</label>
+                    <label for="text-2">Text 2</label>
                     <textarea name="text_2" id="text-2" cols="30"
                         rows="5">My objectives are to get you the most money possible, sell your home as quickly as I can, and make selling your home a pleasant and profitable experience for you.</textarea>
                 </div>
                 <div>
-                    <label for="text-2" class="mt-3">Contact</label>
+                    <label for="text-2">Contact</label>
                     <input type="text" name="text_3" id="text-3" placeholder="Address"
-                        value="55 Merrick Way #402,<br>Coral Gables, FL 33134"><br>
-                    <i style="font-size: 12px;">Use &lt;br&gt; to create a new line</i><br>
+                        value="55 Merrick Way #402,<br>Coral Gables, FL 33134">
+                    <i style="font-size: 12px;">Use &lt;br&gt; to create a new line</i>
                     <input type="text" name="text_4" id="text-4" placeholder="Phone" value="305-986-7041">
                     <input type="text" name="text_5" id="text-5" placeholder="Email" value="wesley@luxeknows.com">
                     <input type="text" name="text_6" id="text-6" placeholder="Instagram" value="@miamihistorichomes">
 
                 </div>
                 <div style="margin-bottom:10px;">
-                    <label for="page-1-img-1" class="mt-3">QR Image</label>
-                    <button type="button" onclick="openInputFile('img-1-input')">Choose Image</button>
-                    <input type="file" id="img-1-input" onchange="image_change('img-1-input',['img_1'],'img_1_input')" style="display: none;"><br>
-                    <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
+                    <label for="page-1-img-1">QR Image</label>
+                    <input type="file" id="img-1-input" onchange="image_change('img-1-input',['img_1'],'img_1_input')">
+                    <button type="button" onclick="startCropper(1)">Crop</button>
                     <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
                 </div>
                 <div id="section-1">
-                    <label for="text-2" class="mt-3">Education & Accomplishments</label>
+                    <label for="text-2">Education & Accomplishments</label>
                     <input type="text" placeholder="Title" name="section_1_title[]" id="section_1_title_1"
                         value="Master of Science in International Real Estate">
                     <input type="text" placeholder="Subtitle" name="section_1_subtitle[]" id="section_1_subtitle_1"
@@ -561,7 +522,7 @@
 512 Alcazar Ave
 2730 SW 29th Ct
 908 Mariana Ave
-3155 MARY ST #3155</textarea><br>
+3155 MARY ST #3155</textarea>
                     <i style="font-size: 12px">Max of 145 addresses</i><br>
                     <i style="font-size: 12px">Enter addresses separated by presing enter (new line)</i>
                 </div>
@@ -572,31 +533,21 @@
 512 Alcazar Ave
 2730 SW 29th Ct
 908 Mariana Ave
-3155 MARY ST #3155</textarea><br>
+3155 MARY ST #3155</textarea>
                     <i style="font-size: 12px">Enter addresses separated by presing enter (new line)</i>
                 </div>
                 <div>
                     <div class="flex">
                         <div class="" style="width: 345px">
-                            <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                            <button type="submit" name="action" value="Generate" class="btn btn-luxe">Submit</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-@include('includes.loader')
-@endsection
+</body>
 
-@include('door-hangers.template5.cropper')
-@section('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
-    integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
-    crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css"
-    integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
-    crossorigin="anonymous" />
-    
 <script>
     $("textarea").change(function(event) {
         var event_id = event.target.id;
@@ -650,7 +601,6 @@
     }     
 
     $('input').on('input', this, function(event){
-        console.log('input')
         var event_id = event.target.id;
         var event_element = $("#" + event_id)
         var export_var = $("." + event_id);
@@ -701,16 +651,11 @@
     }
 var cropper;
     function startCropper(ratio){
-        // $(".page").css("opacity", "0");
-        $('#myModal').css('display', 'block')
-        $('.modal-content').css('width', '700px')
-        $('#preview-image').attr('src', $('#image').attr('src'))
-        var image = document.getElementById("preview-image");
-
+        var image = document.getElementById("image");
+        $(".page").css("opacity", "0");
         cropper = new Cropper(image, {
             aspectRatio: ratio,
         });
-        document.getElementById( "btn-save" ).setAttribute( "onClick", "crop_image(['img_1'],'img_1_input');" );
     }
     
     function image_change(file_input,image_src,image_input) {
@@ -765,7 +710,6 @@ var cropper;
             });        
         });
         $(".page").css("opacity", "1");
-        $('#myModal').css('display', 'none')
     }
 
     function convert(oldImag, callback) {
@@ -787,8 +731,6 @@ var cropper;
             callback(base64)
         })
     }
-    function openInputFile(id) {
-        $('#' + id).click()
-    }
 </script>
-@endsection
+
+</html>
