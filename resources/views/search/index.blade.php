@@ -279,7 +279,7 @@
                         </a>
                     </div>
                 @empty
-                    <p class="pl-3">No results found.</p>
+                    <p>No results found.</p>
                 @endforelse
                 <div class="w-100">
                     {{ $products->appends($_GET)->links() }}
