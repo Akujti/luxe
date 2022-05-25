@@ -32,6 +32,9 @@
         width: 100%;
         color: #262626;
     }
+    .video a:hover {
+        text-decoration: none;
+    }
     h5 {
         font-family: 'gothicregular';
     }
@@ -83,6 +86,12 @@
     }
     .template-box {
         margin-bottom: 0px !important;
+    }
+    .folder a:hover {
+        text-decoration: none;
+    }
+    .folder {
+        cursor: pointer;
     }
 </style>
 @endsection
