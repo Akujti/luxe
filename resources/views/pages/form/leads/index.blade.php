@@ -78,13 +78,13 @@
                                         Request</a>
                                 </div>
                             </div> --}}
-                            <div class="col-lg-3 mb-4">
+                            {{-- <div class="col-lg-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'pause-request']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Pause
                                         Request</a>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-lg-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'request-zillow-nurtures']) }}"
@@ -95,8 +95,8 @@
                             <div class="col-lg-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-leads-weekly-update']) }}"
-                                        class="btn w-100 d-flex align-items-center justify-content-center">Team Flex -
-                                        Zillow <br>Leads Weeky Update</a>
+                                        class="btn w-100 d-flex align-items-center justify-content-center">Zillow Leads<br>
+                                        Weeky Update</a>
                                 </div>
                             </div>
                             {{-- <div class="col-lg-3 mb-4">
