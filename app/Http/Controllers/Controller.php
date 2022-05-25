@@ -23,9 +23,20 @@ class Controller extends BaseController
         $diy_templates = DiyTemplateCategory::whereNull('parent_id')->orderBy('order', 'asc')->get();
 
         $social_media_posts = [];
-        $social_media_id = DiyTemplateCategory::where('title', 'Social Media Posts')->first();
-        if($social_media_id) {
-            $social_media_posts = DiyTemplate::where('category_id', $social_media_id->id)->orderBy('order', 'asc')->get();
+        $social_media = DiyTemplateCategory::where('title', 'Social Media Posts')->first();
+
+        if($social_media) {
+            $subcategories = DiyTemplateCategory::where('parent_id', $social_media->id)->get();
+
+            foreach($subcategories as $subcategory) {
+                $templates = DiyTemplate::where('category_id', $subcategory->id)->orderBy('order', 'asc')->get();
+                if($templates->count()) {
+                    foreach($templates as $template) {
+                        $social_media_posts[] = $template;
+                    }
+                }
+            }
+            // $social_media_posts = DiyTemplate::where('category_id', $social_media->id)->orderBy('order', 'asc')->get();
         }
         return view('home-page', compact('guides', 'marketing_requests', 'diy_templates', 'social_media_posts'));
     }

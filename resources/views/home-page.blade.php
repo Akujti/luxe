@@ -96,6 +96,7 @@
         padding: 0px;
         margin: 0px;
         font-size: 18px;
+        text-align: left;
     }
     .box-guides h3 {
         font-family: 'gothicbold';
