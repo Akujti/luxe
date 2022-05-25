@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Router;
 use App\Models\AppointmentTimeslot;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\W9Controller;
@@ -25,6 +26,7 @@ use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DiyTemplateController;
 use App\Http\Controllers\Video\VideoController;
+use App\Http\Controllers\MarketingPostController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\LuxeStore\OrderController;
 use App\Http\Controllers\LuxeStore\StoreController;
@@ -58,7 +60,7 @@ Route::get('general/form/file/download/', [FormController::class, 'file_download
 
 Route::view('office-locations', 'office-locations')->middleware('auth');
 Route::view('maps', 'maps');
-Route::view('home', 'home-page')->middleware('auth');
+Route::get('home', [Controller::class, 'home'])->middleware('auth');
 Route::redirect('/', 'home');
 
 Route::group(['prefix' => 'store', 'as' => 'luxe_store.', 'middleware' => ['auth']], function () {
@@ -305,6 +307,7 @@ Route::group(
         Route::delete('file-destory/{id}', [FolderController::class, 'file_destroy'])->name('file.destroy');
         Route::post('files/open-house-directory', [FolderController::class, 'create_directory'])->name('files.open-house.directory');
         Route::resource('guides', GuideController::class);
+        Route::resource('file-posts', MarketingPostController::class);
 
         Route::get('written-email-templates', [WrittenEmailTemplateController::class, 'index'])->name('written-email-templates');
         Route::post('written-email-templates', [WrittenEmailTemplateController::class, 'store'])->name('written-email-templates.store');

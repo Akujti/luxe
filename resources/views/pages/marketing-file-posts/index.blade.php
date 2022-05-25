@@ -1,19 +1,6 @@
-@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'downloadable_guides'])
+@extends('layouts.app', ['active' => 'marketing_branding', 'subactive' => 'marketing_posts'])
 @section('css')
 <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
-<style>
-    .fc-event-title {
-        color: black;
-    }
-
-    .fc-h-event {
-        background: #FFCF40;
-        border: 1px solid rgb(136, 136, 136);
-        margin-bottom: 3px;
-    }
-</style>
-@endsection
-@section('content')
 <style>
     img {
         object-fit: cover;
@@ -265,13 +252,11 @@
         }
     }
 </style>
+@endsection
+@section('content')
+
 <div class="container-fluid">
-    @if(isset($_GET['id']) && !empty($_GET['id']))
-    <div>
-        <a href="{{route('files.index') . (isset($_GET['view']) ? '?view='. $_GET['view'] : '' )}}" id="back"><img
-                src="/images/files/left-icon.svg" alt=""> Back</a>
-    </div>
-    @endif
+
     <div class="row m-0 box-title mb-4">
         <div class="nav-body row m-0 p-0">
             <div class="col-12 col-md-6 col-lg-6 nav-body__sort-view pl-0 pd-r">
@@ -295,12 +280,6 @@
             <div
                 class="col-12 col-md-6 col-lg-6 nav-body__create-upload mt-2 mt-md-0 mt-lg-0 justify-content-center justify-content-lg-end mr-0 pr-0 pd-l">
                 @if (Auth::user()->isAdmin)
-                <div class="nav-body__create">
-                    <button type="button" onclick="create_folder()">
-                        <img src="/images/files/circle-plus.png" alt="">
-                        <p class="m-0 p-0">Create a Folder</p>
-                    </button>
-                </div>
                 <div class="nav-body__upload">
                     <button type="button" onclick="show_modal()">
                         <img src="/images/files/upload.png" alt="">
@@ -311,48 +290,9 @@
             </div>
         </div>
     </div>
+
     @if(!request('view') || request('view') == 'badge')
     <div class="row box-grid">
-        @foreach ($folders as $folder)
-        <div class="box-file col-12 col-md-6 col-lg-4">
-            <div class="folder">
-                <div class="w-100"
-                    onclick="window.location = '{{route('files.index').'?id='.$folder->id . (isset($_GET['view']) ? '&view='. $_GET['view'] : '' )}}'">
-                    <p id="title">{{ $folder->title }}</p>
-                    <div class="row m-0 p-0 w-100 justify-content-between align-items-center">
-                        <div>
-                            <p id="num_of_file">
-                                Number of items: {{ $folder->files->count() + $folder->children->count() }}
-                            </p>
-                            <p id="date">
-                                {{ $folder->created_at->toDateString() }}
-                            </p>
-                        </div>
-                        <div>
-                            <img src="/images/files/folder.png" alt="" id="folder-img">
-                        </div>
-                    </div>
-                </div>
-                @if (Auth::user()->isAdmin)
-                <div class="delete-form">
-                    <form action="{{ route('folder.destroy',$folder->id) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button class="delete-button" type="submit"
-                            onclick="return confirm('Are you sure you want to delete this directory?');">
-                            <img src="{{asset('images/files/delete-icon.svg')}}" alt="" width="34px" height="34px">
-                        </button>
-                    </form>
-                </div>
-                <div class="edit-form">
-                    <button class="edit-button" type="submit" onclick="show_edit_modal({{$folder}})">
-                        <img src="{{asset('images/files/pencil-icon.svg')}}" alt="" width="34px" height="34px">
-                    </button>
-                </div>
-                @endif
-            </div>
-        </div>
-        @endforeach
         @foreach ($files as $file)
         <div class="box-file col-12 col-md-6 col-lg-4">
             <div class="folder">
@@ -382,11 +322,7 @@
                             </div>
                         </div>
                     </a>
-                    <div class="edit-form">
-                        <button class="edit-button" type="submit" onclick="show_edit_file_modal({{$file}})">
-                            <img src="{{asset('images/files/pencil-icon.svg')}}" alt="" width="34px" height="34px">
-                        </button>
-                    </div>
+                    @if (Auth::user()->isAdmin)
                     <div class="delete-form">
                         <form action="{{ route('file.destroy',$file->id) }}" method="post">
                             @csrf
@@ -397,6 +333,12 @@
                             </button>
                         </form>
                     </div>
+                    {{--<div class="edit-form">
+                        <button class="edit-button" type="submit" onclick="show_edit_file_modal({{$file}})">
+                            <img src="{{asset('images/files/pencil-icon.svg')}}" alt="" width="34px" height="34px">
+                        </button>
+                    </div>--}}
+                    @endif
                 </div>
             </div>
         </div>
@@ -404,41 +346,6 @@
     </div>
     @else
     <div class="box-table">
-        @foreach ($folders as $folder)
-        <div class="box-file col-md-12 mb-4" style="height: 84px !important;">
-            <div class="folder" style="min-height: 84px !important;">
-                <div class="row p-0 m-0 w-100 d-flex align-items-center"
-                    onclick="window.location = '{{route('files.index').'?id='.$folder->id . (isset($_GET['view']) ? '&view='. $_GET['view'] : '' )}}'">
-                    <div class="col d-flex align-items-center">
-                        <div class="mr-4">
-                            <img src="/images/files/folder.png" alt="" width="45px" height="35px">
-                        </div>
-                        <p id="title" class="m-0 p-0">{{ $folder->title }}</p>
-                    </div>
-                    <div class="col row m-0 p-0 w-100 justify-content-between align-items-center">
-                        <p id="num_of_file" class="m-0 p-0">
-                            Number of items: {{ $folder->files->count() + $folder->children->count() }}
-                        </p>
-                        <p id="date" class="m-0 p-0">
-                            {{ $folder->created_at->toDateString() }}
-                        </p>
-                    </div>
-                </div>
-                @if (Auth::user()->isAdmin)
-                <div class="delete-form">
-                    <form action="{{ route('folder.destroy',$folder->id) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button class="delete-button" type="submit"
-                            onclick="return confirm('Are you sure you want to delete this directory?');">
-                            <img src="{{asset('images/files/delete-icon.svg')}}" alt="" width="34px" height="34px">
-                        </button>
-                    </form>
-                </div>
-                @endif
-            </div>
-        </div>
-        @endforeach
         @foreach ($files as $file)
         <div class="box-file col-md-12 mb-4">
             <div class="folder" style="min-height: 84px !important;">
@@ -469,6 +376,7 @@
                             </p>
                         </div>
                     </a>
+                    @if (Auth::user()->isAdmin)
                     <div class="delete-form">
                         <form action="{{ route('file.destroy',$file->id) }}" method="post">
                             @csrf
@@ -479,11 +387,7 @@
                             </button>
                         </form>
                     </div>
-                    <div class="edit-form">
-                        <button class="edit-button" type="submit" onclick="show_edit_file_modal({{$file}})">
-                            <img src="{{asset('images/files/pencil-icon.svg')}}" alt="" width="34px" height="34px">
-                        </button>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -491,59 +395,57 @@
     </div>
     @endif
 </div>
-<!-- Create File  -->
 <div class="create-event modal fade modal-new" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Upload a File</h4>
+                <h4 class="modal-title">Upload A File</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('files.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('file-posts.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="folder_id" value="{{$folder_id}}">
-                    <div class="row m-0 p-0">
-                        <div class="form-group">
-                            <label for="start">{{ __('File Name') }}</label>
-                            <div class='input-group'>
-                                <input type="text" class="w-100 form-control" name="title" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class='input-group'>
-                                <div class="form-group w-100">
-                                    <label for="">File Type</label>
-                                    <select class="form-control " name="file_type" id="">
-                                        <option value="doc">Document</option>
-                                        <option value="pdf">PDF</option>
-                                        <option value="img">Image</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="start">{{ __('Select File') }}</label>
-                            <div class="custom-file">
-                                <input type="file" name="file" class="form-control" id="inputGroupFile01"
-                                    style="padding: 3px;" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group pt-3">
-                            <label for="start">Thumbnail</label>
-                            <div class="custom-file">
-                                <input type="file" name="thumbnail" class="form-control" id="inputGroupFile01"
-                                    style="padding: 3px;" onchange="onFileChanged(this)">
-                            </div>
-                        </div>
-                        <div class="w-100">
-                            <img src="" alt="" id="preview-image" class="mt-3 d-none w-100">
+                    <div class="form-group">
+                        <label for="start">{{ __('File Name') }}</label>
+                        <div class='input-group'>
+                            <input type="text" class="w-100 form-control" name="title" required>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class='input-group'>
+                            <div class="form-group w-100">
+                                <label for="">File Type</label>
+                                <select class="form-control " name="file_type" id="">
+                                    <option value="doc">Document</option>
+                                    <option value="pdf">PDF</option>
+                                    <option value="img">Image</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="start">{{ __('Select File') }}</label>
+                        <div class="custom-file">
+                            <input type="file" name="file" class="form-control" id="inputGroupFile01"
+                                style="padding: 3px;" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group pt-3">
+                        <label for="start">Thumbnail</label>
+                        <div class="custom-file">
+                            <input type="file" name="thumbnail" class="form-control" id="inputGroupFile01"
+                                style="padding: 3px;" onchange="onFileChanged(this)">
+                        </div>
+                    </div>
+
+                    <div class="w-100">
+                        <img src="" alt="" id="preview-image" class="mt-3 d-none w-100">
+                    </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -553,67 +455,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
-
-<!-- Create Folder  -->
-<div class="create-folder modal fade modal-new" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Create a Folder</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('files.open-house.directory')}}" method="post" class="m-0">
-                    @csrf
-                    <input type="hidden" name="current_directory" value="{{$folder_id}}">
-                    <div class="form-group m-0">
-                        <label for="">Folder Name</label>
-                        <div class='input-group'>
-                            <input type="text" class="form-control" name="title" required>
-                        </div>
-                    </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-luxe" id="save-event">Create</button>
-            </div>
-            </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
-
-<!-- Edit Folder  -->
-<div class="edit-folder modal fade modal-new" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Edit Directory</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('folder.update') }}" method="POST" class="m-0">
-                    @csrf
-                    @method('PUT')
-                    <input id="folder_id" type="hidden" name="folder_id">
-                    <div class="form-group m-0">
-                        <label for="start">{{ __('Directory Name') }}</label>
-                        <div class='input-group'>
-                            <input id="folder_title" type="text" class="w-100 form-control" name="title">
-                        </div>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-luxe" id="save-event">Update</button>
-            </div>
-            </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
-{{-- Edit File --}}
 <div class="edit-file modal fade modal-new" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -655,30 +496,21 @@
         $('.create-event').modal('show');
     };
 
-    function show_edit_modal(folder) {
-        $('.edit-folder').modal('show');
-        $('.edit-folder').find('#folder_id').val(folder.id);
-        $('.edit-folder').find('#folder_title').val(folder.title);
-    };
-
     function show_edit_file_modal(file) {
-        $('.edit-file').modal('show');
-        $('.edit-file').find('#file_id').val(file.id);
-        $('.edit-file').find('#file_title').val(file.title);
+    $('.edit-file').modal('show');
+    $('.edit-file').find('#file_id').val(file.id);
+    $('.edit-file').find('#file_title').val(file.title);
     };
 
-    function create_folder() {
-        $('.create-folder').modal('show');
-    }
     function change_view() {
         var value = document.getElementById('change_view').value;
 
-        window.location.href = '{{ route('files.index') }}?view=' + value + '<?php if(isset($_GET['sort'])) {echo '&sort='. $_GET['sort'];} ?>' + '<?php if(isset($_GET['id'])) {echo '&id='. $_GET['id'];} ?>'
+        window.location.href = '{{ url('user/file-posts') }}?view=' + value + '<?php if(isset($_GET['sort'])) {echo '&sort='. $_GET['sort'];} ?>'
     }
     function change_sort() {
         var value = document.getElementById('change_sort').value;
 
-        window.location.href = '{{ route('files.index') }}?sort=' + value + '<?php if(isset($_GET['view'])) {echo '&view='. $_GET['view'];} ?>' + '<?php if(isset($_GET['id'])) {echo '&id='. $_GET['id'];} ?>'
+        window.location.href = '{{ url('user/file-posts') }}?sort=' + value + '<?php if(isset($_GET['view'])) {echo '&view='. $_GET['view'];} ?>'
     }
 
     function onFileChanged(e) {

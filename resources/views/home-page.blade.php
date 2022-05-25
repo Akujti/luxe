@@ -86,6 +86,32 @@
     .log-item {
         height: 200px !important;
     }
+    .box-guides .box-guide a {
+        display: flex;
+        align-items: center;
+        width: 90%;
+        gap: 0px 10px;
+    }
+    .box-guide p {
+        padding: 0px;
+        margin: 0px;
+        font-size: 18px;
+    }
+    .box-guides h3 {
+        font-family: 'gothicbold';
+        font-size: 20px;
+    }
+    .box-guide {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .box-guides .box-guide img {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+    }
 </style>
 @endsection
 @section('content')
@@ -316,7 +342,87 @@
         <div class="col-12 title mb-3">
             <h1>Marketing & Branding</h1>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="row w-100">
+            <div class="col-6">
+                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: auto !important;">
+                    <div class="w-100 row p-0 m-0">
+                        <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4">Submit Custom Marketing Request</h3>
+                        @forelse($marketing_requests as $marketing_request)
+                            <div class="box-guide col-12 pl-4">
+                                <a href="{{route('marketing.request',$marketing_request)}}" class="text-dark w-100">
+                                    <img src="{{$marketing_request->image}}" alt="">
+                                    <p>{{ $marketing_request->title }}</p>
+                                </a>
+                            </div>
+                        @empty
+                        <div class="box-guide justify-content-start pl-4">
+                            <p>No results found.</p>
+                        </div>
+                        @endforelse 
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: auto !important;">
+                    <div class="w-100 row p-0 m-0">
+                        <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4">Downloadable Guides</h3>
+                        @forelse($guides as $guide)
+                            <div class="box-guide col-6">
+                                <a href="{{'/storage/'.$guide->file}}" download target="_blank" class="text-dark">
+                                    <img src="{{'/storage/'.$guide->thumbnail}}" alt="">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
+                            </div>
+                        @empty
+                        <div class="box-guide justify-content-start pl-4">
+                            <p>No results found.</p>
+                        </div>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row w-100 my-4">
+            <div class="col-6">
+                <div class="box-item align-items-start box-guides row p-0 m-0 bg-transparent" style="height: auto !important;">
+                    <div class="w-100 row p-0 m-0">
+                        <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4">DIY Categories</h3>
+                        @forelse($diy_templates as $diy)
+                            <div class="box-guide col-12 pl-4">
+                                <a href="{{route('user.diy-templates.show', $diy)}}" class="text-dark w-100">
+                                    <img src="{{ asset('storage/'.$diy->image) }}" alt="">
+                                    <p>{{ $diy->title }}</p>
+                                </a>
+                            </div>
+                        @empty
+                        <div class="box-guide justify-content-start pl-4">
+                            <p>No results found.</p>
+                        </div>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="box-item align-items-start box-guides row p-0 m-0 bg-transparent" style="height: auto !important;">
+                    <div class="w-100 row p-0 m-0">
+                        <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4">Latest Social Media Posts</h3>
+                        @forelse($social_media_posts as $post)
+                            <div class="box-guide col-6">
+                                <a href="{{$post->url}}" class="text-dark">
+                                    <img src="{{$post->image}}" alt="">
+                                    <p>{{ $post->title }}</p>
+                                </a>
+                            </div>
+                        @empty
+                        <div class="box-guide justify-content-start pl-4">
+                            <p>No results found.</p>
+                        </div>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+       {{--<div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location='{{ route('user.diy-templates') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/diy_marketing.svg" alt="">
@@ -363,7 +469,7 @@
                     <p>Resume Builder<br>&nbsp;</p>
                 </div>
             </div>
-        </div>
+        </div>--}}
         @elseif($_GET['dir'] == 'signs_photo_design_requests')
         <div class="col-12 title mb-3">
             <h1>Signs, Photo, & Design Requests</h1>

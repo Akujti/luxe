@@ -43,6 +43,9 @@
         padding-top: 0px;
         margin-top: 0px;
     }
+    .box-table #title {
+        height: auto !important;
+    }
 
     .upload {
         transition: .2s;

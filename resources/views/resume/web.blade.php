@@ -318,6 +318,24 @@
             zoom: 44% !important;
         }
     }
+    @media screen and (max-width: 500px) {
+        .page {
+            position: absolute !important;
+            left: 0px;
+            top: 332px;
+        }
+        .row-input {
+            position: absolute;
+            left: 0px;
+            top: 99%;
+        }
+        .title {
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            z-index: 1;
+        }
+    }
 </style>
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
