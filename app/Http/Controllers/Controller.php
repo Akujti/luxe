@@ -38,6 +38,8 @@ class Controller extends BaseController
             }
             // $social_media_posts = DiyTemplate::where('category_id', $social_media->id)->orderBy('order', 'asc')->get();
         }
+        $collection = collect($social_media_posts);
+        $social_media_posts = $collection->slice(0, 10);
         return view('home-page', compact('guides', 'marketing_requests', 'diy_templates', 'social_media_posts'));
     }
 }
