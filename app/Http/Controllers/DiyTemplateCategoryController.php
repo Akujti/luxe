@@ -97,7 +97,6 @@ class DiyTemplateCategoryController extends Controller
      */
     public function update(UpdateDiyTemplateCategoryRequest $request)
     {
-        dd($request->all());
         $diyTemplateCategory = DiyTemplateCategory::findOrFail($request->id);
         $diyTemplateCategory->title = $request->title;
 
