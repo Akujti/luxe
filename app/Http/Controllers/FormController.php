@@ -154,7 +154,6 @@ class FormController extends Controller
         $form = Form::where('title', $title)->first();
 
         $data = $form ? $form->emails()->get()->pluck('email')->toArray() : [];
-        array_merge($data, $extraEmail);
         if ($extraEmail) {
             $data = array_merge($data, $extraEmail);
         }
