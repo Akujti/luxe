@@ -34,6 +34,11 @@ class AppointmentController extends Controller
         return view('appointments.index', compact('addresses'));
     }
 
+    public function getAddresses()
+    {
+        return response()->json(AppointmentAddress::get());
+    }
+
     /**
      * Store a newly created resource in storage.
      *

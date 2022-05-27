@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\EventController;
@@ -25,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('formSubmit', [FormController::class, 'general_form_post']);
 Route::post('login', [LoginController::class, 'login']);
+Route::get('appointment-addresses', [AppointmentController::class, 'getAddresses']);
+Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
 Route::apiResource('user/events', EventController::class, array("as" => "api"));
 Route::apiResource('user/files', FolderController::class, array("as" => "api"));
 Route::apiResource('user/guides', GuideController::class, array("as" => "api"));
