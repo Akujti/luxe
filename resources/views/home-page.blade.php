@@ -409,6 +409,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-12 col-md-3">
+                    <div class="box-item small-box" onclick="window.location = '{{ url('user/file-posts') }}'">
+                        <div>
+                            <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
+                            <p>Pre Made <br>Social Media</p>
+                        </div>
+                    </div>
+                </div>
         </div>
         <div class="row w-100">
             <div class="col-12 col-md-6 mb-4 mb-md-auto">
