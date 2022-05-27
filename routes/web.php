@@ -40,6 +40,7 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
+use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\WrittenEmailTemplateController;
@@ -265,7 +266,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('bookings', [BookingController::class, 'store'])->middleware('auth')->name('bookings.store');
 
 
-    Route::get('marketing-home', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
+    // Route::get('marketing-home', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
+    Route::get('marketing-home', [DesignRequestController::class, 'index'])->name('marketing.requests');
+    Route::get('marketing/get-templates', [DesignRequestController::class, 'getTemplates'])->name('design.requests.templates');
+    Route::get('marketing/get-templates/{template_id}', [DesignRequestController::class, 'template'])->name('design.requests.template');
     Route::get('marketing/{marketingCategory}', [MarketingCategoryController::class, 'show'])->name('marketing.request');
     Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
 
