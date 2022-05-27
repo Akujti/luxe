@@ -126,47 +126,51 @@
         var AllLatLng = [];
         
         agents.data.forEach((el) => {
-            codeAddress(el.profile.address, function(coords) {
-                AllLatLng.push({
-                    lat: coords[0], lng: coords[1]
-                })
-                const svgMarker = {
-                    path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-                    fillColor: "black",
-                    fillOpacity: 0.72,
-                    strokeWeight: 0,
-                    rotation: 0,
-                    scale: 2,
-                    anchor: new google.maps.Point(15, 30),
-                };
-                if(AllLatLng.filter(x => x.lat == coords[0]).length == 2) {
-                    svgMarker.fillColor = "blue"
-                    svgMarker.anchor = new google.maps.Point(25, 30)
-                }
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(coords[0], coords[1], true),
-                    icon: svgMarker,
-                    map: map
-                });
-                  
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        
-                        infowindow.setContent(
-                            "<div class='d-flex align-items-center' style='gap:10px;margin-bottom:6px'>" + 
-                            "<img style='width:58px;height:58px;border-radius:50%;' src='" + el.avatar + "'>" +
-                            "<h5>" + el.profile.fullname + "</h5><br>" +
-                            "</div>" +
-                            "Phone: " + el.profile.phone +
-                            "<br>Languages: " + el.profile.languages.toString() +
-                            "<br>Address: " + el.profile.address
-                        );
-                        infowindow.open(map, marker);
+            if(el.profile.address) {
+                codeAddress(el.profile.address, function(coords) {
+                    AllLatLng.push({
+                        lat: coords[0], lng: coords[1]
+                    })
+                    const svgMarker = {
+                        path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+                        fillColor: "black",
+                        fillOpacity: 0.72,
+                        strokeWeight: 0,
+                        rotation: 0,
+                        scale: 2,
+                        anchor: new google.maps.Point(15, 30),
+                    };
+                    console.log(AllLatLng.filter(x => x.lat == coords[0]).length)
+                    if(AllLatLng.filter(x => x.lat == coords[0]).length > 1) {
+                        svgMarker.fillColor = "blue"
+                        AllLatLng.filter(x => x.lat == coords[0]).forEach((el, i) => {
+                            svgMarker.anchor = new google.maps.Point(15 + (i * 10), 30)
+                        })
                     }
-                })(marker, i));
-            });
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(coords[0], coords[1], true),
+                        icon: svgMarker,
+                        map: map
+                    });
+                      
+                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                        return function() {
+                            
+                            infowindow.setContent(
+                                "<div class='d-flex align-items-center' style='gap:10px;margin-bottom:6px'>" + 
+                                "<img style='width:58px;height:58px;border-radius:50%;' src='" + el.avatar + "'>" +
+                                "<h5>" + el.profile.fullname + "</h5><br>" +
+                                "</div>" +
+                                "Phone: " + el.profile.phone +
+                                "<br>Languages: " + el.profile.languages.toString() +
+                                "<br>Address: " + el.profile.address
+                            );
+                            infowindow.open(map, marker);
+                        }
+                    })(marker, i));
+                });
+            }
         });
-        var mc = new MarkerClusterer(map, markers)
     }
     function codeAddress(address, callback) {
         let geocoder = new google.maps.Geocoder();
