@@ -142,7 +142,6 @@
                     };
                     console.log(AllLatLng.filter(x => x.lat == coords[0]).length)
                     if(AllLatLng.filter(x => x.lat == coords[0]).length > 1) {
-                        svgMarker.fillColor = "blue"
                         AllLatLng.filter(x => x.lat == coords[0]).forEach((el, i) => {
                             svgMarker.anchor = new google.maps.Point(15 + (i * 10), 30)
                         })
