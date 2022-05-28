@@ -412,6 +412,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     Route::group(['prefix' => 'forms', 'as' => 'forms.'], function () {
         Route::get('/', [AdminController::class, 'forms'])->name('index');
         Route::put('/', [AdminController::class, 'update_form'])->name('update');
+        Route::put('/form', [AdminController::class, 'update'])->name('update.form');
+        Route::delete('/', [AdminController::class, 'delete'])->name('delete.form');
     });
 
     Route::resource('diy-categories', DiyTemplateCategoryController::class);

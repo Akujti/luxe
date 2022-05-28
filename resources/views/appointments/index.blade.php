@@ -88,6 +88,7 @@
         box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
         padding: 20px;
         margin-bottom: 20px;
+        align-items: center;
     }
 
     label {

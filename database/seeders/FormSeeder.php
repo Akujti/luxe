@@ -241,5 +241,15 @@ class FormSeeder extends Seeder
             ['email' => 'operations@luxeknows.com'],
             ['email' => 'support@luxeknows.com'],
         ]);
+        
+        $parent = Form::create([
+            'title' => 'Open House Signup'
+        ]);
+        $parent->emails()->createMany([
+            ['email' => 'admin@luxeknows.com'],
+            ['email' => 'support@luxeknows.com'],
+            ['email' => 'email@luxeknows.com'],
+            ['email' => 'operations@luxeknows.com'],
+        ]);
     }
 }

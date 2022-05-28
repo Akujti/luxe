@@ -105,6 +105,37 @@
     <div class="row">
         <div class="col-12">
             <div class="row box-title p-0 m-0 mb-2 mt-4">
+                <h6 class="text-center"><b>Forms</b></h6>
+            </div>
+            <div class="box-table">
+                @forelse ($forms as $form)
+                <div class="box-file col-md-12 mb-4" style="height: 84px !important;">
+                    <div class="folder" style="min-height: 84px !important;">
+                        <div class="row p-0 m-0 w-100 d-flex align-items-center"
+                            onclick="window.location = '{{$form->path}}'">
+                            <div class="col d-flex align-items-center">
+                                <p id="title" class="m-0 p-0">{{ $form->title }}</p>
+                            </div>
+                            <div class="col row m-0 p-0 w-100 justify-content-between align-items-center">
+                                <p id="num_of_file" class="m-0 p-0"></p>
+                                <p id="date" class="m-0 p-0">
+                                    {{ !$form->created_at ? '' : $form->created_at->toDateString() }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @empty
+                <p class="pl-3">No results found.</p>
+                @endforelse
+
+                <div class="w-100 pl-3">
+                    {{ $forms->appends($_GET)->links() }}
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row box-title p-0 m-0 mb-2 mt-4">
                 <h6 class="text-center"><b>Folders</b></h6>
             </div>
             <div class="box-table">

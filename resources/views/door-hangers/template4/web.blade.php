@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Door Hanger Template 4</title>
-</head>
+@extends('themes.layouts.app')
+@section('css')
 @include('includes.fonts')
 <style>
     * {
@@ -97,7 +90,7 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 5px;
-        width: calc(100% - 20px);
+        width: 100%;
         border: 1px solid #262626;
         padding: 10px;
         font-family: 'gothicregular';
@@ -237,7 +230,7 @@
     }
 
     .page {
-        zoom: 50% !important;
+        zoom: 50%;
     }
 
     .text-right {
@@ -268,7 +261,7 @@
         font-weight: 300;
     }
 </style>
-
+@endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
     integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
@@ -277,7 +270,7 @@
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
 
-<body>
+@section('content')
     <form action="{{ route('door-hanger-template-4') }}" method="POST">
         @csrf
         <div class="row">
@@ -287,7 +280,7 @@
                 <input hidden name="img_2_input" id="img_2_input" value="images/door-hangers/template3/1/person.png">
                 <input hidden name="img_3_input" id="img_3_input" value="images/door-hangers/template3/2/bg.png">
                 <input hidden name="img_4_input" id="img_3_input" value="images/door-hangers/template3/2/person.png">
-                <div class="page">
+                <div class="page" id="el">
                     {{-- Image --}}
                     <div class="absolute" style="top: 0;left:0;">
                         <img src="images/door-hangers/template4/main.jpg" alt="">
@@ -370,14 +363,15 @@
                 <div>
                     <div class="flex">
                         <div class="" style="width: 345px">
-                            <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                            <button type="button" name="action" value="Generate" class="generate" onclick="beforePDF()">Generate</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-</body>
+@include('includes.loader')
+@endsection
 
 <script>
     $("textarea").change(function(event) {
@@ -754,6 +748,13 @@
             callback(base64)
         })
     }
+    async function beforePDF() {
+        $('.loader').css('display', 'flex')
+        $('.page').css('zoom', 1)
+        const result = await generatePDF(264, 672.3)
+        if(result) {
+            $('.loader').css('display', 'none')
+            $('.page').css('zoom', '50%')
+        }
+    }
 </script>
-
-</html>

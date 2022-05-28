@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Form;
-use App\Http\Requests\Form\UpdateRequest;
-use App\Models\AgentTransaction;
 use App\Models\EmailsForm;
 use App\Models\FormSubmit;
+use Illuminate\Http\Request;
+use App\Models\AgentTransaction;
+use App\Http\Requests\Form\UpdateRequest;
+use App\Http\Requests\Form\UpdateFormRequest;
 
 class AdminController extends Controller
 {
@@ -19,6 +21,22 @@ class AdminController extends Controller
     {
         $forms = Form::with('emails')->orderBy('title', 'asc')->paginate(20);
         return view('admin.forms', compact('forms'));
+    }
+
+    public function update(UpdateFormRequest $req) {
+        $form = Form::find($req->id);
+        $form->fill($req->only(['title', 'path']));
+        $form->save();
+
+        return back()->with('message', 'Successfully Updated');
+    }
+    public function delete(Request $req) {
+        $form = Form::find($req->id);
+        if($form) {
+            $form->delete();
+        }
+
+        return back()->with('message', 'Successfully Updated');
     }
 
     public function update_form(UpdateRequest $req)
