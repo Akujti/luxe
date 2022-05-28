@@ -316,7 +316,7 @@
                 </div>
             </div>
             <div style="overflow:auto;">
-                <div style="float:right;">
+                <div style="float:left;">
                     <button type="button" id="prevBtn" class="btn btn-previous" onclick="nextPrev(-1)">Previous</button>
                     <button type="button" id="nextBtn" class="btn btn-luxe" onclick="nextPrev(1)">Next</button>
                 </div>
