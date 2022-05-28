@@ -47,7 +47,6 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $request->validate(
             [
                 "appointment_address" => "required|exists:appointment_addresses,id",
@@ -96,6 +95,9 @@ class AppointmentController extends Controller
         array_push($to, $request->email);
         $cc = [];
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+        if (request()->wantsJson()) {
+            return response()->json('Success');
+        }
         return back()->with('message', 'Appointment Created');
     }
 

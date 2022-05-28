@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FolderController;
@@ -29,12 +30,15 @@ Route::post('formSubmit', [FormController::class, 'general_form_post']);
 Route::post('login', [LoginController::class, 'login']);
 Route::get('appointment-addresses', [AppointmentController::class, 'getAddresses']);
 Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
+Route::post('store-appointment', [AppointmentController::class, 'store']);
 Route::apiResource('user/events', EventController::class, array("as" => "api"));
 Route::apiResource('user/files', FolderController::class, array("as" => "api"));
 Route::apiResource('user/guides', GuideController::class, array("as" => "api"));
 Route::apiResource('closing-coordinators', ClosingCoordinatorController::class);
 Route::apiResource('marketing-canva', MarketingTemplateController::class);
 Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
+Route::get('conference-rooms', [BookingController::class, 'selectRoom']);
+Route::get('conference-rooms/{room_id}', [BookingController::class, 'index']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
