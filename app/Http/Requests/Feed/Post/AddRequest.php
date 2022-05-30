@@ -24,7 +24,7 @@ class AddRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
+            'title' => 'nullable|max:255',
             'body' => 'required|string',
             'files' => 'array|nullable',
         ];

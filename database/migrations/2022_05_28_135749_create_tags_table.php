@@ -15,7 +15,7 @@ class CreateTagsTable extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('agent_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

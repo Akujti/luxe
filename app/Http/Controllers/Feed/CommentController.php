@@ -21,7 +21,7 @@ class CommentController extends Controller
             $comment = $row->comment()->create([
                 'body' => $req->body,
                 'parent_id' => $req->parent_id,
-                'user_id' => 2 // auth()->id()
+                'user_id' => auth()->id()
             ]);
 
             if($req->hasFile('file')) {
@@ -41,7 +41,7 @@ class CommentController extends Controller
                 }
             }
 
-            return $comment;
+            return response()->json($comment);
         } catch (Exception $e) {
             return 'back with error';
         }

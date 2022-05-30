@@ -111,6 +111,9 @@ class UserController extends Controller
     public function agent_list()
     {
         $users = User::where('role', 'agent')->latest()->paginate(20);
+        if (request()->ajax()) {
+            return response()->json($users);
+        }
 
         return view('pages.list-of-agents', compact('users'));
     }

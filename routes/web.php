@@ -20,12 +20,16 @@ use App\Http\Controllers\OptinController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Feed\LikeController;
+use App\Http\Controllers\Feed\PostController;
 use App\Http\Controllers\AgentEmailController;
 use App\Http\Controllers\BrokerSumoController;
 use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DiyTemplateController;
 use App\Http\Controllers\Video\VideoController;
+use App\Http\Controllers\Feed\CommentController;
+use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\MarketingPostController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\LuxeStore\OrderController;
@@ -40,7 +44,6 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
-use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\WrittenEmailTemplateController;
@@ -63,6 +66,26 @@ Route::view('office-locations', 'office-locations')->middleware('auth');
 Route::view('maps', 'maps');
 Route::get('home', [Controller::class, 'home'])->middleware('auth');
 Route::redirect('/', 'home');
+
+Route::group(['prefix' => 'news', 'as' => 'news.', 'middleware' => ['auth']], function () {
+    Route::get('/', [PostController::class, 'index'])->name('index');
+    Route::post('/', [PostController::class, 'create'])->name('create');
+    Route::put('/', [PostController::class, 'update'])->name('update');
+    Route::delete('/', [PostController::class, 'delete'])->name('delete');
+    
+    Route::group(['prefix' => 'comment', 'as' => 'comment.'], function () {
+        Route::post('/', [CommentController::class, 'create'])->name('create');
+        Route::put('/', [CommentController::class, 'update']);
+        Route::delete('/', [CommentController::class, 'delete']);
+    });
+
+    Route::group(['prefix' => 'like'], function () {
+        Route::post('/', [LikeController::class, 'create']);
+        Route::delete('/', [LikeController::class, 'delete']);
+        Route::post('/comment', [LikeController::class, 'createByComment']);
+        Route::delete('/comment', [LikeController::class, 'deleteByComment']);
+    });
+});
 
 Route::group(['prefix' => 'store', 'as' => 'luxe_store.', 'middleware' => ['auth']], function () {
     Route::get('/', [StoreController::class, 'index'])->name('index');

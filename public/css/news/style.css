@@ -1,0 +1,19 @@
+.tagify+input{
+    display: block !important;
+    position: static !important;
+    transform: none !important;
+    width: 100%;
+    margin-top: 1em;
+    padding: .5em;
+    }
+    /* method 1 */
+    .tagify__tag + .tagify__input::before{ opacity:0; }
+
+    /* method 2 */
+    .tagify:not(.tagify--noTags){
+    --placeholder-color: transparent;
+    --placeholder-color-focus: transparent;
+    }
+    .tagify__input {
+        height: 30px;
+    }

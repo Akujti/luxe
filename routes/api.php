@@ -37,24 +37,3 @@ Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-
-Route::group(['prefix' => 'feed'], function () {
-    Route::get('/', [PostController::class, 'index']);
-    Route::post('/', [PostController::class, 'create']);
-    Route::put('/', [PostController::class, 'update']);
-    Route::delete('/', [PostController::class, 'delete']);
-
-    Route::group(['prefix' => 'comment'], function () {
-        Route::post('/', [CommentController::class, 'create']);
-        Route::put('/', [CommentController::class, 'update']);
-        Route::delete('/', [CommentController::class, 'delete']);
-    });
-
-    Route::group(['prefix' => 'like'], function () {
-        Route::post('/', [LikeController::class, 'create']);
-        Route::delete('/', [LikeController::class, 'delete']);
-        Route::post('/comment', [LikeController::class, 'createByComment']);
-        Route::delete('/comment', [LikeController::class, 'deleteByComment']);
-    });
-});

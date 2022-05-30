@@ -23,43 +23,44 @@ class PostController extends Controller
         $this->postRepository = $postRepository;
     }
     public function index() {
-        $rows = $this->postRepository->all();
+        $posts = $this->postRepository->all();
        
-        return view('news-feed.index', compact('rows'));
+        return view('news-feed.index', compact('posts'));
     }
 
     public function create(AddRequest $req) {
         try {
-            $row = new Post;
-            $row->fill($req->only(['title', 'body']));
-            $row->agent_id = 1; //auth()->id();
-            $row->save();
+            $data = [
+                'basicInfo' => array(
+                    'title' => $req->title,
+                    'body' => $req->body,
+                    'agent_id' => auth()->id()
+                ),
+            ];
 
             if($req->hasFile('files')) {
-                $imageModels = [];
                 $files = $req->file('files');
                 foreach($files as $file) {
                     $name = time() . Str::random(10) . '.' . $file->getClientOriginalExtension();
+                    $type = $file->getClientOriginalExtension();
                     $file->storeAs('/feed', $name, 'public');
-                    $imageModels[] = ['path' => $name];
+                    $data['files'][] = [
+                        'path' => $name,
+                        'type' => $type
+                    ];
                 }
-                $row->image()->createMany($imageModels);
+            }
+
+            if($req->has('tags')) {
+                $data['tags'] = $req->tags;
             }
             
-            if($req->has('tags')) {
-                foreach($req->tags as $tag) {
-                    $id = Tag::where('name', $tag)->first();
-                    if($id) {
-                        $row->tag()->attach(['name' => $id->id]);
-                    } else {
-                        $row->tag()->create(['name' => $tag]);
-                    }
-                }
-            }
-            return Post::with(['image', 'tag'])->find($row->id);
-        } catch (Exception $e) {
+            $rowCreated = $this->postRepository->create($data);
+
+            return back()->with('message', 'Successfully created');
+       } catch (Exception $e) {
             return 'back with error';
-        }
+        } 
     }
 
     public function update(UpdateRequest $req) {

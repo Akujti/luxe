@@ -1,5 +1,13 @@
+<style>
+  .modal-header {
+    font-family: 'gothicbold';
+  }
+  button {
+    cursor: pointer;
+  }
+</style>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade modal-new" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -12,8 +20,22 @@
         @yield('body')
       </div>
       <div class="modal-footer">
-        @yield('footer')
+        <button type="button" class="btn btn" onclick="closeModal()">Close</button>
+        <button type="button" onclick="submitForm()">Submit</button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  function submitForm() {
+    var form = $('.modal-body').find('form');
+    var reportValidity = form[0].reportValidity();
+    if(reportValidity){
+      form.submit();
+    }
+  }
+  function closeModal() {
+    $('.modal').modal('hide')
+  }
+</script>
