@@ -79,11 +79,9 @@ Route::group(['prefix' => 'news', 'as' => 'news.', 'middleware' => ['auth']], fu
         Route::delete('/', [CommentController::class, 'delete']);
     });
 
-    Route::group(['prefix' => 'like'], function () {
-        Route::post('/', [LikeController::class, 'create']);
-        Route::delete('/', [LikeController::class, 'delete']);
-        Route::post('/comment', [LikeController::class, 'createByComment']);
-        Route::delete('/comment', [LikeController::class, 'deleteByComment']);
+    Route::group(['prefix' => 'like', 'as' => 'like.'], function () {
+        Route::post('/', [LikeController::class, 'create'])->name('create');
+        Route::post('/comment', [LikeController::class, 'createByComment'])->name('create.comment');
     });
 });
 

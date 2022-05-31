@@ -7,9 +7,10 @@ use App\Models\Feed\Post;
 
 class PostRepository
 {
-    public function all($with = ['image', 'tag', 'comment', 'like', 'agent']) {
+    public function all($nr, $with = ['image', 'tag', 'comment', 'like', 'agent']) {
         return Post::orderBy('created_at', 'desc')
         ->with($with)
+        ->take($nr)
         ->get();
     }
 

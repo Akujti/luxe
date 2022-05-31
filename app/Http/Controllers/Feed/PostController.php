@@ -22,8 +22,13 @@ class PostController extends Controller
     {  
         $this->postRepository = $postRepository;
     }
-    public function index() {
-        $posts = $this->postRepository->all();
+    public function index(Request $req) {
+        $nr = $req->input('nr', 8);
+        $posts = $this->postRepository->all($nr);
+
+        if(request()->ajax()) {
+            return response()->json($posts);
+        }
        
         return view('news-feed.index', compact('posts'));
     }

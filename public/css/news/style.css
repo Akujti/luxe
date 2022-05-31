@@ -17,3 +17,8 @@
     .tagify__input {
         height: 30px;
     }
+
+    .tagify--mix .tagify__input {
+        display: flex !important;
+        align-items: center;
+    }

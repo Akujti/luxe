@@ -7,7 +7,6 @@ use App\Models\Feed\Tag;
 use App\Models\Feed\Post;
 use Illuminate\Support\Str;
 use App\Models\Feed\Comment;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Feed\Comment\AddRequest;
 use App\Http\Requests\Feed\Comment\DeleteRequest;
@@ -32,11 +31,11 @@ class CommentController extends Controller
             }
             if($req->has('tags')) {
                 foreach($req->tags as $tag) {
-                    $id = Tag::where('name', $tag)->first();
+                    $id = Tag::where('agent_id', $tag['id'])->first();
                     if($id) {
-                        $comment->tag()->attach(['name' => $id->id]);
+                        $comment->tag()->attach(['agent_id' => $id->id]);
                     } else {
-                        $comment->tag()->create(['name' => $tag]);
+                        $comment->tag()->create(['agent_id' => $tag['id']]);
                     }
                 }
             }

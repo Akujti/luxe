@@ -11,7 +11,7 @@ class Comment extends Model
 {
     protected $guarded = [];
 
-    protected $with = ['replies', 'user', 'image'];
+    protected $with = ['replies', 'user', 'image', 'like'];
     public function commentable() {
         return $this->morphTo();
     }
