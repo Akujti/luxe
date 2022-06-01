@@ -7,6 +7,7 @@ use App\Models\Feed\Tag;
 use App\Models\Feed\Post;
 use Illuminate\Support\Str;
 use App\Models\Feed\Comment;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Feed\Comment\AddRequest;
 use App\Http\Requests\Feed\Comment\DeleteRequest;
@@ -14,6 +15,16 @@ use App\Http\Requests\Feed\Comment\UpdateRequest;
 
 class CommentController extends Controller
 {
+    public function getAll(Request $req) {
+        $nr = $req->input('nr', 8);
+
+        $comments = Post::find($req->post_id)->comment()->take($nr)->get();
+        $rows = Post::find($req->post_id)->comment()->count();
+        return response()->json([
+            'comments' => $comments,
+            'rows' => $rows
+        ]);
+    }
     public function create(AddRequest $req) {
         try {
             $row = Post::findOrFail($req->post_id);
@@ -80,8 +91,11 @@ class CommentController extends Controller
     public function delete(DeleteRequest $req) {
         try {
             $row = Comment::findOrFail($req->id);
-            $row->delete();
-            return 'deleted';
+            if($row->user_id == auth()->id()) {
+                $row->delete();
+                return response()->json(true);
+            }
+            return response()->json(false);
         } catch (Exception $e) {
             return 'back with error';
         }

@@ -33,6 +33,15 @@ class PostController extends Controller
         return view('news-feed.index', compact('posts'));
     }
 
+    public function getById($id) {
+        $row = $this->postRepository->getById($id);
+
+        if(request()->ajax()) {
+            return response()->json($row);
+        }
+        return view('news-feed.single-page', compact('row'));
+    }
+
     public function create(AddRequest $req) {
         try {
             $data = [
@@ -108,10 +117,13 @@ class PostController extends Controller
     public function delete(DeleteRequest $req) {
         try {
             $row = Post::findOrFail($req->id);
-            $row->delete();
-            return 'deleted';
+            if($row->agent_id == auth()->id()) {
+                $row->delete();
+                return response()->json(true);
+            }
+            return response()->json(false);
         } catch (Exception $e) {
-            return 'back with error';
+            return response()->json(false);
         }
     }
 }

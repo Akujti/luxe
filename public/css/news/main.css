@@ -130,7 +130,7 @@
     gap: 20px;
 }
 .comments-box .single-comment .single-comment-body {
-    background-color: #DDD;
+    background-color: #dddddd40;
     border-radius: 10px;
     padding: 5px;
     min-width: 400px;
@@ -141,4 +141,20 @@
 }
 .liked {
     color:rgb(9, 158, 245) !important;
+}
+.single-comment-delete {
+    display: none;
+}
+.comments-box .single-comment .single-comment-body:hover + .single-comment-delete {
+    display: flex;
+}
+.single-comment-delete:hover {
+    display: flex;
+}
+.box-post #delete-post {
+    color: #262626;
+    font-size: 20px;
+}
+button, a {
+    cursor: pointer;
 }

@@ -74,15 +74,18 @@ Route::group(['prefix' => 'news', 'as' => 'news.', 'middleware' => ['auth']], fu
     Route::delete('/', [PostController::class, 'delete'])->name('delete');
     
     Route::group(['prefix' => 'comment', 'as' => 'comment.'], function () {
+        Route::get('/', [CommentController::class, 'getAll'])->name('getall');
         Route::post('/', [CommentController::class, 'create'])->name('create');
         Route::put('/', [CommentController::class, 'update']);
-        Route::delete('/', [CommentController::class, 'delete']);
+        Route::delete('/', [CommentController::class, 'delete'])->name('delete');
     });
 
     Route::group(['prefix' => 'like', 'as' => 'like.'], function () {
         Route::post('/', [LikeController::class, 'create'])->name('create');
         Route::post('/comment', [LikeController::class, 'createByComment'])->name('create.comment');
     });
+    Route::get('/{id}', [PostController::class, 'getById'])->name('show');
+
 });
 
 Route::group(['prefix' => 'store', 'as' => 'luxe_store.', 'middleware' => ['auth']], function () {

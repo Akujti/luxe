@@ -8,10 +8,31 @@ use App\Models\Feed\Post;
 class PostRepository
 {
     public function all($nr, $with = ['image', 'tag', 'comment', 'like', 'agent']) {
-        return Post::orderBy('created_at', 'desc')
+        $postData = Post::orderBy('created_at', 'desc')
         ->with($with)
         ->take($nr)
+        ->orderBy('created_at', 'desc')
         ->get();
+
+        $data = [];
+        foreach($postData as $key => $row) {
+            $data[$key]['row'] = $row;
+            $data[$key]['comments'] = $row->comment()->take(4)->get();
+        }
+
+        $rows = Post::count();
+
+        return ['data' => $data, 'rows' => $rows];
+    }
+
+    public function getById($id, $with = ['image', 'tag', 'comment', 'like', 'agent'])
+    {
+        $data = [
+            'row' => Post::with($with)->findOrFail($id),
+            'comments' => Post::findOrFail($id)->comment()->take(4)->get()
+        ];
+
+        return ['data' => $data];
     }
 
     public function create(array $req) {
