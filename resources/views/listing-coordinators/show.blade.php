@@ -10,8 +10,8 @@
         }
 
         /* #paypal-button-container:hover {
-                                                                    background: #F2BA36
-                                                                } */
+                                                                        background: #F2BA36
+                                                                    } */
 
     </style>
     <div class="container-fluid">
@@ -64,6 +64,7 @@
                                     <option value="Fourplex">Fourplex</option>
                                     <option value="Entire condo building">Entire condo building</option>
                                     <option value="Commercial">Commercial</option>
+                                    <option value="Land">Land</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
