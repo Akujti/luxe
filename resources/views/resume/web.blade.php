@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app',['active' => 'marketing_branding', 'subactive' => 'resume_builder'])
 @section('css')
 @include('includes.fonts')
 <style>

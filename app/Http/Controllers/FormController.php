@@ -48,7 +48,9 @@ class FormController extends Controller
                 'details' => json_encode($details),
             ]);
 
-            $to = ['email@luxeknows.com'];
+            $form = Form::where('title', 'Pre-Approval Form')->first();
+
+            $to = $form ? $form->emails()->get()->pluck('email')->toArray() : ['email@luxeknows.com'];
             $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com', 'ana@luxehomeloan.com', 'orlando@luxehomeloan.com', 'eddie@luxehomeloan.com'];
             Mail::to($to)->cc($cc)->send(new FormMail($details));
 
