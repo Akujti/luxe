@@ -1081,10 +1081,10 @@
             <h1>Referral Partners</h1>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=landing_services') }}'">
+            <div class="box-item" onclick="window.location = '{{ url('home?dir=lending_services') }}'">
                 <div>
                     <img src="/images/index-page/landing_services.svg" class="icon" alt="">
-                    <p>Landing Services</p>
+                    <p>Lending Services</p>
                 </div>
             </div>
         </div>
@@ -1112,9 +1112,9 @@
                 </div>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'landing_services')
+    @elseif($_GET['dir'] == 'lending_services')
         <div class="col-12 title mb-3">
-            <h1>Landing Services</h1>
+            <h1>Lending Services</h1>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location='{{ url('/form') }}'">

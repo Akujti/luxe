@@ -259,7 +259,7 @@
             if (element.value == 'Team Flex') {
                 document.getElementById('team_email').value = 'ramee@luxeknows.com'
             } else if (element.value == 'Team Dade')
-                document.getElementById('team_email').value = 'gabrielasuarez@luxeknows.com'
+                document.getElementById('team_email').value = 'gabrielas@luxeknows.com'
 
         }
 

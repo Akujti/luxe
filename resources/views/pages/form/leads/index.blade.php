@@ -78,13 +78,13 @@
                                         Request</a>
                                 </div>
                             </div> --}}
-                            {{-- <div class="col-lg-3 mb-4">
+                            <div class="col-lg-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'pause-request']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Pause
                                         Request</a>
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="col-lg-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'request-zillow-nurtures']) }}"
