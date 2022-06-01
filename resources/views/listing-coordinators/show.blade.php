@@ -10,8 +10,8 @@
         }
 
         /* #paypal-button-container:hover {
-                                                        background: #F2BA36
-                                                    } */
+                                                                    background: #F2BA36
+                                                                } */
 
     </style>
     <div class="container-fluid">
@@ -51,6 +51,20 @@
                                 <label for="name">Address for Listing</label>
                                 <input type="text" name="address_for_listing" class="form-control map" required
                                     placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Property Type</label>
+                                <select name="property_type" class="form-control" required>
+                                    <option value>-</option>
+                                    <option value="Single family">Single family</option>
+                                    <option value="Condo">Condo</option>
+                                    <option value="Townhome">Townhome</option>
+                                    <option value="Duplex">Duplex</option>
+                                    <option value="Triplex">Triplex</option>
+                                    <option value="Fourplex">Fourplex</option>
+                                    <option value="Entire condo building">Entire condo building</option>
+                                    <option value="Commercial">Commercial</option>
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">List Date to go on MLS</label>

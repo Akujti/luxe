@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\AgentImport;
 use App\Models\AgentTransaction;
+use App\Models\BrokersumoAgent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Maatwebsite\Excel\Facades\Excel;
+use NumberFormatter;
 
 class BrokerSumoController extends Controller
 {
@@ -17,11 +20,39 @@ class BrokerSumoController extends Controller
         // toptotal_points ON agents_transactions.agent_name = toptotal_points.agent_name
         // AND agents_transactions.total_points = toptotal_points.maxtotal_points
         // ORDER BY total_points DESC"));
-        $results = AgentTransaction::orderBy(
-            'total_amounts',
+        $results = BrokersumoAgent::orderBy(
+            'sales_volumes',
             'DESC'
         )->paginate(50);
         return view('admin.broker-sumo.index', compact('results'));
+    }
+
+    public function store(Request $request)
+    {
+        $result = Excel::toArray(AgentImport::class, $request->file('sheet')->getRealPath());
+        for ($i = 1; $i < count($result[0]) - 2; $i++) {
+            BrokersumoAgent::updateOrCreate(
+                ['agent_name' => $result[0][$i][0]],
+                [
+                    'agent_name' => $result[0][$i][0],
+                    'sales_volumes' => $this->getAmount($result[0][$i][7]),
+                ]
+            );
+        }
+        return redirect()->route('admin.broker-sumo.index')->with('message', 'Success');
+    }
+
+    private function getAmount($money)
+    {
+        $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
+        $onlyNumbersString = preg_replace('/([^0-9])/i', '', $money);
+
+        $separatorsCountToBeErased = strlen($cleanString) - strlen($onlyNumbersString) - 1;
+
+        $stringWithCommaOrDot = preg_replace('/([,\.])/', '', $cleanString, $separatorsCountToBeErased);
+        $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
+
+        return (float) str_replace(',', '.', $removedThousandSeparator);
     }
 
     public function updateAgentsTransactions()
