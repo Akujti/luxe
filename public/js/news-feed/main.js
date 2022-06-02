@@ -66,23 +66,62 @@ function addTag_comment(e) {
     }
     tags.push(row)
 }
-var textarea = document.querySelector('[name=mix]'),
-tagify_comment = new Tagify(textarea, {
-    originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(','),
-    // mixTagsInterpolator: ["", "</div>"],
-    mode: 'mix',
-    pattern: /@|#/,
-    tagTextProp: 'text',
-    whitelist: whitelist.map(( {id, value }) => ({ value: id, value })),
-    dropdown: {
-        enabled: 1,
-        position: 'text',
-        mapValueTo: 'text',
-        highlightFirst: true
-    },
-    templates: {
-        tag: tagTemplate
-    }
-})
 
-tagify_comment.on('add', addTag_comment);
+function tagifyFunc() {
+    var textarea = document.querySelectorAll('[name=mix]');
+    
+    textarea.forEach(el => {
+        var tag = new Tagify(el, {
+            mixTagsInterpolator: ["<div class='row-tag' contenteditable='false'>", "</div>"],
+            mode: 'mix',
+            pattern: /@|#/,
+            tagTextProp: 'value',
+            whitelist: whitelist,
+            delimeter: ',',
+            classname: 'input-tag',
+            dropdown: {
+                enabled: 1,
+                position: 'value',
+                mapValueTo: 'value',
+                highlightFirst: true
+            },
+            enforceWhitelist: true,
+            templates: {
+                tag: tagTemplate
+            }
+        })
+
+        tag.on('add', addTag_comment);
+    })
+}
+
+function addTagifyFunc() {
+    var textarea = document.querySelectorAll('[name=mix]');
+    
+    textarea.forEach(el => {
+        var attr = $(el).attr("tabindex");
+
+        if (typeof attr !== 'undefined' && attr !== false) {
+        } else {
+            var tag = new Tagify(el, {
+                mixTagsInterpolator: ["<div class='row-tag' contenteditable='false'>", "</div>"],
+                mode: 'mix',
+                pattern: /@|#/,
+                tagTextProp: 'value',
+                whitelist: whitelist,
+                delimeter: ',',
+                dropdown: {
+                    enabled: 1,
+                    position: 'value',
+                    mapValueTo: 'value',
+                    highlightFirst: true
+                },
+                enforceWhitelist: true,
+                templates: {
+                    tag: tagTemplate
+                }
+            })
+            tag.on('add', addTag_comment);
+        }
+    })
+}

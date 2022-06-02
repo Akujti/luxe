@@ -1,24 +1,37 @@
-.tagify+input{
+.tagify+input {
     display: block !important;
     position: static !important;
     transform: none !important;
     width: 100%;
     margin-top: 1em;
     padding: .5em;
-    }
-    /* method 1 */
-    .tagify__tag + .tagify__input::before{ opacity:0; }
+}
 
-    /* method 2 */
-    .tagify:not(.tagify--noTags){
+.tagify__tag+.tagify__input::before {
+    opacity: 0;
+}
+
+.tagify:not(.tagify--noTags) {
     --placeholder-color: transparent;
     --placeholder-color-focus: transparent;
-    }
-    .tagify__input {
-        height: 30px;
-    }
+}
 
-    .tagify--mix .tagify__input {
-        display: flex !important;
-        align-items: center;
-    }
+.tagify__input {
+    height: 30px;
+}
+
+.tagify--mix .tagify__input {
+    display: flex !important;
+    align-items: center;
+}
+
+.tagify__tag-text,
+.tagify__input {
+    white-space: nowrap !important;
+}
+
+.tagify {
+    width: 100% !important;
+    overflow: auto !important;
+    flex-wrap: unset !important;
+}

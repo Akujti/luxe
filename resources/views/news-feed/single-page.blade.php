@@ -19,6 +19,11 @@
    </div>
 </div>
 
+@extends('modals.slider')
+
+@section('body')
+
+@endsection
 
 @section('js')
 <script> var url = "{{ route('agent_list') }}"; </script>
@@ -29,6 +34,10 @@
     var nrOfAllPosts;
     var my_id = '{{ auth()->id() }}';
     getPost();
+
+    function openModal() {
+        $('#slider').modal('toggle');
+    }
 
     function toggleTagInput() {
         $('.tag-input').toggleClass('d-none')
@@ -73,7 +82,7 @@
                                 '</div>' +
                             '<div>' +
                             '<div class="d-flex align-items-center">' +
-                                '<p class="single-comment-body m-0 p-3"> '+ body +'</p>' +
+                                '<div contenteditable="true" class="single-comment-body m-0 p-3"> '+ body +'</div>' +
                                 '<div class="single-comment-delete">' +
                                     '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ output.id +')"><i class="fa-solid fa-trash"></i></button>' +
                                 '</div>' +
@@ -202,7 +211,7 @@
                             html += '<img src="'+ item.row.image[0].file_url +'" alt="">';
 
                             if(item.row.image.length > 1) {
-                                html += '<div class="image-count">+' + parseInt(--item.row.image.length) + '</div>';
+                                html += '<div class="image-count" onclick="openModal()">+' + parseInt(--item.row.image.length) + '</div>';
                             }
                         }
                     html += '</div>' +
@@ -223,7 +232,7 @@
                             }
                         html += '</div>'+
                     '</div>' +
-                    '<p>' + (item.row.body.substr(0, 240) + '...') + '</p>' +
+                    '<p>' + item.row.body.substr(0, 240) + '</p>' +
                     '<div class="box-tags d-flex justify-content-start">';
                         if(item.row.tag.length) {
                             item.row.tag.forEach(tag => {
@@ -231,7 +240,6 @@
                             });
                         }
                     html += '</div>' +
-                    '<a href="#"><i class="fa-solid fa-angle-right"></i> Read More</a>' +
                 '</div>' +
             '</div>' +
             '<div class="p-0 m-0 w-100 col-12">' +
@@ -263,7 +271,7 @@
                                     '</div>' +
                                     '<div>' +
                                         '<div class="d-flex align-items-center">' +
-                                            '<p class="single-comment-body m-0 p-3">'+ comment.body +'</p>';
+                                            '<div contenteditable="true" class="single-comment-body m-0 p-3">'+ comment.body +'</div>';
                                             if(comment.user.id == my_id) {
                                                 html += '<div class="single-comment-delete">' +
                                                     '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')"><i class="fa-solid fa-trash"></i></button>' +
@@ -316,6 +324,7 @@
             '</div>' +
         '</div>';
         postsbox.html(html)
+        replaceTag()
     }
 
     function loadMoreComments(e, post_id) {
@@ -340,7 +349,7 @@
                             '</div>' +
                             '<div>' +
                                 '<div class="single-comment-body">' +
-                                    '<p>'+ comment.body +'</p>' +
+                                    '<div contenteditable="true">'+ comment.body +'</div>' +
                                 '</div>' +
                                 '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
                                     '<button class="btn btn-link text-dark '+ (comment.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, '+ comment.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
@@ -442,6 +451,14 @@
                 }
             },
         });
+    }
+    function replaceTag() {
+        $('.row-tag').each( function() {
+            var html = JSON.parse($(this).html())
+
+            var ahref = '&nbsp;<a href="/agent-profile/'+ html.id +'">'+ html.value +'</a>'
+            $(this).html(ahref)
+        })
     }
 </script>
 @endsection

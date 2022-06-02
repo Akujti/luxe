@@ -24,7 +24,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row w-100 mt-3 m-0" id="posts-box">
                 {{-- @forelse($posts as $post)
                     <div class="col-12 box-post p-0 row m-0 mb-3">
@@ -229,6 +228,7 @@
     var tags = [];
     function comment(e, post_id, comment_id = null) {
         var body = $(e).parents('.box-post').find('#text-area').val();
+
         if(!body) {
             return;
         }
@@ -244,6 +244,7 @@
             'body': body,
             'tags': tags
         }
+
         $.ajax({
             url: "{{ route('news.comment.create') }}",
             data: data,
@@ -259,7 +260,7 @@
                                 '</div>' +
                             '<div>' +
                             '<div class="d-flex align-items-center">' +
-                                '<p class="single-comment-body m-0 p-3"> '+ body +'</p>' +
+                                '<div contenteditable="true" class="single-comment-body m-0 p-3"> '+ body +'</div>' +
                                 '<div class="single-comment-delete">' +
                                     '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ output.id +')"><i class="fa-solid fa-trash"></i></button>' +
                                 '</div>' +
@@ -268,12 +269,12 @@
                                 '<button class="btn btn-link text-dark" type="button" onclick="like(this, 1, '+ output.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
                                 '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
                             '</div>' +
-                            '<div style="width: 400px !important" class="replies-box">' +
+                            '<div style="min-width: 615px !important" class="replies-box">' +
                                 '<div class="row p-0 m-0 reply-box">'+
                                    
                                 '</div>' +
                                 '<div class="d-none w-100" id="comment-box" style="height:70px !important;">' +
-                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px">' +
+                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px;">' +
                                         '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                         '</textarea>' +
                                         '<button type="button" class="btn-luxe" onclick="reply(this, '+ post_id +', ' + output.id + ')">Reply</button>' +
@@ -285,6 +286,9 @@
                 '</div>';
 
                 $(e).parents('.box-post').find('.comments-box').prepend(html)
+                addTagifyFunc();
+                replaceTag();
+                tags = [];
             },
         });
     }
@@ -301,7 +305,8 @@
         var data = {
             'post_id': post_id,
             'body': body,
-            'parent_id': comment_id
+            'parent_id': comment_id,
+            'tags': tags
         }
         $.ajax({
             url: "{{ route('news.comment.create') }}",
@@ -317,7 +322,7 @@
                     '</div> ' +
                 '<div> ' +
                 '<div class="d-flex align-items-center">' +
-                    '<p class="single-comment-body m-0 p-3">'+ body +'</p>' +
+                    '<div contenteditable="true" class="single-comment-body m-0 p-3">'+ body +'</div>' +
                     '<div class="single-comment-delete">' +
                         '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ output.id +')"><i class="fa-solid fa-trash"></i></button>' +
                     '</div>' +
@@ -329,6 +334,8 @@
                 ' </div> ';
 
                 $(e).parents('.replies-box').find('.reply-box').prepend(html)
+                replaceTag();
+                tags = [];
             },
         });
     }
@@ -447,8 +454,8 @@
                             '</div>' +
                         '</div>' +
                         '<div class="p-0 m-0 w-100 col-12 row-box">' +
-                            '<div class="d-none w-100" id="comment-box" style="height:70px !important;">' +
-                                '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px">' +
+                            '<div class="w-100" id="comment-box" style="height:70px !important;">' +
+                                '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px">' +
                                     '<textarea class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                     '</textarea>' +
                                     '<button type="button" class="btn-luxe" onclick="comment(this, ' + item.row.id + ')">Comment</button>' +
@@ -464,7 +471,7 @@
                                                 '</div>' +
                                                 '<div>' +
                                                     '<div class="d-flex align-items-center">' +
-                                                        '<p class="single-comment-body m-0 p-3">'+ comment.body +'</p>';
+                                                        '<div contenteditable="true" class="single-comment-body m-0 p-3">'+ comment.body +'</div>';
                                                         if(comment.user.id == my_id) {
                                                             html += '<div class="single-comment-delete">' +
                                                                 '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')"><i class="fa-solid fa-trash"></i></button>' +
@@ -475,7 +482,7 @@
                                                         '<button class="btn btn-link text-dark '+ (comment.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, '+ comment.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
                                                         '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
                                                     '</div>' +
-                                                    '<div style="width: 400px !important" class="replies-box">' +
+                                                    '<div style="min-width: 615px !important" class="replies-box">' +
                                                         '<div class="row p-0 m-0 reply-box">';
                                                             comment.replies.forEach(reply => {
                                                                 html += '<div class="col-12 single-comment single-reply d-flex align-items-start mt-2">' +
@@ -484,7 +491,7 @@
                                                                     '</div>' +
                                                                     '<div>' +
                                                                         '<div class="d-flex align-items-center">' +
-                                                                            '<p class="single-comment-body m-0 p-3">'+ reply.body +'</p>';
+                                                                            '<div contenteditable="true" class="single-comment-body m-0 p-3">'+ reply.body +'</div>';
                                                                             if(reply.user.id == my_id) {
                                                                                 html += '<div class="single-comment-delete">' +
                                                                                     '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')"><i class="fa-solid fa-trash"></i></button>' +
@@ -499,7 +506,7 @@
                                                             });
                                                         html += '</div>' +
                                                         '<div class="d-none w-100" id="comment-box" style="height:70px !important;">' +
-                                                            '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px">' +
+                                                            '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px">' +
                                                                 '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                                                 '</textarea>' +
                                                                 '<button type="button" class="btn-luxe" onclick="reply(this, '+ item.row.id +', ' + comment.id + ')">Reply</button>' +
@@ -513,11 +520,13 @@
                                 }
                             html += '</div>' +
                             '<input type="hidden" class="nrCm" value="4">' +
-                            '<button type="button" class="btn btn-link '+ ( !item.comments.length ? 'd-none': '') +'" id="btnLoadMoreComments" onclick="loadMoreComments(this, '+ item.row.id +', ' + item.nrComments + ')">Load More</button>' +
+                            '<button type="button" class="btn btn-link '+ ( !item.comments.length ? 'd-none': '') +'" id="btnLoadMoreComments" onclick="loadMoreComments(this, '+ item.row.id +')">Load More</button>' +
                         '</div>' +
                     '</div>';
                 });
                 postsbox.html(html)
+                tagifyFunc();
+                replaceTag();
             },
         });
     }
@@ -548,14 +557,12 @@
                                 '<img src="' + comment.user.avatar + '" alt="">' +
                             '</div>' +
                             '<div>' +
-                                '<div class="single-comment-body">' +
-                                    '<p>'+ comment.body +'</p>' +
-                                '</div>' +
+                                '<div contenteditable="true" class="single-comment-body p-3 m-0">'+ comment.body +'</div>' +
                                 '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
                                     '<button class="btn btn-link text-dark '+ (comment.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, '+ comment.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
                                     '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
                                 '</div>' +
-                                '<div style="width: 400px !important" class="replies-box">' +
+                                '<div style="min-width: 615px !important" class="replies-box">' +
                                     '<div class="row p-0 m-0 reply-box">';
                                         comment.replies.forEach(reply => {
                                             html += '<div class="col-12 single-comment d-flex align-items-start mt-2">' +
@@ -563,8 +570,7 @@
                                                     '<img src="' + reply.user.avatar + '" alt="">' +
                                                 '</div>' +
                                                 '<div>' +
-                                                    '<div class="single-comment-body">' +
-                                                        '<p>'+ reply.body +'</p>' +
+                                                    '<div contenteditable="true" class="single-comment-body p-3 m-0">' + reply.body +
                                                     '</div>' +
                                                     '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
                                                     '<button class="btn btn-link text-dark '+ (reply.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, ' + reply.id + ')"><i class="fa-solid fa-heart"></i> Like</button>' +
@@ -574,7 +580,7 @@
                                         });
                                     html += '</div>' +
                                     '<div class="d-none w-100" id="comment-box" style="height:70px !important;">' +
-                                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px">' +
+                                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px">' +
                                             '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                             '</textarea>' +
                                             '<button type="button" class="btn-luxe" onclick="reply(this, '+ post_id +', ' + comment.id + ')">Reply</button>' +
@@ -587,6 +593,7 @@
                 });
 
                $(e).parents('.row-box').find('.comments-box').html(html)
+               replaceTag()
             },
         });
 
@@ -595,7 +602,7 @@
 
     function deleteReply(e, reply_id) {
         var data = {
-            'id': reply_id
+            'id': reply_id,
         };
 
         $.ajax({
@@ -645,12 +652,23 @@
                 "X-CSRF-Token": $('[name="_token"]').val(),
             },
             success: function (output) {
-                console.log(output)
                 if(output) {
                     $(e).parents('.box-post').remove();
                 }
             },
         });
+    }
+
+    function replaceTag() {
+        $('.row-tag').each( function() {
+            try {
+                var html = JSON.parse($(this).html())
+                
+                var ahref = '&nbsp;<a href="/agent-profile/'+ html.id +'">'+ html.value +'</a>'
+                $(this).html(ahref)
+            } catch (e) {
+            }
+        })
     }
 </script>
 @endsection

@@ -44,6 +44,7 @@ class Post extends Model
             $model->image()->delete();
             $model->comment()->delete();
             $model->like()->delete();
+            $model->tag()->detach();
         });
     }
 }
