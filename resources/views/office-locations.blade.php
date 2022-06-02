@@ -56,10 +56,6 @@
                                 <p class="address">2875 NE 191 Street #PH5, Aventura, FL 33180</p>
                             </div>
                             <div class="form-group ">
-                                <p class="location">Hollywood</p>
-                                <p class="address">2028 Harrison Street #102, Hollywood, FL 33020</p>
-                            </div>
-                            <div class="form-group ">
                                 <p class="location">Orlando</p>
                                 <p class="address">301 N Tubb Street #104, Oakland, FL 34760</p>
                             </div>
@@ -92,7 +88,6 @@
                 ['Miami Lakes', 25.863142, -80.3240134],
                 ['Homestead', 25.477298, -80.452697],
                 ['Aventura', 25.960935, -80.143592],
-                ['Hollywood', 26.0103801, -80.1475353],
                 ['Orlando', 28.5525227, -81.628067],
             ];
 
