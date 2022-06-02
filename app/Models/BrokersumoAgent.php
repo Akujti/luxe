@@ -52,8 +52,8 @@ class BrokersumoAgent extends Model
                         $badge['title'] = '100 Million Dollar Club';
                         $badge['level'] = 8;
                     }
-                    // Mail::to($user->email)->send(new BrokersumoMail($badge));
-                    Mail::to('test@gmail.com')->send(new BrokersumoMail($badge));
+                    Mail::to($user->email)->send(new BrokersumoMail($badge));
+                    // Mail::to('test@gmail.com')->send(new BrokersumoMail($badge));
                 }
             }
         }
