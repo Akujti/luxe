@@ -29,7 +29,9 @@ class BrokerSumoController extends Controller
 
     public function store(Request $request)
     {
-        $result = Excel::toArray(AgentImport::class, $request->file('sheet')->getPathName());
+        $path1 = $request->file('sheet')->store('temp');
+        $path = storage_path('app') . '/' . $path1;
+        $result = Excel::toArray(AgentImport::class, $path);
         for ($i = 1; $i < count($result[0]) - 2; $i++) {
             BrokersumoAgent::updateOrCreate(
                 ['agent_name' => $result[0][$i][0]],
