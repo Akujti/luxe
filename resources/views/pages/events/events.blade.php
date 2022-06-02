@@ -262,6 +262,9 @@
                                         <option value="zoom_trainings">Zoom Trainings</option>
                                         <option value="tours">Tours</option>
                                         <option value="team_office_meetings">Team/Office Meetings</option>
+                                        <option value="career_fair">Career Fair</option>
+                                        <option value="holidays">Holidays</option>
+                                        <option value="volunteering">Volunteering</option>
                                     </select>
                                 @else
                                     <input type="text" id="event_type" class="w-100 form-control text-capitalize" disabled>
