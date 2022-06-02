@@ -261,6 +261,8 @@
                             <nav class="row">
                                 <a href="{{ route('admin.index') }}"
                                     class="{{ isset($active) && $active == 'Dashboard' ? 'active selected' : '' }}">Dashboard</a>
+                                <a href="{{ route('admin.broker-sumo.index') }}"
+                                    class="{{ isset($active) && $active == 'Brokersumo' ? 'active selected' : '' }}">Brokersumo</a>
                                 <a href="{{ route('admin.forms.index') }}"
                                     class="{{ isset($active) && $active == 'Forms' ? 'active selected' : '' }}">Forms</a>
                                 <a href="{{ route('admin.diy-categories.index') }}"

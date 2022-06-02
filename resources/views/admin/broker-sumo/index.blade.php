@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['active' => 'Broker Sumo'])
+@extends('admin.layouts.app', ['active' => 'Brokersumo'])
 @section('css')
     <style>
         th,
