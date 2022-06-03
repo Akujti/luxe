@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Router;
 use App\Models\AppointmentTimeslot;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\W9Controller;
@@ -25,6 +26,7 @@ use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DiyTemplateController;
 use App\Http\Controllers\Video\VideoController;
+use App\Http\Controllers\MarketingPostController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\LuxeStore\OrderController;
 use App\Http\Controllers\LuxeStore\StoreController;
@@ -38,6 +40,7 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
+use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\WrittenEmailTemplateController;
@@ -58,7 +61,7 @@ Route::get('general/form/file/download/', [FormController::class, 'file_download
 
 Route::view('office-locations', 'office-locations')->middleware('auth');
 Route::view('maps', 'maps');
-Route::view('home', 'home-page')->middleware('auth');
+Route::get('home', [Controller::class, 'home'])->middleware('auth');
 Route::redirect('/', 'home');
 
 Route::group(['prefix' => 'store', 'as' => 'luxe_store.', 'middleware' => ['auth']], function () {
@@ -263,7 +266,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('bookings', [BookingController::class, 'store'])->middleware('auth')->name('bookings.store');
 
 
-    Route::get('marketing-home', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
+    // Route::get('marketing-home', [MarketingCategoryController::class, 'index'])->name('marketing.requests');
+    Route::get('marketing-home', [DesignRequestController::class, 'index'])->name('marketing.requests');
+    Route::get('marketing/get-templates', [DesignRequestController::class, 'getTemplates'])->name('design.requests.templates');
+    Route::get('marketing/get-templates/{template_id}', [DesignRequestController::class, 'template'])->name('design.requests.template');
     Route::get('marketing/{marketingCategory}', [MarketingCategoryController::class, 'show'])->name('marketing.request');
     Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
 
@@ -305,6 +311,7 @@ Route::group(
         Route::delete('file-destory/{id}', [FolderController::class, 'file_destroy'])->name('file.destroy');
         Route::post('files/open-house-directory', [FolderController::class, 'create_directory'])->name('files.open-house.directory');
         Route::resource('guides', GuideController::class);
+        Route::resource('file-posts', MarketingPostController::class);
 
         Route::get('written-email-templates', [WrittenEmailTemplateController::class, 'index'])->name('written-email-templates');
         Route::post('written-email-templates', [WrittenEmailTemplateController::class, 'store'])->name('written-email-templates.store');
@@ -405,6 +412,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     Route::group(['prefix' => 'forms', 'as' => 'forms.'], function () {
         Route::get('/', [AdminController::class, 'forms'])->name('index');
         Route::put('/', [AdminController::class, 'update_form'])->name('update');
+        Route::put('/form', [AdminController::class, 'update'])->name('update.form');
+        Route::delete('/', [AdminController::class, 'delete'])->name('delete.form');
     });
 
     Route::resource('diy-categories', DiyTemplateCategoryController::class);

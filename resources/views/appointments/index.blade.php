@@ -88,6 +88,7 @@
         box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
         padding: 20px;
         margin-bottom: 20px;
+        align-items: center;
     }
 
     label {
@@ -315,7 +316,7 @@
                 </div>
             </div>
             <div style="overflow:auto;">
-                <div style="float:right;">
+                <div style="float:left;">
                     <button type="button" id="prevBtn" class="btn btn-previous" onclick="nextPrev(-1)">Previous</button>
                     <button type="button" id="nextBtn" class="btn btn-luxe" onclick="nextPrev(1)">Next</button>
                 </div>

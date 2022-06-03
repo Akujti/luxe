@@ -34,7 +34,7 @@ function getDateName() {
     return months[m.getMonth()] + ' ' + m.getDay() + ', ' + m.getFullYear();
 }
 
-async function generatePDF(width = 100, height = 254.6) {
+async function generatePDF(width = 100, height = 254.6, orientation = '') {
     const el = document.getElementById('el');
     var opt = {
         margin:       [0, 0],
@@ -45,7 +45,7 @@ async function generatePDF(width = 100, height = 254.6) {
             letterRendering: true,
             useCORS: true
           },
-        jsPDF:        { unit: 'mm', format: [width, height]}
+        jsPDF:        { unit: 'mm', format: [width, height], orientation: orientation}
       };
     await html2pdf().set(opt).from(el).save()
     return true

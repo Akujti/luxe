@@ -10,8 +10,8 @@
         }
 
         /* #paypal-button-container:hover {
-                                                    background: #F2BA36
-                                                } */
+                                                                        background: #F2BA36
+                                                                    } */
 
     </style>
     <div class="container-fluid">
@@ -29,7 +29,7 @@
                 <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com"> --}}
-                    <input type="hidden" name="to_email" value="{{ $listingCoordinator->email }}">
+                    <input type="hidden" name="to_email[]" value="{{ $listingCoordinator->email }}">
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -51,6 +51,21 @@
                                 <label for="name">Address for Listing</label>
                                 <input type="text" name="address_for_listing" class="form-control map" required
                                     placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Property Type</label>
+                                <select name="property_type" class="form-control" required>
+                                    <option value>-</option>
+                                    <option value="Single family">Single family</option>
+                                    <option value="Condo">Condo</option>
+                                    <option value="Townhome">Townhome</option>
+                                    <option value="Duplex">Duplex</option>
+                                    <option value="Triplex">Triplex</option>
+                                    <option value="Fourplex">Fourplex</option>
+                                    <option value="Entire condo building">Entire condo building</option>
+                                    <option value="Commercial">Commercial</option>
+                                    <option value="Land">Land</option>
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">List Date to go on MLS</label>

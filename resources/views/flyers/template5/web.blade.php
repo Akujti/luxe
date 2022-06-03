@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flyer</title>
-</head>
+@extends('themes.layouts.app')
+@section('css')
 @include('includes.fonts')
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
@@ -104,7 +97,7 @@
         font-size: 15px;
         margin-top: 10px;
         margin-bottom: 5px;
-        width: calc(100% - 20px);
+        width: 100%;
         border: 1px solid #262626;
         padding: 10px;
         font-family: 'gothicregular';
@@ -290,7 +283,7 @@
         margin-top: 15px;
     }
 </style>
-
+@endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
     integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
@@ -299,7 +292,7 @@
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
 
-<body>
+@section('content')
     <form action="{{ route('flyer-template-5') }}" method="POST">
         @csrf
         <div class="row">
@@ -311,7 +304,7 @@
                 <input hidden name="img_4_input" id="img_4_input" value="images/flyers/template5/img-3.jpg">
                 <input hidden name="img_5_input" id="img_5_input" value="images/flyers/template5/img-4.jpg">
 
-                <div class="page">
+                <div class="page" id="el">
                     {{-- Images --}}
                     <div class="absolute" style="top:220px;left:75px;">
                         <img id="img_1" src="images/flyers/template5/img-1.jpg" alt=""
@@ -387,20 +380,20 @@
             </div>
             <div class="column-divider"></div>
             <div class="row-input" style="max-width: 350px;">
-                <div class="pr-10">
+                <div>
                     <label for="text-1">Title</label>
                     <input type="text" id="text-1" name="text_1" value="Just <span class='gold bold'>Listed</span>">
                 </div>
-                <div class="pr-10">
+                <div>
                     <label for="text-2">Address</label>
                     <input type="text" id="text-2" name="text_2"
                         value="<span class='oswald-med'>Just 775 NE 77 Terrace, </span> Miami, FL 33138">
                 </div>
-                <div class="pr-10">
+                <div>
                     <label for="text-3">Price</label>
                     <input type="text" id="text-3" name="text_3" value="$865,989">
                 </div>
-                <div class="pr-10">
+                <div>
                     <label for="text-4">Options</label>
                     <input type="text" id="text-4" name="text_4"
                         value="6 Beds | 6 Full-Baths | 1 Half-Bath | <span class='oswald-med'>6,800 SqFt</span>">
@@ -410,7 +403,7 @@
                         <label for="page-1-img-1">Image 1</label>
                         <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose Image</button>
                         <input type="file" id="img-1-input"
-                            onchange="image_change('img-1-input',['img_1'],'img_1_input')" style="display: none;">
+                            onchange="image_change(this, 'img-1-input',['img_1'],'img_1_input')" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="crop_image(['img_1'],'img_1_input')">Save Crop</button>
                     </div>
@@ -418,7 +411,7 @@
                         <label for="page-1-img-1">Image 2</label>
                         <button type="button" class="mt-3" onclick="openInputFile('img-3-input')">Choose Image</button>
                         <input type="file" id="img-3-input"
-                            onchange="image_change('img-3-input',['img_3'],'img_3_input')" style="display: none;">
+                            onchange="image_change(this, 'img-3-input',['img_3'],'img_3_input')" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="crop_image(['img_3'],'img_3_input')">Save Crop</button>
                     </div>
@@ -428,7 +421,7 @@
                         <label for="page-1-img-1">Image 3</label>
                         <button type="button" class="mt-3" onclick="openInputFile('img-4-input')">Choose Image</button>
                         <input type="file" id="img-4-input"
-                            onchange="image_change('img-4-input',['img_4'],'img_4_input')" style="display: none;">
+                            onchange="image_change(this, 'img-4-input',['img_4'],'img_4_input')" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="crop_image(['img_4'],'img_4_input')">Save Crop</button>
                     </div>
@@ -436,7 +429,7 @@
                         <label for="page-1-img-1">Image 4</label>
                         <button type="button" class="mt-3" onclick="openInputFile('img-5-input')">Choose Image</button>
                         <input type="file" id="img-5-input"
-                            onchange="image_change('img-5-input',['img_5'],'img_5_input')" style="display: none;">
+                            onchange="image_change(this, 'img-5-input',['img_5'],'img_5_input')" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="crop_image(['img_5'],'img_5_input')">Save Crop</button>
                     </div>
@@ -474,13 +467,13 @@
                 <div class="file-input-width">
                     <label for="page-1-img-1">Agent</label>
                     <button type="button" class="mt-3" onclick="openInputFile('img-2-input')">Choose Image</button>
-                    <input type="file" id="img-2-input" onchange="image_change('img-2-input',['img_2'],'img_2_input')" style="display: none;">
+                    <input type="file" id="img-2-input" onchange="image_change(this, 'img-2-input',['img_2'],'img_2_input')" style="display: none;">
                     <button type="button" class="mt-1" onclick="startCropper(0.7)">Crop</button>
                     <button type="button" onclick="crop_image(['img_2'],'img_2_input')">Save Crop</button>
                 </div>
                 <div class="flex" style="margin-top:20px;">
                     <div class="" style="width: 345px;">
-                        <button type="submit" name="action" value="Generate" class="generate">Generate</button>
+                        <button type="button" name="action" value="Generate" class="generate" onclick="beforePDF()">Generate</button>
                         {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
@@ -490,7 +483,8 @@
             </div>
         </div>
     </form>
-</body>
+@include('includes.loader')
+@endsection
 
 <script>
     $("textarea").change(function(event) {
@@ -525,57 +519,24 @@
         }); 
     });
 
-    function image_change(file_input,image_src,image_input) {
-        var form_data = new FormData();
-        form_data.append("file", $("#"+file_input)[0].files[0]);
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-            'X-CSRF-Token': $('[name="_token"]').val()
-        },
-        success: function(output) {
-            $("#image").attr('src', 'uploadedimages/' + output)
-            getBase64Image(document.getElementById('image'), function(base64) {
-                image_src.forEach(element => {
-                    $("#"+element).attr('src', 'uploadedimages/' + output);
-                });
-                $("input[name="+image_input+"]").val('uploadedimages/' + output);
+    function image_change(e, file_input,image_src,image_input) {
+        const [file] = e.files
+        if (file) {
+            $('#image').attr("src", URL.createObjectURL(file));
+            image_src.forEach(element => {
+                $("#"+element).attr('src', URL.createObjectURL(file));
             });
         }
-        });
     }
     
     function crop_image(image,image_input) {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-            'X-CSRF-Token': $('[name="_token"]').val()
-        },
-        success: function(output) {
-            cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"), function(base64) {
-                    image.forEach(element => {
-                        $("#"+element).attr('src', 'uploadedimages/' + output);
-                    });
-                    $("input[name="+image_input+"]").val('uploadedimages/' + output);
-                });
-            }
+            $('#image').attr("src", URL.createObjectURL(blob));
+            image.forEach(element => {
+                $("#"+element).attr('src', URL.createObjectURL(blob));
+            });
         });
-        });
+        cropper.destroy();
         $(".page").css("opacity", "1");
     }
 
@@ -611,6 +572,11 @@
     function openInputFile(id) {
         $('#' + id).click()
     }
+    async function beforePDF() {
+        $('.loader').css('display', 'flex')
+        const result = await generatePDF(264, 340.3)
+        if(result) {
+            $('.loader').css('display', 'none')
+        }
+    }
 </script>
-
-</html>

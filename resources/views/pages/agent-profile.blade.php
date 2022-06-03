@@ -279,7 +279,7 @@
 
                     <div class="col-12 border-bottom mt-3"></div>
                     <div class="box-title mt-3 mb-3 d-flex justify-content-between w-100">
-                        <h3>Add Notes</h3>
+                        <h3>Add Staff Notes</h3>
                         <a href="{{ route('notes', $user->id) }}?staff=true" class="btn btn-luxe">View All Notes</a>
                     </div>
                     <div class="col-12 p-0 mb-4">

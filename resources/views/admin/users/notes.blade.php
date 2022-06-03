@@ -210,7 +210,7 @@
                 <div class="row p-0 m-0">
                     <div class="box-title mb-4 d-flex justify-content-between align-items-center w-100">
                         <h3 class="p-0 m-0">Notes</h3>
-                        <button class="btn btn-luxe" onclick="toggleNoteForm()">Add Note</button>
+                        <button class="btn btn-luxe" onclick="toggleNoteForm()">Add Staff Note</button>
                     </div>
                     <div class="col-12 p-0">
                         @forelse($notes as $note)
