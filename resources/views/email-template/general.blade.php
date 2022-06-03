@@ -58,7 +58,7 @@
             <img src="{{ url('/images/logo-black.png') }}" alt="">
         </div>
         <div class="" style="width: 100%">
-            @if ($details['special'])
+            @if (isset($details['special']))
                 <p class="bold-text">{{ $details['special'] }}</p>
             @endif
             @foreach ($details as $key => $val)
