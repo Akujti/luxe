@@ -11,6 +11,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Video\VideoFolderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,7 @@ Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
 Route::get('conference-rooms', [BookingController::class, 'selectRoom']);
 Route::get('conference-rooms/{room_id}', [BookingController::class, 'index']);
 Route::post('bookings', [BookingController::class, 'store'])->middleware('auth:sanctum');
+Route::get('videos', [VideoFolderController::class, 'index']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

@@ -34,6 +34,9 @@ class VideoFolderController extends Controller
             }
         })->latest()->get();
 
+        if (request()->wantsJson()) {
+            return response()->json(['videoFolders' => $videoFolders, 'videos' => $videos]);
+        }
         return view('pages.videos', compact('videoFolders', 'videos'));
     }
 
