@@ -11,7 +11,7 @@ class Form extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title'
+        'title', 'path'
     ];
 
 

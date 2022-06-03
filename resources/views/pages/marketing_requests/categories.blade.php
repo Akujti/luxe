@@ -2,12 +2,7 @@
 @section('css')
 <style>
     body {
-        /* background: url('{{asset('images/bg-image1.jpg')}}'); */
         height: 100vh;
-        /* background-size: cover;
-            background-position: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            background-blend-mode: color; */
     }
 
     main,
@@ -85,6 +80,22 @@
         font-family: 'gothicregular';
         text-align: center;
     }
+    #img-preview {
+        width: 445px;
+        height: 100%;
+        object-fit: cover;
+    }
+    .img-box {
+        border: 1px solid #262626;
+        width: 445px;
+        height: 445px;
+    }
+    label {
+        font-family: 'gothicbold';
+    }
+    input, select {
+        font-family: 'gothicregular';
+    }
 </style>
 @endsection
 @section('content')
@@ -93,8 +104,54 @@
         <h1>Design Requests</h1>
         <p>Please select the category which you would like to design.</p>
     </div>
-    <div class="row align-items-center">
-        @foreach($marketing_categories as $category)
+    <div class="row align-items-center justify-content-center">
+
+        <div class="col-8">
+            <div class="row">
+                <div class="col-6">
+                    <div class="img-box">
+                        <img id="img-preview" class="d-none" src="" alt="">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">Categories</label>
+                            <div class="input-group">
+                                <select name="" id="category" class="form-control" onchange="checkCategories(this)">
+                                    <option value="">-- Choose One --</option>
+                                    @forelse($diy_categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                    @empty
+                                    <option value="">No options found.</option>
+                                    @endforelse
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="sub-category-box">
+                            <label for="">Sub Categories</label>
+                            <div class="input-group">
+                                <select name="" id="sub-category-select" class="form-control" onchange="checkTemplates('sub-category-select')">
+                                    <option value="">-- Choose One --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" id="template-box">
+                            <label for="">Templates</label>
+                            <div class="input-group">
+                                <select name="" id="template-select" class="form-control" onchange="checkDetails(this)">
+                                    <option value="">-- Choose One --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-luxe w-100">Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {{-- @foreach($marketing_categories as $category)
         <div class="col-lg-3 col-md-6 my-2">
             <div class="box-item">
                 <a href="{{route('marketing.request',$category)}}">
@@ -105,7 +162,86 @@
                 </a>
             </div>
         </div>
-        @endforeach
+        @endforeach --}}
     </div>
 </div>
 @endsection
+
+<script>
+    var categories = JSON.parse(JSON.stringify(<?php echo json_encode($diy_categories); ?>));
+
+    function checkCategories(e) {
+        var select_box = $('#category').val()
+
+        var sub_categories = categories.filter(x => x.id == select_box)[0].categories;
+        $('#sub-category-select').find('option:not(:first)').remove();
+
+        if(sub_categories.length) {
+            $('#template-box').addClass('d-none')
+            $('#template-select').find('option:not(:first)').remove();
+            $('#sub-category-box').removeClass('d-none');
+
+            $.each(sub_categories, function(i, item) {
+                $('#sub-category-select').append($('<option>', {
+                    value: item.id,
+                    text: item.title
+                }))
+            })
+        } else {
+            $('#sub-category-box').addClass('d-none');
+            this.checkTemplates('category');
+        }
+    }
+
+    function checkTemplates(select_id) {
+        var select_box = $('#' + select_id).val()
+
+        $.ajax({
+            url: "{{ route('design.requests.templates') }}?category_id=" + select_box,
+            type: "get",
+            cache: false,
+            contentType: false,
+            processData: false,
+            headers: {
+                "X-CSRF-Token": $('[name="_token"]').val(),
+            },
+            success: function (output) {
+                $('#template-select').find('option:not(:first)').remove();
+                if(output) {
+                    $('#template-box').removeClass('d-none')
+                    $.each(output, function(i, item) {
+                        $('#template-select').append($('<option>', {
+                            value: item.id,
+                            text: item.title
+                        }))
+                    })
+                } else {
+                    $('#template-box').addClass('d-none')
+                }
+            },
+        });
+    }
+    function checkDetails(e) {
+        var select_box = $('#template-select').val()
+        var url = '{{ route("design.requests.template", ":template_id") }}';
+        url = url.replace(':template_id', select_box);
+        $.ajax({
+            url: url,
+            type: "get",
+            cache: false,
+            contentType: false,
+            processData: false,
+            headers: {
+                "X-CSRF-Token": $('[name="_token"]').val(),
+            },
+            success: function (output) {
+                if(output) {
+                    $('#img-preview').attr('src', output.image)
+                    $('#img-preview').removeClass('d-none')
+                } else {
+                    $('#img-preview').addClass('d-none')
+                }
+            },
+        });
+    }
+</script>

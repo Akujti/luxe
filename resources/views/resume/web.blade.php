@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app',['active' => 'marketing_branding', 'subactive' => 'resume_builder'])
 @section('css')
 @include('includes.fonts')
 <style>
@@ -316,6 +316,24 @@
     @media (max-width: 1310px) {
         .page {
             zoom: 44% !important;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .page {
+            position: absolute !important;
+            left: 0px;
+            top: 332px;
+        }
+        .row-input {
+            position: absolute;
+            left: 0px;
+            top: 99%;
+        }
+        .title {
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            z-index: 1;
         }
     }
 </style>

@@ -46,6 +46,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Title</th>
+                        <th>Path</th>
                         <th>Created at</th>
                         <th>Actions</th>
                     </tr>
@@ -56,8 +57,11 @@
                     <tr>
                         <td>{{ $form->id }}</td>
                         <td>{{ $form->title }}</td>
+                        <td>{{ $form->path }}</td>
                         <td>{{Carbon\Carbon::parse($form->created_at)->format('m-d-Y')}}</td>
                         <td>
+                            <button class="btn btn-danger rounded" onclick="delete_event({{ $form }})">Delete</button>
+                            <button class="btn btn-luxe rounded" onclick="update({{ $form }})">Edit</button>
                             <button class="btn btn-luxe rounded" onclick="update_event({{ $form }})">Emails</button>
                         </td>
                     </tr>
@@ -107,6 +111,71 @@
     </div><!-- /.modal-dialog -->
 </div>
 
+<!-- Create File  -->
+<div class="update modal fade modal-new" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-title">Update Form</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('admin.forms.update.form') }}" method="POST" class="d-block"
+                    enctype="multipart/form-data">
+                    @method('put')
+                    @csrf
+                    <input type="hidden" name="id" id="id" value="">
+                    <div class="form-group row p-0 m-0">
+                        <label for="">Title</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control mr-2" name="title" id="title">
+                        </div>
+                    </div>
+                    <div class="form-group row p-0 m-0 mt-2">
+                        <label for="">Path</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control mr-2" name="path" id="path">
+                        </div>
+                    </div>
+                    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-luxe" id="save-event">Update</button>
+            </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!-- Create File  -->
+<div class="delete-event modal fade modal-new" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-title">Delete Form</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('admin.forms.delete.form') }}" method="POST" class="d-block">
+                    @method('delete')
+                    @csrf
+                    <input type="hidden" name="id" id="id" value="">
+                    <div class="row m-0 p-0">
+                        <h6 class="h6-luxe">Are you sure you want to delete this?</h6>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-luxe" id="save-event">Delete</button>
+            </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
@@ -137,6 +206,16 @@
             }
 
         })
+    }
+    function update(form) {
+        $('.update').modal('show')
+        $('.update').find('#id').val(form.id)
+        $('.update').find('#title').val(form.title)
+        $('.update').find('#path').val(form.path)
+    }
+    function delete_event(form) {
+        $('.delete-event').modal('show')
+        $('.delete-event').find('#id').val(form.id)
     }
     function remove_email(e) {
         $(e).parents('.email-row').remove()

@@ -48,7 +48,9 @@ class FormController extends Controller
                 'details' => json_encode($details),
             ]);
 
-            $to = ['email@luxeknows.com'];
+            $form = Form::where('title', 'Pre-Approval Form')->first();
+
+            $to = $form ? $form->emails()->get()->pluck('email')->toArray() : ['email@luxeknows.com'];
             $cc = ['alfonso@luxehomeloan.com', 'anais@luxehomeloan.com', 'lissette@luxehomeloan.com', 'monica@luxehomeloan.com', 'brandon@luxehomeloan.com', 'ana@luxehomeloan.com', 'orlando@luxehomeloan.com', 'eddie@luxehomeloan.com'];
             Mail::to($to)->cc($cc)->send(new FormMail($details));
 
@@ -110,7 +112,7 @@ class FormController extends Controller
             if (isset($request->form_title_value)) {
                 $to = $this->getEmails($request->form_title_value, $request->to_email);
             } else {
-                $to = $this->getEmails($request->form_title);
+                $to = $this->getEmails($request->form_title, $request->to_email);
             }
 
             array_push($to, $request->agent_email);
@@ -156,13 +158,13 @@ class FormController extends Controller
         return redirect()->back()->with('message', 'Agreement has been submitted!');
     }
 
-    public function getEmails($title, $extraEmail = '')
+    public function getEmails($title, $extraEmail = [])
     {
         $form = Form::where('title', $title)->first();
 
         $data = $form ? $form->emails()->get()->pluck('email')->toArray() : [];
         if ($extraEmail) {
-            array_push($data, $extraEmail);
+            $data = array_merge($data, $extraEmail);
         }
         return $data;
     }

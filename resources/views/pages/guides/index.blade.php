@@ -43,6 +43,9 @@
         padding-top: 0px;
         margin-top: 0px;
     }
+    .box-table #title {
+        height: auto !important;
+    }
 
     .upload {
         transition: .2s;
@@ -330,11 +333,11 @@
                             </button>
                         </form>
                     </div>
-                    {{--<div class="edit-form">
+                    <div class="edit-form">
                         <button class="edit-button" type="submit" onclick="show_edit_file_modal({{$file}})">
                             <img src="{{asset('images/files/pencil-icon.svg')}}" alt="" width="34px" height="34px">
                         </button>
-                    </div>--}}
+                    </div>
                     @endif
                 </div>
             </div>

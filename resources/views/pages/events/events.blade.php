@@ -55,6 +55,18 @@
             background-color: #f0a3b1;
         }
 
+        .fc-daygrid-event.career_fair {
+            background-color: #99ec33;
+        }
+
+        .fc-daygrid-event.volunteering {
+            background-color: #ed87fb;
+        }
+
+        .fc-daygrid-event.holidays {
+            background-color: #2ebbfc;
+        }
+
         .modal-new select {
             border-radius: 3px;
         }
@@ -131,6 +143,9 @@
                                         <option value="zoom_trainings">Zoom Trainings</option>
                                         <option value="tours">Tours</option>
                                         <option value="team_office_meetings">Team/Office Meetings</option>
+                                        <option value="career_fair">Career Fair</option>
+                                        <option value="holidays">Holidays</option>
+                                        <option value="volunteering">Volunteering</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -247,6 +262,9 @@
                                         <option value="zoom_trainings">Zoom Trainings</option>
                                         <option value="tours">Tours</option>
                                         <option value="team_office_meetings">Team/Office Meetings</option>
+                                        <option value="career_fair">Career Fair</option>
+                                        <option value="holidays">Holidays</option>
+                                        <option value="volunteering">Volunteering</option>
                                     </select>
                                 @else
                                     <input type="text" id="event_type" class="w-100 form-control text-capitalize" disabled>

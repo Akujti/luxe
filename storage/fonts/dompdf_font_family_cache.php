@@ -102,7 +102,7 @@
     'italic' => $fontDir . '/montserrat-italic_9f2777e486c3bc6f95029ab6c49afef5',
   ),
   'gochi hand' => array(
-    'normal' => $fontDir . '/gochi-hand-normal_95d4ede7972d8166612d4a9d2482935b',
+    'normal' => $fontDir . '/gochi-hand-normal_0d3bd12162fdd9df133517f5e887d297',
   ),
   'roboto' => array(
     'normal' => $fontDir . '/roboto-normal_b7834828abc03e1e6aa6b18153302986',

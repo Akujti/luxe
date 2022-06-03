@@ -2,6 +2,20 @@
 @section('js')
 @endsection
 @section('css')
+<style>
+    h1 {
+        font-family: 'gothicbold';
+    }
+    th {
+        font-family: 'gothicbold';
+    }
+    tr {
+        font-family: 'gothicregular';
+    }
+    td {
+        vertical-align: middle !important;
+    }
+</style>
 @endsection
 @section('content')
 <div class="container-fluid">

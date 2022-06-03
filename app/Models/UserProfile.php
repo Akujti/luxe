@@ -26,31 +26,31 @@ class UserProfile extends Model
 
     public function getBadgeAttribute()
     {
-        $agent = AgentTransaction::where('agent_name', $this->fullname)->first();
+        $agent = BrokersumoAgent::where('agent_name', $this->fullname)->first();
         $badge = ['title' => 'None', 'level' => 0];
         if ($agent) {
-            if ($agent->total_amounts < 5000000) {
+            if ($agent->sales_volumes < 5000000) {
                 $badge['title'] = '5 Million Dollar Club';
                 $badge['level'] = 1;
-            } else if ($agent->total_amounts > 5000000 && $agent->total_amounts < 7000000) {
+            } else if ($agent->sales_volumes > 5000000 && $agent->sales_volumes < 7000000) {
                 $badge['title'] = '7 Million Dollar Club';
                 $badge['level'] = 2;
-            } else if ($agent->total_amounts > 7000000 && $agent->total_amounts < 10000000) {
+            } else if ($agent->sales_volumes > 7000000 && $agent->sales_volumes < 10000000) {
                 $badge['title'] = '9 Million Dollar Club';
                 $badge['level'] = 3;
-            } else if ($agent->total_amounts > 10000000 && $agent->total_amounts < 25000000) {
+            } else if ($agent->sales_volumes > 10000000 && $agent->sales_volumes < 25000000) {
                 $badge['title'] = '10 Million Dollar Club';
                 $badge['level'] = 4;
-            } else if ($agent->total_amounts > 25000000 && $agent->total_amounts < 50000000) {
+            } else if ($agent->sales_volumes > 25000000 && $agent->sales_volumes < 50000000) {
                 $badge['title'] = '25 Million Dollar Club';
                 $badge['level'] = 5;
-            } else if ($agent->total_amounts > 50000000 && $agent->total_amounts < 75000000) {
+            } else if ($agent->sales_volumes > 50000000 && $agent->sales_volumes < 75000000) {
                 $badge['title'] = '50 Million Dollar Club';
                 $badge['level'] = 6;
-            } else if ($agent->total_amounts > 75000000 && $agent->total_amounts < 100000000) {
+            } else if ($agent->sales_volumes > 75000000 && $agent->sales_volumes < 100000000) {
                 $badge['title'] = '75 Million Dollar Club';
                 $badge['level'] = 7;
-            } else if ($agent->total_amounts > 100000000) {
+            } else if ($agent->sales_volumes > 100000000) {
                 $badge['title'] = '100 Million Dollar Club';
                 $badge['level'] = 8;
             }
