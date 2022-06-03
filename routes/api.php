@@ -39,6 +39,7 @@ Route::apiResource('marketing-canva', MarketingTemplateController::class);
 Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
 Route::get('conference-rooms', [BookingController::class, 'selectRoom']);
 Route::get('conference-rooms/{room_id}', [BookingController::class, 'index']);
+Route::post('bookings', [BookingController::class, 'store'])->middleware('auth:sanctum');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
