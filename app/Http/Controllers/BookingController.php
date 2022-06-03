@@ -20,9 +20,6 @@ class BookingController extends Controller
     public function selectRoom()
     {
         $rooms = Room::all();
-        if (request()->wantsJson()) {
-            return response()->json($rooms);
-        }
         return view('pages.bookings.rooms', compact('rooms'));
     }
 
@@ -30,9 +27,6 @@ class BookingController extends Controller
     {
         $room = Room::findOrFail($room_id);
         $bookings = $room->bookings;
-        if (request()->wantsJson()) {
-            return response()->json(['bookings' => $bookings]);
-        }
         return view('pages.bookings.index', compact('bookings', 'room'));
     }
 

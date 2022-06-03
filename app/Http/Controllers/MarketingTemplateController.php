@@ -65,15 +65,14 @@ class MarketingTemplateController extends Controller
 
     public function index()
     {
-        $marketing_categories = MarketingCanva::whereNull('parent_id')->with('categories', 'categories.templates', 'templates')->orderBy('order', 'asc')->get();
+        $marketing_categories = MarketingCanva::whereNull('parent_id')->orderBy('order', 'asc')->get();
         if (request()->wantsJson()) {
             return response()->json(['categories' => $marketing_categories]);
         }
         return view('pages.marketing_templates.categories', compact('marketing_categories'));
     }
 
-    public function agent_show(MarketingCanva $canvaTemplateCategory)
-    {
+    public function agent_show(MarketingCanva $canvaTemplateCategory) {
         $category = $canvaTemplateCategory->load('categories', 'templates');
         return view('pages.marketing_templates.show', compact('category'));
     }
@@ -93,7 +92,7 @@ class MarketingTemplateController extends Controller
         $path = $req->image->storeAs('/marketing/canva', $name, 'public');
         $canva->image = $path;
         $canva->order = $req->order ?? ++MarketingCanva::latest()->first()->order;
-        if ($req->parent_id) {
+        if($req->parent_id) {
             $canva->parent_id = $req->parent_id;
         }
         $canva->save();

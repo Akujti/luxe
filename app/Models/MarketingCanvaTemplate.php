@@ -18,10 +18,10 @@ class MarketingCanvaTemplate extends Model
 
     protected $appends = ['image_url'];
 
-    public function getImageUrlAttribute()
-    {
-        if ($this->image) {
-            return 'http://myluxehub.com/storage/' . $this->image;
+    public function getImageUrlAttribute() {
+        if($this->image) {
+            return asset('storage/'. $this->image);
         }
     }
+
 }

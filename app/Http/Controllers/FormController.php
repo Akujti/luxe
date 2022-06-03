@@ -72,13 +72,6 @@ class FormController extends Controller
 
     public function general_form_post(Request $request)
     {
-        // return response()->json(['message' => 'success', 'data' => $request->all()], 200);
-        // Log::info($request->all());
-        // $request->validate([
-        //     'upload_listing_agreement' => 'required|file'
-        // ]);
-
-        // return 'success';
         try {
             $details = [];
             $details['form_agent_full_name'] = $request->agent_full_name;
