@@ -1,0 +1,10 @@
+
+.box-post .box-image .box-image-preview {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    cursor: pointer;
+}
+.box-post .box-image .box-image-preview img {
+    height: 100%;
+}

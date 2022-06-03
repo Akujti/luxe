@@ -7,11 +7,10 @@ use App\Models\Feed\Post;
 
 class PostRepository
 {
-    public function all($nr, $with = ['image', 'tag', 'comment', 'like', 'agent']) {
-        $postData = Post::orderBy('created_at', 'desc')
+    public function all($nr, $sort, $with = ['image', 'tag', 'comment', 'like', 'agent']) {
+        $postData = Post::orderBy('created_at', $sort)
         ->with($with)
         ->take($nr)
-        ->orderBy('created_at', 'desc')
         ->get();
 
         $data = [];

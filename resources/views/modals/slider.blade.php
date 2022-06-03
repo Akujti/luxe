@@ -106,7 +106,7 @@
 </div>
 
 <script>
-    var item = JSON.parse(JSON.stringify(<?php echo @json_encode($row['data']); ?>));
+    var item = JSON.parse(JSON.stringify(<?php echo @json_encode($data); ?>));
     const images = [];
     item.row.image.forEach(img => {
         images.push(img.file_url)

@@ -12,7 +12,7 @@ use App\Http\Repositories\PostRepository;
 use App\Http\Requests\Feed\Post\AddRequest;
 use App\Http\Requests\Feed\Post\DeleteRequest;
 use App\Http\Requests\Feed\Post\UpdateRequest;
-
+use Intervention\Image\ImageManagerStatic as Image;
 class PostController extends Controller
 {
 
@@ -24,7 +24,8 @@ class PostController extends Controller
     }
     public function index(Request $req) {
         $nr = $req->input('nr', 8);
-        $posts = $this->postRepository->all($nr);
+        $sort = $req->input('sort', 'desc');
+        $posts = $this->postRepository->all($nr, $sort);
 
         if(request()->ajax()) {
             return response()->json($posts);
@@ -39,7 +40,8 @@ class PostController extends Controller
         if(request()->ajax()) {
             return response()->json($row);
         }
-        return view('news-feed.single-page', compact('row'));
+        $data = $row['data'];
+        return view('news-feed.single-page', compact('data'));
     }
 
     public function create(AddRequest $req) {
@@ -55,9 +57,23 @@ class PostController extends Controller
             if($req->hasFile('files')) {
                 $files = $req->file('files');
                 foreach($files as $file) {
-                    $name = time() . Str::random(10) . '.' . $file->getClientOriginalExtension();
+                    $onlyName = time() . Str::random(10);
+                    $name = $onlyName . '.' . $file->getClientOriginalExtension();
                     $type = $file->getClientOriginalExtension();
-                    $file->storeAs('/feed', $name, 'public');
+                  
+                    if(substr($file->getMimeType(), 0, 5) == 'image') {
+                        $name = $onlyName . '.png';
+                        $type = 'png';
+                        $imageInstance = Image::make($file);
+                        $imageInstance->encode('png');
+                        $imageInstance->fit(700, 600, function ($constraint) {
+                            $constraint->aspectRatio();
+                        });
+                        $imageInstance->save(storage_path('/app/public/feed/' . $name));
+                    } else {
+                        $file->storeAs('/feed', $name, 'public');
+                    }
+
                     $data['files'][] = [
                         'path' => $name,
                         'type' => $type
@@ -72,7 +88,7 @@ class PostController extends Controller
             $rowCreated = $this->postRepository->create($data);
 
             return back()->with('message', 'Successfully created');
-       } catch (Exception $e) {
+        } catch (Exception $e) {
             return 'back with error';
         } 
     }

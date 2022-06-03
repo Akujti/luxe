@@ -106,6 +106,7 @@
 }
 .btn-luxe {
     border-radius: 10px !important;
+    border: 1px solid #262626;
 }
 .box-post .box-tags p {
     background-color: #DDD;
@@ -135,6 +136,8 @@
     padding: 5px;
     min-width: 400px;
     display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
 }
 .comments-box .single-comment .single-comment-body p {
     padding: 10px;
@@ -161,4 +164,23 @@ button, a {
 }
 div:focus-visible {
     outline: none;
+}
+.create-post-box {
+    gap: 20px;
+}
+.create-post-box select {
+    width: 200px;
+}
+.replies-box {
+    min-width: 615px;
+}
+@media (max-width: 767px){
+    .replies-box {
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+    .comments-box .single-comment .single-comment-body {
+        min-width: 100%;
+        width: 100%;
+    }
 }
