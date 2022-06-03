@@ -10,14 +10,16 @@
                         <h1 class="text-center my-4">CLOSING COORDINATORS - {{ $coordinator->name }}</h1>
                         <h6 id="agent-text" class="text-center" style="font-size: 21px;">{{ $coordinator->sentence }}
                         </h6>
+                        <h5 class="text-center">Coordinator Will Reach Out Within 1 Business Day</h5>
                     </div>
                     <input type="hidden" name="form_title" value="CLOSING COORDINATORS - {{ $coordinator->name }}">
                     <input type="hidden" name="form_title_value" value="CLOSING COORDINATORS">
+                    <input type="hidden" name="special" value="Coordinator Will Reach Out Within 1 Business Day">
                     <!-- <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
-                                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
-                                        <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                        <input type="hidden" name="to_email[]" value="support@luxeknows.com">
-                                        <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com"> -->
+                                                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
+                                                        <input type="hidden" name="to_email[]" value="email@luxeknows.com">
+                                                        <input type="hidden" name="to_email[]" value="support@luxeknows.com">
+                                                        <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com"> -->
                     <input type="hidden" name="to_email[]" value="{{ $coordinator->email }}">
                     <div class="card-body">
                         <div class="row">
