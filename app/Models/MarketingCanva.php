@@ -31,6 +31,6 @@ class MarketingCanva extends Model
 
     public function getImageUrlAttribute()
     {
-        return 'http://myluxehub.com/storage/' . $this->image;
+        return asset('storage/' . $this->image);
     }
 }
