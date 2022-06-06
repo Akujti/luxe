@@ -306,12 +306,26 @@
                         '<div class="row p-0 m-0 w-100 col-12">' +
                             '<div class="box-image col-lg-4 col-md-5 col-12 p-0">' +
                                 '<div class="box-image-preview">';
+                                    var numOfImages = [];
+                                    const allowedExtension = '{{ config('allowed-extension-file.media.images') }}';
                                     if(item.row.image.length) {
-                                        html += '<img src="'+ item.row.image[0].file_url +'" alt="">';
-
-                                        if(item.row.image.length > 1) {
-                                            html += '<div class="image-count">+' + parseInt(--item.row.image.length) + '</div>';
+                                        item.row.image.forEach(img => {
+                                            if(allowedExtension.search(img.type) !== -1) {
+                                                numOfImages.push(img)
+                                            }
+                                        });
+                                        
+                                        if(numOfImages) {
+                                            html += '<img src="'+ numOfImages[0].file_url +'" alt="">';
+            
+                                            if(numOfImages.length > 1) {
+                                                html += '<div class="image-count">+' + parseInt(--numOfImages.length) + '</div>';
+                                            }
+                                        } else {
+                                            html += '<img src="/images/news-feed/no-images-found.png" alt="">';
                                         }
+                                    } else {
+                                        html += '<img src="/images/news-feed/no-images-found.png" alt="">';
                                     }
                                 html += '</div>' +
                             '</div>' +
@@ -326,6 +340,7 @@
                                                     '<i class="fa-solid fa-ellipsis"></i></button>'+
                                                     '<div class="dropdown-menu dropdown-menu-right">'+
                                                         '<button class="dropdown-item text-danger" onclick="deletePost(this, '+ item.row.id +')" type="button"><i class="fa-solid fa-trash"></i> Delete</button>'+
+                                                        '<a class="dropdown-item text-primary" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>'+
                                                     '</div>'+
                                                 '</div>';
                                         }
@@ -421,8 +436,8 @@
                                     });
                                 }
                             html += '</div>' +
-                            '<input type="hidden" class="nrCm" value="4">' +
-                            '<button type="button" class="btn btn-link '+ ( (item.comments.length && item.row.comment.length > 4) ? '': 'd-none') +'" id="btnLoadMoreComments" onclick="loadMoreComments(this, '+ item.row.id +')">Load More</button>' +
+                            '<input type="hidden" class="nrCm" value="8">' +
+                            '<button type="button" class="btn btn-link '+ ( (item.comments.length && item.row.comment.length > 8) ? '': 'd-none') +'" id="btnLoadMoreComments" onclick="loadMoreComments(this, '+ item.row.id +')">Load More</button>' +
                         '</div>' +
                     '</div>';
                 });
@@ -439,7 +454,7 @@
         getPosts();
     }
     function loadMoreComments(e, post_id) {
-        var nrCm = parseInt($(e).parents('.row-box').find('.nrCm').val()) + 4;
+        var nrCm = parseInt($(e).parents('.row-box').find('.nrCm').val()) + 8;
 
         $.ajax({
             url: "{{ route('news.comment.getall') }}?post_id=" + post_id + "&nr=" + nrCm,

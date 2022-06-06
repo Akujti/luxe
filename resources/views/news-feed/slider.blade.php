@@ -108,10 +108,12 @@
 <script>
     var item = JSON.parse(JSON.stringify(<?php echo @json_encode($data); ?>));
     const images = [];
+    const allowedExtension = '{{ config('allowed-extension-file.media.images') }}';
     item.row.image.forEach(img => {
-        images.push(img.file_url)
+        if(allowedExtension.search(img.type) !== -1) {
+            images.push(img.file_url)
+        }
     });
-
 
     let active = 0;
     let translateX = 0;
@@ -121,8 +123,6 @@
     const carouselImages = document.querySelector('.carousel-images');
     const bg = document.querySelector('.bg');
 
-//     bg.style.cssText = `background-image: url(${images[active]}); background-repeat: no-repeat;
-// background-size: cover;background-position:center;`
 
     const imgFragment = document.createDocumentFragment()
     images.forEach((img) => {
@@ -162,8 +162,6 @@
         document.querySelectorAll('.modal-body img').forEach((img) => {
             img.style.transform = `translateX(${translateX}px)`;
         })
-//         bg.style.cssText = `background-image: url(${images[active]}); background-repeat: no-repeat;
-// background-size: cover;background-position:center;`
     }
 
     document.addEventListener('keyup', ({

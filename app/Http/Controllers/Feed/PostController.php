@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers\Feed;
 
+use File;
 use Exception;
+use ZipArchive;
 use App\Models\Feed\Tag;
 use App\Models\Feed\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Repositories\PostRepository;
 use App\Http\Requests\Feed\Post\AddRequest;
 use App\Http\Requests\Feed\Post\DeleteRequest;
 use App\Http\Requests\Feed\Post\UpdateRequest;
+use App\Http\Requests\Feed\Post\DownloadRequest;
+use App\Http\Requests\Feed\Post\RemoveFileRequest;
 use Intervention\Image\ImageManagerStatic as Image;
+
 class PostController extends Controller
 {
 
@@ -44,6 +50,16 @@ class PostController extends Controller
         return view('news-feed.single-page', compact('data'));
     }
 
+    public function show($id) {
+        $row = $this->postRepository->getById($id);
+
+        if(request()->ajax()) {
+            return response()->json($row);
+        }
+        $data = $row['data'];
+        return view('news-feed.edit-page', compact('data'));
+    }
+
     public function create(AddRequest $req) {
         try {
             $data = [
@@ -60,8 +76,8 @@ class PostController extends Controller
                     $onlyName = time() . Str::random(10);
                     $name = $onlyName . '.' . $file->getClientOriginalExtension();
                     $type = $file->getClientOriginalExtension();
-                  
-                    if(substr($file->getMimeType(), 0, 5) == 'image') {
+                    
+                    if(in_array($type, explode(',', config('allowed-extension-file.media.images')))) {
                         $name = $onlyName . '.png';
                         $type = 'png';
                         $imageInstance = Image::make($file);
@@ -141,5 +157,35 @@ class PostController extends Controller
         } catch (Exception $e) {
             return response()->json(false);
         }
+    }
+    public function download_files(DownloadRequest $req)
+    {
+        $row = Post::find($req->post_id);
+        $zip = new ZipArchive;
+        $fileName = 'allFiles.zip';
+
+        $isExists = File::exists($fileName);
+
+        if($isExists) {
+            File::delete($fileName);
+        }
+        if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE){
+            foreach($row->image as $image) {
+                $file = storage_path('app/public/feed/'. $image->path);
+                $zip->addFile($file, basename($file));
+            }
+            $zip->close();
+        }
+    	
+        return response()->download(public_path($fileName));
+    }
+    public function removeFile(RemoveFileRequest $req)
+    {
+        $row = Post::with('image')->find($req->id);
+        $image = $row->image()->where('id', $req->img_id)->first();
+        if($image && $row->agent_id == auth()->id()) {
+            $image->delete();
+        }
+        return response()->json(true);
     }
 }

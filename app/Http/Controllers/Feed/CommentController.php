@@ -91,7 +91,8 @@ class CommentController extends Controller
     public function delete(DeleteRequest $req) {
         try {
             $row = Comment::findOrFail($req->id);
-            if($row->user_id == auth()->id()) {
+            $post = Post::find($row->commentable_id);
+            if($row->user_id == auth()->id() || $row->user_id == $post->agent_id) {
                 $row->delete();
                 return response()->json(true);
             }

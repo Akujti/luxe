@@ -46,168 +46,8 @@
     function toggleTagInput() {
         $('.tag-input').toggleClass('d-none')
     }
-    function toggleCommentInput(e) {
-        $(e).parents('.box-post').find('#comment-box').toggleClass('d-none')
-    }
-    function toggleReplyInput(e) {
-        $(e).parents('.single-comment').find('#comment-box').toggleClass('d-none')
-    }
     var tags = [];
-    function comment(e, post_id, comment_id = null) {
-        var body = $(e).parents('.box-post').find('#text-area').val();
 
-        if(!body) {
-            return;
-        }
-
-        var commentP = $(e).parents('.box-post').find('#comment-count span');
-        var num = commentP.html();
-        commentP.html(parseInt(++num));
-        
-        $(e).parents('.box-post').find('#text-area').val("")
-
-        var data = {
-            'post_id': post_id,
-            'body': body,
-            'tags': tags
-        }
-
-        $.ajax({
-            url: "{{ route('news.comment.create') }}",
-            data: data,
-            type: "post",
-            headers: {
-                "X-CSRF-Token": $('[name="_token"]').val(),
-            },
-            success: function (output) {
-                var html = '<div id="textbox" class="row mb-2 p-0 m-0 w-100">' +
-                            '<div class="col-12 single-comment comment-single d-flex align-items-start p-0 m-0">' +
-                                '<div class="single-comment-profile">' +
-                                    '<img src="{{ auth()->user()->avatar }}" alt="">' +
-                                '</div>' +
-                            '<div class="w-100">' +
-                            '<div class="d-flex align-items-center">' +
-                                '<div contenteditable="false" class="single-comment-body m-0 p-3"> '+ body +'</div>' +
-                                '<div class="single-comment-delete">' +
-                                    '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ output.id +')"><i class="fa-solid fa-trash"></i></button>' +
-                                '</div>' +
-                            '</div>' +
-                            '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
-                                '<button class="btn btn-link text-dark" type="button" onclick="like(this, 1, '+ output.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
-                                '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
-                            '</div>' +
-                            '<div class="replies-box">' +
-                                '<div class="row p-0 m-0 reply-box">'+
-                                   
-                                '</div>' +
-                                '<div class="d-none w-100" id="comment-box" style="height:70px !important;">' +
-                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px;position: absolute;width: 100%;left: 0px;">' +
-                                        '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
-                                        '</textarea>' +
-                                        '<button type="button" class="btn-luxe" onclick="reply(this, '+ post_id +', ' + output.id + ')">Reply</button>' +
-                                    '</div>' +
-                                '</div>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>';
-
-                $(e).parents('.box-post').find('.comments-box').prepend(html)
-                addTagifyFunc();
-                replaceTag();
-                tags = [];
-            },
-        });
-    }
-
-    function reply(e, post_id, comment_id) {
-        var body = $(e).parents('.single-comment').find('#text-area').val();
-
-        if(!body) {
-            return;
-        }
-        
-        $(e).parents('.single-comment').find('#text-area').val("")
-
-        var data = {
-            'post_id': post_id,
-            'body': body,
-            'parent_id': comment_id
-        }
-        $.ajax({
-            url: "{{ route('news.comment.create') }}",
-            data: data,
-            type: "post",
-            headers: {
-                "X-CSRF-Token": $('[name="_token"]').val(),
-            },
-            success: function (output) {
-                var html = '<div class="col-12 single-comment single-reply d-flex align-items-start mt-2 p-0"> ' +
-                    '<div class="single-comment-profile"> ' +
-                        '<img src="{{ auth()->user()->avatar }}" alt=""> ' +
-                    '</div> ' +
-                '<div> ' +
-                '<div class="d-flex align-items-center">' +
-                '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ body +'</div>' +
-                    '<div class="single-comment-delete">' +
-                        '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ output.id +')"><i class="fa-solid fa-trash"></i></button>' +
-                    '</div>' +
-                '</div>' +
-                '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;"> ' +
-                '<button class="btn btn-link text-dark" type="button" onclick="like(this, 1, ' + output.id +')"><i class="fa-solid fa-heart"></i> Like</button> ' +
-                '</div> ' +
-                '</div> ' +
-                ' </div> ';
-
-                $(e).parents('.replies-box').find('.reply-box').prepend(html)
-                replaceTag();
-            },
-        });
-    }
-    function like(e, type = 'post', post_id) {
-        
-        if(type == 1) {
-            var data = {
-                'comment_id': post_id
-            }
-            $(e).toggleClass('liked')
-
-            $.ajax({
-                url: "{{ route('news.like.create.comment') }}",
-                data: data,
-                type: "post",
-                headers: {
-                    "X-CSRF-Token": $('[name="_token"]').val(),
-                },
-                success: function (output) {
-                },
-            });
-        } else {
-            var data = {
-                'post_id': post_id
-            }
-            $.ajax({
-                url: "{{ route('news.like.create') }}",
-                data: data,
-                type: "post",
-                headers: {
-                    "X-CSRF-Token": $('[name="_token"]').val(),
-                },
-                success: function (output) {
-                    var likeP = $(e).parents('.box-post').find('#like-count span');
-                    if(output) {
-                        var num = likeP.html();
-                        likeP.html(parseInt(++num))
-                        $(e).toggleClass('liked')
-                    } else {
-                        var num = likeP.html();
-                        likeP.html(parseInt(--num))
-                        $(e).toggleClass('liked')
-                    }
-                },
-            });
-        }
-    }
     function loadMoreComments(e, post_id) {
         var nrCm = parseInt($(e).parents('.row-box').find('.nrCm').val()) + 4;
 
@@ -363,53 +203,14 @@
         var html = '';
             html += '<div class="col-12 box-post p-0 row m-0 mb-3">' +
                 '<div class="row p-0 m-0 w-100 col-12">' +
-                    '<div class="box-image col-lg-12 col-md-12 col-12 p-0">' +
-                        '<div class="box-image-preview">';
-                            var numOfImages = [];
-                            const allowedExtension = '{{ config('allowed-extension-file.media.images') }}';
-                            if(item.row.image.length) {
-                                item.row.image.forEach(img => {
-                                    if(allowedExtension.search(img.type) !== -1) {
-                                        numOfImages.push(img)
-                                    }
-                                });
-                                
-                                if(numOfImages) {
-                                    html += '<img src="'+ numOfImages[0].file_url +'" alt="">';
-    
-                                    if(numOfImages.length > 1) {
-                                        html += '<div class="image-count" onclick="openModal()">+' + parseInt(--numOfImages.length) + '</div>';
-                                    }
-                                } else {
-                                    html += '<img src="/images/news-feed/no-images-found.png" alt="">';
-                                }
-                            } else {
-                                html += '<img src="/images/news-feed/no-images-found.png" alt="">';
-                            }
-                        html += '</div>' +
-                    '</div>' +
                     '<div class="box-details col-lg-12 col-md-12 col-12">' +
                         '<div class="d-flex justify-content-between align-items-center">' +
                             '<p id="author" class="gothicbold p-0 m-0">' + item.row.agent.profile.fullname + '</p>' +
-                            '<div class="d-flex align-items-center" style="gap:5px">';
-                            if(item.row.image.length) {
-                                html += '<div><form method="POST" action="{{ route("news.download") }}" class="m-0 p-0">' +
-                                '@csrf <input type="hidden" name="post_id" value="'+ item.row.id +'"><button type="submit" class="btn btn-link">Download All Files ('+ item.row.image.length +')</button></form></div>';
-                            }
-                                html += '<p id="date" class="p-0 m-0">' +  moment(item.row.created_at).fromNow() + '</p>';
-                                if(item.row.agent.id == my_id) {
-                                    html += '<div class="btn-group">'+
-                                            '<button type="button" class="btn btn-link p-0 m-0" id="delete-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
-                                            '<i class="fa-solid fa-ellipsis"></i></button>'+
-                                            '<div class="dropdown-menu dropdown-menu-right">'+
-                                                '<button class="dropdown-item text-danger" onclick="deletePost(this, '+ item.row.id +')" type="button"><i class="fa-solid fa-trash"></i> Delete</button>'+
-                                                '<a class="dropdown-item text-primary" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>' +
-                                            '</div>'+
-                                        '</div>';
-                                }
-                            html += '</div>'+
+                            '<div class="d-flex align-items-center" style="gap:5px">' +
+                                '<p id="date" class="p-0 m-0">' +  moment(item.row.created_at).fromNow() + '</p>' +
+                            '</div>' +
                         '</div>' +
-                        '<p>' + item.row.body + '</p>' +
+                        '<textarea class="form-control w-100" rows="7">' + item.row.body + '</textarea>' +
                         '<div class="box-tags d-flex justify-content-start">';
                             if(item.row.tag.length) {
                                 item.row.tag.forEach(tag => {
@@ -418,6 +219,24 @@
                             }
                         html += '</div>' +
                     '</div>' +
+                    '<div class="box-image col-lg-12 col-md-12 col-12 p-0">' +
+                        '<div class="box-edit-images d-flex">';
+                            var numOfImages = [];
+                            const allowedExtension = '{{ config('allowed-extension-file.media.images') }}';
+                            if(item.row.image.length) {
+                                item.row.image.forEach(img => {
+                                    html += '<div class="box-single-image">';
+                                    if(allowedExtension.search(img.type) !== -1) {
+                                        html += '<img src="'+ img.file_url +'" alt="">';
+                                    } else {
+                                        html += '<p>File '+ img.type +'</p>';
+                                    }
+                                    html += '<span onclick="removeFile(this, '+ item.row.id +', '+ img.id +')">&times;</span></div>';
+                                });
+                            }
+                        html += '</div>' +
+                    '</div>' +
+                    
                 '</div>' +
                 '<div class="p-0 m-0 w-100 col-12">' +
                     
@@ -425,19 +244,8 @@
                         '<p class="p-0 m-0" id="like-count"><i class="fa-solid fa-heart"></i> Likes: <span>' + item.row.like.length + '</span></p>' +
                         '<p class="p-0 m-0" id="comment-count"><i class="fa-solid fa-comment"></i> Comments: <span>' + item.row.comment.length + '</span></p>' +
                     '</div>' +
-                    '<div class="d-flex justify-content-center align-items-center p-2" style="gap: 5px;">' +
-                        '<button class="btn btn-light btn-block '+ (item.row.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 2, ' + item.row.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
-                        '<button class="btn btn-light btn-block m-0" onclick="toggleCommentInput(this)"><i class="fa-solid fa-comment"></i> Comment</button>' +
-                    '</div>' +
                 '</div>' +
                 '<div class="p-0 m-0 w-100 col-12 row-box">' +
-                    '<div class="w-100" id="comment-box" style="height:70px !important;">' +
-                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px;">' +
-                            '<textarea class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
-                            '</textarea>' +
-                            '<button type="button" class="btn-luxe" onclick="comment(this, ' + item.row.id + ')">Comment</button>' +
-                        '</div>' +
-                    '</div>' +
                     '<div class="comments-box w-100 p-3">';
                         if(item.comments.length) {
                             item.comments.forEach(comment => {
@@ -455,10 +263,6 @@
                                                     '</div>';
                                                 }
                                             html += '</div>' +
-                                            '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
-                                                '<button class="btn btn-link text-dark '+ (comment.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, '+ comment.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
-                                                '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
-                                            '</div>' +
                                             '<div class="replies-box">' +
                                                 '<div class="row p-0 m-0 reply-box">';
                                                     comment.replies.forEach(reply => {
@@ -475,9 +279,6 @@
                                                                         '</div>';
                                                                     }
                                                                 html += '</div>' +
-                                                                '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
-                                                                '<button class="btn btn-link text-dark '+ (reply.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, ' + reply.id + ')"><i class="fa-solid fa-heart"></i> Like</button>' +
-                                                            '</div>' +
                                                             '</div>' +
                                                         '</div>';
                                                     });
@@ -503,6 +304,25 @@
         postsbox.html(html)
         tagifyFunc();
         replaceTag();
+    }
+    function removeFile(e, post_id, img_id) {
+        var data = {
+            'id': post_id,
+            'img_id': img_id
+        }
+        $.ajax({
+            url: "{{ route('news.delete.file') }}",
+            data: data,
+            type: "delete",
+            headers: {
+                "X-CSRF-Token": $('[name="_token"]').val(),
+            },
+            success: function (output) {
+                if(output) {
+                    $(e).parents('.box-single-image').remove();
+                }
+            },
+        });
     }
 </script>
 @endsection

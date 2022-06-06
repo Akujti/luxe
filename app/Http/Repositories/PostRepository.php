@@ -16,7 +16,7 @@ class PostRepository
         $data = [];
         foreach($postData as $key => $row) {
             $data[$key]['row'] = $row;
-            $data[$key]['comments'] = $row->comment()->take(4)->get();
+            $data[$key]['comments'] = $row->comment()->take(8)->get();
         }
 
         $rows = Post::count();
@@ -28,7 +28,7 @@ class PostRepository
     {
         $data = [
             'row' => Post::with($with)->findOrFail($id),
-            'comments' => Post::findOrFail($id)->comment()->take(4)->get()
+            'comments' => Post::findOrFail($id)->comment()->take(8)->get()
         ];
 
         return ['data' => $data];

@@ -72,6 +72,7 @@ Route::group(['prefix' => 'news', 'as' => 'news.', 'middleware' => ['auth']], fu
     Route::post('/', [PostController::class, 'create'])->name('create');
     Route::put('/', [PostController::class, 'update'])->name('update');
     Route::delete('/', [PostController::class, 'delete'])->name('delete');
+    Route::delete('/file', [PostController::class, 'removeFile'])->name('delete.file');
     
     Route::group(['prefix' => 'comment', 'as' => 'comment.'], function () {
         Route::get('/', [CommentController::class, 'getAll'])->name('getall');
@@ -85,6 +86,8 @@ Route::group(['prefix' => 'news', 'as' => 'news.', 'middleware' => ['auth']], fu
         Route::post('/comment', [LikeController::class, 'createByComment'])->name('create.comment');
     });
     Route::get('/{id}', [PostController::class, 'getById'])->name('show');
+    Route::get('/edit/{id}', [PostController::class, 'show'])->name('show.edit');
+    Route::post('/download', [PostController::class, 'download_files'])->name('download');
 
 });
 
