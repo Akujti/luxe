@@ -337,6 +337,8 @@ Route::group(
         Route::get('diy-templates/{diyTemplateCategory}', [DiyTemplateCategoryController::class, 'agent_show'])->name('user.diy-templates.show');
         Route::get('/orders', [OrderController::class, 'my_orders'])->name('my_orders');
         Route::get('/orders/{id}', [OrderController::class, 'show_agent'])->name('my_orders.show');
+
+        Route::view('coaching', 'pages.coaching.index')->name('coaching.index');
     }
 );
 

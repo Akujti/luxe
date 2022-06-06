@@ -773,6 +773,14 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="box-item" onclick="window.location = '{{ url('user/coaching') }}'">
+                <div>
+                    <img src="/images/index-page/mentors.svg" class="icon" alt="">
+                    <p>Coaching<br>&nbsp;</p>
+                </div>
+            </div>
+        </div>
     @elseif($_GET['dir'] == 'email_addendum_verbiage_builder')
         <?php
         $active = 'Tools&TrainingVideos';

@@ -251,5 +251,15 @@ class FormSeeder extends Seeder
             ['email' => 'email@luxeknows.com'],
             ['email' => 'operations@luxeknows.com'],
         ]);
+
+        $parent = Form::create([
+            'title' => 'LUXE Coaching'
+        ]);
+        $parent->emails()->createMany([
+            ['email' => 'albert@babaniproperties.com'],
+            ['email' => 'email@luxeknows.com'],
+            ['email' => 'support@luxeknows.com'],
+            ['email' => 'operations@luxeknows.com'],
+        ]);
     }
 }
