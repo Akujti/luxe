@@ -64,12 +64,16 @@
                     <li>Online community chat for additional support to all coaching clients</li>
                 </ul>
             </div>
+            
             <div class="row p-0 m-0 justify-content-center">
                 <form action="{{ route('general.email.post') }}" method="POST">
                     @csrf
                     <input type="hidden" name="form_title" value="LUXE Coaching">
                     <input type="hidden" name="agent_full_name" value="{{ auth()->user()->profile->fullname }}">
                     <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
+                    <input type="hidden" name="agent_phone" value="{{ auth()->user()->profile->phone }}">
+                    <input type="hidden" name="agent_address" value="{{ auth()->user()->profile->address }}">
+                    <input type="hidden" name="agent_languages" value="{{ implode(',', auth()->user()->profile->languages) }}">
                     <button type="submit" class="btn-luxe">Sign Up</button>
                 </form>
             </div>

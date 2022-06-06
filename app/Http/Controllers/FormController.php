@@ -83,7 +83,13 @@ class FormController extends Controller
                     // $path = Storage::put('public/images/marketing', $val, 'public');
                     $val = 'new-storage/images/marketing/' . $name;
                 }
-                $details[strtolower($key)] = $val;
+                if($request->form_title == 'LUXE Coaching') {
+                    if(strtolower($key) != 'agent_full_name' && strtolower($key) != 'agent_email') {
+                        $details[strtolower($key)] = $val;
+                    }
+                } else {
+                    $details[strtolower($key)] = $val;
+                }
             }
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Form isn\'t saved, there was a problem with the entered data');
