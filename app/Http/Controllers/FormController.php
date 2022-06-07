@@ -83,8 +83,8 @@ class FormController extends Controller
                     // $path = Storage::put('public/images/marketing', $val, 'public');
                     $val = 'new-storage/images/marketing/' . $name;
                 }
-                if($request->form_title == 'LUXE Coaching') {
-                    if(strtolower($key) != 'agent_full_name' && strtolower($key) != 'agent_email') {
+                if ($request->form_title == 'LUXE Coaching') {
+                    if (strtolower($key) != 'agent_full_name' && strtolower($key) != 'agent_email') {
                         $details[strtolower($key)] = $val;
                     }
                 } else {
@@ -126,6 +126,8 @@ class FormController extends Controller
         if ($request->wantsJson()) {
             return response()->json('success');
         }
+        if ($request->form_title == "LUXE Coaching")
+            session()->flash('modal', 'Success');
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
 

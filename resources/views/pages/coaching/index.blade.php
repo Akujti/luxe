@@ -31,6 +31,33 @@
         <div class="col-12 title mb-3">
             <h1>LUXE Coaching</h1>
             <p>"Taking your real estate business to the Next Level".</p>
+
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-show="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Success</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>You have successfully signed up and the Next Level Sales Coach will reach you out.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if (session()->get('modal'))
+                <script type="text/javascript">
+                    $(window).on('load', function() {
+                        $('#exampleModalCenter').modal('show');
+                    });
+                </script>
+            @endif
         </div>
         <div class="row align-items-center justify-content-center box-items">
             <div class="col-12 col-md-12 col-lg-7">
