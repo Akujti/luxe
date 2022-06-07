@@ -118,7 +118,6 @@
             height: 60px;
             border-radius: 10px;
         }
-
     </style>
 @endsection
 @section('content')
@@ -358,7 +357,6 @@
                         height: auto;
                         padding: 20px;
                     }
-
                 </style>
                 <div class="col-12 col-md-3">
                     <div class="box-item small-box" onclick="window.location='{{ route('user.diy-templates') }}'">
@@ -707,7 +705,6 @@
                 width: 100%;
                 color: #262626;
             }
-
         </style>
         <div class="col-12 title mb-3">
             <h1>Training & Knowledge Center</h1>
@@ -773,14 +770,14 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        {{-- <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location = '{{ url('user/coaching') }}'">
                 <div>
                     <img src="/images/index-page/mentors.svg" class="icon" alt="">
                     <p>Coaching<br>&nbsp;</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
     @elseif($_GET['dir'] == 'email_addendum_verbiage_builder')
         <?php
         $active = 'Tools&TrainingVideos';
@@ -887,13 +884,13 @@
             </div>
         </div>
         <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                        <div>
-                                                                                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                            <p>Links to other services</p>
+                                                                                        <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                            <div>
+                                                                                                <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                <p>Links to other services</p>
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
-                                                                                </div> -->
+                                                                                    </div> -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
                 <div>
