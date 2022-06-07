@@ -25,14 +25,14 @@ class VideoFolderController extends Controller
             } else {
                 $q->whereNull('parent_id');
             }
-        })->latest()->get();
+        })->orderBy('title')->get();
         $videos = Video::where(function ($q) use ($folder_id) {
             if ($folder_id) {
                 $q->where('folder_id', $folder_id);
             } else {
                 $q->whereNull('folder_id');
             }
-        })->latest()->get();
+        })->orderBy('title')->get();
 
         return view('pages.videos', compact('videoFolders', 'videos'));
     }
