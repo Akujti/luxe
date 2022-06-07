@@ -1,229 +1,235 @@
 @extends('themes.layouts.app')
 @section('css')
-@include('includes.fonts')
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+    @include('includes.fonts')
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 
-    * {
-        font-family: 'Montserrat';
-    }
+        * {
+            font-family: 'Montserrat';
+        }
 
-    .gochi {
-        font-family: 'Gochi Hand', cursive;
-        font-weight: 400;
-    }
+        .gochi {
+            font-family: 'Gochi Hand', cursive;
+            font-weight: 400;
+        }
 
-    label {
-        background-color: #262626;
-        color: #fff;
-        padding: 10px;
-        display: block;
-        width: 150px;
-        font-family: 'gothicbold';
-        font-size: 15px;
-        margin-top:5px;
-    }
+        label {
+            background-color: #262626;
+            color: #fff;
+            padding: 10px;
+            display: block;
+            width: 150px;
+            font-family: 'gothicbold';
+            font-size: 15px;
+            margin-top: 5px;
+        }
 
-    .row {
-        display: flex;
-    }
+        .row {
+            display: flex;
+        }
 
-    .row-divider {
-        height: 3px;
-        background-color: black;
-    }
+        .row-divider {
+            height: 3px;
+            background-color: black;
+        }
 
-    .column-divider {
-        min-height: 100%;
-        height: 100%;
-        width: 210px;
-    }
+        .column-divider {
+            min-height: 100%;
+            height: 100%;
+            width: 210px;
+        }
 
-    .row-input {
-        margin: auto 0;
-        max-width: 650px;
-    }
+        .row-input {
+            margin: auto 0;
+            max-width: 650px;
+        }
 
-    input,
-    textarea {
-        font-size: 15px;
-        margin-top: 10px;
-        margin-bottom: 5px;
-        width: 100%;
-        border: 1px solid #262626;
-        font-family: 'gothicregular';
-        padding: 10px;
-    }
-    select {
-        border: 1px solid #262626;
-        font-family: 'gothicregular';
-        padding: 10px;
-    }
+        input,
+        textarea {
+            font-size: 15px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            width: 100%;
+            border: 1px solid #262626;
+            font-family: 'gothicregular';
+            padding: 10px;
+        }
 
-    .button {
-        margin-top: 50px;
-    }
+        select {
+            border: 1px solid #262626;
+            font-family: 'gothicregular';
+            padding: 10px;
+        }
 
-    .generate {
-        font-family: "gothicbold";
-        font-weight: 600;
-        font-size: 18px;
-        padding: 15px 40px;
-        border:1px solid #e8e8e8;
-        background-color: #e8e8e8;
-        color: #000;
-        text-decoration: none;
-        border-radius: 10px;
-    }
+        .button {
+            margin-top: 50px;
+        }
 
-    .flex {
-        display: flex;
-        justify-content: flex-end;
-    }
-    .row-image {
-        width: 800px;
-        height: auto;
-    }
+        .generate {
+            font-family: "gothicbold";
+            font-weight: 600;
+            font-size: 18px;
+            padding: 15px 40px;
+            border: 1px solid #e8e8e8;
+            background-color: #e8e8e8;
+            color: #000;
+            text-decoration: none;
+            border-radius: 10px;
+        }
 
-    .page {
-        width: 1000px;
-        position: relative;
-        height: 3695px;
-        /* background-image: url('images/themes/just-listed/img-1.jpg'); */
-        background-position: center bottom;
-        background-repeat: no-repeat;
-        background-size: 1140px;
-    }
+        .flex {
+            display: flex;
+            justify-content: flex-end;
+        }
 
-    .absolute {
-        position: absolute;
-    }
+        .row-image {
+            width: 800px;
+            height: auto;
+        }
 
-    .gold {
-        color: #C5A467;
-    }
+        .page {
+            width: 1000px;
+            position: relative;
+            height: 3695px;
+            /* background-image: url('images/themes/just-listed/img-1.jpg'); */
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-size: 1140px;
+        }
 
-    .white {
-        color: white;
-    }
+        .absolute {
+            position: absolute;
+        }
 
-    .bold {
-        font-weight: 700;
-    }
+        .gold {
+            color: #C5A467;
+        }
 
-    ul li {
-        display: inline;
-        font-size: 20px;
-        margin-right: 10px;
-    }
+        .white {
+            color: white;
+        }
 
-    h1,
-    h2,
-    h3,
-    p {
-        margin: 0;
-    }
+        .bold {
+            font-weight: 700;
+        }
 
-    div.circle {
-        top: 37%;
-    }
+        ul li {
+            display: inline;
+            font-size: 20px;
+            margin-right: 10px;
+        }
 
-    img.circle {
-        border: 10px solid #C9A668;
-        border-radius: 50%;
-        width: 285px;
-        height: 285px;
-        object-fit: cover;
-    }
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
 
-    .pr-10 {
-        padding-right: 10px;
-    }
+        div.circle {
+            top: 37%;
+        }
 
-    .file-input-width {
-        width: 175px;
-    }
+        img.circle {
+            border: 10px solid #C9A668;
+            border-radius: 50%;
+            width: 285px;
+            height: 285px;
+            object-fit: cover;
+        }
 
-    h1.small {
-        font-size: 70px;
-    }
+        .pr-10 {
+            padding-right: 10px;
+        }
 
-    h1.normal {
-        font-size: 90px;
-    }
+        .file-input-width {
+            width: 175px;
+        }
 
-    h1.large {
-        font-size: 110px;
-    }
+        h1.small {
+            font-size: 70px;
+        }
 
-    h1.main {
-        font-family: 'Lato';
-        font-weight: 900;
-    }
+        h1.normal {
+            font-size: 90px;
+        }
 
-    .profile-pic {
-        width: 200px;
-        height: 200px;
-        border: 10px solid white;
-    }
-    .personal {
-        left: 480px;
-    }
+        h1.large {
+            font-size: 110px;
+        }
 
-    .info-size {
-        font-size: 25px;
-        left: 520px;
-    }
+        h1.main {
+            font-family: 'Lato';
+            font-weight: 900;
+        }
 
-    .diagonal {
-        min-width: 350px;
-        border-left: 10px solid #C9A668;
-        background-color: black;
-        height: 120px;
-    }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border: 10px solid white;
+        }
 
-    .cropper-container {
-        position: fixed !important;
-        top: -135% !important;
-        z-index: 100;
-    }
+        .personal {
+            left: 480px;
+        }
 
-    .text-17.extra-small,
-    .text-24.extra-small {
-        margin-top: 6px;
-        font-size: 18px !important;
-    }
+        .info-size {
+            font-size: 25px;
+            left: 520px;
+        }
 
-    .text-17.small,
-    .text-24.small {
-        margin-top: 3px;
-        font-size: 22px !important;
-    }
+        .diagonal {
+            min-width: 350px;
+            border-left: 10px solid #C9A668;
+            background-color: black;
+            height: 120px;
+        }
 
-    .text-17.normal,
-    .text-24.normal {
-        font-size: 25px !important;
-    }
-    button {
-        background-color: #e8e8e8;
-        border: 1px solid #e8e8e8;
-        padding: 10px;
-        color: #262626;
-        font-family: 'gothicbold';
-        border-radius: 10px;
-    }
-    .mt-1 {
-        margin-top: 5px;
-    }
-    .mt-3 {
-        margin-top: 15px;
-    }
-</style>
+        .cropper-container {
+            position: fixed !important;
+            top: -135% !important;
+            z-index: 100;
+        }
+
+        .text-17.extra-small,
+        .text-24.extra-small {
+            margin-top: 6px;
+            font-size: 18px !important;
+        }
+
+        .text-17.small,
+        .text-24.small {
+            margin-top: 3px;
+            font-size: 22px !important;
+        }
+
+        .text-17.normal,
+        .text-24.normal {
+            font-size: 25px !important;
+        }
+
+        button {
+            background-color: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            padding: 10px;
+            color: #262626;
+            font-family: 'gothicbold';
+            border-radius: 10px;
+        }
+
+        .mt-1 {
+            margin-top: 5px;
+        }
+
+        .mt-3 {
+            margin-top: 15px;
+        }
+    </style>
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
-    integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
-    crossorigin="anonymous"></script>
+integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
+crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css"
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
@@ -387,7 +393,8 @@
                             33134</h1>
                     </div>
                     <div class="absolute" style="text-align: center;top:98.8%;width: 100%;">
-                        <h1 class="text-28" style="font-size:16px;font-weight:400;color:#9e9e9e">Copyright © {{ date('Y') }} LUXE
+                        <h1 class="text-28" style="font-size:16px;font-weight:400;color:#9e9e9e">Copyright ©
+                            {{ date('Y') }} LUXE
                             Properties, LLC, All
                             rights reserved.</h1>
                     </div>
@@ -398,7 +405,8 @@
                 <div class="absolute" style="top: 250px;">
                     <div class="file-input-width">
                         <label for="page-1-img-1">Main Image</label>
-                        <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose Image</button>
+                        <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose
+                            Image</button>
                         <input type="file" id="img-1-input" onchange="img_1_change(this)" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="img_1_crop()">Save Crop</button>
@@ -448,7 +456,8 @@
                     <div>
                         <div class="file-input-width">
                             <label for="page-1-img-1">Circle 1</label>
-                            <button type="button" class="mt-3" onclick="openInputFile('img-2-input')">Choose Image</button>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-2-input')">Choose
+                                Image</button>
                             <input type="file" id="img-2-input" onchange="img_2_change(this)" style="display: none;">
                             <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                             <button type="button" onclick="img_2_crop()">Save Crop</button>
@@ -457,7 +466,8 @@
                     <div class="mt-3">
                         <div class="file-input-width">
                             <label for="page-1-img-1">Circle 2</label>
-                            <button type="button" class="mt-3" onclick="openInputFile('img-3-input')">Choose Image</button>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-3-input')">Choose
+                                Image</button>
                             <input type="file" id="img-3-input" onchange="img_3_change(this)" style="display: none;">
                             <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                             <button type="button" onclick="img_3_crop()">Save Crop</button>
@@ -466,7 +476,8 @@
                     <div class="mt-3">
                         <div class="file-input-width">
                             <label for="page-1-img-1">Circle 3</label>
-                            <button type="button" class="mt-3" onclick="openInputFile('img-4-input')">Choose Image</button>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-4-input')">Choose
+                                Image</button>
                             <input type="file" id="img-4-input" onchange="img_4_change(this)" style="display: none;">
                             <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                             <button type="button" onclick="img_4_crop()">Save Crop</button>
@@ -502,7 +513,8 @@
                     <div>
                         <div class="file-input-width">
                             <label for="page-1-img-5">Agent 1</label>
-                            <button type="button" class="mt-3" onclick="openInputFile('img-5-input')">Choose Image</button>
+                            <button type="button" class="mt-3" onclick="openInputFile('img-5-input')">Choose
+                                Image</button>
                             <input type="file" id="img-5-input" onchange="img_5_change(this)" style="display: none;">
                             <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                             <button type="button" onclick="img_5_crop()">Save Crop</button>
@@ -555,7 +567,8 @@
                 <div class="absolute" style="top:3085px;">
                     <div class="file-input-width">
                         <label for="page-1-img-6">Agent 2</label>
-                        <button type="button" class="mt-3" onclick="openInputFile('img-6-input')">Choose Image</button>
+                        <button type="button" class="mt-3" onclick="openInputFile('img-6-input')">Choose
+                            Image</button>
                         <input type="file" id="img-6-input" onchange="img_6_change(this)" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(1)">Crop</button>
                         <button type="button" onclick="img_6_crop()">Save Crop</button>
@@ -620,7 +633,8 @@
 
                 <div class="flex absolute" style="top:3775px;">
                     <div class="" style="width: 345px;">
-                        <button type="button" name="action" value="Generate" class="generate" onclick="beforePDF()">Generate</button>
+                        <button type="button" name="action" value="Generate" class="generate"
+                            onclick="beforePDF()">Generate</button>
                         {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
@@ -631,116 +645,119 @@
             </div>
         </div>
     </form>
-@include('includes.loader')
+    @include('includes.loader')
 @endsection
 
 <script>
-    $("textarea").change(function(event) {
-        var event_id = event.target.id;
-        if (event_id == "text-11") {
-            var text = $("#text-11").val();
-            var array = document.getElementsByClassName("text-11");
-            var textarea = array[0];
-            textarea.innerHTML = text;
-        }
-    });
-    function change_font_size(select_input){
+    function change_font_size(select_input) {
         console.log(select_input);
         var select_id = select_input.id;
-        var selector = $('#'+select_id);
+        var selector = $('#' + select_id);
         var element_to_edit = selector.attr('data-id-to-change');
         var font_size = selector.val();
         remove_classes(element_to_edit);
-        $("."+element_to_edit).addClass(font_size);
+        $("." + element_to_edit).addClass(font_size);
     }
-    function remove_classes(element){
-        $("."+element+"").removeClass('extra-small');
-        $("."+element+"").removeClass('small');
-        $("."+element+"").removeClass('normal');
+
+    function remove_classes(element) {
+        $("." + element + "").removeClass('extra-small');
+        $("." + element + "").removeClass('small');
+        $("." + element + "").removeClass('normal');
     }
-    $(document).ready(function() {        
+    $(document).ready(function() {
         $("input").change(function(event) {
             var event_id = event.target.id;
             var event_element = $("#" + event_id)
             var export_var = $("." + event_id);
             export_var.text(event_element.val());
-        }); 
+        });
+
+
+        $("textarea").change(function(event) {
+            var event_id = event.target.id;
+            if (event_id == "text-11") {
+                var text = $("#text-11").val();
+                var array = document.getElementsByClassName("text-11");
+                var textarea = array[0];
+                textarea.innerHTML = text;
+            }
+        });
     });
 
-    
-    function img_6_change(e){
+
+    function img_6_change(e) {
         const [file] = e.files
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
             $('#img_6').attr("src", URL.createObjectURL(file));
-           
+
         }
         $(".page").css("opacity", "1");
     }
 
-    function img_6_crop(){
+    function img_6_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_6').attr("src", URL.createObjectURL(blob));
-            
+
         });
         cropper.destroy();
         $(".page").css("opacity", "1");
     }
-    
+
     function img_5_change(e) {
         const [file] = e.files
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
             $('#img_5').attr("src", URL.createObjectURL(file));
-           
+
         }
         $(".page").css("opacity", "1");
     }
 
-    function img_5_crop(){
+    function img_5_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_5').attr("src", URL.createObjectURL(blob));
-            
+
         });
         cropper.destroy();
         $(".page").css("opacity", "1");
     }
-    
+
     function img_4_change(e) {
         const [file] = e.files
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
             $('#img_4').attr("src", URL.createObjectURL(file));
-           
+
         }
     }
 
-    function img_4_crop(){
+    function img_4_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_4').attr("src", URL.createObjectURL(blob));
-            
+
         });
         cropper.destroy();
         $(".page").css("opacity", "1");
     }
-    
+
     function img_3_change(e) {
         const [file] = e.files
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
             $('#img_3').attr("src", URL.createObjectURL(file));
-           
+
         }
     }
 
-    function img_3_crop(){
+    function img_3_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_3').attr("src", URL.createObjectURL(blob));
-            
+
         });
         cropper.destroy();
         $(".page").css("opacity", "1");
@@ -751,43 +768,44 @@
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
             $('#img_2').attr("src", URL.createObjectURL(file));
-           
+
         }
     }
 
-    function img_2_crop(){
+    function img_2_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_2').attr("src", URL.createObjectURL(blob));
-            
+
         });
         cropper.destroy();
         $(".page").css("opacity", "1");
     }
 
-    function img_1_change(e){
+    function img_1_change(e) {
         const [file] = e.files
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
             $('#img_1').attr("src", URL.createObjectURL(file));
-           
+
         }
         $(".page").css("display", "block");
 
     }
 
-    function img_1_crop(){
+    function img_1_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_1').attr("src", URL.createObjectURL(blob));
-            
+
         });
         cropper.destroy();
         $(".page").css("opacity", "1");
     }
 
     var cropper;
-    function startCropper(ratio){
+
+    function startCropper(ratio) {
         var image = document.getElementById("image");
         $(".page").css("opacity", "0");
         cropper = new Cropper(image, {
@@ -797,30 +815,32 @@
 
     function convert(oldImag, callback) {
         var img = new Image();
-        img.onload = function(){
+        img.onload = function() {
             callback(img)
         }
         img.setAttribute('crossorigin', 'anonymous');
         img.src = oldImag.src;
     }
-    function getBase64Image(img,callback) {
-        convert(img, function(newImg){
+
+    function getBase64Image(img, callback) {
+        convert(img, function(newImg) {
             var canvas = document.createElement("canvas");
             canvas.width = newImg.width;
             canvas.height = newImg.height;
             var ctx = canvas.getContext("2d");
             ctx.drawImage(newImg, 0, 0);
-            var base64=canvas.toDataURL("image/png");
+            var base64 = canvas.toDataURL("image/png");
             callback(base64)
         })
     }
+
     function openInputFile(id) {
         $('#' + id).click()
     }
     async function beforePDF() {
         $('.loader').css('display', 'flex')
         const result = await generatePDF(264, 977.7)
-        if(result) {
+        if (result) {
             $('.loader').css('display', 'none')
         }
     }

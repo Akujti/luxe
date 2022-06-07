@@ -1,294 +1,298 @@
 @extends('themes.layouts.app')
 @section('css')
-@include('includes.fonts')
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap');
+    @include('includes.fonts')
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap');
 
-    * {
-        font-family: 'Montserrat';
-    }
-
-    .gochi {
-        font-family: 'Gochi Hand', cursive;
-        font-weight: 400;
-    }
-
-    .lato {
-        font-family: 'Lato';
-        font-weight: normal;
-    }
-
-    .ibm {
-        font-family: 'IBM Plex Sans';
-        font-weight: 400;
-    }
-
-    .ibm-med {
-        font-family: 'IBM Plex Sans';
-        font-weight: 500;
-    }
-
-    .oswald {
-        font-family: 'Oswald';
-        font-weight: 400;
-    }
-
-    .oswald-med {
-        font-family: 'Oswald';
-        font-weight: 500;
-    }
-
-    .oswald-bold {
-        font-family: 'Oswald';
-        font-weight: 600;
-    }
-
-    .roboto {
-        font-family: 'Roboto';
-        font-weight: 400;
-    }
-
-    .bold {
-        font-weight: bold;
-    }
-
-    .extra-bold {
-        font-weight: 800;
-    }
-
-    label {
-        background-color: #262626;
-        color: #fff;
-        padding: 10px;
-        display: block;
-        width: 150px;
-        font-family: 'gothicbold';
-        font-size: 15px;
-    }
-
-    .row {
-        display: flex;
-        /* justify-content: center; */
-    }
-
-    .row-divider {
-        height: 3px;
-        background-color: black;
-    }
-
-    .column-divider {
-        min-height: 100%;
-        height: 100%;
-        width: 210px;
-    }
-
-    .row-input {
-        margin: auto 0;
-        max-width: 650px;
-    }
-
-    input,
-    textarea {
-        font-size: 15px;
-        margin-top: 10px;
-        margin-bottom: 5px;
-        width: 100%;
-        border: 1px solid #262626;
-        font-family: 'gothicregular';
-        padding: 10px;
-    }
-    select {
-        border: 1px solid #262626;
-        font-family: 'gothicregular';
-        padding: 10px;
-    }
-
-    .button {
-        margin-top: 50px;
-    }
-
-    .generate {
-        font-family: "gothicbold";
-        font-weight: 600;
-        font-size: 18px;
-        padding: 15px 40px;
-        border:1px solid #e8e8e8;
-        background-color: #e8e8e8;
-        color: #000;
-        text-decoration: none;
-        border-radius: 10px;
-    }
-
-    .flex {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .flex label {
-        margin: 10px auto 10px auto !important;
-    }
-
-    .row-image {
-        width: 800px;
-        height: auto;
-    }
-
-    .page {
-        width: 1000px;
-        position: relative;
-        height: 1286px;
-        /* background-image: url('images/themes/just-listed/img-1.jpg'); */
-        background-position: center bottom;
-        background-repeat: no-repeat;
-        background-size: 1140px;
-    }
-
-    .absolute {
-        position: absolute;
-    }
-
-    .gold {
-        color: #C5A467;
-    }
-
-    .white {
-        color: white;
-    }
-
-    .bold {
-        font-weight: 700;
-    }
-
-    ul li {
-        display: inline;
-        font-size: 20px;
-        margin-right: 10px;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-        margin: 0;
-    }
-
-    div.circle {
-        top: 37%;
-    }
-
-    img.circle {
-        border: 10px solid #C9A668;
-        border-radius: 50%;
-        width: 285px;
-        height: 285px;
-        object-fit: cover;
-    }
-
-    .pr-10 {
-        padding-right: 10px;
-    }
-
-    .file-input-width {
-        width: 175px;
-    }
-
-    h1.small {
-        font-size: 70px;
-    }
-
-    h1.normal {
-        font-size: 90px;
-    }
-
-    h1.large {
-        font-size: 110px;
-    }
-
-    h1.main {
-        font-family: 'Lato';
-        font-weight: 900;
-    }
-
-    .list {
-        font-size: 23px;
-        letter-spacing: -1px;
-    }
-
-    .mr-3 {
-        margin-right: 8px;
-    }
-
-    .title {
-        font-size: 90px;
-    }
-
-    .social {
-        font-size: 14px;
-    }
-
-    .white-border {
-        border: 5px solid white;
-    }
-
-    .cropper-container {
-        position: fixed !important;
-        top: -400px !important;
-        z-index: 100;
-    }
-
-    @media(max-width:1280px) {
-        .page {
-            zoom: 87% !important;
+        * {
+            font-family: 'Montserrat';
         }
-    }
 
-    .text-3.extra-small {
-        font-size: 45px;
-    }
+        .gochi {
+            font-family: 'Gochi Hand', cursive;
+            font-weight: 400;
+        }
 
-    .text-3.small {
-        font-size: 50px;
-    }
+        .lato {
+            font-family: 'Lato';
+            font-weight: normal;
+        }
 
-    .text-3.normal {
-        font-size: 55px;
-    }
+        .ibm {
+            font-family: 'IBM Plex Sans';
+            font-weight: 400;
+        }
 
-    .text-4.small {
-        font-size: 20px;
-    }
+        .ibm-med {
+            font-family: 'IBM Plex Sans';
+            font-weight: 500;
+        }
 
-    .text-4.normal {
-        font-size: 25px;
-    }
+        .oswald {
+            font-family: 'Oswald';
+            font-weight: 400;
+        }
 
-    .text-4.large {
-        font-size: 30px;
-    }
-    button {
-        background-color: #e8e8e8;
-        border: 1px solid #e8e8e8;
-        padding: 10px;
-        color: #262626;
-        font-family: 'gothicbold';
-        border-radius: 10px;
-    }
-    .mt-1 {
-        margin-top: 5px;
-    }
-    .mt-3 {
-        margin-top: 15px;
-    }
-</style>
+        .oswald-med {
+            font-family: 'Oswald';
+            font-weight: 500;
+        }
+
+        .oswald-bold {
+            font-family: 'Oswald';
+            font-weight: 600;
+        }
+
+        .roboto {
+            font-family: 'Roboto';
+            font-weight: 400;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .extra-bold {
+            font-weight: 800;
+        }
+
+        label {
+            background-color: #262626;
+            color: #fff;
+            padding: 10px;
+            display: block;
+            width: 150px;
+            font-family: 'gothicbold';
+            font-size: 15px;
+        }
+
+        .row {
+            display: flex;
+            /* justify-content: center; */
+        }
+
+        .row-divider {
+            height: 3px;
+            background-color: black;
+        }
+
+        .column-divider {
+            min-height: 100%;
+            height: 100%;
+            width: 210px;
+        }
+
+        .row-input {
+            margin: auto 0;
+            max-width: 650px;
+        }
+
+        input,
+        textarea {
+            font-size: 15px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            width: 100%;
+            border: 1px solid #262626;
+            font-family: 'gothicregular';
+            padding: 10px;
+        }
+
+        select {
+            border: 1px solid #262626;
+            font-family: 'gothicregular';
+            padding: 10px;
+        }
+
+        .button {
+            margin-top: 50px;
+        }
+
+        .generate {
+            font-family: "gothicbold";
+            font-weight: 600;
+            font-size: 18px;
+            padding: 15px 40px;
+            border: 1px solid #e8e8e8;
+            background-color: #e8e8e8;
+            color: #000;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .flex label {
+            margin: 10px auto 10px auto !important;
+        }
+
+        .row-image {
+            width: 800px;
+            height: auto;
+        }
+
+        .page {
+            width: 1000px;
+            position: relative;
+            height: 1286px;
+            /* background-image: url('images/themes/just-listed/img-1.jpg'); */
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-size: 1140px;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .gold {
+            color: #C5A467;
+        }
+
+        .white {
+            color: white;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        ul li {
+            display: inline;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        div.circle {
+            top: 37%;
+        }
+
+        img.circle {
+            border: 10px solid #C9A668;
+            border-radius: 50%;
+            width: 285px;
+            height: 285px;
+            object-fit: cover;
+        }
+
+        .pr-10 {
+            padding-right: 10px;
+        }
+
+        .file-input-width {
+            width: 175px;
+        }
+
+        h1.small {
+            font-size: 70px;
+        }
+
+        h1.normal {
+            font-size: 90px;
+        }
+
+        h1.large {
+            font-size: 110px;
+        }
+
+        h1.main {
+            font-family: 'Lato';
+            font-weight: 900;
+        }
+
+        .list {
+            font-size: 23px;
+            letter-spacing: -1px;
+        }
+
+        .mr-3 {
+            margin-right: 8px;
+        }
+
+        .title {
+            font-size: 90px;
+        }
+
+        .social {
+            font-size: 14px;
+        }
+
+        .white-border {
+            border: 5px solid white;
+        }
+
+        .cropper-container {
+            position: fixed !important;
+            top: -400px !important;
+            z-index: 100;
+        }
+
+        @media(max-width:1280px) {
+            .page {
+                zoom: 87% !important;
+            }
+        }
+
+        .text-3.extra-small {
+            font-size: 45px;
+        }
+
+        .text-3.small {
+            font-size: 50px;
+        }
+
+        .text-3.normal {
+            font-size: 55px;
+        }
+
+        .text-4.small {
+            font-size: 20px;
+        }
+
+        .text-4.normal {
+            font-size: 25px;
+        }
+
+        .text-4.large {
+            font-size: 30px;
+        }
+
+        button {
+            background-color: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            padding: 10px;
+            color: #262626;
+            font-family: 'gothicbold';
+            border-radius: 10px;
+        }
+
+        .mt-1 {
+            margin-top: 5px;
+        }
+
+        .mt-3 {
+            margin-top: 15px;
+        }
+    </style>
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
-    integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
-    crossorigin="anonymous"></script>
+integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
+crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css"
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
@@ -309,8 +313,7 @@
                         <img id="img_1" src="images/flyers/template1/bg.jpg" alt="" style="width:805px;height:483px">
                     </div>
                     <div class="absolute" style="bottom:0;right:0;">
-                        <img id="img_4" src="images/flyers/template1/side.jpg" alt=""
-                            style="width: 257px;height:440px;">
+                        <img id="img_4" src="images/flyers/template1/side.jpg" alt="" style="width: 257px;height:440px;">
                     </div>
                     <div class="absolute">
                         <img src="images/flyers/template1/main.png" alt="" style="width: 1000px;height:1286px;">
@@ -329,8 +332,7 @@
                         </span>
                     </div>
                     <div class="absolute" style="bottom:0;right:170px;">
-                        <img id="img_5" src="images/flyers/template1/person.png" alt=""
-                            style="height:220px;width:155px;">
+                        <img id="img_5" src="images/flyers/template1/person.png" alt="" style="height:220px;width:155px;">
                     </div>
 
                     {{-- Text --}}
@@ -345,7 +347,8 @@
                     </div>
                     <div class="absolute" style="text-align: right;top:233px;right:740px;">
                         <p class="gold list text-5"><span class="bold mr-3">6</span> Beds</p>
-                        <p class="gold list text-6" style="margin-top:38px;"><span class="bold mr-3">6</span> Full Baths
+                        <p class="gold list text-6" style="margin-top:38px;"><span class="bold mr-3">6</span> Full
+                            Baths
                         </p>
                         <p class="gold list text-7" style="margin-top:39px;"><span class="bold mr-3">1</span> Half Bath
                         </p>
@@ -398,7 +401,8 @@
             <div class="row-input" style="max-width: 350px;">
                 <div class="file-input-width">
                     <label for="page-1-img-1">Main Image</label>
-                    <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose Image</button>
+                    <button type="button" class="mt-3" onclick="openInputFile('img-1-input')">Choose
+                        Image</button>
                     <input type="file" id="img-1-input" onchange="img_1_change(this)" style="display: none;">
                     <button type="button" class="mt-1" onclick="startCropper(1.66)">Crop</button>
                     <button type="button" onclick="img_1_crop()">Save Crop</button>
@@ -442,8 +446,7 @@
                     </div>
                     <div>
                         <label for="text-2">Option 2</label>
-                        <input type="text" id="text-6" name="text_6"
-                            value="<span class='bold mr-3'>6</span> Full Baths">
+                        <input type="text" id="text-6" name="text_6" value="<span class='bold mr-3'>6</span> Full Baths">
                     </div>
                 </div>
                 <div class="flex">
@@ -469,14 +472,16 @@
                 <div class="flex">
                     <div class="file-input-width">
                         <label for="page-1-img-1">House 1</label>
-                        <button type="button" class="mt-1" onclick="openInputFile('img-2-input')">Choose Image</button>
+                        <button type="button" class="mt-1" onclick="openInputFile('img-2-input')">Choose
+                            Image</button>
                         <input type="file" id="img-2-input" onchange="img_2_change(this)" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(1.72)">Crop</button>
                         <button type="button" onclick="img_2_crop()">Save Crop</button>
                     </div>
                     <div class="file-input-width">
                         <label for="page-1-img-1">House 2</label>
-                        <button type="button" class="mt-1" onclick="openInputFile('img-3-input')">Choose Image</button>
+                        <button type="button" class="mt-1" onclick="openInputFile('img-3-input')">Choose
+                            Image</button>
                         <input type="file" id="img-3-input" onchange="img_3_change(this)" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(1.72)">Crop</button>
                         <button type="button" onclick="img_3_crop()">Save Crop</button>
@@ -540,14 +545,16 @@
                 <div class="flex">
                     <div class="file-input-width">
                         <label for="page-1-img-1">Agent</label>
-                        <button type="button" class="mt-1" onclick="openInputFile('img-5-input')">Choose Image</button>
+                        <button type="button" class="mt-1" onclick="openInputFile('img-5-input')">Choose
+                            Image</button>
                         <input type="file" id="img-5-input" onchange="img_5_change(this)" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(0.71)">Crop</button>
                         <button type="button" onclick="img_5_crop()">Save Crop</button>
                     </div>
                     <div class="file-input-width">
                         <label for="page-1-img-1">Side Image</label>
-                        <button type="button" class="mt-1" onclick="openInputFile('img-4-input')">Choose Image</button>
+                        <button type="button" class="mt-1" onclick="openInputFile('img-4-input')">Choose
+                            Image</button>
                         <input type="file" id="img-4-input" onchange="img_4_change(this)" style="display: none;">
                         <button type="button" class="mt-1" onclick="startCropper(0.686)">Crop</button>
                         <button type="button" onclick="img_4_crop()">Save Crop</button>
@@ -555,57 +562,48 @@
                 </div>
                 <div class="flex">
                     <div class="" style="width: 345px;margin-top:20px;">
-                        <button type="button" name="action" value="Generate" class="generate" onclick="beforePDF()">Generate</button>
-                        {{--<button type="submit" name="action" value="Save" class="generate">Save</button>
+                        <button type="button" name="action" value="Generate" class="generate"
+                            onclick="beforePDF()">Generate</button>
+                        {{-- <button type="submit" name="action" value="Save" class="generate">Save</button>
                         <br>
                         JSON Upload:
-                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()">--}}
+                        <input type="file" id="jsonFileUpload" onchange="jsonFileUploaded()"> --}}
                     </div>
                 </div>
             </div>
         </div>
     </form>
-@include('includes.loader')
+    @include('includes.loader')
 @endsection
 
 <script>
-    $("textarea").change(function(event) {
-        var event_id = event.target.id;
-        if (event_id == "text-13") {
-            var text = $("#text-13").val();
-            var array = document.getElementsByClassName("text-13");
-            var textarea = array[0];
-            textarea.innerHTML = text;
-        }
-    });
-
-    function change_font_size(select_input){
+    function change_font_size(select_input) {
         console.log(select_input);
         var select_id = select_input.id;
-        var selector = $('#'+select_id);
+        var selector = $('#' + select_id);
         var element_to_edit = selector.attr('data-id-to-change');
         var font_size = selector.val();
         remove_classes(element_to_edit);
-        $("."+element_to_edit).addClass(font_size);
+        $("." + element_to_edit).addClass(font_size);
     }
 
-    function remove_classes(element){
-        $("."+element).removeClass('extra-small');
-        $("."+element).removeClass('small');
-        $("."+element).removeClass('normal');
-        $("."+element).removeClass('large');
+    function remove_classes(element) {
+        $("." + element).removeClass('extra-small');
+        $("." + element).removeClass('small');
+        $("." + element).removeClass('normal');
+        $("." + element).removeClass('large');
     }
 
-    $(document).ready(function() {        
-        $("input").change(function(event) {
+    $(document).ready(function() {
+        $("input, textarea").change(function(event) {
             var event_id = event.target.id;
             var event_element = $("#" + event_id)
             var export_var = $("." + event_id);
             export_var.html(event_element.val());
-        }); 
+        });
     });
-    
-    function img_5_change(e){
+
+    function img_5_change(e) {
         const [file] = e.files
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
@@ -614,7 +612,7 @@
         $(".page").css("opacity", "1");
     }
 
-    function img_5_crop(){
+    function img_5_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_5').attr("src", URL.createObjectURL(blob));
@@ -622,8 +620,8 @@
         cropper.destroy();
         $(".page").css("opacity", "1");
     }
-    
-    function img_4_change(e){
+
+    function img_4_change(e) {
         const [file] = e.files
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
@@ -632,7 +630,7 @@
         $(".page").css("opacity", "1");
     }
 
-    function img_4_crop(){
+    function img_4_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_4').attr("src", URL.createObjectURL(blob));
@@ -640,8 +638,8 @@
         cropper.destroy();
         $(".page").css("opacity", "1");
     }
-    
-    function img_3_change(e){
+
+    function img_3_change(e) {
         const [file] = e.files
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
@@ -649,7 +647,7 @@
         }
     }
 
-    function img_3_crop(){
+    function img_3_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_3').attr("src", URL.createObjectURL(blob));
@@ -658,7 +656,7 @@
         $(".page").css("opacity", "1");
     }
 
-    function img_2_change(e){
+    function img_2_change(e) {
         const [file] = e.files
         if (file) {
             $('#image').attr("src", URL.createObjectURL(file));
@@ -666,7 +664,7 @@
         }
     }
 
-    function img_2_crop(){
+    function img_2_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_2').attr("src", URL.createObjectURL(blob));
@@ -684,7 +682,7 @@
         $(".page").css("display", "block");
     }
 
-    function img_1_crop(){
+    function img_1_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
             $('#image').attr("src", URL.createObjectURL(blob));
             $('#img_1').attr("src", URL.createObjectURL(blob));
@@ -694,7 +692,8 @@
     }
 
     var cropper;
-    function startCropper(ratio){
+
+    function startCropper(ratio) {
         var image = document.getElementById("image");
         $(".page").css("opacity", "0");
         cropper = new Cropper(image, {
@@ -704,30 +703,32 @@
 
     function convert(oldImag, callback) {
         var img = new Image();
-        img.onload = function(){
+        img.onload = function() {
             callback(img)
         }
         img.setAttribute('crossorigin', 'anonymous');
         img.src = oldImag.src;
     }
-    function getBase64Image(img,callback) {
-        convert(img, function(newImg){
+
+    function getBase64Image(img, callback) {
+        convert(img, function(newImg) {
             var canvas = document.createElement("canvas");
             canvas.width = newImg.width;
             canvas.height = newImg.height;
             var ctx = canvas.getContext("2d");
             ctx.drawImage(newImg, 0, 0);
-            var base64=canvas.toDataURL("image/png");
+            var base64 = canvas.toDataURL("image/png");
             callback(base64)
         })
     }
+
     function openInputFile(id) {
         $('#' + id).click()
     }
     async function beforePDF() {
         $('.loader').css('display', 'flex')
         const result = await generatePDF(264, 340.3)
-        if(result) {
+        if (result) {
             $('.loader').css('display', 'none')
         }
     }
