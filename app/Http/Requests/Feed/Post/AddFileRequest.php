@@ -4,7 +4,7 @@ namespace App\Http\Requests\Feed\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class AddFileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'id' => 'required|exists:posts,id',
-            'title' => 'nullable|max:255',
-            'body' => 'required|string',
-
-            'files' => 'array|nullable',
-            'files.*' => 'nullable|mimes:'. config('allowed-extension-file.media.images'). ',' . config('allowed-extension-file.media.files'),
-
-            'tags' => 'nullable'
+            'file' => 'required|mimes:'. config('allowed-extension-file.media.images'). ',' . config('allowed-extension-file.media.files')
         ];
     }
 }

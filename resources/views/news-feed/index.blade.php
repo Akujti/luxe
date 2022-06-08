@@ -292,7 +292,6 @@
                 "X-CSRF-Token": $('[name="_token"]').val(),
             },
             success: function (output) {
-                console.log(output)
                 nrOfAllPosts = output.rows;
                 if(nrOfAllPosts > nrPosts) {
                     $('#rows').removeClass('d-none')
@@ -335,12 +334,14 @@
                                     '<div class="d-flex align-items-center" style="gap:5px">'+
                                         '<p id="date" class="p-0 m-0">' +  moment(item.row.created_at).fromNow() + '</p>';
                                         if(item.row.agent.id == my_id) {
+                                            var editUrl = "{{ route('news.show.edit', ':id') }}";
+                                            editUrl = editUrl.replace(':id', item.row.id);
                                             html += '<div class="btn-group">'+
                                                     '<button type="button" class="btn btn-link p-0 m-0" id="delete-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
                                                     '<i class="fa-solid fa-ellipsis"></i></button>'+
                                                     '<div class="dropdown-menu dropdown-menu-right">'+
                                                         '<button class="dropdown-item text-danger" onclick="deletePost(this, '+ item.row.id +')" type="button"><i class="fa-solid fa-trash"></i> Delete</button>'+
-                                                        '<a class="dropdown-item text-primary" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>'+
+                                                        '<a class="dropdown-item text-primary" href="'+ editUrl +'"><i class="fa-solid fa-pen-to-square"></i> Edit</a>'+
                                                     '</div>'+
                                                 '</div>';
                                         }

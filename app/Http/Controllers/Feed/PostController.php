@@ -15,6 +15,7 @@ use App\Http\Repositories\PostRepository;
 use App\Http\Requests\Feed\Post\AddRequest;
 use App\Http\Requests\Feed\Post\DeleteRequest;
 use App\Http\Requests\Feed\Post\UpdateRequest;
+use App\Http\Requests\Feed\Post\AddFileRequest;
 use App\Http\Requests\Feed\Post\DownloadRequest;
 use App\Http\Requests\Feed\Post\RemoveFileRequest;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -112,35 +113,24 @@ class PostController extends Controller
     public function update(UpdateRequest $req) {
         try {
             $row = Post::findOrFail($req->id);
-            $row->fill($req->only(['title', 'body']));
-            $row->agent_id = 2; //auth()->id();
-            $row->save();
-
-            if($req->hasFile('files')) {
-                $row->image()->delete();
-                $imageModels = [];
-                $files = $req->file('files');
-                foreach($files as $file) {
-                    $name = time() . Str::random(10) . '.' . $file->getClientOriginalExtension();
-                    $file->storeAs('/feed', $name, 'public');
-                    $imageModels[] = ['path' => $name];
-                }
-                $row->image()->createMany($imageModels);
-            }
+            $data = [
+                'basicInfo' => array(
+                    'title' => $req->title,
+                    'body' => $req->body,
+                    'agent_id' => auth()->id()
+                ),
+            ];
 
             if($req->has('tags')) {
-                $row->tag()->detach();
-                foreach($req->tags as $tag) {
-                    $id = Tag::where('name', $tag)->first();
-                    if($id) {
-                        $row->tag()->attach(['name' => $id->id]);
-                    } else {
-                        $row->tag()->create(['name' => $tag]);
-                    }
-                }
+                $data['tags'] = $req->tags;
             }
+            if($req->has('remove_tags')) {
+                $data['remove_tags'] = $req->remove_tags;
+            }
+
+            $rowUpdated = $this->postRepository->update($row, $data);
             
-            return Post::with(['image', 'tag'])->find($row->id);
+            return back()->with('message', 'Successfully updated!');
         } catch (Exception $e) {
             return 'back with error';
         }
@@ -187,5 +177,39 @@ class PostController extends Controller
             $image->delete();
         }
         return response()->json(true);
+    }
+
+    public function createFile(AddFileRequest $req) {
+        if($req->hasFile('file')) {
+            $file = $req->file('file');
+            $onlyName = time() . Str::random(10);
+            $name = $onlyName . '.' . $file->getClientOriginalExtension();
+            $type = $file->getClientOriginalExtension();
+            
+            if(in_array($type, explode(',', config('allowed-extension-file.media.images')))) {
+                $name = $onlyName . '.png';
+                $type = 'png';
+                $imageInstance = Image::make($file);
+                $imageInstance->encode('png');
+                $imageInstance->fit(700, 600, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $imageInstance->save(storage_path('/app/public/feed/' . $name));
+            } else {
+                $file->storeAs('/feed', $name, 'public');
+            }
+            $rowImage = [
+                'path' => $name,
+                'type' => $type
+            ];
+
+            $row = Post::find($req->id);
+            $rowImageDB = $row->image()->createMany([
+                $rowImage
+            ]);
+            $row->save();
+
+            return response()->json(['post' =>$row, 'image' => $rowImageDB]);
+        }
     }
 }

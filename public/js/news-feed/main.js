@@ -36,12 +36,16 @@ var tagify = new Tagify(input, {
 })
 tagify.on('input', onInput)
 tagify.on('add', addTag);
+tagify.on('remove', removeTag);
 
 function onInput(e) {
     tagify.dropdown.show.call(tagify, e.detail.value)
 }
 function addTag(e) {
     $('#tags-box').append('<input type="text" name="tags[]" value="' + e.detail.data.id + '">')
+}
+function removeTag(e) {
+    $('#tags-box').find('input[value="' + e.detail.data.id + '"]').remove();
 }
 
 function tagTemplate(tagData){

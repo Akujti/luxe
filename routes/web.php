@@ -70,6 +70,7 @@ Route::redirect('/', 'home');
 Route::group(['prefix' => 'news', 'as' => 'news.', 'middleware' => ['auth']], function () {
     Route::get('/', [PostController::class, 'index'])->name('index');
     Route::post('/', [PostController::class, 'create'])->name('create');
+    Route::post('/file', [PostController::class, 'createFile'])->name('create.file');
     Route::put('/', [PostController::class, 'update'])->name('update');
     Route::delete('/', [PostController::class, 'delete'])->name('delete');
     Route::delete('/file', [PostController::class, 'removeFile'])->name('delete.file');
@@ -86,7 +87,7 @@ Route::group(['prefix' => 'news', 'as' => 'news.', 'middleware' => ['auth']], fu
         Route::post('/comment', [LikeController::class, 'createByComment'])->name('create.comment');
     });
     Route::get('/{id}', [PostController::class, 'getById'])->name('show');
-    Route::get('/edit/{id}', [PostController::class, 'show'])->name('show.edit');
+    Route::get('/edit/{id}', [PostController::class, 'show'])->name('show.edit')->middleware('check-author');
     Route::post('/download', [PostController::class, 'download_files'])->name('download');
 
 });

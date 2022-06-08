@@ -26,7 +26,7 @@
     height: 100% !important;
     position: relative !important;
 }
-.box-edit-images .box-single-image span {
+#remove-span {
     color: #fff;
     position: absolute;
     top: -10px;
@@ -39,4 +39,9 @@
     align-items: center;
     background-color: #262626;
     cursor: pointer;
+}
+@media (max-width: 767px) {
+    .box-image-preview {
+        height: 243px !important;
+    }
 }

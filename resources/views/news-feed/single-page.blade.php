@@ -339,7 +339,6 @@
                 "X-CSRF-Token": $('[name="_token"]').val(),
             },
             success: function (output) {
-                console.log(output)
                 if(output) {
                     window.location.href = "{{ route('news.index') }}"
                 }
@@ -398,19 +397,21 @@
                             }
                                 html += '<p id="date" class="p-0 m-0">' +  moment(item.row.created_at).fromNow() + '</p>';
                                 if(item.row.agent.id == my_id) {
+                                    var editUrl = "{{ route('news.show.edit', ':id') }}";
+                                    editUrl = editUrl.replace(':id', item.row.id);
                                     html += '<div class="btn-group">'+
                                             '<button type="button" class="btn btn-link p-0 m-0" id="delete-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
                                             '<i class="fa-solid fa-ellipsis"></i></button>'+
                                             '<div class="dropdown-menu dropdown-menu-right">'+
                                                 '<button class="dropdown-item text-danger" onclick="deletePost(this, '+ item.row.id +')" type="button"><i class="fa-solid fa-trash"></i> Delete</button>'+
-                                                '<a class="dropdown-item text-primary" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>' +
+                                                '<a class="dropdown-item text-primary" href="'+ editUrl +'"><i class="fa-solid fa-pen-to-square"></i> Edit</a>' +
                                             '</div>'+
                                         '</div>';
                                 }
                             html += '</div>'+
                         '</div>' +
                         '<p>' + item.row.body + '</p>' +
-                        '<div class="box-tags d-flex justify-content-start">';
+                        '<div class="box-tags d-flex justify-content-start position-relative">';
                             if(item.row.tag.length) {
                                 item.row.tag.forEach(tag => {
                                     html += '<p class="p-1 rounded">' + tag.agent.profile.fullname + '</p>';
@@ -496,7 +497,7 @@
                             });
                         }
                     html += '</div>' +
-                    '<input type="hidden" class="nrCm" value="4">' +
+                    '<input type="hidden" class="nrCm" value="8">' +
                     '<button type="button" class="btn btn-link '+ ( (item.comments.length && item.row.comment.length > 8) ? '': 'd-none') +'" id="btnLoadMoreComments" onclick="loadMoreComments(this, '+ item.row.id +')">Load More</button>' +
                 '</div>' +
             '</div>';

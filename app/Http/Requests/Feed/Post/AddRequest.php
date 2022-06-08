@@ -27,7 +27,9 @@ class AddRequest extends FormRequest
             'title' => 'nullable|max:255',
             'body' => 'required|string',
             'files' => 'array|nullable',
-            'files.*' => 'nullable|mimes:'. config('allowed-extension-file.media.images'). ',' . config('allowed-extension-file.media.files')
+            'files.*' => 'nullable|mimes:'. config('allowed-extension-file.media.images'). ',' . config('allowed-extension-file.media.files'),
+
+            'tags' => 'nullable'
         ];
     }
 }

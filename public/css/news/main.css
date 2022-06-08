@@ -174,7 +174,7 @@ div:focus-visible {
 .replies-box {
     min-width: 615px;
 }
-@media (max-width: 767px){
+@media (max-width: 767px) {
     .replies-box {
         min-width: 100% !important;
         width: 100% !important;
@@ -182,5 +182,13 @@ div:focus-visible {
     .comments-box .single-comment .single-comment-body {
         min-width: 100%;
         width: 100%;
+    }
+    .box-tags {
+        position: relative !important;
+        flex-wrap: wrap;
+    }
+    .box-tags p {
+        padding: 0px;
+        margin: 0px;
     }
 }

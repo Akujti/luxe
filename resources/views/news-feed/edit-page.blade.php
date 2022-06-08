@@ -10,6 +10,11 @@
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
 
+<style>
+    .btn {
+        border-radius: 10px;
+    }
+</style>
 @endsection
 @section('content')
 <div class="container-fluid news-feed">
@@ -39,6 +44,60 @@
     var item = JSON.parse(JSON.stringify(<?php echo @json_encode($data); ?>));
 
     getPost();
+
+    $(document).ready(function() {
+        var input = document.querySelector('input.tag-input')
+        const whitelist = [];
+        $.ajax({
+            url: url,
+            type: "get",
+            cache: false,
+            contentType: false,
+            processData: false,
+            async: false,
+            headers: {
+                "X-CSRF-Token": $('[name="_token"]').val(),
+            },
+            success: function (output) {
+                output.data.forEach(el => {
+                    const row = {
+                        id: el.id,
+                        value: el.profile.fullname
+                    };
+                    whitelist.push(row)
+                });
+            },
+        });
+        var tagify = new Tagify(input, {
+            whitelist: whitelist.map(function (item) {
+                return typeof item == 'string' ? { value: item } : item
+            }),
+            enforceWhitelist: true,
+            tagTextProp: 'value',
+            dropdown: {
+                enabled: 1,
+                position: 'value',
+                mapValueTo: 'value',
+                highlightFirst: true,
+                searchKeys: ['value'],
+            },
+        })
+        tagify.on('input', onInput)
+        tagify.on('add', addTag);
+        tagify.on('remove', removeTag);
+
+    
+        function onInput(e) {
+            tagify.dropdown.show.call(tagify, e.detail.value)
+        }
+        function addTag(e) {
+            $('.box-tags').append('<input type="hidden" name="tags[]" value="' + e.detail.data.id + '">')
+        }
+        function removeTag(e) {
+            $('.box-tags').find('input[value="' + e.detail.data.id + '"]').remove();
+        }
+    })
+
     function openModal() {
         $('#slider').modal('toggle');
     }
@@ -71,16 +130,10 @@
                             '<div class="w-100">' +
                                 '<div class="d-flex align-items-center">' +
                                     '<div contenteditable="false" class="single-comment-body p-3 m-0">'+ comment.body +'</div>';
-                                    if(comment.user.id == my_id) {
                                         html += '<div class="single-comment-delete">' +
                                             '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')"><i class="fa-solid fa-trash"></i></button>' +
                                         '</div>';
-                                    }
                                 html += '</div>' +
-                                '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
-                                    '<button class="btn btn-link text-dark '+ (comment.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, '+ comment.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
-                                    '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
-                                '</div>' +
                                 '<div class="replies-box">' +
                                     '<div class="row p-0 m-0 reply-box">';
                                         comment.replies.forEach(reply => {
@@ -92,27 +145,17 @@
                                                     '<div class="d-flex align-items-center">' +
                                                         '<div contenteditable="false" class="single-comment-body p-3 m-0">' + reply.body +
                                                         '</div>';
-                                                        if(reply.user.id == my_id) {
                                                             html += '<div class="single-comment-delete">' +
                                                                 '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')"><i class="fa-solid fa-trash"></i></button>' +
                                                             '</div>';
-                                                        }
                                                     html += '</div>' +
                                                         '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
-                                                        '<button class="btn btn-link text-dark '+ (reply.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, ' + reply.id + ')"><i class="fa-solid fa-heart"></i> Like</button>' +
                                                     '</div>' +
                                                 '</div>' +
                                                 '</div>' +
                                             '</div>';
                                         });
                                     html += '</div>' +
-                                    '<div class="d-none w-100" id="comment-box" style="height:70px !important;">' +
-                                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px;position: absolute;width: 100%;left: 0px;">' +
-                                            '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
-                                            '</textarea>' +
-                                            '<button type="button" class="btn-luxe" onclick="reply(this, '+ post_id +', ' + comment.id + ')">Reply</button>' +
-                                        '</div>' +
-                                    '</div>' +
                                 '</div>' +
                             '</div>' +
                         '</div>' +
@@ -179,10 +222,7 @@
                 "X-CSRF-Token": $('[name="_token"]').val(),
             },
             success: function (output) {
-                console.log(output)
-                if(output) {
-                    window.location.href = "{{ route('news.index') }}"
-                }
+                window.location.href = "{{ route('news.index') }}";
             },
         });
     }
@@ -202,39 +242,48 @@
         var postsbox = $('#posts-box');
         var html = '';
             html += '<div class="col-12 box-post p-0 row m-0 mb-3">' +
+            '<form method="POST" action="{{ route("news.update") }}" class="p-0 w-100 m-0">@method("PUT") @csrf' +
+                '<input type="hidden" name="id" value="' + item.row.id + '">' +
                 '<div class="row p-0 m-0 w-100 col-12">' +
                     '<div class="box-details col-lg-12 col-md-12 col-12">' +
                         '<div class="d-flex justify-content-between align-items-center">' +
                             '<p id="author" class="gothicbold p-0 m-0">' + item.row.agent.profile.fullname + '</p>' +
-                            '<div class="d-flex align-items-center" style="gap:5px">' +
-                                '<p id="date" class="p-0 m-0">' +  moment(item.row.created_at).fromNow() + '</p>' +
+                            '<div class="d-flex align-items-center py-2">' +
+                                '<button type="submit" class="btn btn-danger mr-2" type="button" onclick="deletePost(this, '+ item.row.id +')">Delete</button>' +
+                                '<button type="submit" class="btn btn-luxe">Update</button>' +
                             '</div>' +
                         '</div>' +
-                        '<textarea class="form-control w-100" rows="7">' + item.row.body + '</textarea>' +
-                        '<div class="box-tags d-flex justify-content-start">';
+                        '<textarea class="form-control w-100" rows="7" name="body">' + item.row.body + '</textarea>' +
+                        '<div class="box-tags d-flex justify-content-start position-relative mt-3">';
                             if(item.row.tag.length) {
                                 item.row.tag.forEach(tag => {
-                                    html += '<p class="p-1 rounded">' + tag.agent.profile.fullname + '</p>';
+                                    html += '<p class="p-1 rounded m-0 position-relative mr-1 single-tag">' + tag.agent.profile.fullname +
+                                    '<span id="remove-span" onclick="removeTag(this, '+ tag.id +')">&times;</span></p>';
                                 });
                             }
                         html += '</div>' +
                     '</div>' +
                     '<div class="box-image col-lg-12 col-md-12 col-12 p-0">' +
-                        '<div class="box-edit-images d-flex">';
-                            var numOfImages = [];
-                            const allowedExtension = '{{ config('allowed-extension-file.media.images') }}';
-                            if(item.row.image.length) {
-                                item.row.image.forEach(img => {
-                                    html += '<div class="box-single-image">';
-                                    if(allowedExtension.search(img.type) !== -1) {
-                                        html += '<img src="'+ img.file_url +'" alt="">';
-                                    } else {
-                                        html += '<p>File '+ img.type +'</p>';
-                                    }
-                                    html += '<span onclick="removeFile(this, '+ item.row.id +', '+ img.id +')">&times;</span></div>';
-                                });
-                            }
-                        html += '</div>' +
+                            '<div class="d-flex m-2" style="height: 43px">' +
+                            '<input style="height: 43px" class="tag-input form-control" placeholder="Tag someone">' +
+                            '</div>' +
+                            '<div class="box-edit-images d-flex">';
+                                var numOfImages = [];
+                                const allowedExtension = '{{ config('allowed-extension-file.media.images') }}';
+                                if(item.row.image.length) {
+                                    item.row.image.forEach(img => {
+                                        html += '<div class="box-single-image">';
+                                        if(allowedExtension.search(img.type) !== -1) {
+                                            html += '<img src="'+ img.file_url +'" alt="">';
+                                        } else {
+                                            html += '<p>File '+ img.type +'</p>';
+                                        }
+                                        html += '<span id="remove-span" onclick="removeFile(this, '+ item.row.id +', '+ img.id +')">&times;</span></div>';
+                                    });
+                                }
+                            html += '</div>' +
+                            '<div><button class="btn btn-link" type="button" onclick="toggleInputFile()">Add file</button>' +
+                            '<input type="file" id="file" onchange="onFileChanged(this)" style="display: none;"></div>' +
                     '</div>' +
                     
                 '</div>' +
@@ -257,11 +306,9 @@
                                         '<div class="w-100">' +
                                             '<div class="d-flex align-items-center">' +
                                                 '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ comment.body +'</div>';
-                                                if(comment.user.id == my_id) {
                                                     html += '<div class="single-comment-delete">' +
                                                         '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')"><i class="fa-solid fa-trash"></i></button>' +
                                                     '</div>';
-                                                }
                                             html += '</div>' +
                                             '<div class="replies-box">' +
                                                 '<div class="row p-0 m-0 reply-box">';
@@ -273,11 +320,9 @@
                                                             '<div>' +
                                                                 '<div class="d-flex align-items-center">' +
                                                                     '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ reply.body +'</div>';
-                                                                    if(reply.user.id == my_id) {
                                                                         html += '<div class="single-comment-delete">' +
                                                                             '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')"><i class="fa-solid fa-trash"></i></button>' +
                                                                         '</div>';
-                                                                    }
                                                                 html += '</div>' +
                                                             '</div>' +
                                                         '</div>';
@@ -297,9 +342,10 @@
                             });
                         }
                     html += '</div>' +
-                    '<input type="hidden" class="nrCm" value="4">' +
+                    '<input type="hidden" class="nrCm" value="8">' +
                     '<button type="button" class="btn btn-link '+ ( (item.comments.length && item.row.comment.length > 8) ? '': 'd-none') +'" id="btnLoadMoreComments" onclick="loadMoreComments(this, '+ item.row.id +')">Load More</button>' +
                 '</div>' +
+                '</form>'
             '</div>';
         postsbox.html(html)
         tagifyFunc();
@@ -323,6 +369,48 @@
                 }
             },
         });
+    }
+    function toggleInputFile() {
+        $('#file').click();
+    }
+    function onFileChanged(e) {
+        const [file] = e.files 
+        if (file) {
+            var data = new FormData();
+            data.append('id', item.row.id);
+            data.append('file', file);
+           
+            $.ajax({
+                url: "{{ route('news.create.file') }}",
+                data: data,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                headers: {
+                    "X-CSRF-Token": $('[name="_token"]').val(),
+                },
+                success: function (output) {
+                    if(output) {
+                        var html = '<div class="box-single-image">';
+                        if(isImage(file)) {
+                            html += '<img src="'+ URL.createObjectURL(file) +'" alt="">';
+                        } else {
+                            html += '<p>File</p>';
+                        }
+                        html += '<span id="remove-span" onclick="removeFile(this, '+ output.post.id +', '+ output.image[0].id +')">&times;</span></div>';
+                        $('.box-edit-images').append(html);
+                    }
+                },
+            });
+            
+        }
+    }
+    function isImage(file){
+        return file['type'].split('/')[0] == 'image';
+    }
+    function removeTag(e, tag_id) {
+        $(e).parents('.single-tag').remove();
+        $('.box-tags').append('<input type="hidden" name="remove_tags[]" value="' + tag_id + '">');
     }
 </script>
 @endsection
