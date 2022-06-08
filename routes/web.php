@@ -410,6 +410,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 
     Route::get('broker-sumo/updateAgents', [BrokerSumoController::class, 'updateAgentsTransactions']);
     Route::resource('broker-sumo', BrokerSumoController::class);
+    Route::post('broker-sumo-yearly', [BrokerSumoController::class, 'setYearlyTotalSales'])->name('broker-sumo.store.yearly');
 
     Route::group(['prefix' => 'forms', 'as' => 'forms.'], function () {
         Route::get('/', [AdminController::class, 'forms'])->name('index');

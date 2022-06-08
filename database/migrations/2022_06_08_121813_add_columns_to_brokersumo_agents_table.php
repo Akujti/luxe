@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnsToEventsTable extends Migration
+class AddColumnsToBrokersumoAgentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddColumnsToEventsTable extends Migration
      */
     public function up()
     {
-        Schema::table('events', function (Blueprint $table) {
-            $table->integer('attendees')->nullable();
-            $table->boolean('private')->nullable();
+        Schema::table('brokersumo_agents', function (Blueprint $table) {
+            $table->double('yearly_sales_volumes')->nullable();
         });
     }
 
@@ -26,9 +25,8 @@ class AddColumnsToEventsTable extends Migration
      */
     public function down()
     {
-        Schema::table('events', function (Blueprint $table) {
-            $table->dropColumn('attendees');
-            $table->dropColumn('private');
+        Schema::table('brokersumo_agents', function (Blueprint $table) {
+            $table->dropColumn('yearly_sales_volumes');
         });
     }
 }

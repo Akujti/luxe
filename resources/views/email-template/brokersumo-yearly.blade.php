@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{ $details['title'] }}</title>
+    <title>{{ $details['yearly_title'] }}</title>
     <!-- CSS only -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
@@ -57,7 +57,7 @@
             <img src="{{ url('/images/logo-black.png') }}" alt="">
         </div>
         <div class="" style="width: 100%;text-align:center">
-            <p class="bold-text"><b>Million Dollar Club Badge:</b> {{ $details['title'] }}</p>
+            <p class="bold-text"><b>{{ date('Y') }} Top Producer Badge:</b> {{ $details['yearly_title'] }}</p>
             <hr>
             <div class="link">
                 <a href="https://myluxehub.com">https://myluxehub.com/</a>

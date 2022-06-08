@@ -44,6 +44,23 @@ class BrokerSumoController extends Controller
         return redirect()->route('admin.broker-sumo.index')->with('message', 'Success');
     }
 
+    public function setYearlyTotalSales(Request $request)
+    {
+        $path1 = $request->file('sheet')->store('temp');
+        $path = storage_path('app') . '/' . $path1;
+        $result = Excel::toArray(AgentImport::class, $path);
+        for ($i = 1; $i < count($result[0]) - 2; $i++) {
+            BrokersumoAgent::updateOrCreate(
+                ['agent_name' => $result[0][$i][0]],
+                [
+                    'agent_name' => $result[0][$i][0],
+                    'yearly_sales_volumes' => $this->getAmount($result[0][$i][7]),
+                ]
+            );
+        }
+        return redirect()->route('admin.broker-sumo.index')->with('message', 'Success');
+    }
+
     private function getAmount($money)
     {
         $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
