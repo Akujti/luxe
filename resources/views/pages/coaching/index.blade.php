@@ -43,7 +43,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>You have successfully signed up and the Next Level Sales Coach will reach you out.</p>
+                            <p>You have successfully signed up for the Next Level Sales Coaching & the coach will reach out
+                                to you soon!</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -59,7 +60,7 @@
                 </script>
             @endif
         </div>
-        <div class="row align-items-center justify-content-center box-items">
+        <div class="row align-items-center justify-content-center box-items py-4">
             <div class="col-12 col-md-12 col-lg-7">
                 <div>
                     <p>Group Coaching</p>

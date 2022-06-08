@@ -116,6 +116,7 @@ return array(
     'App\\Imports\\AgentImport' => $baseDir . '/app/Imports/AgentImport.php',
     'App\\Mail\\AddToEmailCalendar' => $baseDir . '/app/Mail/AddToEmailCalendar.php',
     'App\\Mail\\BookingMail' => $baseDir . '/app/Mail/BookingMail.php',
+    'App\\Mail\\BrokersumoMail' => $baseDir . '/app/Mail/BrokersumoMail.php',
     'App\\Mail\\FormMail' => $baseDir . '/app/Mail/FormMail.php',
     'App\\Mail\\GeneralMailTemplate' => $baseDir . '/app/Mail/GeneralMailTemplate.php',
     'App\\Mail\\MarketingRequestMail' => $baseDir . '/app/Mail/MarketingRequestMail.php',

@@ -764,6 +764,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Imports\\AgentImport' => __DIR__ . '/../..' . '/app/Imports/AgentImport.php',
         'App\\Mail\\AddToEmailCalendar' => __DIR__ . '/../..' . '/app/Mail/AddToEmailCalendar.php',
         'App\\Mail\\BookingMail' => __DIR__ . '/../..' . '/app/Mail/BookingMail.php',
+        'App\\Mail\\BrokersumoMail' => __DIR__ . '/../..' . '/app/Mail/BrokersumoMail.php',
         'App\\Mail\\FormMail' => __DIR__ . '/../..' . '/app/Mail/FormMail.php',
         'App\\Mail\\GeneralMailTemplate' => __DIR__ . '/../..' . '/app/Mail/GeneralMailTemplate.php',
         'App\\Mail\\MarketingRequestMail' => __DIR__ . '/../..' . '/app/Mail/MarketingRequestMail.php',
