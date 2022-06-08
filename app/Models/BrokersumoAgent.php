@@ -19,7 +19,7 @@ class BrokersumoAgent extends Model
 
     public function setSalesVolumesAttribute($value)
     {
-        if ($this->sales_volumes <= $value) {
+        if ($this->sales_volumes <= $value && $value > 0) {
             $profile = UserProfile::where('fullname', $this->agent_name)->first();
             if ($profile) {
                 $user = User::find($profile->user_id);
@@ -41,7 +41,11 @@ class BrokersumoAgent extends Model
                         $badge['title'] = '100 Million Dollar Club';
                         $badge['level'] = 5;
                     }
-                    Mail::to($user->email)->send(new BrokersumoMail($badge));
+                    try {
+                        Mail::to($user->email)->send(new BrokersumoMail($badge));
+                    } catch (\Throwable $th) {
+                        Log::alert('Cannot send total sales volume to ' . $user->email);
+                    }
                 }
             }
         }
@@ -50,7 +54,7 @@ class BrokersumoAgent extends Model
 
     public function setYearlySalesVolumesAttribute($value)
     {
-        if ($this->yearly_sales_volumes <= $value) {
+        if ($this->yearly_sales_volumes <= $value && $value > 0) {
             $profile = UserProfile::where('fullname', $this->agent_name)->first();
             if ($profile) {
                 $user = User::find($profile->user_id);
@@ -66,7 +70,11 @@ class BrokersumoAgent extends Model
                         $badge['yearly_title'] = 'Earn $1,000 Monthly Marketing Budget';
                         $badge['yearly_level'] = 3;
                     }
-                    Mail::to($user->email)->send(new BrokersumoYearlyMail($badge));
+                    try {
+                        Mail::to($user->email)->send(new BrokersumoYearlyMail($badge));
+                    } catch (\Throwable $th) {
+                        Log::alert('Cannot send yearly sales volume to ' . $user->email);
+                    }
                 }
             }
         }
