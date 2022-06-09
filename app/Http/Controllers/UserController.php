@@ -136,7 +136,7 @@ class UserController extends Controller
                         $constraint->aspectRatio();
                     });
                     $img->save(storage_path('app/public/users/' . $name));
-                    $image = 'users/'. $name;
+                    $image = 'users/' . $name;
                 }
             }
             $languageJson = [];
@@ -185,7 +185,7 @@ class UserController extends Controller
                         $constraint->aspectRatio();
                     });
                     $img->save(storage_path('app/public/users/' . $name));
-                    $image = 'users/'. $name;
+                    $image = 'users/' . $name;
                 }
                 $languageJson = [];
                 if ($req->has('languages') && $req->languages) {
@@ -193,7 +193,7 @@ class UserController extends Controller
                         array_push($languageJson, $language);
                     }
                 }
-                $row->profile()->update([
+                $row->profile()->updateOrCreate(['user_id' => $row->id], [
                     'fullname' => $req->profile['fullname'],
                     'address' => $req->profile['address'],
                     'phone' => $req->profile['phone'],
@@ -228,7 +228,7 @@ class UserController extends Controller
                         $constraint->aspectRatio();
                     });
                     $img->save(storage_path('app/public/users/' . $name));
-                    $image = 'users/'. $name;
+                    $image = 'users/' . $name;
                 }
                 $languageJson = [];
                 if ($req->has('languages') && $req->languages) {
