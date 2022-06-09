@@ -63,19 +63,22 @@ class BookingController extends Controller
 
             switch ($request->room_id) {
                 case 1:
-                    $mails = ['support@luxeknows.com', 'receptionist@luxeknows.com', 'email@luxeknows.com', 'marketing@luxeknows.com', 'dcepero@ceperolaw.com', 'ctginfo@ceperolaw.com'];
+                    $mails = ['sabrina@luxeknows.com', 'admin@luxeknows.com', 'email@luxeknows.com', 'operations@luxeknows.com', 'ctginfo@ceperolaw.com', 'dcepero@ceperolaw.com'];
                     break;
                 case 2:
-                    $mails = ['denisse@luxeknows.com', 'irais@luxeknows.com', 'support@luxeknows.com', 'receptionist@luxeknows.com'];
+                    $mails = ['denisse@luxeknows.com', 'email@luxeknows.com', 'support@luxeknows.com'];
                     break;
                 case 3:
-                    $mails = ['support@luxeknows.com', 'receptionist@luxeknows.com', 'email@luxeknows.com', 'bianca@luxeknows.com'];
+                    $mails = ['bianca@luxeknows.com', 'designs@luxeknows.com', 'email@luxeknows.com'];
                     break;
                 case 4:
-                    $mails = ['yesenia@luxeknows.com', 'support@luxeknows.com', 'receptionist@luxeknows.com'];
+                    $mails = ['yesenia@luxeknows.com', 'monica@luxeknows.com', 'email@luxeknows.com'];
                     break;
                 case 5:
-                    $mails = ['support@luxeknows.com', 'receptionist@luxeknows.com'];
+                    $mails = ['email@luxeknows.com', 'carolina@luxeknows.com', 'operations@luxeknows.com'];
+                    break;
+                case 6:
+                    $mails = ['email@luxeknows.com', 'support@luxeknows.com'];
                     break;
                 default:
                     $mails = ['support@luxeknows.com'];
