@@ -96,7 +96,7 @@
                 <div class="bg"></div>
                 <div class="main-container">
                    
-                    <div class="carousel-container">
+                    <div class="carousel-container" id="carousel-container">
                         <div class="carousel-images"></div>
                     </div>
                 </div>

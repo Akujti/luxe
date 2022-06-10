@@ -131,7 +131,7 @@
                                 '<div class="d-flex align-items-center">' +
                                     '<div contenteditable="false" class="single-comment-body p-3 m-0">'+ comment.body +'</div>';
                                         html += '<div class="single-comment-delete">' +
-                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')">&times;</button>' +
                                         '</div>';
                                 html += '</div>' +
                                 '<div class="replies-box">' +
@@ -146,7 +146,7 @@
                                                         '<div contenteditable="false" class="single-comment-body p-3 m-0">' + reply.body +
                                                         '</div>';
                                                             html += '<div class="single-comment-delete">' +
-                                                                '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                                                                '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')">&times;</button>' +
                                                             '</div>';
                                                     html += '</div>' +
                                                         '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
@@ -193,6 +193,9 @@
         var data = {
             'id': comment_id
         };
+
+        var nr = parseInt($('#comment-count span').html());
+        $('#comment-count span').html(--nr);
 
         $.ajax({
             url: "{{ route('news.comment.delete') }}",
@@ -305,11 +308,12 @@
                                         '</div>' +
                                         '<div class="w-100">' +
                                             '<div class="d-flex align-items-center">' +
+                                                '<div class="position-relative">' +
                                                 '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ comment.body +'</div>';
                                                     html += '<div class="single-comment-delete">' +
-                                                        '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                                                        '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')">&times;</button>' +
                                                     '</div>';
-                                            html += '</div>' +
+                                            html += '</div></div>' +
                                             '<div class="replies-box">' +
                                                 '<div class="row p-0 m-0 reply-box">';
                                                     comment.replies.forEach(reply => {
@@ -318,10 +322,10 @@
                                                                 '<img src="' + reply.user.avatar + '" alt="">' +
                                                             '</div>' +
                                                             '<div>' +
-                                                                '<div class="d-flex align-items-center">' +
+                                                                '<div class="d-flex align-items-center position-relative">' +
                                                                     '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ reply.body +'</div>';
                                                                         html += '<div class="single-comment-delete">' +
-                                                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                                                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')">&times;</button>' +
                                                                         '</div>';
                                                                 html += '</div>' +
                                                             '</div>' +

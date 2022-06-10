@@ -56,10 +56,12 @@ function tagTemplate(tagData){
                 tabIndex="-1"
                 class="tagify__tag ${tagData.class ? tagData.class : ""}"
                 ${this.getAttributes(tagData)}>
-            <x title='' class='tagify__tag__removeBtn' role='button' aria-label='remove tag'></x>
-            <div>
-                <span class='tagify__tag-text'>${tagData.value}</span>
-            </div>
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <x title='' class='tagify__tag__removeBtn d-flex' role='button' aria-label='remove tag'></x>
+                    <div>
+                        <span class='tagify__tag-text'>${tagData.value}</span>
+                    </div>
+                </div>
         </tag>
     `
 }
@@ -73,7 +75,7 @@ function addTag_comment(e) {
 
 function tagifyFunc() {
     var textarea = document.querySelectorAll('[name=mix]');
-    
+
     textarea.forEach(el => {
         var tag = new Tagify(el, {
             mixTagsInterpolator: ["<div class='row-tag' contenteditable='false'>", "</div>"],
@@ -128,4 +130,18 @@ function addTagifyFunc() {
             tag.on('add', addTag_comment);
         }
     })
+}
+
+function makeUrlHref(body) {
+    var url = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    var urls, output = [];
+    while ((urls = url.exec(body)) !== null) {
+        output.push(urls[0]);
+    }
+    if(output.length) {
+        output.forEach((el) => {
+            body = body.replace(el, '&nbsp;<a href="'+ el +'" id="comment-link">'+ el +'</a>')
+        })
+    }
+    return body;
 }

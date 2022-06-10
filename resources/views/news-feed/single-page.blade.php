@@ -59,6 +59,17 @@
         if(!body) {
             return;
         }
+        var url = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+
+        var urls, output = [];
+        while ((urls = url.exec(body)) !== null) {
+            output.push(urls[0]);
+        }
+        if(output.length) {
+            output.forEach((el) => {
+                body = body.replace(el, '&nbsp;<a href="'+ el +'" id="comment-link">'+ el +'</a>')
+            })
+        }
 
         var commentP = $(e).parents('.box-post').find('#comment-count span');
         var num = commentP.html();
@@ -87,9 +98,11 @@
                                 '</div>' +
                             '<div class="w-100">' +
                             '<div class="d-flex align-items-center">' +
-                                '<div contenteditable="false" class="single-comment-body m-0 p-3"> '+ body +'</div>' +
-                                '<div class="single-comment-delete">' +
-                                    '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ output.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                                '<div class="position-relative">' +
+                                    '<div contenteditable="false" class="single-comment-body m-0 p-3"> '+ body +'</div>' +
+                                    '<div class="single-comment-delete">' +
+                                        '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ output.id +')">&times;</button>' +
+                                    '</div>' +
                                 '</div>' +
                             '</div>' +
                             '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
@@ -100,8 +113,8 @@
                                 '<div class="row p-0 m-0 reply-box">'+
                                    
                                 '</div>' +
-                                '<div class="d-none w-100" id="comment-box" style="height:70px !important;">' +
-                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px;position: absolute;width: 100%;left: 0px;">' +
+                                '<div class="d-none w-100" id="comment-box" style="min-height:70px !important;">' +
+                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
                                         '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                         '</textarea>' +
                                         '<button type="button" class="btn-luxe" onclick="reply(this, '+ post_id +', ' + output.id + ')">Reply</button>' +
@@ -126,6 +139,17 @@
         if(!body) {
             return;
         }
+        var url = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+
+        var urls, output = [];
+        while ((urls = url.exec(body)) !== null) {
+            output.push(urls[0]);
+        }
+        if(output.length) {
+            output.forEach((el) => {
+                body = body.replace(el, '&nbsp;<a href="'+ el +'" id="comment-link">'+ el +'</a>')
+            })
+        }
         
         $(e).parents('.single-comment').find('#text-area').val("")
 
@@ -147,10 +171,10 @@
                         '<img src="{{ auth()->user()->avatar }}" alt=""> ' +
                     '</div> ' +
                 '<div> ' +
-                '<div class="d-flex align-items-center">' +
+                '<div class="d-flex align-items-center position-relative">' +
                 '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ body +'</div>' +
                     '<div class="single-comment-delete">' +
-                        '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ output.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                        '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ output.id +')">&times;</button>' +
                     '</div>' +
                 '</div>' +
                 '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;"> ' +
@@ -230,13 +254,14 @@
                             '</div>' +
                             '<div class="w-100">' +
                                 '<div class="d-flex align-items-center">' +
+                                    '<div class="position-relative">' +
                                     '<div contenteditable="false" class="single-comment-body p-3 m-0">'+ comment.body +'</div>';
                                     if(comment.user.id == my_id) {
                                         html += '<div class="single-comment-delete">' +
-                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')">&times;</button>' +
                                         '</div>';
                                     }
-                                html += '</div>' +
+                                html += '</div></div>' +
                                 '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
                                     '<button class="btn btn-link text-dark '+ (comment.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, '+ comment.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
                                     '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
@@ -249,12 +274,12 @@
                                                     '<img src="' + reply.user.avatar + '" alt="">' +
                                                 '</div>' +
                                                 '<div>' +
-                                                    '<div class="d-flex align-items-center">' +
+                                                    '<div class="d-flex align-items-center position-relative">' +
                                                         '<div contenteditable="false" class="single-comment-body p-3 m-0">' + reply.body +
                                                         '</div>';
                                                         if(reply.user.id == my_id) {
                                                             html += '<div class="single-comment-delete">' +
-                                                                '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                                                                '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')">&times;</button>' +
                                                             '</div>';
                                                         }
                                                     html += '</div>' +
@@ -266,8 +291,8 @@
                                             '</div>';
                                         });
                                     html += '</div>' +
-                                    '<div class="d-none w-100" id="comment-box" style="height:70px !important;">' +
-                                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px;position: absolute;width: 100%;left: 0px;">' +
+                                    '<div class="d-none w-100" id="comment-box" style="min-height:70px !important;">' +
+                                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
                                             '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                             '</textarea>' +
                                             '<button type="button" class="btn-luxe" onclick="reply(this, '+ post_id +', ' + comment.id + ')">Reply</button>' +
@@ -390,7 +415,7 @@
                     '<div class="box-details col-lg-12 col-md-12 col-12">' +
                         '<div class="d-flex justify-content-between align-items-center">' +
                             '<p id="author" class="gothicbold p-0 m-0">' + item.row.agent.profile.fullname + '</p>' +
-                            '<div class="d-flex align-items-center" style="gap:5px">';
+                            '<div class="d-flex align-items-center download-box" style="gap:5px">';
                             if(item.row.image.length) {
                                 html += '<div><form method="POST" action="{{ route("news.download") }}" class="m-0 p-0">' +
                                 '@csrf <input type="hidden" name="post_id" value="'+ item.row.id +'"><button type="submit" class="btn btn-link">Download All Files ('+ item.row.image.length +')</button></form></div>';
@@ -432,8 +457,8 @@
                     '</div>' +
                 '</div>' +
                 '<div class="p-0 m-0 w-100 col-12 row-box">' +
-                    '<div class="w-100" id="comment-box" style="height:70px !important;">' +
-                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px;">' +
+                    '<div class="w-100" id="comment-box" style="min-height:70px !important;">' +
+                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;">' +
                             '<textarea class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                             '</textarea>' +
                             '<button type="button" class="btn-luxe" onclick="comment(this, ' + item.row.id + ')">Comment</button>' +
@@ -449,13 +474,14 @@
                                         '</div>' +
                                         '<div class="w-100">' +
                                             '<div class="d-flex align-items-center">' +
+                                                '<div class="position-relative">' +
                                                 '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ comment.body +'</div>';
                                                 if(comment.user.id == my_id) {
                                                     html += '<div class="single-comment-delete">' +
-                                                        '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                                                        '<button class="btn btn-link text-danger" type="button" onclick="deleteComment(this, '+ comment.id +')">&times;</button>' +
                                                     '</div>';
                                                 }
-                                            html += '</div>' +
+                                            html += '</div></div>' +
                                             '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
                                                 '<button class="btn btn-link text-dark '+ (comment.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, '+ comment.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
                                                 '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
@@ -468,11 +494,11 @@
                                                                 '<img src="' + reply.user.avatar + '" alt="">' +
                                                             '</div>' +
                                                             '<div>' +
-                                                                '<div class="d-flex align-items-center">' +
+                                                                '<div class="d-flex align-items-center position-relative">' +
                                                                     '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ reply.body +'</div>';
                                                                     if(reply.user.id == my_id) {
                                                                         html += '<div class="single-comment-delete">' +
-                                                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')"><i class="fa-solid fa-trash"></i></button>' +
+                                                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')">&times;</button>' +
                                                                         '</div>';
                                                                     }
                                                                 html += '</div>' +
@@ -483,8 +509,8 @@
                                                         '</div>';
                                                     });
                                                 html += '</div>' +
-                                                '<div class="d-none w-100" id="comment-box" style="height:70px !important;">' +
-                                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;height: 64px;position: absolute;width: 100%;left: 0px;">' +
+                                                '<div class="d-none w-100" id="comment-box" style="min-height:70px !important;">' +
+                                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
                                                         '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                                         '</textarea>' +
                                                         '<button type="button" class="btn-luxe" onclick="reply(this, '+ item.row.id +', ' + comment.id + ')">Reply</button>' +

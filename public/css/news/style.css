@@ -21,15 +21,10 @@
 }
 
 .tagify--mix .tagify__input {
-    display: flex !important;
-    align-items: center;
+    flex-wrap: wrap !important;
+    min-height: 47px;
+    line-height: 33px !important;
 }
-
-.tagify__tag-text,
-.tagify__input {
-    white-space: nowrap !important;
-}
-
 .tagify {
     width: 100% !important;
     overflow: auto !important;

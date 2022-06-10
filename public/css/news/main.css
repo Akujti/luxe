@@ -21,6 +21,9 @@
 .box-post:nth-child(even) .box-details{
     text-align: left;
 }
+.box-post:nth-child(even) .box-tags {
+    justify-content: flex-end !important;
+}
 .box-post .box-image img {
     width: 100%;
     height: 240px;
@@ -148,6 +151,26 @@
 }
 .single-comment-delete {
     display: none;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+.single-comment-delete button {
+    padding: 0px;
+    margin: 0px;
+    width: 20px;
+    height: 20px;
+    background: #262626;
+    color: white !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.single-comment-delete button:hover {
+    text-decoration: none;
+    background-color: #262626;
+    color: white !important;
 }
 .comments-box .single-comment .single-comment-body:hover + .single-comment-delete {
     display: flex;
@@ -173,6 +196,14 @@ div:focus-visible {
 }
 .replies-box {
     min-width: 615px;
+}
+.vertical {
+    width: 5px;
+    height: calc(100% - 100px);
+    position: absolute;
+    border-left: 1px solid #00000012;
+    top: 50px;
+    left: 5px;
 }
 @media (max-width: 767px) {
     .replies-box {

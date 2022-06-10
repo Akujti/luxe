@@ -74,13 +74,10 @@ class PostController extends Controller
             if($req->hasFile('files')) {
                 $files = $req->file('files');
                 foreach($files as $file) {
-                    $onlyName = time() . Str::random(10);
-                    $name = $onlyName . '.' . $file->getClientOriginalExtension();
+                    $name = time() . Str::random(10) . '.' . $file->getClientOriginalExtension();
                     $type = $file->getClientOriginalExtension();
                     
                     if(in_array($type, explode(',', config('allowed-extension-file.media.images')))) {
-                        $name = $onlyName . '.png';
-                        $type = 'png';
                         $imageInstance = Image::make($file);
                         $imageInstance->encode('png');
                         $imageInstance->fit(700, 600, function ($constraint) {
@@ -182,15 +179,11 @@ class PostController extends Controller
     public function createFile(AddFileRequest $req) {
         if($req->hasFile('file')) {
             $file = $req->file('file');
-            $onlyName = time() . Str::random(10);
-            $name = $onlyName . '.' . $file->getClientOriginalExtension();
+            $name = time() . Str::random(10) . '.' . $file->getClientOriginalExtension();
             $type = $file->getClientOriginalExtension();
             
             if(in_array($type, explode(',', config('allowed-extension-file.media.images')))) {
-                $name = $onlyName . '.png';
-                $type = 'png';
                 $imageInstance = Image::make($file);
-                $imageInstance->encode('png');
                 $imageInstance->fit(700, 600, function ($constraint) {
                     $constraint->aspectRatio();
                 });

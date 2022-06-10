@@ -40,8 +40,17 @@
     background-color: #262626;
     cursor: pointer;
 }
+.download-box {
+    flex-wrap: wrap;
+}
 @media (max-width: 767px) {
     .box-image-preview {
         height: 243px !important;
+    }
+    .download-box {
+        justify-content: end;
+    }
+    .carousel-container, .carousel-container .carousel-images img {
+        width: 367px !important;
     }
 }
