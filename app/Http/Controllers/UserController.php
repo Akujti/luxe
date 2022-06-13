@@ -286,6 +286,17 @@ class UserController extends Controller
 
         return back()->with('message', 'Successfully Added!');
     }
+    public function delete_note(Request $req)
+    {
+        $id = $req->input('id', null);
+        if($id) {
+            $row = UserNote::find($id);
+            if($row->author == auth()->id()) {
+                $row->delete();
+            }
+        }
+        return back()->with('message', 'Successfully deleted');
+    }
 
     public function update_role()
     {

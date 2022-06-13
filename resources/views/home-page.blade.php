@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
     <style>
         .box-item {
             background-color: #F7F7F7;
@@ -97,13 +101,16 @@
         .box-guide p {
             padding: 0px;
             margin: 0px;
-            font-size: 18px;
+            font-size: 16px;
             text-align: left;
         }
 
         .box-guides h3 {
             font-family: 'gothicbold';
             font-size: 20px;
+        }
+        .box-guides h3 a {
+            font-size: 16px;
         }
 
         .box-guide {
@@ -117,6 +124,18 @@
             width: 60px;
             height: 60px;
             border-radius: 10px;
+        }
+        .email-blasts-box {
+            background-color: #F7F7F7;
+            border-radius:30px;
+        }
+        .email-blasts-box img {
+            height: 250px;
+            width:100%;
+            object-fit:cover;
+        }
+        .email-blasts-box .box-item {
+            height: auto !important;
         }
     </style>
 @endsection
@@ -234,7 +253,7 @@
                 </div>
             </div>
         @endif
-        <div class="row box-items">
+        <div class="row box-items p-0 m-0">
             @if (!isset($_GET['dir']))
                 <div class="col-12 title mb-3">
                     <h1>LUXE Services</h1>
@@ -354,43 +373,63 @@
                 </div>
                 <style>
                     .small-box {
-                        height: auto;
-                        padding: 20px;
+                        height: 165px;
+                        padding: 15px;
+                        width:165px;
+                    }
+                    .small-box p {
+                        font-size: 15px;
+                    }
+                    .pr-sm-0 {
+                        padding-right: 9px !important;
+                    }
+                    .pl-sm-0 {
+                        padding-left: 9px !important;
+                    }
+                    @media screen and (max-width: 500px) {
+                        .small-box {
+                            width: 47%;
+                        }
+                        .row-small-boxes {
+                            justify-content: center;
+                        }
+                        .pr-sm-0 {
+                            padding-right: 0px !important;
+                        }
+                        .pl-sm-0 {
+                            padding-left: 0px !important;
+                        }
                     }
                 </style>
-                <div class="col-12 col-md-3">
+                <div class="row p-0 m-0 row-small-boxes" style="gap: 20px">
                     <div class="box-item small-box" onclick="window.location='{{ route('user.diy-templates') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/diy_marketing.svg" alt="">
                             <p>Online Marketing <br>Designer</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
+                
                     <div class="box-item small-box" onclick="window.location='{{ route('canva.marketing.requests') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/canva_templates.svg" alt="">
                             <p>Canva Marketing <br>Designer</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="box-item small-box" onclick="window.location = 'https://realtorprint.com/collections/luxe'">
+                
+                    <div class="box-item small-box" onclick="window.open('https://realtorprint.com/collections/luxe')">
                         <div>
                             <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
                             <p>Print Marketing<br>&nbsp;</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
+                
                     <div class="box-item small-box" onclick="window.location = '{{ url('user/guides') }}'">
                         <div>
                             <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
                             <p>Downloadable Presentations</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
+                
                     <div class="box-item small-box"
                         onclick="window.location = '{{ url('/home?dir=signs_photo_design_requests') }}'">
                         <div>
@@ -398,16 +437,14 @@
                             <p>Signs, Photo, & Design Requests</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="box-item small-box" onclick="window.open('{{ url('resume') }}')">
+                
+                    <div class="box-item small-box" onclick="window.location = '{{ url('resume') }}'">
                         <div>
                             <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
                             <p>Resume Builder<br>&nbsp;</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
+                
                     <div class="box-item small-box" onclick="window.location = '{{ url('user/file-posts') }}'">
                         <div>
                             <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
@@ -416,15 +453,17 @@
                     </div>
                 </div>
         </div>
-        <div class="row w-100">
-            <div class="col-12 col-md-6 mb-4 mb-md-auto">
-                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: auto !important;">
+        <div class="row w-100 p-0 m-0">
+            <div class="col-12 col-md-6 mb-4 mb-md-auto pl-0 pr-sm-0">
+                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: 470px !important;">
                     <div class="w-100 row p-0 m-0">
-                        <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4">Submit Custom Marketing
-                            Request</h3>
+                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
+                            <span>Submit Custom Marketing Request</span>
+                            <a class="text-luxe" href="{{ route('marketing.requests') }}">See more</a>
+                        </h3>
                         @forelse($marketing_requests as $marketing_request)
                             <div class="box-guide col-12 pl-4">
-                                <a href="{{ route('marketing.request', $marketing_request) }}" class="text-dark w-100">
+                                <a href="{{ route('marketing.request', $marketing_request) }}" class="text-luxe w-100">
                                     <img src="{{ $marketing_request->image }}" alt="">
                                     <p>{{ $marketing_request->title }}</p>
                                 </a>
@@ -437,11 +476,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: auto !important;">
+            <div class="col-md-6 pr-0 pl-sm-0">
+                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: 470px !important;">
                     <div class="w-100 row p-0 m-0">
-                        <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4">Downloadable Guides</h3>
-                        @forelse($guides as $guide)
+                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
+                            <span>Downloadable Guides</span>
+                            <a class="text-luxe" href="{{ route('guides.index') }}">See more</a>
+                        </h3>
+                        @php
+                            $guide = $guides->where('title', 'The Home Selling Guide')->first()
+                        @endphp
+                        @if($guide)
                             <div class="box-guide col-md-6">
                                 <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
                                     class="text-dark">
@@ -449,11 +494,134 @@
                                     <p>{{ $guide->title }}</p>
                                 </a>
                             </div>
-                        @empty
-                            <div class="box-guide justify-content-start pl-4">
-                                <p>No results found.</p>
+                        @endif
+
+                        @php
+                            $guide = $guides->where('title', 'FSBO Guide')->first()
+                        @endphp
+                        @if($guide)
+                            <div class="box-guide col-md-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
+                                    class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
                             </div>
-                        @endforelse
+                        @endif
+
+                        @php
+                            $guide = $guides->where('title', 'The Home Buying Guide')->first()
+                        @endphp
+                        @if($guide)
+                            <div class="box-guide col-md-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
+                                    class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
+                            </div>
+                        @endif
+
+                        @php
+                            $guide = $guides->where('title', 'Miami-Dade Neighborhood Guide')->first()
+                        @endphp
+                        @if($guide)
+                            <div class="box-guide col-md-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
+                                    class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
+                            </div>
+                        @endif
+
+                        @php
+                            $guide = $guides->where('title', 'Spanish - Home Selling Guide')->first()
+                        @endphp
+                        @if($guide)
+                            <div class="box-guide col-md-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
+                                    class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
+                            </div>
+                        @endif
+
+                        @php
+                            $guide = $guides->where('title', 'The Commercial Real Estate Guide')->first()
+                        @endphp
+                        @if($guide)
+                            <div class="box-guide col-md-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
+                                    class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
+                            </div>
+                        @endif
+
+                        @php
+                            $guide = $guides->where('title', 'Spanish - Home Buying Guide')->first()
+                        @endphp
+                        @if($guide)
+                            <div class="box-guide col-md-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
+                                    class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
+                            </div>
+                        @endif
+
+                        @php
+                            $guide = $guides->where('title', "Expired Guide - My House Didn't Sell... Now What?")->first()
+                        @endphp
+                        @if($guide)
+                            <div class="box-guide col-md-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
+                                    class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
+                            </div>
+                        @endif
+
+                        @if($guides->count() == 0)
+                        <div class="box-guide justify-content-start pl-4">
+                            <p>No results found.</p>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row w-100 mt-4 p-0 email-blasts-box m-0">
+            <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4" style="font-family: gothicbold;font-size:20px">Click to view our recent email blasts</h3>
+            <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-auto">
+                <div class="box-item align-items-start bg-transparent row p-0 m-0">
+                    <div class="w-100">
+                        <img src="/images/email-blasts-examples/img1.png" class="rounded"  alt="">
+                        <p class="pt-2">Newsletter</p>
+                        <button class="btn-luxe btn-block mb-3">Submit your request</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="box-item align-items-start bg-transparent row p-0 m-0">
+                    <div class="w-100">
+                        <img src="/images/email-blasts-examples/img2.png" class="rounded" alt="">
+                        <p class="pt-2">Monthly Properties</p>
+                        <button class="btn-luxe btn-block mb-3">Submit your request</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="box-item align-items-start bg-transparent row p-0 m-0">
+                    <div class="w-100">
+                        <img src="/images/email-blasts-examples/img3.png" class="rounded"  alt="">
+                        <p class="pt-2">Holidays</p>
+                        <button class="btn-luxe btn-block mb-3">Submit your request</button>
                     </div>
                 </div>
             </div>
@@ -461,9 +629,12 @@
         <div class="row w-100 my-4">
             <div class="col-md-6">
                 <div class="box-item align-items-start box-guides row p-0 m-0 bg-transparent"
-                    style="height: auto !important;">
+                    style="height: 470px !important;">
                     <div class="w-100 row p-0 m-0">
-                        <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4">DIY Categories</h3>
+                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
+                            <span>On demand marketing templates</span>
+                            <a href="{{ route('user.diy-templates') }}" class="text-luxe">See more</a>
+                        </h3>
                         @forelse($diy_templates as $diy)
                             <div class="box-guide col-12 pl-4">
                                 <a href="{{ route('user.diy-templates.show', $diy) }}" class="text-dark w-100">
@@ -481,15 +652,16 @@
             </div>
             <div class="col-md-6">
                 <div class="box-item align-items-start box-guides row p-0 m-0 bg-transparent"
-                    style="height: auto !important;">
+                    style="height: 470px !important;">
                     <div class="w-100 row p-0 m-0">
-                        <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4">Latest Social Media
-                            Posts
+                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
+                            <span>Latest Social Media Posts</span>
+                            <a class="text-luxe" href="{{ route('file-posts.index') }}">See more</a>
                         </h3>
                         @forelse($social_media_posts as $post)
                             <div class="box-guide col-6">
-                                <a href="{{ $post->url }}" class="text-dark">
-                                    <img src="{{ $post->image }}" alt="">
+                                <a href="/storage/{{ $post->file }}" download target="_blank" class="text-dark">
+                                    <img src="/storage/{{ $post->thumbnail }}" alt="">
                                     <p>{{ $post->title }}</p>
                                 </a>
                             </div>
@@ -675,11 +847,8 @@
     @elseif($_GET['dir'] == 'training_knowledge_center')
         <style>
             .video {
-                min-height: 300px;
                 transition: .2s;
                 border: 1px solid rgb(246, 246, 246);
-                display: flex;
-                align-items: center;
                 box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 9%);
                 border-radius: 10px;
             }
@@ -692,12 +861,13 @@
             }
 
             .video .title {
+                height: 57px;
                 font-size: 18px;
                 font-family: 'gothicbold';
             }
 
             .video .time {
-                font-size: 16px;
+                font-size: 15px;
                 font-family: 'gothicregular';
             }
 
@@ -709,72 +879,109 @@
         <div class="col-12 title mb-3">
             <h1>Training & Knowledge Center</h1>
         </div>
-        @foreach (App\Models\Video\Video::take(3)->get() as $video)
-            <div class="col-12 col-lg-4 mb-4">
-                <div class="video mb-2">
-                    <a href="{{ route('video.single_video', $video->id) }}">
-                        <!-- /images/files/video-folder.svg -->
-                        <img src="{{ $video->vimeo_details['thumbnail'] }}" alt="" class="img">
-                        <div class="p-4">
-                            <p class="title">
-                                {{ $video->vimeo_details['name'] }}
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}</p>
-                                <p class="time p-0 m-0">By <span class="title">LUXE Properties</span>
-                                </p>
+        <div class="col-12 w-100">
+            <section id="slider" class="w-100 mb-3">
+                <div class="container-slide">
+                    <div class="subcontainer">
+                        <div class="slider-wrapper">
+                            <div class="controller p-1">
+                                <div>
+                                    <h2 class="title-video">Most watched training videos</h2>
+                                </div>
+                                <div id="controls">
+                                    <button class="previous"><i class="fa-solid fa-angle-left"></i></button>
+                                    <button class="next"><i class="fa-solid fa-angle-right"></i></button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="my-slider">
+                                @foreach ($videos as $key => $video)
+                                    <div>
+                                        <div class="slide video m-1">
+                                            <div class="slide-img img-{{ $key + 1 }}" style="background-image: url({{ $video->vimeo_details['thumbnail'] }})">
+                                            </div>
+                                            <div class="p-2">
+                                                <p class="title"><a href="{{ route('video.single_video', $video->id) }}">{{ Str::limit($video->vimeo_details['name'], 60) }}</a></p>
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}</p>
+                                                    <p class="time p-0 m-0">By <span class="title">LUXE Properties</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-            </div>
-        @endforeach
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location = '{{ url('user/videos') }}'">
+            </section>
+        </div>
+        <script type="text/javascript" src="{{ asset('js/tiny-slider.js') }}"></script>
+        <div class="col-12 mb-4">
+            <h2 class="title-video">More ways to keep expanding your knowledge</h2>
+        </div>
+        <style>
+            .small-box {
+                height: 165px;
+                padding: 15px;
+                width:165px;
+            }
+            .small-box p {
+                font-size: 15px;
+            }
+            @media screen and (max-width: 500px) {
+                .small-box {
+                    width: 47%;
+                }
+                .row-small-boxes {
+                    justify-content: center;
+                }
+            }
+        </style>
+        <div class="row p-0 m-0 row-small-boxes" style="gap:20px">
+            <div class="box-item small-box" onclick="window.location = '{{ url('user/videos') }}'">
                 <div>
                     <img src="/images/index-page/training_videos.svg" class="icon" alt="">
-                    <p>LUXE Online University<br>&nbsp;</p>
+                    <p>LUXE Online University</p>
+                    &nbsp;
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location='{{ url('/user/events') }}'">
+        
+            <div class="box-item small-box" onclick="window.location='{{ url('/user/events') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
-                    <p>Events<br>&nbsp;</p>
+                    <p>Training & Events <br>Calendar</p>
+                    &nbsp;
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location = '{{ url('user/files') }}'">
+        
+            <div class="box-item small-box" onclick="window.location = '{{ url('user/files') }}'">
                 <div>
                     <img src="/images/index-page/office_documents.svg" class="icon" alt="">
                     <p>Downloadable Docs, Guides & Excels</p>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location = '{{ url('agreement-agents') }}'">
+        
+            <div class="box-item small-box" onclick="window.location = '{{ url('user/coaching') }}'">
                 <div>
                     <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                    <p>Mentors<br>&nbsp;</p>
+                    <p>Coaching</p>
+                    <br>&nbsp;&nbsp;
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item"
+        
+            <div class="box-item small-box"
                 onclick="window.location = '{{ url('/home?dir=email_addendum_verbiage_builder') }}'">
                 <div>
                     <img src="/images/index-page/email_templates.svg" class="icon" alt="">
                     <p>Email & Addendum Verbiage Builder</p>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location = '{{ url('user/coaching') }}'">
+            <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
                 <div>
                     <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                    <p>Coaching<br>&nbsp;</p>
+                    <p>Mentors</p>
+                    <br>&nbsp;&nbsp;
                 </div>
             </div>
         </div>
@@ -859,10 +1066,18 @@
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location='{{ url('store/product/sign-post-login-realpost') }}'">
+            <div class="box-item" onclick="window.location='{{ url('store/signs-posts') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
-                    <p>Sign Post</p>
+                    <p>Signs & Posts</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="box-item" onclick="window.location='{{ url('store/product/background-check') }}'">
+                <div>
+                    <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
+                    <p>Client Screening</p>
                 </div>
             </div>
         </div>
@@ -950,7 +1165,7 @@
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location = 'https://realtorprint.com/collections/luxe'">
+            <div class="box-item" onclick="window.open('https://realtorprint.com/collections/luxe')">
                 <div>
                     <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
                     <p>Print Marketing</p>

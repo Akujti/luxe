@@ -10,7 +10,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>LUXE - PROPERTIES LLC</title>
-
+    
+    <!-- Fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Css -->
     <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">

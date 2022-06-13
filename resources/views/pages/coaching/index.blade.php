@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => '', 'subactive' => ''])
+@extends('layouts.app', ['active' => 'Tools&TrainingVideos', 'subactive' => 'coaching'])
 @section('css')
     <style>
         .title h1 {

@@ -10,8 +10,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>LUXE - PROPERTIES LLC</title>
-
-
+    <!-- Fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Tidio live chat script -->
 
     <script src="//code.tidio.co/frrxptsvozhi8x0bfw3gg5xbrc3leqdo.js" async></script>
@@ -395,13 +395,15 @@
                                             <li><a class="{{ isset($subactive) && $subactive == 'downloadable_guides' ? 'active_submenu' : '' }}"
                                                     href="{{ url('user/files') }}">Downloadable
                                                     Docs, Guides & Excels</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('agreement-agents') }}">Mentors</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('coaching.index') }}">Coaching</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'email_addendum_verbiage_builder' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=email_addendum_verbiage_builder') }}">Email
                                                     &
                                                     Addendum Verbiage Builder</a>
                                             </li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('agreement-agents') }}">Mentors</a></li>
                                         </ul>
                                     </li>
                                     <li

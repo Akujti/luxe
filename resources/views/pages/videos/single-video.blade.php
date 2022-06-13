@@ -374,6 +374,52 @@
     </div>
 </div>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+
+    var iframe = document.querySelector('iframe');
+    var player = new Vimeo.Player(iframe);
+
+    var playing = false;
+    var totalVideoTime;
+    player.on('play', function() {
+        playing = true;
+        startCounting(playing);
+    });
+    player.on('pause', function() {
+        playing = false;
+        startCounting(playing)
+    });
+    player.on('ended', function() {
+        playing = false;
+        startCounting(playing)
+    });
+    player.on('timeupdate', function(data) {
+        console.log(totalVideoTime / (Math.floor(data.seconds / 60)))
+    });
+    player.getDuration().then(function(duration) {
+        fancyTimeFormat(duration)
+    })
+
+    function fancyTimeFormat(duration)
+    {   
+        var hrs = ~~(duration / 3600);
+        var mins = ~~((duration % 3600) / 60);
+        var secs = ~~duration % 60;
+
+        var ret = "";
+
+        if (hrs > 0) {
+            ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+        }
+        ret += "" + mins
+        // ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+        // ret += "" + secs;
+        totalVideoTime = ret;
+        return ret;
+    }
+</script>
+
 <script>
     function toggleForm() {
         $('.review-box').toggleClass('d-none')

@@ -43,6 +43,7 @@ class VideoController extends Controller
                 $row->description = $response['body']['description'];
                 $row->thumbnail = $response['body']['pictures']['base_link'];
                 $row->embed_url = $response['body']['player_embed_url'];
+                $row->views = $response['body']['stats']['plays'];
                 $row->created_at = Carbon::parse($response['body']['created_time'])->diffForHumans();
             } else {
                 return back()->with('error', 'Something went wrong!');
@@ -67,6 +68,7 @@ class VideoController extends Controller
                 $row->description = $response['body']['description'];
                 $row->thumbnail = $response['body']['pictures']['base_link'];
                 $row->embed_url = $response['body']['player_embed_url'];
+                $row->views = $response['body']['stats']['plays'];
                 $row->created_at = Carbon::parse($response['body']['created_time'])->diffForHumans();
             } else {
                 return back()->with('error', 'Something went wrong!');
@@ -93,7 +95,8 @@ class VideoController extends Controller
         $rows = Video::all();
 
         foreach ($rows as $row) {
-            $row->title = $row->vimeo_details['name'];
+            $response = Vimeo::request('/videos/' . $row->video_id, [], 'GET');
+            $row->views = $response['body']['stats']['plays'];
             $row->save();
         }
         return back();
