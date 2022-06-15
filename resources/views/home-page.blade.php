@@ -601,7 +601,9 @@
             <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-auto">
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
-                        <img src="/images/email-blasts-examples/img1.png" class="rounded"  alt="">
+                        <x-preview-image>
+                            <img src="/images/email-blasts-examples/img1.png" class="rounded modal-target"  alt="">
+                        </x-preview-image>
                         <p class="pt-2">Newsletter</p>
                         <button class="btn-luxe btn-block mb-3">Submit your request</button>
                     </div>
@@ -610,7 +612,9 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
-                        <img src="/images/email-blasts-examples/img2.png" class="rounded" alt="">
+                        <x-preview-image>
+                            <img src="/images/email-blasts-examples/img2.png" class="rounded modal-target"  alt="">
+                        </x-preview-image>
                         <p class="pt-2">Monthly Properties</p>
                         <button class="btn-luxe btn-block mb-3">Submit your request</button>
                     </div>
@@ -619,7 +623,9 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
-                        <img src="/images/email-blasts-examples/img3.png" class="rounded"  alt="">
+                        <x-preview-image>
+                            <img src="/images/email-blasts-examples/img3.png" class="rounded modal-target"  alt="">
+                        </x-preview-image>
                         <p class="pt-2">Holidays</p>
                         <button class="btn-luxe btn-block mb-3">Submit your request</button>
                     </div>
