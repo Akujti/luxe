@@ -376,47 +376,60 @@
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-
     var iframe = document.querySelector('iframe');
     var player = new Vimeo.Player(iframe);
-
-    var playing = false;
-    var totalVideoTime;
+    
+    var [played, startPlay, durationVideo] = [0, false, 0];
+    player.getDuration().then(function(duration) {
+        durationVideo = Math.floor(duration)
+    })
     player.on('play', function() {
-        playing = true;
-        startCounting(playing);
+        if(!startPlay) {
+            startPlay = true;
+            counter();
+        }
     });
     player.on('pause', function() {
-        playing = false;
-        startCounting(playing)
-    });
-    player.on('ended', function() {
-        playing = false;
-        startCounting(playing)
-    });
-    player.on('timeupdate', function(data) {
-        console.log(totalVideoTime / (Math.floor(data.seconds / 60)))
-    });
-    player.getDuration().then(function(duration) {
-        fancyTimeFormat(duration)
-    })
-
-    function fancyTimeFormat(duration)
-    {   
-        var hrs = ~~(duration / 3600);
-        var mins = ~~((duration % 3600) / 60);
-        var secs = ~~duration % 60;
-
-        var ret = "";
-
-        if (hrs > 0) {
-            ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+        if(startPlay) {
+            startPlay = false;
+            clearInterval(counter.timer);
         }
-        ret += "" + mins
-        // ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-        // ret += "" + secs;
-        totalVideoTime = ret;
-        return ret;
+    });
+    player.on('seeking', function() {
+        if(startPlay) {
+            startPlay = false;
+            clearInterval(counter.timer);
+        }
+    });
+    player.on('seeked', function() {
+        if(!startPlay) {
+            startPlay = true;
+            counter();
+        }
+    });
+    function counter() {
+        if (typeof counter.timer == 'undefined') {
+            counter.timer = 0;
+        }
+        counter.timer = setInterval(function() {
+            played++;
+            if(Math.floor(durationVideo / 2) == played) {
+                var data = {
+                    'video_id': '{{ $video->id }}',
+                }
+                var url = "{{ route('video.view.create') }}"
+                $.ajax({
+                    url: url,
+                    data: data,
+                    type: "post",
+                    headers: {
+                        "X-CSRF-Token": $('[name="_token"]').val(),
+                    },
+                    success: function (output) {
+                    },
+                });
+            }
+        }, 1000);
     }
 </script>
 

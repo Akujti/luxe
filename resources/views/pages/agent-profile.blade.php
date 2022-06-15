@@ -291,7 +291,7 @@
                                                             <span><i class="fa-solid fa-ellipsis"></i></span>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <form method="POST" action="{{ route('delete_note') }}">
+                                                            <form method="POST" action="{{ route('delete_note') }}" class="m-0 p-0">
                                                                 @method('delete')
                                                                 @csrf
                                                                 <input type="hidden" name="id" value="{{ $note->id }}">

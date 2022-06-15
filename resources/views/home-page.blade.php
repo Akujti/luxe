@@ -386,6 +386,12 @@
                     .pl-sm-0 {
                         padding-left: 9px !important;
                     }
+                    .row-small-boxes {
+                        margin-bottom: 26px !important;
+                    }
+                    .row-small-boxes .box-item {
+                        margin-bottom: 0px;
+                    }
                     @media screen and (max-width: 500px) {
                         .small-box {
                             width: 47%;
@@ -400,8 +406,9 @@
                             padding-left: 0px !important;
                         }
                     }
+                  
                 </style>
-                <div class="row p-0 m-0 row-small-boxes" style="gap: 20px">
+                <div class="row p-0 m-0 row-small-boxes" style="gap: 13px">
                     <div class="box-item small-box" onclick="window.location='{{ route('user.diy-templates') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/diy_marketing.svg" alt="">
@@ -935,6 +942,9 @@
             .small-box p {
                 font-size: 15px;
             }
+            .row-small-boxes .box-item {
+                margin-bottom: 0px;
+            }
             @media screen and (max-width: 500px) {
                 .small-box {
                     width: 47%;
@@ -944,7 +954,7 @@
                 }
             }
         </style>
-        <div class="row p-0 m-0 row-small-boxes" style="gap:20px">
+        <div class="row p-0 m-0 row-small-boxes" style="gap:13px">
             <div class="box-item small-box" onclick="window.location = '{{ url('user/videos') }}'">
                 <div>
                     <img src="/images/index-page/training_videos.svg" class="icon" alt="">

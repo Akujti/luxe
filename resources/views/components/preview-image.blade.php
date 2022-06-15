@@ -31,45 +31,28 @@
             height: 100vh !important;
             object-fit: contain !important;
         }
-        .modal-caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 1200px;
-            text-align: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1em;
-            margin-top: 32px;
-        }
-        .modal-content,
-        .modal-caption {
+        .modal-content {
             -webkit-animation-name: zoom;
             -webkit-animation-duration: 0.6s;
             animation-name: zoom;
             animation-duration: 0.6s;
         }
-
         @-webkit-keyframes zoom {
             from {
                 -webkit-atransform: scale(0)
             }
-
             to {
                 -webkit-transform: scale(1)
             }
         }
-
         @keyframes zoom {
             from {
                 transform: scale(0)
             }
-
             to {
                 transform: scale(1)
             }
         }
-
         .modal-close {
             position: absolute;
             top: 15px;
@@ -80,7 +63,6 @@
             z-index: 1;
             transition: 0.3s;
         }
-
         .modal-close:hover,
         .modal-close:focus {
             color: #bbb;
@@ -95,7 +77,6 @@
     <div id="modal" class="modal">
         <span id="modal-close" class="modal-close">&times;</span>
         <img id="modal-content" class="modal-content">
-        <div id="modal-caption" class="modal-caption"></div>
     </div>
 
     <script>
@@ -111,10 +92,8 @@
                 if (e.target.className.indexOf('modal-target') !== -1) {
                     var img = e.target;
                     var modalImg = document.getElementById("modal-content");
-                    var captionText = document.getElementById("modal-caption");
                     modal.style.display = "block";
                     modalImg.src = img.src;
-                    captionText.innerHTML = img.alt;
                 }
             });
         })
