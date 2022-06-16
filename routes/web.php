@@ -394,6 +394,7 @@ Route::group(
 
         Route::post('create-note', [UserController::class, 'create_note'])->name('create_note');
         Route::delete('delete-note', [UserController::class, 'delete_note'])->name('delete_note');
+        Route::get('/notes/{id}', [UserController::class, 'view_notes'])->name('notes');
 
     });
 // Canva Marketing

@@ -7,7 +7,7 @@ let slider = tns({
     prevButton: ".previous",
     nextButton: ".next",
     responsive: {
-        1500: {
+        1633: {
             items: 4,
             gutter: 20
         },

@@ -137,6 +137,12 @@
         .email-blasts-box .box-item {
             height: auto !important;
         }
+        @media(min-width: 1720px) {
+            .small-box {
+                width: 298px !important;
+                height: 228px !important;
+            }
+        }
     </style>
 @endsection
 @section('content')
@@ -903,6 +909,24 @@
             .video a {
                 width: 100%;
                 color: #262626;
+                word-break: break-all;
+            }
+
+            @media (min-width: 1633px) and (max-width: 1836px) {
+                .video .title {
+                    margin-bottom: 25px;
+                }
+                .video .time:nth-child(2) {
+                    text-align: right;
+                }
+            }
+            @media (min-width: 1329px) and (max-width: 1633px) {
+                .video .title {
+                    margin-bottom: 25px;
+                }
+                .video .time:nth-child(2) {
+                    text-align: right;
+                }
             }
         </style>
         <div class="col-12 title mb-3">
@@ -931,7 +955,7 @@
                                             </div>
                                             <div class="p-2">
                                                 <p class="title"><a href="{{ route('video.single_video', $video->id) }}">{{ Str::limit($video->vimeo_details['name'], 60) }}</a></p>
-                                                <div class="d-flex justify-content-between">
+                                                <div class="d-flex justify-content-between align-items-center">
                                                     <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}</p>
                                                     <p class="time p-0 m-0">By <span class="title">LUXE Properties</span></p>
                                                 </div>
