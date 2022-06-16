@@ -237,7 +237,8 @@
                             <div class="contact-details">
                                 <div class="right-contactsd">
                                     {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
-                                    <a href="{{ route('profile.my_profile') }}"><img src="/images/account-icon.svg"
+                                    <a href="{{ route('profile.my_profile') }}" data-toggle="tooltip"
+                                        data-placement="top" title="My Profile"><img src="/images/account-icon.svg"
                                             alt=""></a>
                                     <div class="sidebar__item-menu search-box d-none">
                                         <a href="#">
@@ -248,10 +249,11 @@
                                             </form>
                                         </a>
                                     </div>
-                                    <a href="#" onclick="toggleSearch()"><img src="/images/search-icon.svg" alt=""></a>
+                                    <a href="#" onclick="toggleSearch()" data-toggle="tooltip" data-placement="top"
+                                        title="Search"><img src="/images/search-icon.svg" alt=""></a>
                                     @auth
                                         <div class="sidebar__item-menu">
-                                            <a href="#">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Logout">
                                                 <form action="{{ route('logout') }}" method="post"
                                                     class="m-0">
                                                     @csrf
@@ -282,7 +284,9 @@
                                                     </g>
                                                 </g>
                                             </svg> --}}
-                                            <span><b>SUPPORT LINE (305) 438 7764</b></span></a>
+
+                                            <span style="font-size: 21px">NEED HELP?<br><b>SUPPORT LINE (305) 438
+                                                    7764</b></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -323,7 +327,7 @@
                                         @endauth
                                     </div>
                                     <a class="btm-phn text-white pt-3" href="tel:(305) 438 7764">
-                                        <span><b>SUPPORT LINE (305) 438 7764</b></span></a>
+                                        <span>NEED HELP?<br><b>SUPPORT LINE (305) 438 7764</b></span></a>
                                     <div class="w-100 search-box-mobile">
                                         <form action="{{ route('user.search') }}" method="get"
                                             class="w-100 pl-5 mt-3 d-flex justify-content-center">
@@ -594,6 +598,9 @@
 </script>
 
 <script>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
     $('.toggleSidebar').click(function() {
         $('.sidebar').toggleClass('active');
     })
