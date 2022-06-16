@@ -599,6 +599,7 @@
             <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4"
                 style="font-family: gothicbold;font-size:20px">Click to view our recent email blasts</h3>
             <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-auto">
+                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2" style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
@@ -606,11 +607,18 @@
                                 alt="">
                         </x-preview-image>
                         <p class="pt-2">Newsletter</p>
-                        <button class="btn-luxe btn-block mb-3">Submit your request</button>
+                        <form action="{{ route('marketing.sendemail') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
+                            <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
+                            <input type="hidden" name="email_blast" value="Newsletter">
+                            <button class="btn-luxe btn-block mb-3">Submit your request</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
+                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2" style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
@@ -618,11 +626,18 @@
                                 alt="">
                         </x-preview-image>
                         <p class="pt-2">Monthly Properties</p>
-                        <button class="btn-luxe btn-block mb-3">Submit your request</button>
+                        <form action="{{ route('marketing.sendemail') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
+                            <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
+                            <input type="hidden" name="email_blast" value="Monthly Properties">
+                            <button class="btn-luxe btn-block mb-3">Submit your request</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
+                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2" style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
@@ -630,7 +645,13 @@
                                 alt="">
                         </x-preview-image>
                         <p class="pt-2">Holidays</p>
-                        <button class="btn-luxe btn-block mb-3">Submit your request</button>
+                        <form action="{{ route('marketing.sendemail') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
+                            <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
+                            <input type="hidden" name="email_blast" value="Holidays">
+                            <button class="btn-luxe btn-block mb-3">Submit your request</button>
+                        </form>
                     </div>
                 </div>
             </div>

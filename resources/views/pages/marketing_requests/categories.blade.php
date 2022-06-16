@@ -125,7 +125,7 @@
                         <div class="form-group col-12 p-0">
                             <label for="">Please select a marketing item form the drop-down below:</label>
                             <div class="input-group">
-                                <select name="marketing_item" id="category" class="form-control">
+                                <select name="marketing_item" id="category" class="form-control" required>
                                     <option value="">-- Choose One --</option>
                                     <option value="Email Blast">Email Blast</option>
                                     <option value="Postcard/Mailer">Postcard/Mailer</option>
@@ -138,7 +138,7 @@
                         <div class="form-group col-12 p-0">
                             <label for="">Please select topic/theme for marketing item from the drop-down below:</label>
                             <div class="input-group">
-                                <select name="theme" id="sub-category-select" class="form-control">
+                                <select name="theme" id="sub-category-select" class="form-control" required>
                                     <option value="">-- Choose One --</option>
                                     <option value="Just Listed">Just Listed</option>
                                     <option value="Just Closed">Just Closed</option>
