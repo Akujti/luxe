@@ -42,10 +42,13 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
+use App\Http\Controllers\CustomSectionController;
+use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
+use App\Models\CustomSection;
 
 /*
 |--------------------------------------------------------------------------
@@ -364,6 +367,8 @@ Route::group(
 Route::group(
     ['middleware' => ['auth', 'admin']],
     function () {
+        Route::resource('custom-section', CustomSectionController::class);
+
         Route::get('marketing/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'fields'])->name('template.fields');
         Route::post('marketing/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'addField'])->name('field.store');
         Route::put('marketing/template/fields/update/{field}', [MarketingCategoryController::class, 'updateField'])->name('field.update');
@@ -390,12 +395,8 @@ Route::group(
 
         Route::post('create-note', [UserController::class, 'create_note'])->name('create_note');
         Route::delete('delete-note', [UserController::class, 'delete_note'])->name('delete_note');
-        Route::get('/notes/{id}', [UserController::class, 'view_notes'])->name('notes');
-    }
-);
 
-
-
+   
 // Canva Marketing
 
 Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => ['auth']], function () {
@@ -510,6 +511,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     Route::get('update-role', [UserController::class, 'update_role']);
     Route::get('update-videos', [VideoController::class, 'update_videos']);
 });
+
 Route::group(['prefix' => 'themes', 'middleware' => ['auth']], function () {
     Route::get('/{path}', ThemeController::class)->where('path', '(.*)')->name('themes.page');
 });

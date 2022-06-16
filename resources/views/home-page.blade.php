@@ -147,6 +147,44 @@
             </div>
 
             <div class="row p-0 m-0 mb-5 mt-4">
+                <div class="col-12 col-lg-6 mt-3 agent-logs">
+                    <x-brokersumo-tiers :user="auth()->user()" :row="true" />
+                </div>
+                <div class="col-12 col-lg-6 mt-3 agent-logs">
+                    <div class="w-100">
+                        <div class="form-group">
+                            <label for="">Support Specialist</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control p-2"
+                                    value="{{ auth()->user()->profile->support_specialist_name }}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100">
+                        <div class="form-group">
+                            <label for="">Loan Officer</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control p-2"
+                                    value="{{ auth()->user()->profile->loan_officer_name }}" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="mb-2 log-title">
+                        News Feed
+                    </div>
+                    <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
+                        <div class="border rounded p-2" style="border-color: #F7F7F7">
+                            @php
+                                $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
+                            @endphp
+                            @if ($news_feed)
+                                {{ $news_feed->text }}
+                            @endif
+                        </div>
+                    </div>
+                </div>
                 <div class="col-12 col-lg-6">
                     <div class="mb-2 log-title">
                         Form Requests
@@ -227,28 +265,6 @@
                             @endforelse
                         </div>
 
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 d-flex align-items-center mt-3 agent-logs">
-                    <div class="w-100">
-                        <div class="form-group">
-                            <label for="">Support Specialist</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control p-2"
-                                    value="{{ auth()->user()->profile->support_specialist_name }}" readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 d-flex align-items-center mt-3 agent-logs">
-                    <div class="w-100">
-                        <div class="form-group">
-                            <label for="">Loan Officer</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control p-2"
-                                    value="{{ auth()->user()->profile->loan_officer_name }}" readonly>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1115,13 +1131,13 @@
             </div>
         </div>
         <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                        <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                            <div>
-                                                                                                <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                <p>Links to other services</p>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div> -->
+                                                                                                                                                                                                            <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                <div>
+                                                                                                                                                                                                                    <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                    <p>Links to other services</p>
+                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                        </div> -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
                 <div>

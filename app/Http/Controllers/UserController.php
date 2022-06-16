@@ -298,6 +298,16 @@ class UserController extends Controller
         return back()->with('message', 'Successfully deleted');
     }
 
+    public function delete_note(UserNote $note)
+    {
+        if ($note->author == auth()->user()->id) {
+            $note->delete();
+            return redirect()->back()->with('message', 'Deleted');
+        } else {
+            return redirect()->back()->with('error', 'You do not have access');
+        }
+    }
+
     public function update_role()
     {
         User::where('isAdmin', 1)->update(['role' => 'admin']);
