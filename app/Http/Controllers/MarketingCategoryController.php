@@ -217,7 +217,6 @@ class MarketingCategoryController extends Controller
                 $details[strtolower($key)] = $val;
             }
         }
-
         $to = ['marketing@luxeknows.com', auth()->user()->email];
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
 

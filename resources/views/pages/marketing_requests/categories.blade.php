@@ -110,6 +110,8 @@
                 <div class="col-12 col-md-8 col-lg-4">
                     <form action="{{ route('marketing.sendemail') }}" method="POST" class="row p-0 m-0">
                         @csrf
+                        <input type="hidden" name="form_title" value="Design Request">
+
                         <div class="form-group col-12 p-0">
                             <label for="">Agent Name</label>
                             <div class="input-group">

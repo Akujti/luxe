@@ -609,6 +609,7 @@
                         <p class="pt-2">Newsletter</p>
                         <form action="{{ route('marketing.sendemail') }}" method="POST">
                             @csrf
+                            <input type="hidden" name="form_title" value="Email Blast Design Request">
                             <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
                             <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
                             <input type="hidden" name="email_blast" value="Newsletter">
@@ -628,6 +629,7 @@
                         <p class="pt-2">Monthly Properties</p>
                         <form action="{{ route('marketing.sendemail') }}" method="POST">
                             @csrf
+                            <input type="hidden" name="form_title" value="Email Blast Design Request">
                             <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
                             <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
                             <input type="hidden" name="email_blast" value="Monthly Properties">
@@ -647,6 +649,7 @@
                         <p class="pt-2">Holidays</p>
                         <form action="{{ route('marketing.sendemail') }}" method="POST">
                             @csrf
+                            <input type="hidden" name="form_title" value="Email Blast Design Request">
                             <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
                             <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
                             <input type="hidden" name="email_blast" value="Holidays">
