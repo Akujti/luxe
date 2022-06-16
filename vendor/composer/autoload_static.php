@@ -39,6 +39,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '101b35f72e0ccb1b5ef72aa86bba3ef9' => __DIR__ . '/..' . '/yoeunes/toastr/src/helpers.php',
+        'fb4dbd28f925c848428d5455ebbfd2a3' => __DIR__ . '/../..' . '/app/Helpers/response.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -712,6 +713,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Admin' => __DIR__ . '/../..' . '/app/Http/Middleware/Admin.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
+        'App\\Http\\Middleware\\CheckAuthorLoggedIn' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckAuthorLoggedIn.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -735,10 +737,11 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Http\\Requests\\Feed\\Comment\\UpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Comment/UpdateRequest.php',
         'App\\Http\\Requests\\Feed\\Like\\AddCommentRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Like/AddCommentRequest.php',
         'App\\Http\\Requests\\Feed\\Like\\AddRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Like/AddRequest.php',
-        'App\\Http\\Requests\\Feed\\Like\\DeleteCommentRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Like/DeleteCommentRequest.php',
-        'App\\Http\\Requests\\Feed\\Like\\DeleteRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Like/DeleteRequest.php',
+        'App\\Http\\Requests\\Feed\\Post\\AddFileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Post/AddFileRequest.php',
         'App\\Http\\Requests\\Feed\\Post\\AddRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Post/AddRequest.php',
         'App\\Http\\Requests\\Feed\\Post\\DeleteRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Post/DeleteRequest.php',
+        'App\\Http\\Requests\\Feed\\Post\\DownloadRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Post/DownloadRequest.php',
+        'App\\Http\\Requests\\Feed\\Post\\RemoveFileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Post/RemoveFileRequest.php',
         'App\\Http\\Requests\\Feed\\Post\\UpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Feed/Post/UpdateRequest.php',
         'App\\Http\\Requests\\Form\\UpdateFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Form/UpdateFormRequest.php',
         'App\\Http\\Requests\\Form\\UpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Form/UpdateRequest.php',

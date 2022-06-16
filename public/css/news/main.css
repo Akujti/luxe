@@ -15,7 +15,7 @@
 .box-post:nth-child(odd) {
     flex-direction: row;
 }
-.box-post:nth-child(even) .row {
+.box-post:nth-child(even) .box-row-post {
     flex-direction: row-reverse;
 }
 .box-post:nth-child(even) .box-details{
@@ -196,6 +196,7 @@ div:focus-visible {
 }
 .replies-box {
     min-width: 615px;
+    padding-left: 16px;
 }
 .vertical {
     width: 5px;
@@ -221,5 +222,8 @@ div:focus-visible {
     .box-tags p {
         padding: 0px;
         margin: 0px;
+    }
+    .btn-luxe-sm {
+        padding: 15px;
     }
 }

@@ -9,6 +9,9 @@
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
 
+<style>
+    
+</style>
 @endsection
 @section('content')
 <div class="container-fluid news-feed">
@@ -125,10 +128,10 @@
         $(e).parents('.box-post').find('#comment-box').toggleClass('d-none')
     }
     function toggleReplyInput(e) {
-        $(e).parents('.single-comment').find('#comment-box').toggleClass('d-none')
+        $(e).parents('.single-row-comment').find('#reply-comment-box').toggleClass('d-none')
     }
     function toggleReplyLevelInput(e) {
-        $(e).parents('.single-reply-reply').find('#comment-box').toggleClass('d-none')
+        $(e).parents('.single-reply-reply').find('#replylevel-comment-box').toggleClass('d-none')
     }
     var tags = [];
     function comment(e, post_id, comment_id = null) {
@@ -186,7 +189,7 @@
                                     '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
                                         '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix" value="">' +
                                         '</textarea>' +
-                                        '<button type="button" class="btn-luxe" onclick="reply(this, '+ post_id +', ' + output.id + ')">Reply</button>' +
+                                        '<button type="button" class="btn-luxe btn-luxe-sm" onclick="reply(this, '+ post_id +', ' + output.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
                                     '</div>' +
                                 '</div>' +
                             '</div>' +
@@ -362,7 +365,7 @@
                 if(output.data.length) {
                     output.data.forEach((item) => {
                         html += '<div class="col-12 box-post p-0 row m-0 mb-3">' +
-                            '<div class="row p-0 m-0 w-100 col-12">' +
+                            '<div class="row box-row-post p-0 m-0 w-100 col-12">' +
                                 '<div class="box-image col-lg-4 col-md-5 col-12 p-0">' +
                                     '<div class="box-image-preview">';
                                         var numOfImages = [];
@@ -436,13 +439,13 @@
                                     '<div class="form-group p-2 d-flex align-items-start comment-textarea" style="gap: 10px;min-height: 64px;">' +
                                         '<textarea class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                         '</textarea>' +
-                                        '<button type="button" class="btn-luxe" onclick="comment(this, ' + item.row.id + ')">Comment</button>' +
+                                        '<button type="button" class="btn-luxe btn-luxe-sm" onclick="comment(this, ' + item.row.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Comment</span></button>' +
                                     '</div>' +
                                 '</div>' +
                                 '<div class="comments-box w-100 p-3">';
                                     if(item.comments.length) {
                                         item.comments.forEach(comment => {
-                                            html += '<div id="textbox" class="row mb-2 p-0 m-0 w-100">' +
+                                            html += '<div id="textbox" class="row mb-2 p-0 m-0 w-100 single-row-comment position-relative">' +
                                                 '<div class="col-12 single-comment comment-single d-flex align-items-start p-0 m-0">' +
                                                     '<div class="single-comment-profile">' +
                                                         '<img src="' + comment.user.avatar + '" alt="">' +
@@ -461,69 +464,70 @@
                                                             '<button class="btn btn-link text-dark '+ (comment.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, '+ comment.id +')"><i class="fa-solid fa-heart"></i> Like</button>' +
                                                             '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
                                                         '</div>' +
-                                                        '<div class="replies-box">' +
-                                                            '<div class="row p-0 m-0 reply-box">';
-                                                                comment.replies.forEach(reply => {
-                                                                    html += '<div class="col-12 single-comment single-reply single-reply-reply row m-0 align-items-start mt-2 p-0" style="gap:0px">' +
-                                                                        '<div class="p-0 m-0 d-flex">' +
-                                                                            '<div class="single-comment-profile mr-3">' +
-                                                                                '<img src="' + reply.user.avatar + '" alt="">' +
+                                                    '</div>' + 
+                                                '</div>';
+                                                (comment.replies.length) ? html +='<div class="vertical"></div>' : html += '';
+                                                html += '<div class="replies-box">' +
+                                                    '<div class="row p-0 m-0 reply-box">';
+                                                        comment.replies.forEach(reply => {
+                                                            html += '<div class="col-12 single-comment single-reply single-reply-reply row m-0 align-items-start mt-2 p-0" style="gap:0px">' +
+                                                                '<div class="p-0 m-0 d-flex">' +
+                                                                    '<div class="single-comment-profile mr-3">' +
+                                                                        '<img src="' + reply.user.avatar + '" alt="">' +
+                                                                    '</div>' +
+                                                                    '<div>' +
+                                                                        '<div class="d-flex align-items-center position-relative">' +
+                                                                            '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ reply.body +'</div>';
+                                                                            if(reply.user.id == my_id) {
+                                                                                html += '<div class="single-comment-delete">' +
+                                                                                    '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')">&times;</button>' +
+                                                                                '</div>';
+                                                                            }
+                                                                        html += '</div>' +
+                                                                        '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
+                                                                            '<button class="btn btn-link text-dark '+ (reply.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, ' + reply.id + ')"><i class="fa-solid fa-heart"></i> Like</button>' +
+                                                                            '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyLevelInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
+                                                                        '</div>' +
+                                                                    '</div>' +
+                                                                '</div>';
+                                                                (reply.replies.length) ? html +='<div class="vertical"></div>' : html += '';
+                                                                html += '<div class="row p-0 m-0 reply-reply-box pl-3">';
+                                                                    reply.replies.forEach(replylevel => {
+                                                                        html += '<div class="col-12 single-comment single-reply d-flex align-items-start mt-2 p-0">' +
+                                                                            '<div class="single-comment-profile">' +
+                                                                                '<img src="' + replylevel.user.avatar + '" alt="">' +
                                                                             '</div>' +
                                                                             '<div>' +
                                                                                 '<div class="d-flex align-items-center position-relative">' +
-                                                                                    '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ reply.body +'</div>';
-                                                                                    if(reply.user.id == my_id) {
+                                                                                    '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ replylevel.body +'</div>';
+                                                                                    if(replylevel.user.id == my_id) {
                                                                                         html += '<div class="single-comment-delete">' +
-                                                                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ reply.id +')">&times;</button>' +
+                                                                                            '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ replylevel.id +')">&times;</button>' +
                                                                                         '</div>';
                                                                                     }
                                                                                 html += '</div>' +
                                                                                 '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
-                                                                                    '<button class="btn btn-link text-dark '+ (reply.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, ' + reply.id + ')"><i class="fa-solid fa-heart"></i> Like</button>' +
-                                                                                    '<button class="btn btn-link m-0 text-dark" onclick="toggleReplyLevelInput(this)"><i class="fa-solid fa-comment"></i> Reply</button>' +
-                                                                                '</div>' +
+                                                                                '<button class="btn btn-link text-dark '+ (replylevel.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, ' + replylevel.id + ')"><i class="fa-solid fa-heart"></i> Like</button>' +
+                                                                            '</div>' +
                                                                             '</div>' +
                                                                         '</div>';
-                                                                        (reply.replies.length) ? html +='<div class="vertical"></div>' : html += '';
-                                                                        html += '<div class="row p-0 m-0 reply-reply-box pl-3">';
-                                                                            reply.replies.forEach(replylevel => {
-                                                                                html += '<div class="col-12 single-comment single-reply d-flex align-items-start mt-2 p-0">' +
-                                                                                    '<div class="single-comment-profile">' +
-                                                                                        '<img src="' + replylevel.user.avatar + '" alt="">' +
-                                                                                    '</div>' +
-                                                                                    '<div>' +
-                                                                                        '<div class="d-flex align-items-center position-relative">' +
-                                                                                            '<div contenteditable="false" class="single-comment-body m-0 p-3">'+ replylevel.body +'</div>';
-                                                                                            if(replylevel.user.id == my_id) {
-                                                                                                html += '<div class="single-comment-delete">' +
-                                                                                                    '<button class="btn btn-link text-danger" type="button" onclick="deleteReply(this, '+ replylevel.id +')">&times;</button>' +
-                                                                                                '</div>';
-                                                                                            }
-                                                                                        html += '</div>' +
-                                                                                        '<div class="col-12 d-flex align-items-center p-0" style="gap: 5px;">' +
-                                                                                        '<button class="btn btn-link text-dark '+ (replylevel.like.filter(x => x.user_id == my_id).length ? 'liked': '') +'" type="button" onclick="like(this, 1, ' + replylevel.id + ')"><i class="fa-solid fa-heart"></i> Like</button>' +
-                                                                                    '</div>' +
-                                                                                    '</div>' +
-                                                                                '</div>';
-                                                                            });
-                                                                        html += '</div>' +
-                                                                        '<div class="d-none w-100" id="comment-box" style="min-height:70px !important;">' +
-                                                                            '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
-                                                                                '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
-                                                                                '</textarea>' +
-                                                                                '<button type="button" class="btn-luxe" onclick="replylevel(this, '+ item.row.id +', ' + reply.id + ')">Reply</button>' +
-                                                                            '</div>' +
-                                                                        '</div>' +
-                                                                    '</div>';
-                                                                });
-                                                            html += '</div>' +
-                                                            '<div class="d-none w-100" id="comment-box" style="min-height:70px !important;">' +
-                                                                '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
-                                                                    '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
-                                                                    '</textarea>' +
-                                                                    '<button type="button" class="btn-luxe" onclick="reply(this, '+ item.row.id +', ' + comment.id + ')">Reply</button>' +
+                                                                    });
+                                                                html += '</div>' +
+                                                                '<div class="d-none w-100" id="replylevel-comment-box" style="min-height:70px !important;">' +
+                                                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
+                                                                        '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
+                                                                        '</textarea>' +
+                                                                        '<button type="button" class="btn-luxe btn-luxe-sm" onclick="replylevel(this, '+ item.row.id +', ' + reply.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
+                                                                    '</div>' +
                                                                 '</div>' +
-                                                            '</div>' +
+                                                            '</div>';
+                                                        });
+                                                    html += '</div>' +
+                                                    '<div class="d-none w-100" id="reply-comment-box" style="min-height:70px !important;">' +
+                                                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
+                                                            '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
+                                                            '</textarea>' +
+                                                            '<button type="button" class="btn-luxe btn-luxe-sm" onclick="reply(this, '+ item.row.id +', ' + comment.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
                                                         '</div>' +
                                                     '</div>' +
                                                 '</div>' +
@@ -611,7 +615,7 @@
                                         '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
                                             '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                             '</textarea>' +
-                                            '<button type="button" class="btn-luxe" onclick="reply(this, '+ post_id +', ' + comment.id + ')">Reply</button>' +
+                                            '<button type="button" class="btn-luxe btn-luxe-sm" onclick="reply(this, '+ post_id +', ' + comment.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
                                         '</div>' +
                                     '</div>' +
                                 '</div>' +
@@ -700,6 +704,9 @@
     }
     function getSelectValue(element) {
         return $(element).val()
+    }
+    function test(e) {
+        console.log('test')
     }
 </script>
 @endsection
