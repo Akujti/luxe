@@ -63,7 +63,7 @@ class BookingController extends Controller
 
             switch ($request->room_id) {
                 case 1:
-                    $mails = ['sabrina@luxeknows.com', 'admin@luxeknows.com', 'email@luxeknows.com', 'operations@luxeknows.com', 'ctginfo@ceperolaw.com', 'dcepero@ceperolaw.com'];
+                    $mails = ['sabrinam@luxeknows.com', 'admin@luxeknows.com', 'email@luxeknows.com', 'operations@luxeknows.com', 'ctginfo@ceperolaw.com', 'dcepero@ceperolaw.com'];
                     break;
                 case 2:
                     $mails = ['denisse@luxeknows.com', 'email@luxeknows.com', 'support@luxeknows.com'];
