@@ -307,6 +307,7 @@ Route::group(
         Route::post('events/attend', [EventController::class, 'attend'])->name('events.attend');
         Route::resource('events', EventController::class);
         Route::get('/events/{event}/attendance', [EventController::class, 'attendance'])->name('events.attendance');
+        Route::put('/events/{event}/attendance/{user}', [EventController::class, 'cancel_attendance'])->name('events.attendance.cancel');
         //        Route::get('bookings', [BookingController::class, 'index'])->name('bookings.index');
 
         Route::resource('files', FolderController::class);
@@ -396,8 +397,8 @@ Route::group(
         Route::post('create-note', [UserController::class, 'create_note'])->name('create_note');
         Route::delete('delete-note', [UserController::class, 'delete_note'])->name('delete_note');
         Route::get('/notes/{id}', [UserController::class, 'view_notes'])->name('notes');
-
-    });
+    }
+);
 // Canva Marketing
 
 Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => ['auth']], function () {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\AddToEmailCalendar;
 use App\Models\Event;
 use App\Models\EventUser;
+use App\Models\User;
 use Exception;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -32,8 +33,17 @@ class EventController extends Controller
 
     public function attendance(Event $event)
     {
-        $agents = $event->attendees()->withPivot('status')->get();
+        $agents = $event->attendees()->withPivot('status', 'canceled')->get();
         return view('pages.events.attendance', compact('agents', 'event'));
+    }
+
+    public function cancel_attendance(Event $event, User $user)
+    {
+        $attendance = EventUser::where('event_id', $event->id)->where('user_id', $user->id)->first();
+        if ($attendance) {
+            $attendance->update(['canceled' => now()]);
+        }
+        return redirect()->back()->with('message', 'Agent Removed');
     }
 
     public function my_events()
