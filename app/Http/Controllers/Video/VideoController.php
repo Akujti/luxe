@@ -92,12 +92,15 @@ class VideoController extends Controller
 
     public function update_videos()
     {
-        $rows = Video::all();
+        $rows = Video::where('views', 0)->get();
 
         foreach ($rows as $row) {
+
             $response = Vimeo::request('/videos/' . $row->video_id, [], 'GET');
-            $row->views = $response['body']['stats']['plays'];
-            $row->save();
+            if(isset($response, $response['body']['stats'])) {
+                $row->views = $response['body']['stats']['plays'];
+                $row->save();
+            }
         }
         return back();
     }

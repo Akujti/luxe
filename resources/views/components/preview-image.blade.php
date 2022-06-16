@@ -30,6 +30,7 @@
             max-width: 100% !important;
             height: 100vh !important;
             object-fit: contain !important;
+            background-color: #21252914;
         }
         .modal-content {
             -webkit-animation-name: zoom;
@@ -57,7 +58,7 @@
             position: absolute;
             top: 15px;
             right: 35px;
-            color: #000;
+            color: #fff;
             font-size: 40px;
             font-weight: bold;
             z-index: 1;
