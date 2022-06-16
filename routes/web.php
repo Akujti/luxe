@@ -26,7 +26,6 @@ use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DiyTemplateController;
 use App\Http\Controllers\Video\VideoController;
-use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\MarketingPostController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\LuxeStore\OrderController;
@@ -396,7 +395,7 @@ Route::group(
         Route::post('create-note', [UserController::class, 'create_note'])->name('create_note');
         Route::delete('delete-note', [UserController::class, 'delete_note'])->name('delete_note');
 
-   
+    });
 // Canva Marketing
 
 Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => ['auth']], function () {
