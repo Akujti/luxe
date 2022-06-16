@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
     <style>
         .box-item {
             background-color: #F7F7F7;
@@ -17,94 +17,77 @@
             justify-content: center;
             cursor: pointer;
         }
-
         .box-item img {
             object-fit: cover;
             width: 100%;
         }
-
         .box-item .icon {
             width: 70px;
             height: 70px;
             object-fit: cover;
         }
-
         .box-item p {
             font-size: 25px;
             font-family: 'gothicregular';
         }
-
         .container-fluid {
             margin-top: 60px;
             padding-left: 60px;
             padding-right: 60px;
         }
-
         @media screen and (max-width: 500px) {
             .box-item p {
                 font-size: 18px;
             }
-
             .logs div {
                 font-size: 13px !important;
             }
         }
-
         @media (min-width: 768px) and (max-width: 980px) {
             .box-item p {
                 font-size: 20px;
             }
         }
-
         .title h1 {
             font-family: 'gothicbold';
             text-align: center;
         }
-
         .logs,
         .agent-logs input {
             font-family: 'gothicregular';
         }
-
         .agent-logs label,
         .log-title {
             font-family: 'gothicbold';
         }
-
         .logs {
             display: flex;
             height: 200px;
             padding: 10px 20px;
         }
-
         .logs div {
             display: flex;
             width: 100%;
             align-items: center;
         }
-
         .logs div span {
             font-family: 'gothicbold';
         }
-
         .log-item {
             height: 200px !important;
         }
-
         .box-guides .box-guide a {
             display: flex;
             align-items: center;
             width: 90%;
             gap: 0px 10px;
         }
-
         .box-guide p {
             padding: 0px;
             margin: 0px;
             font-size: 16px;
             text-align: left;
         }
-
         .box-guides h3 {
             font-family: 'gothicbold';
             font-size: 20px;
@@ -112,14 +95,12 @@
         .box-guides h3 a {
             font-size: 16px;
         }
-
         .box-guide {
             width: 100%;
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
-
         .box-guides .box-guide img {
             width: 60px;
             height: 60px;
@@ -127,12 +108,12 @@
         }
         .email-blasts-box {
             background-color: #F7F7F7;
-            border-radius:30px;
+            border-radius: 30px;
         }
         .email-blasts-box img {
             height: 250px;
-            width:100%;
-            object-fit:cover;
+            width: 100%;
+            object-fit: cover;
         }
         .email-blasts-box .box-item {
             height: auto !important;
@@ -181,7 +162,7 @@
                         News Feed
                     </div>
                     <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
-                        <div class="border rounded p-2" style="border-color: #F7F7F7">
+                        <div class="border rounded p-2 w-100" style="border-color: #F7F7F7">
                             @php
                                 $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
                             @endphp
@@ -291,8 +272,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item"
-                        onclick="window.location='{{ url('/home?dir=training_knowledge_center') }}'">
+                    <div class="box-item" onclick="window.location='{{ url('/home?dir=training_knowledge_center') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
                             <p>Training & Knowledge Center</p>
@@ -300,8 +280,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item"
-                        onclick="window.location='{{ url('/home?dir=leads_services_support') }}'">
+                    <div class="box-item" onclick="window.location='{{ url('/home?dir=leads_services_support') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/leads-icon.svg" alt="">
                             <p>Leads, Services & Support<br>&nbsp;</p>
@@ -365,8 +344,7 @@
             </div>
         </div> --}}
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item"
-                        onclick="window.location='{{ url('/home?dir=office_staff_directory') }}'">
+                    <div class="box-item" onclick="window.location='{{ url('/home?dir=office_staff_directory') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/office_locations-icon.svg" alt="">
                             <p>Office & Staff Directory</p>
@@ -397,7 +375,7 @@
                     .small-box {
                         height: 165px;
                         padding: 15px;
-                        width:165px;
+                        width: 165px;
                     }
                     .small-box p {
                         font-size: 15px;
@@ -428,7 +406,6 @@
                             padding-left: 0px !important;
                         }
                     }
-                  
                 </style>
                 <div class="row p-0 m-0 row-small-boxes" style="gap: 13px">
                     <div class="box-item small-box" onclick="window.location='{{ route('user.diy-templates') }}'">
@@ -437,28 +414,29 @@
                             <p>Online Marketing <br>Designer</p>
                         </div>
                     </div>
-                
-                    <div class="box-item small-box" onclick="window.location='{{ route('canva.marketing.requests') }}'">
+
+                    <div class="box-item small-box"
+                        onclick="window.location='{{ route('canva.marketing.requests') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/canva_templates.svg" alt="">
                             <p>Canva Marketing <br>Designer</p>
                         </div>
                     </div>
-                
+
                     <div class="box-item small-box" onclick="window.open('https://realtorprint.com/collections/luxe')">
                         <div>
                             <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
                             <p>Print Marketing<br>&nbsp;</p>
                         </div>
                     </div>
-                
+
                     <div class="box-item small-box" onclick="window.location = '{{ url('user/guides') }}'">
                         <div>
                             <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
                             <p>Downloadable Presentations</p>
                         </div>
                     </div>
-                
+
                     <div class="box-item small-box"
                         onclick="window.location = '{{ url('/home?dir=signs_photo_design_requests') }}'">
                         <div>
@@ -466,14 +444,14 @@
                             <p>Signs, Photo, & Design Requests</p>
                         </div>
                     </div>
-                
+
                     <div class="box-item small-box" onclick="window.location = '{{ url('resume') }}'">
                         <div>
                             <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
                             <p>Resume Builder<br>&nbsp;</p>
                         </div>
                     </div>
-                
+
                     <div class="box-item small-box" onclick="window.location = '{{ url('user/file-posts') }}'">
                         <div>
                             <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
@@ -513,12 +491,11 @@
                             <a class="text-luxe" href="{{ route('guides.index') }}">See more</a>
                         </h3>
                         @php
-                            $guide = $guides->where('title', 'The Home Selling Guide')->first()
+                            $guide = $guides->where('title', 'The Home Selling Guide')->first();
                         @endphp
-                        @if($guide)
+                        @if ($guide)
                             <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
-                                    class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -526,12 +503,11 @@
                         @endif
 
                         @php
-                            $guide = $guides->where('title', 'FSBO Guide')->first()
+                            $guide = $guides->where('title', 'FSBO Guide')->first();
                         @endphp
-                        @if($guide)
+                        @if ($guide)
                             <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
-                                    class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -539,12 +515,11 @@
                         @endif
 
                         @php
-                            $guide = $guides->where('title', 'The Home Buying Guide')->first()
+                            $guide = $guides->where('title', 'The Home Buying Guide')->first();
                         @endphp
-                        @if($guide)
+                        @if ($guide)
                             <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
-                                    class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -552,12 +527,11 @@
                         @endif
 
                         @php
-                            $guide = $guides->where('title', 'Miami-Dade Neighborhood Guide')->first()
+                            $guide = $guides->where('title', 'Miami-Dade Neighborhood Guide')->first();
                         @endphp
-                        @if($guide)
+                        @if ($guide)
                             <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
-                                    class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -565,12 +539,11 @@
                         @endif
 
                         @php
-                            $guide = $guides->where('title', 'Spanish - Home Selling Guide')->first()
+                            $guide = $guides->where('title', 'Spanish - Home Selling Guide')->first();
                         @endphp
-                        @if($guide)
+                        @if ($guide)
                             <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
-                                    class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -578,12 +551,11 @@
                         @endif
 
                         @php
-                            $guide = $guides->where('title', 'The Commercial Real Estate Guide')->first()
+                            $guide = $guides->where('title', 'The Commercial Real Estate Guide')->first();
                         @endphp
-                        @if($guide)
+                        @if ($guide)
                             <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
-                                    class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -591,12 +563,11 @@
                         @endif
 
                         @php
-                            $guide = $guides->where('title', 'Spanish - Home Buying Guide')->first()
+                            $guide = $guides->where('title', 'Spanish - Home Buying Guide')->first();
                         @endphp
-                        @if($guide)
+                        @if ($guide)
                             <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
-                                    class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -604,80 +575,62 @@
                         @endif
 
                         @php
-                            $guide = $guides->where('title', "Expired Guide - My House Didn't Sell... Now What?")->first()
+                            $guide = $guides->where('title', "Expired Guide - My House Didn't Sell... Now What?")->first();
                         @endphp
-                        @if($guide)
+                        @if ($guide)
                             <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank"
-                                    class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
                             </div>
                         @endif
 
-                        @if($guides->count() == 0)
-                        <div class="box-guide justify-content-start pl-4">
-                            <p>No results found.</p>
-                        </div>
+                        @if ($guides->count() == 0)
+                            <div class="box-guide justify-content-start pl-4">
+                                <p>No results found.</p>
+                            </div>
                         @endif
                     </div>
                 </div>
             </div>
         </div>
         <div class="row w-100 mt-4 p-0 email-blasts-box m-0">
-            <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-2 pl-4" style="font-family: gothicbold;font-size:20px">Click to view our recent email blasts</h3>
+            <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4"
+                style="font-family: gothicbold;font-size:20px">Click to view our recent email blasts</h3>
             <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-auto">
-                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2" style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
-                            <img src="/images/email-blasts-examples/img1.png" class="rounded modal-target"  alt="">
+                            <img src="/images/email-blasts-examples/img1.png" class="rounded modal-target"
+                                alt="">
                         </x-preview-image>
                         <p class="pt-2">Newsletter</p>
-                        <form action="{{ route('marketing.sendemail') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
-                            <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
-                            <input type="hidden" name="email_blast" value="Newsletter">
-                            <button class="btn-luxe btn-block mb-3">Submit your request</button>
-                        </form>
+                        <button class="btn-luxe btn-block mb-3">Submit your request</button>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2" style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
-                            <img src="/images/email-blasts-examples/img2.png" class="rounded modal-target"  alt="">
+                            <img src="/images/email-blasts-examples/img2.png" class="rounded modal-target"
+                                alt="">
                         </x-preview-image>
                         <p class="pt-2">Monthly Properties</p>
-                        <form action="{{ route('marketing.sendemail') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
-                            <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
-                            <input type="hidden" name="email_blast" value="Monthly Properties">
-                            <button class="btn-luxe btn-block mb-3">Submit your request</button>
-                        </form>
+                        <button class="btn-luxe btn-block mb-3">Submit your request</button>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2" style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
-                            <img src="/images/email-blasts-examples/img3.png" class="rounded modal-target"  alt="">
+                            <img src="/images/email-blasts-examples/img3.png" class="rounded modal-target"
+                                alt="">
                         </x-preview-image>
                         <p class="pt-2">Holidays</p>
-                        <form action="{{ route('marketing.sendemail') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
-                            <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
-                            <input type="hidden" name="email_blast" value="Holidays">
-                            <button class="btn-luxe btn-block mb-3">Submit your request</button>
-                        </form>
+                        <button class="btn-luxe btn-block mb-3">Submit your request</button>
                     </div>
                 </div>
             </div>
@@ -735,8 +688,7 @@
             <h1>Signs, Photo, & Design Requests</h1>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item"
-                onclick="window.location = '{{ url('general/form/other/logo-creation-request') }}'">
+            <div class="box-item" onclick="window.location = '{{ url('general/form/other/logo-creation-request') }}'">
                 <div>
                     <img src="/images/index-page/logo_creation_request.svg" class="icon" alt="">
                     <p>Create A Logo<br>&nbsp;</p>
@@ -893,8 +845,7 @@
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item"
-                onclick="window.location = '{{ url('general/form/leads/prime-street-leads') }}'">
+            <div class="box-item" onclick="window.location = '{{ url('general/form/leads/prime-street-leads') }}'">
                 <div>
                     <img src="/images/index-page/partner_4-removebg-preview.png" alt="">
                 </div>
@@ -908,31 +859,26 @@
                 box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 9%);
                 border-radius: 10px;
             }
-
             .video img {
                 width: 100%;
                 object-fit: cover !important;
                 height: 303px;
                 border-radius: 10px 10px 0px 0px;
             }
-
             .video .title {
                 height: 57px;
                 font-size: 18px;
                 font-family: 'gothicbold';
             }
-
             .video .time {
                 font-size: 15px;
                 font-family: 'gothicregular';
             }
-
             .video a {
                 width: 100%;
                 color: #262626;
                 word-break: break-all;
             }
-
             @media (min-width: 1633px) and (max-width: 1836px) {
                 .video .title {
                     margin-bottom: 25px;
@@ -972,13 +918,18 @@
                                 @foreach ($videos as $key => $video)
                                     <div>
                                         <div class="slide video m-1">
-                                            <div class="slide-img img-{{ $key + 1 }}" style="background-image: url({{ $video->vimeo_details['thumbnail'] }})">
+                                            <div class="slide-img img-{{ $key + 1 }}"
+                                                style="background-image: url({{ $video->vimeo_details['thumbnail'] }})">
                                             </div>
                                             <div class="p-2">
-                                                <p class="title"><a href="{{ route('video.single_video', $video->id) }}">{{ Str::limit($video->vimeo_details['name'], 60) }}</a></p>
+                                                <p class="title"><a
+                                                        href="{{ route('video.single_video', $video->id) }}">{{ Str::limit($video->vimeo_details['name'], 60) }}</a>
+                                                </p>
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}</p>
-                                                    <p class="time p-0 m-0">By <span class="title">LUXE Properties</span></p>
+                                                    <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}
+                                                    </p>
+                                                    <p class="time p-0 m-0">By <span class="title">LUXE Properties</span>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -998,7 +949,7 @@
             .small-box {
                 height: 165px;
                 padding: 15px;
-                width:165px;
+                width: 165px;
             }
             .small-box p {
                 font-size: 15px;
@@ -1023,7 +974,7 @@
                     &nbsp;
                 </div>
             </div>
-        
+
             <div class="box-item small-box" onclick="window.location='{{ url('/user/events') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
@@ -1031,14 +982,14 @@
                     &nbsp;
                 </div>
             </div>
-        
+
             <div class="box-item small-box" onclick="window.location = '{{ url('user/files') }}'">
                 <div>
                     <img src="/images/index-page/office_documents.svg" class="icon" alt="">
                     <p>Downloadable Docs, Guides & Excels</p>
                 </div>
             </div>
-        
+
             <div class="box-item small-box" onclick="window.location = '{{ url('user/coaching') }}'">
                 <div>
                     <img src="/images/index-page/mentors.svg" class="icon" alt="">
@@ -1046,7 +997,7 @@
                     <br>&nbsp;&nbsp;
                 </div>
             </div>
-        
+
             <div class="box-item small-box"
                 onclick="window.location = '{{ url('/home?dir=email_addendum_verbiage_builder') }}'">
                 <div>
@@ -1176,13 +1127,13 @@
             </div>
         </div>
         <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                            <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                <div>
-                                                                                                                                                                                                                    <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                    <p>Links to other services</p>
+                                                                                                                                                                                                                <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                    <div>
+                                                                                                                                                                                                                        <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                        <p>Links to other services</p>
+                                                                                                                                                                                                                    </div>
                                                                                                                                                                                                                 </div>
-                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                            </div> -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
                 <div>
@@ -1326,8 +1277,7 @@
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item"
-                onclick="window.location = '{{ url('general/form/other/logo-creation-request') }}'">
+            <div class="box-item" onclick="window.location = '{{ url('general/form/other/logo-creation-request') }}'">
                 <div>
                     <img src="/images/index-page/logo_creation_request.svg" class="icon" alt="">
                     <p>Logo Creation <br> Request</p>
