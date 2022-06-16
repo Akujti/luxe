@@ -277,6 +277,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
 
     Route::post('marketing/{marketingCategory}/{template}/email/send', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
+    Route::post('marketing/sendemail', [MarketingCategoryController::class, 'sendEmailForm'])->name('marketing.sendemail');
 
     Route::get('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'index']);
     Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');

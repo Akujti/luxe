@@ -108,7 +108,8 @@
         <div class="col-12">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-4">
-                    <form action="" class="row p-0 m-0">
+                    <form action="{{ route('marketing.sendemail') }}" method="POST" class="row p-0 m-0">
+                        @csrf
                         <div class="form-group col-12 p-0">
                             <label for="">Agent Name</label>
                             <div class="input-group">
@@ -118,33 +119,33 @@
                         <div class="form-group col-12 p-0">
                             <label for="">Email</label>
                             <div class="input-group">
-                            <input type="text" name="agent_name" class="form-control" value="{{ auth()->user()->email }}">
+                                <input type="text" name="agent_email" class="form-control" value="{{ auth()->user()->email }}">
                             </div>
                         </div>
                         <div class="form-group col-12 p-0">
                             <label for="">Please select a marketing item form the drop-down below:</label>
                             <div class="input-group">
-                                <select name="" id="category" class="form-control">
+                                <select name="marketing_item" id="category" class="form-control">
                                     <option value="">-- Choose One --</option>
                                     <option value="Email Blast">Email Blast</option>
-                                    <option value="Email Blast">Postcard/Mailer</option>
-                                    <option value="Email Blast">Social Media Post</option>
-                                    <option value="Email Blast">Flyer</option>
-                                    <option value="Email Blast">Door Hanger</option>
+                                    <option value="Postcard/Mailer">Postcard/Mailer</option>
+                                    <option value="Social Media Post">Social Media Post</option>
+                                    <option value="Flyer">Flyer</option>
+                                    <option value="Door Hanger">Door Hanger</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-12 p-0">
                             <label for="">Please select topic/theme for marketing item from the drop-down below:</label>
                             <div class="input-group">
-                                <select name="" id="sub-category-select" class="form-control">
+                                <select name="theme" id="sub-category-select" class="form-control">
                                     <option value="">-- Choose One --</option>
-                                    <option value="">Just Listed</option>
-                                    <option value="">Just Closed</option>
-                                    <option value="">Under Contract</option>
-                                    <option value="">For Rent/Lease</option>
-                                    <option value="">What's Your Home Worth (Farming)</option>
-                                    <option value="">Neighborhood Expert (Farming)</option>
+                                    <option value="Just Listed">Just Listed</option>
+                                    <option value="Just Closed">Just Closed</option>
+                                    <option value="Under Contract">Under Contract</option>
+                                    <option value="For Rent/Lease">For Rent/Lease</option>
+                                    <option value="What's Your Home Worth (Farming)">What's Your Home Worth (Farming)</option>
+                                    <option value="Neighborhood Expert (Farming)">Neighborhood Expert (Farming)</option>
                                 </select>
                             </div>
                         </div>
@@ -164,7 +165,7 @@
                             </div>
                         </div>
 
-                        <button type="button" class="btn-luxe w-100">Request</button>
+                        <button type="submit" class="btn-luxe w-100">Request</button>
                     </form>
                 </div>
             </div>
