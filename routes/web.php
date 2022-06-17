@@ -356,6 +356,12 @@ Route::group(
 );
 
 Route::group(
+    ['middleware' => ['auth', 'staff', 'admin']],
+    function () {
+    }
+);
+
+Route::group(
     ['middleware' => ['auth']],
     function () {
         Route::get('optin-agents', [OptinController::class, 'index'])->name('optin.agents.index');

@@ -17,107 +17,131 @@
             justify-content: center;
             cursor: pointer;
         }
+
         .box-item img {
             object-fit: cover;
             width: 100%;
         }
+
         .box-item .icon {
             width: 70px;
             height: 70px;
             object-fit: cover;
         }
+
         .box-item p {
             font-size: 25px;
             font-family: 'gothicregular';
         }
+
         .container-fluid {
             margin-top: 60px;
             padding-left: 60px;
             padding-right: 60px;
         }
+
         @media screen and (max-width: 500px) {
             .box-item p {
                 font-size: 18px;
             }
+
             .logs div {
                 font-size: 13px !important;
             }
         }
+
         @media (min-width: 768px) and (max-width: 980px) {
             .box-item p {
                 font-size: 20px;
             }
         }
+
         .title h1 {
             font-family: 'gothicbold';
             text-align: center;
         }
+
         .logs,
         .agent-logs input {
             font-family: 'gothicregular';
         }
+
         .agent-logs label,
         .log-title {
             font-family: 'gothicbold';
         }
+
         .logs {
             display: flex;
             height: 200px;
             padding: 10px 20px;
         }
+
         .logs div {
             display: flex;
             width: 100%;
             align-items: center;
         }
+
         .logs div span {
             font-family: 'gothicbold';
         }
+
         .log-item {
             height: 200px !important;
         }
+
         .box-guides .box-guide a {
             display: flex;
             align-items: center;
             width: 90%;
             gap: 0px 10px;
         }
+
         .box-guide p {
             padding: 0px;
             margin: 0px;
             font-size: 16px;
             text-align: left;
         }
+
         .box-guides h3 {
             font-family: 'gothicbold';
             font-size: 20px;
         }
+
         .box-guides h3 a {
             font-size: 16px;
         }
+
         .box-guide {
             width: 100%;
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
+
         .box-guides .box-guide img {
             width: 60px;
             height: 60px;
             border-radius: 10px;
         }
+
         .email-blasts-box {
             background-color: #F7F7F7;
             border-radius: 30px;
         }
+
         .email-blasts-box img {
             height: 250px;
             width: 100%;
             object-fit: cover;
         }
+
         .email-blasts-box .box-item {
             height: auto !important;
         }
+
         @media(min-width: 1720px) {
             .small-box {
                 width: 298px !important;
@@ -377,31 +401,40 @@
                         padding: 15px;
                         width: 165px;
                     }
+
                     .small-box p {
                         font-size: 15px;
                     }
+
                     .pr-sm-0 {
                         padding-right: 9px !important;
                     }
+
                     .pl-sm-0 {
                         padding-left: 9px !important;
                     }
+
                     .row-small-boxes {
                         margin-bottom: 26px !important;
                     }
+
                     .row-small-boxes .box-item {
                         margin-bottom: 0px;
                     }
+
                     @media screen and (max-width: 500px) {
                         .small-box {
                             width: 47%;
                         }
+
                         .row-small-boxes {
                             justify-content: center;
                         }
+
                         .pr-sm-0 {
                             padding-right: 0px !important;
                         }
+
                         .pl-sm-0 {
                             padding-left: 0px !important;
                         }
@@ -599,7 +632,8 @@
             <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4"
                 style="font-family: gothicbold;font-size:20px">Click to view our recent email blasts</h3>
             <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-auto">
-                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2" style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
+                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2"
+                    style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
@@ -619,7 +653,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2" style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
+                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2"
+                    style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
@@ -639,7 +674,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2" style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
+                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2"
+                    style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
@@ -883,38 +919,46 @@
                 box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 9%);
                 border-radius: 10px;
             }
+
             .video img {
                 width: 100%;
                 object-fit: cover !important;
                 height: 303px;
                 border-radius: 10px 10px 0px 0px;
             }
+
             .video .title {
                 height: 57px;
                 font-size: 18px;
                 font-family: 'gothicbold';
             }
+
             .video .time {
                 font-size: 15px;
                 font-family: 'gothicregular';
             }
+
             .video a {
                 width: 100%;
                 color: #262626;
                 word-break: break-all;
             }
+
             @media (min-width: 1633px) and (max-width: 1836px) {
                 .video .title {
                     margin-bottom: 25px;
                 }
+
                 .video .time:nth-child(2) {
                     text-align: right;
                 }
             }
+
             @media (min-width: 1329px) and (max-width: 1633px) {
                 .video .title {
                     margin-bottom: 25px;
                 }
+
                 .video .time:nth-child(2) {
                     text-align: right;
                 }
@@ -975,22 +1019,26 @@
                 padding: 15px;
                 width: 165px;
             }
+
             .small-box p {
                 font-size: 15px;
             }
+
             .row-small-boxes .box-item {
                 margin-bottom: 0px;
             }
+
             @media screen and (max-width: 500px) {
                 .small-box {
                     width: 47%;
                 }
+
                 .row-small-boxes {
                     justify-content: center;
                 }
             }
         </style>
-        <div class="row p-0 m-0 row-small-boxes" style="gap:13px">
+        <div class="row p-0 m-0 row-small-boxes mb-4" style="gap:13px">
             <div class="box-item small-box" onclick="window.location = '{{ url('user/videos') }}'">
                 <div>
                     <img src="/images/index-page/training_videos.svg" class="icon" alt="">
@@ -1105,7 +1153,7 @@
             <div class="box-item" onclick="window.location='{{ url('store/grab-go-merchandise') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
-                    <p>Grab & Go Merchandise</p>
+                    <p>Printed Guides</p>
                 </div>
             </div>
         </div>
@@ -1151,13 +1199,13 @@
             </div>
         </div>
         <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                        <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                        <p>Links to other services</p>
-                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                        <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                            <div>
+                                                                                                                                                                                                                                <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                                <p>Links to other services</p>
+                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                    </div> -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
                 <div>
