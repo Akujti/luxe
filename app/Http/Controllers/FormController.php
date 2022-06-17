@@ -60,6 +60,7 @@ class FormController extends Controller
             return back()->with('error', 'Ooops! try again later!');
         }
     }
+
     public function general_form_index($folder, $form)
     {
         return view('pages/form/' . $folder . '/' . $form);
@@ -70,8 +71,35 @@ class FormController extends Controller
         return view('pages/form/agent_referrals/agent-form');
     }
 
+    public function test(Request $request)
+    {
+        foreach (json_decode($request->form) as $key => $value) {
+            $request->request->set($key, $value);
+        }
+        //        return $request->all();
+        $request->headers->set('Accept', 'application/json');
+        return $this->general_form_post($request);
+    }
+
     public function general_form_post(Request $request)
     {
+        return response()->json($request->all());
+        // // return response()->json($request->headers->get('Content-Type'));
+        // $request->headers->set('Accept', 'application/json');
+        // $request->headers->set('Content-type', 'multipart/form-data');
+        // return response()->json($request->all());
+        // $test = $request->_parts;
+        // $request->request->remove('_parts');
+        // foreach ($test as $req) {
+        //     $request->request->set($req[0], $req[1]);
+        // }
+
+        // return response()->json($request->all());
+
+        // return response()->json(['test_data' => $request->all()]);
+        //        return 123;
+        //        $request = $request->except('form');
+
         // return response()->json(['message' => 'success', 'data' => $request->all()], 200);
         // Log::info($request->all());
         // $request->validate([
@@ -81,9 +109,11 @@ class FormController extends Controller
         // return 'success';
         try {
             $details = [];
+
             $details['form_agent_full_name'] = $request->agent_full_name;
             $details['form_agent_email'] = $request->agent_email;
-            foreach ($request->except('_token', 'to_email') as $key => $val) {
+
+            foreach ($request->except('_token', 'to_email', 'form') as $key => $val) {
                 if ($request->hasFile($key)) {
                     $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
                     $request->file($key)->move(public_path('/new-storage/images/marketing'), $name);
@@ -93,6 +123,9 @@ class FormController extends Controller
                 $details[strtolower($key)] = $val;
             }
         } catch (Exception $e) {
+            if ($request->wantsJson()) {
+                return response()->json("Form isn\'t saved, there was a problem with the entered data", 500);
+            }
             return redirect()->back()->with('error', 'Form isn\'t saved, there was a problem with the entered data');
         }
 
@@ -105,6 +138,9 @@ class FormController extends Controller
                 'details' => json_encode($details),
             ]);
         } catch (Exception $e) {
+            if ($request->wantsJson()) {
+                return response()->json("Form couldn\'t be saved", 500);
+            }
             return redirect()->back()->with('error', 'Form couldn\'t be saved');
         }
 
@@ -112,15 +148,26 @@ class FormController extends Controller
             if (isset($request->form_title_value)) {
                 $to = $this->getEmails($request->form_title_value, $request->to_email);
             } else {
+
                 $to = $this->getEmails($request->form_title, $request->to_email);
             }
 
             array_push($to, $request->agent_email);
             $cc = [];
-            Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+
+            try {
+                Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+            } catch (\Exception $exception) {
+                Log::alert($exception);
+                if ($request->wantsJson()) {
+                    return response()->json('Error while sending email', 500);
+                }
+            }
         } catch (\Throwable $th) {
             Log::alert($th);
-            // return response()->json('Something went wrong', 500);
+            if ($request->wantsJson()) {
+                return response()->json($th, 500);
+            }
             return redirect()->back()->with('error', 'Form is saved but there was a problem sending the email');
         }
 

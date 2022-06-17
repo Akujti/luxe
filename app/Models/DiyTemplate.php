@@ -33,7 +33,8 @@ class DiyTemplate extends Model
     {
         if (str_starts_with($image, 'http'))
             return $image;
-        return asset('storage/' . $image);
+        // return asset('storage/' . $image);
+        return 'https://myluxehub.com/storage/' . $image;
     }
 
     public function getUrlAttribute($url)

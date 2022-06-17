@@ -79,6 +79,10 @@ class UserController extends Controller
 
     public function my_profile()
     {
+        if (request()->wantsJson()) {
+            return response()->json(request()->user());
+        }
+
         return view('auth.profile.index');
     }
 
@@ -136,7 +140,7 @@ class UserController extends Controller
                         $constraint->aspectRatio();
                     });
                     $img->save(storage_path('app/public/users/' . $name));
-                    $image = 'users/'. $name;
+                    $image = 'users/' . $name;
                 }
             }
             $languageJson = [];
@@ -185,7 +189,7 @@ class UserController extends Controller
                         $constraint->aspectRatio();
                     });
                     $img->save(storage_path('app/public/users/' . $name));
-                    $image = 'users/'. $name;
+                    $image = 'users/' . $name;
                 }
                 $languageJson = [];
                 if ($req->has('languages') && $req->languages) {
@@ -228,7 +232,7 @@ class UserController extends Controller
                         $constraint->aspectRatio();
                     });
                     $img->save(storage_path('app/public/users/' . $name));
-                    $image = 'users/'. $name;
+                    $image = 'users/' . $name;
                 }
                 $languageJson = [];
                 if ($req->has('languages') && $req->languages) {
