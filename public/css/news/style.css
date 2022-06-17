@@ -16,13 +16,13 @@
     --placeholder-color-focus: transparent;
 }
 
-.tagify__input {
+.tag-input .tagify__input {
     height: 30px;
 }
 
 .tagify--mix .tagify__input {
     flex-wrap: wrap !important;
-    min-height: 47px;
+    min-height: 20px !important;
     line-height: 33px !important;
 }
 .tagify {

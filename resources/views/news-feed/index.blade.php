@@ -189,7 +189,7 @@
                                     '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
                                         '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix" value="">' +
                                         '</textarea>' +
-                                        '<button type="button" class="btn-luxe btn-luxe-sm" onclick="reply(this, '+ post_id +', ' + output.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
+                                        '<button type="button" class="btn-comment btn-luxe-sm" onclick="reply(this, '+ post_id +', ' + output.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
                                     '</div>' +
                                 '</div>' +
                             '</div>' +
@@ -206,14 +206,13 @@
     }
 
     function reply(e, post_id, comment_id) {
-        var body = $(e).parents('.single-comment').find('#text-area').val();
-
+        var body = $(e).parents('.single-row-comment').find('#text-area-reply').val();
         if(!body) {
             return;
         }
         body = makeUrlHref(body);
         
-        $(e).parents('.single-comment').find('#text-area').val("")
+        $(e).parents('.single-row-comment').find('#text-area-reply').val("")
 
         var data = {
             'post_id': post_id,
@@ -345,8 +344,8 @@
             });
         }
     }
+
     function getPosts(sort = 'desc') {
-        
         $.ajax({
             url: "{{ route('news.index') }}?nr=" + nrPosts + '&sort=' + sort,
             type: "get",
@@ -439,7 +438,7 @@
                                     '<div class="form-group p-2 d-flex align-items-start comment-textarea" style="gap: 10px;min-height: 64px;">' +
                                         '<textarea class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                         '</textarea>' +
-                                        '<button type="button" class="btn-luxe btn-luxe-sm" onclick="comment(this, ' + item.row.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Comment</span></button>' +
+                                        '<button type="button" class="btn-comment btn-luxe-sm" onclick="comment(this, ' + item.row.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Comment</span></button>' +
                                     '</div>' +
                                 '</div>' +
                                 '<div class="comments-box w-100 p-3">';
@@ -467,12 +466,12 @@
                                                     '</div>' + 
                                                 '</div>';
                                                 (comment.replies.length) ? html +='<div class="vertical"></div>' : html += '';
-                                                html += '<div class="replies-box">' +
+                                                html += '<div class="replies-box w-100">' +
                                                     '<div class="row p-0 m-0 reply-box">';
                                                         comment.replies.forEach(reply => {
                                                             html += '<div class="col-12 single-comment single-reply single-reply-reply row m-0 align-items-start mt-2 p-0" style="gap:0px">' +
                                                                 '<div class="p-0 m-0 d-flex">' +
-                                                                    '<div class="single-comment-profile mr-3">' +
+                                                                    '<div class="single-comment-profile mr-1">' +
                                                                         '<img src="' + reply.user.avatar + '" alt="">' +
                                                                     '</div>' +
                                                                     '<div>' +
@@ -514,20 +513,20 @@
                                                                     });
                                                                 html += '</div>' +
                                                                 '<div class="d-none w-100" id="replylevel-comment-box" style="min-height:70px !important;">' +
-                                                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
-                                                                        '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
+                                                                    '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;width: 100%;left: 0px;">' +
+                                                                        '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Reply to the reply of '+ reply.user.profile.fullname +'" name="mix">' +
                                                                         '</textarea>' +
-                                                                        '<button type="button" class="btn-luxe btn-luxe-sm" onclick="replylevel(this, '+ item.row.id +', ' + reply.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
+                                                                        '<button type="button" class="btn-comment btn-luxe-sm" onclick="replylevel(this, '+ item.row.id +', ' + reply.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
                                                                     '</div>' +
                                                                 '</div>' +
                                                             '</div>';
                                                         });
                                                     html += '</div>' +
                                                     '<div class="d-none w-100" id="reply-comment-box" style="min-height:70px !important;">' +
-                                                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
-                                                            '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
+                                                        '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;width: 100%;left: 0px;">' +
+                                                            '<textarea class="form-control" id="text-area-reply" placeholder="Reply on '+ comment.user.profile.fullname +' comment" name="mix">' +
                                                             '</textarea>' +
-                                                            '<button type="button" class="btn-luxe btn-luxe-sm" onclick="reply(this, '+ item.row.id +', ' + comment.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
+                                                            '<button type="button" class="btn-comment btn-luxe-sm" onclick="reply(this, '+ item.row.id +', ' + comment.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
                                                         '</div>' +
                                                     '</div>' +
                                                 '</div>' +
@@ -615,7 +614,7 @@
                                         '<div class="form-group p-2 d-flex align-items-start" style="gap: 10px;min-height: 64px;position: absolute;width: 100%;left: 0px;">' +
                                             '<textarea style="height: 50px" class="form-control" id="text-area" placeholder="Write a Comment" name="mix">' +
                                             '</textarea>' +
-                                            '<button type="button" class="btn-luxe btn-luxe-sm" onclick="reply(this, '+ post_id +', ' + comment.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
+                                            '<button type="button" class="btn-comment btn-luxe-sm" onclick="reply(this, '+ post_id +', ' + comment.id + ')"><span class="d-flex d-lg-none d-md-none"><i class="fa-solid fa-paper-plane"></i></span> <span class="d-none d-md-flex d-lg-flex">Reply</span></button>' +
                                         '</div>' +
                                     '</div>' +
                                 '</div>' +
