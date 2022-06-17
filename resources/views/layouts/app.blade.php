@@ -402,14 +402,14 @@
                                                     href="{{ url('user/files') }}">Downloadable
                                                     Docs, Guides & Excels</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('coaching.index') }}">Luxe Coaching</a></li>
+                                                    href="{{ route('coaching.index') }}">LUXE Coaching</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'email_addendum_verbiage_builder' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=email_addendum_verbiage_builder') }}">Email
                                                     &
                                                     Addendum Verbiage Builder</a>
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('agreement-agents') }}">Luxe Mentors</a></li>
+                                                    href="{{ url('agreement-agents') }}">LUXE Mentors</a></li>
                                         </ul>
                                     </li>
                                     <li
@@ -474,9 +474,11 @@
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'listing_coordinators' ? 'active_submenu' : '' }}"
                                                     href="{{ url('store/luxe-apparel') }}">LUXE Apparel</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'closing_coordinators' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('store/product/sign-post-login-realpost') }}">Sign
-                                                    Post</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('store/signs-posts') }}">Signs &
+                                                    Posts</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('store/product/background-check') }}">Client Screening</a></li>
                                         </ul>
                                     </li>
                                     <li

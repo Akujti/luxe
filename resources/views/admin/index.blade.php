@@ -70,7 +70,7 @@
                         <script>
                                 CKEDITOR.replace( 'text' );
                         </script>
-                        <button class="btn btn-luxe">Submit</button>
+                        <button class="btn btn-luxe mt-2">Submit</button>
                     </form>
                 </div>
             </div>

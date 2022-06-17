@@ -96,14 +96,14 @@
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-leads-weekly-update']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Zillow Leads<br>
-                                        Weeky Update</a>
+                                        Weekly Update</a>
                                 </div>
                             </div>
                             {{-- <div class="col-lg-4 col-xl-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'team-dade-zillow-leads-weekly-update']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Team Dade -
-                                        Zillow <br>Leads Weeky Update</a>
+                                        Zillow <br>Leads Weekly Update</a>
                                 </div>
                             </div> --}}
                         </div>

@@ -151,6 +151,12 @@
                 width: 298px !important;
                 height: 228px !important;
             }
+            .box-item .inside-box {
+                height: 151px;
+            }
+        }
+        .box-item .inside-box {
+            height: 136px;
         }
     </style>
 @endsection
@@ -1028,48 +1034,45 @@
             <div class="col-md-12 col-12 col-lg-8 row row-small-boxes p-0 m-0" style="gap:13px;display: grid;
     grid-template-columns: repeat(3, 1fr);">
                 <div class="box-item small-box" onclick="window.location = '{{ url('user/videos') }}'">
-                    <div>
+                    <div class="inside-box">
                         <img src="/images/index-page/training_videos.svg" class="icon" alt="">
                         <p>LUXE Online University</p>
-                        &nbsp;
                     </div>
                 </div>
 
                 <div class="box-item small-box" onclick="window.location='{{ url('/user/events') }}'">
-                    <div>
+                    <div class="inside-box">
                         <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
                         <p>Training & Events <br>Calendar</p>
-                        &nbsp;
                     </div>
                 </div>
 
                 <div class="box-item small-box" onclick="window.location = '{{ url('user/files') }}'">
-                    <div>
+                    <div class="inside-box">
                         <img src="/images/index-page/office_documents.svg" class="icon" alt="">
-                        <p>Downloadable <br>Docs, Guides & Excels</p>
+                        <p>Downloadable Docs, Guides & Excels</p>
                     </div>
                 </div>
 
                 <div class="box-item small-box" onclick="window.location = '{{ url('user/coaching') }}'">
-                    <div>
+                    <div class="inside-box">
                         <img src="/images/index-page/mentors.svg" class="icon" alt="">
                         <p>Luxe Coaching</p>
-                        <br>&nbsp;&nbsp;
+                        
                     </div>
                 </div>
 
                 <div class="box-item small-box"
                     onclick="window.location = '{{ url('/home?dir=email_addendum_verbiage_builder') }}'">
-                    <div>
+                    <div class="inside-box">
                         <img src="/images/index-page/email_templates.svg" class="icon" alt="">
-                        <p>Email & Addendum <br>Verbiage Builder</p>
+                        <p>Email & Addendum Verbiage Builder</p>
                     </div>
                 </div>
                 <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
-                    <div>
+                    <div class="inside-box">
                         <img src="/images/index-page/mentors.svg" class="icon" alt="">
                         <p>Luxe Mentors</p>
-                        <br>&nbsp;&nbsp;
                     </div>
                 </div>
             </div>
@@ -1133,7 +1136,7 @@
             <div class="box-item" onclick="window.location = '{{ url('bookings') }}'">
                 <div>
                     <img src="/images/index-page/conference_room.svg" class="icon" alt="">
-                    <p>Conference Room Reservations</p>
+                    <p>Conference Room <br>Reservations</p>
                 </div>
             </div>
         </div>
