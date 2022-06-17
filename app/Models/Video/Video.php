@@ -3,6 +3,7 @@
 namespace App\Models\Video;
 
 use Carbon\Carbon;
+use App\Models\Video\VideoViews;
 use Vimeo\Laravel\Facades\Vimeo;
 use App\Models\Video\VideoReviewStar;
 use Illuminate\Database\Eloquent\Model;
@@ -55,9 +56,15 @@ class Video extends Model
     {
         return $this->hasMany(VideoReview::class, 'video_id');
     }
+
     public function comments()
     {
         return $this->hasMany(VideoComment::class, 'video_id');
+    }
+
+    public function list_views()
+    {
+        return $this->hasMany(VideoViews::class, 'video_id');
     }
 
     public function files()

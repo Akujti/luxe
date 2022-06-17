@@ -140,6 +140,13 @@
             padding: 10px;
             border-radius: 5px;
         }
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 0%) !important;
+        }
+        button {
+            cursor: pointer;
+        }
     </style>
 @endsection
 @section('content')
@@ -271,16 +278,7 @@
                         </div>
                         <div class="col-12 p-0 mb-4">
                             @forelse($notes as $note)
-                                <div class="row-col" style="border:none">
-                                    <div class="row-details">
-                                        <img src="{{ $note->user_author->avatar }}" alt="">
-                                        <div>
-                                            <h4>{{ !$note->user_author->profile ? '' : $note->user_author->profile->fullname }}
-                                            </h4>
-                                            <p>{{ $note->body }}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <x-staff-notes :note="$note" />
                             @empty
                                 <div>
                                     <p>No Notes Found.</p>

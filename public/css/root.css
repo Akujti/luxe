@@ -439,3 +439,14 @@
 .checkout #shipping_address {
     display: none;
 }
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 0%) !important;
+}
+button {
+    cursor: pointer;
+}
+.text-luxe {
+    color: #262626 !important;
+}

@@ -4,20 +4,17 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class BrokersumoTiers extends Component
+class UserNote extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-
-    public $user;
-    public $row;
-    public function __construct($user, $row = "")
+    public $note;
+    public function __construct($note)
     {
-        $this->user = $user;
-        $this->row = $row;
+        $this->note = $note;
     }
 
     /**
@@ -27,6 +24,6 @@ class BrokersumoTiers extends Component
      */
     public function render()
     {
-        return view('components.brokersumo-tiers');
+        return view('components.user-note');
     }
 }

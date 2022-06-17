@@ -42,33 +42,7 @@
             color: #262626;
         }
 
-        .profile-level {
-            margin-top: 20px;
-        }
 
-        .profile-level span {
-            background-color: #DEDEDE;
-            width: 20px;
-            height: 6px;
-            border-radius: 4px;
-        }
-
-        .profile-level span.filled {
-            background-color: #262626;
-        }
-
-        .profile-level .level-title {
-            text-align: center;
-            font-family: 'gothicbold';
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-level .level-title #regular {
-            color: #DEDEDE;
-        }
 
         .profile-details div p {
             font-family: 'gothicbold';
@@ -278,16 +252,7 @@
                             </div>
                             <div class="col-12 p-0 mb-4">
                                 @forelse($notes as $note)
-                                    <div class="row-col" style="border:none">
-                                        <div class="row-details">
-                                            <img src="{{ $note->user_author->avatar }}" alt="">
-                                            <div>
-                                                <h4>{{ !$note->user_author->profile ? '' : $note->user_author->profile->fullname }}
-                                                </h4>
-                                                <p>{{ $note->body }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <x-staff-notes :note="$note" />
                                 @empty
                                     <div>
                                         <p>No Notes Found.</p>

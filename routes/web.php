@@ -31,6 +31,7 @@ use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\LuxeStore\OrderController;
 use App\Http\Controllers\LuxeStore\StoreController;
 use App\Http\Controllers\Video\VideoFileController;
+use App\Http\Controllers\Video\VideoViewController;
 use App\Http\Controllers\AddendumTemplateController;
 use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\MarketingTemplateController;
@@ -40,11 +41,13 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
+use App\Http\Controllers\CustomSectionController;
 use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
+use App\Models\CustomSection;
 
 /*
 |--------------------------------------------------------------------------
@@ -274,6 +277,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('marketing/{marketingCategory}/{template}', [MarketingCategoryController::class, 'template'])->name('marketing.template');
 
     Route::post('marketing/{marketingCategory}/{template}/email/send', [MarketingCategoryController::class, 'sendEmail'])->name('marketing.email');
+    Route::post('marketing/sendemail', [MarketingCategoryController::class, 'sendEmailForm'])->name('marketing.sendemail');
 
     Route::get('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'index']);
     Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
@@ -297,11 +301,13 @@ Route::group(
         Route::get('/videos/{video_id}', [VideoFolderController::class, 'show'])->name('video.single_video');
         Route::post('/videos/review', [VideoFolderController::class, 'create_review'])->name('video.create_review');
         Route::post('/videos/review/comment', [VideoFolderController::class, 'create_comment'])->name('video.create_comment');
+        Route::post('/videos/review/view', [VideoViewController::class, 'create'])->name('video.view.create');
         Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::post('events/attend', [EventController::class, 'attend'])->name('events.attend');
         Route::resource('events', EventController::class);
         Route::get('/events/{event}/attendance', [EventController::class, 'attendance'])->name('events.attendance');
+        Route::put('/events/{event}/attendance/{user}', [EventController::class, 'cancel_attendance'])->name('events.attendance.cancel');
         //        Route::get('bookings', [BookingController::class, 'index'])->name('bookings.index');
 
         Route::resource('files', FolderController::class);
@@ -350,6 +356,12 @@ Route::group(
 );
 
 Route::group(
+    ['middleware' => ['auth', 'staff', 'admin']],
+    function () {
+    }
+);
+
+Route::group(
     ['middleware' => ['auth']],
     function () {
         Route::get('optin-agents', [OptinController::class, 'index'])->name('optin.agents.index');
@@ -362,6 +374,8 @@ Route::group(
 Route::group(
     ['middleware' => ['auth', 'admin']],
     function () {
+        Route::resource('custom-section', CustomSectionController::class);
+
         Route::get('marketing/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'fields'])->name('template.fields');
         Route::post('marketing/{marketingCategory}/{template}/fields', [MarketingCategoryController::class, 'addField'])->name('field.store');
         Route::put('marketing/template/fields/update/{field}', [MarketingCategoryController::class, 'updateField'])->name('field.update');
@@ -387,12 +401,10 @@ Route::group(
         Route::get('view-profile/{id}', [UserController::class, 'view_profile']);
 
         Route::post('create-note', [UserController::class, 'create_note'])->name('create_note');
+        Route::delete('delete-note', [UserController::class, 'delete_note'])->name('delete_note');
         Route::get('/notes/{id}', [UserController::class, 'view_notes'])->name('notes');
     }
 );
-
-
-
 // Canva Marketing
 
 Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => ['auth']], function () {
@@ -507,6 +519,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     Route::get('update-role', [UserController::class, 'update_role']);
     Route::get('update-videos', [VideoController::class, 'update_videos']);
 });
+
 Route::group(['prefix' => 'themes', 'middleware' => ['auth']], function () {
     Route::get('/{path}', ThemeController::class)->where('path', '(.*)')->name('themes.page');
 });

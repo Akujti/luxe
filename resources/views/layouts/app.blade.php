@@ -10,8 +10,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>LUXE - PROPERTIES LLC</title>
-
-
+    <!-- Fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Tidio live chat script -->
 
     <script src="//code.tidio.co/frrxptsvozhi8x0bfw3gg5xbrc3leqdo.js" async></script>
@@ -226,12 +226,14 @@
                         <div
                             class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
                             <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
-                                <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px" alt="">
+                                <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px"
+                                    alt="">
                             </button>
                         </div>
                         <div
                             class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
-                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="73px"></a>
+                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt=""
+                                    height="73px"></a>
                         </div>
                         <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
@@ -242,20 +244,19 @@
                                             alt=""></a>
                                     <div class="sidebar__item-menu search-box d-none">
                                         <a href="#">
-                                            <form action="{{ route('user.search') }}" method="get"
-                                                class="">
+                                            <form action="{{ route('user.search') }}" method="get" class="">
                                                 <input type="search" id="search-input" name="search"
                                                     placeholder="Search and press Enter.">
                                             </form>
                                         </a>
                                     </div>
-                                    <a href="#" onclick="toggleSearch()" data-toggle="tooltip" data-placement="top"
-                                        title="Search"><img src="/images/search-icon.svg" alt=""></a>
+                                    <a href="#" onclick="toggleSearch()" data-toggle="tooltip"
+                                        data-placement="top" title="Search"><img src="/images/search-icon.svg"
+                                            alt=""></a>
                                     @auth
                                         <div class="sidebar__item-menu">
                                             <a href="#" data-toggle="tooltip" data-placement="top" title="Logout">
-                                                <form action="{{ route('logout') }}" method="post"
-                                                    class="m-0">
+                                                <form action="{{ route('logout') }}" method="post" class="m-0">
                                                     @csrf
                                                     <button class="btn btn-link text-white p-0"><img
                                                             src="/images/logout.svg" alt=""></button>
@@ -305,7 +306,8 @@
                                     <img src="/images/logo.png" height="50px" alt=""
                                         onclick="window.location.href = '{{ url('/home') }}'">
                                     <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
-                                        <img src="/images/index-page/close-icon.svg" width="40px" height="40px" alt="">
+                                        <img src="/images/index-page/close-icon.svg" width="40px" height="40px"
+                                            alt="">
                                     </button>
                                 </div>
                                 <div class="w-100 sidebar-logo-details-details row p-0 m-0 align-items-center mt-4">
@@ -316,8 +318,7 @@
                                         {{-- <a href="#"><img src="/images/search-icon.svg" alt=""></a> --}}
                                         @auth
                                             <a href="#">
-                                                <form action="{{ route('logout') }}" method="post"
-                                                    class="m-0">
+                                                <form action="{{ route('logout') }}" method="post" class="m-0">
                                                     @csrf
                                                     <button class="btn btn-link text-white p-0 "><img
                                                             src="/images/logout.svg" alt=""></button>
@@ -358,7 +359,8 @@
                                     @endauth
                                     <li
                                         class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if (isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ isset($active) && $active == 'marketing_branding' ? 'active selected' : '' }}">
-                                        <a href="{{ url('/home?dir=marketing_branding') }}">Marketing & Branding </a>
+                                        <a href="{{ url('/home?dir=marketing_branding') }}">Marketing & Branding
+                                        </a>
                                         <em id="li-plus"><img src="/images/plus.png"></em>
                                         <em id="li-minus"><img src="/images/minus.png"></em>
 
@@ -399,13 +401,15 @@
                                             <li><a class="{{ isset($subactive) && $subactive == 'downloadable_guides' ? 'active_submenu' : '' }}"
                                                     href="{{ url('user/files') }}">Downloadable
                                                     Docs, Guides & Excels</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('agreement-agents') }}">Mentors</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('coaching.index') }}">Coaching</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'email_addendum_verbiage_builder' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=email_addendum_verbiage_builder') }}">Email
                                                     &
                                                     Addendum Verbiage Builder</a>
                                             </li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('agreement-agents') }}">Mentors</a></li>
                                         </ul>
                                     </li>
                                     <li
@@ -433,7 +437,8 @@
                                                     href="{{ url('/home?dir=coming_soon') }}">Get Contract Help</a>
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'design_requests' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('marketing.requests') }}">Design Requests</a></li>
+                                                    href="{{ route('marketing.requests') }}">Design Requests</a>
+                                            </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'wire_instructions_requests' ? 'active_submenu' : '' }}"
                                                     href="{{ url('general/form/other/wire-instructions-request') }}">Wire
                                                     Instructions
@@ -452,8 +457,7 @@
 
                                         <ul class="w-100">
                                             <li><a class="{{ isset($subactive) && $subactive == 'rental_escrow' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('store/grab-go-merchandise') }}">Grab & Go
-                                                    Merchandise</a>
+                                                    href="{{ url('store/grab-go-merchandise') }}">Printed Guides</a>
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'listing_coordinators' ? 'active_submenu' : '' }}"
                                                     href="{{ url('store/luxe-apparel') }}">LUXE Apparel</a></li>
@@ -480,7 +484,8 @@
                                                     href="{{ url('/home?dir=coming_soon') }}">Your LUXE
                                                     Staff</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('general/form/agent_referrals/index') }}">New Agents
+                                                    href="{{ url('general/form/agent_referrals/index') }}">New
+                                                    Agents
                                                     &
                                                     Referrals</a></li>
                                         </ul>

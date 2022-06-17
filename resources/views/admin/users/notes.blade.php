@@ -200,15 +200,7 @@
                         </div>
                         <div class="col-12 p-0">
                             @forelse($notes as $note)
-                                <div class="row-col">
-                                    <div class="row-details">
-                                        <img src="{{ $note->user_author->avatar }}" alt="">
-                                        <div>
-                                            <h4>{{ $note->user_author->profile->fullname }}</h4>
-                                            <p>{{ $note->body }}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <x-staff-notes :note="$note" />
                             @empty
                                 <div>
                                     <p>No Notes Found.</p>

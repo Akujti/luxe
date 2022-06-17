@@ -70,7 +70,6 @@
         .modal-new select {
             border-radius: 3px;
         }
-
     </style>
 @endsection
 @section('content')
@@ -98,7 +97,8 @@
                                 <div class="form-group">
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="title" name="title" class="w-100 form-control" required>
+                                        <input type="text" id="title" name="title" class="w-100 form-control"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -112,7 +112,8 @@
                                     <div class="form-group w-50 pr-1">
                                         <label for="start">{{ __('Start Time') }}</label>
                                         <div class='input-group date'>
-                                            <input type="time" id="start_time" name="start_time" class="w-100 form-control">
+                                            <input type="time" id="start_time" name="start_time"
+                                                class="w-100 form-control">
                                         </div>
                                     </div>
                                     <div class="form-group w-50 pl-1">
@@ -191,15 +192,15 @@
                         @method('PUT')
                         <input type="hidden" name="event_id" id="event_id_1">
                         <div class="modal-body">
-                            @if ($isAdmin)
+                            @if (auth()->user()->role == 'admin' || auth()->user()->role == 'other')
                                 <a class="btn btn-luxe mb-3" href="" id="event_stats_link">Show attendance</a>
                             @endif
                             <div class="form-group">
                                 <div class="">
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="title" name="title" class="w-100 form-control update_field"
-                                            disabled required>
+                                        <input type="text" id="title" name="title"
+                                            class="w-100 form-control update_field" disabled required>
                                     </div>
                                 </div>
                                 <div class="mt-1">
@@ -231,8 +232,8 @@
                                 <div class='input-group date'>
                                     @if ($isAdmin)
                                         <label for="rsvp1">{{ __('RSVP') }}</label>
-                                        <input type="url" name="rsvp" id="rsvp1" class="w-100 form-control update_field"
-                                            disabled>
+                                        <input type="url" name="rsvp" id="rsvp1"
+                                            class="w-100 form-control update_field" disabled>
                                     @endif
                                     <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
                                         class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
@@ -245,8 +246,8 @@
                                 <div class='input-group date'>
                                     @if ($isAdmin)
                                         <label for="zoom1">{{ __('ZOOM') }}</label>
-                                        <input type="url" name="zoom" id="zoom1" class="w-100 form-control update_field"
-                                            disabled>
+                                        <input type="url" name="zoom" id="zoom1"
+                                            class="w-100 form-control update_field" disabled>
                                     @endif
                                     <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
                                         class="btn btn-luxe w-100 mt-2" style="color: white !important;">
@@ -267,7 +268,8 @@
                                         <option value="volunteering">Volunteering</option>
                                     </select>
                                 @else
-                                    <input type="text" id="event_type" class="w-100 form-control text-capitalize" disabled>
+                                    <input type="text" id="event_type" class="w-100 form-control text-capitalize"
+                                        disabled>
                                 @endif
                             </div>
                             <div class="form-group image_group d-none">

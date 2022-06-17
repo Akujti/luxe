@@ -374,6 +374,65 @@
     </div>
 </div>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    var iframe = document.querySelector('iframe');
+    var player = new Vimeo.Player(iframe);
+    
+    var [played, startPlay, durationVideo] = [0, false, 0];
+    player.getDuration().then(function(duration) {
+        durationVideo = Math.floor(duration)
+    })
+    player.on('play', function() {
+        if(!startPlay) {
+            startPlay = true;
+            counter();
+        }
+    });
+    player.on('pause', function() {
+        if(startPlay) {
+            startPlay = false;
+            clearInterval(counter.timer);
+        }
+    });
+    player.on('seeking', function() {
+        if(startPlay) {
+            startPlay = false;
+            clearInterval(counter.timer);
+        }
+    });
+    player.on('seeked', function() {
+        if(!startPlay) {
+            startPlay = true;
+            counter();
+        }
+    });
+    function counter() {
+        if (typeof counter.timer == 'undefined') {
+            counter.timer = 0;
+        }
+        counter.timer = setInterval(function() {
+            played++;
+            if(Math.floor(durationVideo / 2) == played) {
+                var data = {
+                    'video_id': '{{ $video->id }}',
+                }
+                var url = "{{ route('video.view.create') }}"
+                $.ajax({
+                    url: url,
+                    data: data,
+                    type: "post",
+                    headers: {
+                        "X-CSRF-Token": $('[name="_token"]').val(),
+                    },
+                    success: function (output) {
+                    },
+                });
+            }
+        }, 1000);
+    }
+</script>
+
 <script>
     function toggleForm() {
         $('.review-box').toggleClass('d-none')

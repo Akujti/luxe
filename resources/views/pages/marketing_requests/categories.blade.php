@@ -105,47 +105,69 @@
         <p>Please select the category which you would like to design.</p>
     </div>
     <div class="row align-items-center justify-content-center">
+        <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-4">
+                    <form action="{{ route('marketing.sendemail') }}" method="POST" class="row p-0 m-0">
+                        @csrf
+                        <input type="hidden" name="form_title" value="Design Request">
 
-        <div class="col-8">
-            <div class="row">
-                <div class="col-6">
-                    <div class="img-box">
-                        <img id="img-preview" class="d-none" src="" alt="">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <form action="">
-                        <div class="form-group">
-                            <label for="">Categories</label>
+                        <div class="form-group col-12 p-0">
+                            <label for="">Agent Name</label>
                             <div class="input-group">
-                                <select name="" id="category" class="form-control" onchange="checkCategories(this)">
+                                <input type="text" name="agent_name" class="form-control" value="{{ auth()->user()->profile->fullname }}">
+                            </div>
+                        </div>
+                        <div class="form-group col-12 p-0">
+                            <label for="">Email</label>
+                            <div class="input-group">
+                                <input type="text" name="agent_email" class="form-control" value="{{ auth()->user()->email }}">
+                            </div>
+                        </div>
+                        <div class="form-group col-12 p-0">
+                            <label for="">Please select a marketing item form the drop-down below:</label>
+                            <div class="input-group">
+                                <select name="marketing_item" id="category" class="form-control" required>
                                     <option value="">-- Choose One --</option>
-                                    @forelse($diy_categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                    @empty
-                                    <option value="">No options found.</option>
-                                    @endforelse
+                                    <option value="Email Blast">Email Blast</option>
+                                    <option value="Postcard/Mailer">Postcard/Mailer</option>
+                                    <option value="Social Media Post">Social Media Post</option>
+                                    <option value="Flyer">Flyer</option>
+                                    <option value="Door Hanger">Door Hanger</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group d-none" id="sub-category-box">
-                            <label for="">Sub Categories</label>
+                        <div class="form-group col-12 p-0">
+                            <label for="">Please select topic/theme for marketing item from the drop-down below:</label>
                             <div class="input-group">
-                                <select name="" id="sub-category-select" class="form-control" onchange="checkTemplates('sub-category-select')">
+                                <select name="theme" id="sub-category-select" class="form-control" required>
                                     <option value="">-- Choose One --</option>
+                                    <option value="Just Listed">Just Listed</option>
+                                    <option value="Just Closed">Just Closed</option>
+                                    <option value="Under Contract">Under Contract</option>
+                                    <option value="For Rent/Lease">For Rent/Lease</option>
+                                    <option value="What's Your Home Worth (Farming)">What's Your Home Worth (Farming)</option>
+                                    <option value="Neighborhood Expert (Farming)">Neighborhood Expert (Farming)</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group d-none" id="template-box">
-                            <label for="">Templates</label>
+                        <div class="form-group col-12 p-0">
+                            <label for="">Would you like to use LUXE colors for the design?</label>
                             <div class="input-group">
-                                <select name="" id="template-select" class="form-control" onchange="checkDetails(this)">
-                                    <option value="">-- Choose One --</option>
+                                <select name="" id="colors-select" class="form-control" onchange="checkColor('colors-select')">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group d-none col-12 p-0" id="colors">
+                            <label for="">Please enter your preferred colors?</label>
+                            <div class="input-group">
+                                <input type="text" name="colors" class="form-control">
                             </div>
                         </div>
 
-                        <button type="button" class="btn-luxe w-100">Request</button>
+                        <button type="submit" class="btn-luxe w-100">Request</button>
                     </form>
                 </div>
             </div>
@@ -168,80 +190,89 @@
 @endsection
 
 <script>
-    var categories = JSON.parse(JSON.stringify(<?php echo json_encode($diy_categories); ?>));
+    // var categories = JSON.parse(JSON.stringify(<?php echo json_encode($diy_categories); ?>));
 
-    function checkCategories(e) {
-        var select_box = $('#category').val()
+    // function checkCategories(e) {
+    //     var select_box = $('#category').val()
 
-        var sub_categories = categories.filter(x => x.id == select_box)[0].categories;
-        $('#sub-category-select').find('option:not(:first)').remove();
+    //     var sub_categories = categories.filter(x => x.id == select_box)[0].categories;
+    //     $('#sub-category-select').find('option:not(:first)').remove();
 
-        if(sub_categories.length) {
-            $('#template-box').addClass('d-none')
-            $('#template-select').find('option:not(:first)').remove();
-            $('#sub-category-box').removeClass('d-none');
+    //     if(sub_categories.length) {
+    //         $('#template-box').addClass('d-none')
+    //         $('#template-select').find('option:not(:first)').remove();
+    //         $('#sub-category-box').removeClass('d-none');
 
-            $.each(sub_categories, function(i, item) {
-                $('#sub-category-select').append($('<option>', {
-                    value: item.id,
-                    text: item.title
-                }))
-            })
-        } else {
-            $('#sub-category-box').addClass('d-none');
-            this.checkTemplates('category');
-        }
-    }
+    //         $.each(sub_categories, function(i, item) {
+    //             $('#sub-category-select').append($('<option>', {
+    //                 value: item.id,
+    //                 text: item.title
+    //             }))
+    //         })
+    //     } else {
+    //         $('#sub-category-box').addClass('d-none');
+    //         this.checkTemplates('category');
+    //     }
+    // }
 
-    function checkTemplates(select_id) {
+    // function checkTemplates(select_id) {
+    //     var select_box = $('#' + select_id).val()
+
+    //     $.ajax({
+    //         url: "{{ route('design.requests.templates') }}?category_id=" + select_box,
+    //         type: "get",
+    //         cache: false,
+    //         contentType: false,
+    //         processData: false,
+    //         headers: {
+    //             "X-CSRF-Token": $('[name="_token"]').val(),
+    //         },
+    //         success: function (output) {
+    //             $('#template-select').find('option:not(:first)').remove();
+    //             if(output) {
+    //                 $('#template-box').removeClass('d-none')
+    //                 $.each(output, function(i, item) {
+    //                     $('#template-select').append($('<option>', {
+    //                         value: item.id,
+    //                         text: item.title
+    //                     }))
+    //                 })
+    //             } else {
+    //                 $('#template-box').addClass('d-none')
+    //             }
+    //         },
+    //     });
+    // }
+    // function checkDetails(e) {
+    //     var select_box = $('#template-select').val()
+    //     var url = '{{ route("design.requests.template", ":template_id") }}';
+    //     url = url.replace(':template_id', select_box);
+    //     $.ajax({
+    //         url: url,
+    //         type: "get",
+    //         cache: false,
+    //         contentType: false,
+    //         processData: false,
+    //         headers: {
+    //             "X-CSRF-Token": $('[name="_token"]').val(),
+    //         },
+    //         success: function (output) {
+    //             if(output) {
+    //                 $('#img-preview').attr('src', output.image)
+    //                 $('#img-preview').removeClass('d-none')
+    //             } else {
+    //                 $('#img-preview').addClass('d-none')
+    //             }
+    //         },
+    //     });
+    // }
+
+    function checkColor(select_id) {
         var select_box = $('#' + select_id).val()
-
-        $.ajax({
-            url: "{{ route('design.requests.templates') }}?category_id=" + select_box,
-            type: "get",
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                "X-CSRF-Token": $('[name="_token"]').val(),
-            },
-            success: function (output) {
-                $('#template-select').find('option:not(:first)').remove();
-                if(output) {
-                    $('#template-box').removeClass('d-none')
-                    $.each(output, function(i, item) {
-                        $('#template-select').append($('<option>', {
-                            value: item.id,
-                            text: item.title
-                        }))
-                    })
-                } else {
-                    $('#template-box').addClass('d-none')
-                }
-            },
-        });
-    }
-    function checkDetails(e) {
-        var select_box = $('#template-select').val()
-        var url = '{{ route("design.requests.template", ":template_id") }}';
-        url = url.replace(':template_id', select_box);
-        $.ajax({
-            url: url,
-            type: "get",
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                "X-CSRF-Token": $('[name="_token"]').val(),
-            },
-            success: function (output) {
-                if(output) {
-                    $('#img-preview').attr('src', output.image)
-                    $('#img-preview').removeClass('d-none')
-                } else {
-                    $('#img-preview').addClass('d-none')
-                }
-            },
-        });
+        if(select_box == 'no') {
+            $('#colors').removeClass('d-none')
+        } else {
+            $('#colors').addClass('d-none')
+        }
     }
 </script>

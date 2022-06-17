@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\BookingMail;
-use App\Mail\MarketingRequestMail;
 use App\Models\Event;
-use App\Models\MarketingCategory;
 use App\Models\Template;
+use App\Mail\BookingMail;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Models\TemplateField;
 use App\Models\TemplateSubmit;
-use Illuminate\Http\Request;
+use App\Mail\GeneralMailTemplate;
+use App\Models\MarketingCategory;
+use App\Mail\MarketingRequestMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class MarketingCategoryController extends Controller
 {
@@ -204,5 +205,21 @@ class MarketingCategoryController extends Controller
     {
         $template->delete();
         return redirect()->route('marketing.request', $marketingCategory)->with('message', 'Deleted successfully');
+    }
+
+    public function sendEmailForm(Request $req) {
+        $cc = [];
+        $details = [];
+        foreach ($req->except('_token', 'to_email') as $key => $val) {
+            if($key == 'colors') {
+                $details[strtolower($key)] = $val ?? 'Luxe Colors';
+            } else {
+                $details[strtolower($key)] = $val;
+            }
+        }
+        $to = ['marketing@luxeknows.com', auth()->user()->email];
+        Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+
+        return back()->with('message', 'Submitted successfully');
     }
 }
