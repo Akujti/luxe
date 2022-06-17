@@ -90,12 +90,16 @@
         .log-item {
             height: 200px !important;
         }
+        .box-guides a {
+            color: #262626;
+        }
 
         .box-guides .box-guide a {
             display: flex;
             align-items: center;
             width: 90%;
             gap: 0px 10px;
+            color: #262626;
         }
 
         .box-guide p {
@@ -186,7 +190,7 @@
                         News Feed
                     </div>
                     <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
-                        <div class="border rounded p-2 w-100" style="border-color: #F7F7F7">
+                        <div class="border rounded p-2 w-100" style="border-color: #F7F7F7;white-space:pre-wrap;word-break:break-all">
                             @php
                                 $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
                             @endphp
