@@ -30,7 +30,7 @@
         }
 
         .box-item p {
-            font-size: 25px;
+            font-size: 20px;
             font-family: 'gothicregular';
         }
 
@@ -158,7 +158,7 @@
     <div class="container-fluid">
         @if (auth()->user()->role == 'agent' && !isset($_GET['dir']))
             <div class="col-12 title mb-3">
-                <h1>Welcome to LUXE</h1>
+                <h1>WELCOME TO MYLUXEHUB</h1>
             </div>
 
             <div class="row p-0 m-0 mb-5 mt-4">
@@ -190,19 +190,19 @@
                         News Feed
                     </div>
                     <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
-                        <div class="border rounded p-2 w-100" style="border-color: #F7F7F7;white-space:pre-wrap;word-break:break-all">
+                        <div class="border rounded p-2 w-100" style="border-color: #F7F7F7;">
                             @php
                                 $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
                             @endphp
                             @if ($news_feed)
-                                {{ $news_feed->text }}
+                                {!! $news_feed->text !!}
                             @endif
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="mb-2 log-title">
-                        Form Requests
+                        Office Requests
                     </div>
                     <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
                         <div class="row m-0 logs w-100">
@@ -303,7 +303,7 @@
                     <div class="box-item" onclick="window.location='{{ url('/home?dir=training_knowledge_center') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
-                            <p>Training & Knowledge Center</p>
+                            <p>Training &<br> Knowledge Center</p>
                         </div>
                     </div>
                 </div>
@@ -311,7 +311,7 @@
                     <div class="box-item" onclick="window.location='{{ url('/home?dir=leads_services_support') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/leads-icon.svg" alt="">
-                            <p>Leads, Services & Support<br>&nbsp;</p>
+                            <p>Leads, Services <br>& Support</p>
                         </div>
                     </div>
                 </div>
@@ -497,15 +497,26 @@
                     </div>
                 </div>
         </div>
+        <div class="row p-0 m-0 w-100 mb-3" style="border-bottom: 1px solid #00000014;"></div>
         <div class="row w-100 p-0 m-0">
             <div class="col-12 col-md-6 mb-4 mb-md-auto pl-0 pr-sm-0">
-                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: 470px !important;">
+                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: 515px !important;">
                     <div class="w-100 row p-0 m-0">
-                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
+                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-3 px-4">
                             <span>Submit Custom Marketing Request</span>
-                            <a class="text-luxe" href="{{ route('marketing.requests') }}">See more</a>
                         </h3>
-                        @forelse($marketing_requests as $marketing_request)
+
+                        <div class="template-box-images">
+                            <img src="/images/templates-examples/template1.png" alt="">
+                            <img src="/images/templates-examples/template2.png" alt="">
+                            <img src="/images/templates-examples/template3.png" alt="">
+                            <img src="/images/templates-examples/template4.png" alt="">
+                        </div>
+                        <div class="mt-2 px-4 w-100">
+                            <a class="text-luxe btn-luxe btn-block" style="font-family:gothicbold;" href="{{ route('marketing.requests') }}">Click Here</a>
+                        </div>
+
+                        {{-- @forelse($marketing_requests as $marketing_request)
                             <div class="box-guide col-12 pl-4">
                                 <a href="{{ route('marketing.request', $marketing_request) }}" class="text-luxe w-100">
                                     <img src="{{ $marketing_request->image }}" alt="">
@@ -516,14 +527,14 @@
                             <div class="box-guide justify-content-start pl-4">
                                 <p>No results found.</p>
                             </div>
-                        @endforelse
+                        @endforelse --}}
                     </div>
                 </div>
             </div>
             <div class="col-md-6 pr-0 pl-sm-0">
-                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: 470px !important;">
+                <div class="box-item align-items-start box-guides row p-0 m-0" style="height: 515px !important;">
                     <div class="w-100 row p-0 m-0">
-                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
+                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-3 px-4">
                             <span>Downloadable Guides</span>
                             <a class="text-luxe" href="{{ route('guides.index') }}">See more</a>
                         </h3>
@@ -632,73 +643,39 @@
                 </div>
             </div>
         </div>
+        <div class="row p-0 m-0 w-100 mb-3 mt-4" style="border-bottom: 1px solid #00000014;"></div>
         <div class="row w-100 mt-4 p-0 email-blasts-box m-0">
             <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4"
                 style="font-family: gothicbold;font-size:20px">Click to view our recent email blasts</h3>
+            @forelse($email_blasts as $email_blast)
             <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-auto">
                 <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2"
                     style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                 <div class="box-item align-items-start bg-transparent row p-0 m-0">
                     <div class="w-100">
                         <x-preview-image>
-                            <img src="/images/email-blasts-examples/img1.png" class="rounded modal-target"
+                            <img src="{{ $email_blast->image_url }}" class="rounded modal-target"
                                 alt="">
                         </x-preview-image>
-                        <p class="pt-2">Newsletter</p>
+                        <p class="pt-2">{{ $email_blast->title }}</p>
                         <form action="{{ route('marketing.sendemail') }}" method="POST">
                             @csrf
                             <input type="hidden" name="form_title" value="Email Blast Design Request">
                             <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
                             <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
-                            <input type="hidden" name="email_blast" value="Newsletter">
+                            <input type="hidden" name="email_blast" value="{{ $email_blast->title }}">
                             <button class="btn-luxe btn-block mb-3">Submit your request</button>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2"
-                    style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
-                <div class="box-item align-items-start bg-transparent row p-0 m-0">
-                    <div class="w-100">
-                        <x-preview-image>
-                            <img src="/images/email-blasts-examples/img2.png" class="rounded modal-target"
-                                alt="">
-                        </x-preview-image>
-                        <p class="pt-2">Monthly Properties</p>
-                        <form action="{{ route('marketing.sendemail') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="form_title" value="Email Blast Design Request">
-                            <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
-                            <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
-                            <input type="hidden" name="email_blast" value="Monthly Properties">
-                            <button class="btn-luxe btn-block mb-3">Submit your request</button>
-                        </form>
-                    </div>
+            @empty
+                <div class="box-guide justify-content-start pl-4">
+                    <p>No results found.</p>
                 </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2"
-                    style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
-                <div class="box-item align-items-start bg-transparent row p-0 m-0">
-                    <div class="w-100">
-                        <x-preview-image>
-                            <img src="/images/email-blasts-examples/img3.png" class="rounded modal-target"
-                                alt="">
-                        </x-preview-image>
-                        <p class="pt-2">Holidays</p>
-                        <form action="{{ route('marketing.sendemail') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="form_title" value="Email Blast Design Request">
-                            <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
-                            <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
-                            <input type="hidden" name="email_blast" value="Holidays">
-                            <button class="btn-luxe btn-block mb-3">Submit your request</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            @endforelse
         </div>
+        <div class="row p-0 m-0 w-100 mb-3 mt-4" style="border-bottom: 1px solid #00000014;"></div>
         <div class="row w-100 my-4">
             <div class="col-md-6">
                 <div class="box-item align-items-start box-guides row p-0 m-0 bg-transparent"
@@ -796,7 +773,7 @@
         <div class="col-12 title mb-3">
             <h1>Leads, Services, & Support</h1>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location='{{ url('/home?dir=leads') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/services_staff_requests-icon.svg" alt="">
@@ -804,7 +781,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item"
                 onclick="window.location='{{ url('/home?dir=request_listing_closing_coordinators') }}'">
                 <div>
@@ -813,7 +790,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/escrow/index') }}'">
                 <div>
                     <img src="/images/index-page/rental_escrow.svg" class="icon" alt="">
@@ -821,7 +798,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('appointments/create') }}'">
                 <div>
                     <img src="/images/index-page/open_house_signup.svg" class="icon" alt="">
@@ -829,7 +806,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('/home?dir=coming_soon') }}'">
                 <div>
                     <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
@@ -837,7 +814,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ route('marketing.requests') }}'">
                 <div>
                     <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
@@ -845,7 +822,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item"
                 onclick="window.location = '{{ url('general/form/other/wire-instructions-request') }}'">
                 <div>
@@ -862,7 +839,7 @@
         <div class="col-12 title mb-3">
             <h1>Request Listing/Closing Coordinators</h1>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('listing-coordinators') }}'">
                 <div>
                     <img src="/images/index-page/listing_coordinators.svg" class="icon" alt="">
@@ -870,7 +847,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item"
                 onclick="window.location = '{{ url('general/form/other/closing-coordinators-agents') }}'">
                 <div>
@@ -887,28 +864,28 @@
         <div class="col-12 title mb-3">
             <h1>Leads</h1>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/leads/index') }}'">
                 <div>
                     <img src="/images/index-page/partner_1-removebg-preview.png" alt="">
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/leads/request-leads') }}'">
                 <div>
                     <img src="/images/index-page/partner_2-removebg-preview.png" alt="">
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/leads/opcity-leads') }}'">
                 <div>
                     <img src="/images/index-page/partner_3-removebg-preview.png" alt="">
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/leads/prime-street-leads') }}'">
                 <div>
                     <img src="/images/index-page/partner_4-removebg-preview.png" alt="">
@@ -961,6 +938,7 @@
             @media (min-width: 1329px) and (max-width: 1633px) {
                 .video .title {
                     margin-bottom: 25px;
+                    font-size: 15px;
                 }
 
                 .video .time:nth-child(2) {
@@ -972,7 +950,7 @@
             <h1>Training & Knowledge Center</h1>
         </div>
         <div class="col-12 w-100">
-            <section id="slider" class="w-100 mb-3">
+            <section id="slider" class="w-100">
                 <div class="container-slide">
                     <div class="subcontainer">
                         <div class="slider-wrapper">
@@ -1012,7 +990,11 @@
                     </div>
                 </div>
             </section>
+            <div class="w-100 text-center mb-3">
+                <a href="{{ route('videos') }}" class="btn btn-luxe">View all training videos</a>
+            </div>
         </div>
+        <div class="row p-0 m-0 w-100 mb-3 mx-2" style="border-bottom: 1px solid #00000014;"></div>
         <script type="text/javascript" src="{{ asset('js/tiny-slider.js') }}"></script>
         <div class="col-12 mb-4">
             <h2 class="title-video">More ways to keep expanding your knowledge</h2>
@@ -1042,50 +1024,72 @@
                 }
             }
         </style>
-        <div class="row p-0 m-0 row-small-boxes mb-4" style="gap:13px">
-            <div class="box-item small-box" onclick="window.location = '{{ url('user/videos') }}'">
-                <div>
-                    <img src="/images/index-page/training_videos.svg" class="icon" alt="">
-                    <p>LUXE Online University</p>
-                    &nbsp;
+        <div class="row p-0 m-0 row-small-boxes mb-4 w-100">
+            <div class="col-md-12 col-12 col-lg-8 row row-small-boxes p-0 m-0" style="gap:13px;display: grid;
+    grid-template-columns: repeat(3, 1fr);">
+                <div class="box-item small-box" onclick="window.location = '{{ url('user/videos') }}'">
+                    <div>
+                        <img src="/images/index-page/training_videos.svg" class="icon" alt="">
+                        <p>LUXE Online University</p>
+                        &nbsp;
+                    </div>
                 </div>
-            </div>
 
-            <div class="box-item small-box" onclick="window.location='{{ url('/user/events') }}'">
-                <div>
-                    <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
-                    <p>Training & Events <br>Calendar</p>
-                    &nbsp;
+                <div class="box-item small-box" onclick="window.location='{{ url('/user/events') }}'">
+                    <div>
+                        <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
+                        <p>Training & Events <br>Calendar</p>
+                        &nbsp;
+                    </div>
                 </div>
-            </div>
 
-            <div class="box-item small-box" onclick="window.location = '{{ url('user/files') }}'">
-                <div>
-                    <img src="/images/index-page/office_documents.svg" class="icon" alt="">
-                    <p>Downloadable Docs, Guides & Excels</p>
+                <div class="box-item small-box" onclick="window.location = '{{ url('user/files') }}'">
+                    <div>
+                        <img src="/images/index-page/office_documents.svg" class="icon" alt="">
+                        <p>Downloadable <br>Docs, Guides & Excels</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="box-item small-box" onclick="window.location = '{{ url('user/coaching') }}'">
-                <div>
-                    <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                    <p>Coaching</p>
-                    <br>&nbsp;&nbsp;
+                <div class="box-item small-box" onclick="window.location = '{{ url('user/coaching') }}'">
+                    <div>
+                        <img src="/images/index-page/mentors.svg" class="icon" alt="">
+                        <p>Luxe Coaching</p>
+                        <br>&nbsp;&nbsp;
+                    </div>
                 </div>
-            </div>
 
-            <div class="box-item small-box"
-                onclick="window.location = '{{ url('/home?dir=email_addendum_verbiage_builder') }}'">
-                <div>
-                    <img src="/images/index-page/email_templates.svg" class="icon" alt="">
-                    <p>Email & Addendum Verbiage Builder</p>
+                <div class="box-item small-box"
+                    onclick="window.location = '{{ url('/home?dir=email_addendum_verbiage_builder') }}'">
+                    <div>
+                        <img src="/images/index-page/email_templates.svg" class="icon" alt="">
+                        <p>Email & Addendum <br>Verbiage Builder</p>
+                    </div>
+                </div>
+                <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
+                    <div>
+                        <img src="/images/index-page/mentors.svg" class="icon" alt="">
+                        <p>Luxe Mentors</p>
+                        <br>&nbsp;&nbsp;
+                    </div>
                 </div>
             </div>
-            <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
-                <div>
-                    <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                    <p>Mentors</p>
-                    <br>&nbsp;&nbsp;
+            <div class="col-12 col-md-12 col-lg-4">
+                <div class="box-item align-items-start box-guides row p-0 m-0" style="height:auto !important">
+                    <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
+                        <span>Upcoming Events</span>
+                    </h3>
+
+                    @forelse($upcoming_events as $event)
+                        <div class="box-guide col-12">
+                            <a href="" class="text-dark">
+                                <p>{{ $event->title }} - {{ $event->date }}</p>
+                            </a>
+                        </div>
+                    @empty
+                        <div class="box-guide justify-content-start pl-4">
+                            <p>No results found.</p>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -1117,7 +1121,7 @@
         <div class="col-12 title mb-3">
             <h1>Office & Staff Directory</h1>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location='{{ url('/office-locations') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/office_locations-icon.svg" alt="">
@@ -1125,7 +1129,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('bookings') }}'">
                 <div>
                     <img src="/images/index-page/conference_room.svg" class="icon" alt="">
@@ -1133,7 +1137,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('/home?dir=coming_soon') }}'">
                 <div>
                     <img src="/images/index-page/leads-icon.svg" class="icon" alt="">
@@ -1141,7 +1145,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
                 <div>
                     <img src="/images/index-page/new_agents_referrals.svg" class="icon" alt="">
@@ -1403,7 +1407,7 @@
         <div class="col-12 title mb-3">
             <h1>Referral Partners</h1>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('home?dir=lending_services') }}'">
                 <div>
                     <img src="/images/index-page/landing_services.svg" class="icon" alt="">
@@ -1411,7 +1415,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
                 <div>
                     <img src="/images/index-page/inspectors.svg" class="icon" alt="">
@@ -1419,7 +1423,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
                 <div>
                     <img src="/images/index-page/tax_accountants.svg" class="icon" alt="">
@@ -1427,7 +1431,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
                 <div>
                     <img src="/images/index-page/insurance.svg" class="icon" alt="">
@@ -1436,6 +1440,10 @@
             </div>
         </div>
     @elseif($_GET['dir'] == 'lending_services')
+        <?php
+            $active = 'referral_partners';
+            $subactive = 'lending_services';
+        ?>
         <div class="col-12 title mb-3">
             <h1>Lending Services</h1>
         </div>

@@ -188,6 +188,20 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="name">Do you need to be paused?</label>
+                                <select 
+                                    class="form-control" name="do_you_need_to_be_paused" required id="pausedToggle" onchange="togglePausedSelect('pausedToggle')">
+                                    <option value="-">-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6 d-none" id="paused_reason">
+                                <label for="name">Reason for Zillow Pause</label>
+                                <input type="text" class="form-control" name="reason">
+                            </div>
+                            
+                            <div class="form-group col-md-6">
                                 <label for="name">If Paused, please advise if you would like to stay paused in Yes/No
                                     format</label>
                                 <select name="if_paused_please_advise_if_you_would_like_to_stay_paused"
@@ -234,6 +248,7 @@
                                     <option value="30">30</option>
                                 </select>
                             </div>
+                            
 
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
@@ -272,6 +287,15 @@
         function deleteSubmissions() {
             if (confirm('Are you sure, you want to delete all submissions for this form?'))
                 $('#deleteSubmissions').submit()
+        }
+
+        function togglePausedSelect(select_id) {
+            var value = $('#' + select_id).val();
+            if(value == 'Yes') {
+                $('#paused_reason').removeClass('d-none')
+            } else {
+                $('#paused_reason').addClass('d-none')
+            }
         }
     </script>
 @endsection

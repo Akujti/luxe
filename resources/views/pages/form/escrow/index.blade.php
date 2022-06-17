@@ -47,7 +47,7 @@
     }
 
     .box-item a {
-        font-size: 25px;
+        font-size: 20px;
         font-family: 'gothicregular';
         color: #262626;
     }
@@ -77,7 +77,7 @@
                         <div class="col-md-4 mb-4">
                             <div class="box-item">
                                 <a href="{{route('general.email.index',['folder'=>'escrow','form'=>'request-escrow-letter'])}}"
-                                    class="btn w-100 d-flex align-items-center justify-content-center">Request Escrow
+                                    class="btn w-100 d-flex align-items-center justify-content-center">Request Escrow<br>
                                     Letter</a>
                             </div>
                         </div>

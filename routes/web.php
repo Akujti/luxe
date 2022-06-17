@@ -44,6 +44,7 @@ use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\CustomSectionController;
 use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
+use App\Http\Controllers\EmailBlastHomePageController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
@@ -516,8 +517,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
         });
     });
 
+    
+
     Route::get('update-role', [UserController::class, 'update_role']);
     Route::get('update-videos', [VideoController::class, 'update_videos']);
+
+    // Email blast home page
+    Route::group(['prefix' => 'email-blasts', 'as' => 'email_blasts.'], function () {
+        Route::get('/', [EmailBlastHomePageController::class, 'admin_index'])->name('index');
+        Route::post('/', [EmailBlastHomePageController::class, 'create'])->name('create');
+        Route::put('/', [EmailBlastHomePageController::class, 'update'])->name('update');
+        Route::delete('/', [EmailBlastHomePageController::class, 'delete'])->name('delete');
+    });
 });
 
 Route::group(['prefix' => 'themes', 'middleware' => ['auth']], function () {

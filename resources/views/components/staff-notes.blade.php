@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     @endif
-                    <p class="w-100 text-right">{{ $note->created_at }}</p>
+                    <p class="w-100 text-right">{{ $note->created_at->setTimezone('EST') }}</p>
                 </div>
             </div>
             <p>{{ $note->body }}</p>

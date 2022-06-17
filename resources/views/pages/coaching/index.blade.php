@@ -24,6 +24,12 @@
             border-radius: 10px;
             cursor: pointer;
         }
+        .coaching-text li {
+            font-size: 16px;
+        }
+        .coaching-text p {
+            font-size: 17px;
+        }
     </style>
 @endsection
 @section('content')
@@ -60,8 +66,11 @@
                 </script>
             @endif
         </div>
-        <div class="row align-items-center justify-content-center box-items py-4">
-            <div class="col-12 col-md-12 col-lg-7">
+        <div class="row box-items py-4">
+            <div class="col-6">
+                
+            </div>
+            <div class="col-12 col-md-12 col-lg-6 coaching-text">
                 <div>
                     <p>Group Coaching</p>
                     <ul>
@@ -111,6 +120,7 @@
                     </form>
                 </div>
             </div>
+            
         </div>
     </div>
 @endsection

@@ -450,3 +450,15 @@ button {
 .text-luxe {
     color: #262626 !important;
 }
+.template-box-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 100%;
+    padding:0px 30px;
+}
+.template-box-images img {
+    height: 170px;
+    width: 90%;
+    border-radius: 10px;
+}

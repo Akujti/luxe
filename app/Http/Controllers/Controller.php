@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\DiyTemplate;
 use App\Models\DiyTemplateCategory;
+use App\Models\EmailBlastHomePage;
+use App\Models\Event;
 use App\Models\File;
 use App\Models\Folder;
 use App\Models\MarketingCategory;
@@ -32,14 +34,20 @@ class Controller extends BaseController
             Carbon::now()->endOfWeek()
         ])
         ->where('folder_id', $folder_id)->get();
-       
+        
+        $today = Carbon::today()->format('Y-m-d');
+        $upcoming_events = Event::whereDate('date', '>', $today)->take(5)->get();
+
+        $email_blasts = EmailBlastHomePage::orderBy('order', 'asc')->take(3)->get();
         return view('home-page',
             compact(
                 'guides',
                 'marketing_requests',
                 'diy_templates',
                 'social_media_posts',
-                'videos'
+                'videos',
+                'upcoming_events',
+                'email_blasts'
             )
         );
     }

@@ -402,14 +402,14 @@
                                                     href="{{ url('user/files') }}">Downloadable
                                                     Docs, Guides & Excels</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('coaching.index') }}">Coaching</a></li>
+                                                    href="{{ route('coaching.index') }}">Luxe Coaching</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'email_addendum_verbiage_builder' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=email_addendum_verbiage_builder') }}">Email
                                                     &
                                                     Addendum Verbiage Builder</a>
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('agreement-agents') }}">Mentors</a></li>
+                                                    href="{{ url('agreement-agents') }}">Luxe Mentors</a></li>
                                         </ul>
                                     </li>
                                     <li
@@ -446,8 +446,21 @@
                                         </ul>
                                     </li>
                                     <li
-                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif">
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
                                         <a href="{{ url('/home?dir=referral_partners') }}">Referral Partners</a>
+                                        <em id="li-plus"><img src="/images/plus.png"></em>
+                                        <em id="li-minus"><img src="/images/minus.png"></em>
+
+                                        <ul class="w-100">
+                                            <li><a class="{{ isset($subactive) && $subactive == 'lending_services' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=lending_services') }}">Lending Services</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'inspectors' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=coming_soon') }}">Inspectors</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'tax_accountants' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=coming_soon') }}">Tax Accountants</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'insurance' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=coming_soon') }}">Insurance</a></li>
+                                        </ul>
                                     </li>
                                     <li
                                         class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">

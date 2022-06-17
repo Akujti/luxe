@@ -66,7 +66,10 @@
                     <form action="{{ route('custom-section.update', 1) }}" method="post">
                         @method('PUT')
                         @csrf
-                        <textarea name="text" id="" class="w-100 form-control mb-2" rows="3">{{ $news_feed->text }}</textarea>
+                        <textarea name="text">{{ $news_feed->text }}</textarea>
+                        <script>
+                                CKEDITOR.replace( 'text' );
+                        </script>
                         <button class="btn btn-luxe">Submit</button>
                     </form>
                 </div>
