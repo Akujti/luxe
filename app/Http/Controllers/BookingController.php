@@ -63,7 +63,7 @@ class BookingController extends Controller
 
             switch ($request->room_id) {
                 case 1:
-                    $mails = ['sabrinam@luxeknows.com', 'admin@luxeknows.com', 'email@luxeknows.com', 'operations@luxeknows.com', 'ctginfo@ceperolaw.com', 'dcepero@ceperolaw.com'];
+                    $mails = ['support@luxeknows.com', 'email@luxeknows.com', 'operations@luxeknows.com', 'ctginfo@ceperolaw.com', 'dcepero@ceperolaw.com'];
                     break;
                 case 2:
                     $mails = ['denisse@luxeknows.com', 'email@luxeknows.com', 'support@luxeknows.com'];
@@ -113,7 +113,7 @@ class BookingController extends Controller
             $booking->delete();
             return back()->with('message', 'Deleted Successfully');
         } else {
-            return back()->with('error', 'You dont have access');
+            return back()->with('error', 'You do not have access');
         }
     }
 }
