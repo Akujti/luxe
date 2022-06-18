@@ -30,7 +30,9 @@
 <div>
     <div class="{{ $row ? 'row' : '' }}">
         <div class="profile-level {{ $row ? 'col-md-6' : '' }}">
-            <p class="text-center"><b>Million Dollar Club Badge:</b><br> {{ $user->profile->badge['title'] }}</p>
+            <p class="text-center">
+                <b>Million Dollar Club:</b><br> {{ $user->profile->badge['title'] }}
+            </p>
             <div class="d-flex justify-content-center">
                 <div class="w-50 d-flex justify-content-between">
                     @if ($user->profile)
@@ -43,13 +45,18 @@
                     @endif
                 </div>
             </div>
+            {{-- <p class="text-center my-2 mb-0">
+                Current sales: {{ '$' . number_format($user->profile->badge['sales_volumes']) }}
+                <br>
+                For the next level you need: {{ '$' . number_format($user->profile->badge['next_sales_level']) }}
+            </p> --}}
             <div class="level-title mt-2">
                 <p id="bold">Level {{ $user->profile->badge['level'] }}</p>
                 <p id="regular">&nbsp;/ 5</p>
             </div>
         </div>
         <div class="profile-level {{ $row ? 'col-md-6' : '' }}">
-            <p class="text-center"><b>{{ date('Y') }} Top Producer Badge:</b><br>
+            <p class="text-center"><b>{{ date('Y') }} Top Producer:</b><br>
                 {{ $user->profile->badge['yearly_title'] }}
             </p>
             <div class="d-flex justify-content-center">
@@ -64,6 +71,12 @@
                     @endif
                 </div>
             </div>
+            {{-- <p class="text-center my-2 ">
+                Current yearly sales: {{ '$' . number_format($user->profile->badge['yearly_sales_volumes']) }}
+                <br>
+                For the next level you need:
+                {{ '$' . number_format($user->profile->badge['next_yearly_sales_level']) }}
+            </p> --}}
             <div class="level-title mt-2">
                 <p id="bold">Level {{ $user->profile->badge['yearly_level'] }}</p>
                 <p id="regular">&nbsp;/ 3</p>
