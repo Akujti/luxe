@@ -512,7 +512,7 @@
                 <div class="box-item align-items-start box-guides row p-0 m-0" style="height: 515px !important;">
                     <div class="w-100 row p-0 m-0">
                         <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-3 px-4">
-                            <span>Submit Marketing Template Request</span>
+                            <span>Submit Marketing Template Requests</span>
                         </h3>
 
                         {{-- <div class="template-box-images">
@@ -1214,13 +1214,13 @@
             </div>
         </div>
         <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                                                                                <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                                                                                        <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                        <p>Links to other services</p>
+                                                                                                                                                                                                                                                                                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                                                                                        <div>
+                                                                                                                                                                                                                                                                                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                                                                                            <p>Links to other services</p>
+                                                                                                                                                                                                                                                                                        </div>
                                                                                                                                                                                                                                                                                     </div>
-                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                                                                                </div> -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
                 <div>
