@@ -166,8 +166,8 @@
                             <div class="form-group col-12">
                                 <label for="">Address</label>
                                 <div class="input-group">
-                                    <input type="text" name="profile[address]" class="form-control"
-                                        value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->address }}">
+                                    <input type="text" name="profile[address]" class="form-control map-search"
+                                        value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->address }}" placeholder="Enter your address">
                                 </div>
                             </div>
                             <div class="form-group col-12">

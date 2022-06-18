@@ -128,14 +128,4 @@
             </div>
         </div>
     </div>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
-        defer></script>
-    <script>
-        function initAutocomplete() {
-            const input = document.getElementsByClassName("map-search")[0];
-            const searchBox = new google.maps.places.SearchBox(input);
-        }
-        window.initAutocomplete = initAutocomplete;
-    </script>
 @endsection

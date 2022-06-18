@@ -553,6 +553,9 @@
 @yield('js')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script
+        src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
+        defer></script>
 <script type="text/javascript">
     toastr.options = {
         "closeButton": false,
@@ -684,7 +687,18 @@
         $('.search-box').toggleClass('d-none')
     }
 
-    $('.active_submenu').focus()
+    $('.active_submenu').focus();
+
+    
 </script>
 
+<script>
+    function initAutocomplete() {
+        const input = document.getElementsByClassName("map-search")[0];
+        if(input) {
+            const searchBox = new google.maps.places.SearchBox(input);
+        }
+    }
+    window.initAutocomplete = initAutocomplete;
+</script>
 </html>
