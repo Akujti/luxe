@@ -83,7 +83,11 @@ class PostController extends Controller
                         $imageInstance->fit(700, 600, function ($constraint) {
                             $constraint->aspectRatio();
                         });
-                        $imageInstance->save(storage_path('/app/public/feed/' . $name));
+                        $path = storage_path('/app/public/feed/');
+                        if(!file_exists(($path))) {
+                            mkdir($path, 0755);
+                        }
+                        $imageInstance->save($path . $name);
                     } else {
                         $file->storeAs('/feed', $name, 'public');
                     }
@@ -186,7 +190,11 @@ class PostController extends Controller
                 $imageInstance->fit(700, 600, function ($constraint) {
                     $constraint->aspectRatio();
                 });
-                $imageInstance->save(storage_path('/app/public/feed/' . $name));
+                $path = storage_path('/app/public/feed/');
+                if(!file_exists(($path))) {
+                    mkdir($path, 0755);
+                }
+                $imageInstance->save($path . $name);
             } else {
                 $file->storeAs('/feed', $name, 'public');
             }
