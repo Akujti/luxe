@@ -62,7 +62,7 @@ class PostController extends Controller
     }
 
     public function create(AddRequest $req) {
-        // try {
+        try {
             $data = [
                 'basicInfo' => array(
                     'title' => $req->title,
@@ -106,9 +106,9 @@ class PostController extends Controller
             $rowCreated = $this->postRepository->create($data);
 
             return back()->with('message', 'Successfully created');
-        // } catch (Exception $e) {
-        //     return back()->with('error', 'Something went wrong');;
-        // } 
+        } catch (Exception $e) {
+            return back()->with('error', 'Something went wrong');;
+        } 
     }
 
     public function update(UpdateRequest $req) {

@@ -350,7 +350,7 @@
                                                         </div>
                                                     </div>`;
                                                     (reply.replies.length) ? html += `<div class="vertical"></div>` : html += ``;
-                                                    html += `<div class="row p-0 m-0 reply-reply-box reply-reply-box-`+ reply.id +` pl-3">`;
+                                                    html += `<div class="row p-0 m-0 reply-reply-box reply-reply-box-`+ reply.id +` pl-3 w-100">`;
                                                         reply.replies.forEach(replylevel => {
                                                             html += `<div class="col-12 single-comment single-reply d-flex align-items-start mt-2 p-0">
                                                                 <div class="single-comment-profile">
