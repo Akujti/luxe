@@ -136,7 +136,7 @@
 .comments-box .single-comment .single-comment-body {
     background-color: #dddddd40;
     border-radius: 10px;
-    padding: 5px;
+    padding: 12px 8px;
     min-width: 400px;
     display: flex;
     flex-wrap: wrap;
@@ -144,8 +144,18 @@
     white-space: break-spaces;
 }
 .comments-box .single-comment .single-comment-body p {
-    padding: 10px;
-    margin: 0px;
+    font-family: 'gothicregular';
+    font-size: 15px;
+    font-weight: 600;
+}
+.comments-box .single-comment .single-comment-body p a {
+    color: #050505;
+}
+.comments-box .single-comment .single-comment-body span {
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
+    white-space: break-spaces;
 }
 .liked {
     color:rgb(9, 158, 245) !important;
@@ -216,6 +226,7 @@ div:focus-visible {
     .comments-box .single-comment .single-comment-body {
         min-width: 100%;
         width: 100%;
+        font-size: 15px;
     }
     .box-tags {
         position: relative !important;
@@ -236,4 +247,7 @@ div:focus-visible {
     padding: 10px 13px !important;
     border-radius: 10px;
     font-family: 'gothicbold';
+}
+.text-luxe {
+    color: #262626 !important;
 }

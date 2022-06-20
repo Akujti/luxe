@@ -25,6 +25,16 @@ class CommentController extends Controller
             'rows' => $rows
         ]);
     }
+    public function getReplies(Request $req) {
+        $nr = $req->input('nr', 8);
+        $comment_id = $req->input('comment_id', null);
+
+        $replies = Comment::find($comment_id)->replies()->take($nr)->get();
+
+        return response()->json([
+            'replies' => $replies,
+        ]);
+    }
     public function create(AddRequest $req) {
         try {
             $row = Post::findOrFail($req->post_id);
@@ -50,7 +60,7 @@ class CommentController extends Controller
                     }
                 }
             }
-
+            $comment = Comment::findOrFail($comment->id);
             return response()->json($comment);
         } catch (Exception $e) {
             return 'back with error';

@@ -77,6 +77,7 @@ Route::group(['prefix' => 'news', 'as' => 'news.', 'middleware' => ['auth']], fu
     
     Route::group(['prefix' => 'comment', 'as' => 'comment.'], function () {
         Route::get('/', [CommentController::class, 'getAll'])->name('getall');
+        Route::get('/replies', [CommentController::class, 'getReplies'])->name('get.replies');
         Route::post('/', [CommentController::class, 'create'])->name('create');
         Route::put('/', [CommentController::class, 'update']);
         Route::delete('/', [CommentController::class, 'delete'])->name('delete');
@@ -355,7 +356,7 @@ Route::group(
         Route::get('w-9/download/{id}', [W9Controller::class, 'download'])->name('w-9.download');
 
         Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
-            Route::get('/', [UserController::class, 'my_profile'])->name('my_profile');
+            Route::get('/{id?}', [UserController::class, 'my_profile'])->name('my_profile');
             Route::put('/', [UserController::class, 'update_profile'])->name('update');
         });
 

@@ -138,11 +138,10 @@ class PostController extends Controller
             $row = Post::findOrFail($req->id);
             if($row->agent_id == auth()->id()) {
                 $row->delete();
-                return response()->json(true);
             }
-            return response()->json(false);
+            return redirect()->route('news.index')->with('message', 'Successfully deleted');
         } catch (Exception $e) {
-            return response()->json(false);
+            return redirect()->route('news.index')->with('message', 'Successfully deleted');
         }
     }
     public function download_files(DownloadRequest $req)

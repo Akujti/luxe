@@ -1,5 +1,5 @@
 <style>
-    .modal-header {
+    #slider .modal-header {
         font-family: 'gothicbold';
     }
 
@@ -7,40 +7,40 @@
         cursor: pointer;
     }
 
-    .modal-body .bg {
+    #slider .modal-body .bg {
         position: relative;
         background: #0000004a;
         height: 92.3vh;
     }
 
-    .modal-body .main-container {
+    #slider .modal-body .main-container {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
-    .modal-body .carousel-container {
+    #slider .modal-body .carousel-container {
         display: flex;
         width: 600px;
         position: relative;
     }
 
-    .modal-body .carousel-images {
+    #slider .modal-body .carousel-images {
         overflow: hidden;
         display: flex;
         border-radius: 8px;
     }
 
-    .modal-body .img {
+    #slider .modal-body .img {
         width: 400px;
         object-fit: cover;
         transform: translateX(0);
         transition: transform 0.4s;
     }
 
-    .modal-body .fa-arrow-right,
-    .modal-body .fa-arrow-left {
+    #slider .modal-body .fa-arrow-right,
+    #slider .modal-body .fa-arrow-left {
         background-color: lightblue;
         position: absolute;
         top: 50%;
@@ -51,18 +51,18 @@
         outline: none;
     }
 
-    .modal-body .fa-arrow-right {
+    #slider .modal-body .fa-arrow-right {
         right: -18px;
     }
 
-    .modal-body .fa-arrow-left {
+    #slider .modal-body .fa-arrow-left {
         left: -18px;
     }
-    .modal-header {
+    #slider .modal-header {
         background-color: #000;
         border-bottom: 1px solid #000 !important;
     }
-    .modal-header button {
+    #slider .modal-header button {
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -72,14 +72,14 @@
         align-items: center;
         opacity: 1 !important;
     }
-    .modal-header button span {
+    #slider .modal-header button span {
         color: #000;
     }
-    .modal-body img {
+    #slider .modal-body img {
         width: 600px !important;
         height: 600px !important;
     }
-    .modal-content {
+    #slider .modal-content {
         background: transparent !important;
     }
 </style>

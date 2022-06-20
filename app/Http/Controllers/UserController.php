@@ -77,9 +77,13 @@ class UserController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
-    public function my_profile()
+    public function my_profile($id = null)
     {
-        return view('auth.profile.index');
+        $user = null;
+        if($id) {
+            $user = User::findOrFail($id);
+        }
+        return view('auth.profile.index', compact('user'));
     }
 
     public function view_profile($id)
