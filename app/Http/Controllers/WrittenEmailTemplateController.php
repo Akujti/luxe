@@ -16,6 +16,9 @@ class WrittenEmailTemplateController extends Controller
     public function index()
     {
         $templates = WrittenEmailTemplate::whereType(null)->get();
+        if (request()->wantsJson()) {
+            return response()->json(['templates' => $templates]);
+        }
         return view('pages.written-email-templates.index', compact('templates'));
     }
 

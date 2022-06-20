@@ -14,6 +14,7 @@ use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Video\VideoFolderController;
+use App\Http\Controllers\WrittenEmailTemplateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,7 @@ Route::post('marketing/get-templates', [DesignRequestController::class, 'getTemp
 Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
 Route::get('conference-rooms', [BookingController::class, 'selectRoom']);
 Route::get('conference-rooms/{room_id}', [BookingController::class, 'index']);
+Route::get('email-templates', [WrittenEmailTemplateController::class, 'index']);
 Route::post('bookings', [BookingController::class, 'store'])->middleware('auth:sanctum');
 Route::get('videos', [VideoFolderController::class, 'index']);
 Route::get('test', [FormController::class, 'test']);
