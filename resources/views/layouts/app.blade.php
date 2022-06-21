@@ -453,11 +453,13 @@
 
                                         <ul class="w-100">
                                             <li><a class="{{ isset($subactive) && $subactive == 'lending_services' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=lending_services') }}">Lending Services</a></li>
+                                                    href="{{ url('/home?dir=lending_services') }}">Lending
+                                                    Services</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'inspectors' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=coming_soon') }}">Inspectors</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'tax_accountants' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=coming_soon') }}">Tax Accountants</a></li>
+                                                    href="{{ url('/home?dir=coming_soon') }}">Tax Accountants</a>
+                                            </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'insurance' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=coming_soon') }}">Insurance</a></li>
                                         </ul>
@@ -478,7 +480,8 @@
                                                     href="{{ url('store/signs-posts') }}">Signs &
                                                     Posts</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('store/product/background-check') }}">Client Screening</a></li>
+                                                    href="{{ url('store/product/background-check') }}">Client
+                                                    Screening</a></li>
                                         </ul>
                                     </li>
                                     <li
@@ -553,9 +556,11 @@
 @yield('js')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script
+@if (Route::currentRouteName() != 'optin.agents.index')
+    <script
         src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
         defer></script>
+@endif
 <script type="text/javascript">
     toastr.options = {
         "closeButton": false,
@@ -688,17 +693,16 @@
     }
 
     $('.active_submenu').focus();
-
-    
 </script>
 
 <script>
     function initAutocomplete() {
         const input = document.getElementsByClassName("map-search")[0];
-        if(input) {
+        if (input) {
             const searchBox = new google.maps.places.SearchBox(input);
         }
     }
     window.initAutocomplete = initAutocomplete;
 </script>
+
 </html>
