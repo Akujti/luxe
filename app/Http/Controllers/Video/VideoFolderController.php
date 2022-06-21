@@ -43,7 +43,9 @@ class VideoFolderController extends Controller
     public function show($video_id)
     {
         $video = Video::findOrFail($video_id);
-        // dd($video->vimeo_details);
+        if (request()->wantsJson()) {
+            return response()->json(['video' => $video]);
+        }
         $reviews = $video->reviews()->orderBy('created_at', 'desc')->get()->take(10);
         $comments = $video->comments()->orderBy('created_at', 'desc')->get()->take(10);
 

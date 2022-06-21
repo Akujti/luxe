@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddendumTemplateController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\Auth\LoginController;
@@ -30,28 +31,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('formSubmit', [FormController::class, 'general_form_post']);
-Route::post('login', [LoginController::class, 'login']);
-Route::get('appointment-addresses', [AppointmentController::class, 'getAddresses']);
-Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
-Route::post('store-appointment', [AppointmentController::class, 'store']);
-Route::apiResource('user/events', EventController::class, array("as" => "api"));
-Route::apiResource('user/files', FolderController::class, array("as" => "api"));
-Route::apiResource('user/guides', GuideController::class, array("as" => "api"));
-Route::apiResource('closing-coordinators', ClosingCoordinatorController::class);
-Route::apiResource('marketing-canva', MarketingTemplateController::class);
-Route::get('marketing-categories', [DesignRequestController::class, 'index']);
-Route::post('marketing/get-templates', [DesignRequestController::class, 'getTemplates']);
-Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
-Route::get('conference-rooms', [BookingController::class, 'selectRoom']);
-Route::get('conference-rooms/{room_id}', [BookingController::class, 'index']);
-Route::get('email-templates', [WrittenEmailTemplateController::class, 'index']);
-Route::post('bookings', [BookingController::class, 'store'])->middleware('auth:sanctum');
-Route::get('videos', [VideoFolderController::class, 'index']);
-Route::get('test', [FormController::class, 'test']);
+Route::group(
+    ['middleware' => ['auth:sanctum']],
+    function () {
+        Route::post('formSubmit', [FormController::class, 'general_form_post']);
+        Route::post('login', [LoginController::class, 'login']);
+        Route::get('appointment-addresses', [AppointmentController::class, 'getAddresses']);
+        Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
+        Route::post('store-appointment', [AppointmentController::class, 'store']);
+        Route::apiResource('user/events', EventController::class, array("as" => "api"));
+        Route::apiResource('user/files', FolderController::class, array("as" => "api"));
+        Route::apiResource('user/guides', GuideController::class, array("as" => "api"));
+        Route::apiResource('closing-coordinators', ClosingCoordinatorController::class);
+        Route::apiResource('marketing-canva', MarketingTemplateController::class);
+        Route::get('marketing-categories', [DesignRequestController::class, 'index']);
+        Route::post('marketing/get-templates', [DesignRequestController::class, 'getTemplates']);
+        Route::get('agreement-agents', [PageController::class, 'agreement_agents']);
+        Route::get('conference-rooms', [BookingController::class, 'selectRoom']);
+        Route::get('conference-rooms/{room_id}', [BookingController::class, 'index']);
+        Route::get('email-templates', [WrittenEmailTemplateController::class, 'index']);
+        Route::get('addendum-templates', [AddendumTemplateController::class, 'index']);
+        Route::get('email-templates/{writtenEmailTemplate}', [WrittenEmailTemplateController::class, 'show']);
+        Route::post('bookings', [BookingController::class, 'store'])->middleware('auth:sanctum');
+        Route::get('videos', [VideoFolderController::class, 'index']);
+        Route::get('test', [FormController::class, 'test']);
+        Route::get('my-profile', [UserController::class, 'my_profile']);
+        Route::get('videos/{video_id}', [VideoFolderController::class, 'show']);
+    }
+);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('my-profile', [UserController::class, 'my_profile']);
 });
