@@ -41,6 +41,7 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
+use App\Http\Controllers\Coaching\CoachingController;
 use App\Http\Controllers\CustomSectionController;
 use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
@@ -345,7 +346,12 @@ Route::group(
         Route::get('/orders', [OrderController::class, 'my_orders'])->name('my_orders');
         Route::get('/orders/{id}', [OrderController::class, 'show_agent'])->name('my_orders.show');
 
-        Route::view('coaching', 'pages.coaching.index')->name('coaching.index');
+        Route::group(['prefix' => 'coaching', 'as' => 'coaching.'], function() {
+            Route::get('/', [CoachingController::class, 'index'])->name('index');
+            Route::get('/form', [CoachingController::class, 'form'])->name('form');
+            Route::get('/form/pdf', [CoachingController::class, 'formpdf'])->name('form.pdf');
+            Route::post('/form', [CoachingController::class, 'submitform'])->name('form.submit');
+        });
     }
 );
 

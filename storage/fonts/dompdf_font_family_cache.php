@@ -90,7 +90,7 @@
     'normal' => $fontDir . '/lato-light-normal_ef5928dd8316c68a95aed8fe190c8d01',
   ),
   'fontawesome' => array(
-    'normal' => $fontDir . '/fontawesome-normal_6b8fcb303bfef6f4ea9e882534054307',
+    'normal' => $fontDir . '/fontawesome-normal_e1a313ca83905f53a32ee29693775520',
   ),
   'montserrat' => array(
     'normal' => $fontDir . '/montserrat-normal_d7b9f5e95298c71fecec5dd1831abcb5',
@@ -122,6 +122,26 @@
     '600' => $fontDir . '/poppins-600_270e18a84ac8b306c8f31abe1d0720fa',
   ),
   'petemoss' => array(
-    'normal' => $fontDir . '/petemoss-normal_a416948df8d6188c40079588e84b5e69',
+    'normal' => $fontDir . '/petemoss-normal_9f04afe5c264464a4e27a40c3ad82004',
+  ),
+  'font awesome 6 brands' => array(
+    'normal' => $fontDir . '/font-awesome-6-brands-normal_ba95da0e0ed26cb50aa2f3bfa6de4224',
+  ),
+  'font awesome 6 free' => array(
+    'normal' => $fontDir . '/font-awesome-6-free-normal_d14e05f732166b536c9f3e3c128da324',
+    '900' => $fontDir . '/font-awesome-6-free-900_fc6b653d35d5d856773a176618f15b8a',
+  ),
+  'font awesome 5 brands' => array(
+    'normal' => $fontDir . '/font-awesome-5-brands-normal_ba95da0e0ed26cb50aa2f3bfa6de4224',
+  ),
+  'font awesome 5 free' => array(
+    '900' => $fontDir . '/font-awesome-5-free-900_fc6b653d35d5d856773a176618f15b8a',
+    'normal' => $fontDir . '/font-awesome-5-free-normal_d14e05f732166b536c9f3e3c128da324',
+  ),
+  'gothicbold' => array(
+    'normal' => $fontDir . '/gothicbold-normal_cdc5f756d424982ccf8260437d366597',
+  ),
+  'gothicregular' => array(
+    'normal' => $fontDir . '/gothicregular-normal_136dacf05b731746b3cf46cf931ffc8e',
   ),
 ) ?>

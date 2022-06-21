@@ -107,7 +107,7 @@
                 </div>
 
                 <div class="row p-0 m-0 justify-content-center">
-                    <form action="{{ route('general.email.post') }}" method="POST">
+                    {{-- <form action="{{ route('general.email.post') }}" method="POST">
                         @csrf
                         <input type="hidden" name="form_title" value="LUXE Coaching">
                         <input type="hidden" name="agent_full_name" value="{{ auth()->user()->profile->fullname }}">
@@ -117,10 +117,10 @@
                         <input type="hidden" name="agent_languages"
                             value="{{ auth()->user()->profile->languages ? implode(',', auth()->user()->profile->languages) : null }}">
                         <button type="submit" class="btn-luxe">Sign Up</button>
-                    </form>
+                    </form> --}}
+                    <a href="{{ route('coaching.form') }}" class="btn-luxe">Sign Up</a>
                 </div>
             </div>
-            
         </div>
     </div>
 @endsection
