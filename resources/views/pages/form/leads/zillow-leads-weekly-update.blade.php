@@ -18,8 +18,8 @@
                     <input type="hidden" name="form_title" value="ZILLOW LEADS WEEKLY UPDATE">
                     <input type="hidden" name="to_email[]" id="team_email" value="">
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                        <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
-                                                        <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
+                                                                                <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
+                                                                                <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -42,11 +42,13 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Number of <b>Total</b> FULLY executed <b>Zillow</b> contracts. Sorry to
+                                <label for="name">Number of <b>Total</b> FULLY executed <b>Zillow</b> contracts. Sorry
+                                    to
                                     capitalize fully but we have had some confusion on agents as to what a fully executed
                                     contract is?</label>
-                                <select name="number_of_fully_executed_contracts" class="form-control" required id="">
-                                    <option value="-">-</option>
+                                <select name="number_of_fully_executed_contracts" class="form-control" required
+                                    id="">
+                                    <option value>-</option>
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -81,17 +83,18 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Please list the addresses of the fully executed <b>Zillow</b> contracts
+                                <label for="name">Please list the addresses of the fully executed <b>Zillow</b>
+                                    contracts
                                     along
                                     with the Buyer Name as it appears on Zillow</label>
-                                <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3" class="form-control" required>-</textarea>
+                                <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3" class="form-control" required></textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Number of offers outstanding awaiting a response from seller, listing
                                     agent or buyer?</label>
                                 <select name="number_of_offers_outstanding_awaiting_a_response_from_seller"
                                     class="form-control" required id="">
-                                    <option value="-">-</option>
+                                    <option value>-</option>
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -126,11 +129,12 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Number of ACTIVE buyers you have shown in the last 10 days that plan to
+                                <label for="name">Number of ACTIVE buyers you have shown in the last 10 days that plan
+                                    to
                                     continue working with you?</label>
                                 <select name="number_of_active_buyers_you_have_shows_in_the_last_10_days"
                                     class="form-control" required id="">
-                                    <option value="-">-</option>
+                                    <option value>-</option>
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -165,23 +169,25 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Please answer the next questions in Yes/no Format unless paused. Are you
+                                <label for="name">Please answer the next questions in Yes/no Format unless paused. Are
+                                    you
                                     receiving an adequate number of calls you can
                                     handle?</label>
                                 <select name="are_you_receiving_an_adequate_number_of_calls_you_can_handle"
                                     class="form-control" required id="">
-                                    <option value="-">-</option>
+                                    <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                     <option value="Paused">Paused</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">If the above is no, can you handle more/less leads while updating your CRM
+                                <label for="name">If the above is no, can you handle more/less leads while updating
+                                    your CRM
                                     as per Zillow guidelines?</label>
                                 <select name="if_yes_can_you_handle_more/less_leads_while_updating_your_crm"
                                     class="form-control" required id="">
-                                    <option value="-">-</option>
+                                    <option value>-</option>
                                     <option value="MORE">MORE</option>
                                     <option value="LESS">LESS</option>
                                     <option value="PAUSED">PAUSED</option>
@@ -189,24 +195,24 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Do you need to be paused?</label>
-                                <select 
-                                    class="form-control" name="do_you_need_to_be_paused" required id="pausedToggle" onchange="togglePausedSelect('pausedToggle')">
-                                    <option value="-">-</option>
+                                <select class="form-control" name="do_you_need_to_be_paused" required id="pausedToggle"
+                                    onchange="togglePausedSelect('pausedToggle')">
+                                    <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6 d-none" id="paused_reason">
                                 <label for="name">Reason for Zillow Pause</label>
-                                <input type="text" class="form-control" name="reason">
+                                <input id="reason_zillow_pause" type="text" class="form-control" name="reason">
                             </div>
-                            
+
                             <div class="form-group col-md-6">
                                 <label for="name">If Paused, please advise if you would like to stay paused in Yes/No
                                     format</label>
                                 <select name="if_paused_please_advise_if_you_would_like_to_stay_paused"
                                     class="form-control" required id="">
-                                    <option value="-">-</option>
+                                    <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
@@ -214,7 +220,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">How many homes have you shown this past week?</label>
                                 <select name="how_many_home_have_you_shown_this_past_week" class="form-control" required>
-                                    <option value="-">-</option>
+                                    <option value>-</option>
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -248,7 +254,7 @@
                                     <option value="30">30</option>
                                 </select>
                             </div>
-                            
+
 
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
@@ -291,9 +297,11 @@
 
         function togglePausedSelect(select_id) {
             var value = $('#' + select_id).val();
-            if(value == 'Yes') {
+            if (value == 'Yes') {
+                $('#reason_zillow_pause').attr('required', true);
                 $('#paused_reason').removeClass('d-none')
             } else {
+                $('#reason_zillow_pause').attr('required', false);
                 $('#paused_reason').addClass('d-none')
             }
         }
