@@ -18,8 +18,8 @@
                     <input type="hidden" name="form_title" value="ZILLOW LEADS WEEKLY UPDATE">
                     <input type="hidden" name="to_email[]" id="team_email" value="">
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                                                <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
-                                                                                <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
+                                                                                    <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
+                                                                                    <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -87,7 +87,7 @@
                                     contracts
                                     along
                                     with the Buyer Name as it appears on Zillow</label>
-                                <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3" class="form-control" required></textarea>
+                                <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3" class="form-control" required>-</textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Number of offers outstanding awaiting a response from seller, listing
