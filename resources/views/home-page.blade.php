@@ -527,12 +527,15 @@
                         </div> --}}
 
                         @forelse($marketing_requests as $marketing_request)
-                            <div class="box-guide col-12 pl-4">
-                                <a href="{{ route('marketing.request', $marketing_request) }}" class="text-luxe w-100">
-                                    <img src="{{ $marketing_request->image }}" alt="">
-                                    <p>{{ $marketing_request->title }}</p>
-                                </a>
-                            </div>
+                            @if ($marketing_request->title != 'Presentation Booklet')
+                                <div class="box-guide col-12 pl-4">
+                                    <a href="{{ route('marketing.request', $marketing_request) }}"
+                                        class="text-luxe w-100">
+                                        <img src="{{ $marketing_request->image }}" alt="">
+                                        <p>{{ $marketing_request->title }}</p>
+                                    </a>
+                                </div>
+                            @endif
                         @empty
                             <div class="box-guide justify-content-start pl-4">
                                 <p>No results found.</p>
@@ -696,12 +699,14 @@
                             <a href="{{ route('user.diy-templates') }}" class="text-luxe">See more</a>
                         </h3>
                         @forelse($diy_templates as $diy)
-                            <div class="box-guide col-12 pl-4">
-                                <a href="{{ route('user.diy-templates.show', $diy) }}" class="text-dark w-100">
-                                    <img src="{{ asset('storage/' . $diy->image) }}" alt="">
-                                    <p>{{ $diy->title }}</p>
-                                </a>
-                            </div>
+                            @if ($diy->title != 'Presentation Booklet')
+                                <div class="box-guide col-12 pl-4">
+                                    <a href="{{ route('user.diy-templates.show', $diy) }}" class="text-dark w-100">
+                                        <img src="{{ asset('storage/' . $diy->image) }}" alt="">
+                                        <p>{{ $diy->title }}</p>
+                                    </a>
+                                </div>
+                            @endif
                         @empty
                             <div class="box-guide justify-content-start pl-4">
                                 <p>No results found.</p>
@@ -1214,13 +1219,13 @@
             </div>
         </div>
         <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                                                                                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                                                                                        <div>
-                                                                                                                                                                                                                                                                                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                            <p>Links to other services</p>
-                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                </div> -->
+                                                                                                                                                                                                                                                                                                <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                                                                                                    <div>
+                                                                                                                                                                                                                                                                                                        <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                                                                                                        <p>Links to other services</p>
+                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                            </div> -->
         <div class="col-12 col-md-6 col-lg-3">
             <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
                 <div>
