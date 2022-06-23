@@ -99,9 +99,8 @@
                 <input type="hidden" name="agent_address" value="{{ auth()->user()->profile->address }}">
                 <input type="hidden" name="agent_languages" value="{{ auth()->user()->profile->languages ? implode(',', auth()->user()->profile->languages) : null }}">
                 <div class="col-12 mb-4">
-                    <input type="radio" name="enrollment_type" value="0" checked="" style="display:none">
-                    <input type="radio" name="enrollment_type" value="$149 per month (minimum 6-month commitment)" onclick="toggleDetails(this)"> - <b class="gothicbold">$149 per month</b> (minimum 6-month commitment)<br>
-                    <input type="radio" name="enrollment_type" value="Additional 10% fee on your next 6 transactions (12 months of coaching from the date of this agreement)" onclick="toggleDetails(this)"> - <b class="gothicbold">Additional 10% fee on your next 6 transactions</b> (12 months of coaching from the date of this agreement)
+                    <input type="radio" name="enrollment_type" value="$149 per month (minimum 6-month commitment)" onclick="toggleDetails(this)" required> - <b class="gothicbold">$149 per month</b> (minimum 6-month commitment)<br>
+                    <input type="radio" name="enrollment_type" value="Additional 10% fee on your next 6 transactions (12 months of coaching from the date of this agreement)" onclick="toggleDetails(this)" required> - <b class="gothicbold">Additional 10% fee on your next 6 transactions</b> (12 months of coaching from the date of this agreement)
                 </div>
                 <div class="form-group col-12">
                     <label for="">Full Name:</label>
@@ -179,9 +178,11 @@
     function toggleDetails(e) {
         if (e.value == '$149 per month (minimum 6-month commitment)') {
             $("#credit-card-inputs :input").prop("disabled", false);
+            $("#credit-card-inputs :input").prop('required', true);
             $('#credit-card-inputs').removeClass('d-none')
         } else {
             $("#credit-card-inputs :input").prop("disabled", true);
+            $("#credit-card-inputs :input").prop('required', false);
             $('#credit-card-inputs').addClass('d-none')
         }
     }
