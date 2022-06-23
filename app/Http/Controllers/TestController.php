@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\AddToEmailCalendar;
 use App\Models\Appointment;
 use App\Models\AppointmentTimeslot;
+use App\Models\MarketingCanva;
 use App\Models\Video\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -13,6 +14,8 @@ class TestController extends Controller
 {
     public function index()
     {
+        $categories = MarketingCanva::with('featured_templates', 'categories', 'categories.featured_templates')->where('title', '!=', 'Presentation Booklet')->whereParentId(null)->get();
+        return ($categories);
         // $videos = Video::get();
         // // dd($videos[0]->vimeo_details, $videos[1]->vimeo_details, $videos[2]->vimeo_details);
         // foreach ($videos as $video) {
