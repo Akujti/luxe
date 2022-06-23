@@ -42,7 +42,7 @@
                     • if you need any additional or custom work, please feel free to talk to the photographers as
                     they are always willing to
                     help :)
-                    • $200 charge for RENTAL shoots for pictures & video
+                    • $225 charge for RENTAL shoots for pictures & video
                     • $100-$150 charge for RENTAL shoots for pictures only
                     • $100 surcharge for duplex
                     • $200 surcharge for triplex
@@ -67,9 +67,9 @@
                     </div>
                     <input type="hidden" name="form_title" value="Photoshoots For Listings">
                     <!-- <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="support@luxeknows.com"> -->
+                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
+                        <input type="hidden" name="to_email[]" value="email@luxeknows.com">
+                        <input type="hidden" name="to_email[]" value="support@luxeknows.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
