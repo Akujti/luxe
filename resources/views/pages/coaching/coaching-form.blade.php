@@ -157,7 +157,7 @@
                         <label for="">Type of Credit Card:</label>
                         <div class="input-group">
                             <select name="type_of_credit_card" id="" class="form-control">
-                                <option value="-">-- Choose an Option --</option>
+                                <option value="">-- Choose an Option --</option>
                                 <option value="American Express">American Express</option>
                                 <option value="Visa">Visa</option>
                                 <option value="Mastercard">Mastercard</option>
