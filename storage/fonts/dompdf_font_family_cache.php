@@ -139,9 +139,9 @@
     'normal' => $fontDir . '/font-awesome-5-free-normal_d14e05f732166b536c9f3e3c128da324',
   ),
   'gothicbold' => array(
-    'normal' => $fontDir . '/gothicbold-normal_44ed82fe35150515b69db282e98ae4ce',
+    'normal' => $fontDir . '/gothicbold-normal_cdc5f756d424982ccf8260437d366597',
   ),
   'gothicregular' => array(
-    'normal' => $fontDir . '/gothicregular-normal_1cbd12e33443daf75eba5d41f226e99b',
+    'normal' => $fontDir . '/gothicregular-normal_136dacf05b731746b3cf46cf931ffc8e',
   ),
 ) ?>

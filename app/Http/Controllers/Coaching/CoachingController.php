@@ -38,7 +38,8 @@ class CoachingController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Something went wrong!');
         }
-
+        
+        session()->flash('modal', 'Success');
         return redirect()->back()->with('message', 'Coaching form has been submitted!');
     }
 }
