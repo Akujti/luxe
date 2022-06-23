@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="marketing-company" transform="translate(-300 -380)">
+    <g id="flag-2">
+      <path id="Vector" d="M9.5,5.16,1.5,1.7V.75A.755.755,0,0,0,.75,0,.755.755,0,0,0,0,.75v18.5A.755.755,0,0,0,.75,20a.755.755,0,0,0,.75-.75V15.29l8.22-4.06h.01c1.66-.86,2.55-1.97,2.5-3.14S11.21,5.88,9.5,5.16Z" transform="translate(305.7 382)" fill="#292d32"/>
+      <path id="Vector-2" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(324 404) rotate(180)" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>
