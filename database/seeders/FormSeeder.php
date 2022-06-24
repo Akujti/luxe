@@ -268,7 +268,7 @@ class FormSeeder extends Seeder
         $parent->emails()->createMany([
             ['email' => 'ana.gonzalez@luxeknows.com'],
             ['email' => 'support@luxeknows.com'],
-            ['email' => 'email@luxeknows.com'],
+            ['email' => 'email@luxeknows.com'], 
             ['email' => 'operations@luxeknows.com'],
         ]);
     }

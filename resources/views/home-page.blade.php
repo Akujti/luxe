@@ -1464,7 +1464,7 @@
         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('home?dir=moving_company') }}'">
                 <div>
-                    <img src="/images/index-page/moving-company.svg" class="icon" alt="">
+                    <img src="/images/index-page/moving-company.png" class="icon" alt="">
                     <p>Moving Company</p>
                 </div>
             </div>
@@ -1512,7 +1512,7 @@
         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="box-item" onclick="window.location = '{{ url('home?dir=cleaning_company') }}'">
                 <div>
-                    <img src="/images/index-page/cleaning_company.svg" class="icon" alt="">
+                    <img src="/images/index-page/wipe.png" class="icon" alt="">
                     <p>Cleaning Company</p>
                 </div>
             </div>
