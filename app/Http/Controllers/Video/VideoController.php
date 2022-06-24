@@ -110,19 +110,15 @@ class VideoController extends Controller
         $videos = Video::get();
         foreach ($videos as $video) {
             $response = Vimeo::request('/videos/' . $video->video_id, [], 'GET');
-            $data = [];
+            $data = ['thumbnail' => $video->vimeo_details['thumbnail']];
             if ($response && $response['status'] != 404) {
                 $data = [
                     'thumbnail' => $response['body']['pictures']['base_link'],
                 ];
-            } else {
-                $data = [
-                    'thumbnail' => '',
-                ];
             }
             $video->update(
                 [
-                    'thumbnail' => $video->vimeo_details['thumbnail'],
+                    'thumbnail' => $data['thumbnail'],
                 ]
             );
         }
