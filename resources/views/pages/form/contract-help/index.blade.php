@@ -30,7 +30,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Transaction Type:</label>
                                 <select name="transaction_type" id="transaction_type" class="form-control" onchange="toggleOptions('transaction_type')" required>
-                                    <option value=""> -- </option>
+                                    <option value="">-</option>
                                     <option value="Sale">Sale</option>
                                     <option value="Rental">Rental</option>
                                 </select>
@@ -38,7 +38,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Who are you representing?</label>
                                 <select name="who_are_you_representing?" id="representing_select" class="form-control" required>
-                                    <option value="">--</option>
+                                    <option value="">-</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -62,13 +62,13 @@
 
             if(value == 'Sale') {
                 $('#representing_select').html(`
-                    <option value="">--</option>
+                    <option value="">-</option>
                     <option value="Buyer">Buyer</option>
                     <option value="Seller">Seller</option>
                 `)
             } else {
                 $('#representing_select').html(`
-                    <option value="">--</option>
+                    <option value="">-</option>
                     <option value="Tenant">Tenant</option>
                     <option value="Landlord">Landlord</option>
                 `)
