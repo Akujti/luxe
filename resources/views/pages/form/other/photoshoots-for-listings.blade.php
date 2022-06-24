@@ -3,7 +3,13 @@
     <style>
         @media(min-width:1200px) {
             pre {
-                padding-left: 150px;
+                padding-left: 135px;
+            }
+        }
+
+        @media(min-width:1600px) {
+            pre {
+                padding-left: 300px;
             }
         }
     </style>
@@ -16,7 +22,7 @@
                     </div>
                     <div class="card-body">
                         <pre style="font-family: Arial;">
-        <b>Photoshoots take staff 24-48 hours to confirm. Keep in mind requests are only viewed during office hours.</b>
+        <b>Photoshoots take staff 48 hours to confirm. Keep in mind requests are only viewed during office hours.</b>
                     If your listing agreement does not meet the requirements for the shoot to be covered by LUXE, you
                     understand that you will be responsible for submitting payment prior to the shoot.
 
@@ -67,9 +73,9 @@
                     </div>
                     <input type="hidden" name="form_title" value="Photoshoots For Listings">
                     <!-- <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
-                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
-                        <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                        <input type="hidden" name="to_email[]" value="support@luxeknows.com"> -->
+                                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
+                                        <input type="hidden" name="to_email[]" value="email@luxeknows.com">
+                                        <input type="hidden" name="to_email[]" value="support@luxeknows.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">

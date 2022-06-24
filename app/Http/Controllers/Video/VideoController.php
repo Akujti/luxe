@@ -97,10 +97,34 @@ class VideoController extends Controller
         foreach ($rows as $row) {
 
             $response = Vimeo::request('/videos/' . $row->video_id, [], 'GET');
-            if(isset($response, $response['body']['stats'])) {
+            if (isset($response, $response['body']['stats'])) {
                 $row->views = $response['body']['stats']['plays'];
                 $row->save();
             }
+        }
+        return back();
+    }
+
+    public function update_videos_thumbnails()
+    {
+        $videos = Video::get();
+        foreach ($videos as $video) {
+            $response = Vimeo::request('/videos/' . $video->video_id, [], 'GET');
+            $data = [];
+            if ($response && $response['status'] != 404) {
+                $data = [
+                    'thumbnail' => $response['body']['pictures']['base_link'],
+                ];
+            } else {
+                $data = [
+                    'thumbnail' => '',
+                ];
+            }
+            $video->update(
+                [
+                    'thumbnail' => $video->vimeo_details['thumbnail'],
+                ]
+            );
         }
         return back();
     }
