@@ -46,6 +46,11 @@
     height: 80px;
     line-height: 80px;
     margin-right: 35px;
+    cursor: pointer;
+}
+.header-navigation .btn-group .dropdown-menu a {
+    height: 60px;
+    line-height: 60px;
 }
 .header-navigation a:hover {
     color: #fff;

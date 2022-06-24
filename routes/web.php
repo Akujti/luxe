@@ -46,6 +46,7 @@ use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
+use App\Http\Controllers\Task\PreSelectedTaskController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 
@@ -527,6 +528,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
             Route::post('/', [VideoFileController::class, 'create'])->name('create');
             Route::put('/', [VideoFileController::class, 'update'])->name('update');
             Route::delete('/', [VideoFileController::class, 'delete'])->name('delete');
+        });
+    });
+
+    // Admin Contracts & tasks
+    Route::group(['prefix' => 'contracts', 'as' => 'contracts.'], function () {
+        // Crud 
+
+        Route::group(['prefix' => 'pre-selected-tasks', 'as' => 'pre_selected_tasks.'], function () {
+            Route::get('/', [PreSelectedTaskController::class, 'index'])->name('index');
+            Route::post('/', [PreSelectedTaskController::class, 'create'])->name('create');
+            Route::put('/', [PreSelectedTaskController::class, 'update'])->name('update');
+            Route::delete('/', [PreSelectedTaskController::class, 'delete'])->name('delete');
         });
     });
 

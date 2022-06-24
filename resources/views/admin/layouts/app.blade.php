@@ -270,18 +270,31 @@
                                     Requests</a>
                                 <a href="{{ route('admin.canva.marketing.index_admin') }}"
                                     class="{{ isset($active) && $active == 'Marketing_canva' ? 'active selected' : '' }}">Canva</a>
-                                <a href="{{ route('admin.orders.index') }}"
-                                    class="{{ isset($active) && $active == 'Orders' ? 'active selected' : '' }}">Orders</a>
-                                <a href="{{ route('admin.luxe_store.index') }}"
-                                    class="{{ isset($active) && $active == 'Categories' ? 'active selected' : '' }}">Categories</a>
-                                <a href="{{ route('admin.luxe_store.products.index') }}"
-                                    class="{{ isset($active) && $active == 'Products' ? 'active selected' : '' }}">Products</a>
+                                <div class="btn-group">
+                                    <a type="button" href="#" class="{{ isset($active) && in_array($active,['Orders', 'Categories', 'Products']) ? 'active selected' : '' }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Products
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="{{ route('admin.orders.index') }}" class="dropdown-item" type="button">Orders</a>
+                                        <a href="{{ route('admin.luxe_store.index') }}" class="dropdown-item" type="button">Categories</a>
+                                        <a href="{{ route('admin.luxe_store.products.index') }}" class="dropdown-item" type="button">All Products</a>
+                                    </div>
+                                </div>
                                 <a href="{{ route('admin.luxe_store.coupons.index') }}"
                                     class="{{ isset($active) && $active == 'Coupons' ? 'active selected' : '' }}">Coupons</a>
                                 <a href="{{ route('admin.users.index') }}"
                                     class="{{ isset($active) && $active == 'Users' ? 'active selected' : '' }}">Users</a>
                                 <a href="{{ route('admin.videos.index') }}"
                                     class="{{ isset($active) && $active == 'Videos' ? 'active selected' : '' }}">Videos</a>
+                                <div class="btn-group">
+                                    <a data-toggle="dropdown" class="{{ isset($active) && in_array($active,['Pre-selected-tasks']) ? 'active selected' : '' }}" href="#" aria-haspopup="true" aria-expanded="false">
+                                        Contracts & tasks
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('admin.contracts.pre_selected_tasks.index') }}" type="button">Pre Selected Tasks</a>
+                                        <a class="dropdown-item" href="#" type="button">All Contracts</a>
+                                    </div>
+                                </div>
                             </nav>
                         </div>
                     </div>
