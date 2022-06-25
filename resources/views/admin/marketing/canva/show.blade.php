@@ -151,6 +151,7 @@
         };
 
         function update_template(template) {
+            console.log(template);
             $('.update-template').modal('show');
             $('.update-template').find('#id').val(template.id);
             $('.update-template').find('#url').val(template.url);

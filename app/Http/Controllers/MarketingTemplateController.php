@@ -174,7 +174,7 @@ class MarketingTemplateController extends Controller
 
         $canva_category->title = $req->title;
         $canva_category->url = $req->url;
-        $canva_category->featured = $req->featured ? 1 : 0;
+        $canva_category->featured = isset($req->featured) ? 1 : 0;
 
         if ($req->image) {
             $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();
