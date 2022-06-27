@@ -52,6 +52,32 @@ class Video extends Model
         return $data;
     }
 
+    public function getVimeoThumbnailAttribute()
+    {
+
+        //Not needed
+        $response = Vimeo::request('/videos/' . $this->video_id, [], 'GET');
+
+        if ($response && $response['status'] != 404) {
+            $data = [
+                'name' => $response['body']['name'],
+                'description' => $response['body']['description'],
+                'thumbnail' => $response['body']['pictures']['base_link'],
+                'embed_url' => $response['body']['player_embed_url'],
+                'created_at' => Carbon::parse($response['body']['created_time'])->diffForHumans()
+            ];
+        } else {
+            $data = [
+                'name' => '',
+                'description' => '',
+                'thumbnail' => '',
+                'embed_url' => '',
+                'created_at' => ''
+            ];
+        }
+        return $data;
+    }
+
     public function reviews()
     {
         return $this->hasMany(VideoReview::class, 'video_id');

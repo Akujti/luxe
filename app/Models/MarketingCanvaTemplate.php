@@ -13,15 +13,16 @@ class MarketingCanvaTemplate extends Model
         'category_id',
         'title',
         'image',
+        'featured',
         'url'
     ];
 
     protected $appends = ['image_url'];
 
-    public function getImageUrlAttribute() {
-        if($this->image) {
-            return asset('storage/'. $this->image);
+    public function getImageUrlAttribute()
+    {
+        if ($this->image) {
+            return asset('storage/' . $this->image);
         }
     }
-
 }

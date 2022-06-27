@@ -346,7 +346,7 @@ Route::group(
         Route::get('/orders', [OrderController::class, 'my_orders'])->name('my_orders');
         Route::get('/orders/{id}', [OrderController::class, 'show_agent'])->name('my_orders.show');
 
-        Route::group(['prefix' => 'coaching', 'as' => 'coaching.'], function() {
+        Route::group(['prefix' => 'coaching', 'as' => 'coaching.'], function () {
             Route::get('/', [CoachingController::class, 'index'])->name('index');
             Route::get('/form', [CoachingController::class, 'form'])->name('form');
             Route::get('/form/pdf', [CoachingController::class, 'formpdf'])->name('form.pdf');
@@ -510,10 +510,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
         Route::put('/', [VideoFolderController::class, 'update'])->name('update');
         Route::delete('/', [VideoFolderController::class, 'delete'])->name('delete');
 
+
         Route::group(['prefix' => 'video', 'as' => 'video.'], function () {
             Route::post('/', [VideoController::class, 'create'])->name('create');
             Route::put('/', [VideoController::class, 'update'])->name('update');
             Route::delete('/', [VideoController::class, 'delete'])->name('delete');
+
+            Route::post('/update-thumbnails', [VideoController::class, 'update_videos_thumbnails'])->name('update.thumbnails');
         });
 
         Route::group(['prefix' => 'file', 'as' => 'file.'], function () {
@@ -523,7 +526,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
         });
     });
 
-    
+
 
     Route::get('update-role', [UserController::class, 'update_role']);
     Route::get('update-videos', [VideoController::class, 'update_videos']);

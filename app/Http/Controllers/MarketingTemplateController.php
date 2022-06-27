@@ -72,7 +72,8 @@ class MarketingTemplateController extends Controller
         return view('pages.marketing_templates.categories', compact('marketing_categories'));
     }
 
-    public function agent_show(MarketingCanva $canvaTemplateCategory) {
+    public function agent_show(MarketingCanva $canvaTemplateCategory)
+    {
         $category = $canvaTemplateCategory->load('categories', 'templates');
         return view('pages.marketing_templates.show', compact('category'));
     }
@@ -92,7 +93,7 @@ class MarketingTemplateController extends Controller
         $path = $req->image->storeAs('/marketing/canva', $name, 'public');
         $canva->image = $path;
         $canva->order = $req->order ?? ++MarketingCanva::latest()->first()->order;
-        if($req->parent_id) {
+        if ($req->parent_id) {
             $canva->parent_id = $req->parent_id;
         }
         $canva->save();
@@ -173,6 +174,7 @@ class MarketingTemplateController extends Controller
 
         $canva_category->title = $req->title;
         $canva_category->url = $req->url;
+        $canva_category->featured = isset($req->featured) ? 1 : 0;
 
         if ($req->image) {
             $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();

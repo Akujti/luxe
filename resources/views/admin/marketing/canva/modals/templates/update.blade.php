@@ -4,10 +4,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Template</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.canva.templates.update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.canva.templates.update') }}" method="POST"
+                    enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     <input type="hidden" name="id" id="id">
@@ -25,18 +27,28 @@
                                 <input type="text" class="w-100 form-control" id="url" name="url" required>
                             </div>
                         </div>
-                       
-                        <div class="form-group">
+
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" name="featured" id="featured-template"
+                                style="height: auto !important">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Set as featured
+                            </label>
+                        </div>
+
+                        <div class="form-group mb-3">
                             <label for="start">{{ __('Select File') }}</label>
                             <div class="custom-file">
-                                <input type="file" name="image" class="form-control" id="image" style="padding: 3px;">
+                                <input type="file" name="image" class="form-control" id="image"
+                                    style="padding: 3px;">
                             </div>
                         </div>
 
                         <div class="form-group mt-3">
                             <label for="start">Order</label>
                             <div class="custom-file">
-                                <input type="number" name="order" class="form-control" id="order" value="{{ $last_order }}" required>
+                                <input type="number" name="order" class="form-control" id="order"
+                                    value="{{ $last_order }}" required>
                             </div>
                         </div>
                     </div>
