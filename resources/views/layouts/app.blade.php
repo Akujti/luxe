@@ -434,7 +434,7 @@
                                                     href="{{ url('appointments/create') }}">Open House Signup</a>
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'get_contract_help' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=coming_soon') }}">Get Contract Help</a>
+                                                    href="{{ url('general/form/contract-help/index') }}">Get Contract Help</a>
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'design_requests' ? 'active_submenu' : '' }}"
                                                     href="{{ route('marketing.requests') }}">Design Requests</a>
@@ -455,13 +455,29 @@
                                             <li><a class="{{ isset($subactive) && $subactive == 'lending_services' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=lending_services') }}">Lending
                                                     Services</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'inspectors' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=coming_soon') }}">Inspectors</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'tax_accountants' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=coming_soon') }}">Tax Accountants</a>
-                                            </li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'title' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=title') }}">Title</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'insurance' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=coming_soon') }}">Insurance</a></li>
+                                                            href="{{ url('/home?dir=insurance') }}">Insurance</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'inspectors' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=home_inspectors') }}">Home Inspectors</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'accountant' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=accountant') }}">Accountant</a>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'moving_company' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=moving_company') }}">Moving Company</a>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'staging_company' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=staging_company') }}">Staging Company</a>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'marketing_company' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=marketing_company') }}">Marketing Company</a>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'contractors' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=coming_soon') }}">Contractors</a>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'permit_runners' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=coming_soon') }}">Permit Runners</a>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'attorneys' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=attorneys') }}">Attorneys</a>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'cleaning_company' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=cleaning_company') }}">Cleaning Company</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li

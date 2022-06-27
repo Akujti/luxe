@@ -83,7 +83,7 @@ class FormController extends Controller
                     // $path = Storage::put('public/images/marketing', $val, 'public');
                     $val = 'new-storage/images/marketing/' . $name;
                 }
-                if ($request->form_title == 'LUXE Coaching') {
+                if ($request->form_title == 'Get Contract Help') {
                     if (strtolower($key) != 'agent_full_name' && strtolower($key) != 'agent_email') {
                         $details[strtolower($key)] = $val;
                     }
@@ -113,7 +113,6 @@ class FormController extends Controller
             } else {
                 $to = $this->getEmails($request->form_title, $request->to_email);
             }
-
             array_push($to, $request->agent_email);
             $cc = [];
             Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
