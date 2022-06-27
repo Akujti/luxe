@@ -9,5 +9,5 @@ class PreSelectedTask extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'date', 'author_id'];
+    protected $fillable = ['title', 'description', 'start_date', 'author_id'];
 }

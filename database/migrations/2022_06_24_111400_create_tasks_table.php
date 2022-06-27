@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->integer('status')->nullable()->comment('0: pending, 1: rejected, 2: accepted');
-            $table->date('date');
+            $table->string('start_date');
             $table->foreignId('contract_id')->constrained('contracts')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();

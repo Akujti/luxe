@@ -17,7 +17,7 @@ class CreatePreSelectedTasksTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->date('date');
+            $table->string('start_date');
             $table->foreignId('author_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });

@@ -19,6 +19,7 @@ class CreateContractClientInformationTable extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
+            $table->foreignId('contract_id')->constrained('contracts')->cascadeOnDelete();
             $table->timestamps();
         });
     }

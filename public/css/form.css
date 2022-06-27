@@ -20,6 +20,7 @@
     font-family: 'gothicbold';
     font-size: 18px !important;
     border-radius: 33px;
+    cursor: pointer;
 }
 .form .btn-luxe {
     width: 200px !important;

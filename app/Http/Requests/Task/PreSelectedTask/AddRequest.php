@@ -26,7 +26,7 @@ class AddRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'description' => 'nullable|string',
-            'date' => 'required|date'
+            'start_date' => 'required'
         ];
     }
 }

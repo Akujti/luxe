@@ -3,11 +3,12 @@
 namespace App\Models\Task;
 
 use App\Models\Task\Task;
+use App\Models\Feed\Image;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Task\ContractClientInformation;
 use App\Models\Task\ContractPropertyInformation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contract extends Model
 {
@@ -25,5 +26,10 @@ class Contract extends Model
 
     public function tasks() {
         return $this->hasMany(Task::class);
+    }
+
+    public function documents()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 }

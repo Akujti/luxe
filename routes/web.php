@@ -46,6 +46,7 @@ use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
+use App\Http\Controllers\Task\ContractController;
 use App\Http\Controllers\Task\PreSelectedTaskController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
@@ -93,6 +94,9 @@ Route::group(['prefix' => 'news', 'as' => 'news.', 'middleware' => ['auth']], fu
     Route::post('/download', [PostController::class, 'download_files'])->name('download');
 
 });
+
+// Route::resource('tasks', ContractController::class);
+Route::resource('contracts', ContractController::class);
 
 Route::group(['prefix' => 'store', 'as' => 'luxe_store.', 'middleware' => ['auth']], function () {
     Route::get('/', [StoreController::class, 'index'])->name('index');

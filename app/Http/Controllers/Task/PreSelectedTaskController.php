@@ -19,7 +19,7 @@ class PreSelectedTaskController extends Controller
         try {
             $row = new PreSelectedTask;
     
-            $row->fill($req->only(['title', 'description', 'date']));
+            $row->fill($req->only(['title', 'description', 'start_date']));
             $row->author_id = auth()->id();
             $row->save();
     
@@ -33,7 +33,7 @@ class PreSelectedTaskController extends Controller
         try {
             $row = PreSelectedTask::findOrFail($req->id);
     
-            $row->fill($req->only(['title', 'description', 'date']));
+            $row->fill($req->only(['title', 'description', 'start_date']));
             $row->author_id = auth()->id();
             $row->save();
     

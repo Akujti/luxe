@@ -11,5 +11,5 @@ use App\Models\Task\PreSelectedTask;
 
 
 function getPreSelectedTasks() {
-    return PreSelectedTask::select(['title', 'date'])->orderBy('title', 'asc')->get()->toArray();
+    return PreSelectedTask::select(['title', 'start_date'])->orderBy('title', 'asc')->get()->toArray();
 }

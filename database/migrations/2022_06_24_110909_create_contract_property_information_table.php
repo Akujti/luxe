@@ -19,6 +19,7 @@ class CreateContractPropertyInformationTable extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 16, 5)->nullable();
             $table->text('other_details')->nullable();
+            $table->foreignId('contract_id')->constrained('contracts')->cascadeOnDelete();
             $table->timestamps();
         });
     }

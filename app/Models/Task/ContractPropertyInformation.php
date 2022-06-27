@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ContractPropertyInformation extends Model
 {
     use HasFactory;
+    protected $fillable = ['address', 'description', 'price', 'other_details'];
 }

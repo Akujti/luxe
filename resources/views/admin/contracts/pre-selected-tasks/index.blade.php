@@ -62,7 +62,7 @@
                     <tr>
                         <td>{{ $task->title }}</td>
                         <td>{{ Str::limit($task->description, 60) }}</td>
-                        <td>{{ $task->date }}</td>
+                        <td>{{ $task->start_date }}</td>
                         <td>{{ $task->created_at->diffForHumans() }}</td>
                         <td>
                             <button class="btn btn-luxe px-4 py-2" onclick="update_event({{ $task }})">Edit</button>
@@ -97,17 +97,17 @@
                 </div>
             </div>
             <div class="form-group col-12">
-                <label for="">Date</label>
+                <label for="">Start after</label>
                 <div class="input-group">
-                    <input type="date" name="date" class="form-control" required>
+                    <input type="number" name="start_date" class="form-control" required>
                 </div>
             </div>
     </x-slot>
     <x-slot name="footer">
         <button type="button" class="btn" data-dismiss="modal">Close</button>
         <button type="submit" class="btn">Submit</button>
+        </form>
     </x-slot>
-    </form>
 </x-modal>
 
 <x-modal title="Update Task" id="update-task" centered="true">
@@ -129,17 +129,17 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="">Date</label>
+                <label for="">Start after</label>
                 <div class="input-group">
-                    <input type="date" name="date" id="date" class="form-control" required>
+                    <input type="number" name="start_date" id="date" class="form-control" required>
                 </div>
             </div>
     </x-slot>
     <x-slot name="footer">
         <button type="button" class="btn" data-dismiss="modal">Close</button>
         <button type="submit" class="btn">Submit</button>
+        </form>
     </x-slot>
-    </form>
 </x-modal>
 
 <x-modal title="Delete Task" id="delete-task" centered="true">
@@ -153,16 +153,14 @@
     <x-slot name="footer">
         <button type="button" class="btn" data-dismiss="modal">Close</button>
         <button type="submit" class="btn">Submit</button>
+        </form>
     </x-slot>
-    </form>
 </x-modal>
 
 @section('js')
 <script>
     function create_event() {
         $('#create-task').modal('show');
-        $('#create-task :input').prop('disabled', false)
-        $('#update-task :input').prop('disabled', true)
     }
     function update_event(row) {
         $('#update-task').modal('show');
@@ -170,14 +168,10 @@
         $('#update-task').find('#title').val(row.title);
         $('#update-task').find('#description').val(row.description);
         $('#update-task').find('#date').val(row.date);
-        $('#update-task :input').prop('disabled', false)
-        $('#create-task :input').prop('disabled', true)
     };
     function delete_event(row) {
         $('#delete-task').modal('show');
         $('#delete-task').find('#id').val(row.id);
-        $('#update-task :input').prop('disabled', true)
-        $('#create-task :input').prop('disabled', true)
     };
 </script>
 @endsection

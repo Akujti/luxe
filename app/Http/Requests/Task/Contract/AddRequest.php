@@ -38,7 +38,7 @@ class AddRequest extends FormRequest
 
             'property_information.address' => 'required|string|max:255',
             'property_information.description' => 'nullable|string',
-            'property_information.price' => 'nullable|decimal',
+            'property_information.price' => 'required|numeric',
             'property_information.other_details' => 'nullable',
         ];
     }

@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'id' => 'required|exists:pre_selected_tasks,id',
             'title' => 'required|max:255',
             'description' => 'nullable|string',
-            'date' => 'required|date'
+            'start_date' => 'required'
         ];
     }
 }
