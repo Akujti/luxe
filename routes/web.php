@@ -449,8 +449,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
         //     Route::post('/', [MarketingTemplateController::class, 'create_category'])->name('create');
         //     Route::put('/', [MarketingTemplateController::class, 'update_category'])->name('update');
         //     Route::delete('/', [MarketingTemplateController::class, 'destroy_category'])->name('delete');
-
-
         // });
         Route::group(['prefix' => 'templates', 'as' => 'templates.'], function () {
             Route::get('/{marketing_id}/categories/{category_id}', [MarketingTemplateController::class, 'admin_templates'])->name('index');
