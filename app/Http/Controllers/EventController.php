@@ -175,6 +175,7 @@ class EventController extends Controller
             'start_time' => 'nullable',
             'end_time' => 'nullable',
             'type' => 'nullable',
+            'status' => 'required|boolean',
             'rsvp' => 'nullable|url',
             'zoom' => 'nullable|url',
         ], [
@@ -189,6 +190,7 @@ class EventController extends Controller
             $event->image = $path;
         }
         $event->user_id = Auth::id();
+        $event->private = $request->status;
         $event->save();
         return redirect()->route('events.index')->with('message', 'Event has been created');
     }
@@ -207,6 +209,7 @@ class EventController extends Controller
             'rsvp' => 'nullable|url',
             'zoom' => 'nullable|url',
             'type' => 'nullable',
+            'status' => 'required|boolean'
         ], [
             'image.image' => 'The chosen file must be an image type',
             'rsvp.url' => 'RSVP must be a valid web link.',
@@ -219,6 +222,7 @@ class EventController extends Controller
             $path = $request->image->storeAs('images\events', $name, 'public');;
             $event->image = $path;
         }
+        $event->private = $request->status;
         $event->user_id = Auth::id();
         $event->save();
         return back()->with('message', 'Event has been updated.');

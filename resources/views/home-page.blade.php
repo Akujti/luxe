@@ -161,6 +161,30 @@
         .box-item .inside-box {
             height: 136px;
         }
+
+        .contact_information {
+            background-color: #F7F7F7;
+            border-radius: 10px;
+            padding: 20px 35px;
+        }
+
+        .contact_information ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact_information li {
+            font-size: 20px;
+            font-family: 'gothicregular';
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .contact_information li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     </style>
 @endsection
 @section('content')
@@ -1284,13 +1308,13 @@
         </div>
     </div>
     <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p>Links to other services</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>Links to other services</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> -->
     <div class="col-12 col-md-6 col-lg-3">
         <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
             <div>
@@ -1473,406 +1497,409 @@
             </div>
         </div>
     </div>
-    @elseif($_GET['dir'] == 'coming_soon')
+@elseif($_GET['dir'] == 'coming_soon')
     <div class="col-12 title mb-3">
         <h1>Coming Soon ...</h1>
     </div>
-    @elseif($_GET['dir'] == 'referral_partners')
-        <div class="col-12 title mb-3">
-            <h1>Referral Partners</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=lending_services') }}'">
-                <div>
-                    <img src="/images/index-page/landing_services.svg" class="icon" alt="">
-                    <p>Lending Services</p>
-                </div>
+@elseif($_GET['dir'] == 'referral_partners')
+    <div class="col-12 title mb-3">
+        <h1>Referral Partners</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=lending_services') }}'">
+            <div>
+                <img src="/images/index-page/landing_services.svg" class="icon" alt="">
+                <p>Lending Services</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=title') }}'">
-                <div>
-                    <img src="/images/index-page/title.svg" class="icon" alt="">
-                    <p>Title</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=title') }}'">
+            <div>
+                <img src="/images/index-page/title.svg" class="icon" alt="">
+                <p>Title</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=insurance') }}'">
-                <div>
-                    <img src="/images/index-page/insurance.svg" class="icon" alt="">
-                    <p>Insurance</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=insurance') }}'">
+            <div>
+                <img src="/images/index-page/insurance.svg" class="icon" alt="">
+                <p>Insurance</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=home_inspectors') }}'">
-                <div>
-                    <img src="/images/index-page/inspectors.svg" class="icon" alt="">
-                    <p>Home Inspectors</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=home_inspectors') }}'">
+            <div>
+                <img src="/images/index-page/inspectors.svg" class="icon" alt="">
+                <p>Home Inspectors</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=accountant') }}'">
-                <div>
-                    <img src="/images/index-page/tax_accountants.svg" class="icon" alt="">
-                    <p>Accountant</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=accountant') }}'">
+            <div>
+                <img src="/images/index-page/tax_accountants.svg" class="icon" alt="">
+                <p>Accountant</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=moving_company') }}'">
-                <div>
-                    <img src="/images/index-page/moving-company.png" class="icon" alt="">
-                    <p>Moving Company</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=moving_company') }}'">
+            <div>
+                <img src="/images/index-page/moving-company.png" class="icon" alt="">
+                <p>Moving Company</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=staging_company') }}'">
-                <div>
-                    <img src="/images/index-page/staging-company.svg" class="icon" alt="">
-                    <p>Staging Company</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=staging_company') }}'">
+            <div>
+                <img src="/images/index-page/staging-company.svg" class="icon" alt="">
+                <p>Staging Company</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=marketing_company') }}'">
-                <div>
-                    <img src="/images/index-page/marketing-company.svg" class="icon" alt="">
-                    <p>Marketing Company</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=marketing_company') }}'">
+            <div>
+                <img src="/images/index-page/marketing-company.svg" class="icon" alt="">
+                <p>Marketing Company</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <img src="/images/index-page/contractors.svg" class="icon" alt="">
-                    <p>Contractors</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <img src="/images/index-page/contractors.svg" class="icon" alt="">
+                <p>Contractors</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <img src="/images/index-page/permit-runners.svg" class="icon" alt="">
-                    <p>Permit Runners</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <img src="/images/index-page/permit-runners.svg" class="icon" alt="">
+                <p>Permit Runners</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=attorneys') }}'">
-                <div>
-                    <img src="/images/index-page/attorneys.svg" class="icon" alt="">
-                    <p>Attorneys</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=attorneys') }}'">
+            <div>
+                <img src="/images/index-page/attorneys.svg" class="icon" alt="">
+                <p>Attorneys</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=cleaning_company') }}'">
-                <div>
-                    <img src="/images/index-page/wipe.png" class="icon" alt="">
-                    <p>Cleaning Company</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=cleaning_company') }}'">
+            <div>
+                <img src="/images/index-page/wipe.png" class="icon" alt="">
+                <p>Cleaning Company</p>
             </div>
         </div>
-        
-    @elseif($_GET['dir'] == 'lending_services')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'lending_services';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Lending Services</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location='{{ url('/form') }}'">
-                <div>
-                    <p>Pre-Approval Form</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'lending_services')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'lending_services';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Lending Services</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location='{{ url('/form') }}'">
+            <div>
+                <p>Pre-Approval Form</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location = '{{ url('home?dir=contact_information') }}'">
-                <div>
-                    <p>Contact Information</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location = '{{ url('home?dir=contact_information') }}'">
+            <div>
+                <p>Contact Information</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'title')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'title';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Title</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Capital Title Group</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'title')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'title';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Title</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Capital Title Group</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Law Offices of Adorno-Cunill & Damas, PL</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Law Offices of Adorno-Cunill & Damas, PL</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Title Answers</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Title Answers</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Home Sweet Home Title</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Home Sweet Home Title</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'insurance')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'insurance';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Insurance</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Florida First Insurance</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'insurance')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'insurance';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Insurance</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Florida First Insurance</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>EnTrust Insurance </p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>EnTrust Insurance </p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Kelly Guerra company</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=kelley_guerra') }}'">
+            <div>
+                <p>Kelly Guerra company</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'home_inspectors')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'inspectors';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Home Inspectors</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Truview Inspections</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'kelley_guerra')
+    <div class="col-12 title mb-3">
+        <h1>Contact Information</h1>
+    </div>
+    <div class="m-auto contact_information">
+        <ul>
+            <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg" alt=""> KLG
+                    Insurance Group</a></li>
+            <li><a href="mailto:kelly@klginsurancegroup.com" class="text-luxe"><img src="/images/index-page/link_web.svg"
+                        alt=""> kelly@klginsurancegroup.com</a></li>
+            <li><a href="#" class="text-luxe"><img src="/images/index-page/location-1.svg" alt=""> 7154
+                    Pembroke Rd, Miramar, FL 33023</a>
+            </li>
+            <li><a href="http://www.klginsurancegroup.com" class="text-luxe"><img src="/images/index-page/website.svg"
+                        alt=""> www.klginsurancegroup.com</a>
+            </li>
+            <li><a href="tel: (305) 984 4352" class="text-luxe"><img src="/images/index-page/phone-black-1.svg"
+                        alt=""> C: 305.984.4352</a></li>
+            <li><a href="tel: (954) 893 0005" class="text-luxe"><img src="/images/index-page/phone-black-1.svg"
+                        alt=""> O: 954.893.0005</a></li>
+        </ul>
+    </div>
+@elseif($_GET['dir'] == 'home_inspectors')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'inspectors';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Home Inspectors</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Truview Inspections</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'accountant')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'accountant';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Accountant</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Allegiant Accounting & Tax</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'accountant')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'accountant';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Accountant</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Allegiant Accounting & Tax</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'moving_company')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'moving_company';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Moving Company</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>ETG Moving & Delivery LLC</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'moving_company')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'moving_company';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Moving Company</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>ETG Moving & Delivery LLC</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'staging_company')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'staging_company';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Staging Company</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Elite Home Staging</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'staging_company')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'staging_company';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Staging Company</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Elite Home Staging</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'marketing_company')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'marketing_company';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Marketing Company</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Planet Marketing</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'marketing_company')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'marketing_company';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Marketing Company</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Planet Marketing</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Print4Humans</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Print4Humans</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Live Colors</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Live Colors</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'attorneys')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'attorneys';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Attorneys</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=attorneys_evictions') }}'">
-                <div>
-                    <p>Evictions</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'attorneys')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'attorneys';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Attorneys</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=attorneys_evictions') }}'">
+            <div>
+                <p>Evictions</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=attorneys_probates') }}'">
-                <div>
-                    <p>Probates</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=attorneys_probates') }}'">
+            <div>
+                <p>Probates</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'attorneys_evictions')
-        <div class="col-12 title mb-3">
-            <h1>Evictions</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Alex E Borel</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'attorneys_evictions')
+    <div class="col-12 title mb-3">
+        <h1>Evictions</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Alex E Borel</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Law Offices of Samir Masri</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Law Offices of Samir Masri</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Pensky & Kim PA</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Pensky & Kim PA</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'attorneys_probates')
-        <div class="col-12 title mb-3">
-            <h1>Probates</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Barbara Sanjurjo</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'attorneys_probates')
+    <div class="col-12 title mb-3">
+        <h1>Probates</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Barbara Sanjurjo</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Justin Stivers</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Justin Stivers</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Chevallier law</p>
-                </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Chevallier law</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'cleaning_company')
-        <?php
-        $active = 'referral_partners';
-        $subactive = 'cleaning_company';
-        ?>
-        <div class="col-12 title mb-3">
-            <h1>Cleaning Company</h1>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
-                <div>
-                    <p>Miami Top Cleaning Service (commercial)</p>
-                </div>
+    </div>
+@elseif($_GET['dir'] == 'cleaning_company')
+    <?php
+    $active = 'referral_partners';
+    $subactive = 'cleaning_company';
+    ?>
+    <div class="col-12 title mb-3">
+        <h1>Cleaning Company</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
+            <div>
+                <p>Miami Top Cleaning Service (commercial)</p>
             </div>
         </div>
-    @elseif($_GET['dir'] == 'contact_information')
-        <style>
-            .contact_information {
-                background-color: #F7F7F7;
-                border-radius: 10px;
-                padding: 20px 0px;
-                padding-top: 36px;
-            }
-            .contact_information ul {
-                list-style: none;
-            }
-            .contact_information li {
-                font-size: 20px;
-                font-family: 'gothicregular';
-                margin-bottom: 20px;
-            }
-            .contact_information li a {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-        </style>
-        <div class="col-12 title mb-3">
-            <h1>Contact Information</h1>
-        </div>
-        <div class="col-12 col-md-8 col-lg-4 m-auto contact_information">
-            <ul>
-                <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg" alt=""> LUXE Lending</a></li>
-                <li><a href="tel: (305) 907 7081" class="text-luxe"><img src="/images/index-page/phone-black-1.svg" alt=""> 305.907.7081</a></li>
-                <li><a href="mailto:info@luxehomelean.com" class="text-luxe"><img src="/images/index-page/link_web.svg" alt=""> info@luxehomelean.com</a></li>
-            </ul>
-        </div>
+    </div>
+@elseif($_GET['dir'] == 'contact_information')
+    <div class="col-12 title mb-3">
+        <h1>Contact Information</h1>
+    </div>
+    <div class="m-auto contact_information">
+        <ul>
+            <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg" alt=""> LUXE
+                    Lending</a></li>
+            <li><a href="tel: (305) 907 7081" class="text-luxe"><img src="/images/index-page/phone-black-1.svg"
+                        alt=""> 305.907.7081</a></li>
+            <li><a href="mailto:info@luxehomelean.com" class="text-luxe"><img src="/images/index-page/link_web.svg"
+                        alt=""> info@luxehomelean.com</a></li>
+        </ul>
+    </div>
     @endif
     </div>
     </div>

@@ -67,6 +67,10 @@
             background-color: #2ebbfc;
         }
 
+        .fc-daygrid-event.luxe_coaching_program {
+            background-color: #ffc107;
+        }
+
         .modal-new select {
             border-radius: 3px;
         }
@@ -147,8 +151,18 @@
                                         <option value="career_fair">Career Fair</option>
                                         <option value="holidays">Holidays</option>
                                         <option value="volunteering">Volunteering</option>
+                                        <option value="luxe_coaching_program">LUXE Coaching Program</option>
                                     </select>
                                 </div>
+                                @if ($isAdmin)
+                                    <div class="form-group">
+                                        <label for="start">Status</label>
+                                        <select class="form-group form-select mb-0" name="status">
+                                            <option value="0" selected>Public</option>
+                                            <option value="1">Private</option>
+                                        </select>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="start">{{ __('Event Image') }}</label>
                                     <div class="custom-file">
@@ -266,12 +280,22 @@
                                         <option value="career_fair">Career Fair</option>
                                         <option value="holidays">Holidays</option>
                                         <option value="volunteering">Volunteering</option>
+                                        <option value="luxe_coaching_program">LUXE Coaching Program</option>
                                     </select>
                                 @else
                                     <input type="text" id="event_type" class="w-100 form-control text-capitalize"
                                         disabled>
                                 @endif
                             </div>
+                            @if ($isAdmin)
+                                <div class="form-group">
+                                    <label for="start">Status</label>
+                                    <select class="form-group form-select mb-0" name="status" id="event_status">
+                                        <option value="0">Public</option>
+                                        <option value="1">Private</option>
+                                    </select>
+                                </div>
+                            @endif
                             <div class="form-group image_group d-none">
                                 <label for="image">{{ __('Event Image') }}</label>
                                 <input type="file" name="image" class="form-control update_field" disabled
@@ -301,8 +325,8 @@
                         @endif
                 </div>
                 </form>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
+            </div>
+        </div>
     </div>
     </div>
 @endsection
@@ -345,7 +369,8 @@
                 $('.single-event').find('#rsvp1').val(event.extendedProps.rsvp);
                 $('.single-event').find('#zoom1').val(event.extendedProps.zoom);
                 $('.single-event').find('#event_type').val(event.extendedProps.fullType);
-                if (event.extendedProps.attending) {
+                $('.single-event').find('#event_status').val(event.extendedProps.private);
+                if (event.extendedProps.attending || event.extendedProps.private) {
                     $('#event_attend_form_wrapper').css('display', 'none');
                 } else {
                     $('#event_attend_form_wrapper').css('display', 'block');
