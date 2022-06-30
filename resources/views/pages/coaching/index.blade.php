@@ -24,9 +24,11 @@
             border-radius: 10px;
             cursor: pointer;
         }
+
         .coaching-text li {
             font-size: 16px;
         }
+
         .coaching-text p {
             font-size: 17px;
         }
@@ -67,10 +69,22 @@
             @endif
         </div>
         <div class="row box-items py-4">
-            <div class="col-6">
-                
+            <div class="col-lg-6">
+                <style>
+                    iframe {
+                        height: 400px;
+                    }
+
+                    @media(max-width:500px) {
+                        iframe {
+                            height: 200px;
+                        }
+                    }
+                </style>
+                <iframe src="https://drive.google.com/file/d/1YCfTMcHl6WYpFIG6PxzZKNywzlWXZenV/preview" width="100%"
+                    allow="autoplay"></iframe>
             </div>
-            <div class="col-12 col-md-12 col-lg-6 coaching-text">
+            <div class="col-lg-6 coaching-text">
                 <div>
                     <p>Group Coaching</p>
                     <ul>
