@@ -34,18 +34,13 @@ class VideoFolderController extends Controller
             }
         })->orderBy('title')->get();
 
-        if (request()->wantsJson()) {
-            return response()->json(['videoFolders' => $videoFolders, 'videos' => $videos]);
-        }
         return view('pages.videos', compact('videoFolders', 'videos'));
     }
 
     public function show($video_id)
     {
         $video = Video::with('list_views')->findOrFail($video_id);
-        if (request()->wantsJson()) {
-            return response()->json(['video' => $video]);
-        }
+        // dd($video->vimeo_details);
         $reviews = $video->reviews()->orderBy('created_at', 'desc')->get()->take(10);
         $comments = $video->comments()->orderBy('created_at', 'desc')->get()->take(10);
 

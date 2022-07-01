@@ -12,9 +12,6 @@ class AddendumTemplateController extends Controller
     public function index()
     {
         $templates = WrittenEmailTemplate::whereType('addendum')->get();
-        if (request()->wantsJson()) {
-            return response()->json(['templates' => $templates]);
-        }
         return view('pages.addendum-templates.index', compact('templates'));
     }
 

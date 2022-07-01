@@ -6,7 +6,6 @@ use App\Models\AgreementAgent;
 
 class PageController extends Controller
 {
-
     public function links()
     {
         return view('pages.links');
@@ -21,7 +20,6 @@ class PageController extends Controller
     {
         return view('pages.videos.' . $folder);
     }
-
 
     public function agreement_agents()
     {
