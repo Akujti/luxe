@@ -32,11 +32,8 @@ class BookingController extends Controller
 
     public function store(Request $request)
     {
-
         $start = new \DateTime($request->start);
         $end = new \DateTime($request->end);
-
-
         $hour_diff = $start->diff($end)->format('%h') * 60;
         $minutes_diff = $start->diff($end)->format('%i');
         $time_diff = $hour_diff + $minutes_diff;
@@ -96,11 +93,20 @@ class BookingController extends Controller
                 ];
 
                 Mail::to($mails)->send(new BookingMail($details));
+                if (request()->wantsJson()) {
+                    return response()->json(['message' => 'Reseverd', "event" => $booking]);
+                }
                 return back()->with('message', 'Reserved');
             } catch (\Throwable $th) {
+                if (request()->wantsJson()) {
+                    return response()->json(['error' => 'Reserved, but error occurred while sending email'], 500);
+                }
                 return back()->with('error', 'Reserved, but error occurred while sending email');
             }
         } else {
+            if (request()->wantsJson()) {
+                return response()->json(['error' => 'Max time for slot is 60 minutes!'], 500);
+            }
             return back()->with('error', 'Max time for slot is 60 minutes!');
         }
     }

@@ -16,6 +16,9 @@ class WrittenEmailTemplateController extends Controller
     public function index()
     {
         $templates = WrittenEmailTemplate::whereType(null)->get();
+        if (request()->wantsJson()) {
+            return response()->json(['templates' => $templates]);
+        }
         return view('pages.written-email-templates.index', compact('templates'));
     }
 
@@ -52,6 +55,9 @@ class WrittenEmailTemplateController extends Controller
     {
         $isAdmin = Auth::user()->isAdmin;
         $items = $writtenEmailTemplate->items;
+        if (request()->wantsJson()) {
+            return response()->json(['template' => $writtenEmailTemplate, 'items' => $items]);
+        }
         return view('pages.written-email-templates.show', compact('items', 'writtenEmailTemplate', 'isAdmin'));
     }
 

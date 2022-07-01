@@ -82,9 +82,9 @@ class User extends Authenticatable
             if ($this->profile->avatar) {
                 return asset('storage/' . $this->profile->avatar);
             } else if (trim($this->profile->fullname))
-                return 'https://ui-avatars.com/api/name=' . $this->profile->fullname . '?size=256';
-            return 'https://ui-avatars.com/api/name=' . $this->email . '?size=256';
+                return 'https://ui-avatars.com/api/name=' . $this->profile->fullname . '?size=256?format=png';
+            return 'https://ui-avatars.com/api/name=' . $this->email . '?size=256?format=png';
         }
-        return 'https://ui-avatars.com/api/name=' . $this->email . '?size=256';
+        return 'https://ui-avatars.com/api/name=' . $this->email . '?size=256?format=png';
     }
 }

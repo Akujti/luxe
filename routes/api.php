@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\AddendumTemplateController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClosingCoordinatorController;
+use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\FormController;
@@ -9,6 +13,8 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Video\VideoFolderController;
+use App\Http\Controllers\WrittenEmailTemplateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +35,7 @@ Route::group(
     ['middleware' => ['auth:sanctum']],
     function () {
         Route::post('formSubmit', [FormController::class, 'general_form_post']);
+        Route::post('login', [LoginController::class, 'login']);
         Route::get('appointment-addresses', [AppointmentController::class, 'getAddresses']);
         Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
         Route::post('store-appointment', [AppointmentController::class, 'store']);

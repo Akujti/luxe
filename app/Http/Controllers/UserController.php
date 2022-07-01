@@ -78,8 +78,11 @@ class UserController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
-    public function my_profile()
+    public function my_profile(Request $request)
     {
+        if ($request->wantsJson()) {
+            return response()->json(['user' => $request->user()->load('profile')]);
+        }
         return view('auth.profile.index');
     }
 
