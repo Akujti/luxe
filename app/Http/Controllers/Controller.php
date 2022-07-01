@@ -37,7 +37,7 @@ class Controller extends BaseController
                 Carbon::now()->endOfWeek()
             ]
         )
-            ->where('folder_id', $folder_id)->get();
+            ->where('folder_id', $folder_id)->latest()->get();
 
         $today = Carbon::today()->format('Y-m-d');
         $upcoming_events = Event::whereDate('date', '>', $today)->take(5)->get();
