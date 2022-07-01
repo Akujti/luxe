@@ -13,7 +13,9 @@ class VideoReview extends Model
     protected $fillable = ['user_id', 'video_id', 'comment', 'stars'];
 
     protected $with = ['user'];
-    public function user() {
+
+    public function user()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
 }

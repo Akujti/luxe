@@ -40,9 +40,12 @@ class VideoFolderController extends Controller
     public function show($video_id)
     {
         $video = Video::with('list_views')->findOrFail($video_id);
-        // dd($video->vimeo_details);
         $reviews = $video->reviews()->orderBy('created_at', 'desc')->get()->take(10);
+        $video->reviewsAvg = $video->reviews->avg('stars');
         $comments = $video->comments()->orderBy('created_at', 'desc')->get()->take(10);
+        if (request()->wantsJson()) {
+            return response()->json(['video' => $video, 'reviews' => $reviews, 'comments' => $comments]);
+        }
 
         return view('pages.videos.single-video', compact('video', 'reviews', 'comments'));
     }
@@ -107,6 +110,12 @@ class VideoFolderController extends Controller
         $row->user_id = auth()->id();
         $row->save();
 
+        $row->load('user');
+
+        if (request()->wantsJson()) {
+            return response()->json(['review' => $row]);
+        }
+
         return back()->with('message', 'Successfully added!');
     }
 
@@ -116,7 +125,11 @@ class VideoFolderController extends Controller
         $row->fill($req->only('comment', 'video_id'));
         $row->user_id = auth()->id();
         $row->save();
+        $row->load('user');
 
+        if (request()->wantsJson()) {
+            return response()->json(['comment' => $row]);
+        }
         return back()->with('message', 'Successfully added!');
     }
 }
