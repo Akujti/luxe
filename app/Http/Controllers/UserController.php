@@ -77,11 +77,8 @@ class UserController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
-    public function my_profile(Request $request)
+    public function my_profile()
     {
-        if ($request->wantsJson()) {
-            return response()->json(['user' => $request->user()->load('profile')]);
-        }
         return view('auth.profile.index');
     }
 
@@ -196,7 +193,7 @@ class UserController extends Controller
                         array_push($languageJson, $language);
                     }
                 }
-                $row->profile()->update([
+                $row->profile()->updateOrCreate(['user_id' => $row->id], [
                     'fullname' => $req->profile['fullname'],
                     'address' => $req->profile['address'],
                     'phone' => $req->profile['phone'],
@@ -289,6 +286,27 @@ class UserController extends Controller
 
         return back()->with('message', 'Successfully Added!');
     }
+    public function delete_note(Request $req)
+    {
+        $id = $req->input('id', null);
+        if($id) {
+            $row = UserNote::find($id);
+            if($row->author == auth()->id()) {
+                $row->delete();
+            }
+        }
+        return back()->with('message', 'Successfully deleted');
+    }
+
+    // public function delete_note(UserNote $note)
+    // {
+    //     if ($note->author == auth()->user()->id) {
+    //         $note->delete();
+    //         return redirect()->back()->with('message', 'Deleted');
+    //     } else {
+    //         return redirect()->back()->with('error', 'You do not have access');
+    //     }
+    // }
 
     public function update_role()
     {

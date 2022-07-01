@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\AgreementAgent;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
-
     public function links()
     {
         return view('pages.links');
@@ -25,9 +21,9 @@ class PageController extends Controller
         return view('pages.videos.' . $folder);
     }
 
-
     public function agreement_agents()
     {
+        return redirect('/home?dir=coming_soon');
         $agents = AgreementAgent::get();
         if (request()->wantsJson()) {
             return response()->json(['agents' => $agents]);

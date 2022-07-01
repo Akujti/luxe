@@ -48,7 +48,6 @@
             text-align: center;
             margin-top: 20px;
         }
-
     </style>
 </head>
 
@@ -58,7 +57,7 @@
             <img src="{{ url('/images/logo-black.png') }}" alt="">
         </div>
         <div class="" style="width: 100%;text-align:center">
-            <p class="bold-text"><b>Your new level is:</b> {{ $details['title'] }}</p>
+            <p class="bold-text"><b>Million Dollar Club Badge:</b> {{ $details['title'] }}</p>
             <hr>
             <div class="link">
                 <a href="https://myluxehub.com">https://myluxehub.com/</a>

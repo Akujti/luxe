@@ -20,9 +20,6 @@ class BookingController extends Controller
     public function selectRoom()
     {
         $rooms = Room::all();
-        if (request()->wantsJson()) {
-            return response()->json($rooms);
-        }
         return view('pages.bookings.rooms', compact('rooms'));
     }
 
@@ -30,16 +27,16 @@ class BookingController extends Controller
     {
         $room = Room::findOrFail($room_id);
         $bookings = $room->bookings;
-        if (request()->wantsJson()) {
-            return response()->json(['bookings' => $bookings]);
-        }
         return view('pages.bookings.index', compact('bookings', 'room'));
     }
 
     public function store(Request $request)
     {
+
         $start = new \DateTime($request->start);
         $end = new \DateTime($request->end);
+
+
         $hour_diff = $start->diff($end)->format('%h') * 60;
         $minutes_diff = $start->diff($end)->format('%i');
         $time_diff = $hour_diff + $minutes_diff;
@@ -66,19 +63,22 @@ class BookingController extends Controller
 
             switch ($request->room_id) {
                 case 1:
-                    $mails = ['support@luxeknows.com', 'receptionist@luxeknows.com', 'email@luxeknows.com', 'marketing@luxeknows.com', 'dcepero@ceperolaw.com', 'ctginfo@ceperolaw.com'];
+                    $mails = ['support@luxeknows.com', 'email@luxeknows.com', 'operations@luxeknows.com', 'ctginfo@ceperolaw.com', 'dcepero@ceperolaw.com'];
                     break;
                 case 2:
-                    $mails = ['denisse@luxeknows.com', 'irais@luxeknows.com', 'support@luxeknows.com', 'receptionist@luxeknows.com'];
+                    $mails = ['denisse@luxeknows.com', 'email@luxeknows.com', 'support@luxeknows.com'];
                     break;
                 case 3:
-                    $mails = ['support@luxeknows.com', 'receptionist@luxeknows.com', 'email@luxeknows.com', 'bianca@luxeknows.com'];
+                    $mails = ['bianca@luxeknows.com', 'designs@luxeknows.com', 'email@luxeknows.com'];
                     break;
                 case 4:
-                    $mails = ['yesenia@luxeknows.com', 'support@luxeknows.com', 'receptionist@luxeknows.com'];
+                    $mails = ['yesenia@luxeknows.com', 'monica@luxeknows.com', 'email@luxeknows.com'];
                     break;
                 case 5:
-                    $mails = ['support@luxeknows.com', 'receptionist@luxeknows.com'];
+                    $mails = ['email@luxeknows.com', 'carolina@luxeknows.com', 'operations@luxeknows.com'];
+                    break;
+                case 6:
+                    $mails = ['email@luxeknows.com', 'support@luxeknows.com'];
                     break;
                 default:
                     $mails = ['support@luxeknows.com'];
@@ -96,20 +96,11 @@ class BookingController extends Controller
                 ];
 
                 Mail::to($mails)->send(new BookingMail($details));
-                if (request()->wantsJson()) {
-                    return response()->json(['message' => 'Reseverd', "event" => $booking]);
-                }
                 return back()->with('message', 'Reserved');
             } catch (\Throwable $th) {
-                if (request()->wantsJson()) {
-                    return response()->json(['error' => 'Reserved, but error occurred while sending email'], 500);
-                }
                 return back()->with('error', 'Reserved, but error occurred while sending email');
             }
         } else {
-            if (request()->wantsJson()) {
-                return response()->json(['error' => 'Max time for slot is 60 minutes!'], 500);
-            }
             return back()->with('error', 'Max time for slot is 60 minutes!');
         }
     }
@@ -122,7 +113,7 @@ class BookingController extends Controller
             $booking->delete();
             return back()->with('message', 'Deleted Successfully');
         } else {
-            return back()->with('error', 'You dont have access');
+            return back()->with('error', 'You do not have access');
         }
     }
 }

@@ -13,9 +13,9 @@
                     <input type="hidden" name="to_email[]" id="team_email" value="">
 
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                                                <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
-                                                                                <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
-                                                                                <input type="hidden" name="to_email[]" value="operations@luxeknows.com"> -->
+                                                                                                                                        <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
+                                                                                                                                        <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
+                                                                                                                                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -71,7 +71,7 @@
                             </div>
 
                             <div class="form-group form-footer col-12">
-                                <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
+                                {{-- <input type="submit" class="btn btn-luxe w-100" value="SUBMIT"> --}}
                             </div>
                         </div>
                     </div>
@@ -80,6 +80,8 @@
         </div>
     </div>
     <script>
+        history.back()
+
         function setTeamEmail(element) {
             if (element.value == 'Team Flex') {
                 // document.getElementById('luxe_form').appendChild(

@@ -27,6 +27,7 @@ class Event extends Model
         'end_time',
         'rsvp',
         'zoom',
+        'private',
         'type'
     ];
 

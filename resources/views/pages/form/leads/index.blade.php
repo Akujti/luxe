@@ -41,7 +41,7 @@
     }
 
     .box-item a {
-        font-size: 25px;
+        font-size: 20px;
         font-family: 'gothicregular';
         color: #262626;
     }
@@ -64,46 +64,46 @@
                         <h1>Leads - Select Form</h1>
                     </div>
                     <div class="card-body">
-                        <div class="row box-items">
-                            <div class="col-lg-3 mb-4">
+                        <div class="row box-items justify-content-center">
+                            <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'join-zillow']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Join Zillow</a>
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-3 mb-4">
+                            {{-- <div class="col-lg-3 col-xl-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'team-dade-pause-request']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Team Dade - Pause
                                         Request</a>
                                 </div>
-                            </div> --}}
-                            <div class="col-lg-3 mb-4">
+                            </div>
+                            <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'pause-request']) }}"
-                                        class="btn w-100 d-flex align-items-center justify-content-center">Pause
+                                        class="btn w-100 d-flex align-items-center justify-content-center">Pause <br>
                                         Request</a>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 mb-4">
+                            </div> --}}
+                            <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'request-zillow-nurtures']) }}"
-                                        class="btn w-100 d-flex align-items-center justify-content-center">Request Zillow
+                                        class="btn w-100 d-flex align-items-center justify-content-center">Request Zillow <br>
                                         Nurtures</a>
                                 </div>
                             </div>
-                            <div class="col-lg-3 mb-4">
+                            <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-leads-weekly-update']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Zillow Leads<br>
-                                        Weeky Update</a>
+                                        Weekly Update</a>
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-3 mb-4">
+                            {{-- <div class="col-lg-4 col-xl-3 mb-4">
                                 <div class="box-item">
                                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'team-dade-zillow-leads-weekly-update']) }}"
                                         class="btn w-100 d-flex align-items-center justify-content-center">Team Dade -
-                                        Zillow <br>Leads Weeky Update</a>
+                                        Zillow <br>Leads Weekly Update</a>
                                 </div>
                             </div> --}}
                         </div>

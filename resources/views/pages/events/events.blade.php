@@ -67,10 +67,13 @@
             background-color: #2ebbfc;
         }
 
+        .fc-daygrid-event.luxe_coaching_program {
+            background-color: #ffc107;
+        }
+
         .modal-new select {
             border-radius: 3px;
         }
-
     </style>
 @endsection
 @section('content')
@@ -98,7 +101,8 @@
                                 <div class="form-group">
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="title" name="title" class="w-100 form-control" required>
+                                        <input type="text" id="title" name="title" class="w-100 form-control"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -112,7 +116,8 @@
                                     <div class="form-group w-50 pr-1">
                                         <label for="start">{{ __('Start Time') }}</label>
                                         <div class='input-group date'>
-                                            <input type="time" id="start_time" name="start_time" class="w-100 form-control">
+                                            <input type="time" id="start_time" name="start_time"
+                                                class="w-100 form-control">
                                         </div>
                                     </div>
                                     <div class="form-group w-50 pl-1">
@@ -146,8 +151,18 @@
                                         <option value="career_fair">Career Fair</option>
                                         <option value="holidays">Holidays</option>
                                         <option value="volunteering">Volunteering</option>
+                                        <option value="luxe_coaching_program">LUXE Coaching Program</option>
                                     </select>
                                 </div>
+                                @if ($isAdmin)
+                                    <div class="form-group">
+                                        <label for="start">Status</label>
+                                        <select class="form-group form-select mb-0" name="status">
+                                            <option value="0" selected>Public</option>
+                                            <option value="1">Private</option>
+                                        </select>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="start">{{ __('Event Image') }}</label>
                                     <div class="custom-file">
@@ -191,15 +206,15 @@
                         @method('PUT')
                         <input type="hidden" name="event_id" id="event_id_1">
                         <div class="modal-body">
-                            @if ($isAdmin)
+                            @if (auth()->user()->role == 'admin' || auth()->user()->role == 'other')
                                 <a class="btn btn-luxe mb-3" href="" id="event_stats_link">Show attendance</a>
                             @endif
                             <div class="form-group">
                                 <div class="">
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="title" name="title" class="w-100 form-control update_field"
-                                            disabled required>
+                                        <input type="text" id="title" name="title"
+                                            class="w-100 form-control update_field" disabled required>
                                     </div>
                                 </div>
                                 <div class="mt-1">
@@ -231,8 +246,8 @@
                                 <div class='input-group date'>
                                     @if ($isAdmin)
                                         <label for="rsvp1">{{ __('RSVP') }}</label>
-                                        <input type="url" name="rsvp" id="rsvp1" class="w-100 form-control update_field"
-                                            disabled>
+                                        <input type="url" name="rsvp" id="rsvp1"
+                                            class="w-100 form-control update_field" disabled>
                                     @endif
                                     <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
                                         class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
@@ -245,8 +260,8 @@
                                 <div class='input-group date'>
                                     @if ($isAdmin)
                                         <label for="zoom1">{{ __('ZOOM') }}</label>
-                                        <input type="url" name="zoom" id="zoom1" class="w-100 form-control update_field"
-                                            disabled>
+                                        <input type="url" name="zoom" id="zoom1"
+                                            class="w-100 form-control update_field" disabled>
                                     @endif
                                     <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
                                         class="btn btn-luxe w-100 mt-2" style="color: white !important;">
@@ -265,11 +280,22 @@
                                         <option value="career_fair">Career Fair</option>
                                         <option value="holidays">Holidays</option>
                                         <option value="volunteering">Volunteering</option>
+                                        <option value="luxe_coaching_program">LUXE Coaching Program</option>
                                     </select>
                                 @else
-                                    <input type="text" id="event_type" class="w-100 form-control text-capitalize" disabled>
+                                    <input type="text" id="event_type" class="w-100 form-control text-capitalize"
+                                        disabled>
                                 @endif
                             </div>
+                            @if ($isAdmin)
+                                <div class="form-group">
+                                    <label for="start">Status</label>
+                                    <select class="form-group form-select mb-0" name="status" id="event_status">
+                                        <option value="0">Public</option>
+                                        <option value="1">Private</option>
+                                    </select>
+                                </div>
+                            @endif
                             <div class="form-group image_group d-none">
                                 <label for="image">{{ __('Event Image') }}</label>
                                 <input type="file" name="image" class="form-control update_field" disabled
@@ -299,8 +325,8 @@
                         @endif
                 </div>
                 </form>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
+            </div>
+        </div>
     </div>
     </div>
 @endsection
@@ -343,7 +369,8 @@
                 $('.single-event').find('#rsvp1').val(event.extendedProps.rsvp);
                 $('.single-event').find('#zoom1').val(event.extendedProps.zoom);
                 $('.single-event').find('#event_type').val(event.extendedProps.fullType);
-                if (event.extendedProps.attending) {
+                $('.single-event').find('#event_status').val(event.extendedProps.private);
+                if (event.extendedProps.attending || event.extendedProps.private) {
                     $('#event_attend_form_wrapper').css('display', 'none');
                 } else {
                     $('#event_attend_form_wrapper').css('display', 'block');

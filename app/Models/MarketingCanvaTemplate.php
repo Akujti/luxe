@@ -13,6 +13,7 @@ class MarketingCanvaTemplate extends Model
         'category_id',
         'title',
         'image',
+        'featured',
         'url'
     ];
 
@@ -21,7 +22,7 @@ class MarketingCanvaTemplate extends Model
     public function getImageUrlAttribute()
     {
         if ($this->image) {
-            return 'http://myluxehub.com/storage/' . $this->image;
+            return asset('storage/' . $this->image);
         }
     }
 }

@@ -10,8 +10,8 @@
         }
 
         /* #paypal-button-container:hover {
-                                                                        background: #F2BA36
-                                                                    } */
+                                                                                        background: #F2BA36
+                                                                                    } */
 
     </style>
     <div class="container-fluid">
@@ -22,9 +22,11 @@
                     <div class="card-header">
                         <h1 class="text-center my-4">LISTING COORDINATOR - {{ $listingCoordinator->name }}</h1>
                         <h6 id="agent-text" class="text-center" style="font-size: 21px;">LISTING INPUT ONLY $100</h6>
+                        <h5 class="text-center">Coordinator Will Reach Out Within 1 Business Day</h5>
                     </div>
                     <input type="hidden" name="form_title" value="LISTING COORDINATORS - {{ $listingCoordinator->name }}">
                     <input type="hidden" name="form_title_value" value="LISTING COORDINATORS">
+                    <input type="hidden" name="special" value="Coordinator Will Reach Out Within 1 Business Day">
                     {{-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="support@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">

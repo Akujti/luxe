@@ -9,13 +9,15 @@ use Illuminate\Http\Request;
 use App\Models\AgentTransaction;
 use App\Http\Requests\Form\UpdateRequest;
 use App\Http\Requests\Form\UpdateFormRequest;
+use App\Models\CustomSection;
 
 class AdminController extends Controller
 {
     public function index()
     {
         $stats = $this->stats();
-        return view('admin.index', compact('stats'));
+        $news_feed = CustomSection::whereTitle('News Feed')->first();
+        return view('admin.index', compact('stats', 'news_feed'));
     }
     public function forms()
     {
@@ -23,16 +25,18 @@ class AdminController extends Controller
         return view('admin.forms', compact('forms'));
     }
 
-    public function update(UpdateFormRequest $req) {
+    public function update(UpdateFormRequest $req)
+    {
         $form = Form::find($req->id);
         $form->fill($req->only(['title', 'path']));
         $form->save();
 
         return back()->with('message', 'Successfully Updated');
     }
-    public function delete(Request $req) {
+    public function delete(Request $req)
+    {
         $form = Form::find($req->id);
-        if($form) {
+        if ($form) {
             $form->delete();
         }
 

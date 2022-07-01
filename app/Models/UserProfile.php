@@ -27,32 +27,56 @@ class UserProfile extends Model
     public function getBadgeAttribute()
     {
         $agent = BrokersumoAgent::where('agent_name', $this->fullname)->first();
-        $badge = ['title' => 'None', 'level' => 0];
+        $badge = [
+            'title' => 'None',
+            'level' => 0,
+            'sales_volumes' => 0,
+            'next_sales_level' => 0,
+            'next_yearly_sales_level' => 0,
+            'yearly_sales_volumes' => 0,
+            'yearly_title' => 'None',
+            'yearly_level' => 0
+        ];
         if ($agent) {
-            if ($agent->sales_volumes < 5000000) {
-                $badge['title'] = '5 Million Dollar Club';
-                $badge['level'] = 1;
-            } else if ($agent->sales_volumes > 5000000 && $agent->sales_volumes < 7000000) {
-                $badge['title'] = '7 Million Dollar Club';
-                $badge['level'] = 2;
-            } else if ($agent->sales_volumes > 7000000 && $agent->sales_volumes < 10000000) {
-                $badge['title'] = '9 Million Dollar Club';
-                $badge['level'] = 3;
-            } else if ($agent->sales_volumes > 10000000 && $agent->sales_volumes < 25000000) {
+            $badge['sales_volumes'] = $agent->sales_volumes;
+            $badge['yearly_sales_volumes'] = $agent->yearly_sales_volumes;
+            $badge['next_sales_level'] = 10000000 - $agent->sales_volumes;
+            $badge['next_yearly_sales_level'] = 5000000 - $agent->yearly_sales_volumes;
+
+            if ($agent->yearly_sales_volumes >= 5000000 && $agent->yearly_sales_volumes < 10000000) {
+                $badge['yearly_title'] = 'Earn $250 Monthly Marketing Budget';
+                $badge['yearly_level'] = 1;
+                $badge['next_yearly_sales_level'] = 10000000 - $agent->yearly_sales_volumes;
+            } else if ($agent->yearly_sales_volumes >= 10000000 && $agent->yearly_sales_volumes < 15000000) {
+                $badge['yearly_title'] = 'Earn $500 Monthly Marketing Budget';
+                $badge['yearly_level'] = 2;
+                $badge['next_yearly_sales_level'] = 15000000 - $agent->yearly_sales_volumes;
+            } else if ($agent->yearly_sales_volumes >= 15000000) {
+                $badge['yearly_title'] = 'Earn $1,000 Monthly Marketing Budget';
+                $badge['yearly_level'] = 3;
+                $badge['next_yearly_sales_level'] = 0;
+            }
+
+            if ($agent->sales_volumes >= 10000000 && $agent->sales_volumes < 25000000) {
                 $badge['title'] = '10 Million Dollar Club';
-                $badge['level'] = 4;
-            } else if ($agent->sales_volumes > 25000000 && $agent->sales_volumes < 50000000) {
+                $badge['level'] = 1;
+                $badge['next_sales_level'] = 25000000 - $agent->sales_volumes;
+            } else if ($agent->sales_volumes >= 25000000 && $agent->sales_volumes < 50000000) {
                 $badge['title'] = '25 Million Dollar Club';
-                $badge['level'] = 5;
-            } else if ($agent->sales_volumes > 50000000 && $agent->sales_volumes < 75000000) {
+                $badge['level'] = 2;
+                $badge['next_sales_level'] = 50000000 - $agent->sales_volumes;
+            } else if ($agent->sales_volumes >= 50000000 && $agent->sales_volumes < 75000000) {
                 $badge['title'] = '50 Million Dollar Club';
-                $badge['level'] = 6;
-            } else if ($agent->sales_volumes > 75000000 && $agent->sales_volumes < 100000000) {
+                $badge['level'] = 3;
+                $badge['next_sales_level'] = 75000000 - $agent->sales_volumes;
+            } else if ($agent->sales_volumes >= 75000000 && $agent->sales_volumes < 100000000) {
                 $badge['title'] = '75 Million Dollar Club';
-                $badge['level'] = 7;
-            } else if ($agent->sales_volumes > 100000000) {
+                $badge['level'] = 4;
+                $badge['next_sales_level'] = 100000000 - $agent->sales_volumes;
+            } else if ($agent->sales_volumes >= 100000000) {
                 $badge['title'] = '100 Million Dollar Club';
-                $badge['level'] = 8;
+                $badge['level'] = 5;
+                $badge['next_sales_level'] = 0;
             }
         }
         return $badge;

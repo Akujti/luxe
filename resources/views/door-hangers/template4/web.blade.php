@@ -1,271 +1,271 @@
 @extends('themes.layouts.app')
 @section('css')
-@include('includes.fonts')
-<style>
-    * {
-        font-family: 'Montserrat';
-    }
-
-    .gochi {
-        font-family: 'Gochi Hand', cursive;
-        font-weight: 400;
-    }
-
-    .lato {
-        font-family: 'Lato';
-        font-weight: normal;
-    }
-
-    .ibm {
-        font-family: 'IBM Plex Sans';
-        font-weight: 400;
-    }
-
-    .ibm-med {
-        font-family: 'IBM Plex Sans';
-        font-weight: 500;
-    }
-
-    .oswald {
-        font-family: 'Oswald';
-        font-weight: 400;
-    }
-
-    .oswald-med {
-        font-family: 'Oswald';
-        font-weight: 500;
-    }
-
-    .oswald-bold {
-        font-family: 'Oswald';
-        font-weight: 600;
-    }
-
-    .roboto {
-        font-family: 'Roboto';
-        font-weight: 400;
-    }
-
-    .bold {
-        font-weight: bold;
-    }
-
-    .extra-bold {
-        font-weight: 800;
-    }
-
-    label {
-        background-color: #262626;
-        color: #fff;
-        padding: 10px;
-        display: block;
-        width: 150px;
-        font-family: 'gothicbold';
-        font-size: 15px;
-    }
-
-    .row {
-        display: flex;
-        height: 1280px;
-    }
-
-    .row-divider {
-        height: 3px;
-        background-color: black;
-    }
-
-    .column-divider {
-        min-height: 100%;
-        height: 100%;
-        width: 150px;
-    }
-
-    .row-input {
-        margin: auto 0;
-        max-width: 1050px;
-    }
-
-    input,
-    textarea {
-        font-size: 15px;
-        margin-top: 10px;
-        margin-bottom: 5px;
-        width: 100%;
-        border: 1px solid #262626;
-        padding: 10px;
-        font-family: 'gothicregular';
-    }
-
-    .button {
-        margin-top: 50px;
-    }
-
-    .generate {
-        font-family: "gothicbold";
-        font-weight: 600;
-        font-size: 18px;
-        padding: 15px 40px;
-        border:1px solid #e8e8e8;
-        background-color: #e8e8e8;
-        color: #000;
-        text-decoration: none;
-        border-radius: 10px;
-        margin-top: 10px;
-    }
-
-    .flex {
-        display: flex;
-        justify-content: flex-start;
-    }
-
-    .flex label {
-        margin: 10px auto 10px auto !important;
-    }
-
-    .row-image {
-        height: auto;
-    }
-
-    .page {
-        width: 1000px;
-        position: relative;
-        height: 2541px;
-        /* background-image: url('images/themes/just-listed/img-1.jpg'); */
-        background-position: center bottom;
-        background-repeat: no-repeat;
-        background-size: 1140px;
-    }
-
-    .absolute {
-        position: absolute;
-    }
-
-    .gold {
-        color: #C5A467;
-    }
-
-    .white {
-        color: white;
-    }
-
-    .bold {
-        font-weight: 700;
-    }
-
-    ul li {
-        display: inline;
-        font-size: 20px;
-        margin-right: 10px;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-        margin: 0;
-    }
-
-    div.circle {
-        top: 37%;
-    }
-
-    img.circle {
-        border: 10px solid #C9A668;
-        border-radius: 50%;
-        width: 285px;
-        height: 285px;
-        object-fit: cover;
-    }
-
-    .pr-10 {
-        padding-right: 10px;
-    }
-
-    .file-input-width {
-        width: 175px;
-    }
-
-    h1.small {
-        font-size: 70px;
-    }
-
-    h1.normal {
-        font-size: 90px;
-    }
-
-    h1.large {
-        font-size: 110px;
-    }
-
-    h1.main {
-        font-family: 'Lato';
-        font-weight: 900;
-    }
-
-    .list {
-        font-size: 23px;
-        letter-spacing: -1px;
-    }
-
-    .mr-3 {
-        margin-right: 8px;
-    }
-
-    .title {
-        font-size: 90px;
-    }
-
-    .social {
-        font-size: 14px;
-    }
-
-    .white-border {
-        border: 5px solid white;
-    }
-
-    .cropper-container {
-        position: fixed !important;
-        top: -100px !important;
-        z-index: 100;
-    }
-
-    .page {
-        zoom: 50%;
-    }
-
-    .text-right {
-        text-align: right
-    }
-
-    .mb-10 {
-        margin-bottom: 10px
-    }
-
-    .w-100 {
-        width: 100%;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    @media(max-width:1300px) {
-        .row-input {
-            width: 580px
+    @include('includes.fonts')
+    <style>
+        * {
+            font-family: 'Montserrat';
         }
-    }
 
-    .table-title {
-        color: white;
-        font-size: 40px;
-        font-weight: 300;
-    }
-</style>
+        .gochi {
+            font-family: 'Gochi Hand', cursive;
+            font-weight: 400;
+        }
+
+        .lato {
+            font-family: 'Lato';
+            font-weight: normal;
+        }
+
+        .ibm {
+            font-family: 'IBM Plex Sans';
+            font-weight: 400;
+        }
+
+        .ibm-med {
+            font-family: 'IBM Plex Sans';
+            font-weight: 500;
+        }
+
+        .oswald {
+            font-family: 'Oswald';
+            font-weight: 400;
+        }
+
+        .oswald-med {
+            font-family: 'Oswald';
+            font-weight: 500;
+        }
+
+        .oswald-bold {
+            font-family: 'Oswald';
+            font-weight: 600;
+        }
+
+        .roboto {
+            font-family: 'Roboto';
+            font-weight: 400;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .extra-bold {
+            font-weight: 800;
+        }
+
+        label {
+            background-color: #262626;
+            color: #fff;
+            padding: 10px;
+            display: block;
+            width: 150px;
+            font-family: 'gothicbold';
+            font-size: 15px;
+        }
+
+        .row {
+            display: flex;
+            height: 1280px;
+        }
+
+        .row-divider {
+            height: 3px;
+            background-color: black;
+        }
+
+        .column-divider {
+            min-height: 100%;
+            height: 100%;
+            width: 150px;
+        }
+
+        .row-input {
+            margin: auto 0;
+            max-width: 1050px;
+        }
+
+        input,
+        textarea {
+            font-size: 15px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            width: 100%;
+            border: 1px solid #262626;
+            padding: 10px;
+            font-family: 'gothicregular';
+        }
+
+        .button {
+            margin-top: 50px;
+        }
+
+        .generate {
+            font-family: "gothicbold";
+            font-weight: 600;
+            font-size: 18px;
+            padding: 15px 40px;
+            border: 1px solid #e8e8e8;
+            background-color: #e8e8e8;
+            color: #000;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .flex label {
+            margin: 10px auto 10px auto !important;
+        }
+
+        .row-image {
+            height: auto;
+        }
+
+        .page {
+            width: 1000px;
+            position: relative;
+            height: 2541px;
+            /* background-image: url('images/themes/just-listed/img-1.jpg'); */
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-size: 1140px;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .gold {
+            color: #C5A467;
+        }
+
+        .white {
+            color: white;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        ul li {
+            display: inline;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        div.circle {
+            top: 37%;
+        }
+
+        img.circle {
+            border: 10px solid #C9A668;
+            border-radius: 50%;
+            width: 285px;
+            height: 285px;
+            object-fit: cover;
+        }
+
+        .pr-10 {
+            padding-right: 10px;
+        }
+
+        .file-input-width {
+            width: 175px;
+        }
+
+        h1.small {
+            font-size: 70px;
+        }
+
+        h1.normal {
+            font-size: 90px;
+        }
+
+        h1.large {
+            font-size: 110px;
+        }
+
+        h1.main {
+            font-family: 'Lato';
+            font-weight: 900;
+        }
+
+        .list {
+            font-size: 23px;
+            letter-spacing: -1px;
+        }
+
+        .mr-3 {
+            margin-right: 8px;
+        }
+
+        .title {
+            font-size: 90px;
+        }
+
+        .social {
+            font-size: 14px;
+        }
+
+        .white-border {
+            border: 5px solid white;
+        }
+
+        .cropper-container {
+            position: fixed !important;
+            top: -100px !important;
+            z-index: 100;
+        }
+
+        .page {
+            zoom: 50%;
+        }
+
+        .text-right {
+            text-align: right
+        }
+
+        .mb-10 {
+            margin-bottom: 10px
+        }
+
+        .w-100 {
+            width: 100%;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        @media(max-width:1300px) {
+            .row-input {
+                width: 580px
+            }
+        }
+
+        .table-title {
+            color: white;
+            font-size: 40px;
+            font-weight: 300;
+        }
+    </style>
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.js"
-    integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
-    crossorigin="anonymous"></script>
+integrity="sha512-oqBsjjSHWqkDx4UKoU+5IUZN2nW2qDp2GFSKw9+mcFm+ZywqfBKp79nfWmGPco2wzTWuE46XpjtCjZ9tFmI12g=="
+crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css"
     integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
     crossorigin="anonymous" />
@@ -347,13 +347,11 @@
                 </div>
                 <div>
                     <label for="text-2">Text 6</label>
-                    <textarea name="text-6" id="text-6"
-                        rows="4">As a professional real estate agent and fellow neighbor, know the real value of what our neighborhood offers</textarea>
+                    <textarea name="text-6" id="text-6" rows="4">As a professional real estate agent and fellow neighbor, know the real value of what our neighborhood offers</textarea>
                 </div>
                 <div>
                     <label for="text-2">Text 7</label>
-                    <textarea name="text-7" id="text-7"
-                        rows="4">I'd love to offer my services and resources to you, whether you're looking to buy or sell a home</textarea>
+                    <textarea name="text-7" id="text-7" rows="4">I'd love to offer my services and resources to you, whether you're looking to buy or sell a home</textarea>
                 </div>
                 <div>
                     <label for="text-2">Text 8</label>
@@ -363,48 +361,44 @@
                 <div>
                     <div class="flex">
                         <div class="" style="width: 345px">
-                            <button type="button" name="action" value="Generate" class="generate" onclick="beforePDF()">Generate</button>
+                            <button type="button" name="action" value="Generate" class="generate"
+                                onclick="beforePDF()">Generate</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-@include('includes.loader')
+    @include('includes.loader')
 @endsection
 
 <script>
-    $("textarea").change(function(event) {
-        var event_id = event.target.id;
-            var text = $("#"+event_id).val();
-            var textarea = document.getElementsByClassName(event_id)[0];
-            textarea.innerHTML = text;
-    });
-    function change_font_size(select_input){
+    function change_font_size(select_input) {
         console.log(select_input);
         var select_id = select_input.id;
-        var selector = $('#'+select_id);
+        var selector = $('#' + select_id);
         var element_to_edit = selector.attr('data-id-to-change');
         var font_size = selector.val();
         remove_classes(element_to_edit);
-        $("."+element_to_edit).addClass(font_size);
+        $("." + element_to_edit).addClass(font_size);
     }
-    function remove_classes(element){
-        $("."+element+"").removeClass('small');
-        $("."+element+"").removeClass('normal');
-        $("."+element+"").removeClass('large');
+
+    function remove_classes(element) {
+        $("." + element + "").removeClass('small');
+        $("." + element + "").removeClass('normal');
+        $("." + element + "").removeClass('large');
     }
-    $(document).ready(function() {        
-        $("input").change(function(event) {
+    $(document).ready(function() {
+        $("input,textarea").change(function(event) {
             var event_id = event.target.id;
             var event_element = $("#" + event_id)
             var export_var = $("." + event_id);
             export_var.html(event_element.val());
-        }); 
+        });
     });
 
-    
-    function img_6_change(){
+
+    function img_6_change() {
         var form_data = new FormData();
         form_data.append("file", $("#img-6-input")[0].files[0]);
         $.ajax({
@@ -417,9 +411,9 @@
             headers: {
                 'X-CSRF-Token': $('[name="_token"]').val()
             },
-            success: function(output){
+            success: function(output) {
                 $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
+                getBase64Image(document.getElementById("image"), function(base64) {
                     $("#img_6").attr('src', 'uploadedimages/' + output);
                     $("input[name=img_6_input]").val('uploadedimages/' + output);
                 });
@@ -428,36 +422,36 @@
         });
     }
 
-    function img_6_crop(){
+    function img_6_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_6").attr('src', 'uploadedimages/' + output);
-                    $("input[name=img_6_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
+            console.log("getCroppedCanvas")
+            const form_data = new FormData();
+            form_data.append('file', blob, 'example.png');
+            $.ajax({
+                url: '/uploadimage',
+                data: form_data,
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function(output) {
+                    cropper.destroy();
+                    $("#image").attr('src', 'uploadedimages/' + output)
+                    getBase64Image(document.getElementById("image"), function(base64) {
+                        $("#img_6").attr('src', 'uploadedimages/' + output);
+                        $("input[name=img_6_input]").val('uploadedimages/' + output);
+                    });
+                    $(".page").css("opacity", "1");
+                }
+            });
+
+        } /*, 'image/png' */ );
     }
-    
-    function img_5_change(){
+
+    function img_5_change() {
         var form_data = new FormData();
         form_data.append("file", $("#img-5-input")[0].files[0]);
         $.ajax({
@@ -470,9 +464,9 @@
             headers: {
                 'X-CSRF-Token': $('[name="_token"]').val()
             },
-            success: function(output){
+            success: function(output) {
                 $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
+                getBase64Image(document.getElementById("image"), function(base64) {
                     $("#img_5").attr('src', 'uploadedimages/' + output);
                     $("input[name=img_5_input]").val('uploadedimages/' + output);
                 });
@@ -481,36 +475,36 @@
         });
     }
 
-    function img_5_crop(){
+    function img_5_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_5").attr('src', 'uploadedimages/' + output);
-                    $("input[name=img_5_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
+            console.log("getCroppedCanvas")
+            const form_data = new FormData();
+            form_data.append('file', blob, 'example.png');
+            $.ajax({
+                url: '/uploadimage',
+                data: form_data,
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function(output) {
+                    cropper.destroy();
+                    $("#image").attr('src', 'uploadedimages/' + output)
+                    getBase64Image(document.getElementById("image"), function(base64) {
+                        $("#img_5").attr('src', 'uploadedimages/' + output);
+                        $("input[name=img_5_input]").val('uploadedimages/' + output);
+                    });
+                    $(".page").css("opacity", "1");
+                }
+            });
+
+        } /*, 'image/png' */ );
     }
-    
-    function img_4_change(){
+
+    function img_4_change() {
         var form_data = new FormData();
         form_data.append("file", $("#img-4-input")[0].files[0]);
         $.ajax({
@@ -523,9 +517,9 @@
             headers: {
                 'X-CSRF-Token': $('[name="_token"]').val()
             },
-            success: function(output){
+            success: function(output) {
                 $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
+                getBase64Image(document.getElementById("image"), function(base64) {
                     $("#img_4").attr('src', 'uploadedimages/' + output);
                     $("input[name=img_4_input]").val('uploadedimages/' + output);
                 });
@@ -534,36 +528,36 @@
         });
     }
 
-    function img_4_crop(){
+    function img_4_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_4").attr('src', 'uploadedimages/' + output);
-                    $("input[name=img_4_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
+            console.log("getCroppedCanvas")
+            const form_data = new FormData();
+            form_data.append('file', blob, 'example.png');
+            $.ajax({
+                url: '/uploadimage',
+                data: form_data,
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function(output) {
+                    cropper.destroy();
+                    $("#image").attr('src', 'uploadedimages/' + output)
+                    getBase64Image(document.getElementById("image"), function(base64) {
+                        $("#img_4").attr('src', 'uploadedimages/' + output);
+                        $("input[name=img_4_input]").val('uploadedimages/' + output);
+                    });
+                    $(".page").css("opacity", "1");
+                }
+            });
+
+        } /*, 'image/png' */ );
     }
-    
-    function img_3_change(){
+
+    function img_3_change() {
         var form_data = new FormData();
         form_data.append("file", $("#img-3-input")[0].files[0]);
         $.ajax({
@@ -576,9 +570,9 @@
             headers: {
                 'X-CSRF-Token': $('[name="_token"]').val()
             },
-            success: function(output){
+            success: function(output) {
                 $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
+                getBase64Image(document.getElementById("image"), function(base64) {
                     $("#img_3").attr('src', 'uploadedimages/' + output);
                     $("input[name=img_3_input]").val('uploadedimages/' + output);
                 });
@@ -586,36 +580,36 @@
         });
     }
 
-    function img_3_crop(){
+    function img_3_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_3").attr('src', 'uploadedimages/' + output);
-                    $("input[name=img_3_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
+            console.log("getCroppedCanvas")
+            const form_data = new FormData();
+            form_data.append('file', blob, 'example.png');
+            $.ajax({
+                url: '/uploadimage',
+                data: form_data,
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function(output) {
+                    cropper.destroy();
+                    $("#image").attr('src', 'uploadedimages/' + output)
+                    getBase64Image(document.getElementById("image"), function(base64) {
+                        $("#img_3").attr('src', 'uploadedimages/' + output);
+                        $("input[name=img_3_input]").val('uploadedimages/' + output);
+                    });
+                    $(".page").css("opacity", "1");
+                }
+            });
+
+        } /*, 'image/png' */ );
     }
 
-    function img_2_change(){
+    function img_2_change() {
         var form_data = new FormData();
         form_data.append("file", $("#img-2-input")[0].files[0]);
         $.ajax({
@@ -628,9 +622,9 @@
             headers: {
                 'X-CSRF-Token': $('[name="_token"]').val()
             },
-            success: function(output){
+            success: function(output) {
                 $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
+                getBase64Image(document.getElementById("image"), function(base64) {
                     $("#img_2").attr('src', 'uploadedimages/' + output);
                     $("input[name=img_2_input]").val('uploadedimages/' + output);
                 });
@@ -638,36 +632,36 @@
         });
     }
 
-    function img_2_crop(){
+    function img_2_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_2").attr('src', 'uploadedimages/' + output);
-                    $("input[name=img_2_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
+            console.log("getCroppedCanvas")
+            const form_data = new FormData();
+            form_data.append('file', blob, 'example.png');
+            $.ajax({
+                url: '/uploadimage',
+                data: form_data,
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function(output) {
+                    cropper.destroy();
+                    $("#image").attr('src', 'uploadedimages/' + output)
+                    getBase64Image(document.getElementById("image"), function(base64) {
+                        $("#img_2").attr('src', 'uploadedimages/' + output);
+                        $("input[name=img_2_input]").val('uploadedimages/' + output);
+                    });
+                    $(".page").css("opacity", "1");
+                }
+            });
+
+        } /*, 'image/png' */ );
     }
 
-    function img_1_change(){
+    function img_1_change() {
         var form_data = new FormData();
         form_data.append("file", $("#img-1-input")[0].files[0]);
         $.ajax({
@@ -680,9 +674,9 @@
             headers: {
                 'X-CSRF-Token': $('[name="_token"]').val()
             },
-            success: function(output){
+            success: function(output) {
                 $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
+                getBase64Image(document.getElementById("image"), function(base64) {
                     $("#img_1").attr('src', 'uploadedimages/' + output);
                     $("input[name=img_1_input]").val('uploadedimages/' + output);
                 });
@@ -691,37 +685,38 @@
         });
     }
 
-    function img_1_crop(){
+    function img_1_crop() {
         cropper.getCroppedCanvas().toBlob((blob) => {
-        console.log("getCroppedCanvas")
-        const form_data = new FormData();
-        form_data.append('file', blob, 'example.png');
-        $.ajax({
-            url: '/uploadimage',
-            data: form_data,
-            type: 'post',
-            cache: false,
-            contentType: false,
-            processData: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
-            success: function(output){
-                cropper.destroy();
-                $("#image").attr('src', 'uploadedimages/' + output)
-                getBase64Image(document.getElementById("image"),function(base64){
-                    $("#img_1").attr('src', 'uploadedimages/' + output);
-                    $("input[name=img_1_input]").val('uploadedimages/' + output);
-                });
-                $(".page").css("opacity", "1");
-            }
-        });
-        
-        }/*, 'image/png' */);
+            console.log("getCroppedCanvas")
+            const form_data = new FormData();
+            form_data.append('file', blob, 'example.png');
+            $.ajax({
+                url: '/uploadimage',
+                data: form_data,
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function(output) {
+                    cropper.destroy();
+                    $("#image").attr('src', 'uploadedimages/' + output)
+                    getBase64Image(document.getElementById("image"), function(base64) {
+                        $("#img_1").attr('src', 'uploadedimages/' + output);
+                        $("input[name=img_1_input]").val('uploadedimages/' + output);
+                    });
+                    $(".page").css("opacity", "1");
+                }
+            });
+
+        } /*, 'image/png' */ );
     }
 
     var cropper;
-    function startCropper(ratio){
+
+    function startCropper(ratio) {
         var image = document.getElementById("image");
         $(".page").css("opacity", "0");
         cropper = new Cropper(image, {
@@ -731,20 +726,21 @@
 
     function convert(oldImag, callback) {
         var img = new Image();
-        img.onload = function(){
+        img.onload = function() {
             callback(img)
         }
         img.setAttribute('crossorigin', 'anonymous');
         img.src = oldImag.src;
     }
-    function getBase64Image(img,callback) {
-        convert(img, function(newImg){
+
+    function getBase64Image(img, callback) {
+        convert(img, function(newImg) {
             var canvas = document.createElement("canvas");
             canvas.width = newImg.width;
             canvas.height = newImg.height;
             var ctx = canvas.getContext("2d");
             ctx.drawImage(newImg, 0, 0);
-            var base64=canvas.toDataURL("image/png");
+            var base64 = canvas.toDataURL("image/png");
             callback(base64)
         })
     }
@@ -752,7 +748,7 @@
         $('.loader').css('display', 'flex')
         $('.page').css('zoom', 1)
         const result = await generatePDF(264, 672.3)
-        if(result) {
+        if (result) {
             $('.loader').css('display', 'none')
             $('.page').css('zoom', '50%')
         }

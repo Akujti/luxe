@@ -31,7 +31,6 @@
         #add-new-button {
             font-size: 30px !important;
         }
-
     </style>
 @section('content')
     <div class="container-fluid">
@@ -39,12 +38,22 @@
             <div class="w-100 d-flex justify-content-between align-items-center">
                 <h5 class="h5-luxe">Brokersumo Agents</h5>
             </div>
-            <form action="{{ route('admin.broker-sumo.store') }}" method="post" enctype='multipart/form-data'
-                class="mb-5">
-                @csrf
-                <input type="file" name="sheet">
-                <input type="submit" value="Upload" class="btn btn-luxe">
-            </form>
+            <div class="w-100 d-lg-flex justify-content-between">
+                <form action="{{ route('admin.broker-sumo.store') }}" method="post" enctype='multipart/form-data'
+                    class="mb-2">
+                    @csrf
+                    <label for="" class="w-100">General Report</label>
+                    <input type="file" name="sheet">
+                    <input type="submit" value="Upload" class="btn btn-luxe">
+                </form>
+                <form action="{{ route('admin.broker-sumo.store.yearly') }}" method="post" enctype='multipart/form-data'
+                    class="mb-5">
+                    @csrf
+                    <label for="" class="w-100">{{ date('Y') }} Report</label>
+                    <input type="file" name="sheet">
+                    <input type="submit" value="Upload" class="btn btn-luxe">
+                </form>
+            </div>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -52,6 +61,7 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Total Amount</th>
+                            <th>{{ date('Y') }} Total Amount</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,6 +70,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $result->agent_name }}</td>
                                 <td>{{ '$' . number_format($result->sales_volumes) }}
+                                </td>
+                                <td>{{ '$' . number_format($result->yearly_sales_volumes) }}
                                 </td>
                             </tr>
                         @endforeach

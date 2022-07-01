@@ -43,6 +43,7 @@ class VideoController extends Controller
                 $row->description = $response['body']['description'];
                 $row->thumbnail = $response['body']['pictures']['base_link'];
                 $row->embed_url = $response['body']['player_embed_url'];
+                $row->views = $response['body']['stats']['plays'];
                 $row->created_at = Carbon::parse($response['body']['created_time'])->diffForHumans();
             } else {
                 return back()->with('error', 'Something went wrong!');
@@ -67,6 +68,7 @@ class VideoController extends Controller
                 $row->description = $response['body']['description'];
                 $row->thumbnail = $response['body']['pictures']['base_link'];
                 $row->embed_url = $response['body']['player_embed_url'];
+                $row->views = $response['body']['stats']['plays'];
                 $row->created_at = Carbon::parse($response['body']['created_time'])->diffForHumans();
             } else {
                 return back()->with('error', 'Something went wrong!');
@@ -90,11 +92,35 @@ class VideoController extends Controller
 
     public function update_videos()
     {
-        $rows = Video::all();
+        $rows = Video::where('views', 0)->get();
 
         foreach ($rows as $row) {
-            $row->title = $row->vimeo_details['name'];
-            $row->save();
+
+            $response = Vimeo::request('/videos/' . $row->video_id, [], 'GET');
+            if (isset($response, $response['body']['stats'])) {
+                $row->views = $response['body']['stats']['plays'];
+                $row->save();
+            }
+        }
+        return back();
+    }
+
+    public function update_videos_thumbnails()
+    {
+        $videos = Video::get();
+        foreach ($videos as $video) {
+            $response = Vimeo::request('/videos/' . $video->video_id, [], 'GET');
+            $data = ['thumbnail' => $video->vimeo_details['thumbnail']];
+            if ($response && $response['status'] != 404) {
+                $data = [
+                    'thumbnail' => $response['body']['pictures']['base_link'],
+                ];
+            }
+            $video->update(
+                [
+                    'thumbnail' => $data['thumbnail'],
+                ]
+            );
         }
         return back();
     }

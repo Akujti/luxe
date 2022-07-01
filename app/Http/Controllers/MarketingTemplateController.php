@@ -65,7 +65,7 @@ class MarketingTemplateController extends Controller
 
     public function index()
     {
-        $marketing_categories = MarketingCanva::whereNull('parent_id')->with('categories', 'categories.templates', 'templates')->orderBy('order', 'asc')->get();
+        $marketing_categories = MarketingCanva::whereNull('parent_id')->orderBy('order', 'asc')->get();
         if (request()->wantsJson()) {
             return response()->json(['categories' => $marketing_categories]);
         }
@@ -174,6 +174,7 @@ class MarketingTemplateController extends Controller
 
         $canva_category->title = $req->title;
         $canva_category->url = $req->url;
+        $canva_category->featured = isset($req->featured) ? 1 : 0;
 
         if ($req->image) {
             $name = time() . Str::random(10) . '.' . $req->image->getClientOriginalExtension();

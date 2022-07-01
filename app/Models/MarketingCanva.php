@@ -29,6 +29,11 @@ class MarketingCanva extends Model
         return $this->hasMany(MarketingCanvaTemplate::class, 'category_id')->orderBy('order');
     }
 
+    public function featured_templates()
+    {
+        return $this->hasMany(MarketingCanvaTemplate::class, 'category_id')->whereFeatured(true)->orderBy('order');
+    }
+
     public function getImageUrlAttribute()
     {
         return asset('storage/' . $this->image);

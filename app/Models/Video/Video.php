@@ -3,6 +3,7 @@
 namespace App\Models\Video;
 
 use Carbon\Carbon;
+use App\Models\Video\VideoViews;
 use Vimeo\Laravel\Facades\Vimeo;
 use App\Models\Video\VideoReviewStar;
 use Illuminate\Database\Eloquent\Model;
@@ -51,13 +52,45 @@ class Video extends Model
         return $data;
     }
 
+    public function getVimeoThumbnailAttribute()
+    {
+
+        //Not needed
+        $response = Vimeo::request('/videos/' . $this->video_id, [], 'GET');
+
+        if ($response && $response['status'] != 404) {
+            $data = [
+                'name' => $response['body']['name'],
+                'description' => $response['body']['description'],
+                'thumbnail' => $response['body']['pictures']['base_link'],
+                'embed_url' => $response['body']['player_embed_url'],
+                'created_at' => Carbon::parse($response['body']['created_time'])->diffForHumans()
+            ];
+        } else {
+            $data = [
+                'name' => '',
+                'description' => '',
+                'thumbnail' => '',
+                'embed_url' => '',
+                'created_at' => ''
+            ];
+        }
+        return $data;
+    }
+
     public function reviews()
     {
         return $this->hasMany(VideoReview::class, 'video_id');
     }
+
     public function comments()
     {
         return $this->hasMany(VideoComment::class, 'video_id');
+    }
+
+    public function list_views()
+    {
+        return $this->hasMany(VideoViews::class, 'video_id');
     }
 
     public function files()

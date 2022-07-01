@@ -48,26 +48,30 @@
             text-align: center;
             margin-top: 20px;
         }
+
     </style>
 </head>
 
 <body>
     <div class="wrap">
         <div style="text-align: center">
-            <img src="{{url('/images/logo-black.png')}}" alt="">
+            <img src="{{ url('/images/logo-black.png') }}" alt="">
         </div>
         <div class="" style="width: 100%">
-            @foreach($details as $key=>$val)
-            <p class="bold-text"><b>{{ucwords(str_replace('_',' ',$key))}}:</b>
-                @if(preg_match("(storage/images/marketing|marketing)",$val))
-                <a href="{{route('form.file.download')}}?path={{$val}}">Click to download</a>
-                @elseif ($key == 'agreement')
-                <a href="{{$details['agreement']}}">Click to download</a>
-                @else
-                {{$val}}
-                @endif
-            </p>
-            <hr>
+            @if (isset($details['special']))
+                <p class="bold-text">{{ $details['special'] }}</p>
+            @endif
+            @foreach ($details as $key => $val)
+                <p class="bold-text"><b>{{ ucwords(str_replace('_', ' ', $key)) }}:</b>
+                    @if (preg_match('(storage/images/marketing|marketing)', $val))
+                        <a href="{{ route('form.file.download') }}?path={{ $val }}">Click to download</a>
+                    @elseif ($key == 'agreement')
+                        <a href="{{ $details['agreement'] }}">Click to download</a>
+                    @elseif($key != 'special')
+                        {{ $val }}
+                    @endif
+                </p>
+                <hr>
             @endforeach
             <div class="link">
                 <a href="https://myluxehub.com">https://myluxehub.com/</a>

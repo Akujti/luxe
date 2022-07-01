@@ -59,7 +59,7 @@
     }
 
     .box-item a {
-        font-size: 25px;
+        font-size: 20px;
         font-family: 'gothicregular';
         color: #262626;
         white-space: break-spaces;
