@@ -35,7 +35,6 @@ Route::group(
     ['middleware' => ['auth:sanctum']],
     function () {
         Route::post('formSubmit', [FormController::class, 'general_form_post']);
-        Route::post('login', [LoginController::class, 'login']);
         Route::get('appointment-addresses', [AppointmentController::class, 'getAddresses']);
         Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
         Route::post('store-appointment', [AppointmentController::class, 'store']);
