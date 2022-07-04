@@ -16,8 +16,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            ClosingCoordinatorSeeder::class,
-            FormSeeder::class
+            ReferralPartnerCategorySeeder::class,
+            ReferralPartnerSeeder::class,
+            ReferralPartnerMetaSeeder::class
         ]);
     }
 }

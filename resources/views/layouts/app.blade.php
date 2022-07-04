@@ -434,7 +434,8 @@
                                                     href="{{ url('appointments/create') }}">Open House Signup</a>
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'get_contract_help' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('general/form/contract-help/index') }}">Get Contract Help</a>
+                                                    href="{{ url('general/form/contract-help/index') }}">Get
+                                                    Contract Help</a>
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'design_requests' ? 'active_submenu' : '' }}"
                                                     href="{{ route('marketing.requests') }}">Design Requests</a>
@@ -447,12 +448,21 @@
                                     </li>
                                     <li
                                         class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
-                                        <a href="{{ url('/home?dir=referral_partners') }}">Referral Partners</a>
+                                        <a href="{{ route('referral-partner-category.index') }}">Referral
+                                            Partners</a>
                                         <em id="li-plus"><img src="/images/plus.png"></em>
                                         <em id="li-minus"><img src="/images/minus.png"></em>
 
                                         <ul class="w-100">
-                                            <li><a class="{{ isset($subactive) && $subactive == 'lending_services' ? 'active_submenu' : '' }}"
+                                            @php
+                                                $referral_categories = App\Models\ReferralPartnerCategory::whereNull('parent_id')->get();
+                                            @endphp
+                                            @foreach ($referral_categories as $item)
+                                                <li><a class="{{ isset($subactive) && $subactive == $item->title ? 'active_submenu' : '' }}"
+                                                        href="{{ route('referral-partner-category.show', $item) }}">{{ $item->title }}</a>
+                                                </li>
+                                            @endforeach
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'lending_services' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=lending_services') }}">Lending
                                                     Services</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'title' ? 'active_submenu' : '' }}"
@@ -476,60 +486,60 @@
                                             <li><a class="{{ isset($subactive) && $subactive == 'attorneys' ? 'active_submenu' : '' }}"
                                             href="{{ url('/home?dir=attorneys') }}">Attorneys</a>
                                             <li><a class="{{ isset($subactive) && $subactive == 'cleaning_company' ? 'active_submenu' : '' }}"
-                                            href="{{ url('/home?dir=cleaning_company') }}">Cleaning Company</a>
-                                            </li>
-                                        </ul>
+                                            href="{{ url('/home?dir=cleaning_company') }}">Cleaning Company</a> --}}
                                     </li>
-                                    <li
-                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">
-                                        <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Marketplace</a>
-                                        <em id="li-plus"><img src="/images/plus.png"></em>
-                                        <em id="li-minus"><img src="/images/minus.png"></em>
+                                </ul>
+                                </li>
+                                <li
+                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">
+                                    <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Marketplace</a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
 
-                                        <ul class="w-100">
-                                            <li><a class="{{ isset($subactive) && $subactive == 'rental_escrow' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('store/grab-go-merchandise') }}">Printed Guides</a>
-                                            </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'listing_coordinators' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('store/luxe-apparel') }}">LUXE Apparel</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('store/signs-posts') }}">Signs &
-                                                    Posts</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('store/product/background-check') }}">Client
-                                                    Screening</a></li>
-                                        </ul>
-                                    </li>
-                                    <li
-                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'office_staff_directory') active selected @endif {{ isset($active) && $active == 'office_staff_directory' ? 'active selected' : '' }}">
-                                        <a href="{{ url('/home?dir=office_staff_directory') }}">Office & Staff
-                                            Directory</a>
-                                        <em id="li-plus"><img src="/images/plus.png"></em>
-                                        <em id="li-minus"><img src="/images/minus.png"></em>
+                                    <ul class="w-100">
+                                        <li><a class="{{ isset($subactive) && $subactive == 'rental_escrow' ? 'active_submenu' : '' }}"
+                                                href="{{ url('store/grab-go-merchandise') }}">Printed Guides</a>
+                                        </li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'listing_coordinators' ? 'active_submenu' : '' }}"
+                                                href="{{ url('store/luxe-apparel') }}">LUXE Apparel</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                                href="{{ url('store/signs-posts') }}">Signs &
+                                                Posts</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                                href="{{ url('store/product/background-check') }}">Client
+                                                Screening</a></li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'office_staff_directory') active selected @endif {{ isset($active) && $active == 'office_staff_directory' ? 'active selected' : '' }}">
+                                    <a href="{{ url('/home?dir=office_staff_directory') }}">Office & Staff
+                                        Directory</a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
 
-                                        <ul class="w-100">
-                                            <li><a class="{{ isset($subactive) && $subactive == 'office_locations' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/office-locations') }}">Office Locations</a>
-                                            </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'conference_room_reservations' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('bookings') }}">Conference Room Reservations</a>
-                                            </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'your_luxe_staff' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=coming_soon') }}">Your LUXE
-                                                    Staff</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('general/form/agent_referrals/index') }}">New
-                                                    Agents
-                                                    &
-                                                    Referrals</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
-                                        <a href="{{ url('/user/events') }}">Events</a>
-                                    </li>
-                                    <li class="row m-0 @if (Request::path() == 'user/profile') active selected @endif">
-                                        <a href="{{ route('profile.my_profile') }}">My Profile</a>
-                                    </li>
+                                    <ul class="w-100">
+                                        <li><a class="{{ isset($subactive) && $subactive == 'office_locations' ? 'active_submenu' : '' }}"
+                                                href="{{ url('/office-locations') }}">Office Locations</a>
+                                        </li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'conference_room_reservations' ? 'active_submenu' : '' }}"
+                                                href="{{ url('bookings') }}">Conference Room Reservations</a>
+                                        </li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'your_luxe_staff' ? 'active_submenu' : '' }}"
+                                                href="{{ url('/home?dir=coming_soon') }}">Your LUXE
+                                                Staff</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
+                                                href="{{ url('general/form/agent_referrals/index') }}">New
+                                                Agents
+                                                &
+                                                Referrals</a></li>
+                                    </ul>
+                                </li>
+                                <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
+                                    <a href="{{ url('/user/events') }}">Events</a>
+                                </li>
+                                <li class="row m-0 @if (Request::path() == 'user/profile') active selected @endif">
+                                    <a href="{{ route('profile.my_profile') }}">My Profile</a>
+                                </li>
                                 </ul>
                             </div>
                             <div class="sidebar-details">
