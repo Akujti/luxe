@@ -47,9 +47,12 @@ use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\EmailBlastHomePageController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
+use App\Http\Controllers\ReferralPartnerCategoryController;
+use App\Http\Controllers\ReferralPartnerController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 use App\Models\CustomSection;
+use App\Models\ReferralPartnerCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -286,6 +289,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('general/form/other/closing-coordinators/{id}', [ClosingCoordinatorController::class, 'agent'])->name('closing-coordinator');
     Route::get('general/form/{folder}/{form}', [FormController::class, 'general_form_index'])->name('general.email.index');
     Route::get('loginTest', [UserController::class, 'login']);
+
+    Route::resource('referral-partner-category', ReferralPartnerCategoryController::class)->only(['index', 'show']);
+    Route::resource('referral-partners', ReferralPartnerController::class)->only(['index', 'show']);
 });
 
 
@@ -426,6 +432,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('marketing-requests', TemplateSubmitController::class);
     Route::resource('form-submit', FormSubmitController::class);
+
+    Route::resource('referral-partners', ReferralPartnerController::class);
 
     Route::get('broker-sumo/updateAgents', [BrokerSumoController::class, 'updateAgentsTransactions']);
     Route::resource('broker-sumo', BrokerSumoController::class);
