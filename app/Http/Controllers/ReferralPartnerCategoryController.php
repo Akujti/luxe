@@ -16,7 +16,7 @@ class ReferralPartnerCategoryController extends Controller
      */
     public function index()
     {
-        $categories = ReferralPartnerCategory::get();
+        $categories = ReferralPartnerCategory::whereNull('parent_id')->get();
         return view('pages.referral-partners.category.index', compact('categories'));
     }
 
