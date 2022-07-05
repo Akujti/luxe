@@ -12,6 +12,8 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ReferralPartnerController;
+use App\Http\Controllers\ReferralPartnerCategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Video\VideoFolderController;
 use App\Http\Controllers\WrittenEmailTemplateController;
@@ -60,6 +62,9 @@ Route::group(
         Route::get('videos/{video_id}', [VideoFolderController::class, 'show']);
         Route::post('videos/review', [VideoFolderController::class, 'create_review']);
         Route::post('videos/comment', [VideoFolderController::class, 'create_comment']);
+
+        Route::apiResource('referral-partner-category', ReferralPartnerCategoryController::class, array("as" => "api"))->only(['index', 'show']);
+        Route::apiResource('referral-partners', ReferralPartnerController::class, array("as" => "api"))->only(['index', 'show']);
     }
 );
 

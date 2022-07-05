@@ -47,6 +47,9 @@ class ReferralPartnerController extends Controller
      */
     public function show(ReferralPartner $referralPartner)
     {
+        if (request()->wantsJson()) {
+            return response()->json(['referralPartner' => $referralPartner]);
+        }
         return view('pages.referral-partners.show', compact('referralPartner'));
     }
 
