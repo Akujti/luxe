@@ -562,7 +562,8 @@
                         @forelse($social_media_posts as $post)
                             <div class="box-guide col-6">
                                 <a href="/storage/{{ $post->file }}" download target="_blank" class="text-dark">
-                                    <img src="/storage/{{ $post->thumbnail }}" alt="">
+                                    <img src="/storage/{{ $post->thumbnail }}" alt=""
+                                        style="width: 100px;height:100px">
                                     <p>{{ $post->title }}</p>
                                 </a>
                             </div>
@@ -734,7 +735,8 @@
                     <div class="box-item align-items-start bg-transparent row p-0 m-0">
                         <div class="w-100">
                             <x-preview-image>
-                                <img src="{{ $email_blast->image_url }}" class="rounded modal-target" alt="">
+                                <img src="{{ $email_blast->image_url }}" class="rounded modal-target"
+                                    style="object-position: top" alt="">
                             </x-preview-image>
                             <p class="pt-2">{{ $email_blast->title }}</p>
                             <form action="{{ route('marketing.sendemail') }}" method="POST">
@@ -767,19 +769,18 @@
         <div class="row w-100 my-4 px-4">
             <style>
                 .canva-img {
-                    height: 200px;
+                    height: 160px;
                     object-fit: cover;
+                    object-position: top;
                 }
             </style>
             @foreach ($featured_categories as $diy)
                 <div class="col-md-6">
-
                     <p><b>{{ $diy->title }}</b></p>
-
                     <div class="row">
                         @foreach ($diy->featured_templates as $item)
-                            <div class="col-md-6 mb-3">
-                                <a class="text-dark" href="#">
+                            <div class="col-md-4 mb-3">
+                                <a class="text-dark" href="{{ $item->url }}">
                                     <img src="{{ $item->image_url }}" style="border-radius: 10px;"
                                         class="w-100 canva-img">
                                     <p class="ml-2 mt-2">{{ $item->title }}</p>
@@ -791,8 +792,8 @@
                     <div class="row">
                         @foreach ($diy->categories as $category)
                             @foreach ($category->featured_templates as $item)
-                                <div class="col-md-6 mb-3">
-                                    <a class="text-dark" href="#">
+                                <div class="col-md-4 mb-3">
+                                    <a class="text-dark" href="{{ $item->url }}">
                                         <img src="{{ $item->image_url }}" style="border-radius: 10px;"
                                             class="w-100 canva-img">
                                         <p class="ml-2 mt-2">{{ $item->title }}</p>
@@ -1308,13 +1309,13 @@
         </div>
     </div>
     <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p>Links to other services</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>Links to other services</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> -->
     <div class="col-12 col-md-6 col-lg-3">
         <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
             <div>
