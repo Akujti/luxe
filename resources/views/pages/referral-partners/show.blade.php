@@ -85,7 +85,7 @@
     <style>
     </style>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row mb-4">
             @if (count($referralPartner->meta_items))
                 <div class="col-12 title mb-3">
                     <h1>{{ $referralPartner->title }}</h1>
