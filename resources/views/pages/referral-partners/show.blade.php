@@ -92,39 +92,46 @@
                 </div>
                 <div class="m-auto ">
                     @if ($referralPartner->meta_items()->whereType('img')->first())
-                        <div>
+                        <div class="text-center">
                             <img src="{{ asset('storage/' .$referralPartner->meta_items()->whereType('img')->first()->path) }}"
                                 alt="" id="logo">
                         </div>
                     @endif
+                    <style>
+                        .referral-meta-img {
+                            width: 25px;
+                        }
+                    </style>
                     <div class="contact_information">
                         <ul>
                             @foreach ($referralPartner->meta_items as $item)
                                 @if ($item->name == 'general')
                                     <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg"
-                                                alt="">{{ $item->name }}</a></li>
+                                                alt="" class="referral-meta-img">{{ $item->name }}</a></li>
                                 @elseif ($item->type == 'email')
                                     <li><a href="{{ $item->path }}" class="text-luxe"><img
-                                                src="/images/index-page/link_web.svg" alt="">{{ $item->name }}</a>
+                                                src="/images/index-page/link_web.svg" alt=""
+                                                class="referral-meta-img">{{ $item->name }}</a>
                                     </li>
                                 @elseif ($item->type == 'tel')
                                     <li><a href="{{ $item->path }}" class="text-luxe"><img
-                                                src="/images/index-page/phone-black-1.svg"
-                                                alt="">{{ $item->name }}</a>
+                                                src="/images/index-page/phone-black-1.svg" alt=""
+                                                class="referral-meta-img">{{ $item->name }}</a>
                                     </li>
                                 @elseif ($item->type == 'web')
                                     <li><a href="{{ $item->path }}" class="text-luxe"><img
-                                                src="/images/index-page/website.svg" alt="">{{ $item->name }}</a>
+                                                src="/images/index-page/website.svg" alt=""
+                                                class="referral-meta-img">{{ $item->name }}</a>
                                     </li>
                                 @elseif ($item->type == 'address')
                                     <li><a href="{{ $item->path }}" class="text-luxe"><img
-                                                src="/images/index-page/location-1.svg"
-                                                alt="">{{ $item->name }}</a>
+                                                src="/images/index-page/location-1.svg" alt=""
+                                                class="referral-meta-img">{{ $item->name }}</a>
                                     </li>
                                 @elseif ($item->type == 'img')
                                 @else
                                     <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg"
-                                                alt="">{{ $item->name }}</a></li>
+                                                alt="" class="referral-meta-img">{{ $item->name }}</a></li>
                                 @endif
                             @endforeach
                         </ul>
