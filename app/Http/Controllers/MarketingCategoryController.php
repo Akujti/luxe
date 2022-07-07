@@ -207,17 +207,18 @@ class MarketingCategoryController extends Controller
         return redirect()->route('marketing.request', $marketingCategory)->with('message', 'Deleted successfully');
     }
 
-    public function sendEmailForm(Request $req) {
+    public function sendEmailForm(Request $req)
+    {
         $cc = [];
         $details = [];
         foreach ($req->except('_token', 'to_email') as $key => $val) {
-            if($key == 'colors') {
+            if ($key == 'colors') {
                 $details[strtolower($key)] = $val ?? 'Luxe Colors';
             } else {
                 $details[strtolower($key)] = $val;
             }
         }
-        $to = ['marketing@luxeknows.com', auth()->user()->email];
+        $to = ['email@luxeknows.com', 'designs@luxeknows.com', 'operations@luxeknows.com', auth()->user()->email];
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
 
         return back()->with('message', 'Submitted successfully');
