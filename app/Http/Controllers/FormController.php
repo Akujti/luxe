@@ -83,30 +83,6 @@ class FormController extends Controller
 
     public function general_form_post(Request $request)
     {
-        return response()->json($request->all());
-        // // return response()->json($request->headers->get('Content-Type'));
-        // $request->headers->set('Accept', 'application/json');
-        // $request->headers->set('Content-type', 'multipart/form-data');
-        // return response()->json($request->all());
-        // $test = $request->_parts;
-        // $request->request->remove('_parts');
-        // foreach ($test as $req) {
-        //     $request->request->set($req[0], $req[1]);
-        // }
-
-        // return response()->json($request->all());
-
-        // return response()->json(['test_data' => $request->all()]);
-        //        return 123;
-        //        $request = $request->except('form');
-
-        // return response()->json(['message' => 'success', 'data' => $request->all()], 200);
-        // Log::info($request->all());
-        // $request->validate([
-        //     'upload_listing_agreement' => 'required|file'
-        // ]);
-
-        // return 'success';
         try {
             $details = [];
 
