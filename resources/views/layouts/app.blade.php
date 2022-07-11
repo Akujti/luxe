@@ -365,22 +365,25 @@
                                         <em id="li-minus"><img src="/images/minus.png"></em>
 
                                         <ul class="w-100">
-                                            <li><a class="{{ isset($subactive) && $subactive == 'online_marketing_designer' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('user.diy-templates') }}">Online Marketing
-                                                    Designer</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'canva_marketing_designer' ? 'active_submenu' : '' }}"
                                                     href="{{ route('canva.marketing.requests') }}">Canva Marketing
                                                     Designer</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'downloadable_presentations' ? 'active_submenu' : '' }}"
+                                            <li><a href="{{ url('https://realtorprint.com/collections/luxe') }}"
+                                                    target="_blank">Print
+                                                    Marketing</a></li>
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'downloadable_presentations' ? 'active_submenu' : '' }}"
                                                     href="{{ url('user/guides') }}">Downloadable
-                                                    Presentations</a></li>
+                                                    Presentations</a></li> --}}
                                             <li><a class="@if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active_submenu @endif {{ isset($subactive) && $subactive == 'signs_photo_design_requests' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=signs_photo_design_requests') }}">Signs,
                                                     Photo,
                                                     & Design Requests</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'resume_builder' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('resume') }}">Resume
-                                                    Builder</a></li>
+                                                    href="{{ route('resume') }}">Resume Builder</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'online_marketing_designer' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('user.diy-templates') }}">Online Marketing
+                                                    Designer</a></li>
+                                            <li><a href="{{ url('user/files?id=22') }}">Logos</a></li>
                                         </ul>
                                     </li>
                                     <li
