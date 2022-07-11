@@ -57,12 +57,11 @@ class ReferralPartnerController extends Controller
 
     public function submit_inquiry(ReferralPartner $referralPartner)
     {
-        // $emails = ['email@luxeknows.com', auth()->user()->email];
-        $emails = ['art@ajroni.com'];
-        // foreach ($referralPartner->meta_items as $item) {
-        //     if ($item->type === 'email')
-        //         array_push($emails, str_replace('mailto:', '', $item->path));
-        // }
+        $emails = ['email@luxeknows.com', auth()->user()->email];
+        foreach ($referralPartner->meta_items as $item) {
+            if ($item->type === 'email')
+                array_push($emails, str_replace('mailto:', '', $item->path));
+        }
         $agent = auth()->user();
         $details = [
             'form_title' => 'Referral Partner - ' . $referralPartner->title,
