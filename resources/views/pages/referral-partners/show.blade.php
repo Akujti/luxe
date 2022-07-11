@@ -100,7 +100,7 @@
                     <div class="contact_information">
                         <ul>
                             @foreach ($referralPartner->meta_items as $item)
-                                @if ($item->name == 'general')
+                                @if ($item->type == 'general')
                                     <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg"
                                                 alt="">{{ $item->name }}</a></li>
                                 @elseif ($item->type == 'email')
