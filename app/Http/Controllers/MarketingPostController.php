@@ -12,7 +12,9 @@ class MarketingPostController extends Controller
     public function index(Request $req)
     {
         $folder_id = Folder::where('title', 'XNV34gFFFa')->first()->id;
-        $files = File::where('folder_id', $folder_id)->orderBy('title', $req->input('sort', 'asc'))->latest()->get();
+        $files = File::where('folder_id', $folder_id)->when($req->input('sort'), function ($query) use ($req) {
+            $query->orderBy('title', $req->input('sort', 'asc'));
+        })->latest()->get();
         if (request()->wantsJson()) {
             return response()->json(['files' => $files]);
         }
