@@ -72,7 +72,7 @@ Route::view('maps', 'maps');
 Route::get('home', [Controller::class, 'home'])->middleware('auth');
 Route::redirect('/', 'home');
 
-Route::group(['prefix' => 'store', 'as' => 'luxe_store.', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function () {
     Route::get('/', [StoreController::class, 'index'])->name('index');
     Route::get('/cart', [OrderController::class, 'cartload'])->name('cart');
     Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
@@ -291,6 +291,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('loginTest', [UserController::class, 'login']);
 
     Route::resource('referral-partner-category', ReferralPartnerCategoryController::class)->only(['index', 'show']);
+    Route::post('referral-partners/{referral_partner}/inquiry', [ReferralPartnerController::class, 'submit_inquiry'])->name('referral-partner.submit-inquiry');
     Route::resource('referral-partners', ReferralPartnerController::class)->only(['index', 'show']);
 });
 

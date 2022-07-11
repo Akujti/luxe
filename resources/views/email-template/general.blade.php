@@ -48,7 +48,6 @@
             text-align: center;
             margin-top: 20px;
         }
-
     </style>
 </head>
 
@@ -68,7 +67,7 @@
                     @elseif ($key == 'agreement')
                         <a href="{{ $details['agreement'] }}">Click to download</a>
                     @elseif($key != 'special')
-                        {{ $val }}
+                        {!! $val !!}
                     @endif
                 </p>
                 <hr>

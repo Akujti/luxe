@@ -136,6 +136,11 @@
                             @endforeach
                         </ul>
                     </div>
+                    <form action="{{ route('referral-partner.submit-inquiry', $referralPartner) }}" method="post"
+                        class="my-3">
+                        @csrf
+                        <input type="submit" value="SUBMIT INQUIRY" class="btn btn-luxe w-100 ">
+                    </form>
                 </div>
             @else
                 <div class="col-12 title mb-3">

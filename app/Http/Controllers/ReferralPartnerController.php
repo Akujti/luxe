@@ -6,6 +6,11 @@ use App\Models\ReferralPartner;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreReferralPartnerRequest;
 use App\Http\Requests\UpdateReferralPartnerRequest;
+use App\Mail\GeneralMailTemplate;
+use App\Models\FormSubmit;
+use Exception;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class ReferralPartnerController extends Controller
 {
@@ -48,6 +53,42 @@ class ReferralPartnerController extends Controller
     public function show(ReferralPartner $referralPartner)
     {
         return view('pages.referral-partners.show', compact('referralPartner'));
+    }
+
+    public function submit_inquiry(ReferralPartner $referralPartner)
+    {
+        // $emails = ['email@luxeknows.com', auth()->user()->email];
+        $emails = ['art@ajroni.com'];
+        // foreach ($referralPartner->meta_items as $item) {
+        //     if ($item->type === 'email')
+        //         array_push($emails, str_replace('mailto:', '', $item->path));
+        // }
+        $agent = auth()->user();
+        $details = [
+            'form_title' => 'Referral Partner - ' . $referralPartner->title,
+            'agent_name' => $agent->profile->fullname,
+            'agent_email' => $agent->email,
+            'link' => '<a href=" ' . route('referral-partners.show', $referralPartner) . '">Click Here</a>'
+        ];
+        try {
+            FormSubmit::create([
+                'form_title' => $details['form_title'],
+                'status' => 0,
+                'agent_name' => $agent->profile->fullname,
+                'agent_email' => $agent->email,
+                'details' => json_encode($details),
+            ]);
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Form couldn\'t be saved');
+        }
+
+        try {
+            Mail::to($emails)->send(new GeneralMailTemplate($details));
+        } catch (\Throwable $th) {
+            Log::alert($th);
+            return redirect()->back()->with('error', 'Form is saved but there was a problem sending the email');
+        }
+        return redirect()->back()->with('message', 'Inquiry has been submitted!');
     }
 
     /**

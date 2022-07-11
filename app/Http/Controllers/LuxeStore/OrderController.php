@@ -135,7 +135,8 @@ class OrderController extends Controller
             $details['type'] = 'agent';
             $details['data'] = $row;
             $details['form_title'] = 'New Order';
-            Mail::to(auth()->user()->email)->cc($cc)->send(new OrderMailTemplate($details));
+            if (auth()->user())
+                Mail::to(auth()->user()->email)->cc($cc)->send(new OrderMailTemplate($details));
 
             DB::commit();
             return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');
