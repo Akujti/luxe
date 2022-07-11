@@ -20,6 +20,9 @@ class BookingController extends Controller
     public function selectRoom()
     {
         $rooms = Room::all();
+        if (request()->wantsJson()) {
+            return response()->json($rooms);
+        }
         return view('pages.bookings.rooms', compact('rooms'));
     }
 
@@ -27,6 +30,9 @@ class BookingController extends Controller
     {
         $room = Room::findOrFail($room_id);
         $bookings = $room->bookings;
+        if (request()->wantsJson()) {
+            return response()->json(['bookings' => $bookings]);
+        }
         return view('pages.bookings.index', compact('bookings', 'room'));
     }
 
@@ -117,8 +123,14 @@ class BookingController extends Controller
         if (Auth::user()) {
             $booking = Booking::find($request->booking_id);
             $booking->delete();
+            if (request()->wantsJson()) {
+                return response()->json(['message' => 'Deleted Successfully!']);
+            }
             return back()->with('message', 'Deleted Successfully');
         } else {
+            if (request()->wantsJson()) {
+                return response()->json(['error' => 'You do not have access!'], 403);
+            }
             return back()->with('error', 'You do not have access');
         }
     }
