@@ -19,4 +19,9 @@ class WrittenEmailTemplateItem extends Model
     {
         return $this->belongsTo(WrittenEmailTemplate::class);
     }
+
+    public function getUrlAttribute()
+    {
+        return route('written-email-templates.show', $this->folder);
+    }
 }

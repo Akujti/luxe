@@ -56,6 +56,7 @@ class WrittenEmailTemplateController extends Controller
         $isAdmin = Auth::user()->isAdmin;
         $items = $writtenEmailTemplate->items;
         if (request()->wantsJson()) {
+            $items->each->append('url');
             return response()->json(['template' => $writtenEmailTemplate, 'items' => $items]);
         }
         return view('pages.written-email-templates.show', compact('items', 'writtenEmailTemplate', 'isAdmin'));
