@@ -65,7 +65,7 @@ class MarketingTemplateController extends Controller
 
     public function index()
     {
-        $marketing_categories = MarketingCanva::whereNull('parent_id')->orderBy('order', 'asc')->get();
+        $marketing_categories = MarketingCanva::whereNull('parent_id')->with('categories', 'categories.templates', 'templates')->orderBy('order', 'asc')->get();
         if (request()->wantsJson()) {
             return response()->json(['categories' => $marketing_categories]);
         }

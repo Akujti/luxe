@@ -8,6 +8,7 @@ use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FolderController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\MarketingTemplateController;
