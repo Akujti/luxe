@@ -27,7 +27,7 @@
         }
 
         .box-grid-item p {
-            font-size: 22px;
+            font-size: 20px;
             font-family: 'gothicregular';
             text-transform: uppercase;
             margin: 0 !important;
@@ -39,11 +39,11 @@
             }
         }
 
-        @media (min-width: 768px) and (max-width: 980px) {
-            .box-grid-item p {
-                font-size: 20px;
-            }
-        }
+        /* @media (min-width: 768px) and (max-width: 980px) {
+                .box-grid-item p {
+                    font-size: 20px;
+                }
+            } */
     </style>
 @endsection
 @section('content')
