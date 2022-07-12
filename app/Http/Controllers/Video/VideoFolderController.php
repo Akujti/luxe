@@ -43,9 +43,7 @@ class VideoFolderController extends Controller
     public function show($video_id)
     {
         $video = Video::with('list_views')->findOrFail($video_id);
-        if (request()->wantsJson()) {
-            return response()->json(['video' => $video]);
-        }
+
         $reviews = $video->reviews()->orderBy('created_at', 'desc')->get()->take(10);
         $video->reviewsAvg = $video->reviews->avg('stars');
         $comments = $video->comments()->orderBy('created_at', 'desc')->get()->take(10);
