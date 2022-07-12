@@ -293,6 +293,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('referral-partner-category', ReferralPartnerCategoryController::class)->only(['index', 'show']);
     Route::post('referral-partners/{referral_partner}/inquiry', [ReferralPartnerController::class, 'submit_inquiry'])->name('referral-partner.submit-inquiry');
     Route::resource('referral-partners', ReferralPartnerController::class)->only(['index', 'show']);
+
+    Route::group(['prefix' => 'calculators'], function () {
+        Route::view('/cap-rate', 'calculators.cap-rate');
+    });
+
 });
 
 
