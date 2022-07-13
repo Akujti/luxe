@@ -296,6 +296,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['prefix' => 'calculators'], function () {
         Route::view('/cap-rate', 'calculators.cap-rate');
+        Route::view('/flipping-house-sheet', 'calculators.flipping-house-sheet');
     });
 
 });
