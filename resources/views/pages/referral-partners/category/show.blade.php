@@ -27,10 +27,11 @@
         }
 
         .box-grid-item p {
-            font-size: 22px;
+            font-size: 18px;
             font-family: 'gothicregular';
             text-transform: uppercase;
             margin: 0 !important;
+            font-weight: bold
         }
 
         @media screen and (max-width: 500px) {
@@ -41,7 +42,7 @@
 
         @media (min-width: 768px) and (max-width: 980px) {
             .box-grid-item p {
-                font-size: 20px;
+                font-size: 18px;
             }
         }
     </style>
