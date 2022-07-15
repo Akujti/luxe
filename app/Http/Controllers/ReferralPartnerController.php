@@ -87,6 +87,7 @@ class ReferralPartnerController extends Controller
             Log::alert($th);
             return redirect()->back()->with('error', 'Form is saved but there was a problem sending the email');
         }
+        session()->flash('modal', 'Success');
         return redirect()->back()->with('message', 'Inquiry has been submitted!');
     }
 
