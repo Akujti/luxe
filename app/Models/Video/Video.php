@@ -8,10 +8,11 @@ use Vimeo\Laravel\Facades\Vimeo;
 use App\Models\Video\VideoReviewStar;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Video extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = ['video_id', 'folder_id', 'presenter_name', 'date', 'title', 'description', 'thumbnail', 'embed_url'];
 
