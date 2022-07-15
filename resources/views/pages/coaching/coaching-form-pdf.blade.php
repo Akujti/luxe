@@ -88,8 +88,12 @@
         <div class="row box-items py-4">
             <div class="col-12 col-md-12 col-lg-7 coaching-text">
                 <div>
+
                     @if ($enrollment_type == '$149 per month (minimum 6-month commitment)')
-                        <div>Option #1 - <span class="gothicbold">$149 per month</span> (minimum 6-month commitment)
+                        <div>Option #1 - <span class="gothicbold">
+                                {{ \Carbon\Carbon::parse('2022-07-16') <= \Carbon\Carbon::now()->timezone('America/New_York') ? '$249' : '$149' }}
+                                per
+                                month</span> (minimum 6-month commitment)
                         </div>
                     @else
                         <div>Option #2 - <span class="gothicbold">Additional 10% fee on your next 6 transactions</span>

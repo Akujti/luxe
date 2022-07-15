@@ -101,8 +101,11 @@
                     <input type="hidden" name="agent_languages"
                         value="{{ auth()->user()->profile->languages ? implode(',', auth()->user()->profile->languages) : null }}">
                     <div class="col-12 mb-4">
+
                         <input type="radio" name="enrollment_type" value="$149 per month (minimum 6-month commitment)"
-                            onclick="toggleDetails(this)" required> - <b class="gothicbold">$149 per month</b> (minimum
+                            onclick="toggleDetails(this)" required> - <b class="gothicbold">
+                            {{ \Carbon\Carbon::parse('2022-07-16') <= \Carbon\Carbon::now()->timezone('America/New_York') ? '$249' : '$149' }}
+                            per month</b> (minimum
                         6-month commitment)<br>
                         <input type="radio" name="enrollment_type"
                             value="Additional 10% fee on your next 6 transactions (12 months of coaching from the date of this agreement)"
