@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Mail\BrokersumoMail;
 use App\Mail\BrokersumoYearlyMail;
+use App\Notifications\BrokersumoLevelup;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
@@ -42,7 +43,8 @@ class BrokersumoAgent extends Model
                         $badge['level'] = 5;
                     }
                     try {
-                        Mail::to($user->email)->send(new BrokersumoMail($badge));
+                        $user->notify(new BrokersumoLevelup($badge));
+                        // Mail::to($user->email)->send(new BrokersumoMail($badge));
                     } catch (\Throwable $th) {
                         Log::alert('Cannot send total sales volume to ' . $user->email);
                     }

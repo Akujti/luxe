@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\AddToEmailCalendar;
 use App\Models\Appointment;
 use App\Models\AppointmentTimeslot;
+use App\Models\BrokersumoAgent;
 use App\Models\MarketingCanva;
 use App\Models\ReferralPartnerCategory;
 use App\Models\Video\Video;
@@ -16,8 +17,13 @@ class TestController extends Controller
 {
     public function index()
     {
-        $category =  ReferralPartnerCategory::first();
-        return $category->referral_partners;
+        $agent =  BrokersumoAgent::find(2);
+        // for ($i = 0; $i < 50; $i++) {
+        //     $agent->update([
+        //         'sales_volumes' => 32720225 + $i
+        //     ]);
+        // }
+        return $agent;
     }
 
     public function update_vimeo()
