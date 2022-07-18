@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Mail\BrokersumoMail;
 use App\Mail\BrokersumoYearlyMail;
 use App\Notifications\BrokersumoLevelup;
+use App\Notifications\BrokersumoLevelupYearly;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
@@ -73,7 +74,7 @@ class BrokersumoAgent extends Model
                         $badge['yearly_level'] = 3;
                     }
                     try {
-                        $user->notify(new BrokersumoYearlyMail($badge));
+                        $user->notify(new BrokersumoLevelupYearly($badge));
                         // Mail::to($user->email)->send(new BrokersumoYearlyMail($badge));
                     } catch (\Throwable $th) {
                         Log::alert('Cannot send yearly sales volume to ' . $user->email);
