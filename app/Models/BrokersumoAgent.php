@@ -73,7 +73,8 @@ class BrokersumoAgent extends Model
                         $badge['yearly_level'] = 3;
                     }
                     try {
-                        Mail::to($user->email)->send(new BrokersumoYearlyMail($badge));
+                        $user->notify(new BrokersumoYearlyMail($badge));
+                        // Mail::to($user->email)->send(new BrokersumoYearlyMail($badge));
                     } catch (\Throwable $th) {
                         Log::alert('Cannot send yearly sales volume to ' . $user->email);
                     }
