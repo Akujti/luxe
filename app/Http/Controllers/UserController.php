@@ -245,8 +245,10 @@ class UserController extends Controller
                 $image = 'users/' . $name;
             }
             if ($req->wantsJson()) {
-                foreach (explode(",", $req->profile['languages']) as $language) {
-                    array_push($languageJson, trim($language));
+                if (!empty($req->profile['languages']) && is_string($req->profile['languages'])) {
+                    foreach (explode(",", $req->profile['languages']) as $language) {
+                        array_push($languageJson, trim($language));
+                    }
                 }
             } else {
                 foreach ($req->languages as $language) {
@@ -264,6 +266,7 @@ class UserController extends Controller
             }
         } catch (Exception $e) {
             if ($req->wantsJson()) {
+                Log::error($e);
                 return response()->json($e, 500);
             }
             return back()->with('error', 'Something went wrong');
@@ -308,9 +311,9 @@ class UserController extends Controller
     public function delete_note(Request $req)
     {
         $id = $req->input('id', null);
-        if($id) {
+        if ($id) {
             $row = UserNote::find($id);
-            if($row->author == auth()->id()) {
+            if ($row->author == auth()->id()) {
                 $row->delete();
             }
         }

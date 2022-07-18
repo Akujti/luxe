@@ -91,7 +91,6 @@ class VideoFolderController extends Controller
     public function update(UpdateRequest $req)
     {
         $row = VideoFolders::find($req->id);
-
         $row->fill($req->only('title', 'parent_id'));
         $row->save();
 
@@ -101,7 +100,6 @@ class VideoFolderController extends Controller
     public function delete(DeleteRequest $req)
     {
         $row = VideoFolders::find($req->id);
-
         $row->delete();
 
         return back()->with('message', 'Successfully Deleted');
