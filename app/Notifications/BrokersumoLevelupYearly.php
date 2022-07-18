@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class BrokersumoLevelupYearly extends Notification
+class BrokersumoLevelupYearly extends Notification implements ShouldQueue
 {
     use Queueable;
 
