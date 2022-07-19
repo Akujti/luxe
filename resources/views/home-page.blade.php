@@ -936,6 +936,14 @@
             </div>
         </div>
     </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="box-item" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
+            <div>
+                <img src="/images/index-page/calculator.svg" class="icon" alt="">
+                <p>Real Estate Worksheets</p>
+            </div>
+        </div>
+    </div>
 @elseif($_GET['dir'] == 'request_listing_closing_coordinators')
     <?php
     $active = 'leads_services_support';
@@ -1168,10 +1176,16 @@
                     <p>Email & Addendum Verbiage Builder</p>
                 </div>
             </div>
-            <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
+            <!-- <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/mentors.svg" class="icon" alt="">
                     <p>LUXE Mentors</p>
+                </div>
+            </div> -->
+            <div class="box-item small-box" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
+                <div class="inside-box">
+                    <img src="/images/index-page/calculator.svg" class="icon" alt="">
+                    <p>Real Estate Worksheets</p>
                 </div>
             </div>
         </div>
@@ -1869,6 +1883,31 @@
         <div class="box-item" onclick="window.location= '{{ url('home?dir=coming_soon') }}'">
             <div>
                 <p>Chevallier law</p>
+            </div>
+        </div>
+    </div>
+@elseif($_GET['dir'] == 'calculators')
+    <div class="col-12 title mb-3">
+        <h1>Real Estate Worksheets</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ route('calculators.cap_rate') }}'">
+            <div>
+                <p>CAP RATE CALCULATOR</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ route('calculators.flipping_house') }}'">
+            <div>
+                <p>FLIPPING HOUSE SHEET</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location= '{{ route('calculators.seller_net_sheet') }}'">
+            <div>
+                <p>SELLER NET SHEET</p>
             </div>
         </div>
     </div>

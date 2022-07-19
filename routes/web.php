@@ -294,10 +294,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('referral-partners/{referral_partner}/inquiry', [ReferralPartnerController::class, 'submit_inquiry'])->name('referral-partner.submit-inquiry');
     Route::resource('referral-partners', ReferralPartnerController::class)->only(['index', 'show']);
 
-    Route::group(['prefix' => 'calculators'], function () {
-        Route::view('/cap-rate', 'calculators.cap-rate');
-        Route::view('/flipping-house-sheet', 'calculators.flipping-house-sheet');
-        Route::view('/seller-net-sheet', 'calculators.seller-net-sheet');
+    Route::group(['prefix' => 'calculators', 'as' => 'calculators.'], function () {
+        Route::view('/cap-rate', 'calculators.cap-rate')->name('cap_rate');
+        Route::view('/flipping-house-sheet', 'calculators.flipping-house-sheet')->name('flipping_house');
+        Route::view('/seller-net-sheet', 'calculators.seller-net-sheet')->name('seller_net_sheet');
     });
 
 });

@@ -55,6 +55,11 @@
 
         .input-trans {
             background: transparent !important;
+            border: 1px solid black !important;
+            /* border-bottom: 1px solid black !important; */
+        }
+        .input-bottom {
+            background: transparent !important;
             border: 1px solid transparent !important;
             border-bottom: 1px solid black !important;
         }
@@ -257,16 +262,16 @@
                             </tr>
 
                             <tr>
-                                <td>Dated: <input type="text" class="input-trans"></td>
-                                <td>Dated: <input type="text" class="input-trans"></td>
+                                <td>Dated: <input type="text" class="input-bottom"></td>
+                                <td>Dated: <input type="text" class="input-bottom"></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>Signed: <input type="text" class="input-trans"></td>
-                                <td>Signed: <input type="text" class="input-trans"></td>
+                                <td>Signed: <input type="text" class="input-bottom"></td>
+                                <td>Signed: <input type="text" class="input-bottom"></td>
                             </tr>
                         </tbody>
                     </table>
