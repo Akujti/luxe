@@ -387,7 +387,7 @@
                                         </ul>
                                     </li>
                                     <li
-                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'training_knowledge_center') active selected @endif {{ isset($active) && $active == 'Tools&TrainingVideos' ? 'active selected' : '' }}">
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'training_knowledge_center') active selected @endif {{ isset($active) && ($active == 'Tools&TrainingVideos' || $active == 'training_knowledge_center') ? 'active selected' : '' }}">
                                         <a href="{{ url('/home?dir=training_knowledge_center') }}">Training &
                                             Knowledge
                                             Center</a>
@@ -411,8 +411,12 @@
                                                     &
                                                     Addendum Verbiage Builder</a>
                                             </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('agreement-agents') }}">LUXE Mentors</a></li>
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('agreement-agents') }}">LUXE Mentors</a></li> --}}
+                                            <li><a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=calculators') }}">Real Estate
+                                                    Worksheets</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li
@@ -447,6 +451,10 @@
                                                     href="{{ url('general/form/other/wire-instructions-request') }}">Wire
                                                     Instructions
                                                     Request</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=calculators') }}">Real Estate
+                                                    Worksheets</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li
