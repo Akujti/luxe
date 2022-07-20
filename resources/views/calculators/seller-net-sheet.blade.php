@@ -277,7 +277,7 @@
                     </table>
                 </div>
 
-                <button class="btn-luxe w-100 my-4" onclick="generatePDF(250, 370)">Generate</button>
+                <button class="btn-luxe w-100 my-4" onclick="submitPDF()">Generate</button>
             </div>
         </div>
     </div>
@@ -371,6 +371,11 @@
         function g38(num, places = -2) {
             const factor = 10 ** places;
             return Math.ceil(num * factor) / factor;
+        }
+
+        function submitPDF() {
+            calculate()
+            generatePDF(250, 370)
         }
     </script>
 @endsection

@@ -121,7 +121,7 @@
                 </table>
             </div>
 
-            <button class="btn-luxe w-100 my-4" onclick="generatePDF(166, 170)">Generate</button>
+            <button class="btn-luxe w-100 my-4" onclick="submitPDF()">Generate</button>
         </div>
     </div>
 </div>
@@ -179,6 +179,11 @@
     function percentage(partialValue, totalValue) {
         return (100 * partialValue) / totalValue;
     } 
+
+    function submitPDF() {
+        calculate()
+        generatePDF(166, 170)
+    }
 </script>
 @endsection
 @endsection
