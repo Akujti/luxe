@@ -64,6 +64,7 @@ class ReferralPartnerController extends Controller
         }
         $agent = auth()->user();
         $details = [
+            'company' => $referralPartner->title,
             'form_title' => 'Referral Partner - ' . $referralPartner->title,
             'agent_name' => $agent->profile->fullname,
             'agent_email' => $agent->email,
