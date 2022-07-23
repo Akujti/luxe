@@ -17,9 +17,10 @@
                     </div>
                     <input type="hidden" name="form_title" value="ZILLOW LEADS WEEKLY UPDATE">
                     <input type="hidden" name="to_email[]" id="team_email" value="">
+                    <input type="hidden" name="to_email[]" id="team_email_2" value="">
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                                                    <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
-                                                                                    <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
+                                                                                                    <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
+                                                                                                    <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -279,9 +280,11 @@
         function setTeamEmail(element) {
             if (element.value == 'Team Flex') {
                 document.getElementById('team_email').value = 'ramee@luxeknows.com'
-            } else if (element.value == 'Team Dade')
+                document.getElementById('team_email_2').value = 'asesoresmaster.op6@gmail.com'
+            } else if (element.value == 'Team Dade') {
                 document.getElementById('team_email').value = 'gabrielas@luxeknows.com'
-
+                document.getElementById('team_email_2').value = 'asesoresmaster.78@gmail.com'
+            }
         }
 
         function createCsv() {
