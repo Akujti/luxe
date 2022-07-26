@@ -29,7 +29,7 @@ class UpdateProfileRequest extends FormRequest
             'profile.fullname' => 'nullable|string',
             'profile.address' => 'nullable|string',
             'profile.phone' => 'nullable|string',
-            'languages' => 'nullable|array',
+            'languages' => 'nullable',
             'profile.avatar' => 'nullable|image',
             'optin' => 'nullable',
         ];

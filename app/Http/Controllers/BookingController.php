@@ -20,6 +20,9 @@ class BookingController extends Controller
     public function selectRoom()
     {
         $rooms = Room::all();
+        if (request()->wantsJson()) {
+            return response()->json($rooms);
+        }
         return view('pages.bookings.rooms', compact('rooms'));
     }
 
@@ -27,16 +30,16 @@ class BookingController extends Controller
     {
         $room = Room::findOrFail($room_id);
         $bookings = $room->bookings;
+        if (request()->wantsJson()) {
+            return response()->json(['bookings' => $bookings]);
+        }
         return view('pages.bookings.index', compact('bookings', 'room'));
     }
 
     public function store(Request $request)
     {
-
         $start = new \DateTime($request->start);
         $end = new \DateTime($request->end);
-
-
         $hour_diff = $start->diff($end)->format('%h') * 60;
         $minutes_diff = $start->diff($end)->format('%i');
         $time_diff = $hour_diff + $minutes_diff;
@@ -96,11 +99,20 @@ class BookingController extends Controller
                 ];
 
                 Mail::to($mails)->send(new BookingMail($details));
+                if (request()->wantsJson()) {
+                    return response()->json(['message' => 'Reseverd', "event" => $booking]);
+                }
                 return back()->with('message', 'Reserved');
             } catch (\Throwable $th) {
+                if (request()->wantsJson()) {
+                    return response()->json(['error' => 'Reserved, but error occurred while sending email'], 500);
+                }
                 return back()->with('error', 'Reserved, but error occurred while sending email');
             }
         } else {
+            if (request()->wantsJson()) {
+                return response()->json(['error' => 'Max time for slot is 60 minutes!'], 500);
+            }
             return back()->with('error', 'Max time for slot is 60 minutes!');
         }
     }
@@ -111,8 +123,14 @@ class BookingController extends Controller
         if (Auth::user()) {
             $booking = Booking::find($request->booking_id);
             $booking->delete();
+            if (request()->wantsJson()) {
+                return response()->json(['message' => 'Deleted Successfully!']);
+            }
             return back()->with('message', 'Deleted Successfully');
         } else {
+            if (request()->wantsJson()) {
+                return response()->json(['error' => 'You do not have access!'], 403);
+            }
             return back()->with('error', 'You do not have access');
         }
     }

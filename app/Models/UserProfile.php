@@ -22,7 +22,7 @@ class UserProfile extends Model
         });
     }
 
-    protected $appends = ['support_specialist_name', 'loan_officer_name'];
+    protected $appends = ['support_specialist_name', 'loan_officer_name', 'badge'];
 
     public function getBadgeAttribute()
     {

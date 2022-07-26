@@ -15,6 +15,7 @@ use App\Http\Requests\User\NoteRequest;
 use App\Http\Requests\User\DeleteRequest;
 use App\Http\Requests\User\UpdateRequest;
 use App\Http\Requests\User\UpdateProfileRequest;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller
@@ -77,8 +78,11 @@ class UserController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
-    public function my_profile()
+    public function my_profile(Request $request)
     {
+        if ($request->wantsJson()) {
+            return response()->json(['user' => $request->user()->load('profile')]);
+        }
         return view('auth.profile.index');
     }
 
@@ -189,8 +193,14 @@ class UserController extends Controller
                 }
                 $languageJson = [];
                 if ($req->has('languages') && $req->languages) {
-                    foreach ($req->languages as $language) {
-                        array_push($languageJson, $language);
+                    if ($req->wantsJson()) {
+                        foreach (explode(",", $req->languages) as $language) {
+                            array_push($languageJson, trim($language));
+                        }
+                    } else {
+                        foreach ($req->languages as $language) {
+                            array_push($languageJson, $language);
+                        }
                     }
                 }
                 $row->profile()->updateOrCreate(['user_id' => $row->id], [
@@ -207,46 +217,60 @@ class UserController extends Controller
             return back()->with('error', 'Something went wrong');
         }
 
+        if ($req->wantsJson()) {
+            return response()->json('Success');
+        }
+
         return redirect()->route('admin.users.index')->with('message', 'Successfully Updated');
     }
 
     public function update_profile(UpdateProfileRequest $req)
     {
         try {
-            $row = User::findOrFail($req->id);
+            $languageJson = [];
+            $row = User::find($req->id);
             $row->update(['optin' => $req->optin ? true : false]);
-            if (isset($req->profile)) {
-                $image = $row->profile->avatar;
-                if ($req->remove_image == 1) {
-                    $image = null;
-                }
-                if (isset($req->profile['avatar'])) {
-                    $name = time() . Str::random(10) . '.' . $req->profile['avatar']->getClientOriginalExtension();
-                    $img = Image::make($req->profile['avatar']);
+            $image = $row->profile->avatar;
+            if ($req->remove_image == 1) {
+                $image = null;
+            }
+            if (isset($req->profile['avatar'])) {
+                $name = time() . Str::random(10) . '.' . $req->profile['avatar']->getClientOriginalExtension();
+                $img = Image::make($req->profile['avatar']);
 
-                    $img->fit(205, 205, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
-                    $img->save(storage_path('app/public/users/' . $name));
-                    $image = 'users/' . $name;
-                }
-                $languageJson = [];
-                if ($req->has('languages') && $req->languages) {
-                    foreach ($req->languages as $language) {
-                        array_push($languageJson, $language);
+                $img->fit(205, 205, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $img->save(storage_path('app/public/users/' . $name));
+                $image = 'users/' . $name;
+            }
+            if ($req->wantsJson()) {
+                if (!empty($req->profile['languages']) && is_string($req->profile['languages'])) {
+                    foreach (explode(",", $req->profile['languages']) as $language) {
+                        array_push($languageJson, trim($language));
                     }
                 }
-                $row->profile()->update([
-                    'address' => $req->profile['address'],
-                    'phone' => $req->profile['phone'],
-                    'languages' => json_encode($languageJson),
-                    'avatar' => $image,
-                ]);
+            } else {
+                foreach ($req->languages as $language) {
+                    array_push($languageJson, $language);
+                }
+            }
+            $row->profile()->update([
+                'address' => $req->profile['address'],
+                'phone' => $req->profile['phone'],
+                'languages' => json_encode($languageJson),
+                'avatar' => $image,
+            ]);
+            if ($req->wantsJson()) {
+                return response()->json($row);
             }
         } catch (Exception $e) {
+            if ($req->wantsJson()) {
+                Log::error($e);
+                return response()->json($e, 500);
+            }
             return back()->with('error', 'Something went wrong');
         }
-
         return back()->with('message', 'Successfully Updated');
     }
 
@@ -254,12 +278,10 @@ class UserController extends Controller
     {
         try {
             $row = User::find($req->id);
-
             $row->delete();
         } catch (Exception $e) {
             return back()->with('error', 'Something went wrong! User has not been deleted');
         }
-
 
         return back()->with('message', 'Successfully Deleted');
     }
@@ -289,9 +311,9 @@ class UserController extends Controller
     public function delete_note(Request $req)
     {
         $id = $req->input('id', null);
-        if($id) {
+        if ($id) {
             $row = UserNote::find($id);
-            if($row->author == auth()->id()) {
+            if ($row->author == auth()->id()) {
                 $row->delete();
             }
         }

@@ -22,6 +22,10 @@ class AppointmentController extends Controller
     {
         // return response()->json([Appointment::where('date', $request->date)->get(), $request->all()]);
     }
+    public function getAddresses()
+    {
+        return response()->json(AppointmentAddress::get());
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -87,7 +91,7 @@ class AppointmentController extends Controller
         // foreach ($email_list as $email) {
         //     array_push($to, $email->email);
         // }
-        
+
         $formController = new FormController;
         $to = $formController->getEmails('Open House Signup');
 
@@ -95,6 +99,10 @@ class AppointmentController extends Controller
         array_push($to, $request->email);
         $cc = [];
         Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+
+        if (request()->wantsJson()) {
+            return response()->json('Success');
+        }
 
         return back()->with('message', 'Appointment Created');
     }

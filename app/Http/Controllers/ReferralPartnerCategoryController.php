@@ -17,6 +17,9 @@ class ReferralPartnerCategoryController extends Controller
     public function index()
     {
         $categories = ReferralPartnerCategory::whereNull('parent_id')->get();
+        if (request()->wantsJson()) {
+            return response()->json(['categories' => $categories]);
+        }
         return view('pages.referral-partners.category.index', compact('categories'));
     }
 
@@ -50,7 +53,9 @@ class ReferralPartnerCategoryController extends Controller
     public function show(ReferralPartnerCategory $referralPartnerCategory)
     {
         $referralPartnerCategory->load('children', 'referral_partners');
-        // return ($referralPartnerCategory);
+        if (request()->wantsJson()) {
+            return response()->json(['category' => $referralPartnerCategory]);
+        }
         return view('pages.referral-partners.category.show', compact('referralPartnerCategory'));
     }
 
