@@ -741,31 +741,62 @@
                             @if ($email_blast->title == 'Monthly Properties')
                                 <div class="modal modal-new" id="monthly_properties">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content bg-white" style="height: 340px !important;">
+                                        <div class="modal-content bg-white" style="height: 300px !important;">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Success</h5>
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Inquiry</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <div class="modal-body">
-                                                <p
-                                                    style="font-family: 'gothicregular';text-align: center;font-size: 19px;">
-                                                    You have
-                                                    submitted an inquiry directly to this referral partner and will receive
-                                                    an email
-                                                    confirmation. Thank you!</p>
+                                            <div class="modal-body pb-0">
+                                                <form action="{{ route('marketing.sendemail') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="form_title"
+                                                        value="Email Blast Design Request">
+                                                    <input type="hidden" name="agent_name"
+                                                        value="{{ auth()->user()->profile->fullname }}">
+                                                    <input type="hidden" name="agent_email"
+                                                        value="{{ auth()->user()->email }}">
+                                                    <input type="hidden" name="email_blast"
+                                                        value="{{ $email_blast->title }}">
+                                                    <p>Please select one or more from below</p>
+                                                    <div class="mb-3">
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    value="Miami-Dade" style="height: auto !important"
+                                                                    name="locations[]">Miami-Dade
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    value="Broward" style="height: auto !important"
+                                                                    name="locations[]">Broward
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    value="Luxury" style="height: auto !important"
+                                                                    name="locations[]">Luxury
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn-luxe btn-block mb-0">Submit your request</button>
+                                                </form>
                                             </div>
-                                            <div class="modal-footer">
+                                            {{-- <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
-                               
-                                <button class="btn-luxe btn-block mb-3" onclick="toggleModal('monthly_properties')">Submit your request</button>
+
+                                <button class="btn-luxe btn-block mb-3" onclick="toggleModal('monthly_properties')">Submit
+                                    your request</button>
                             @else
                                 <form action="{{ route('marketing.sendemail') }}" method="POST">
                                     @csrf
@@ -1204,11 +1235,11 @@
                 </div>
             </div>
             <!-- <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
-                                                        <div class="inside-box">
-                                                            <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                                                            <p>LUXE Mentors</p>
-                                                        </div>
-                                                    </div> -->
+                                                                                                                                    <div class="inside-box">
+                                                                                                                                        <img src="/images/index-page/mentors.svg" class="icon" alt="">
+                                                                                                                                        <p>LUXE Mentors</p>
+                                                                                                                                    </div>
+                                                                                                                                </div> -->
             <div class="box-item small-box" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/calculator.svg" class="icon" alt="">
@@ -1350,13 +1381,13 @@
         </div>
     </div>
     <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>Links to other services</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p>Links to other services</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div> -->
     <div class="col-12 col-md-6 col-lg-3">
         <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
             <div>

@@ -467,7 +467,7 @@ button {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     width: 100%;
-    padding:0px 30px;
+    padding: 0px 30px;
 }
 .template-box-images img {
     height: 170px;

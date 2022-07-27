@@ -214,6 +214,8 @@ class MarketingCategoryController extends Controller
         foreach ($req->except('_token', 'to_email') as $key => $val) {
             if ($key == 'colors') {
                 $details[strtolower($key)] = $val ?? 'Luxe Colors';
+            } else if ($key == 'locations') {
+                $details[strtolower($key)] = implode(', ', $req->locations);
             } else {
                 $details[strtolower($key)] = $val;
             }
