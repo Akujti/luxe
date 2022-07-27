@@ -345,7 +345,10 @@
 #back img {
     margin-right: 5px;
 }
-
+.modal-backdrop {
+    z-index: 1 !important;
+    opacity: 0 !important;
+}
 /* Pagination  */
 
 .pagination .page-item .page-link {

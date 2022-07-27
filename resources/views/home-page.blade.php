@@ -739,10 +739,9 @@
                             </x-preview-image>
                             <p class="pt-2">{{ $email_blast->title }}</p>
                             @if ($email_blast->title == 'Monthly Properties')
-                                <div class="modal fade modal-new" id="exampleModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenter" aria-hidden="true" data-show="true">
+                                <div class="modal modal-new" id="monthly_properties">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
+                                        <div class="modal-content bg-white" style="height: 340px !important;">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">Success</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
@@ -765,8 +764,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn-luxe btn-block mb-3" data-toggle="modal"
-                                    data-target="#exampleModal">Submit your request</button>
+                               
+                                <button class="btn-luxe btn-block mb-3" onclick="toggleModal('monthly_properties')">Submit your request</button>
                             @else
                                 <form action="{{ route('marketing.sendemail') }}" method="POST">
                                     @csrf
@@ -1974,3 +1973,9 @@
     </div>
     </div>
 @endsection
+
+<script>
+    function toggleModal(id) {
+        $('#' + id).modal('show');
+    }
+</script>
