@@ -738,14 +738,46 @@
                                     style="object-position: top" alt="">
                             </x-preview-image>
                             <p class="pt-2">{{ $email_blast->title }}</p>
-                            <form action="{{ route('marketing.sendemail') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="form_title" value="Email Blast Design Request">
-                                <input type="hidden" name="agent_name" value="{{ auth()->user()->profile->fullname }}">
-                                <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
-                                <input type="hidden" name="email_blast" value="{{ $email_blast->title }}">
-                                <button class="btn-luxe btn-block mb-3">Submit your request</button>
-                            </form>
+                            @if ($email_blast->title == 'Monthly Properties')
+                                <div class="modal fade modal-new" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenter" aria-hidden="true" data-show="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Success</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p
+                                                    style="font-family: 'gothicregular';text-align: center;font-size: 19px;">
+                                                    You have
+                                                    submitted an inquiry directly to this referral partner and will receive
+                                                    an email
+                                                    confirmation. Thank you!</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-luxe btn-block mb-3" data-toggle="modal"
+                                    data-target="#exampleModal">Submit your request</button>
+                            @else
+                                <form action="{{ route('marketing.sendemail') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="form_title" value="Email Blast Design Request">
+                                    <input type="hidden" name="agent_name"
+                                        value="{{ auth()->user()->profile->fullname }}">
+                                    <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
+                                    <input type="hidden" name="email_blast" value="{{ $email_blast->title }}">
+                                    <button class="btn-luxe btn-block mb-3">Submit your request</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -1173,11 +1205,11 @@
                 </div>
             </div>
             <!-- <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
-                            <div class="inside-box">
-                                <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                                <p>LUXE Mentors</p>
-                            </div>
-                        </div> -->
+                                                        <div class="inside-box">
+                                                            <img src="/images/index-page/mentors.svg" class="icon" alt="">
+                                                            <p>LUXE Mentors</p>
+                                                        </div>
+                                                    </div> -->
             <div class="box-item small-box" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/calculator.svg" class="icon" alt="">
@@ -1319,13 +1351,13 @@
         </div>
     </div>
     <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p>Links to other services</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>Links to other services</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> -->
     <div class="col-12 col-md-6 col-lg-3">
         <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
             <div>
