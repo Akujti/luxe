@@ -130,7 +130,7 @@ class OrderController extends Controller
             $cc = [];
             $details['type'] = 'admin';
             $details['data'] = $row;
-            Mail::to('marketing@luxeknows.com')->cc($cc)->send(new OrderMailTemplate($details));
+            Mail::to(['marketing@luxeknows.com', 'support@luxeknows.com'])->cc($cc)->send(new OrderMailTemplate($details));
 
             $details['type'] = 'agent';
             $details['data'] = $row;
