@@ -121,8 +121,8 @@
                 <div class="m-auto ">
                     @if ($referralPartner->meta_items()->whereType('img')->first())
                         <div class="text-center">
-                            <img src="{{ asset('storage/' .$referralPartner->meta_items()->whereType('img')->first()->path) }}"
-                                alt="" id="logo">
+                            <img src="{{ $referralPartner->meta_items()->whereType('img')->first()->path }}" alt=""
+                                id="logo">
                         </div>
                     @endif
                     <style>
