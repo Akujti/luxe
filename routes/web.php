@@ -67,7 +67,7 @@ use App\Models\ReferralPartnerCategory;
 
 Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 
-Route::view('office-locations', 'office-locations')->middleware('auth');
+Route::view('office-locations', 'office-locations')->name('office.locations')->middleware('auth');
 Route::view('maps', 'maps');
 Route::get('home', [Controller::class, 'home'])->middleware('auth');
 Route::redirect('/', 'home');
@@ -299,7 +299,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::view('/flipping-house-sheet', 'calculators.flipping-house-sheet')->name('flipping_house');
         Route::view('/seller-net-sheet', 'calculators.seller-net-sheet')->name('seller_net_sheet');
     });
-
 });
 
 

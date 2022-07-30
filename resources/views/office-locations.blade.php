@@ -20,7 +20,6 @@
             font-size: 20px;
             letter-spacing: 1px;
         }
-
     </style>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -65,7 +64,6 @@
                                 #map {
                                     height: 100%;
                                 }
-
                             </style>
                             <div id="map"></div>
                         </div>

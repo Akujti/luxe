@@ -232,8 +232,7 @@
                         </div>
                         <div
                             class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
-                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt=""
-                                    height="73px"></a>
+                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="73px"></a>
                         </div>
                         <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
@@ -593,7 +592,7 @@
 @yield('js')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-@if (Route::currentRouteName() != 'optin.agents.index')
+@if (Route::currentRouteName() != 'optin.agents.index' && Route::currentRouteName() != 'office.locations')
     <script
         src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
         defer></script>
