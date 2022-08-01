@@ -66,6 +66,11 @@ class FormController extends Controller
         return view('pages/form/' . $folder . '/' . $form);
     }
 
+    public function marketing_budget_form()
+    {
+        return view('pages/form/other/marketing-budget');
+    }
+
     public function agent_form()
     {
         return view('pages/form/agent_referrals/agent-form');
@@ -101,7 +106,10 @@ class FormController extends Controller
                         $details[strtolower($key)] = $val;
                     }
                 } else {
-                    $details[strtolower($key)] = $val;
+                    if (is_array($val))
+                        $details[strtolower($key)] = implode(", ", $val);
+                    else
+                        $details[strtolower($key)] = $val;
                 }
             }
         } catch (Exception $e) {
@@ -130,7 +138,6 @@ class FormController extends Controller
             if (isset($request->form_title_value)) {
                 $to = $this->getEmails($request->form_title_value, $request->to_email);
             } else {
-
                 $to = $this->getEmails($request->form_title, $request->to_email);
             }
             array_push($to, $request->agent_email);
