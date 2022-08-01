@@ -26,14 +26,17 @@
                                 <input type="text" name="agent_email" class="form-control"
                                     value="{{ auth()->user() ? auth()->user()->email : '' }}" required>
                             </div>
-                            <div class="w-100 text-center">
-                                <p>Please choose from the items below. You can select one or more items.</p>
-                                <div class="form-group" style="display: flex;flex-direction: column;align-items: center;">
+                            <div class="col-12">
+                                <p class="font-weight-bold">Please choose from the items below. You can select one or more
+                                    items.</p>
+                                <div class="form-group">
                                     <div>
                                         <input type="checkbox" name="options[]"
                                             value="1 - Mailers and/or Door Hangers from our approved vendors Planet Marketing or RSP Pro"
                                             id="opt1">
-                                        <label for="opt1">1 - Mailers and/or Door Hangers from our approved vendors
+                                        <label for="opt1" class="font-weight-normal">1 - Mailers and/or Door Hangers
+                                            from
+                                            our approved vendors
                                             Planet
                                             Marketing or RSP Pro</label>
                                     </div>
@@ -42,26 +45,30 @@
                                         <input type="checkbox" name="options[]"
                                             value="2 - Gifts for past clients from Client Giant or Fountain Gifts"
                                             id="opt2">
-                                        <label for="opt2">2 - Gifts for past clients from Client Giant or Fountain
+                                        <label for="opt2" class="font-weight-normal">2 - Gifts for past clients from
+                                            Client Giant or Fountain
                                             Gifts</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]" value="3 - Property Boost in KV Core"
                                             id="opt3">
-                                        <label for="opt3">3 - Property Boost in KV Core</label>
+                                        <label for="opt3" class="font-weight-normal">3 - Property Boost in KV
+                                            Core</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
                                             value="4 - Any photoshoot for a property or personal from one of our photographers. You can do a neighborhood video for example."
                                             id="opt4">
-                                        <label for="opt4">4 - Any photoshoot for a property or personal from one of our
+                                        <label for="opt4" class="font-weight-normal">4 - Any photoshoot for a property
+                                            or personal from one of our
                                             photographers. You can do a neighborhood video for example.</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
                                             value="5 - Marketing Supplies - ex. Business cards, for sale signs, open house signs, banners"
                                             id="opt5">
-                                        <label for="opt5">5 - Marketing Supplies - ex. Business cards, for sale signs,
+                                        <label for="opt5" class="font-weight-normal">5 - Marketing Supplies - ex.
+                                            Business cards, for sale signs,
                                             open
                                             house signs, banners</label>
                                     </div>
@@ -69,7 +76,8 @@
                                         <input type="checkbox" name="options[]"
                                             value="6 - If you have a different marketing idea, please send in full details for us to review & approve"
                                             id="opt6" onchange="displayTextarea()">
-                                        <label for="opt6">6 - If you have a different marketing idea, please send in
+                                        <label for="opt6" class="font-weight-normal">6 - If you have a different
+                                            marketing idea, please send in
                                             full
                                             details for us to review & approve</label>
                                     </div>
