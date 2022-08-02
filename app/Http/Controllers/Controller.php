@@ -40,7 +40,7 @@ class Controller extends BaseController
             ->where('folder_id', $folder_id)->latest()->get();
 
         $today = Carbon::today()->format('Y-m-d');
-        $upcoming_events = Event::whereDate('date', '>', $today)->take(5)->get();
+        $upcoming_events = Event::whereDate('date', '>', $today)->orderBy('date')->take(5)->get();
 
         $email_blasts = EmailBlastHomePage::orderBy('order', 'asc')->take(3)->get();
         return view(

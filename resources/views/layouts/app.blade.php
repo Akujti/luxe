@@ -538,10 +538,11 @@
                                                 href="{{ url('/home?dir=coming_soon') }}">Your LUXE
                                                 Staff</a></li>
                                         <li><a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
-                                                href="{{ url('general/form/agent_referrals/index') }}">New
-                                                Agents
-                                                &
-                                                Referrals</a></li>
+                                                href="{{ url('general/form/agent_referrals/index') }}">New Agents To
+                                                Join LUXE</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'optin_agents' ? 'active_submenu' : '' }}"
+                                                href="{{ route('optin.agents.index') }}">Referral Agents
+                                                With LUXE</a></li>
                                     </ul>
                                 </li>
                                 <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">

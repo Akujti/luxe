@@ -41,7 +41,6 @@
                                             Marketing or RSP Pro</label>
                                     </div>
                                     <div>
-
                                         <input type="checkbox" name="options[]"
                                             value="2 - Gifts for past clients from Client Giant or Fountain Gifts"
                                             id="opt2">
