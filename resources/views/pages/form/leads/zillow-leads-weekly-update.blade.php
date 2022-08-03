@@ -19,8 +19,8 @@
                     <input type="hidden" name="to_email[]" id="team_email" value="">
                     <input type="hidden" name="to_email[]" id="team_email_2" value="">
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                                                                    <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
-                                                                                                    <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
+                                                                                                                <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
+                                                                                                                <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -90,7 +90,7 @@
                                     with the Buyer Name as it appears on Zillow</label>
                                 <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3" class="form-control" required>-</textarea>
                             </div>
-                            <div class="form-group col-md-6">
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">Number of offers outstanding awaiting a response from seller, listing
                                     agent or buyer?</label>
                                 <select name="number_of_offers_outstanding_awaiting_a_response_from_seller"
@@ -127,6 +127,34 @@
                                     <option value="28">28</option>
                                     <option value="29">29</option>
                                     <option value="30">30</option>
+                                </select>
+                            </div> --}}
+                            <div class="form-group col-md-6">
+                                <label for="name">Were any of the contracts above executed in the last 7 days?</label>
+                                <select name="were_any_of_the_contracts_above_executed_in_the_last_7_days" required
+                                    class="form-control">
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Do you have any signed listing agreements for zillow
+                                    contacts?</label>
+                                <select name="do_you_have_any_signed_listing_agreements_for_zillow_contacts" required
+                                    class="form-control">
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Were any of the listing agreements executed this week?</label>
+                                <select name="were_any_of_the_listing_agreements_executed_this_week" required
+                                    class="form-control">
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
