@@ -15,6 +15,7 @@ class ClosingCoordinator extends Model
         'sentence',
         'status'
     ];
+
     protected $appends = ['imageUrl'];
 
     public function getImageUrlAttribute()

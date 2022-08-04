@@ -12,4 +12,16 @@ class ListingCoordinator extends Model
     protected $fillable = [
         'name', 'email', 'image', 'sentence', 'status'
     ];
+
+    protected $appends = ['imageUrl', 'webUrl'];
+
+    public function getImageUrlAttribute()
+    {
+        return asset($this->image);
+    }
+
+    public function getWebUrlAttribute()
+    {
+        return route('listing-coordinators.show', $this->id);
+    }
 }

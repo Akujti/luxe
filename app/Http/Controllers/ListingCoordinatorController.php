@@ -15,6 +15,9 @@ class ListingCoordinatorController extends Controller
     public function index()
     {
         $coordinators = ListingCoordinator::get();
+        if (request()->wantsJson()) {
+            return response()->json(['coordinators' => $coordinators]);
+        }
         return view('listing-coordinators.index', compact('coordinators'));
     }
 

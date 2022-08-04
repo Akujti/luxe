@@ -11,6 +11,7 @@ use App\Http\Controllers\FolderController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\GuideController;
+use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReferralPartnerController;
@@ -45,6 +46,7 @@ Route::group(
         Route::apiResource('user/files', FolderController::class, array("as" => "api"));
         Route::apiResource('user/guides', GuideController::class, array("as" => "api"));
         Route::apiResource('closing-coordinators', ClosingCoordinatorController::class);
+        Route::apiResource('listing-coordinators', ListingCoordinatorController::class, array("as" => "api"));
         Route::apiResource('marketing-canva', MarketingTemplateController::class);
         Route::get('marketing-categories', [DesignRequestController::class, 'index']);
         Route::post('marketing/get-templates', [DesignRequestController::class, 'getTemplates']);
@@ -60,6 +62,7 @@ Route::group(
         Route::get('test', [FormController::class, 'test']);
         Route::get('my-profile', [UserController::class, 'my_profile']);
         Route::put('my-profile', [UserController::class, 'update_profile']);
+        Route::post('updateAvatar', [UserController::class, 'updateAvatar']);
         Route::get('videos/{video_id}', [VideoFolderController::class, 'show']);
         Route::post('videos/review', [VideoFolderController::class, 'create_review']);
         Route::post('videos/comment', [VideoFolderController::class, 'create_comment']);

@@ -251,8 +251,10 @@ class UserController extends Controller
                     }
                 }
             } else {
-                foreach ($req->languages as $language) {
-                    array_push($languageJson, $language);
+                if (!empty($req->languages)) {
+                    foreach ($req->languages as $language) {
+                        array_push($languageJson, $language);
+                    }
                 }
             }
             $row->profile()->update([
@@ -265,13 +267,32 @@ class UserController extends Controller
                 return response()->json($row);
             }
         } catch (Exception $e) {
+            Log::error($e);
             if ($req->wantsJson()) {
-                Log::error($e);
                 return response()->json($e, 500);
             }
             return back()->with('error', 'Something went wrong');
         }
         return back()->with('message', 'Successfully Updated');
+    }
+
+    public function updateAvatar(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image'
+        ]);
+        $name = time() . Str::random(10) . '.' . $request->avatar->getClientOriginalExtension();
+        $img = Image::make($request->avatar);
+
+        $img->fit(205, 205, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $img->save(storage_path('app/public/users/' . $name));
+        $image = 'users/' . $name;
+        $request->user()->profile()->update([
+            'avatar' => $image,
+        ]);
+        return response()->json(['avatar' => $request->user()->avatar]);
     }
 
     public function delete(DeleteRequest $req)

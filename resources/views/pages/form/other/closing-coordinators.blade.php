@@ -16,10 +16,10 @@
                     <input type="hidden" name="form_title_value" value="CLOSING COORDINATORS">
                     <input type="hidden" name="special" value="Coordinator Will Reach Out Within 1 Business Day">
                     <!-- <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
-                                                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
-                                                        <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                        <input type="hidden" name="to_email[]" value="support@luxeknows.com">
-                                                        <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com"> -->
+                                                            <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
+                                                            <input type="hidden" name="to_email[]" value="email@luxeknows.com">
+                                                            <input type="hidden" name="to_email[]" value="support@luxeknows.com">
+                                                            <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com"> -->
                     <input type="hidden" name="to_email[]" value="{{ $coordinator->email }}">
                     <div class="card-body">
                         <div class="row">
@@ -44,7 +44,7 @@
                                     placeholder="">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Effective date</label>
+                                <label for="name">Effective Date</label>
                                 <input type="date" name="effective_date" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
