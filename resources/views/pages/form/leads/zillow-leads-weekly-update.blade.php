@@ -19,8 +19,8 @@
                     <input type="hidden" name="to_email[]" id="team_email" value="">
                     <input type="hidden" name="to_email[]" id="team_email_2" value="">
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                                                                                <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
-                                                                                                                <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
+                                                                                                                                                    <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
+                                                                                                                                                    <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -197,7 +197,7 @@
                                     <option value="30">30</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">Please answer the next questions in Yes/no Format unless paused. Are
                                     you
                                     receiving an adequate number of calls you can
@@ -209,8 +209,8 @@
                                     <option value="No">No</option>
                                     <option value="Paused">Paused</option>
                                 </select>
-                            </div>
-                            <div class="form-group col-md-6">
+                            </div> --}}
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">If the above is no, can you handle more/less leads while updating
                                     your CRM
                                     as per Zillow guidelines?</label>
@@ -220,6 +220,23 @@
                                     <option value="MORE">MORE</option>
                                     <option value="LESS">LESS</option>
                                     <option value="PAUSED">PAUSED</option>
+                                </select>
+                            </div> --}}
+                            {{-- <div class="form-group col-md-6">
+                                <label for="name">Do you need to be paused?</label>
+                                <select class="form-control" name="do_you_need_to_be_paused" required id="pausedToggle"
+                                    onchange="togglePausedSelect('pausedToggle')">
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div> --}}
+                            <div class="form-group col-md-6">
+                                <label for="name">Are you currently paused? </label>
+                                <select class="form-control" name="are_you_currently_paused" required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -232,8 +249,28 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6 d-none" id="paused_reason">
-                                <label for="name">Reason for Zillow Pause</label>
-                                <input id="reason_zillow_pause" type="text" class="form-control" name="reason">
+                                <label for="name">Reason for Pause</label>
+                                <input id="reason_zillow_pause" type="text" class="form-control" name="reason_pause">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Are you receiving an adequate number of calls you can handle?</label>
+                                <select class="form-control"
+                                    name="are_you_receiving_an_adequate_number_of_calls_you_can_handle" required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Can you handle more/less leads while updating your CRM as per Zillow
+                                    guidelines?</label>
+                                <select class="form-control"
+                                    name="can_you_handle_more_less_leads_while_updating_your_CRM_as_per_Zillow_guidelines"
+                                    required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
                             </div>
 
                             <div class="form-group col-md-6">
