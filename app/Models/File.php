@@ -18,7 +18,7 @@ class File extends Model
         'thumbnail'
     ];
 
-    protected $appends = ['fileUrl'];
+    protected $appends = ['fileUrl', 'thumbnailUrl'];
 
     public function folder()
     {
@@ -28,5 +28,9 @@ class File extends Model
     public function getFileUrlAttribute()
     {
         return asset('storage/' . $this->file);
+    }
+    public function getThumbnailUrlAttribute()
+    {
+        return asset('storage/' . $this->thumbnail);
     }
 }
