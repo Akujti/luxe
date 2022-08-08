@@ -389,6 +389,9 @@ Route::group(
         Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
         Route::resource('listing-coordinators', ListingCoordinatorController::class);
         Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
+
+        Route::get('leaderboard/sales', [BrokerSumoController::class, 'leaderboard_sales']);
+        Route::get('leaderboard/units', [BrokerSumoController::class, 'leaderboard_units']);
     }
 );
 

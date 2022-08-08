@@ -199,6 +199,8 @@ return array(
     'App\\Models\\W9' => $baseDir . '/app/Models/W9.php',
     'App\\Models\\WrittenEmailTemplate' => $baseDir . '/app/Models/WrittenEmailTemplate.php',
     'App\\Models\\WrittenEmailTemplateItem' => $baseDir . '/app/Models/WrittenEmailTemplateItem.php',
+    'App\\Notifications\\BrokersumoLevelup' => $baseDir . '/app/Notifications/BrokersumoLevelup.php',
+    'App\\Notifications\\BrokersumoLevelupYearly' => $baseDir . '/app/Notifications/BrokersumoLevelupYearly.php',
     'App\\Policies\\AgentEmailPolicy' => $baseDir . '/app/Policies/AgentEmailPolicy.php',
     'App\\Policies\\AppointmentAddressPolicy' => $baseDir . '/app/Policies/AppointmentAddressPolicy.php',
     'App\\Policies\\AppointmentPolicy' => $baseDir . '/app/Policies/AppointmentPolicy.php',

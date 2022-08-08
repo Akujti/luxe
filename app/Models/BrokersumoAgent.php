@@ -16,7 +16,7 @@ class BrokersumoAgent extends Model
     use HasFactory;
 
     protected $fillable = [
-        'agent_name', 'sales_volumes', 'yearly_sales_volumes'
+        'agent_name', 'sales_volumes', 'yearly_sales_volumes', 'deals'
     ];
 
     public function setSalesVolumesAttribute($value)

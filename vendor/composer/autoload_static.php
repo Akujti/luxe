@@ -847,6 +847,8 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Models\\W9' => __DIR__ . '/../..' . '/app/Models/W9.php',
         'App\\Models\\WrittenEmailTemplate' => __DIR__ . '/../..' . '/app/Models/WrittenEmailTemplate.php',
         'App\\Models\\WrittenEmailTemplateItem' => __DIR__ . '/../..' . '/app/Models/WrittenEmailTemplateItem.php',
+        'App\\Notifications\\BrokersumoLevelup' => __DIR__ . '/../..' . '/app/Notifications/BrokersumoLevelup.php',
+        'App\\Notifications\\BrokersumoLevelupYearly' => __DIR__ . '/../..' . '/app/Notifications/BrokersumoLevelupYearly.php',
         'App\\Policies\\AgentEmailPolicy' => __DIR__ . '/../..' . '/app/Policies/AgentEmailPolicy.php',
         'App\\Policies\\AppointmentAddressPolicy' => __DIR__ . '/../..' . '/app/Policies/AppointmentAddressPolicy.php',
         'App\\Policies\\AppointmentPolicy' => __DIR__ . '/../..' . '/app/Policies/AppointmentPolicy.php',

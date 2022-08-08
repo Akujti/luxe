@@ -37,6 +37,7 @@ class BrokerSumoController extends Controller
                 ['agent_name' => $result[0][$i][0]],
                 [
                     'agent_name' => $result[0][$i][0],
+                    'deals' => $result[0][$i][6],
                     'sales_volumes' => $this->getAmount($result[0][$i][7]),
                 ]
             );
@@ -72,6 +73,24 @@ class BrokerSumoController extends Controller
         $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
 
         return (float) str_replace(',', '.', $removedThousandSeparator);
+    }
+
+    public function leaderboard_sales()
+    {
+        $results = BrokersumoAgent::orderBy(
+            'sales_volumes',
+            'DESC'
+        )->paginate(50);
+        return view('pages.brokersumo.sales', compact('results'));
+    }
+
+    public function leaderboard_units()
+    {
+        $results = BrokersumoAgent::orderBy(
+            'deals',
+            'DESC'
+        )->paginate(50);
+        return view('pages.brokersumo.units', compact('results'));
     }
 
     public function updateAgentsTransactions()
