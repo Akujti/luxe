@@ -16,6 +16,7 @@ class Event extends Model
         'fullType',
         'fullDate',
         'attending',
+        'status'
     ];
 
     protected $fillable = [

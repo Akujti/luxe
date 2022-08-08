@@ -17,6 +17,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReferralPartnerController;
 use App\Http\Controllers\ReferralPartnerCategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Video\VideoController;
 use App\Http\Controllers\Video\VideoFolderController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use Illuminate\Http\Request;
@@ -43,6 +44,8 @@ Route::group(
         Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
         Route::post('store-appointment', [AppointmentController::class, 'store']);
         Route::apiResource('user/events', EventController::class, array("as" => "api"));
+        Route::get('user/my-events', [EventController::class, 'my_events'], array("as" => "api"));
+        Route::post('events/attend', [EventController::class, 'attend'], array("as" => "api"));
         Route::apiResource('user/files', FolderController::class, array("as" => "api"));
         Route::apiResource('user/guides', GuideController::class, array("as" => "api"));
         Route::apiResource('closing-coordinators', ClosingCoordinatorController::class);
@@ -66,6 +69,8 @@ Route::group(
         Route::get('videos/{video_id}', [VideoFolderController::class, 'show']);
         Route::post('videos/review', [VideoFolderController::class, 'create_review']);
         Route::post('videos/comment', [VideoFolderController::class, 'create_comment']);
+
+        Route::get('search', [VideoController::class, 'search']);
 
         Route::apiResource('referral-partner-category', ReferralPartnerCategoryController::class, array("as" => "api"))->only(['index', 'show']);
         Route::apiResource('referral-partners', ReferralPartnerController::class, array("as" => "api"))->only(['index', 'show']);

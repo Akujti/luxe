@@ -28,6 +28,10 @@ class VideoController extends Controller
         $videos = Video::where('title', 'like', '%' . $req->search . '%')->paginate(4, ['*'], 'videos');
         $products = LuxeStoreProduct::where('name', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'products');
 
+        if ($req->wantsJson()) {
+            return response()->json(['forms' => $forms, 'videos' => $videos, 'files' => $files, 'folders' => $folders, 'products' => $products, 'guides' => $guides]);
+        }
+
         return view('search.index', compact('forms', 'videos', 'files', 'folders', 'products', 'guides'));
     }
 

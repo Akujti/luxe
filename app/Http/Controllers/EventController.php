@@ -49,6 +49,9 @@ class EventController extends Controller
     public function my_events()
     {
         $events = Auth::user()->attending_events()->orderBy('date')->paginate(30);
+        if (request()->wantsJson()) {
+            return response()->json($events);
+        }
         return view('pages.events.my-events', compact('events'));
     }
     public function attend(Request $request)
@@ -67,9 +70,15 @@ class EventController extends Controller
             if ($request->status) {
                 $this->attend_email($event);
             }
+            if ($request->wantsJson()) {
+                return response()->json($event);
+            }
             return back()->with('message', 'Success');
         } catch (\Throwable $th) {
             Log::alert($th);
+            if ($request->wantsJson()) {
+                return response()->json("Something went wrong!", 500);
+            }
             return back()->with('error', 'Something went wrong!');
         }
     }
