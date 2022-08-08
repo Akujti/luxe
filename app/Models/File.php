@@ -29,6 +29,7 @@ class File extends Model
     {
         return asset('storage/' . $this->file);
     }
+
     public function getThumbnailUrlAttribute()
     {
         return asset('storage/' . $this->thumbnail);
