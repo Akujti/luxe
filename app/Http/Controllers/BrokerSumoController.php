@@ -37,7 +37,6 @@ class BrokerSumoController extends Controller
                 ['agent_name' => $result[0][$i][0]],
                 [
                     'agent_name' => $result[0][$i][0],
-                    'deals' => $result[0][$i][6],
                     'sales_volumes' => $this->getAmount($result[0][$i][7]),
                 ]
             );
@@ -55,6 +54,7 @@ class BrokerSumoController extends Controller
                 ['agent_name' => $result[0][$i][0]],
                 [
                     'agent_name' => $result[0][$i][0],
+                    'deals' => $result[0][$i][6],
                     'yearly_sales_volumes' => $this->getAmount($result[0][$i][7]),
                 ]
             );
@@ -78,7 +78,7 @@ class BrokerSumoController extends Controller
     public function leaderboard_sales()
     {
         $results = BrokersumoAgent::orderBy(
-            'sales_volumes',
+            'yearly_sales_volumes',
             'DESC'
         )->paginate(50);
         return view('pages.brokersumo.sales', compact('results'));

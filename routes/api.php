@@ -13,6 +13,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\MarketingTemplateController;
+use App\Http\Controllers\OptinController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReferralPartnerController;
 use App\Http\Controllers\ReferralPartnerCategoryController;
@@ -74,6 +75,8 @@ Route::group(
 
         Route::apiResource('referral-partner-category', ReferralPartnerCategoryController::class, array("as" => "api"))->only(['index', 'show']);
         Route::apiResource('referral-partners', ReferralPartnerController::class, array("as" => "api"))->only(['index', 'show']);
+
+        Route::get('optin-agents', [OptinController::class, 'index']);
     }
 );
 
