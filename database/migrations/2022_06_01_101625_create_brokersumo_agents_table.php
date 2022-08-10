@@ -16,7 +16,7 @@ class CreateBrokersumoAgentsTable extends Migration
         Schema::create('brokersumo_agents', function (Blueprint $table) {
             $table->id();
             $table->string('agent_name');
-            $table->double('sales_volumes');
+            $table->double('sales_volumes')->default(0);
             $table->timestamps();
         });
     }

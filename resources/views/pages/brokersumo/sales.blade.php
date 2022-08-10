@@ -36,7 +36,7 @@
     <div class="container-fluid">
         <div class="row m-0">
             <div class="w-100 d-flex justify-content-between align-items-center">
-                <h5 class="h5-luxe">Leaderboard - Sales Volumes</h5>
+                <h5 class="h5-luxe">Leaderboard - Yearly Sales Volumes</h5>
             </div>
             <div class="table-responsive">
                 <table class="table">
@@ -52,7 +52,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $result->agent_name }}</td>
-                                <td>{{ '$' . number_format($result->sales_volumes) }}
+                                <td>{{ '$' . number_format($result->yearly_sales_volumes) }}
                                 </td>
                             </tr>
                         @endforeach
