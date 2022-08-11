@@ -102,7 +102,7 @@
                         value="{{ auth()->user()->profile->languages ? implode(',', auth()->user()->profile->languages) : null }}">
                     <div class="col-12 mb-4">
 
-                        <input type="radio" name="enrollment_type" value="$149 per month (minimum 6-month commitment)"
+                        <input type="radio" name="enrollment_type" value="$249 per month (minimum 6-month commitment)"
                             onclick="toggleDetails(this)" required> - <b class="gothicbold">
                             {{ \Carbon\Carbon::parse('2022-07-16') <= \Carbon\Carbon::now()->timezone('America/New_York') ? '$249' : '$149' }}
                             per month</b> (minimum
@@ -189,7 +189,7 @@
 
     <script>
         function toggleDetails(e) {
-            if (e.value == '$149 per month (minimum 6-month commitment)') {
+            if (e.value == '$249 per month (minimum 6-month commitment)') {
                 $("#credit-card-inputs :input").prop("disabled", false);
                 $("#credit-card-inputs :input").prop('required', true);
                 $('#credit-card-inputs').removeClass('d-none')

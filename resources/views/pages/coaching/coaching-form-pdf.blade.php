@@ -89,7 +89,7 @@
             <div class="col-12 col-md-12 col-lg-7 coaching-text">
                 <div>
 
-                    @if ($enrollment_type == '$149 per month (minimum 6-month commitment)')
+                    @if ($enrollment_type == '$249 per month (minimum 6-month commitment)')
                         <div>Option #1 - <span class="gothicbold">$249 per month</span> (minimum 6-month commitment)
                         </div>
                     @else
