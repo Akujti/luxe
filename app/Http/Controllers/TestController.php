@@ -36,21 +36,21 @@ class TestController extends Controller
     public function submit(Request $request)
     {
 
-        $path1 = $request->file('sheet')->store('temp');
-        $path = storage_path('app') . '/' . $path1;
-        $result = Excel::toArray(AgentImport::class, $path);
-        $names = [];
-        for ($i = 1; $i < count($result[0]) - 2; $i++) {
-            array_push($names, $result[0][$i][0]);
-        }
+        // $path1 = $request->file('sheet')->store('temp');
+        // $path = storage_path('app') . '/' . $path1;
+        // $result = Excel::toArray(AgentImport::class, $path);
+        // $names = [];
+        // for ($i = 1; $i < count($result[0]) - 2; $i++) {
+        //     array_push($names, $result[0][$i][0]);
+        // }
 
-        $agents = BrokersumoAgent::get();
-        $temp = [];
-        foreach ($agents as $agent) {
-            if (!in_array($agent->agent_name, $names)) {
-                array_push($temp, $agent->agent_name);
-            }
-        }
-        return response()->json([$names, $temp]);
+        // $agents = BrokersumoAgent::get();
+        // $temp = [];
+        // foreach ($agents as $agent) {
+        //     if (!in_array($agent->agent_name, $names)) {
+        //         array_push($temp, $agent->agent_name);
+        //     }
+        // }
+        // return response()->json([$names, $temp]);
     }
 }

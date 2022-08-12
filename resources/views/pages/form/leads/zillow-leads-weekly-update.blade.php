@@ -19,8 +19,8 @@
                     <input type="hidden" name="to_email[]" id="team_email" value="">
                     <input type="hidden" name="to_email[]" id="team_email_2" value="">
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                                                                                                                        <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
-                                                                                                                                                        <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
+                                                                                                                                                                <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
+                                                                                                                                                                <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -139,14 +139,24 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Do you have any signed listing agreements for zillow
-                                    contacts?</label>
-                                <select name="do_you_have_any_signed_listing_agreements_for_zillow_contacts" required
-                                    class="form-control">
-                                    <option value>-</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                </select>
+                                <label for="name">Number of Signed Listing Agreements For Zillow Contacts</label>
+                                <input type="text" name="number_of_signed_listing_agreements_for_zillow_contacts"
+                                    required class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Address of Signed Listing Agreements For Zillow Contacts</label>
+                                <input type="text" name="address_of_signed_agreements_for_zillow_contacts" required
+                                    class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Have you cancelled any Zillow contracts in the past 7 days?</label>
+                                <input type="text" name="have_you_cancalled_any_zillow_contract_in_the_past_7_days"
+                                    required class="form-control" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Address of cancelled transaction</label>
+                                <input type="text" name="address_of_cancelled_transactions" required
+                                    class="form-control" />
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Were any of the listing agreements executed this week?</label>
@@ -252,7 +262,7 @@
                                 <label for="name">Reason for Pause</label>
                                 <input id="reason_zillow_pause" type="text" class="form-control" name="reason_pause">
                             </div>
-                            <div class="form-group col-md-6">
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">Are you receiving an adequate number of calls you can handle?</label>
                                 <select class="form-control"
                                     name="are_you_receiving_an_adequate_number_of_calls_you_can_handle" required>
@@ -260,8 +270,8 @@
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
-                            </div>
-                            <div class="form-group col-md-6">
+                            </div> --}}
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">Can you handle more/less leads while updating your CRM as per Zillow
                                     guidelines?</label>
                                 <select class="form-control"
@@ -272,7 +282,7 @@
                                     <option value="Less">Less</option>
                                     <option value="Same">Same</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             {{-- <div class="form-group col-md-6">
                             <label for="name">If Paused, please advise if you would like to stay paused in Yes/No
                                 format</label>
@@ -283,7 +293,7 @@
                                 <option value="No">No</option>
                             </select>
                         </div> --}}
-                            <div class="form-group col-md-6">
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">How many homes have you shown this past week?</label>
                                 <select name="how_many_home_have_you_shown_this_past_week" class="form-control" required>
                                     <option value>-</option>
@@ -319,7 +329,7 @@
                                     <option value="29">29</option>
                                     <option value="30">30</option>
                                 </select>
-                            </div>
+                            </div> --}}
 
 
                             <div class="form-group form-footer col-12">
