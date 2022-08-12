@@ -2,27 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\AddToEmailCalendar;
-use App\Models\Appointment;
-use App\Models\AppointmentTimeslot;
 use App\Models\BrokersumoAgent;
-use App\Models\Event;
-use App\Models\MarketingCanva;
-use App\Models\ReferralPartnerCategory;
-use App\Models\Video\Video;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use Vimeo\Laravel\Facades\Vimeo;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TestController extends Controller
 {
     public function index()
     {
-        $events = Event::whereMonth('date', '>=', date('m'))->get();
-        $today = Carbon::today()->format('Y-m-d');
-        $upcoming_events = Event::whereDate('date', '>', now())->orderBy('date')->take(5)->get();
-        return $upcoming_events;
+
+        // $events = Event::whereMonth('date', '>=', date('m'))->get();
+        // $today = Carbon::today()->format('Y-m-d');
+        // $upcoming_events = Event::whereDate('date', '>', now())->orderBy('date')->take(5)->get();
+        // return $upcoming_events;
+        return view('test');
     }
 
     public function update_vimeo()
@@ -42,6 +35,22 @@ class TestController extends Controller
 
     public function submit(Request $request)
     {
-        return response()->json($request->all());
+
+        $path1 = $request->file('sheet')->store('temp');
+        $path = storage_path('app') . '/' . $path1;
+        $result = Excel::toArray(AgentImport::class, $path);
+        $names = [];
+        for ($i = 1; $i < count($result[0]) - 2; $i++) {
+            array_push($names, $result[0][$i][0]);
+        }
+
+        $agents = BrokersumoAgent::get();
+        $temp = [];
+        foreach ($agents as $agent) {
+            if (!in_array($agent->agent_name, $names)) {
+                array_push($temp, $agent->agent_name);
+            }
+        }
+        return response()->json([$names, $temp]);
     }
 }

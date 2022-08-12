@@ -262,6 +262,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('appointment-addresses/all', [AppointmentAddressController::class, 'all']);
     Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
     Route::get('test', [TestController::class, 'index']);
+    Route::post('test', [TestController::class, 'submit']);
 
     Route::resource('listing-coordinators', ListingCoordinatorController::class);
     Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
