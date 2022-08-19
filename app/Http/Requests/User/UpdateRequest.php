@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'id' => 'required|exists:users,id',
-            'email' => 'required|unique:users,email,'. $this->input('id'),
+            'email' => 'required|unique:users,email,' . $this->input('id'),
             'password' => 'nullable|min:6|max:255',
             'role' => 'required|in:admin,agent,other',
 
@@ -34,6 +34,7 @@ class UpdateRequest extends FormRequest
             'profile.address' => 'nullable|string',
             'profile.phone' => 'nullable|string',
             'languages' => 'nullable|array',
+            'showing_agent' => 'nullable|boolean',
             'profile.avatar' => 'nullable|image',
         ];
     }

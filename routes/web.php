@@ -387,6 +387,8 @@ Route::group(
     ['middleware' => ['auth']],
     function () {
         Route::get('optin-agents', [OptinController::class, 'index'])->name('optin.agents.index');
+        Route::get('showing-agents', [UserController::class, 'showing_agents'])->name('showing.agents.index');
+        Route::post('showing-agents/{user}', [UserController::class, 'request_showing_agents'])->name('request.showing.agents');
         Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
         Route::resource('listing-coordinators', ListingCoordinatorController::class);
         Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');

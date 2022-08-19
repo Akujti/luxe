@@ -15,7 +15,9 @@ use App\Http\Requests\User\NoteRequest;
 use App\Http\Requests\User\DeleteRequest;
 use App\Http\Requests\User\UpdateRequest;
 use App\Http\Requests\User\UpdateProfileRequest;
+use App\Mail\ShowingAgentRequestMailTemplate;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller
@@ -176,6 +178,7 @@ class UserController extends Controller
             }
             $row->isAdmin = ($req->role == 'admin') ? 1 : 0;
             $row->role = $req->role;
+            $row->showing_agent = $req->showing_agent;
 
             $row->save();
 
@@ -356,5 +359,28 @@ class UserController extends Controller
         User::where('isAdmin', 1)->update(['role' => 'admin']);
         User::where('isAdmin', 0)->update(['role' => 'agent']);
         return back();
+    }
+
+    public function showing_agents()
+    {
+        $agents = User::where('showing_agent', true)->paginate(20);
+
+        return view('showing-agents.index', compact('agents'));
+    }
+
+    public function request_showing_agents(User $user)
+    {
+        $details = [];
+        $details['agent'] = request()->user();
+        $details['showing_agent'] = $user;
+
+        $to = ['email@luxeknows.com', $user->email, request()->user()->email];
+        try {
+            Mail::to($to)->send(new ShowingAgentRequestMailTemplate($details));
+        } catch (\Exception $exception) {
+            Log::alert($exception);
+            return redirect()->back()->with('error', 'Request Failed');
+        }
+        return redirect()->back()->with('message', 'Request Submitted');
     }
 }
