@@ -790,6 +790,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Mail\\MarketingRequestMail' => __DIR__ . '/../..' . '/app/Mail/MarketingRequestMail.php',
         'App\\Mail\\OrderCompleted' => __DIR__ . '/../..' . '/app/Mail/OrderCompleted.php',
         'App\\Mail\\OrderMailTemplate' => __DIR__ . '/../..' . '/app/Mail/OrderMailTemplate.php',
+        'App\\Mail\\ShowingAgentRequestMailTemplate' => __DIR__ . '/../..' . '/app/Mail/ShowingAgentRequestMailTemplate.php',
         'App\\Models\\AgentEmail' => __DIR__ . '/../..' . '/app/Models/AgentEmail.php',
         'App\\Models\\AgentTransaction' => __DIR__ . '/../..' . '/app/Models/AgentTransaction.php',
         'App\\Models\\AgreementAgent' => __DIR__ . '/../..' . '/app/Models/AgreementAgent.php',

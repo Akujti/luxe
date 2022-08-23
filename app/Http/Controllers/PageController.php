@@ -37,4 +37,10 @@ class PageController extends Controller
     {
         return view('agreements.' . $agent->agreement_page, compact('agent'));
     }
+
+    public function app_links()
+    {
+        $link = auth()->user()->app_link;
+        return view('pages.app_link', compact('link'));
+    }
 }

@@ -142,6 +142,7 @@ return array(
     'App\\Mail\\MarketingRequestMail' => $baseDir . '/app/Mail/MarketingRequestMail.php',
     'App\\Mail\\OrderCompleted' => $baseDir . '/app/Mail/OrderCompleted.php',
     'App\\Mail\\OrderMailTemplate' => $baseDir . '/app/Mail/OrderMailTemplate.php',
+    'App\\Mail\\ShowingAgentRequestMailTemplate' => $baseDir . '/app/Mail/ShowingAgentRequestMailTemplate.php',
     'App\\Models\\AgentEmail' => $baseDir . '/app/Models/AgentEmail.php',
     'App\\Models\\AgentTransaction' => $baseDir . '/app/Models/AgentTransaction.php',
     'App\\Models\\AgreementAgent' => $baseDir . '/app/Models/AgreementAgent.php',

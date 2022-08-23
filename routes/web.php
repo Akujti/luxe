@@ -367,6 +367,8 @@ Route::group(
             Route::get('/form/pdf', [CoachingController::class, 'formpdf'])->name('form.pdf');
             Route::post('/form', [CoachingController::class, 'submitform'])->name('form.submit');
         });
+
+        Route::get('app-links', [PageController::class, 'app_links']);
     }
 );
 
