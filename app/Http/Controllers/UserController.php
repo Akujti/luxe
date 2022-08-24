@@ -373,8 +373,11 @@ class UserController extends Controller
         $details = [];
         $details['agent'] = request()->user();
         $details['showing_agent'] = $user;
+        $details['service'] =  request()->service;
+        $details['address'] =  request()->address;
+        $details['date'] =  request()->date;
 
-        $to = ['email@luxeknows.com', $user->email, request()->user()->email];
+        $to = ['email@luxeknows.com', 'operations@luxeknows.com', $user->email, request()->user()->email];
         try {
             Mail::to($to)->send(new ShowingAgentRequestMailTemplate($details));
         } catch (\Exception $exception) {

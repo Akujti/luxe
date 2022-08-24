@@ -66,6 +66,10 @@
             <img src="{{ url('/images/logo-black.png') }}" alt="">
         </div>
         <hr>
+        <p><span class="bold-text">Service</span>: {{ $details['service'] }}</p>
+        <p><span class="bold-text">Address</span>: {{ $details['address'] }}</p>
+        <p><span class="bold-text">Date</span>: {{ $details['date'] }}</p>
+        <hr>
         <div class="" style="width: 100%">
             <div class="box">
                 <h3>Requesting Agent</h3>

@@ -347,7 +347,7 @@
 }
 .modal-backdrop {
     z-index: 1 !important;
-    opacity: 0 !important;
+    opacity: 0.1 !important;
 }
 /* Pagination  */
 
