@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'optin_agents'])
+@extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'showing_agents'])
 @section('content')
     <style>
         .row-col {
@@ -56,6 +56,10 @@
             <h1>Showing Agents</h1>
         </div>
         <div class="row my-4">
+            <div class="col-12">
+                {!! $custom_section->text !!}
+                <hr>
+            </div>
             @foreach ($agents as $agent)
                 <div class="col-md-6">
                     <div class="row-col">
@@ -77,6 +81,7 @@
                                     &nbsp;
                                 </p>
                                 <p>Address: {{ $agent->profile->address }}</p>
+                                <p>Service Areas: {{ $agent->profile->service_areas }}</p>
                             </div>
                         </div>
                         <button class="btn btn-luxe" data-toggle="modal"

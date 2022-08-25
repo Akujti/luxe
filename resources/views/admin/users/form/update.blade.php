@@ -190,10 +190,18 @@
                                 <label for="start">Showing Agent</label>
                                 <div class='input-group'>
                                     <select class="w-100 form-control" name="showing_agent">
-                                        <option value="0" {{ $user->showing_agent == 0 ? 'selected' : '' }}>No</option>
+                                        <option value="0" {{ $user->showing_agent == 0 ? 'selected' : '' }}>No
+                                        </option>
                                         <option value="1" {{ $user->showing_agent == 1 ? 'selected' : '' }}>Yes
                                         </option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-6 pr-0">
+                                <label for="start">Service Areas</label>
+                                <div class='input-group'>
+                                    <input type="text" class="w-100 form-control" name="profile[service_areas]"
+                                        value="{{ $user->profile->service_areas }}">
                                 </div>
                             </div>
                         </div>

@@ -543,6 +543,8 @@
                                         <li><a class="{{ isset($subactive) && $subactive == 'optin_agents' ? 'active_submenu' : '' }}"
                                                 href="{{ route('optin.agents.index') }}">Referral Agents
                                                 With LUXE</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'showing_agents' ? 'active_submenu' : '' }}"
+                                                href="{{ route('showing.agents.index') }}">Showing Agents</a></li>
                                     </ul>
                                 </li>
                                 <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">

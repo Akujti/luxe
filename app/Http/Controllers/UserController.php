@@ -16,6 +16,7 @@ use App\Http\Requests\User\DeleteRequest;
 use App\Http\Requests\User\UpdateRequest;
 use App\Http\Requests\User\UpdateProfileRequest;
 use App\Mail\ShowingAgentRequestMailTemplate;
+use App\Models\CustomSection;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -209,6 +210,7 @@ class UserController extends Controller
                 $row->profile()->updateOrCreate(['user_id' => $row->id], [
                     'fullname' => $req->profile['fullname'],
                     'address' => $req->profile['address'],
+                    'service_areas' => $req->profile['service_areas'],
                     'phone' => $req->profile['phone'],
                     'languages' => json_encode($languageJson),
                     'avatar' => $image,
@@ -262,6 +264,7 @@ class UserController extends Controller
             }
             $row->profile()->update([
                 'address' => $req->profile['address'],
+                'service_areas' => isset($req->profile['service_areas']) ? $req->profile['service_areas'] : ($row->profile->service_areas ? $row->profile->service_areas : ''),
                 'phone' => $req->profile['phone'],
                 'languages' => json_encode($languageJson),
                 'avatar' => $image,
@@ -364,8 +367,8 @@ class UserController extends Controller
     public function showing_agents()
     {
         $agents = User::where('showing_agent', true)->paginate(20);
-
-        return view('showing-agents.index', compact('agents'));
+        $custom_section = CustomSection::whereTitle('Showing Agents')->first();
+        return view('showing-agents.index', compact('agents', 'custom_section'));
     }
 
     public function request_showing_agents(User $user)

@@ -173,6 +173,15 @@
                                             placeholder="Enter your address">
                                     </div>
                                 </div>
+                                @if (auth()->user()->showing_agent)
+                                    <div class="form-group col-12">
+                                        <label for="">Service Areas</label>
+                                        <div class="input-group">
+                                            <input type="text" name="profile[service_areas]" class="form-control"
+                                                value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->service_areas }}">
+                                        </div>
+                                    </div>
+                                @endif
                                 <div class="form-group col-12">
                                     <label for="">Language</label>
                                     <div class="d-flex">

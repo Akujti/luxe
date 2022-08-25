@@ -17,7 +17,8 @@ class AdminController extends Controller
     {
         $stats = $this->stats();
         $news_feed = CustomSection::whereTitle('News Feed')->first();
-        return view('admin.index', compact('stats', 'news_feed'));
+        $showing_agents = CustomSection::whereTitle('Showing Agents')->first();
+        return view('admin.index', compact('stats', 'news_feed', 'showing_agents'));
     }
     public function forms()
     {

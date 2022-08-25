@@ -11,7 +11,7 @@ class UserProfile extends Model
 
     protected $table = 'user_profile';
     protected $fillable = [
-        'fullname', 'address', 'phone', 'languages', 'avatar', 'support_specialists', 'loan_officer'
+        'fullname', 'address', 'phone', 'languages', 'avatar', 'support_specialists', 'loan_officer', 'service_areas'
     ];
 
     protected static function boot()

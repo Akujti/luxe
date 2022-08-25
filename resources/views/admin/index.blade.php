@@ -49,13 +49,15 @@
                 </div>
                 <p class="legend-chart-text">
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
-                        <circle id="Ellipse_11" data-name="Ellipse 11" cx="5" cy="5" r="5" fill="#262626" />
+                        <circle id="Ellipse_11" data-name="Ellipse 11" cx="5" cy="5" r="5"
+                            fill="#262626" />
                     </svg>
                     TEAM DADE - ZILLOW LEADS WEEKLY UPDATE
                 </p>
                 <p class="legend-chart-text">
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
-                        <circle id="Ellipse_12" data-name="Ellipse 12" cx="5" cy="5" r="5" fill="#bfbfbf" />
+                        <circle id="Ellipse_12" data-name="Ellipse 12" cx="5" cy="5" r="5"
+                            fill="#bfbfbf" />
                     </svg>
                     TEAM FLEX - ZILLOW LEADS WEEKLY UPDATE
                 </p>
@@ -66,14 +68,26 @@
                     <form action="{{ route('custom-section.update', 1) }}" method="post">
                         @method('PUT')
                         @csrf
-                        <textarea name="text">{{ $news_feed->text }}</textarea>
-                        <script>
-                                CKEDITOR.replace( 'text' );
-                        </script>
+                        <textarea class="text" name="text">{{ $news_feed->text }}</textarea>
                         <button class="btn btn-luxe mt-2">Submit</button>
                     </form>
                 </div>
             </div>
+            <div class="col-12 box">
+                <div class="py-4 text-left">
+                    <p class="p-text m-0">Showing Agents</p>
+                    <form action="{{ route('custom-section.update', 2) }}" method="post">
+                        @method('PUT')
+                        @csrf
+                        <textarea class="text" name="text">{{ $showing_agents->text }}</textarea>
+                        <button class="btn btn-luxe mt-2">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                CKEDITOR.replaceAll('text');
+            </script>
         </div>
     </div>
 @section('js')
