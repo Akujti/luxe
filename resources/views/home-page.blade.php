@@ -201,7 +201,7 @@
                 <div class="col-12 col-lg-6 mt-3 agent-logs">
                     <div class="w-100">
                         <div class="form-group">
-                            <label for="">Support Specialist</label>
+                            <label for="">Branch Manager</label>
                             <div class="input-group">
                                 <input type="text" class="form-control p-2"
                                     value="{{ auth()->user()->profile->support_specialist_name }}" readonly>

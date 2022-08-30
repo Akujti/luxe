@@ -171,7 +171,7 @@
                     <div class="row p-0 m-0">
                         @if ($user->role == 'agent')
                             <div class="form-group col-12 col-md-6 pl-0">
-                                <label for="">Support Specialist</label>
+                                <label for="">Branch Manager</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control"
                                         value="{{ $user->profile->support_specialist_name }}" readonly>

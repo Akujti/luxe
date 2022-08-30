@@ -166,7 +166,7 @@
                     <div class="col-6">
                         <div class="row p-0 m-0">
                             <div class="form-group col-12 col-md-6 pl-0">
-                                <label for="start">Support Specialist</label>
+                                <label for="start">Branch Manager</label>
                                 <div class='input-group'>
                                     <input type="hidden" class="w-100 form-control" name="profile[support_specialists]"
                                         id="support-specialist-back">

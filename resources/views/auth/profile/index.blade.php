@@ -127,7 +127,7 @@
                                     onchange="onFileChanged(this)">
                                 @if (auth()->user()->role == 'agent')
                                     <div class="form-group col-12 col-md-6">
-                                        <label for="">Support Specialist</label>
+                                        <label for="">Branch Manager</label>
                                         <div class="input-group">
                                             <input type="text" class="form-control"
                                                 value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->support_specialist_name }}"

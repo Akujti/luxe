@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\BrokersumoAgent;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class TestController extends Controller
 {
     public function index()
     {
+        return DB::table('users')->pluck('email');
 
         // $events = Event::whereMonth('date', '>=', date('m'))->get();
         // $today = Carbon::today()->format('Y-m-d');

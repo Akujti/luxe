@@ -180,6 +180,12 @@
                                     <input type="text" name="colors" class="form-control">
                                 </div>
                             </div>
+                            <div class="form-group col-12 p-0">
+                                <label for="">Property Address: (short response fill in)</label>
+                                <div class="input-group">
+                                    <input type="text" name="property_address" class="form-control" required>
+                                </div>
+                            </div>
 
                             <button type="submit" class="btn-luxe w-100">Request</button>
                         </form>
