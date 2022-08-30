@@ -181,7 +181,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-12 p-0">
-                                <label for="">Property Address:</label>
+                                <label for="">Property Address</label>
                                 <div class="input-group">
                                     <input type="text" name="property_address" class="form-control" required>
                                 </div>
