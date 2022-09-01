@@ -340,6 +340,12 @@
 
                             <div class="sidebar__item sidebar-navigation">
                                 <ul>
+                                    <li class="row m-0 border-bottom">
+                                        <a href="{{ url('user/app-links') }}"
+                                            style="font-weight: 700;color:white">Click Here To
+                                            Download
+                                            Hub App</a>
+                                    </li>
                                     <li class="row m-0 @if (Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif">
                                         <a href="{{ url('/home') }}">Dashboard </a>
                                     </li>
