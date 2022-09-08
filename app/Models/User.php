@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'isAdmin', 'wp_id', 'role', 'optin', 'showing_agent', 'app_link'
+        'email', 'password', 'isAdmin', 'wp_id', 'role',  'showing_agent', 'app_link'
     ];
 
     protected $appends = ['avatar'];

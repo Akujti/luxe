@@ -266,25 +266,6 @@
                                     @endauth
                                     <div class="sidebar__item-menu">
                                         <a class="btm-phn" href="tel:(305) 438 7764">
-                                            {{-- <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                viewBox="0 0 43.062 43.062" fill="white">
-                                                <g id="vuesax_bold_call" data-name="vuesax/bold/call"
-                                                    transform="translate(-108 -188)">
-                                                    <g id="call" transform="translate(108 188)">
-                                                        <path id="Vector"
-                                                            d="M16.238,23.235l-3.319,3.319a1.8,1.8,0,0,1-2.53.018c-.2-.2-.395-.377-.592-.574a50.981,50.981,0,0,1-5.006-5.867,31.987,31.987,0,0,1-3.517-6.118A15.4,15.4,0,0,1,0,8.146,9.282,9.282,0,0,1,.646,4.683a8.258,8.258,0,0,1,2.063-3A5.257,5.257,0,0,1,6.441,0,3.372,3.372,0,0,1,7.895.323a2.925,2.925,0,0,1,1.2,1l4.163,5.867a6.14,6.14,0,0,1,.718,1.256,2.836,2.836,0,0,1,.251,1.094,2.436,2.436,0,0,1-.377,1.274,6.1,6.1,0,0,1-1,1.274l-1.364,1.417a.96.96,0,0,0-.287.718,1.629,1.629,0,0,0,.054.413c.054.144.108.251.144.359a14.889,14.889,0,0,0,1.669,2.3c.807.933,1.669,1.884,2.6,2.835.179.179.377.359.556.538A1.8,1.8,0,0,1,16.238,23.235Z"
-                                                            transform="translate(3.588 3.588)" fill="white"></path>
-                                                        <path id="Vector-2" data-name="Vector"
-                                                            d="M22.195,7.7a4.557,4.557,0,0,1-.269,1.525,4.382,4.382,0,0,1-.179.431,7.4,7.4,0,0,1-1.22,1.83A8.089,8.089,0,0,1,17.584,13.6c-.018,0-.036.018-.054.018a9.064,9.064,0,0,1-3.445.664,14.952,14.952,0,0,1-5.849-1.31A31.514,31.514,0,0,1,2.063,9.42C1.364,8.9.664,8.379,0,7.823L5.867,1.956a10.081,10.081,0,0,0,1.328.861c.09.036.2.09.323.144a1.239,1.239,0,0,0,.449.072A.987.987,0,0,0,8.7,2.727l1.364-1.346a5.505,5.505,0,0,1,1.292-1A2.389,2.389,0,0,1,12.631,0a2.863,2.863,0,0,1,1.094.233,6.939,6.939,0,0,1,1.256.7l5.939,4.216A2.722,2.722,0,0,1,21.908,6.3,3.681,3.681,0,0,1,22.195,7.7Z"
-                                                            transform="translate(17.225 25.191)" fill="white"></path>
-                                                        <path id="Vector-3" data-name="Vector" d="M0,0H43.062V43.062H0Z"
-                                                            transform="translate(43.062 43.062) rotate(180)" fill="none"
-                                                            opacity="0">
-                                                        </path>
-                                                    </g>
-                                                </g>
-                                            </svg> --}}
-
                                             <span style="font-size: 21px">NEED HELP?<br><b>SUPPORT LINE (305) 438
                                                     7764</b></span></a>
                                     </div>
@@ -601,7 +582,9 @@
 @yield('js')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-@if (Route::currentRouteName() != 'optin.agents.index' && Route::currentRouteName() != 'office.locations')
+@if (Route::currentRouteName() != 'optin.agents.index' &&
+    Route::currentRouteName() != 'office.locations' &&
+    Route::currentRouteName() != 'showing.agents.index')
     <script
         src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
         defer></script>

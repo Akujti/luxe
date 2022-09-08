@@ -57,16 +57,6 @@ class UserController extends Controller
             'name' => $request->get('name'),
             'email' => $request->get('email'),
         ];
-        // $agents = User::whereHas('profile', function ($query) use ($filters) {
-        //     if ($filters['address']) {
-        //         $query->where('address', 'like', '%' . $filters['address'] . '%');
-        //     } else if ($filters['language']) {
-        //         $query->where('languages', 'like', "%\"{$filters['language']}\"%");
-        //     }
-        // })->whereOptin(true)->paginate(20);
-        // dd($users = User::orWhere('email', 'like', $filters['email'] . '%')->with('profile')->orWhereHas('profile', function ($query) use ($filters) {
-        //     $query->where('fullname', 'like', $filters['name'] . '%');
-        // })->orderBy(UserProfile::select('fullname')->whereColumn('user_profile.user_id', 'users.id'))->toSql());
         $users = User::query();
         if ($filters['email']) {
             $users = User::where('email', 'like', $filters['email'] . '%')->with('profile')->orderBy(UserProfile::select('fullname')->whereColumn('user_profile.user_id', 'users.id'))->paginate(50);
@@ -234,7 +224,6 @@ class UserController extends Controller
         try {
             $languageJson = [];
             $row = User::find($req->id);
-            $row->update(['optin' => $req->optin ? true : false]);
             $image = $row->profile->avatar;
             if ($req->remove_image == 1) {
                 $image = null;
@@ -366,7 +355,9 @@ class UserController extends Controller
 
     public function showing_agents()
     {
-        $agents = User::where('showing_agent', true)->paginate(20);
+        $agents = User::where('showing_agent', true)->whereHas('profile', function ($query) {
+            $query->whereNotNull('address');
+        })->paginate(20);
         $custom_section = CustomSection::whereTitle('Showing Agents')->first();
         return view('showing-agents.index', compact('agents', 'custom_section'));
     }

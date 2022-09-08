@@ -158,13 +158,13 @@
                                             value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->phone }}">
                                     </div>
                                 </div>
-                                <div class="form-group col-12 mb-0">
+                                {{-- <div class="form-group col-12 mb-0 d-none">
                                     <label>
                                         Would you like to opt-in to be displayed as a referral agent within LUXE?
                                     </label>
                                     <input class="" type="checkbox" name="optin"
                                         {{ auth()->user()->optin ? 'checked' : '' }}>
-                                </div>
+                                </div> --}}
                                 <div class="form-group col-12">
                                     <label for="">Address</label>
                                     <div class="input-group">
@@ -172,6 +172,8 @@
                                             value="{{ !auth()->user()->profile ? '' : auth()->user()->profile->address }}"
                                             placeholder="Enter your address">
                                     </div>
+                                    <i>You must display your home address below, if not you will not appear as a
+                                        referral agent</i>
                                 </div>
                                 @if (auth()->user()->showing_agent)
                                     <div class="form-group col-12">

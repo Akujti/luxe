@@ -14,12 +14,13 @@ class OptinController extends Controller
             'language' => $request->get('language'),
         ];
         $agents = User::whereHas('profile', function ($query) use ($filters) {
+            $query->whereNotNull('address');
             if ($filters['address']) {
                 $query->where('address', 'like', '%' . $filters['address'] . '%');
             } else if ($filters['language']) {
                 $query->where('languages', 'like', "%\"{$filters['language']}\"%");
             }
-        })->whereOptin(true)->paginate(20);
+        })->paginate(20);
 
         if ($request->wantsJson()) {
             return response()->json(['agents' => $agents]);
