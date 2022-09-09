@@ -204,6 +204,17 @@
                                         value="{{ $user->profile->service_areas }}">
                                 </div>
                             </div>
+                            <div class="form-group col-12 col-md-6 pl-0">
+                                <label for="start">Referral Agent</label>
+                                <div class='input-group'>
+                                    <select class="w-100 form-control" name="optin">
+                                        <option value="0" {{ $user->optin == 0 ? 'selected' : '' }}>No
+                                        </option>
+                                        <option value="1" {{ $user->optin == 1 ? 'selected' : '' }}>Yes
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-12 d-flex justify-content-end">

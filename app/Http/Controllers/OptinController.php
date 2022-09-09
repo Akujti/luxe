@@ -20,7 +20,7 @@ class OptinController extends Controller
             } else if ($filters['language']) {
                 $query->where('languages', 'like', "%\"{$filters['language']}\"%");
             }
-        })->paginate(20);
+        })->whereOptin(true)->paginate(20);
 
         if ($request->wantsJson()) {
             return response()->json(['agents' => $agents]);

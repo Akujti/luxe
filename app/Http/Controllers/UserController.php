@@ -170,6 +170,7 @@ class UserController extends Controller
             $row->isAdmin = ($req->role == 'admin') ? 1 : 0;
             $row->role = $req->role;
             $row->showing_agent = $req->showing_agent;
+            $row->optin = $req->optin;
 
             $row->save();
 
