@@ -28,7 +28,7 @@ class AddToEmailCalendar extends Mailable
      */
     public function build()
     {
-        return $this->view('email-template.calendarEvent')->attachData($this->details['message'], 'invite.ics', [
+        return $this->subject('Add To Calendar - ' . ucfirst($this->details['event']->type))->view('email-template.calendarEvent')->attachData($this->details['message'], 'invite.ics', [
             'mime' => 'text/calendar;charset=UTF-8;method=REQUEST',
         ]);
     }
