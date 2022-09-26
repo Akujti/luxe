@@ -397,6 +397,8 @@ Route::group(
 
         Route::get('leaderboard/sales', [BrokerSumoController::class, 'leaderboard_sales']);
         Route::get('leaderboard/units', [BrokerSumoController::class, 'leaderboard_units']);
+
+        Route::get('luxe-staff', [PageController::class, 'luxe_staff'])->name('luxe.staff.index');
     }
 );
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AgreementAgent;
+use PDO;
 
 class PageController extends Controller
 {
@@ -42,5 +43,10 @@ class PageController extends Controller
     {
         $link = auth()->user()->app_link;
         return view('pages.app_link', compact('link'));
+    }
+
+    public function luxe_staff()
+    {
+        return view('luxe-staff.index');
     }
 }

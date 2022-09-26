@@ -30,6 +30,11 @@
 <div>
     <div class="{{ $row ? 'row' : '' }}">
         <div class="profile-level {{ $row ? 'col-md-6' : '' }}">
+            {{-- @if (Route::current()->uri() == 'home')
+                <div class="text-center">
+                    <img src="{{ asset('images/ribbon1.png') }}" alt="" style="max-width: 50px">
+                </div>
+            @endif --}}
             <p class="text-center">
                 <b>Million Dollar Club:</b><br> {{ $user->profile->badge['title'] }}
             </p>
@@ -56,6 +61,11 @@
             </div>
         </div>
         <div class="profile-level {{ $row ? 'col-md-6' : '' }}">
+            {{-- @if (Route::current()->uri() == 'home')
+                <div class="text-center">
+                    <img src="{{ asset('images/ribbon2.png') }}" alt="" style="max-width: 50px">
+                </div>
+            @endif --}}
             <p class="text-center"><b>{{ date('Y') }} Top Producer:</b><br>
                 {{ $user->profile->badge['yearly_title'] }}
             </p>
