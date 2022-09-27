@@ -46,6 +46,12 @@
                 <p class="staff-email">denisse@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <p class="staff-name">Katherine Arteta</p>
+                <p class="staff-role">Pembroke Pines Manager</p>
+                <p class="staff-email">katherine@investinsouthfl.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/kristy.jpg') }}" class="staff-image">
                 <p class="staff-name">Kristy Martinez</p>
                 <p class="staff-role">South Miami Manager</p>
