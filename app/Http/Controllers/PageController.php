@@ -49,4 +49,9 @@ class PageController extends Controller
     {
         return view('luxe-staff.index');
     }
+
+    public function luxe_managers()
+    {
+        return view('luxe-staff.luxe-managers');
+    }
 }
