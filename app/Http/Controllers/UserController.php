@@ -17,6 +17,7 @@ use App\Http\Requests\User\UpdateRequest;
 use App\Http\Requests\User\UpdateProfileRequest;
 use App\Mail\ShowingAgentRequestMailTemplate;
 use App\Models\CustomSection;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -380,5 +381,36 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Request Failed');
         }
         return redirect()->back()->with('message', 'Request Submitted');
+    }
+
+    public function setUserCoordinates()
+    {
+        $users = User::whereHas('profile', function ($query) {
+            $query->whereNotNull('address');
+        })->get();
+        $counter = 0;
+        foreach ($users as $user) {
+            echo ($user->id . ' - ' . $user->profile->address);
+
+            if ($user->profile->lat == null) {
+                $response = Http::get('https://maps.googleapis.com/maps/api/geocode/json?address=' . $user->profile->address . '&key=' . env('GOOGLE_MAPS_API_KEY'));
+                if ($response['results'] && $response['results'][0]) {
+                    $res = $response['results'][0]['geometry']['location'];
+                    // $user->profile->save(
+                    //     [
+                    //         'lat' => $res['lat'], 'lng' => $res['lng'],
+                    //     ]
+                    // );
+                    $user->profile->lat = $res['lat'];
+                    $user->profile->lng = $res['lng'];
+                    $user->profile->save();
+                    echo  $res['lat'] . ' * ' . $res['lng'];
+                    sleep(1);
+                    $counter++;
+                }
+            }
+            echo "-------------";
+        }
+        return $counter;
     }
 }
