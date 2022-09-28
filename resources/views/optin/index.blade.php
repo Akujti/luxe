@@ -131,6 +131,7 @@
             var AllLatLng = [];
 
             agents.forEach((el) => {
+                console.log('Agent', el.email);
                 if (el.profile.address) {
                     codeAddress(el.profile.address, function(coords) {
                         AllLatLng.push({
@@ -146,7 +147,6 @@
                             scale: 2,
                             anchor: new google.maps.Point(15, 30),
                         };
-                        console.log(AllLatLng.filter(x => x.lat == coords[0]).length)
                         if (AllLatLng.filter(x => x.lat == coords[0]).length > 1) {
                             AllLatLng.filter(x => x.lat == coords[0]).forEach((el, i) => {
                                 svgMarker.anchor = new google.maps.Point(15 + (i * 10), 30)
@@ -160,7 +160,6 @@
 
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                             return function() {
-
                                 infowindow.setContent(
                                     "<div class='d-flex align-items-center' style='gap:10px;margin-bottom:6px'>" +
                                     "<img style='width:58px;height:58px;border-radius:50%;' src='" +
@@ -183,6 +182,7 @@
         function codeAddress(address, callback) {
             let geocoder = new google.maps.Geocoder();
             var locations;
+            console.log('Address', address);
 
             geocoder.geocode({
                 'address': address
