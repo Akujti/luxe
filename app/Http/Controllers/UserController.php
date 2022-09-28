@@ -360,8 +360,11 @@ class UserController extends Controller
         $agents = User::where('showing_agent', true)->whereHas('profile', function ($query) {
             $query->whereNotNull('address');
         })->paginate(20);
+        $agents_list = User::where('showing_agent', true)->whereHas('profile', function ($query) {
+            $query->whereNotNull('address');
+        })->get();
         $custom_section = CustomSection::whereTitle('Showing Agents')->first();
-        return view('showing-agents.index', compact('agents', 'custom_section'));
+        return view('showing-agents.index', compact('agents', 'custom_section', 'agents_list'));
     }
 
     public function request_showing_agents(User $user)

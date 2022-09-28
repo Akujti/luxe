@@ -149,7 +149,7 @@
         var counter = 0
 
         function initMap() {
-            var agents = JSON.parse(JSON.stringify(<?php echo json_encode($agents); ?>))
+            var agents = JSON.parse(JSON.stringify(<?php echo json_encode($agents_list); ?>))
 
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
@@ -161,9 +161,9 @@
             var marker, i;
             var AllLatLng = [];
 
-            agents.data.forEach((el) => {
-                if (el.profile.address) {
-                    codeAddress(el.profile.address, function(coords) {
+            agents.forEach((el) => {
+                if (el.profile.lng && el.profile.lat) {
+                    codeAddress(el.profile, function(coords) {
                         AllLatLng.push({
                             lat: coords[0],
                             lng: coords[1]
@@ -211,16 +211,15 @@
             });
         }
 
-        function codeAddress(address, callback) {
-            let geocoder = new google.maps.Geocoder();
-            var locations;
-
-            geocoder.geocode({
-                'address': address
-            }, function(results, status) {
-                locations = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
-                callback(locations)
-            });
+        function codeAddress(profile, callback) {
+            // let geocoder = new google.maps.Geocoder();
+            var locations = [profile.lat, profile.lng];
+            callback(locations)
+            // geocoder.geocode({
+            //     'address': address
+            // }, function(results, status) {
+            //     locations = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
+            // });
         }
     </script>
     <style>

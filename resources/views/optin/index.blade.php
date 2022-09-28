@@ -113,28 +113,6 @@
         defer></script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            function test(address = "18483 sw 89 Place, Cutler Bay, Fl 33157") {
-                address = "9240 SW 178 Terrace Palmetto Bay, Fl 33157";
-                let geocoder = new google.maps.Geocoder();
-                var locations;
-                console.log('Address', address);
-                console.log('geocoder', geocoder);
-
-                geocoder.geocode({
-                    'address': address
-                }, function(results, status) {
-                    if (status == 'OK') {
-                        locations = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
-                        console.log(results);
-                        console.log(locations);
-                    } else {
-                        alert(status)
-                    }
-                });
-            }
-        });
-
         var counter = 0
 
         function initMap() {
