@@ -188,6 +188,7 @@
                 'address': address
             }, function(results, status) {
                 locations = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
+                console.log(locations);
                 callback(locations)
             });
         }
