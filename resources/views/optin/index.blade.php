@@ -116,7 +116,7 @@
         var counter = 0
 
         function initMap() {
-            var agents = JSON.parse(JSON.stringify(<?php echo json_encode($agents); ?>))
+            var agents = JSON.parse(JSON.stringify(<?php echo json_encode($agents_list); ?>))
 
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
@@ -128,7 +128,7 @@
             var marker, i;
             var AllLatLng = [];
 
-            agents.data.forEach((el) => {
+            agents.forEach((el) => {
                 if (el.profile.address) {
                     codeAddress(el.profile.address, function(coords) {
                         AllLatLng.push({

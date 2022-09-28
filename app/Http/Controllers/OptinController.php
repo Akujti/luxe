@@ -22,9 +22,13 @@ class OptinController extends Controller
             }
         })->whereOptin(true)->paginate(20);
 
+        $agents_list = User::whereHas('profile', function ($query) use ($filters) {
+            $query->whereNotNull('address');
+        })->get();
+
         if ($request->wantsJson()) {
             return response()->json(['agents' => $agents]);
         }
-        return view('optin.index', compact('agents'));
+        return view('optin.index', compact('agents', 'agents_list'));
     }
 }
