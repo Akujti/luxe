@@ -5,9 +5,9 @@
             /* background: url('{{ asset('images/bg-image1.jpg') }}'); */
             height: 100vh;
             /* background-size: cover;
-            background-position: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            background-blend-mode: color; */
+                background-position: center;
+                background-color: rgba(0, 0, 0, 0.7);
+                background-blend-mode: color; */
 
         }
 
@@ -62,7 +62,7 @@
 @section('content')
     <div class="container-fluid agents">
         <h1 class="text-center h1-luxe">CLOSING COORDINATORS</h1>
-        <div class="row">
+        <div class="row justify-content-center">
             @foreach ($coordinators as $coordinator)
                 <div class="col-md-3 my-2">
                     @if (auth()->user() && auth()->user()->isAdmin)

@@ -14,10 +14,10 @@
                     </div>
                     <input type="hidden" name="form_title" value="Request Store - Rental Escrow Disbursement">
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="support@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com"> -->
+                                        <input type="hidden" name="to_email[]" value="support@luxeknows.com">
+                                        <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
+                                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
+                                        <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -69,11 +69,12 @@
                                 <input type="text" name="walkthrough_date" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Is your walkthrough in the morning or afternoon?</label>
-                                <select name="morning_afternoon" class="form-control" id="">
+                                <label for="name">How were funds received?</label>
+                                <select name="how_were_fund_received" class="form-control" id="">
                                     <option value="-">-</option>
-                                    <option value="Morning">Morning</option>
-                                    <option value="Afternoon">Afternoon</option>
+                                    <option value="Check Dropoff">Check Dropoff</option>
+                                    <option value="Wire">Wire</option>
+                                    <option value="ACH">ACH</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -83,13 +84,13 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Amount Due To LUXE Agent (before split)</label>
-                                <input type="number" name="amount_due_to_LUXE_agent" class="form-control" step="0.01"
-                                    required>
+                                <input type="number" name="amount_due_to_LUXE_agent" class="form-control"
+                                    step="0.01" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Amount Due To Co-op Agent</label>
-                                <input type="number" name="amount_due_to_co_op_agent" class="form-control" step="0.01"
-                                    required>
+                                <input type="number" name="amount_due_to_co_op_agent" class="form-control"
+                                    step="0.01" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Co-op Brokerage Name</label>
@@ -101,27 +102,27 @@
                                     required>
                             </div>
 
-                            <div class="form-group col-md-12">
+                            {{-- <div class="form-group col-md-12">
                                 <b>Other Required Documents Along With This Form - Must Be Uploaded To Broker
                                     Sumo</b>
-                            </div>
-                            <div class="form-group col-md-6">
+                            </div> --}}
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">Fully Executed Contract to Lease (if one was used)</label>
                                 <select name="fully_executed_contract" class="form-control" id="">
                                     <option value="-">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
-                            </div>
-                            <div class="form-group col-md-6">
+                            </div> --}}
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">Fully Executed Lease PG's 1-18</label>
                                 <select name="fully_executed_lease" class="form-control" id="">
                                     <option value="-">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
-                            </div>
-                            <div class="form-group col-md-6">
+                            </div> --}}
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">HOA Approval Letter Or Email Proof</label>
                                 <select name="hoa_approval_letter" class="form-control" id="">
                                     <option value="-">-</option>
@@ -129,8 +130,8 @@
                                     <option value="No">No</option>
                                     <option value="N/A">N/A - No HOA for property</option>
                                 </select>
-                            </div>
-                            <div class="form-group col-md-6">
+                            </div> --}}
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">Landlord W9 (if applicable)</label>
                                 <select name="landlord_w9" class="form-control" id="">
                                     <option value="-">-</option>
@@ -138,7 +139,7 @@
                                     <option value="No">No</option>
                                     <option value="N/A">N/A</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                             </div>
