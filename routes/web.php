@@ -65,7 +65,7 @@ use App\Models\ReferralPartnerCategory;
 |
 */
 
-Route::get('setCoordinates', [UserController::class, 'setUserCoordinates']);
+// Route::get('setCoordinates', [UserController::class, 'setUserCoordinates']);
 
 Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 

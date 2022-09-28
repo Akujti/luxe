@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class UserProfile extends Model
 {
@@ -13,7 +15,6 @@ class UserProfile extends Model
     protected $fillable = [
         'fullname', 'address', 'phone', 'languages', 'avatar', 'support_specialists', 'loan_officer', 'service_areas'
     ];
-
     protected static function boot()
     {
         parent::boot();
@@ -88,10 +89,24 @@ class UserProfile extends Model
             return UserProfile::where('user_id', $this->support_specialists)->first()->fullname;
         }
     }
+
     public function getLoanOfficerNameAttribute()
     {
         if ($this->loan_officer) {
             return UserProfile::where('user_id', $this->loan_officer)->first()->fullname;
+        }
+    }
+
+    public function setAddressAttribute($value)
+    {
+        if ($this->address != $value && !empty($value) && $value != null) {
+            $response = Http::get('https://maps.googleapis.com/maps/api/geocode/json?address=' . $this->value . '&key=' . env('GOOGLE_MAPS_API_KEY'));
+            if ($response['results'] && $response['results'][0]) {
+                $res = $response['results'][0]['geometry']['location'];
+                $this->lat = $res['lat'];
+                $this->lng = $res['lng'];
+                $this->save();
+            }
         }
     }
 }

@@ -209,6 +209,7 @@ class UserController extends Controller
                     'support_specialists' => $req->profile['support_specialists'] ? $req->profile['support_specialists'] : $row->profile->support_specialists,
                     'loan_officer' => $req->profile['loan_officer'] ? $req->profile['loan_officer'] : $row->profile->loan_officer,
                 ]);
+                $this->updateAddressCoordinates($row, $req->profile['address']);
             }
         } catch (Exception $e) {
             return back()->with('error', 'Something went wrong');
@@ -260,6 +261,7 @@ class UserController extends Controller
                 'languages' => json_encode($languageJson),
                 'avatar' => $image,
             ]);
+            $this->updateAddressCoordinates($row, $req->profile['address']);
             if ($req->wantsJson()) {
                 return response()->json($row);
             }
@@ -271,6 +273,21 @@ class UserController extends Controller
             return back()->with('error', 'Something went wrong');
         }
         return back()->with('message', 'Successfully Updated');
+    }
+
+    private function updateAddressCoordinates(User $user, $address)
+    {
+        // Log::info([!empty($address), $address != null, $address != $user->profile->address]);
+        if (!empty($address) && $address != null && $address != $user->profile->address) {
+            $response = Http::get('https://maps.googleapis.com/maps/api/geocode/json?address=' . $address . '&key=' . env('GOOGLE_MAPS_API_KEY'));
+            if ($response['results'] && $response['results'][0]) {
+                // Log::info($response['results'][0]['geometry']['location']);
+                $res = $response['results'][0]['geometry']['location'];
+                $user->profile->lat = $res['lat'];
+                $user->profile->lng = $res['lng'];
+                $user->profile->save();
+            }
+        }
     }
 
     public function updateAvatar(Request $request)
