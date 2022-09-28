@@ -24,7 +24,7 @@ class OptinController extends Controller
 
         $agents_list = User::whereHas('profile', function ($query) use ($filters) {
             $query->whereNotNull('address');
-        })->whereOptin(true)->get();
+        })->whereOptin(true)->with('profile')->get();
 
         if ($request->wantsJson()) {
             return response()->json(['agents' => $agents]);
