@@ -116,6 +116,8 @@
         var counter = 0
 
         function initMap() {
+            console.log('agents_list');
+            console.log(<?php echo count($agents_list); ?>);
             var agents = JSON.parse(JSON.stringify(<?php echo json_encode($agents_list); ?>))
 
             var map = new google.maps.Map(document.getElementById('map'), {
