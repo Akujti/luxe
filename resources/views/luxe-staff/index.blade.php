@@ -34,6 +34,12 @@
                 <h1>Your LUXE Staff</h1>
             </div>
             <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <p class="staff-name">Ana Gonzalez</p>
+                <p class="staff-role">Contract Specialist</p>
+                <p class="staff-email">ana.gonzalez.white@gmail.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/bianca-p.jpg') }}" class="staff-image">
                 <p class="staff-name">Bianca Perez</p>
                 <p class="staff-role">Operations Manager</p>

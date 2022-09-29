@@ -97,16 +97,16 @@ class UserProfile extends Model
         }
     }
 
-    public function setAddressAttribute($value)
-    {
-        if ($this->address != $value && !empty($value) && $value != null) {
-            $response = Http::get('https://maps.googleapis.com/maps/api/geocode/json?address=' . $this->value . '&key=' . env('GOOGLE_MAPS_API_KEY'));
-            if ($response['results'] && $response['results'][0]) {
-                $res = $response['results'][0]['geometry']['location'];
-                $this->lat = $res['lat'];
-                $this->lng = $res['lng'];
-                $this->save();
-            }
-        }
-    }
+    // public function setAddressAttribute($value)
+    // {
+    //     if ($this->address != $value && !empty($value) && $value != null) {
+    //         $response = Http::get('https://maps.googleapis.com/maps/api/geocode/json?address=' . $this->value . '&key=' . env('GOOGLE_MAPS_API_KEY'));
+    //         if ($response['results'] && $response['results'][0]) {
+    //             $res = $response['results'][0]['geometry']['location'];
+    //             $this->lat = $res['lat'];
+    //             $this->lng = $res['lng'];
+    //             $this->save();
+    //         }
+    //     }
+    // }
 }
