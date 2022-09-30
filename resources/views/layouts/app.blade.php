@@ -522,8 +522,11 @@
                                                 href="{{ url('bookings') }}">Conference Room Reservations</a>
                                         </li>
                                         <li><a class="{{ isset($subactive) && $subactive == 'your_luxe_staff' ? 'active_submenu' : '' }}"
-                                                href="{{ url('/home?dir=coming_soon') }}">Your LUXE
+                                                href="{{ route('luxe.staff.index') }}">Your LUXE
                                                 Staff</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'luxe_managers' ? 'active_submenu' : '' }}"
+                                                href="{{ route('luxe.managers.index') }}">Your LUXE
+                                                Mangers</a></li>
                                         <li><a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
                                                 href="{{ url('general/form/agent_referrals/index') }}">New Agents To
                                                 Join LUXE</a></li>

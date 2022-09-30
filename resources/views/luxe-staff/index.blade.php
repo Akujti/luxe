@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'Store'])
+@extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'your_luxe_staff'])
 
 @section('content')
     <style>
