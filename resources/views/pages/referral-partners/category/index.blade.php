@@ -14,9 +14,6 @@
             cursor: pointer;
             background-size: cover !important;
             background-color: #262626 !important;
-            background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 42%);
-            background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 42%);
-            background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 42%);
         }
 
         .box-grid-item img {
@@ -63,7 +60,8 @@
             </div>
             @foreach ($categories as $item)
                 <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="box-grid-item" style="background-image: url({{ asset('storage/' . $item->icon) }})"
+                    <div class="box-grid-item"
+                        style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset('storage/' . $item->icon) }})"
                         onclick="window.location = '{{ route('referral-partner-category.show', $item) }}'">
                         <div>
                             {{-- <img src="/images/index-page/landing_services.svg" class="icon" alt=""> --}}
