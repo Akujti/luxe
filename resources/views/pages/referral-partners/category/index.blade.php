@@ -4,15 +4,19 @@
 @section('css')
     <style>
         .box-grid-item {
-            background-color: #F7F7F7;
             text-align: center;
             min-height: 200px;
             margin-bottom: 26px;
             border-radius: 30px;
             display: flex;
-            align-items: center;
+            align-items: end;
             justify-content: center;
             cursor: pointer;
+            background-size: cover !important;
+            background-color: #262626 !important;
+            background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 42%);
+            background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 42%);
+            background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 42%);
         }
 
         .box-grid-item img {
@@ -31,7 +35,9 @@
             font-family: 'gothicregular';
             text-transform: uppercase;
             margin: 0 !important;
-            font-weight: bold
+            font-weight: bold;
+            color: white;
+            padding-bottom: 15px;
         }
 
         @media screen and (max-width: 500px) {
@@ -57,7 +63,7 @@
             </div>
             @foreach ($categories as $item)
                 <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="box-grid-item"
+                    <div class="box-grid-item" style="background-image: url({{ asset('storage/' . $item->icon) }})"
                         onclick="window.location = '{{ route('referral-partner-category.show', $item) }}'">
                         <div>
                             {{-- <img src="/images/index-page/landing_services.svg" class="icon" alt=""> --}}

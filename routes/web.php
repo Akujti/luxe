@@ -455,6 +455,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     Route::resource('form-submit', FormSubmitController::class);
 
     Route::resource('referral-partners', ReferralPartnerController::class);
+    Route::resource('referral-partner-category', ReferralPartnerCategoryController::class);
 
     Route::get('broker-sumo/updateAgents', [BrokerSumoController::class, 'updateAgentsTransactions']);
     Route::resource('broker-sumo', BrokerSumoController::class);

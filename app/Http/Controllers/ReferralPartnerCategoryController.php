@@ -67,7 +67,7 @@ class ReferralPartnerCategoryController extends Controller
      */
     public function edit(ReferralPartnerCategory $referralPartnerCategory)
     {
-        //
+        return view('pages.referral-partner-category.edit', compact('referralPartnerCategory'));
     }
 
     /**
@@ -79,7 +79,14 @@ class ReferralPartnerCategoryController extends Controller
      */
     public function update(UpdateReferralPartnerCategoryRequest $request, ReferralPartnerCategory $referralPartnerCategory)
     {
-        //
+        if ($request->hasFile('image')) {
+            $name = time() .  '.' . $request->image->getClientOriginalExtension();
+            $path = $request->image->storeAs('/referral', $name, 'public');
+            $referralPartnerCategory->update(
+                ['icon' =>  $path]
+            );
+        }
+        return back()->with('message', 'Success');
     }
 
     /**
