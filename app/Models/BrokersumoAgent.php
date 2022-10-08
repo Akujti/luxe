@@ -44,7 +44,7 @@ class BrokersumoAgent extends Model
                         $badge['level'] = 5;
                     }
                     try {
-                        $user->notify(new BrokersumoLevelup($badge));
+                        // $user->notify(new BrokersumoLevelup($badge));
                         // Mail::to($user->email)->send(new BrokersumoMail($badge));
                     } catch (\Throwable $th) {
                         Log::alert('Cannot send total sales volume to ' . $user->email);
@@ -74,7 +74,7 @@ class BrokersumoAgent extends Model
                         $badge['yearly_level'] = 3;
                     }
                     try {
-                        $user->notify(new BrokersumoLevelupYearly($badge));
+                        // $user->notify(new BrokersumoLevelupYearly($badge));
                         // Mail::to($user->email)->send(new BrokersumoYearlyMail($badge));
                     } catch (\Throwable $th) {
                         Log::alert('Cannot send yearly sales volume to ' . $user->email);
