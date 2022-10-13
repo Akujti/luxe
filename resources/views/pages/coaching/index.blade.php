@@ -83,6 +83,9 @@
                 </style>
                 <iframe src="https://drive.google.com/file/d/1YCfTMcHl6WYpFIG6PxzZKNywzlWXZenV/preview" width="100%"
                     allow="autoplay"></iframe>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-luxe" href="https://luxecoaching.myluxehub.com/" target="_blank">Agent Login</a>
+                </div>
             </div>
             <div class="col-lg-6 coaching-text">
                 <div>
