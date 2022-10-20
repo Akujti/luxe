@@ -14,124 +14,105 @@
                     <input type="hidden" name="form_title" value="MARKETING MENU">
                     <div class="card-body">
                         <div class="row">
-                            <div class="form-group col-md-6">
+
+                            <div class="form-group col-md-4">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
                                     value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label for="name">Agent Number</label>
                                 <input type="text" name="agent_number" class="form-control"
                                     value="{{ auth()->user()->profile->phone }}" required>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label for="name">Agent Email</label>
                                 <input type="text" name="agent_email" class="form-control"
                                     value="{{ auth()->user()->email }}" required>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Create Facebook Business Page</label>
-                                <input type="text" name="create_facebook_business_page" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Facebook Ads</label>
-                                <input type="text" name="facebook_ads" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Instagram Ads</label>
-                                <input type="text" name="instagram_ads" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Create Google Business Page</label>
-                                <input type="text" name="create_google_business_page" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Google Ads - PPC</label>
-                                <input type="text" name="google_ads_ppc" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Email Blast</label>
-                                <select name="emails_blast" class="form-control" required id="">
-                                    <option value="-">-</option>
-                                    <option value="just_listed">Just Listed</option>
-                                    <option value="just_sold">Just Sold</option>
-                                    <option value="under_contract">Under Contract</option>
-                                    <option value="open_house">Open House</option>
-                                    <option value="brokers_open">Broker's Open</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Door Hangers</label>
-                                <select name="door_hangers" class="form-control" required id="">
-                                    <option value="-">-</option>
-                                    <option value="just_listed">Just Listed</option>
-                                    <option value="just_sold">Just Sold</option>
-                                    <option value="under_contract">Under Contract</option>
-                                    <option value="open_house">Open House</option>
-                                    <option value="brokers_open">Broker's Open</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Flyers</label>
-                                <select name="flyers" class="form-control" required id="">
-                                    <option value="-">-</option>
-                                    <option value="just_listed">Just Listed</option>
-                                    <option value="just_sold">Just Sold</option>
-                                    <option value="under_contract">Under Contract</option>
-                                    <option value="open_house">Open House</option>
-                                    <option value="brokers_open">Broker's Open</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Social Media Posts</label>
-                                <select name="social_media_posts" class="form-control" required id="">
-                                    <option value="-">-</option>
-                                    <option value="new_agent">New Agent</option>
-                                    <option value="just_listed">Just Listed</option>
-                                    <option value="just_sold">Just Sold</option>
-                                    <option value="under_contract">Under Contract</option>
-                                    <option value="open_house">Open House</option>
-                                    <option value="brokers_open">Broker's Open</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Design Custom Signage</label>
-                                <select name="design_custom_signage" class="form-control" required id="">
-                                    <option value="-">-</option>
-                                    <option value="for_sale_signs">For Sale Signs</option>
-                                    <option value="open_house_signs">Open House Signs</option>
-                                    <option value="etc">Etc</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Design Custom Business Cards</label>
-                                <input type="text" name="design_custom_business_cards" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Design Custom Banner</label>
-                                <select name="design_custom_banner" class="form-control" required id="">
-                                    <option value="-">-</option>
-                                    <option value="digital">Digital</option>
-                                    <option value="print">Print</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Custom Email Signature</label>
-                                <input type="text" name="custom_email_signature" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Mailers/EDDM - Postcard creation & community routes</label>
-                                <input type="text" name="mailers_eddm_postcard_creation" class="form-control"
-                                    required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Create RelaHQ Property Sites</label>
-                                <input type="text" name="create_relahq_property_sites" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Create landing pages (requires kvCORE or other third-party
-                                    provider)</label>
-                                <input type="text" name="create_landing_pages_kvcore" class="form-control" required>
+                            <div class="form-group col-12">
+                                <div>
+                                    <input type="checkbox" name="options[]" value="Create Facebook Business Page ">
+                                    <label for="opt1" class="font-weight-normal">Create Facebook Business Page </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]" value="Facebook Ads ">
+                                    <label for="opt1" class="font-weight-normal">Facebook Ads </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]" value="Instagram Ads ">
+                                    <label for="opt1" class="font-weight-normal">Instagram Ads </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]" value="Create Google Business Page ">
+                                    <label for="opt1" class="font-weight-normal">Create Google Business Page </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]" value="Google Ads - PPC">
+                                    <label for="opt1" class="font-weight-normal">Google Ads - PPC</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]"
+                                        value="Email Blast (just listed, just sold, under contract, open house, broker's open)">
+                                    <label for="opt1" class="font-weight-normal">Email Blast (just listed, just sold,
+                                        under contract, open house, broker's open)</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]"
+                                        value="
+                                    Door Hangers (just listed, just sold, under contract, open house, broker's open)">
+                                    <label for="opt1" class="font-weight-normal">
+                                        Door Hangers (just listed, just sold, under contract, open house, broker's open)
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]"
+                                        value="Flyers (just listed, just sold, under contract, open house, broker's open)">
+                                    <label for="opt1" class="font-weight-normal">Flyers (just listed, just sold, under
+                                        contract, open house, broker's open)</label>
+                                </div>
+                                <hr>
+                                <div>
+                                    <input type="checkbox" name="options[]"
+                                        value="Social Media Posts (new agent, just listed, just sold, under contract, open house, broker's open)">
+                                    <label for="opt1" class="font-weight-normal">Social Media Posts (new agent, just
+                                        listed, just sold, under contract, open house, broker's open)</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]"
+                                        value="Design Custom Signage (for sale signs, open house signs, etc)">
+                                    <label for="opt1" class="font-weight-normal">Design Custom Signage (for sale signs,
+                                        open house signs, etc)</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]" value="Design Custom Business Cards">
+                                    <label for="opt1" class="font-weight-normal">Design Custom Business Cards</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]" value="Design Custom Banner (digital or print)">
+                                    <label for="opt1" class="font-weight-normal">Design Custom Banner (digital or
+                                        print)</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]" value="Custom Email Signature ">
+                                    <label for="opt1" class="font-weight-normal">Custom Email Signature </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]"
+                                        value="Mailers/EDDM - Postcard creation & community routes">
+                                    <label for="opt1" class="font-weight-normal">Mailers/EDDM - Postcard creation &
+                                        community routes</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]" value="Create RelaHQ Property Sites ">
+                                    <label for="opt1" class="font-weight-normal">Create RelaHQ Property Sites </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="options[]"
+                                        value="Create landing pages (requires kvCORE or other third-party provider)">
+                                    <label for="opt1" class="font-weight-normal">Create landing pages (requires kvCORE
+                                        or other third-party provider)</label>
+                                </div>
                             </div>
 
                             <div class="form-group form-footer col-12">
