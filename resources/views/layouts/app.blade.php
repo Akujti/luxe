@@ -370,6 +370,10 @@
                                                     href="{{ route('user.diy-templates') }}">Online Marketing
                                                     Designer</a></li>
                                             <li><a href="{{ url('user/files?id=22') }}">Logos</a></li>
+                                            <li><a class="{{ isset($subactive) && $subactive == 'marketing_menu' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/general/form/other/marketing-menu') }}">Marketing
+                                                    Menu &
+                                                    Services</a></li>
                                         </ul>
                                     </li>
                                     <li
