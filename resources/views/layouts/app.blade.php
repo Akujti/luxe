@@ -265,9 +265,12 @@
 
                                     @endauth
                                     <div class="sidebar__item-menu">
-                                        <a class="btm-phn" href="tel:(305) 438 7764">
-                                            <span style="font-size: 21px">NEED HELP?<br><b>SUPPORT LINE (305) 438
+                                        <a class="btm-phn justify-content-start" href="tel:(305) 438 7764">
+                                            <span style="font-size: 20px">NEED HELP?<br><b>SUPPORT LINE (305) 438
                                                     7764</b></span></a>
+                                        <a class="btm-phn justify-content-start" href="tel:(305) 908 1116">
+                                            <span style="font-size: 20px"><b>MARKETING LINE (305) 908
+                                                    1116&nbsp;</b></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -308,7 +311,11 @@
                                         @endauth
                                     </div>
                                     <a class="btm-phn text-white pt-3" href="tel:(305) 438 7764">
-                                        <span>NEED HELP?<br><b>SUPPORT LINE (305) 438 7764</b></span></a>
+                                        <span>
+                                            NEED HELP?<br>
+                                            <b>SUPPORT LINE (305) 438 7764</b>
+                                        </span>
+                                    </a>
                                     <div class="w-100 search-box-mobile">
                                         <form action="{{ route('user.search') }}" method="get"
                                             class="w-100 pl-5 mt-3 d-flex justify-content-center">
