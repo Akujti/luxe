@@ -140,7 +140,14 @@
                                         value="{{ $user->profile->phone }}">
                                 </div>
                             </div>
-                            <div class="form-group col-12 col-md-6 pr-0">
+                            <div class="form-group col-6 pr-0">
+                                <label for="start">Address</label>
+                                <div class='input-group'>
+                                    <input type="text" class="w-100 form-control" name="profile[address]"
+                                        value="{{ $user->profile->address }}">
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-6 pl-0">
                                 <label for="start">Languages</label>
                                 <div class="d-flex">
                                     <input type="text" class="form-control" id="language">
@@ -159,13 +166,6 @@
                                             </div>
                                         @endforeach
                                     @endif
-                                </div>
-                            </div>
-                            <div class="form-group col-6 pl-0">
-                                <label for="start">Address</label>
-                                <div class='input-group'>
-                                    <input type="text" class="w-100 form-control" name="profile[address]"
-                                        value="{{ $user->profile->address }}">
                                 </div>
                             </div>
                         </div>
