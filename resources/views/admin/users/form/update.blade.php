@@ -120,20 +120,27 @@
                                     <input type="password" class="w-100 form-control" name="password">
                                 </div>
                             </div>
-                            <div class="form-group col-12 col-md-6 pl-0">
+                            <div class="form-group col-6 pl-0">
+                                <label for="start">App Store Link</label>
+                                <div class='input-group'>
+                                    <input type="url" class="w-100 form-control" name="app_link"
+                                        value="{{ $user->app_link }}">
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-6 pr-0">
                                 <label for="start">Avatar</label>
                                 <div class='input-group'>
                                     <input type="file" class="w-100 form-control p-1" name="profile[avatar]">
                                 </div>
                             </div>
-                            <div class="form-group col-12 col-md-6 pr-0">
+                            <div class="form-group col-12 col-md-6 pl-0">
                                 <label for="start">Phone</label>
                                 <div class='input-group'>
                                     <input type="text" class="w-100 form-control" name="profile[phone]"
                                         value="{{ $user->profile->phone }}">
                                 </div>
                             </div>
-                            <div class="form-group col-12 col-md-6 pl-0">
+                            <div class="form-group col-12 col-md-6 pr-0">
                                 <label for="start">Languages</label>
                                 <div class="d-flex">
                                     <input type="text" class="form-control" id="language">
@@ -154,7 +161,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group col-6 pr-0">
+                            <div class="form-group col-6 pl-0">
                                 <label for="start">Address</label>
                                 <div class='input-group'>
                                     <input type="text" class="w-100 form-control" name="profile[address]"

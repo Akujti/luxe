@@ -163,7 +163,7 @@ class UserController extends Controller
     {
         try {
             $row = User::find($req->id);
-
+            $row->app_link = $req->app_link;
             $row->email = $req->email;
             if ($req->password) {
                 $row->password = Hash::make($req->password);
