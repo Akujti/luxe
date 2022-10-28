@@ -516,6 +516,9 @@
                                         <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
                                                 href="{{ url('store/product/background-check') }}">Client
                                                 Screening</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                                href="{{ url('store/product/fiu-course-grow-your-real-estate-business-3-modules') }}">Real
+                                                Estate Course</a></li>
                                     </ul>
                                 </li>
                                 <li

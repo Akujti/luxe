@@ -5,9 +5,9 @@
             /* background: url('{{ asset('images/bg-image1.jpg') }}'); */
             height: 100vh;
             /* background-size: cover;
-                background-position: center;
-                background-color: rgba(0, 0, 0, 0.7);
-                background-blend-mode: color; */
+                    background-position: center;
+                    background-color: rgba(0, 0, 0, 0.7);
+                    background-blend-mode: color; */
 
         }
 
@@ -94,28 +94,6 @@
 
                 </div>
             @endforeach
-            {{-- <div class="col my-2">
-            <div class="bg-transparent">
-                <a
-                    href="/general/form/other/closing-coordinators?agent_email=victoria@luxeknows.com&agent_text=Closing Coordinator - Basic Package $200 - VIP Package $325">
-                    <div class="card-header">
-                        <img src="{{asset('images/agents/victoria.jpg')}}" alt="" class="w-100">
-                        <p class="agent-name">Victoria Lettieri</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col my-2">
-            <div class="bg-transparent">
-                <a
-                    href="/general/form/other/closing-coordinators?agent_email=theclosinggenie@gmail.com&agent_text=Senior Closing Coordinator - Standard Package $399">
-                    <div class="card-header">
-                        <img src="{{asset('images/agents/maribel.jpg')}}" alt="" class="w-100">
-                        <p class="agent-name">Maribel Gonzalez</p>
-                    </div>
-                </a>
-            </div>
-        </div> --}}
         </div>
     </div>
 @endsection

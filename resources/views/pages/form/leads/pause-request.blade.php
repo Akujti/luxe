@@ -10,12 +10,8 @@
                         <h1 class="text-center my-4">Pause Request</h1>
                     </div>
                     <input type="hidden" name="form_title" value="Pause Request">
-                    <input type="hidden" name="to_email[]" id="team_email" value="">
-
-                    <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                                                                                                        <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com">
-                                                                                                                                        <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
-                                                                                                                                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com"> -->
+                    <input type="hidden" name="to_email[]" id="team_email" value=""> <input type="hidden"
+                        name="to_email[]" value="irais@luxeknows.com">
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">

@@ -402,6 +402,8 @@ Route::group(
 
         Route::get('luxe-staff', [PageController::class, 'luxe_staff'])->name('luxe.staff.index');
         Route::get('luxe-managers', [PageController::class, 'luxe_managers'])->name('luxe.managers.index');
+
+        Route::post('marketing-menu', [FormController::class, 'submit_marketing_menu'])->name('marketing.menu');
     }
 );
 

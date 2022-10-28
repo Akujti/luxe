@@ -162,7 +162,7 @@ class FormController extends Controller
         if ($request->wantsJson()) {
             return response()->json('success');
         }
-        if ($request->form_title == "LUXE Coaching")
+        if ($request->form_title == "LUXE Coaching" || $request->form_title == "Request Your Agent Referral")
             session()->flash('modal', 'Success');
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
@@ -204,5 +204,79 @@ class FormController extends Controller
             $data = array_merge($data, $extraEmail);
         }
         return $data;
+    }
+
+    public function submit_marketing_menu(Request $request)
+    {
+        $request->validate(
+            [
+                "agent_full_name" => "required",
+                "agent_number" => "required",
+                "agent_email" => "required|email",
+                "option" => "required",
+                "notes" => "nullable",
+                "files" => "nullable",
+            ]
+        );
+        try {
+            $details = [];
+            $details['form_title'] = "Marketing Menu";
+            if ($request->hasFile("files")) {
+                $files = $request->file('files');
+                $counter = 1;
+                foreach ($files as $file) {
+                    $name = time() . Str::random(10) . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('/new-storage/images/marketing'), $name);
+                    $val = 'new-storage/images/marketing/' . $name;
+                    $details['file_' . $counter++] = $val;
+                }
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Form isn\'t saved, there was a problem with the entered data');
+        }
+
+        try {
+            FormSubmit::create([
+                'form_title' => $request->form_title,
+                'status' => 0,
+                'agent_name' => $request->agent_full_name,
+                'agent_email' => $request->agent_email,
+                'details' => json_encode($details),
+            ]);
+        } catch (Exception $e) {
+            if ($request->wantsJson()) {
+                return response()->json("Form couldn\'t be saved", 500);
+            }
+            return redirect()->back()->with('error', 'Form couldn\'t be saved');
+        }
+
+        try {
+            if (isset($request->form_title_value)) {
+                $to = $this->getEmails($request->form_title_value, $request->to_email);
+            } else {
+                $to = $this->getEmails($request->form_title, $request->to_email);
+            }
+            array_push($to, $request->agent_email);
+            $cc = [];
+
+            try {
+                Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+            } catch (\Exception $exception) {
+                Log::alert($exception);
+                if ($request->wantsJson()) {
+                    return response()->json('Error while sending email', 500);
+                }
+            }
+        } catch (\Throwable $th) {
+            Log::alert($th);
+            if ($request->wantsJson()) {
+                return response()->json($th, 500);
+            }
+            return redirect()->back()->with('error', 'Form is saved but there was a problem sending the email');
+        }
+
+        if ($request->form_title == "LUXE Coaching")
+            session()->flash('modal', 'Success');
+        return redirect()->back()->with('message', 'Form has been submitted!');
     }
 }
