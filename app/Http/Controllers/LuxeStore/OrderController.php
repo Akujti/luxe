@@ -18,6 +18,7 @@ use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
 use App\Mail\OrderCompleted;
 use App\Models\LuxeStore\LuxeStoreProductVariantValues;
+use App\Models\MarketingMenu;
 
 class OrderController extends Controller
 {
@@ -36,7 +37,8 @@ class OrderController extends Controller
     public function my_orders()
     {
         $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->where('user_id', auth()->id())->latest()->paginate(20);
-        return view('auth.orders.index', compact('orders'));
+        $marketing_orders = MarketingMenu::where('user_id', auth()->user()->id)->latest()->paginate(20);
+        return view('auth.orders.index', compact('orders', 'marketing_orders'));
     }
     public function show_agent($id)
     {

@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['active' => 'Marketing_requests'])
+@extends('layouts.app', ['active' => 'Marketing_requests'])
 @section('content')
     <div class="container-fluid">
         <div class="w-100 mb-5">
@@ -7,23 +7,6 @@
         @php
             $details = json_decode($submission->details, true);
         @endphp
-        <div class="row m-0 w-100">
-            <div class="form-group col-md-4 pl-md-0">
-                <label for="name">Agent Name</label>
-                <input type="text" class="form-control" value="{{ $details['agent_full_name'] }}" disabled>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="name">Agent Email</label>
-                <input type="text" class="form-control" value="{{ $details['agent_email'] }}" disabled>
-            </div>
-            <div class="form-group col-md-4 pr-md-0">
-                <label for="name">Agent Phone</label>
-                <input type="text" class="form-control" value="{{ $details['agent_number'] }}" disabled>
-            </div>
-            <hr>
-        </div>
-        <h4>Details</h4>
-
         <div class="row">
             <div class="col-12">
                 <p class="bold-text"><b>Selected Option:</b> {{ $details['option'] }}</p>
@@ -50,22 +33,22 @@
                 @endif
             @endforeach
         </div>
-        <form action="{{ route('admin.marketing-requests.update', $submission->id) }}" method="post">
+        <form action="{{ route('my.marketing.orders.update', $submission->id) }}" method="post"
+            enctype="multipart/form-data">
             @method('PUT')
             @csrf
-            <div class="form-group">
-                <label for="name">Milestone Status: <b>{{ $submission->status }}</b></label>
-                <select name="status" class="form-control">
-                    <option value>-</option>
-                    <option value="Missing">Missing</option>
-                    <option value="In Production">In Production</option>
-                    <option value="Proof Sent">Proof Sent</option>
-                    <option value="Completed">Completed</option>
-                </select>
+            <div class="form-group pl-md-0">
+                <label for="name">Milestone Status</label>
+                <input type="text" class="form-control" value="{{ $submission->status }}" disabled>
             </div>
             <div class="form-group">
                 <label for="name">Answer</label>
-                <textarea class="form-control w-100" rows="3" name="answer"></textarea>
+                <textarea class="form-control w-100" rows="3" disabled>{{ $submission->answer }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="files">Upload Files</label>
+                <input id="file-upload-area" type="file" class="form-control-file form-control p-1" id="files"
+                    name="files[]" multiple>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">

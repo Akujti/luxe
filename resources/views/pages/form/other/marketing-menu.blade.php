@@ -40,7 +40,8 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <form action="{{ route('marketing.menu') }}" class="card form p-3" method="POST" enctype="multipart/form-data">
+                <form id="form" action="{{ route('marketing.menu') }}" class="card form p-3 mb-5" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">MARKETING MENU</h1>
@@ -50,6 +51,7 @@
                     <input type="hidden" name="form_title" value="MARKETING MENU">
                     <div class="card-body">
                         <div class="row">
+                            <input type="hidden" name="price" id="option-price">
                             <div class="form-group col-md-4">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
@@ -426,7 +428,8 @@
                                 </div>
                             </div>
                             <div class="form-group form-footer col-12">
-                                <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
+                                <input id="submit-btn" type="submit" class="btn btn-luxe w-100" value="SUBMIT">
+                                <div id="paypal-button-container" class="d-none"></div>
                             </div>
                         </div>
                     </div>
@@ -436,11 +439,62 @@
     </div>
     <script>
         $('input[type=radio][name=option]').change(function() {
-            console.log(this);
             $("#file-upload-area").attr("disabled", false)
             $("#notes-area").attr("disabled", false)
             var price = this.getAttribute('data-price');
-            console.log(price);
+            $('#option-price').val(price)
+            if (price > 0) {
+                $('#paypal-button-container').removeClass('d-none')
+                $('#submit-btn').addClass('d-none')
+            } else {
+                $('#paypal-button-container').addClass('d-none')
+                $('#submit-btn').removeClass('d-none')
+            }
         });
+    </script>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
+    </script>
+    <script>
+        paypal.Buttons({
+            style: {
+                layout: 'horizontal',
+                size: 'small',
+                label: 'pay',
+                height: 40,
+                tagline: 'false',
+                color: 'black'
+            },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: $('#option-price').val()
+                        }
+                    }]
+                });
+            },
+            onInit: function(data, actions) {
+                actions.disable();
+                document.querySelectorAll('input, textarea').forEach(item => {
+                    item.addEventListener('input', () => {
+                        if (document.getElementById("form").checkValidity()) {
+                            actions.enable();
+                        } else {
+                            actions.disable();
+                        }
+                    });
+                });
+            },
+            onClick: function() {
+                document.getElementById("form").reportValidity()
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    console.log(details);
+                    document.getElementById("form").submit();
+                });
+            }
+        }).render('#paypal-button-container');
     </script>
 @endsection

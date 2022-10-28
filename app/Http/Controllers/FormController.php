@@ -8,6 +8,7 @@ use App\Models\FormSubmit;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\GeneralMailTemplate;
+use App\Models\MarketingMenu;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -218,9 +219,16 @@ class FormController extends Controller
                 "files" => "nullable",
             ]
         );
+
         try {
             $details = [];
             $details['form_title'] = "Marketing Menu";
+            $details['agent_full_name'] = $request->agent_full_name;
+            $details['agent_number'] = $request->agent_number;
+            $details['agent_email'] = $request->agent_email;
+            $details['option'] = $request->option;
+            $details['notes'] = $request->notes;
+            $details['price'] = $request->price;
             if ($request->hasFile("files")) {
                 $files = $request->file('files');
                 $counter = 1;
@@ -236,17 +244,12 @@ class FormController extends Controller
         }
 
         try {
-            FormSubmit::create([
-                'form_title' => $request->form_title,
-                'status' => 0,
-                'agent_name' => $request->agent_full_name,
-                'agent_email' => $request->agent_email,
+            MarketingMenu::create([
+                'user_id' => auth()->user()->id,
+                'status' => 'Pending',
                 'details' => json_encode($details),
             ]);
         } catch (Exception $e) {
-            if ($request->wantsJson()) {
-                return response()->json("Form couldn\'t be saved", 500);
-            }
             return redirect()->back()->with('error', 'Form couldn\'t be saved');
         }
 
@@ -263,20 +266,11 @@ class FormController extends Controller
                 Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
             } catch (\Exception $exception) {
                 Log::alert($exception);
-                if ($request->wantsJson()) {
-                    return response()->json('Error while sending email', 500);
-                }
             }
         } catch (\Throwable $th) {
             Log::alert($th);
-            if ($request->wantsJson()) {
-                return response()->json($th, 500);
-            }
             return redirect()->back()->with('error', 'Form is saved but there was a problem sending the email');
         }
-
-        if ($request->form_title == "LUXE Coaching")
-            session()->flash('modal', 'Success');
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
 }
