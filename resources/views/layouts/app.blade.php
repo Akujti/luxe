@@ -549,6 +549,10 @@
                                                 With LUXE</a></li>
                                         <li><a class="{{ isset($subactive) && $subactive == 'showing_agents' ? 'active_submenu' : '' }}"
                                                 href="{{ route('showing.agents.index') }}">Showing Agents</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'request_your_agent' ? 'active_submenu' : '' }}"
+                                                href="{{ url('/general/form/other/request-your-agent-referral') }}">Request
+                                                Your Agent
+                                                Referral</a></li>
                                     </ul>
                                 </li>
                                 <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
