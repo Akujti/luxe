@@ -36,6 +36,10 @@
         input[type=radio] {
             accent-color: #262626;
         }
+
+        .form .btn-luxe {
+            width: auto !important;
+        }
     </style>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -74,14 +78,18 @@
                                         data-price="150" value="Brand Package">
                                     <label class="form-check-label" for="opt1">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Brand Package
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 Includes custom logo, letterhead, & 4 Instagram Templates
                                             </div>
                                             <div class="col-md-2 option-price">
                                                 $150
+                                            </div>
+                                            <div class="col-md-2 text-center">
+                                                <button type="button" class="btn btn-luxe"
+                                                    onclick="showModal('https://myluxehub.com/images/logo-black.png')">View</button>
                                             </div>
                                         </div>
                                     </label>
@@ -91,14 +99,18 @@
                                         data-price="35" value="Create Google Business Page">
                                     <label class="form-check-label" for="opt2">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Create Google Business Page
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
 
                                             </div>
                                             <div class="col-md-2 option-price">
                                                 $35
+                                            </div>
+                                            <div class="col-md-2 text-center">
+                                                <button type="button" class="btn btn-luxe"
+                                                    onclick="showModal('https://myluxehub.com/images/index-page/online-marketing-designer.svg')">View</button>
                                             </div>
                                         </div>
                                     </label>
@@ -108,10 +120,10 @@
                                         data-price="35" value="Create Facebook Business Page">
                                     <label class="form-check-label" for="opt3">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Create Facebook Business Page
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
 
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -125,10 +137,10 @@
                                         data-price="35" value="Write Blog Post">
                                     <label class="form-check-label" for="opt4">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Write Blog Post
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
 
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -142,10 +154,10 @@
                                         data-price="100" value="MLS Input">
                                     <label class="form-check-label" for="opt5">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 MLS Input
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 With copyright description
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -159,10 +171,10 @@
                                         id="opt6" data-price="0" value="Create RelaHQ Property Sites">
                                     <label class="form-check-label" for="opt3">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Create RelaHQ Property Sites
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
 
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -176,10 +188,10 @@
                                         id="opt7" data-price="50" value="Create Landing Page">
                                     <label class="form-check-label" for="opt3">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Create Landing Page
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 (Requires kvCORE or other third-party provider)
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -193,10 +205,10 @@
                                         id="opt8" data-price="50" value="Set Up Zillow & Realtor.com Profiles">
                                     <label class="form-check-label" for="opt3">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Set Up Zillow & Realtor.com Profiles
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
 
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -210,10 +222,10 @@
                                         id="opt9" data-price="0" value="Custom Bio">
                                     <label class="form-check-label" for="opt3">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Custom Bio
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                             </div>
                                             <div class="col-md-2 option-price">
                                             </div>
@@ -226,10 +238,10 @@
                                         id="opt10" data-price="199" value="Boosting Facebook Ads">
                                     <label class="form-check-label" for="opt10">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Boosting Facebook Ads
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                             </div>
                                             <div class="col-md-2 option-price">
                                                 $199
@@ -242,10 +254,10 @@
                                         id="opt11" data-price="199" value="Boosting Instagram Ads">
                                     <label class="form-check-label" for="opt11">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Boosting Instagram Ads
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                             </div>
                                             <div class="col-md-2 option-price">
                                                 $199
@@ -258,10 +270,10 @@
                                         id="opt12" data-price="199" value="Google Ads Set Up - PPC">
                                     <label class="form-check-label" for="opt12">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Google Ads Set Up - PPC
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 On Existing Website or Landing Page
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -276,10 +288,10 @@
                                         id="opt13" data-price="0" value="Email Blast">
                                     <label class="form-check-label" for="opt13">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Email Blast
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 (just listed, just sold, under contract, open house, broker's open)
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -292,10 +304,10 @@
                                         id="opt14" data-price="0" value="Social Media Posts">
                                     <label class="form-check-label" for="opt14">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Social Media Posts
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 (new agent, just listed, just sold, under contract, open house, broker's
                                                 open)
                                             </div>
@@ -309,10 +321,10 @@
                                         id="opt15" data-price="0" value="Custom Email Signature">
                                     <label class="form-check-label" for="opt15">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Custom Email Signature
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                             </div>
                                             <div class="col-md-2 option-price">
                                             </div>
@@ -325,10 +337,10 @@
                                         id="opt16" data-price="0" value="Door Hangers">
                                     <label class="form-check-label" for="opt16">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Door Hangers
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 (just listed, just sold, under contract, open house, broker's open)
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -341,10 +353,10 @@
                                         id="opt17" data-price="0" value="Flyers">
                                     <label class="form-check-label" for="opt17">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Flyers
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 (just listed, just sold, under contract, open house, broker's open)
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -357,10 +369,10 @@
                                         id="opt18" data-price="0" value="Design Custom Signage">
                                     <label class="form-check-label" for="opt18">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Design Custom Signage
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 (for sale signs, open house signs, etc)
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -373,10 +385,10 @@
                                         id="opt19" data-price="0" value="Design Custom Business Cards">
                                     <label class="form-check-label" for="opt19">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Design Custom Business Cards
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                             </div>
                                             <div class="col-md-2 option-price">
                                             </div>
@@ -388,10 +400,10 @@
                                         id="opt20" data-price="0" value="Design Custom Banner">
                                     <label class="form-check-label" for="opt20">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Design Custom Banner
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                                 (digital or print)
                                             </div>
                                             <div class="col-md-2 option-price">
@@ -405,10 +417,10 @@
                                         value="Mailers/EDDM - Postcard creation & community routes">
                                     <label class="form-check-label" for="opt21">
                                         <div class="row option">
-                                            <div class="col-md-5 option-title">
+                                            <div class="col-md-4 option-title">
                                                 Mailers/EDDM - Postcard creation & community routes
                                             </div>
-                                            <div class="col-md-5 option-desc">
+                                            <div class="col-md-4 option-desc">
                                             </div>
                                             <div class="col-md-2 option-price">
                                             </div>
@@ -436,7 +448,33 @@
                 </form>
             </div>
         </div>
+        <div id="imgModal" class="create-event modal fade modal-new" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Image</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img id="modalImage" src="" alt="" class="w-75">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
     </div>
+    <script>
+        function showModal(url) {
+            console.log('clicked');
+            console.log(url);
+            $("#modalImage").attr("src", url);
+            $("#imgModal").modal("show");
+        }
+    </script>
     <script>
         $('input[type=radio][name=option]').change(function() {
             $("#file-upload-area").attr("disabled", false)

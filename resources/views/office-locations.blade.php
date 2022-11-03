@@ -58,6 +58,14 @@
                                 <p class="location">Orlando</p>
                                 <p class="address">301 N Tubb Street #104, Oakland, FL 34760</p>
                             </div>
+                            <div class="form-group ">
+                                <p class="location">South Miami</p>
+                                <p class="address">5966 S Dixie Highway #300, South Miami, FL 33143</p>
+                            </div>
+                            <div class="form-group ">
+                                <p class="location">Pembroke Pines -- Coming Soon</p>
+                                <p class="address">1911 NW 150 Avenue #202, Pembroke Pines FL 33028</p>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <style>
@@ -87,6 +95,8 @@
                 ['Homestead', 25.477298, -80.452697],
                 ['Aventura', 25.952880, -80.143430],
                 ['Orlando', 28.5525227, -81.628067],
+                ['South Miami', 25.70264828581291, -80.2908567003317],
+                ['Pembroke Pines -- Coming Soon', 26.025562885970274, -80.34676792739103],
             ];
 
             var map = new google.maps.Map(document.getElementById('map'), {
