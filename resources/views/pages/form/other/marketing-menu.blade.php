@@ -87,10 +87,10 @@
                                             <div class="col-md-2 option-price">
                                                 $150
                                             </div>
-                                            <div class="col-md-2 text-center">
+                                            {{-- <div class="col-md-2 text-center">
                                                 <button type="button" class="btn btn-luxe"
                                                     onclick="showModal('https://myluxehub.com/images/logo-black.png')">View</button>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </label>
                                 </div>
@@ -108,10 +108,10 @@
                                             <div class="col-md-2 option-price">
                                                 $35
                                             </div>
-                                            <div class="col-md-2 text-center">
+                                            {{-- <div class="col-md-2 text-center">
                                                 <button type="button" class="btn btn-luxe"
                                                     onclick="showModal('https://myluxehub.com/images/index-page/online-marketing-designer.svg')">View</button>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </label>
                                 </div>
