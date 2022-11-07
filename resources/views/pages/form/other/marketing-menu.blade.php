@@ -88,12 +88,12 @@
                                                 $150
                                             </div>
                                             <div class="col-md-2 text-center">
-                                                <div>
+                                                {{-- <div>
                                                     <img src="https://myluxehub.com/images/logo-black.png" alt=""
                                                         class="w-100"
                                                         style="border: 1px solid #262626;border-radius:5px;padding:10px;"
                                                         onclick="showModal('https://myluxehub.com/images/logo-black.png')">
-                                                </div>
+                                                </div> --}}
                                                 {{-- <button type="button" class="btn btn-luxe"
                                                     onclick="showModal('https://myluxehub.com/images/logo-black.png')">View</button> --}}
                                             </div>
