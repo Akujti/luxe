@@ -40,13 +40,13 @@
                 <p class="staff-email">bianca@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/denisse.jpg') }}" class="staff-image">
                 <p class="staff-name">Denisse Uyema</p>
                 <p class="staff-role">Kendall Manager</p>
                 <p class="staff-email">denisse@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/katherine.jpg') }}" class="staff-image">
                 <p class="staff-name">Katherine Arteta</p>
                 <p class="staff-role">Pembroke Pines Manager</p>
                 <p class="staff-email">katherine@investinsouthfl.com</p>
@@ -76,7 +76,7 @@
                 <p class="staff-email">wesley@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/yesenia.jpg') }}" class="staff-image">
                 <p class="staff-name">Yesenia Ferro</p>
                 <p class="staff-role">Miami Lakes Manager</p>
                 <p class="staff-email">yesenia@luxeknows.com</p>

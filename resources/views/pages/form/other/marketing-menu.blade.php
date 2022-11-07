@@ -87,10 +87,16 @@
                                             <div class="col-md-2 option-price">
                                                 $150
                                             </div>
-                                            {{-- <div class="col-md-2 text-center">
-                                                <button type="button" class="btn btn-luxe"
-                                                    onclick="showModal('https://myluxehub.com/images/logo-black.png')">View</button>
-                                            </div> --}}
+                                            <div class="col-md-2 text-center">
+                                                <div>
+                                                    <img src="https://myluxehub.com/images/logo-black.png" alt=""
+                                                        class="w-100"
+                                                        style="border: 1px solid #262626;border-radius:5px;padding:10px;"
+                                                        onclick="showModal('https://myluxehub.com/images/logo-black.png')">
+                                                </div>
+                                                {{-- <button type="button" class="btn btn-luxe"
+                                                    onclick="showModal('https://myluxehub.com/images/logo-black.png')">View</button> --}}
+                                            </div>
                                         </div>
                                     </label>
                                 </div>
@@ -456,8 +462,18 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
-                    <div class="modal-body text-center">
-                        <img id="modalImage" src="" alt="" class="w-75">
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <img id="modalImage" src="" alt="" class="w-50 mb-5">
+                        </div>
+                        <p>Here are our services</p>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                            <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco</li>
+                            <li>Duis aute irure dolor in reprehenderit in voluptate velit esse</li>
+                            <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                        </ul>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
