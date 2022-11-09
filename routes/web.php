@@ -46,6 +46,7 @@ use App\Http\Controllers\CustomSectionController;
 use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
 use App\Http\Controllers\EmailBlastHomePageController;
+use App\Http\Controllers\ListingController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\ReferralPartnerCategoryController;
 use App\Http\Controllers\ReferralPartnerController;
@@ -406,6 +407,8 @@ Route::group(
         Route::get('luxe-managers', [PageController::class, 'luxe_managers'])->name('luxe.managers.index');
 
         Route::post('marketing-menu', [FormController::class, 'submit_marketing_menu'])->name('marketing.menu');
+
+        Route::resource('listings', ListingController::class);
     }
 );
 

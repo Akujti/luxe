@@ -7,7 +7,7 @@
             background-color: #e7e7e7;
             border: 1px solid #e7e7e7;
             width: 100%;
-            text-align: end;
+            /* text-align: end; */
             padding: 7px;
         }
 
@@ -26,20 +26,12 @@
             padding: 7px;
         }
 
-        table {
-            font-family: 'gothicregular';
-        }
-
-        table th {
-            font-family: 'gothicbold';
-        }
-
         table .underline {
             text-decoration: underline;
         }
 
         .title h1 {
-            font-family: 'gothicbold';
+            /* font-family: 'gothicbold'; */
             text-align: center;
         }
 
@@ -58,10 +50,20 @@
             border: 1px solid black !important;
             /* border-bottom: 1px solid black !important; */
         }
+
         .input-bottom {
             background: transparent !important;
             border: 1px solid transparent !important;
             border-bottom: 1px solid black !important;
+        }
+
+        .row * {
+            font-family: Montserrat;
+        }
+
+        td,
+        th {
+            font-size: 14px;
         }
     </style>
 @endsection
@@ -73,92 +75,75 @@
         <div class="row justify-content-center">
             <div class="col-12 col-xl-8 mb-4">
                 <div class="w-100 p-1" id="el">
-                    <div class="row">
-                        {{-- <div class="col-6">
-                            <div class="d-flex w-100">
-                                <div class="logo p-1">
-                                    <img height="80px" src="/images/brent_baris_logo.png" alt="">
-                                </div>
-                                <div>
-                                    <div class="d-flex h-100 align-items-center">
-                                        <div>
-                                            <p class="p-0 m-0" style="font-size: 13px;">(386) 454-0688 phone - (800)
-                                                607-5560 fax</p>
-                                            <a href="www.barislaw.com" target="_blank">www.barislaw.com</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <h4>Personal Information</h4>
+                    <div class="row mb-2">
+                        <div class="form-group col-md-4">
+                            <label for="name">NAME</label>
+                            <input type="text" class="form-control" required>
                         </div>
-                        <div class="col-6 pr-0">
-                            <div class="h-50">
-                                <p>Created By:</p>
-                                <div class="input">
-                                    <input type="text" class="text-left input-trans">
-                                </div>
-                            </div>
-                        </div> --}}
-                        <div class="border-wrapper"></div>
-                        <div class="col-7">
+                        <div class="form-group col-md-4">
+                            <label for="name">CONTACT NUMBER</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="name">EMAIL</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div>
+                    <h4>Property Information</h4>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="name">PROPERTY ADDRESS</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="name">SALES PRICE</label>
+                            <input type="text" id="c6" value="0" onchange="calculate()" class="form-control">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
                             <table class="w-100">
                                 <tbody>
                                     <tr>
-                                        <td class="text-right">SALES PRICE:</td>
-                                        <td class="input"><input type="text" id="c6" value="0"
-                                                onchange="calculate()"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right">CLOSING MONTH (2 DIGITS):</td>
+                                        <td class="">CLOSING MONTH (2 DIGITS):</td>
                                         <td class="input"><input type="text" id="c7" value="0"
                                                 onchange="calculate()"></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-right">DAY OF CLOSING (2 DIGITS):</td>
+                                        <td class="">DAY OF CLOSING (2 DIGITS):</td>
                                         <td class="input"><input type="text" id="c8" value="0"
                                                 onchange="calculate()"></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-right"> UNPAID PROPERTY TAX FOR CURRENT YEAR:</td>
+                                        <td class=""> UNPAID PROPERTY TAX FOR CURRENT YEAR:</td>
                                         <td class="input"><input type="text" id="c9" value="0"
                                                 onchange="calculate()"></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-right">REAL ESTATE PROFESSIONAL SERVICES %</td>
+                                        <td class="">REAL ESTATE PROFESSIONAL SERVICES %</td>
                                         <td class="input"><input type="text" id="c10" value="0"
                                                 onchange="calculate()"></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-right">OTHER REAL ESTATE BROKER OR AGENT FEES:</td>
+                                        <td class="">OTHER REAL ESTATE BROKER OR AGENT FEES:</td>
                                         <td class="input"><input type="text" id="c11" value="0"
                                                 onchange="calculate()"></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-5 pr-0">
-                            <div class="h-50">
-                                <p class="p-0 m-0">Name of Seller</p>
-                                <div class="input">
-                                    <input type="text" class="text-left input-trans">
-                                </div>
-                            </div>
-                            <div class="h-50 d-flex align-items-end w-100">
-                                <div class="w-100 pb-1">
-                                    <p class="p-0 m-0">Property Address</p>
-                                    <div class="input">
-                                        <input type="text" class="text-left input-trans">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-wrapper"></div>
                     </div>
-
+                    <br>
                     <table class="w-100 table-bottom">
                         <tbody>
+                            <tr style="background: #262626;">
+                                <th class="text-white py-2 px-1">ITEM</th>
+                                <th class="text-white py-2">PRICE</th>
+                            </tr>
                             <tr>
-                                <th>&nbsp;</th>
-                                <td></td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <th>Tax Proration [Jan 1st to Close]</th>
@@ -237,27 +222,23 @@
                             </tr>
 
                             <tr>
-                                <td class="text-right font-italic" style="font-size: 23px;width: auto;">Estimated Total
+                                <td class=" font-italic" style="font-size: 20px;width: auto;">Estimated Total
                                     Deductions: &nbsp;</td>
-                                <td id="estimated-total" style="font-size: 23px;">$ -</td>
+                                <td id="estimated-total" style="font-size: 20px;">$ -</td>
                             </tr>
                             <tr>
-                                <th class="text-right" style="font-size: 26px;">ESTIMATED NET TO SELLER: &nbsp;</th>
-                                <th id="estimated-net" style="font-size: 26px;">$ (-)</th>
+                                <th class="" style="font-size: 23px;">ESTIMATED NET TO SELLER: &nbsp;</th>
+                                <th id="estimated-net" style="font-size: 23px;">$ (-)</th>
                             </tr>
                             <tr>
-                                <td class="w-100" colspan="2">BRENT E. BARIS, P.A. ASSUMES NO LIABILITY FOR ANY ERRORS
+                                <td class="w-100" colspan="2" style="font-size: 10px">BRENT E. BARIS, P.A. ASSUMES NO
+                                    LIABILITY FOR ANY ERRORS
                                     AND/OR OMISSIONS FOR INFORMATION CONTAINED HEREIN. This estimated net proceeds to seller
                                     is based on the seller paying the usual and customary closing costs per the FAR/BAR
                                     contracts in Central and North Florida. Seller acknowledges that this is an ESTIMATE
                                     ONLY and NOT A GUARANTEE.</td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
 

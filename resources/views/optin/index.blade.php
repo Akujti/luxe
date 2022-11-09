@@ -179,14 +179,8 @@
         }
 
         function codeAddress(profile, callback) {
-            // let geocoder = new google.maps.Geocoder();
             var locations = [profile.lat, profile.lng];
             callback(locations)
-            // geocoder.geocode({
-            //     'address': address
-            // }, function(results, status) {
-            //     locations = [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
-            // });
         }
     </script>
 @endsection
