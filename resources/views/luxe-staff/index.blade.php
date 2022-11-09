@@ -52,13 +52,13 @@
                 <p class="staff-email">designs@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/jorge.jpg') }}" class="staff-image">
                 <p class="staff-name">Jorge Fernandez</p>
                 <p class="staff-role">Lead Director</p>
                 <p class="staff-email">jorgef@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/justin.png') }}" class="staff-image">
+                <img src="{{ asset('images/staff/justin.jpg') }}" class="staff-image">
                 <p class="staff-name">Justin Kirkwood</p>
                 <p class="staff-role">VP of Sales</p>
                 <p class="staff-email">justink@luxeknows.com</p>
@@ -83,9 +83,21 @@
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
-                <p class="staff-name">Yailin Garcia</p>
-                <p class="staff-role">Support Partner</p>
-                <p class="staff-email">support@luxeknows.com</p>
+                <p class="staff-name">Valentina Grad</p>
+                <p class="staff-role">Marketing Coordinator</p>
+                <p class="staff-email">designs@luxeknow.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <p class="staff-name">Roxie Cordoba</p>
+                <p class="staff-role">Lead Admin</p>
+                <p class="staff-email">leadadmin@luxeknows.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/albert.jpg') }}" class="staff-image">
+                <p class="staff-name">Albert Babani</p>
+                <p class="staff-role">Sales Coach</p>
+                <p class="staff-email">albert@babaniproperties.com</p>
             </div>
         </div>
     </div>
