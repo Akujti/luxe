@@ -13,8 +13,11 @@
                         <label for="name">Type</label>
                         <select name="type" required class="form-control">
                             <option value>-</option>
-                            <option value="House">House</option>
-                            <option value="Condo">Condo</option>
+                            <option value="Single Family">Single Family</option>
+                            <option value="Condo/Townhouse">Condo/Townhouse</option>
+                            <option value="Rental">Rental</option>
+                            <option value="Land">Land</option>
+                            <option value="Commercial">Commercial</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">

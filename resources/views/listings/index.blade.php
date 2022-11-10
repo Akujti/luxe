@@ -67,8 +67,11 @@
             <div class="col-md-3 form-group">
                 <select name="type" class="form-control">
                     <option value>Property Type</option>
-                    <option value="House">House</option>
-                    <option value="Condo">Condo</option>
+                    <option value="Single Family">Single Family</option>
+                    <option value="Condo/Townhouse">Condo/Townhouse</option>
+                    <option value="Rental">Rental</option>
+                    <option value="Land">Land</option>
+                    <option value="Commercial">Commercial</option>
                 </select>
             </div>
             <div class="col-md-3  form-group">
@@ -79,9 +82,10 @@
         <div class="row">
             <div class="col-md-5">
                 <div id="map"></div>
+                <a href="{{ route('listings.create') }}" class="btn btn-luxe w-100 mt-3">New Listing</a>
             </div>
             <div class="col-md-7 row listings">
-                @foreach ($listings as $item)
+                @forelse ($listings as $item)
                     <div class="col-md-6">
                         <a href="{{ route('listings.show', $item) }}">
                             <div class="listing">
@@ -91,16 +95,19 @@
                                         {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</p>
                                 </div>
                                 <div class="listing-meta">
-                                    <p class="price"><b>${{ $item->price }}</b></p>
+                                    <p class="price"><b>${{ number_format($item->price) }}</b></p>
                                     <p class="info"><b>{{ $item->beds }}</b> bd | <b>{{ $item->baths }}</b> ba |
-                                        <b>{{ $item->living_area }}</b> sqft - {{ $item->type }} for sale
+                                        <b>{{ $item->living_area }}</b> sqft
                                     </p>
+                                    <p><b>{{ $item->type }}</b> for sale</p>
                                     <p class="address">{{ $item->address }}</p>
                                 </div>
                             </div>
                         </a>
                     </div>
-                @endforeach
+                @empty
+                    No search results
+                @endforelse
             </div>
         </div>
     </div>
@@ -146,7 +153,7 @@
                             icon: svgMarker,
                             map: map
                         });
-
+                        let nf = new Intl.NumberFormat('en-US');
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                             return function() {
                                 infowindow.setContent(
@@ -155,10 +162,9 @@
                                     el.main_image + "'>" +
                                     "<h5>" + el.address + "</h5><br>" +
                                     "</div>" +
-                                    "Price: $" + el.price +
-                                    "<br>Agent Name: " + el.user.profile.fullname +
-                                    "<br>Agent Email: " + el.user.email +
-                                    "<br>Agent Phone: " + el.user.profile.phone
+                                    "Type: " + el.type +
+                                    "<br>Price: $" + nf.format(el.price) +
+                                    "<br>Agent Name: " + el.user.profile.fullname
                                 );
                                 infowindow.open(map, marker);
                             }

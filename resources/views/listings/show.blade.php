@@ -1,27 +1,97 @@
 @extends('layouts.app', ['active' => '', 'subactive' => ''])
 @section('content')
     <div class="container-fluid">
-        {{-- <form id="form" action="{{ route('listings.store') }}" class="card form p-3 mb-5" method="POST"
-            enctype="multipart/form-data">
-            @csrf --}}
-        {{-- <div class="card-header">
-                <h2 class="text-center my-4">CREATE A LISTING</h2>
-            </div> --}}
+        <style>
+            .thumbnail {
+                width: 100%;
+                height: 80px;
+                object-fit: cover;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+        </style>
         <div class="row">
             <div class="form-group col-md-6">
-                <img src="{{ asset($listing->main_image) }}" alt="" class="w-100 rounded">
+                <img id="main-image" src="{{ asset($listing->main_image) }}" alt="" class="w-100 rounded mb-3">
+                <div class="row">
+                    @php
+                        $images = json_decode($listing->images, true);
+                    @endphp
+                    <div class="col-md-3 col-6">
+                        <img src="{{ asset($listing->main_image) }}" class="thumbnail" onclick="setImage(this.src)">
+                    </div>
+                    @foreach ($images as $image)
+                        <div class="col-md-3 col-6">
+                            <img src="{{ asset($image) }}" class="thumbnail" onclick="setImage(this.src)">
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="form-group col-md-6">
                 <h3>{{ $listing->address }}</h3>
-                <p>Type: {{ $listing->type }}</p>
-                <p>Price: {{ $listing->price }}</p>
-                <p>Baths: {{ $listing->baths }}</p>
-                <p>Beds: {{ $listing->beds }}</p>
-                <p>Living Area: {{ $listing->living_area }}</p>
-                <p>Lot Size: {{ $listing->lot_size }}</p>
-                <p>List Date: {{ $listing->list_date }}</p>
+                <hr>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Agent Name</th>
+                            <td>{{ $listing->user->profile->fullname }}</td>
+                        </tr>
+                        <tr>
+                            <th>Agent Phone</th>
+                            <td>{{ $listing->user->profile->phone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Agent Email</th>
+                            <td>{{ $listing->user->email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td>{{ $listing->type }}</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>${{ number_format($listing->price) }}</td>
+                        </tr>
+                        <tr>
+                            <th>No. of Bathrooms</th>
+                            <td>{{ $listing->baths }}</td>
+                        </tr>
+                        <tr>
+                            <th>No. of Bedrooms</th>
+                            <td>{{ $listing->beds }}</td>
+                        </tr>
+                        <tr>
+                            <th>Living Area</th>
+                            <td>{{ $listing->living_area }} sqft</td>
+                        </tr>
+                        <tr>
+                            <th>Lot Size</th>
+                            <td>{{ $listing->lot_size }} sqft</td>
+                        </tr>
+                        <tr>
+                            <th>List Date</th>
+                            <td>{{ $listing->list_date }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                @if (auth()->user()->id == $listing->user->id)
+                    <a href="{{ route('listings.edit', $listing) }}" class="btn btn-luxe w-100 mb-3">EDIT LISTING</a>
+                @endif
+                @if (auth()->user()->isAdmin)
+                    <form action="{{ route('listings.destroy', $listing) }}" method="post" class="mb-3">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger w-100">DELETE LISTING</button>
+                    </form>
+                @endif
             </div>
         </div>
-        {{-- </form> --}}
     </div>
+    <script>
+        function setImage(url) {
+            console.log('url', url);
+            $('#main-image').attr("src", url);
+        }
+    </script>
 @endsection
