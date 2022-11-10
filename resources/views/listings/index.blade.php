@@ -40,20 +40,47 @@
             color: white;
             padding: 2px 5px;
             font-size: 12px;
+            border-radius: 5px;
         }
 
         .listing .listing-meta {
             padding: 10px;
         }
+
+        @media screen and (min-width: 500px) {
+            .listings .col-md-6 {
+                padding-right: 0;
+            }
+        }
     </style>
-    <div class="container-fluid">
-        <h1 class="text-center h1-luxe mb-4">COMING SOON LISTINGS</h1>
-        <hr>
+    <div class="container-fluid mb-5">
+        {{-- <h1 class="text-center h1-luxe mb-4">COMING SOON LISTINGS</h1> --}}
+        <form action="" method="get" class="row">
+            <div class="col-md-3 form-group">
+                <input type="number" name="zip" class="form-control" placeholder="ZIP Code"
+                    value="{{ isset($_GET['zip']) ? $_GET['zip'] : '' }}">
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" name="price" class="form-control" placeholder="Price"
+                    value="{{ isset($_GET['price']) ? $_GET['price'] : '' }}">
+            </div>
+            <div class="col-md-3 form-group">
+                <select name="type" class="form-control">
+                    <option value>Property Type</option>
+                    <option value="House">House</option>
+                    <option value="Condo">Condo</option>
+                </select>
+            </div>
+            <div class="col-md-3  form-group">
+                <button class="btn btn-luxe w-100 form-control" type="submit">Search</button>
+            </div>
+        </form>
+        <hr class="mt-0">
         <div class="row">
             <div class="col-md-5">
                 <div id="map"></div>
             </div>
-            <div class="col-md-7 row">
+            <div class="col-md-7 row listings">
                 @foreach ($listings as $item)
                     <div class="col-md-6">
                         <a href="{{ route('listings.show', $item) }}">
@@ -77,7 +104,8 @@
             </div>
         </div>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3&key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&v=weekly"
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3&key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&v=weekly"
         defer></script>
     <script>
         function initMap() {
@@ -125,10 +153,12 @@
                                     "<div class='d-flex align-items-center' style='gap:10px;margin-bottom:6px'>" +
                                     "<img style='width:58px;height:58px;border-radius:50%;' src='" +
                                     el.main_image + "'>" +
-                                    "<h5>" + el.price + "</h5><br>" +
+                                    "<h5>" + el.address + "</h5><br>" +
                                     "</div>" +
-                                    "Phone: " + el.price +
-                                    "<br>Address: " + el.address
+                                    "Price: $" + el.price +
+                                    "<br>Agent Name: " + el.user.profile.fullname +
+                                    "<br>Agent Email: " + el.user.email +
+                                    "<br>Agent Phone: " + el.user.profile.phone
                                 );
                                 infowindow.open(map, marker);
                             }

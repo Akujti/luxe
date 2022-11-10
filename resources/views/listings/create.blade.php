@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="name">Other Images</label>
-                        <input type="file" name="images[]" class="form-control p-1" required multiple>
+                        <input type="file" name="images[]" class="form-control p-1" multiple>
                     </div>
                     <div class="text-center w-100">
                         <input type="submit" class="btn btn-luxe w-100" value="CREATE">

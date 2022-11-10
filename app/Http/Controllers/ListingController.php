@@ -12,9 +12,33 @@ use Illuminate\Support\Str;
 
 class ListingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $listings = Listing::where('list_date', '>', Carbon::parse('Now -7 days'))->get();
+        $filters = [
+            'price' => $request->get('price'),
+            'zip' => $request->get('zip'),
+            'type' => $request->get('type'),
+        ];
+        $listings = Listing::where('list_date', '>', Carbon::parse('Now -7 days'))->where(function ($query) use ($filters) {
+            if ($filters['price']) {
+                $query->where('price', $filters['price']);
+            }
+            if ($filters['zip']) {
+                $query->where('address', 'like', '%' . $filters['zip'] . '%');
+            }
+            if ($filters['type']) {
+                $query->where('type', $filters['type']);
+            }
+        })->with('user', 'user.profile')->get();
+
+        $all = Listing::get();
+        // foreach ($all as $list) {
+        //     $coord = $this->getAddressCoordinates($list->address);
+        //     $list->update([
+        //         'lng' => $coord['lng'],
+        //         'lat' => $coord['lat'],
+        //     ]);
+        // }
         return view('listings.index', compact('listings'));
     }
 
