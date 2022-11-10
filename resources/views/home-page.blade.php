@@ -138,7 +138,7 @@
         }
 
         .email-blasts-box img {
-            height: 250px;
+            height: 320px;
             width: 100%;
             object-fit: cover;
         }
@@ -463,6 +463,13 @@
 
                     .small-box p {
                         font-size: 15px;
+                        margin-top: 10px;
+                    }
+
+                    .box-item .icon {
+                        width: 80px;
+                        height: 80px;
+                        object-fit: cover;
                     }
 
                     .pr-sm-0 {
@@ -540,6 +547,7 @@
                             <p>Resume Builder<br>&nbsp;</p>
                         </div>
                     </div>
+                    <div class="break d-none d-md-block"></div>
 
                     <div class="box-item small-box" onclick="window.location='{{ route('user.diy-templates') }}'">
                         <div>
@@ -547,7 +555,6 @@
                             <p>Online Marketing <br>Designer</p>
                         </div>
                     </div>
-                    <div class="break d-none d-md-block"></div>
                     <div class="box-item small-box" onclick="window.location='/user/files?id=22'">
                         <div>
                             <img class="icon" src="/images/favicon.png" alt="">
@@ -574,7 +581,7 @@
         <div class="row w-100 p-0 m-0">
             <div class="col-12 col-md-4 mb-4 mb-md-auto pl-0 pr-sm-0">
                 <div class="box-item align-items-start box-guides row p-0 m-0"
-                    style="min-height: 400px !important;height:auto !important;">
+                    style="min-height: 424px !important;height:auto !important;">
                     <div class="w-100 row p-0 m-0">
                         <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-3 px-4">
                             <span>Latest Social Media Posts</span>
@@ -610,7 +617,7 @@
             </div>
             <div class="col-12 col-md-4 mb-4 mb-md-auto pl-0 pr-sm-0">
                 <div class="box-item align-items-start box-guides row p-0 m-0"
-                    style="min-height: 400px !important;height:100% !important;">
+                    style="min-height: 424px !important;height:100% !important;">
                     <div class="w-100 row p-0 m-0">
                         <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-3 px-4">
                             <span>Submit Marketing Template Requests</span>
@@ -647,7 +654,7 @@
             </div>
             <div class="col-md-4 pr-0 pl-sm-0">
                 <div class="box-item align-items-start box-guides row p-0 m-0"
-                    style="min-height: 400px !important;height:100% !important;">
+                    style="min-height: 424px !important;height:100% !important;">
                     <div class="w-100 row p-0 m-0">
                         <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-3 px-4">
                             <span>Downloadable Guides</span>
@@ -763,15 +770,16 @@
                 style="font-family: gothicbold;font-size:20px">Click to view our recent email blasts</h3>
             @forelse($email_blasts as $email_blast)
                 <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-auto">
-                    <span class="row m-0 p-0 w-100 justify-content-start pl-2 mb-2"
-                        style="font-family: gothicregular;font-size:15px">Click here to view full design</span>
                     <div class="box-item align-items-start bg-transparent row p-0 m-0">
+                        <p class="pt-2" style="font-size:22px">{{ $email_blast->title }}</p>
                         <div class="w-100">
                             <x-preview-image>
                                 <img src="{{ $email_blast->image_url }}" class="rounded modal-target"
                                     style="object-position: top" alt="">
                             </x-preview-image>
-                            <p class="pt-2">{{ $email_blast->title }}</p>
+
+                            <p class="text-center mt-1" style="font-family: gothicregular;font-size:15px">
+                                Click here to view full design</p>
                             @if ($email_blast->title == 'Monthly Properties')
                                 <div class="modal modal-new" id="monthly_properties">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -832,15 +840,42 @@
                                 <button class="btn-luxe btn-block mb-3" onclick="toggleModal('monthly_properties')">Submit
                                     your request</button>
                             @else
-                                <form action="{{ route('marketing.sendemail') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="form_title" value="Email Blast Design Request">
-                                    <input type="hidden" name="agent_name"
-                                        value="{{ auth()->user()->profile->fullname }}">
-                                    <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
-                                    <input type="hidden" name="email_blast" value="{{ $email_blast->title }}">
-                                    <button class="btn-luxe btn-block mb-3">Submit your request</button>
-                                </form>
+                                <div class="modal modal-new" id="email-blast-modal-{{ $email_blast->id }}">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content bg-white" style="height: 255px !important;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body pb-0">
+                                                <form action="{{ route('marketing.sendemail') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="form_title"
+                                                        value="Email Blast Design Request">
+                                                    <input type="hidden" name="agent_name"
+                                                        value="{{ auth()->user()->profile->fullname }}">
+                                                    <input type="hidden" name="agent_email"
+                                                        value="{{ auth()->user()->email }}">
+                                                    <input type="hidden" name="email_blast"
+                                                        value="{{ $email_blast->title }}">
+                                                    <p>Are you sure you want to submit your request for this email blast?
+                                                    </p>
+                                                    <button class="btn-luxe btn-block mb-0">Submit your request</button>
+                                                </form>
+                                            </div>
+                                            {{-- <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-luxe btn-block mb-3"
+                                    onclick="toggleModal('email-blast-modal-{{ $email_blast->id }}')">Submit
+                                    your request</button>
                             @endif
                         </div>
                     </div>
@@ -958,6 +993,14 @@
             <div>
                 <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
                 <p>Custom Signs<br>&nbsp;</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location = '{{ url('store/product/sign-post-login-realpost') }}'">
+            <div>
+                <img src="/images/blend.svg" class="icon" alt="">
+                <p>Posts</p>
             </div>
         </div>
     </div>
@@ -1236,7 +1279,7 @@
             <div class="box-item small-box" onclick="window.location = '{{ url('user/videos') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/training_videos.svg" class="icon" alt="">
-                    <p>LUXE Online University</p>
+                    <p>LUXE Online Video University</p>
                 </div>
             </div>
 
@@ -1269,11 +1312,11 @@
                 </div>
             </div>
             <!-- <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="inside-box">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p>LUXE Mentors</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="inside-box">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/index-page/mentors.svg" class="icon" alt="">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>LUXE Mentors</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
             <div class="box-item small-box" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/calculator.svg" class="icon" alt="">
@@ -1414,11 +1457,19 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-3">
+    {{-- <div class="col-12 col-md-6 col-lg-3">
         <div class="box-item" onclick="window.location='{{ url('store/signs-posts') }}'">
             <div>
                 <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
                 <p>Signs & Posts</p>
+            </div>
+        </div>
+    </div> --}}
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="box-item" onclick="window.location = '{{ url('store/product/sign-post-login-realpost') }}'">
+            <div>
+                <img src="/images/blend.svg" class="icon" alt="">
+                <p>Posts</p>
             </div>
         </div>
     </div>
@@ -1457,13 +1508,13 @@
         </div>
     </div>
     <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p>Links to other services</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>Links to other services</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> -->
     <div class="col-12 col-md-6 col-lg-3">
         <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
             <div>
@@ -2068,7 +2119,8 @@
     </div>
     <div class="m-auto contact_information">
         <ul>
-            <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg" alt=""> LUXE
+            <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg" alt="">
+                    LUXE
                     Lending</a></li>
             <li><a href="tel: (305) 907 7081" class="text-luxe"><img src="/images/index-page/phone-black-1.svg"
                         alt=""> 305.907.7081</a></li>

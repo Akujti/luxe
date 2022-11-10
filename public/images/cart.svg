@@ -1,0 +1,9 @@
+<svg id="vuesax_linear_bag-2" data-name="vuesax/linear/bag-2" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="bag-2" transform="translate(0 0)">
+    <path id="Vector" d="M0,7.549V6.256A6.364,6.364,0,0,1,5.413.029,6,6,0,0,1,12,6v1.84" transform="translate(10 2.678)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Vector-2" data-name="Vector" d="M7.668,18.667h8c5.36,0,6.32-2.147,6.6-4.76l1-8C23.628,2.653,22.694,0,17,0H6.334C.641,0-.292,2.653.068,5.907l1,8C1.348,16.52,2.308,18.667,7.668,18.667Z" transform="translate(4.332 10.667)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Vector-3" data-name="Vector" d="M.495.5H.506" transform="translate(20.166 15.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"/>
+    <path id="Vector-4" data-name="Vector" d="M.495.5H.506" transform="translate(10.832 15.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"/>
+    <path id="Vector-5" data-name="Vector" d="M0,0H32V32H0Z" fill="none" opacity="0"/>
+  </g>
+</svg>

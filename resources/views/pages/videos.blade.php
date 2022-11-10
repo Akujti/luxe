@@ -85,7 +85,7 @@
         {{-- @include('includes.video_title') --}}
         <div class="row">
             <div class="col-12 title mb-3 text-center">
-                <h1 class="font-weight-bold">LUXE Online University</h1>
+                <h1 class="font-weight-bold">LUXE Online Video University</h1>
             </div>
             @foreach ($videoFolders as $folder)
                 <div class="col-12 col-lg-3 mb-4">

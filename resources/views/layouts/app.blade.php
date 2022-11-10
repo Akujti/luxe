@@ -238,6 +238,8 @@
                             <div class="contact-details">
                                 <div class="right-contactsd">
                                     {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
+                                    <a href="{{ route('luxe_store.cart') }}" data-toggle="tooltip" data-placement="top"
+                                        title="Cart"><img src="/images/cart.svg" alt=""></a>
                                     <a href="{{ route('profile.my_profile') }}" data-toggle="tooltip"
                                         data-placement="top" title="My Profile"><img src="/images/account-icon.svg"
                                             alt=""></a>
@@ -393,7 +395,8 @@
 
                                         <ul class="w-100">
                                             <li><a class="{{ isset($subactive) && $subactive == 'training_videos' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('user/videos') }}">LUXE Online University</a></li>
+                                                    href="{{ url('user/videos') }}">LUXE Online Video University</a>
+                                            </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'events' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/user/events') }}">Events</a>
                                             </li>

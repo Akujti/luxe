@@ -73,10 +73,16 @@
                                             house signs, banners</label>
                                     </div>
                                     <div>
+                                        <input type="checkbox" name="options[]" value="6 - Online Marketing ad spent"
+                                            id="opt6">
+                                        <label for="opt6" class="font-weight-normal">6 - Online Marketing ad
+                                            spent</label>
+                                    </div>
+                                    <div>
                                         <input type="checkbox" name="options[]"
-                                            value="6 - If you have a different marketing idea, please send in full details for us to review & approve"
-                                            id="opt6" onchange="displayTextarea()">
-                                        <label for="opt6" class="font-weight-normal">6 - If you have a different
+                                            value="7 - If you have a different marketing idea, please send in full details for us to review & approve"
+                                            id="opt7" onchange="displayTextarea()">
+                                        <label for="opt7" class="font-weight-normal">7 - If you have a different
                                             marketing idea, please send in
                                             full
                                             details for us to review & approve</label>
@@ -98,7 +104,7 @@
     </div>
     <script>
         function displayTextarea() {
-            var checkbox = $('#opt6')
+            var checkbox = $('#opt7')
             if (checkbox.is(":checked")) {
                 $('#textarea').css('display', 'block')
             } else {
