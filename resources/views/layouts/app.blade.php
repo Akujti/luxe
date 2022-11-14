@@ -361,7 +361,7 @@
 
                                         <ul class="w-100">
                                             <li><a class="{{ isset($subactive) && $subactive == 'canva_marketing_designer' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('canva.marketing.requests') }}">Canva Marketing
+                                                    href="{{ route('canva.marketing.requests') }}">Marketing
                                                     Designer</a></li>
                                             <li><a href="{{ url('https://realtorprint.com/collections/luxe') }}"
                                                     target="_blank">Print
@@ -375,9 +375,9 @@
                                                     & Design Requests</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'resume_builder' ? 'active_submenu' : '' }}"
                                                     href="{{ route('resume') }}">Resume Builder</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'online_marketing_designer' ? 'active_submenu' : '' }}"
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'online_marketing_designer' ? 'active_submenu' : '' }}"
                                                     href="{{ route('user.diy-templates') }}">Online Marketing
-                                                    Designer</a></li>
+                                                    Designer</a></li> --}}
                                             <li><a href="{{ url('user/files?id=22') }}">Logos</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'marketing_menu' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/general/form/other/marketing-menu') }}">Marketing
