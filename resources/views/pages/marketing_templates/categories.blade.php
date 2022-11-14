@@ -2,16 +2,17 @@
 @section('css')
     <style>
         body {
-            /* background: url('{{asset('images/bg-image1.jpg')}}'); */
+            /* background: url('{{ asset('images/bg-image1.jpg') }}'); */
             height: 100vh;
             /* background-size: cover;
-            background-position: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            background-blend-mode: color; */
+                background-position: center;
+                background-color: rgba(0, 0, 0, 0.7);
+                background-blend-mode: color; */
 
         }
 
-        main, #app {
+        main,
+        #app {
             height: 100%;
         }
 
@@ -47,6 +48,7 @@
             text-decoration: none;
             color: #262626;
         }
+
         .box-item {
             background-color: #F7F7F7;
             text-align: center;
@@ -74,13 +76,16 @@
             font-size: 25px;
             font-family: 'gothicregular';
         }
+
         a {
             color: #262626;
         }
+
         .title h1 {
             font-family: 'gothicbold';
             text-align: center;
         }
+
         .title p {
             font-family: 'gothicregular';
             text-align: center;
@@ -94,13 +99,13 @@
             <p>Please select the category which you would like to design.</p>
         </div>
         <div class="row align-items-center">
-            @foreach($marketing_categories as $category)
+            @foreach ($marketing_categories as $category)
                 <div class="col-lg-3 col-md-6 my-2">
                     <div class="box-item">
-                        <a href="{{route('canva.marketing.request', $category)}}">
+                        <a href="{{ route('canva.marketing.request', $category) }}">
                             <div>
-                                <img class="icon" src="{{ asset('storage/'.$category->image) }}" alt="">
-                                <p>{{$category->title}}</p>
+                                <img class="icon" src="{{ asset('storage/' . $category->image) }}" alt="">
+                                <p>{{ $category->title }}</p>
                             </div>
                         </a>
                     </div>
