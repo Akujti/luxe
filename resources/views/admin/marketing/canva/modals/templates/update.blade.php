@@ -8,8 +8,7 @@
                         aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.canva.templates.update') }}" method="POST"
-                    enctype="multipart/form-data">
+                <form action="{{ route('admin.canva.templates.update') }}" method="POST" enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     <input type="hidden" name="id" id="id">
@@ -34,6 +33,22 @@
                             <label class="form-check-label" for="flexCheckChecked">
                                 Set as featured
                             </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="start">Template URL</label>
+                            <div class='input-group'>
+                                <select id="" class="w-100 form-control" name="template_url">
+                                    @foreach ($diy_templates as $diy_category)
+                                        <option value>{{ $diy_category->title }}</option>
+                                        @foreach ($diy_category->templates as $diy_template)
+                                            <option value="{{ $diy_template->url }}">- {{ $diy_template->title }}
+                                            </option>
+                                        @endforeach
+                                    @endforeach
+                                </select>
+                                <i id="template_url"></i>
+                            </div>
                         </div>
 
                         <div class="form-group mb-3">

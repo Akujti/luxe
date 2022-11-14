@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'id' => 'required|exists:video_folders,id',
-            'title' => 'required|unique:video_folders,title',
+            'title' => 'required',
             'parent_id' => 'nullable|exists:video_folders,id'
         ];
     }

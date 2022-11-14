@@ -7,13 +7,14 @@
             text-align: center;
             min-height: 200px;
             margin-bottom: 26px;
-            border-radius: 30px;
             display: flex;
             align-items: end;
             justify-content: center;
             cursor: pointer;
             background-size: cover !important;
             background-color: #262626 !important;
+            box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 9%);
+            border-radius: 5px;
         }
 
         .box-grid-item img {

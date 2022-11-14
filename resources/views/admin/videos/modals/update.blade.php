@@ -4,7 +4,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Folder</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('admin.videos.update') }}" method="POST" enctype="multipart/form-data">
@@ -15,6 +16,12 @@
                         <label for="start">Name*</label>
                         <div class='input-group'>
                             <input type="text" class="w-100 form-control" name="title" id="title" required>
+                        </div>
+                    </div>
+                    <div class="form-group col-12 pl-0">
+                        <label for="start">Image</label>
+                        <div class='input-group'>
+                            <input type="file" class="w-100 form-control p-1" name="image">
                         </div>
                     </div>
             </div>

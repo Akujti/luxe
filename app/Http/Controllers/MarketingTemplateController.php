@@ -27,6 +27,8 @@ use App\Http\Requests\CanvaMarketing\Category\DeleteCategoryRequest;
 use App\Http\Requests\CanvaMarketing\Category\UpdateCategoryRequest;
 use App\Http\Requests\CanvaMarketing\Template\DeleteTemplateRequest;
 use App\Http\Requests\CanvaMarketing\Template\UpdateTemplateRequest;
+use App\Models\DiyTemplate;
+use App\Models\DiyTemplateCategory;
 
 class MarketingTemplateController extends Controller
 {
@@ -52,7 +54,9 @@ class MarketingTemplateController extends Controller
         $last_order_template = MarketingCanvaTemplate::where('category_id', $category->id)->latest()->first()->order ?? 0;
         ++$last_order_template;
 
-        return view('admin.marketing.canva.show', compact('category', 'templates', 'last_order', 'last_order_template'));
+        $diy_templates = DiyTemplateCategory::with('templates')->get();
+
+        return view('admin.marketing.canva.show', compact('category', 'templates', 'last_order', 'last_order_template', 'diy_templates'));
     }
     public function admin_templates($marketing_id, $category_id)
     {
@@ -174,6 +178,7 @@ class MarketingTemplateController extends Controller
 
         $canva_category->title = $req->title;
         $canva_category->url = $req->url;
+        $canva_category->template_url = $req->template_url;
         $canva_category->featured = isset($req->featured) ? 1 : 0;
 
         if ($req->image) {

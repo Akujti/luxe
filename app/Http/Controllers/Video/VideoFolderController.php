@@ -13,6 +13,8 @@ use App\Http\Requests\Video\VideoFolder\AddRequest;
 use App\Http\Requests\Video\VideoFolder\DeleteRequest;
 use App\Http\Requests\Video\VideoFolder\UpdateRequest;
 use App\Http\Requests\Video\Video\AddReviewCommentRequest;
+use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class VideoFolderController extends Controller
 {
@@ -91,6 +93,18 @@ class VideoFolderController extends Controller
     public function update(UpdateRequest $req)
     {
         $row = VideoFolders::find($req->id);
+        if ($req->hasFile('image')) {
+            $file = $req->image;
+            $name = time() . Str::random(10) . '.' . $file->getClientOriginalExtension();
+            $img = Image::make($file);
+
+            $img->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save(public_path('/new-storage/images/marketing/' . $name));
+            $val = 'new-storage/images/marketing/' . $name;
+            $row->image =  $val;
+        }
         $row->fill($req->only('title', 'parent_id'));
         $row->save();
 

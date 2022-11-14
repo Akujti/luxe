@@ -561,8 +561,8 @@
                                 <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
                                     <a href="{{ url('/user/events') }}">Events</a>
                                 </li>
-                                <li class="row m-0 @if (Request::path() == 'user/profile') active selected @endif">
-                                    <a href="{{ route('profile.my_profile') }}">My Profile</a>
+                                <li class="row m-0 @if (Request::path() == 'listings') active selected @endif">
+                                    <a href="{{ route('listings.index') }}">Coming Soon & Off Market Properties</a>
                                 </li>
                                 </ul>
                             </div>

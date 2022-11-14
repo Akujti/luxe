@@ -95,8 +95,7 @@
                                 <tr>
                                     <td>{{ $template->id }}</td>
                                     <td>{{ $template->title }}</td>
-                                    <td><img src="{{ $template->image_url }}" id="img" width="75px"
-                                            height="75px">
+                                    <td><img src="{{ $template->image_url }}" id="img" width="75px" height="75px">
                                     </td>
                                     <td>{{ $template->created_at->diffForHumans() }}</td>
                                     <td>{{ $template->order }}</td>
@@ -157,6 +156,7 @@
             $('.update-template').find('#url').val(template.url);
             $('.update-template').find('#title').val(template.title);
             $('.update-template').find('#order').val(template.order);
+            $('.update-template').find('#template_url').html(template.template_url);
             $('.update-template').find('#featured-template').val(template.featured);
             if (template.featured) {
                 $('.update-template').find('#featured-template').prop('checked', true);

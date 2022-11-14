@@ -91,8 +91,7 @@
                             <div class="listing">
                                 <div class="position-relative">
                                     <img src="{{ asset($item->main_image) }}" alt="" class="w-100">
-                                    <p class="position-absolute created-at">
-                                        {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</p>
+                                    <p class="position-absolute created-at">Coming Soon</p>
                                 </div>
                                 <div class="listing-meta">
                                     <p class="price"><b>${{ number_format($item->price) }}</b></p>

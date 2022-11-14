@@ -6,16 +6,17 @@
     <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
     <style>
         .folder {
-            min-height: 200px;
-            transition: .2s;
-            border: 1px solid rgb(246, 246, 246);
-            padding: 5px;
             text-align: center;
-            position: relative;
+            min-height: 200px;
+            margin-bottom: 26px;
             display: flex;
-            align-items: center;
+            align-items: end;
             justify-content: center;
+            cursor: pointer;
+            background-size: cover !important;
+            background-color: #262626 !important;
             box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 9%);
+            border-radius: 5px;
         }
 
         .video {
@@ -61,6 +62,8 @@
 
         .folder .title {
             font-size: 20px;
+            color: white;
+            padding-bottom: 15px;
         }
 
         .folder:hover {
@@ -89,7 +92,8 @@
             </div>
             @foreach ($videoFolders as $folder)
                 <div class="col-12 col-lg-3 mb-4">
-                    <div class="folder mb-2">
+                    <div class="folder mb-2"
+                        style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset($folder->image) }})">
                         <a href="{{ route('videos') }}?id={{ $folder->id }}">
                             {{-- <img src="/images/files/video-folder.svg" alt="" class="img" width="200px" height="160px"> --}}
                             <p class="title">

@@ -14,7 +14,8 @@ class MarketingCanvaTemplate extends Model
         'title',
         'image',
         'featured',
-        'url'
+        'url',
+        'template_url'
     ];
 
     protected $appends = ['image_url'];
