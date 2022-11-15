@@ -19,6 +19,8 @@ use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
 use App\Mail\OrderCompleted;
 use App\Models\LuxeStore\LuxeStoreProductVariantValues;
 use App\Models\MarketingMenu;
+use App\Models\User;
+use App\Models\UserCheckoutInformation;
 
 class OrderController extends Controller
 {
@@ -48,14 +50,39 @@ class OrderController extends Controller
 
     public function create(AddOrderRequest $req)
     {
+
+
         DB::beginTransaction();
         try {
             $row = new LuxeStoreOrder;
 
-            $row->user_id = auth()->id();
+            $user_email = User::whereEmail($req->billing['email'])->first();
+            $row->user_id = auth()->id() ? auth()->id() : ($user_email ? $user_email->id : null);
             $row->status = 'Paid';
 
             $row->save();
+
+            if (auth()->id())
+                UserCheckoutInformation::updateOrCreate([
+                    'user_id' => auth()->id()
+                ], [
+                    "agent_name" => $req->billing['agent_name'],
+                    "agent_surname" => $req->billing['agent_surname'],
+                    "street_address" => $req->billing['street_address'],
+                    "city" => $req->billing['city'],
+                    "state" => $req->billing['state'],
+                    "zip" => $req->billing['zip_code'],
+                    "phone" => $req->billing['phone'],
+                    "email" => $req->billing['email'],
+                    "shipping_agent_name" => $req->shipping['agent_name'],
+                    "shipping_agent_surname" => $req->shipping['agent_surname'],
+                    "shipping_street_address" => $req->shipping['street_address'],
+                    "shipping_city" => $req->shipping['city'],
+                    "shipping_state" => $req->shipping['state'],
+                    "shipping_zip" => $req->shipping['zip_code'],
+                    "shipping_phone" => $req->shipping['phone'],
+                    "shipping_email" => $req->shipping['email']
+                ]);
 
             $sub_total = 0;
             $total_price = 0;

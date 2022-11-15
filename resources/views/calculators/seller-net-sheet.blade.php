@@ -231,12 +231,14 @@
                                 <th id="estimated-net" style="font-size: 23px;">$ (-)</th>
                             </tr>
                             <tr>
-                                <td class="w-100" colspan="2" style="font-size: 10px">BRENT E. BARIS, P.A. ASSUMES NO
-                                    LIABILITY FOR ANY ERRORS
-                                    AND/OR OMISSIONS FOR INFORMATION CONTAINED HEREIN. This estimated net proceeds to seller
-                                    is based on the seller paying the usual and customary closing costs per the FAR/BAR
-                                    contracts in Central and North Florida. Seller acknowledges that this is an ESTIMATE
-                                    ONLY and NOT A GUARANTEE.</td>
+                                <td class="w-100" colspan="2" style="font-size: 10px">LUXE PROPERTIES, LLC ASSUMES NO
+                                    LIABILITY FOR ANY ERRORS AND/OR OMISSIONS FOR INFORMATION CONTAINED HEREIN. This
+                                    estimated net proceeds to seller is based on the seller paying the usual and customary
+                                    closing costs per the FAR/BAR contracts in Central and North Florida. Seller
+                                    acknowledges that this is an ESTIMATE ONLY and NOT A GUARANTEE.
+                                    <br>
+                                    Best regards!
+                                </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>

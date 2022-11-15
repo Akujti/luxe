@@ -398,7 +398,7 @@
                                                     href="{{ url('user/videos') }}">LUXE Online Video University</a>
                                             </li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'events' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/user/events') }}">Events</a>
+                                                    href="{{ url('/user/events') }}">Training & Events Calendar</a>
                                             </li>
                                             <!-- <li><a href="{{ url('user/links') }}">Link to other services</a></li> -->
                                             <li><a class="{{ isset($subactive) && $subactive == 'downloadable_guides' ? 'active_submenu' : '' }}"

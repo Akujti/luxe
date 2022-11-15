@@ -87,4 +87,9 @@ class User extends Authenticatable
         }
         return 'https://ui-avatars.com/api/?name=' . $this->email . '&size=256&format=png';
     }
+
+    public function checkout_info()
+    {
+        return $this->hasOne(UserCheckoutInformation::class)->withDefault();
+    }
 }

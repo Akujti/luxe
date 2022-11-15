@@ -40,17 +40,21 @@
                 <div class="col-12 col-md-12 col-lg-8">
                     <form action="{{ route('luxe_store.order.create') }}" method="POST" class="row m-0 p-0" id="form">
                         @csrf
-
+                        <input type="submit" value="SUBMIT">
                         <h5 class="col-12 mr-4 pl-3 mb-3">Billing Details</h5>
-
+                        @php
+                            $info = auth()->user() ? auth()->user()->checkout_info : new \App\Models\UserCheckoutInformation();
+                        @endphp
                         <div class="row p-0 m-0">
                             <div class="col-6 form-group">
                                 <label for="">Agent name*</label>
-                                <input type="text" name="billing[agent_name]" class="form-control" required>
+                                <input type="text" name="billing[agent_name]" class="form-control" required
+                                    value="{{ $info->agent_name }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Agent surname*</label>
-                                <input type="text" name="billing[agent_surname]" class="form-control" required>
+                                <input type="text" name="billing[agent_surname]" class="form-control" required
+                                    value="{{ $info->agent_surname }}">
                             </div>
                             <div class="col-6 form-group d-none">
                                 <label for="">Company name*</label>
@@ -314,27 +318,33 @@
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Street Address*</label>
-                                <input type="text" name="billing[street_address]" class="form-control" required>
+                                <input type="text" name="billing[street_address]" class="form-control" required
+                                    value="{{ $info->street_address }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">City*</label>
-                                <input type="text" name="billing[city]" class="form-control" required>
+                                <input type="text" name="billing[city]" class="form-control" required
+                                    value="{{ $info->city }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">State</label>
-                                <input type="text" name="billing[state]" class="form-control" required>
+                                <input type="text" name="billing[state]" class="form-control" required
+                                    value="{{ $info->state }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Zip code*</label>
-                                <input type="text" name="billing[zip_code]" class="form-control" required>
+                                <input type="text" name="billing[zip_code]" class="form-control" required
+                                    value="{{ $info->zip }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Phone*</label>
-                                <input type="text" name="billing[phone]" class="form-control" required>
+                                <input type="text" name="billing[phone]" class="form-control" required
+                                    value="{{ $info->phone }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Email*</label>
-                                <input type="text" name="billing[email]" class="form-control" required>
+                                <input type="text" name="billing[email]" class="form-control" required
+                                    value="{{ $info->email }}">
                             </div>
                             <h5 class="pl-3 w-100">Additional information</h5>
                             <div class="col-12 form-group">
@@ -353,18 +363,18 @@
                             <h5 class="col-12 mb-3">Shipping Address</h5>
                             <div class="col-6 form-group">
                                 <label for="">Agent name*</label>
-                                <input type="text" name="shipping[agent_name]" class="form-control" value="0"
-                                    required>
+                                <input type="text" name="shipping[agent_name]" class="form-control" required
+                                    value="{{ $info->shipping_agent_name ? $info->shipping_agent_name : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Agent surname*</label>
-                                <input type="text" name="shipping[agent_surname]" class="form-control" value="0"
-                                    required>
+                                <input type="text" name="shipping[agent_surname]" class="form-control" required
+                                    value="{{ $info->shipping_agent_surname ? $info->shipping_agent_surname : '-' }}">
                             </div>
                             <div class="col-6 form-group d-none">
                                 <label for="">Company name*</label>
-                                <input type="text" name="shipping[company_name]" class="form-control" value="0"
-                                    required value="LUXE">
+                                <input type="text" name="shipping[company_name]" class="form-control" required
+                                    value="LUXE">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Country*</label>
@@ -624,33 +634,33 @@
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Street Address*</label>
-                                <input type="text" name="shipping[street_address]" class="form-control"
-                                    value="0" required>
+                                <input type="text" name="shipping[street_address]" class="form-control" required
+                                    value="{{ $info->shipping_street_address ? $info->shipping_street_address : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">City*</label>
-                                <input type="text" name="shipping[city]" class="form-control" value="0"
-                                    required>
+                                <input type="text" name="shipping[city]" class="form-control" required
+                                    value="{{ $info->shipping_city ? $info->shipping_city : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">State</label>
-                                <input type="text" name="shipping[state]" class="form-control" value="0"
-                                    required>
+                                <input type="text" name="shipping[state]" class="form-control" required
+                                    value="{{ $info->shipping_state ? $info->shipping_state : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Zip code*</label>
-                                <input type="text" name="shipping[zip_code]" class="form-control" value="0"
-                                    required>
+                                <input type="text" name="shipping[zip_code]" class="form-control" required
+                                    value="{{ $info->shipping_zip ? $info->shipping_zip : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Phone*</label>
-                                <input type="text" name="shipping[phone]" class="form-control" value="0"
-                                    required>
+                                <input type="text" name="shipping[phone]" class="form-control" required
+                                    value="{{ $info->shipping_phone ? $info->shipping_phone : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Email*</label>
-                                <input type="text" name="shipping[email]" class="form-control" value="0"
-                                    required>
+                                <input type="text" name="shipping[email]" class="form-control" required
+                                    value="{{ $info->shipping_email ? $info->shipping_email : '-' }}">
                             </div>
                             <h5 class="pl-3">Additional information</h5>
                             <div class="col-12 form-group">
