@@ -14,7 +14,8 @@
             border-radius: 5px;
             padding: 10px;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 20px !important;
+            margin: auto 0px auto 0px;
         }
 
         .form .option-title {
@@ -73,6 +74,58 @@
                             </div>
                             <div class="form-group col-12 form-options">
                                 <h4>Custom & Copyright Services</h4>
+                                <div class="form-check">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="option row">
+                                                <div class="col-md-9 pl-0">
+                                                    <div class="option-title">
+                                                        Brand Package
+                                                    </div>
+                                                    <div class="option-desc">
+                                                        Includes custom logo, letterhead, & 4 Instagram Templates
+                                                    </div>
+                                                    <div class="option-price">
+                                                        $150
+                                                    </div>
+
+                                                    <div class="mt-4">
+                                                        <button class="btn btn-luxe">ORDER NOW</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 p-0">
+                                                    <img src="https://static1.housesforsale.com/assets/cover/housesforsalebg.webp"
+                                                        alt="" class="w-100 rounded"
+                                                        style="height: 200px;object-fit:cover;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="option row">
+                                                <div class="col-md-9 pl-0">
+                                                    <div class="option-title">
+                                                        Brand Package
+                                                    </div>
+                                                    <div class="option-desc">
+                                                        Includes custom logo, letterhead, & 4 Instagram Templates
+                                                    </div>
+                                                    <div class="option-price">
+                                                        $150
+                                                    </div>
+
+                                                    <div class="mt-4">
+                                                        <button class="btn btn-luxe">ORDER NOW</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 p-0">
+                                                    <img src="https://static1.housesforsale.com/assets/cover/housesforsalebg.webp"
+                                                        alt="" class="w-100 rounded"
+                                                        style="height: 200px;object-fit:cover;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" required name="option" id="opt1"
                                         data-price="150" value="Brand Package">
@@ -139,8 +192,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option" id="opt4"
-                                        data-price="35" value="Write Blog Post">
+                                    <input class="form-check-input" type="radio" required name="option"
+                                        id="opt4" data-price="35" value="Write Blog Post">
                                     <label class="form-check-label" for="opt4">
                                         <div class="row option">
                                             <div class="col-md-6 option-title">
@@ -156,8 +209,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option" id="opt5"
-                                        data-price="100" value="MLS Input">
+                                    <input class="form-check-input" type="radio" required name="option"
+                                        id="opt5" data-price="100" value="MLS Input">
                                     <label class="form-check-label" for="opt5">
                                         <div class="row option">
                                             <div class="col-md-6 option-title">
