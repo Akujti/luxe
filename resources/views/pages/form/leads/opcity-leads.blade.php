@@ -35,10 +35,26 @@
                                     <option value="Part Time">Part Time</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 <label for="name">How long have you been in real estate?</label>
                                 <input id="years" type="number" name="how_long_have_you_been_in_real_estate"
                                     class="form-control" required value="0" min="0" max="50">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Are you on the Zillow Team? </label>
+                                <select name="are_you_on_the_zillow_team" class="form-control" required id="">
+                                    <option value="-">-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="name">Are you on the CINC Team? </label>
+                                <select name="are_you_on_the_CINC_team" class="form-control" required id="">
+                                    <option value="-">-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
                             </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">

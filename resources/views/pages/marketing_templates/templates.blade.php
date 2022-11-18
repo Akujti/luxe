@@ -46,7 +46,7 @@
                                 <img src="{{ asset('storage/' . $template->image) }}" alt="No image found" width="100%"
                                     height="303px" onerror="this.src='{{ asset('images/no-image.png') }}';">
                                 <div class="template-details d-flex justify-content-between align-items-center">
-                                    <p>{{ $template->title }}</p>
+                                    <p>Template {{ $loop->iteration }}</p>
                                     <div>
                                         {{-- <span><img src="/images/index-page/download-icon.svg" alt=""></span> --}}
                                         <span><img src="/images/index-page/canva.svg" width="25px"></span>
