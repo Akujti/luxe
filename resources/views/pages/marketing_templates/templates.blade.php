@@ -42,7 +42,7 @@
                 @foreach ($category->templates as $template)
                     <div class="col d-flex justify-content-center">
                         <div class="template-box">
-                            <a href="{{ $template->url }}" target="_blank">
+                            <a href="{{ $template->url }}" target="_blank" data-template-id="{{ $template->id }}">
                                 <img src="{{ asset('storage/' . $template->image) }}" alt="No image found" width="100%"
                                     height="303px" onerror="this.src='{{ asset('images/no-image.png') }}';">
                                 <div class="template-details d-flex justify-content-between align-items-center">
