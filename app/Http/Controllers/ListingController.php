@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\User;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -42,6 +43,7 @@ class ListingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'agent_email' => 'nullable|exists:users,email',
             'type' => 'required',
             'address' => 'required',
             'price' => 'required',
@@ -69,10 +71,11 @@ class ListingController extends Controller
             }
             Listing::create(
                 [
-                    'user_id' => auth()->user()->id,
+                    'user_id' => $request->agent_email ? User::whereEmail($request->agent_email)->first()->id : auth()->user()->id,
                     'type' => $request->type,
                     'address' => $request->address,
                     'price' => $request->price,
+                    'rental' => boolval($request->rental),
                     'baths' => $request->baths,
                     'beds' => $request->beds,
                     'living_area' => $request->living_area,
@@ -108,12 +111,17 @@ class ListingController extends Controller
 
     public function edit(Request $request, Listing $listing)
     {
-        return view('listings.edit', compact('listing'));
+        if (auth()->user()->id == $listing->user->id || auth()->user()->isAdmin) {
+            return view('listings.edit', compact('listing'));
+        }
+        return redirect()->back()->with('error', 'You don\'t have access');
     }
 
     public function update(Request $request, Listing $listing)
     {
+
         $request->validate([
+            'agent_email' => 'nullable|exists:users,email',
             'type' => 'required',
             'address' => 'required',
             'price' => 'required',
@@ -141,9 +149,11 @@ class ListingController extends Controller
             }
             $listing->update(
                 [
+                    'user_id' => $request->agent_email ? User::whereEmail($request->agent_email)->first()->id : auth()->user()->id,
                     'type' => $request->type,
                     'address' => $request->address,
                     'price' => $request->price,
+                    'rental' => boolval($request->rental),
                     'baths' => $request->baths,
                     'beds' => $request->beds,
                     'living_area' => $request->living_area,

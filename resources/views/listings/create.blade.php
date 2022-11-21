@@ -9,6 +9,12 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    @if (auth()->user()->isAdmin)
+                        <div class="form-group col-md-12">
+                            <label for="name">Agent</label>
+                            <input type="text" name="agent_email" class="form-control" placeholder="Enter agent's email">
+                        </div>
+                    @endif
                     <div class="form-group col-md-6">
                         <label for="name">Type</label>
                         <select name="type" required class="form-control">
@@ -28,6 +34,11 @@
                     <div class="form-group col-md-6">
                         <label for="name">Price</label>
                         <input type="number" name="price" class="form-control" required value="0">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rentalCheck" name="rental"
+                                style="margin-top: 0.4rem;" />
+                            <span class="form-check-label" for="rentalCheck">Is rental?</span>
+                        </div>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="name">Baths</label>

@@ -23,6 +23,7 @@ class Listing extends Model
         "list_date",
         "lng",
         "lat",
+        "rental"
     ];
 
     public function user()

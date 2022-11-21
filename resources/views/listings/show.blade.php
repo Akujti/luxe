@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <th>Price</th>
-                            <td>${{ number_format($listing->price) }}</td>
+                            <td>${{ number_format($listing->price) }}{{ $listing->rental ? '/mo' : '' }}</td>
                         </tr>
                         <tr>
                             <th>No. of Bathrooms</th>
@@ -75,10 +75,8 @@
                         </tr>
                     </tbody>
                 </table>
-                @if (auth()->user()->id == $listing->user->id)
+                @if (auth()->user()->id == $listing->user->id || auth()->user()->isAdmin)
                     <a href="{{ route('listings.edit', $listing) }}" class="btn btn-luxe w-100 mb-3">EDIT LISTING</a>
-                @endif
-                @if (auth()->user()->isAdmin)
                     <form action="{{ route('listings.destroy', $listing) }}" method="post" class="mb-3">
                         @csrf
                         @method('DELETE')

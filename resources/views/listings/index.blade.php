@@ -94,7 +94,9 @@
                                     <p class="position-absolute created-at">Coming Soon</p>
                                 </div>
                                 <div class="listing-meta">
-                                    <p class="price"><b>${{ number_format($item->price) }}</b></p>
+                                    <p class="price">
+                                        <b>${{ number_format($item->price) }}{{ $item->rental ? '/mo' : '' }}</b>
+                                    </p>
                                     <p class="info"><b>{{ $item->beds }}</b> bd | <b>{{ $item->baths }}</b> ba |
                                         <b>{{ $item->living_area }}</b> sqft
                                     </p>

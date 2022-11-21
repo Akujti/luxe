@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'isAdmin', 'wp_id', 'role', 'optin', 'showing_agent', 'app_link'
+        'email', 'password', 'wp_id', 'role', 'optin', 'showing_agent', 'app_link'
     ];
 
     protected $appends = ['avatar'];
@@ -91,5 +91,10 @@ class User extends Authenticatable
     public function checkout_info()
     {
         return $this->hasOne(UserCheckoutInformation::class)->withDefault();
+    }
+
+    public function getIsAdminAttribute($value)
+    {
+        return  $value || $this->role == 'admin';
     }
 }
