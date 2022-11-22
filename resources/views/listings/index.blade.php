@@ -88,7 +88,7 @@
                 <div id="map"></div>
                 <a href="{{ route('listings.create') }}" class="btn btn-luxe w-100 mt-3">New Listing</a>
             </div>
-            <div class="col-md-7 d-md-flex listings">
+            <div class="col-md-7 row listings">
                 @forelse ($listings as $item)
                     <div class="col-md-6">
                         <a href="{{ route('listings.show', $item) }}">
