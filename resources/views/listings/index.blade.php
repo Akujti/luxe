@@ -2,11 +2,9 @@
 @section('content')
     <style>
         #map {
-            height: 500px;
+            height: 400px;
             box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
             border-radius: 15px;
-            position: sticky !important;
-            top: 150px;
         }
 
         .listing {
@@ -24,7 +22,7 @@
 
         .listing img {
             width: 100%;
-            height: 120px;
+            height: 200px;
             object-fit: cover;
         }
 
@@ -50,6 +48,12 @@
         @media screen and (min-width: 500px) {
             .listings .col-md-6 {
                 padding-right: 0;
+            }
+
+            #map {
+                height: 500px;
+                position: sticky !important;
+                top: 150px;
             }
         }
     </style>
@@ -80,7 +84,7 @@
         </form>
         <hr class="mt-0">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5 mb-3">
                 <div id="map"></div>
                 <a href="{{ route('listings.create') }}" class="btn btn-luxe w-100 mt-3">New Listing</a>
             </div>
@@ -100,7 +104,11 @@
                                     <p class="info"><b>{{ $item->beds }}</b> bd | <b>{{ $item->baths }}</b> ba |
                                         <b>{{ $item->living_area }}</b> sqft
                                     </p>
-                                    <p><b>{{ $item->type }}</b> for sale</p>
+                                    @if ($item->type == 'Rental')
+                                        <p><b>{{ $item->type }}</b></p>
+                                    @else
+                                        <p><b>{{ $item->type }}</b> for sale</p>
+                                    @endif
                                     <p class="address">{{ $item->address }}</p>
                                 </div>
                             </div>
@@ -118,8 +126,8 @@
     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 6.8,
-                center: new google.maps.LatLng(27.751360, -81.255580),
+                zoom: 10,
+                center: new google.maps.LatLng(25.7617, -80.3018),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
 
