@@ -45,6 +45,18 @@
             padding: 10px;
         }
 
+        @media screen and (min-width: 1280px) {
+            .listing img {
+                height: 200px;
+            }
+        }
+
+        @media screen and (min-width: 1700px) {
+            .listing img {
+                height: 270px;
+            }
+        }
+
         @media screen and (min-width: 500px) {
             .listings .col-md-6 {
                 padding-right: 0;
