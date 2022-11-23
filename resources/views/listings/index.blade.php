@@ -47,13 +47,19 @@
 
         @media screen and (min-width: 1280px) {
             .listing img {
-                height: 200px;
+                height: 250px;
+            }
+        }
+
+        @media screen and (min-width: 1500px) {
+            .listing img {
+                height: 290px;
             }
         }
 
         @media screen and (min-width: 1700px) {
             .listing img {
-                height: 270px;
+                height: 400px;
             }
         }
 
