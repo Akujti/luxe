@@ -95,6 +95,6 @@ class User extends Authenticatable
 
     public function getIsAdminAttribute($value)
     {
-        return  $value || $this->role == 'admin';
+        return ($value || $this->role == 'admin') ? 1 : 0;
     }
 }
