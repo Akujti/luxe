@@ -375,13 +375,13 @@
                 } else {
                     $('#event_attend_form_wrapper').css('display', 'block');
                 }
-                if (event.extendedProps.rsvp != null || {{ $isAdmin }}) {
+                if (event.extendedProps.rsvp != null || {{ $isAdmin ? true : false }}) {
                     $('.single-event').find('#rsvp').attr('href', event.extendedProps.rsvp);
                     $('#rsvp_group').css('display', 'block');
                 } else {
                     $('#rsvp_group').css('display', 'none');
                 }
-                if (event.extendedProps.zoom != null || {{ $isAdmin }}) {
+                if (event.extendedProps.zoom != null || {{ $isAdmin ? true : false }}) {
                     $('.single-event').find('#zoom').attr('href', event.extendedProps.zoom);
                     $('#zoom_group').css('display', 'block');
                 } else {
