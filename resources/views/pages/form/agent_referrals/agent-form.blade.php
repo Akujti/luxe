@@ -1,20 +1,14 @@
-@extends('layouts.app',['active' => 'office_staff_directory', 'subactive' => 'new_agents_referrals'])
+@extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'new_agents_referrals'])
 @section('content')
     <div class="{{ auth()->check() ? 'container-fluid' : 'container mt-4' }}">
         <div class="row justify-content-center">
             <div class="col-md-12">
-
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Agent Form</h1>
                     </div>
                     <input type="hidden" name="form_title" value="Agent Form">
-                    <!-- <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
-                                                            <input type="hidden" name="to_email[]" value="support@luxeknows.com">
-                                                            <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
-                                                            <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                            <input type="hidden" name="to_email[]" value="monica@luxeknows.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -40,7 +34,6 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Personal Email:</label>
-                                {{-- value="{{auth()->user()->email}}" --}}
                                 <input type="text" name="agent_email" class="form-control"
                                     value="{{ auth()->check() ? auth()->user()->email : '' }}" required>
                             </div>
@@ -60,14 +53,31 @@
                                 <label for="name">Emergency Contact Phone:</label>
                                 <input type="text" name="emergency_contact_phone" class="form-control" required>
                             </div>
-                            <div class="form-group col-md-12">
-                                <p class="text-center">The standard LUXE Email format is your firstname@luxeknows.com<br>
-                                    Since we are over 300 agents it is possible that it may not be available. Please provide
-                                    three options below in the
-                                    order of preference to be used should the standard format not be available. Or make a
-                                    note below if you would not like
-                                    the standard email format and have a special request.</p>
+                            <div class="form-group col-md-6">
+                                <label for="name">Do you have a preferred real estate email you want to use? If you do
+                                    not have one we can make you one</label>
+                                <select name="do_you_have_a_preferred_real_estate_email_you_want_to_use "
+                                    class="form-control" onchange="preferredEmail(this)">
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
                             </div>
+                            <div class="form-group col-md-6 d-none" id="preferred-email">
+                                <br>
+                                <label>Please provide your preferred email so we can add you to our email
+                                    list</label>
+                                <input type="text" name="preferred_email" class="form-control">
+                            </div>
+                            <div class="form-group col-md-12 d-none" id="info-paragraph">
+                                <p class="text-center">If you would like a LUXE email, the standard LUXE Email format is
+                                    your firstname@luxeknows.com<br>
+                                    Since we are over 300 agents it is possible that it may not be available. Please provide
+                                    three options below in the order of preference to be used should the standard format not
+                                    be available. Or make a note below if you would not like the standard email format and
+                                    have a special request.</p>
+                            </div>
+                            <div class="col-12"></div>
                             <div class="form-group col-md-4">
                                 <label for="name">Option A</label>
                                 <input type="text" name="option_a" class="form-control" required>
@@ -130,10 +140,19 @@
                             </div>
                         </div>
                     </div>
-
-
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        function preferredEmail(elem) {
+            let value = $(elem).val();
+            if (value === 'Yes') {
+                $('#preferred-email').removeClass('d-none')
+            } else if (value === 'No') {
+                $('#info-paragraph').removeClass('d-none')
+                $('#preferred-email').addClass('d-none')
+            }
+        }
+    </script>
 @endsection
