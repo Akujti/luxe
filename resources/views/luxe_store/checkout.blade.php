@@ -40,7 +40,6 @@
                 <div class="col-12 col-md-12 col-lg-8">
                     <form action="{{ route('luxe_store.order.create') }}" method="POST" class="row m-0 p-0" id="form">
                         @csrf
-                        <input type="submit" value="SUBMIT">
                         <h5 class="col-12 mr-4 pl-3 mb-3">Billing Details</h5>
                         @php
                             $info = auth()->user() ? auth()->user()->checkout_info : new \App\Models\UserCheckoutInformation();
