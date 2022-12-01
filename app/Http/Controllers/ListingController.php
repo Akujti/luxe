@@ -21,7 +21,7 @@ class ListingController extends Controller
             'zip' => $request->get('zip'),
             'type' => $request->get('type'),
         ];
-        $listings = Listing::where('list_date', '>', Carbon::parse('Now -7 days'))->where(function ($query) use ($filters) {
+        $listings = Listing::where(function ($query) use ($filters) {
             if ($filters['price']) {
                 $query->where('price', $filters['price']);
             }
