@@ -559,10 +559,10 @@
                                     </ul>
                                 </li>
                                 <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
-                                    <a href="{{ url('/user/events') }}">Events</a>
+                                    <a href="{{ url('/user/events') }}">Live Classes & Events</a>
                                 </li>
                                 <li class="row m-0 @if (Request::path() == 'listings') active selected @endif">
-                                    <a href="{{ route('listings.index') }}">Coming Soon & Off Market Properties</a>
+                                    <a href="{{ route('listings.index') }}">Coming Soon & Off Market</a>
                                 </li>
                                 </ul>
                             </div>
