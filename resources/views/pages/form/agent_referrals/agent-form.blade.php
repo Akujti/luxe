@@ -77,18 +77,19 @@
                                     be available. Or make a note below if you would not like the standard email format and
                                     have a special request.</p>
                             </div>
-                            <div class="col-12"></div>
-                            <div class="form-group col-md-4">
-                                <label for="name">Option A</label>
-                                <input type="text" name="option_a" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="name">Option B</label>
-                                <input type="text" name="option_b" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="name">Option C</label>
-                                <input type="text" name="option_c" class="form-control" required>
+                            <div id="email-options" class="col-12 row d-none">
+                                <div class="form-group col-md-4">
+                                    <label for="name">Option A</label>
+                                    <input type="text" name="option_a" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="name">Option B</label>
+                                    <input type="text" name="option_b" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="name">Option C</label>
+                                    <input type="text" name="option_c" class="form-control">
+                                </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="name">Note:</label>
@@ -149,9 +150,16 @@
             let value = $(elem).val();
             if (value === 'Yes') {
                 $('#preferred-email').removeClass('d-none')
+                $('#preferred-email input').attr("required", true);
+                $('#email-options').addClass('d-none')
+                $('#info-paragraph').addClass('d-none')
+                $('#email-options input').attr("required", false);
             } else if (value === 'No') {
                 $('#info-paragraph').removeClass('d-none')
                 $('#preferred-email').addClass('d-none')
+                $('#preferred-email input').attr("required", false);
+                $('#email-options').removeClass('d-none')
+                $('#email-options input').attr("required", true);
             }
         }
     </script>
