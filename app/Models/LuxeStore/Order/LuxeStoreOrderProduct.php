@@ -13,7 +13,9 @@ class LuxeStoreOrderProduct extends Model
     protected $fillable = ['product_id', 'price', 'variant_name', 'variant_value', 'quantity'];
 
     protected $with = ['product'];
-    public function product() {
+
+    public function product()
+    {
         return $this->belongsTo(LuxeStoreProduct::class, 'product_id');
     }
 }

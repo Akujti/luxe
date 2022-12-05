@@ -24,10 +24,42 @@ use App\Models\UserCheckoutInformation;
 
 class OrderController extends Controller
 {
-    public function admin_index()
+    public function admin_index(Request $request)
     {
-        $orders = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->latest()->paginate(20);
-        return view('admin.orders.index', compact('orders'));
+        $filters = [
+            'name' => $request->get('name'),
+            'status' => $request->get('status'),
+            'date' => $request->get('date'),
+            'price' => $request->get('price'),
+            'product' => $request->get('product'),
+        ];
+        $products = LuxeStoreProduct::orderBy('name')->get();
+        $orders = LuxeStoreOrder::where(function ($query) use ($filters) {
+            if ($filters['status']) {
+                $query->where('status', $filters['status']);
+            }
+            if ($filters['date']) {
+                $query->whereDate('created_at', '=', $filters['date']);
+            }
+        })->with(['products', 'billing_details', 'payment', 'inputs', 'user'])
+            ->when($filters['name'], function ($q, $name) {
+                $q->whereHas('user.profile', function ($q) use ($name) {
+                    $q->where('fullname', 'like', $name . '%');
+                });
+            })
+            ->when($filters['price'], function ($q, $price) {
+                $q->whereHas('payment', function ($q) use ($price) {
+                    $q->where('total_price', $price);
+                });
+            })
+            ->when($filters['product'], function ($q, $product) {
+                $q->whereHas('products', function ($q) use ($product) {
+                    $q->whereHas('product', function ($q) use ($product) {
+                        $q->where('id', $product);
+                    });
+                });
+            })->latest()->paginate(20);
+        return view('admin.orders.index', compact('orders', 'products'));
     }
 
     public function show($id)

@@ -59,16 +59,46 @@
                 width: 473px !important;
             }
         }
-
     </style>
 @endsection
 @section('content')
     <div class="container-fluid">
-        <div class="row m-0">
+        <div class="m-0">
             <div class="w-100 d-flex justify-content-between align-items-center mb-5">
                 <h5 class="h5-luxe">Orders</h5>
             </div>
-
+            <form action="" method="get" class="row">
+                <div class="col-md-2 form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Agent Name"
+                        value="{{ isset($_GET['name']) ? $_GET['name'] : '' }}">
+                </div>
+                <div class="col-md-2 form-group">
+                    <input type="text" name="price" class="form-control" placeholder="Price"
+                        value="{{ isset($_GET['price']) ? $_GET['price'] : '' }}">
+                </div>
+                <div class="col-md-2 form-group">
+                    <input type="date" name="date" class="form-control" placeholder="Date"
+                        value="{{ isset($_GET['date']) ? $_GET['date'] : '' }}">
+                </div>
+                <div class="col-md-2 form-group">
+                    <select name="product" class="form-control">
+                        <option value>Product</option>
+                        @foreach ($products as $product)
+                            <option value="{{ $product->id }}">{{ $product->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-2 form-group">
+                    <select name="status" class="form-control">
+                        <option value>Status</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+                <div class="col-md-2 form-group">
+                    <button class="btn btn-luxe w-100 form-control" type="submit">Search</button>
+                </div>
+            </form>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -87,10 +117,11 @@
                         @foreach ($orders as $order)
                             <tr id="tr-row">
                                 <td id="td-row">#{{ $order->id }}</td>
-                                <td id="td-row">{{ @$order->user->profile ? @$order->user->profile->fullname : '' }} </td>
+                                <td id="td-row">{{ @$order->user->profile ? @$order->user->profile->fullname : '' }}
+                                </td>
                                 <td id="td-row">{{ $order->products->count() }} </td>
                                 <td id="td-row">${{ $order->payment->total_price }}</td>
-                                <td id="td-row">{{ $order->created_at->diffForHumans() }}</td>
+                                <td id="td-row">{{ $order->created_at->setTimezone('America/New_York') }}</td>
                                 <td id="td-row">{{ $order->status }}</td>
                                 <td id="td-row"><a class="btn btn-link"
                                         href="{{ route('admin.orders.show', $order->id) }}">View</a></td>
