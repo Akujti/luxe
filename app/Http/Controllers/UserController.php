@@ -311,13 +311,13 @@ class UserController extends Controller
 
     public function delete(DeleteRequest $req)
     {
-        try {
-            $row = User::find($req->id);
-            $row->delete();
-        } catch (Exception $e) {
-            Log::error($e);
-            return back()->with('error', 'Something went wrong! User has not been deleted');
-        }
+        // try {
+        $row = User::find($req->id);
+        $row->delete();
+        // } catch (Exception $e) {
+        //     Log::error($e);
+        //     return back()->with('error', 'Something went wrong! User has not been deleted');
+        // }
 
         return back()->with('message', 'Successfully Deleted');
     }
