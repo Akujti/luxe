@@ -315,6 +315,7 @@ class UserController extends Controller
             $row = User::find($req->id);
             $row->delete();
         } catch (Exception $e) {
+            Log::error($e);
             return back()->with('error', 'Something went wrong! User has not been deleted');
         }
 
