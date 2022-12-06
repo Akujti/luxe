@@ -1144,16 +1144,14 @@
     <div class="col-12 title mb-3">
         <h1>Email & Addendum Verbiage Builder</h1>
     </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location = '{{ url('user/written-email-templates') }}'">
+    <div class="grid grid-layout-two">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/written-email-templates') }}'">
             <div>
                 <img src="/images/index-page/email_templates.svg" class="icon" alt="">
                 <p>Email Templates</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location = ('{{ route('addendum-templates.index') }}')">
+        <div class="box-item box-item-padding" onclick="window.location = ('{{ route('addendum-templates.index') }}')">
             <div>
                 <img src="/images/index-page/email_templates.svg" class="icon" alt="">
                 <p>Addendum Templates</p>
