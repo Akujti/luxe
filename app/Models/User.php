@@ -7,11 +7,12 @@ use App\Models\TemplateSubmit;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use  Notifiable, HasApiTokens;
+    use  Notifiable, HasApiTokens, SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
