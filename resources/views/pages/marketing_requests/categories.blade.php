@@ -48,7 +48,7 @@
             text-align: center;
             height: 311px;
             margin-bottom: 26px;
-            border-radius: 30px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -109,11 +109,11 @@
 @endsection
 @section('content')
     <div class="container-fluid">
-        <div class="col-12 title mb-3">
+        <div class="col-12 title ">
             <h1>Custom Design Requests</h1>
             <p>Please select the category which you would like to design.</p>
         </div>
-        <div class="row align-items-center justify-content-center">
+        <div class="row align-items-center justify-content-center mb-3">
             <div class="col-12">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 col-lg-6">

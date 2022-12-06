@@ -9,13 +9,10 @@
         .box-item {
             background-color: #F7F7F7;
             text-align: center;
-            height: 311px;
-            margin-bottom: 26px;
-            border-radius: 30px;
             display: flex;
-            align-items: center;
             justify-content: center;
             cursor: pointer;
+            border-radius: 10px;
         }
 
         .box-item img {
@@ -29,16 +26,6 @@
             object-fit: cover;
         }
 
-        .box-item p {
-            font-size: 20px;
-            font-family: 'gothicregular';
-        }
-
-        .container-fluid {
-            margin-top: 60px;
-            padding-left: 60px;
-            padding-right: 60px;
-        }
 
         @media screen and (max-width: 500px) {
             .box-item p {
@@ -338,111 +325,62 @@
                 </div>
             </div>
         @endif
-        <div class="row box-items p-0 m-0">
+        @if (!isset($_GET['dir']))
+            <div class="col-12 title mb-3">
+                <h1>LUXE Services</h1>
+            </div>
+        @endif
+        <div class="mb-5">
             @if (!isset($_GET['dir']))
-                <div class="col-12 title mb-3">
-                    <h1>LUXE Services</h1>
-                </div>
-            @endif
-            @if (!isset($_GET['dir']))
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item" onclick="window.location='{{ url('/home?dir=marketing_branding') }}'">
+                <div class="grid grid-layout">
+                    <div class="box-item box-item-padding "
+                        onclick="window.location='{{ url('/home?dir=marketing_branding') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/services_staff_requests-icon.svg" alt="">
-                            <p>Marketing & Branding<br>&nbsp;</p>
+                            <p>Marketing & Branding</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item" onclick="window.location='{{ url('/home?dir=training_knowledge_center') }}'">
+                    <div class="box-item box-item-padding"
+                        onclick="window.location='{{ url('/home?dir=training_knowledge_center') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
-                            <p>Training &<br> Knowledge Center</p>
+                            <p>Training & Knowledge Center</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item" onclick="window.location='{{ url('/home?dir=leads_services_support') }}'">
+                    <div class="box-item box-item-padding "
+                        onclick="window.location='{{ url('/home?dir=leads_services_support') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/leads-icon.svg" alt="">
-                            <p>Leads, Services <br>& Support</p>
+                            <p>Leads, Services & Support</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item" onclick="window.location='{{ route('referral-partner-category.index') }}'">
+                    <div class="box-item box-item-padding "
+                        onclick="window.location='{{ route('referral-partner-category.index') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/luxe_lending-icon.svg" alt="">
-                            <p>Referral Partners<br>&nbsp;</p>
+                            <p>Referral Partners</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item" onclick="window.location='{{ url('/home?dir=luxe_apparel') }}'">
+                    <div class="box-item box-item-padding" onclick="window.location='{{ url('/home?dir=luxe_apparel') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
-                            <p>LUXE Marketplace<br>&nbsp;</p>
+                            <p>LUXE Marketplace</p>
                         </div>
                     </div>
-                </div>
-                {{-- <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location='{{ url("/home?dir=tools_training_videos") }}'">
-                <div>
-                    <img class="icon" src="/images/index-page/tools_training_videos-icon.svg" alt="">
-                    <p>Tools & Training <br> Videos</p>
-                </div>
-            </div>
-        </div> --}}
-                {{-- <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location='{{ url("/home?dir=marketing") }}'">
-                <div>
-                    <img class="icon" src="/images/index-page/marketing-icon.svg" alt="">
-                    <p>Marketing</p>
-                </div>
-            </div>
-        </div> --}}
-                {{-- <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location='{{ url("/home?dir=service_staff_requests") }}'">
-                <div>
-                    <img class="icon" src="/images/index-page/services_staff_requests-icon.svg" alt="">
-                    <p>Services & Staff <br> Requests</p>
-                </div>
-            </div>
-        </div> --}}
-                {{-- <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location='{{ url("/store") }}'">
-                <div>
-                    <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
-                    <p>Luxe Product <br> Store</p>
-                </div>
-            </div>
-        </div> --}}
-                {{-- <div class="col-12 col-md-6 col-lg-3">
-            <div class="box-item" onclick="window.location='{{ url("/office-locations") }}'">
-                <div>
-                    <img class="icon" src="/images/index-page/office_locations-icon.svg" alt="">
-                    <p>Office <br> Locations</p>
-                </div>
-            </div>
-        </div> --}}
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item" onclick="window.location='{{ url('/home?dir=office_staff_directory') }}'">
+                    <div class="box-item box-item-padding"
+                        onclick="window.location='{{ url('/home?dir=office_staff_directory') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/office_locations-icon.svg" alt="">
-                            <p>Office & Staff Directory<br>&nbsp;</p>
+                            <p>Office & Staff Directory</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item" onclick="window.location='{{ url('/user/events') }}'">
+                    <div class="box-item box-item-padding" onclick="window.location='{{ url('/user/events') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
-                            <p>Live Classes & Events<br>&nbsp;</p>
+                            <p>Live Classes & Events</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="box-item" onclick="window.location='{{ route('listings.index') }}'">
+                    <div class="box-item box-item-padding" onclick="window.location='{{ route('listings.index') }}'">
                         <div>
                             <img class="icon" src="/images/index-page/services_staff_requests-icon.svg" alt="">
                             <p>Coming Soon & Off Market Properties</p>
@@ -453,79 +391,24 @@
                 <div class="col-12 title mb-3">
                     <h1>Marketing & Branding</h1>
                 </div>
-                <style>
-                    .small-box {
-                        height: 165px;
-                        padding: 15px;
-                        width: 165px;
-                    }
-
-                    .small-box p {
-                        font-size: 15px;
-                        margin-top: 10px;
-                    }
-
-                    .box-item .icon {
-                        width: 80px;
-                        height: 80px;
-                        object-fit: cover;
-                    }
-
-                    .pr-sm-0 {
-                        padding-right: 9px !important;
-                    }
-
-                    .pl-sm-0 {
-                        padding-left: 9px !important;
-                    }
-
-                    .row-small-boxes {
-                        margin-bottom: 26px !important;
-                    }
-
-                    .row-small-boxes .box-item {
-                        margin-bottom: 0px;
-                    }
-
-                    @media screen and (max-width: 500px) {
-                        .small-box {
-                            width: 47%;
-                        }
-
-                        .row-small-boxes {
-                            justify-content: center;
-                        }
-
-                        .pr-sm-0 {
-                            padding-right: 0px !important;
-                        }
-
-                        .pl-sm-0 {
-                            padding-left: 0px !important;
-                        }
-                    }
-
-                    .break {
-                        flex-basis: 100%;
-                        height: 0;
-                    }
-                </style>
-                <div class="row p-0 m-0 row-small-boxes justify-content-center" style="gap: 13px">
-                    <div class="box-item small-box" onclick="window.location='{{ route('canva.marketing.requests') }}'">
+                <div class="grid grid-layout-three p-0 mb-3 ">
+                    <div class="box-item box-item-padding"
+                        onclick="window.location='{{ route('canva.marketing.requests') }}'">
                         <div>
                             <img class="icon p-1" src="/images/index-page/online-marketing-designer.svg" alt="">
                             <p>Marketing Designer </p>
                         </div>
                     </div>
 
-                    <div class="box-item small-box" onclick="window.open('https://realtorprint.com/collections/luxe')">
+                    <div class="box-item box-item-padding"
+                        onclick="window.open('https://realtorprint.com/collections/luxe')">
                         <div>
                             <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                            <p>Print Marketing<br>&nbsp;</p>
+                            <p>Print Marketing<br></p>
                         </div>
                     </div>
 
-                    <div class="box-item small-box"
+                    <div class="box-item box-item-padding"
                         onclick="window.location = '{{ url('/home?dir=signs_photo_design_requests') }}'">
                         <div>
                             <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
@@ -533,52 +416,30 @@
                         </div>
                     </div>
 
-                    {{-- <div class="box-item small-box" onclick="window.location = '{{ url('user/guides') }}'">
-                        <div>
-                            <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
-                            <p>Downloadable Presentations</p>
-                        </div>
-                    </div> --}}
-                    <div class="break d-none d-md-block"></div>
-
-                    <div class="box-item small-box" onclick="window.location = '{{ url('resume') }}'">
+                    <div class="box-item box-item-padding" onclick="window.location = '{{ url('resume') }}'">
                         <div>
                             <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
-                            <p>Resume Builder<br>&nbsp;</p>
+                            <p>Resume Builder</p>
                         </div>
                     </div>
-
-                    {{-- <div class="box-item small-box" onclick="window.location='{{ route('user.diy-templates') }}'">
-                        <div>
-                            <img class="icon" src="/images/index-page/online-marketing-designer.svg" alt="">
-                            <p>Online Marketing <br>Designer</p>
-                        </div>
-                    </div> --}}
-                    <div class="box-item small-box" onclick="window.location='/user/files?id=22'">
+                    <div class="box-item box-item-padding" onclick="window.location='/user/files?id=22'">
                         <div>
                             <img class="icon" src="/images/favicon.png" alt="">
-                            <p>Logos<br>&nbsp;</p>
+                            <p>Logos</p>
                         </div>
                     </div>
 
-                    <div class="box-item small-box" onclick="window.location='/general/form/other/marketing-menu'">
+                    <div class="box-item box-item-padding" onclick="window.location='/general/form/other/marketing-menu'">
                         <div>
                             <img class="icon" src="/images/index-page/logo_creation_request.svg" alt="">
-                            <p>Marketing Menu & Services&nbsp;</p>
+                            <p>Marketing Menu & Services</p>
                         </div>
                     </div>
-
-                    {{-- <div class="box-item small-box" onclick="window.location = '{{ url('user/file-posts') }}'">
-                        <div>
-                            <img src="/images/index-page/downloadable_guides.svg" class="icon" alt="">
-                            <p>Pre Made <br>Social Media</p>
-                        </div>
-                    </div> --}}
                 </div>
         </div>
         <div class="row p-0 m-0 w-100 mb-3" style="border-bottom: 3px solid #00000014;"></div>
         <div class="row w-100 p-0 m-0">
-            <div class="col-12 col-md-4 mb-4 mb-md-auto pl-0 pr-sm-0">
+            <div class="col-12 col-md-4">
                 <div class="box-item align-items-start box-guides row p-0 m-0"
                     style="min-height: 490px !important;height:auto !important;">
                     <div class="w-100 row p-0 m-0">
@@ -586,17 +447,6 @@
                             <span>Latest Social Media Posts</span>
                             <a class="text-luxe" href="{{ route('file-posts.index') }}">See more</a>
                         </h3>
-
-                        {{-- <div class="template-box-images">
-                            <img src="/images/templates-examples/template1.png" alt="">
-                            <img src="/images/templates-examples/template2.png" alt="">
-                            <img src="/images/templates-examples/template3.png" alt="">
-                            <img src="/images/templates-examples/template4.png" alt="">
-                        </div>
-                        <div class="mt-2 px-4 w-100">
-                            <a class="text-luxe btn-luxe btn-block" style="font-family:gothicbold;"
-                                href="{{ route('marketing.requests') }}">Click Here</a>
-                        </div> --}}
 
                         @forelse($social_media_posts as $post)
                             <div class="box-guide col-6">
@@ -614,7 +464,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mb-4 mb-md-auto pl-0 pr-sm-0">
+            <div class="col-12 col-md-4">
                 <div class="box-item align-items-start box-guides row p-0 m-0"
                     style="min-height: 490px !important;height:100% !important;">
                     <div class="w-100 row p-0 m-0">
@@ -651,7 +501,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 pr-0 pl-sm-0">
+            <div class="col-12 col-md-4">
                 <div class="box-item align-items-start box-guides row p-0 m-0"
                     style="min-height: 490px !important;height:100% !important;">
                     <div class="w-100 row p-0 m-0">
@@ -963,48 +813,41 @@
     <div class="col-12 title mb-3">
         <h1>Signs, Photo, & Design Requests</h1>
     </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/other/logo-creation-request') }}'">
+    <div class="grid grid-layout">
+        <div class="box-item box-item-padding"
+            onclick="window.location = '{{ url('general/form/other/logo-creation-request') }}'">
             <div>
                 <img src="/images/index-page/logo_creation_request.svg" class="icon" alt="">
                 <p>Create A Logo<br>&nbsp;</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/other/photoshoots-for-listings') }}'">
+        <div class="box-item box-item-padding"
+            onclick="window.location = '{{ url('general/form/other/photoshoots-for-listings') }}'">
             <div>
                 <img src="/images/index-page/photoshoot_for_listings.svg" class="icon" alt="">
                 <p>Schedule Photoshoots For Listings</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location = '{{ url('/store/photo-fees') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ url('/store/photo-fees') }}'">
             <div>
                 <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
-                <p>Photo Fees<br>&nbsp;</p>
+                <p>Photo Fees</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location = '{{ url('/store/custom-items') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ url('/store/custom-items') }}'">
             <div>
                 <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
-                <p>Custom Signs<br>&nbsp;</p>
+                <p>Custom Signs</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location = '{{ url('store/product/sign-post-login-realpost') }}'">
+        <div class="box-item box-item-padding"
+            onclick="window.location = '{{ url('store/product/sign-post-login-realpost') }}'">
             <div>
                 <img src="/images/blend.svg" class="icon" alt="">
                 <p>Sign Posts</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location = '{{ route('marketing.requests') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ route('marketing.requests') }}'">
             <div>
                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
                 <p>Custom Design Requests</p>
@@ -1015,64 +858,53 @@
     <div class="col-12 title mb-3">
         <h1>Leads, Services, & Support</h1>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location='{{ url('/home?dir=leads') }}'">
+    <div class="grid grid-layout">
+        <div class="box-item box-item-padding" onclick="window.location='{{ url('/home?dir=leads') }}'">
             <div>
                 <img class="icon" src="/images/index-page/services_staff_requests-icon.svg" alt="">
-                <p>Get Leads<br>&nbsp;</p>
+                <p>Get Leads</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location='{{ url('/home?dir=request_listing_closing_coordinators') }}'">
+        <div class="box-item box-item-padding"
+            onclick="window.location='{{ url('/home?dir=request_listing_closing_coordinators') }}'">
             <div>
                 <img class="icon" src="/images/index-page/closing_coordinators.svg" alt="">
                 <p>Request Listing/Closing Coordinators</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/escrow/index') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ url('general/form/escrow/index') }}'">
             <div>
                 <img src="/images/index-page/rental_escrow.svg" class="icon" alt="">
-                <p>Rental Escrow <br> Disbursement</p>
+                <p>Rental Escrow Disbursement</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('appointments/create') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ url('appointments/create') }}'">
             <div>
                 <img src="/images/index-page/open_house_signup.svg" class="icon" alt="">
-                <p>Open House Signup<br>&nbsp;</p>
+                <p>Open House Signup</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/contract-help/index') }}'">
+        <div class="box-item box-item-padding"
+            onclick="window.location = '{{ url('general/form/contract-help/index') }}'">
             <div>
                 <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
-                <p>Get Contract Help<br>&nbsp;</p>
+                <p>Get Contract Help</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ route('marketing.requests') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ route('marketing.requests') }}'">
             <div>
                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                <p>Design Requests<br>&nbsp;</p>
+                <p>Design Requests</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/other/wire-instructions-request') }}'">
+        <div class="box-item box-item-padding"
+            onclick="window.location = '{{ url('general/form/other/wire-instructions-request') }}'">
             <div>
                 <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
-                <p>Wire Instructions <br> Request</p>
+                <p>Wire Instructions Request</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
             <div>
                 <img src="/images/index-page/calculator.svg" class="icon" alt="">
                 <p>Real Estate Worksheets</p>
@@ -1087,16 +919,15 @@
     <div class="col-12 title mb-3">
         <h1>Request Listing/Closing Coordinators</h1>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('listing-coordinators') }}'">
+    <div class="grid grid-layout-two">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ url('listing-coordinators') }}'">
             <div>
                 <img src="/images/index-page/listing_coordinators.svg" class="icon" alt="">
                 <p>Listing Coordinators</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/other/closing-coordinators-agents') }}'">
+        <div class="box-item box-item-padding"
+            onclick="window.location = '{{ url('general/form/other/closing-coordinators-agents') }}'">
             <div>
                 <img src="/images/index-page/closing_coordinators.svg" class="icon" alt="">
                 <p>Closing Coordinators</p>
@@ -1111,29 +942,24 @@
     <div class="col-12 title mb-3">
         <h1>Leads</h1>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/leads/index') }}'">
+    <div class="grid grid-layout">
+        <div class="box-item box-item-center" onclick="window.location = '{{ url('general/form/leads/index') }}'">
             <div>
                 <img src="/images/index-page/partner_1-removebg-preview.png" alt="">
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/cinc/index') }}'">
+        <div class="box-item box-item-center" onclick="window.location = '{{ url('general/form/cinc/index') }}'">
             <div>
                 <img src="/images/index-page/partner_2-removebg-preview.png" alt="">
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/leads/opcity-leads') }}'">
+        <div class="box-item box-item-center" onclick="window.location = '{{ url('general/form/leads/opcity-leads') }}'">
             <div>
                 <img src="/images/index-page/partner_3-removebg-preview.png" alt="">
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/leads/prime-street-leads') }}'">
+        <div class="box-item box-item-center"
+            onclick="window.location = '{{ url('general/form/leads/prime-street-leads') }}'">
             <div>
                 <img src="/images/index-page/partner_4-removebg-preview.png" alt="">
             </div>
@@ -1237,7 +1063,7 @@
                 </div>
             </div>
         </section>
-        <div class="w-100 text-center mb-3">
+        <div class="w-100 text-center my-3">
             <a href="{{ route('videos') }}" class="btn btn-luxe">View all training videos</a>
         </div>
     </div>
@@ -1246,84 +1072,51 @@
     <div class="col-12 mb-4">
         <h2 class="title-video">More ways to keep expanding your knowledge</h2>
     </div>
-    <style>
-        .small-box {
-            height: 165px;
-            padding: 15px;
-            width: 165px;
-        }
-
-        .small-box p {
-            font-size: 15px;
-        }
-
-        .row-small-boxes .box-item {
-            margin-bottom: 0px;
-        }
-
-        @media screen and (max-width: 500px) {
-            .small-box {
-                width: 47%;
-            }
-
-            .row-small-boxes {
-                justify-content: center;
-            }
-        }
-    </style>
-    <div class="row p-0 m-0 row-small-boxes mb-4 w-100">
-        <div class="col-md-12 col-12 col-lg-8 row row-small-boxes p-0 m-0"
-            style="gap:13px;display: grid;
-    grid-template-columns: repeat(3, 1fr);">
-            <div class="box-item small-box" onclick="window.location = '{{ url('user/videos') }}'">
+    <div class="row">
+        <div class="grid grid-left grid-layout-three col-md-9">
+            <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/videos') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/training_videos.svg" class="icon" alt="">
                     <p>LUXE Online Video University</p>
                 </div>
             </div>
 
-            <div class="box-item small-box" onclick="window.location='{{ url('/user/events') }}'">
+            <div class="box-item box-item-padding" onclick="window.location='{{ url('/user/events') }}'">
                 <div class="inside-box">
                     <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
                     <p>Training & Events <br>Calendar</p>
                 </div>
             </div>
 
-            <div class="box-item small-box" onclick="window.location = '{{ url('user/coaching') }}'">
+            <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/coaching') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/mentors.svg" class="icon" alt="">
                     <p>LUXE Coaching</p>
                 </div>
             </div>
 
-            <div class="box-item small-box" onclick="window.location = '{{ url('user/files') }}'">
+            <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/files') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/office_documents.svg" class="icon" alt="">
                     <p>Downloadable Docs, Guides & Excels</p>
                 </div>
             </div>
 
-            <div class="box-item small-box"
+            <div class="box-item box-item-padding"
                 onclick="window.location = '{{ url('/home?dir=email_addendum_verbiage_builder') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/email_templates.svg" class="icon" alt="">
                     <p>Email & Addendum Verbiage Builder</p>
                 </div>
             </div>
-            <!-- <div class="box-item small-box" onclick="window.location = '{{ url('agreement-agents') }}'">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="inside-box">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>LUXE Mentors</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
-            <div class="box-item small-box" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
+            <div class="box-item box-item-padding" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/calculator.svg" class="icon" alt="">
                     <p>Real Estate Worksheets</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-12 col-lg-4">
+        <div class="col-12 col-md-3">
             <div class="box-item align-items-start box-guides row p-0 m-0" style="height:auto !important">
                 <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
                     <span>Upcoming Events</span>
@@ -1371,64 +1164,51 @@
     <div class="col-12 title mb-3">
         <h1>Office & Staff Directory</h1>
     </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location='{{ url('/office-locations') }}'">
+    <div class="grid grid-layout">
+        <div class="box-item box-item-padding" onclick="window.location='{{ url('/office-locations') }}'">
             <div>
                 <img class="icon" src="/images/index-page/office_locations-icon.svg" alt="">
                 <p>Office Locations<br>&nbsp;</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('bookings') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ url('bookings') }}'">
             <div>
                 <img src="/images/index-page/conference_room.svg" class="icon" alt="">
                 <p>Conference Room <br>Reservations</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ route('luxe.staff.index') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ route('luxe.staff.index') }}'">
             <div>
                 <img src="/images/index-page/leads-icon.svg" class="icon" alt="">
                 <p>Your LUXE Staff<br>&nbsp;</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ route('luxe.managers.index') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ route('luxe.managers.index') }}'">
             <div>
                 <img src="/images/index-page/leads-icon.svg" class="icon" alt="">
                 <p>Your LUXE Managers<br>&nbsp;</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
+        <div class="box-item box-item-padding"
+            onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
             <div>
                 <img src="/images/index-page/new_agents_referrals.svg" class="icon" alt="">
                 <p>New Agents To Join LUXE<br>&nbsp;</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ route('optin.agents.index') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ route('optin.agents.index') }}'">
             <div>
                 <img src="/images/index-page/leads-icon.svg" class="icon" alt="">
                 <p>Referral Agents With LUXE<br>&nbsp;</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item" onclick="window.location = '{{ route('showing.agents.index') }}'">
+        <div class="box-item box-item-padding" onclick="window.location = '{{ route('showing.agents.index') }}'">
             <div>
                 <img src="/images/index-page/services_staff_requests-icon.svg" class="icon" alt="">
                 <p>Showing Agents<br>&nbsp;</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="box-item"
+        <div class="box-item box-item-padding"
             onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
             <div>
                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
@@ -1440,57 +1220,42 @@
     <div class="col-12 title mb-3 text-center">
         <h1>LUXE Marketplace</h1>
     </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location='{{ url('store/printed-guides') }}'">
+    <div class="grid grid-layout">
+        <div class="box-item box-item-padding" onclick="window.location='{{ url('store/printed-guides') }}'">
             <div>
                 <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
                 <p>Printed Guides</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location='{{ url('store/luxe-apparel') }}'">
+        <div class="box-item box-item-padding" onclick="window.location='{{ url('store/luxe-apparel') }}'">
             <div>
                 <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
                 <p>LUXE Apparel</p>
             </div>
         </div>
-    </div>
-    {{-- <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location='{{ url('store/signs-posts') }}'">
-            <div>
-                <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
-                <p>Signs & Posts</p>
-            </div>
-        </div>
-    </div> --}}
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location = '{{ url('store/product/sign-post-login-realpost') }}'">
+
+        <div class="box-item box-item-padding"
+            onclick="window.location = '{{ url('store/product/sign-post-login-realpost') }}'">
             <div>
                 <img src="/images/blend.svg" class="icon" alt="">
                 <p>Sign Posts</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location='{{ url('store/product/background-check') }}'">
+        <div class="box-item box-item-padding" onclick="window.location='{{ url('store/product/background-check') }}'">
             <div>
                 <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
                 <p>Client Screening</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item"
+        <div class="box-item box-item-padding"
             onclick="window.location='{{ url('store/product/fiu-course-grow-your-real-estate-business-3-modules') }}'">
             <div>
                 <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
                 <p>Real Estate Course</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location='{{ url('store/product/luxe-holiday-cards') }}'">
+        <div class="box-item box-item-padding"
+            onclick="window.location='{{ url('store/product/luxe-holiday-cards') }}'">
             <div>
                 <img class="icon" src="/images/tree.svg" alt="">
                 <p>LUXE Holiday Cards</p>
@@ -1514,14 +1279,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="col-12 col-md-6 col-lg-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="box-item" onclick="window.location = '{{ url('user/links') }}'">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="/images/index-page/links_to_other_services.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>Links to other services</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> -->
     <div class="col-12 col-md-6 col-lg-3">
         <div class="box-item" onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
             <div>
@@ -2084,22 +1841,18 @@
     <div class="col-12 title mb-3">
         <h1>Real Estate Worksheets</h1>
     </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location= '{{ route('calculators.cap_rate') }}'">
+    <div class="grid grid-layout-three">
+        <div class="box-item box-item-center" onclick="window.location= '{{ route('calculators.cap_rate') }}'">
             <div>
                 <p>CAP RATE CALCULATOR</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location= '{{ route('calculators.flipping_house') }}'">
+        <div class="box-item box-item-center" onclick="window.location= '{{ route('calculators.flipping_house') }}'">
             <div>
                 <p>FLIPPING HOUSE SHEET</p>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="box-item" onclick="window.location= '{{ route('calculators.seller_net_sheet') }}'">
+        <div class="box-item box-item-center" onclick="window.location= '{{ route('calculators.seller_net_sheet') }}'">
             <div>
                 <p>SELLER NET SHEET</p>
             </div>

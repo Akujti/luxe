@@ -5,9 +5,9 @@
             /* background: url('{{ asset('images/bg-image1.jpg') }}'); */
             height: 100vh;
             /* background-size: cover;
-                    background-position: center;
-                    background-color: rgba(0, 0, 0, 0.7);
-                    background-blend-mode: color; */
+                        background-position: center;
+                        background-color: rgba(0, 0, 0, 0.7);
+                        background-blend-mode: color; */
 
         }
 

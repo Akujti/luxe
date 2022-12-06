@@ -210,10 +210,135 @@
         font-size: 40px;
     }
 
-    @media (min-width:994px) and (max-width: 1588px) {
-        .box-item {
+    .grid {
+        display: grid;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .grid-left {
+        justify-content: start;
+    }
+
+    .grid .box-item {
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 10px;
+    }
+
+    .grid .box-item-padding {
+        padding-top: 60px;
+    }
+
+    .grid .box-item .title {
+        font-size: 20px;
+    }
+
+    .grid .box-item p,
+    .grid .box-item a {
+        text-align: center;
+        font-size: 20px;
+        font-family: 'gothicregular';
+    }
+
+    .grid .box-item-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .grid .box-item-end {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    @media (min-width: 1280px) {
+        .grid {
+            gap: 14px;
+        }
+
+        .grid-layout {
+            grid-template-columns: 188px 188px 188px 188px;
+        }
+
+        .grid-layout-three {
+            grid-template-columns: 190px 190px 190px;
+        }
+
+        .grid-layout-two {
+            grid-template-columns: 190px 190px;
+        }
+
+        .grid .box-item {
+            height: 190px;
+        }
+
+        .grid .box-item .title {
+            font-size: 18px;
+        }
+
+        .grid .box-item p,
+        .grid .box-item a,
+        .grid .box-item .title {
+            font-size: 18px;
+        }
+
+        .grid .box-item-padding {
+            padding-top: 30px;
+        }
+    }
+
+    @media (min-width: 1538px) {
+        .grid-layout {
+            grid-template-columns: 250px 250px 250px 250px;
+        }
+
+        .grid-layout-three {
+            grid-template-columns: 250px 250px 250px;
+        }
+
+        .grid-layout-two {
+            grid-template-columns: 250px 250px;
+        }
+
+        .grid .box-item {
             height: 250px;
         }
+
+        .grid .box-item-padding {
+            padding-top: 60px;
+        }
+    }
+
+
+    @media (max-width: 600px) {
+
+        .grid-layout,
+        .grid-layout-three {
+            grid-template-columns: 100%;
+        }
+
+        .grid .box-item-padding {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+    .container-fluid {
+        margin-top: 60px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .box-item a,
+    .box-item a:hover {
+        color: #262626;
+        text-decoration: none;
+    }
+
+    a:focus {
+        outline: none;
     }
 </style>
 

@@ -58,7 +58,7 @@
         <h1 class="text-center h1-luxe">LISTING COORDINATORS</h1>
         <div class="row justify-content-center">
             @foreach ($coordinators as $coordinator)
-                <div class="col-md-4 my-2">
+                <div class="col-md-3 my-2">
                     @if (auth()->user() && auth()->user()->isAdmin)
                         <form action="{{ route('listing_coordinator.change_status', ['id' => $coordinator->id]) }}"
                             method="POST">

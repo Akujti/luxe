@@ -7,8 +7,6 @@
     <style>
         .folder {
             text-align: center;
-            min-height: 200px;
-            margin-bottom: 26px;
             display: flex;
             align-items: end;
             justify-content: center;
@@ -16,7 +14,8 @@
             background-size: cover !important;
             background-color: #262626 !important;
             box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 9%);
-            border-radius: 5px;
+            border-radius: 10px;
+            padding: 15px;
         }
 
         .video {
@@ -61,9 +60,7 @@
         }
 
         .folder .title {
-            font-size: 20px;
             color: white;
-            padding-bottom: 15px;
         }
 
         .folder:hover {
@@ -85,25 +82,23 @@
     <style>
     </style>
     <div class="container-fluid">
-        {{-- @include('includes.video_title') --}}
-        <div class="row">
-            <div class="col-12 title mb-3 text-center">
-                <h1 class="font-weight-bold">LUXE Online Video University</h1>
-            </div>
+        <div class="col-12 title mb-3 text-center">
+            <h1 class="font-weight-bold">LUXE Online Video University</h1>
+        </div>
+        <div class="grid grid-layout mb-3">
             @foreach ($videoFolders as $folder)
-                <div class="col-12 col-lg-3 mb-4">
-                    <div class="folder mb-2"
-                        style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset($folder->image) }})">
-                        <a href="{{ route('videos') }}?id={{ $folder->id }}">
-                            {{-- <img src="/images/files/video-folder.svg" alt="" class="img" width="200px" height="160px"> --}}
-                            <p class="title">
-                                {{ $folder->title }}
-                            </p>
-                        </a>
-                    </div>
+                <div class="folder box-item"
+                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset($folder->image) }})">
+                    <a href="{{ route('videos') }}?id={{ $folder->id }}">
+                        {{-- <img src="/images/files/video-folder.svg" alt="" class="img" width="200px" height="160px"> --}}
+                        <p class="title">
+                            {{ $folder->title }}
+                        </p>
+                    </a>
                 </div>
             @endforeach
-
+        </div>
+        <div class="row">
             @foreach ($videos as $video)
                 <div class="col-12 col-lg-6 mb-4">
                     <div class="video mb-2">
@@ -123,100 +118,6 @@
                     </div>
                 </div>
             @endforeach
-
-            {{-- <div class="col-12 col-lg-3 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','working_with_buyers')}}">
-                    <img src="/images/files/video-folder.svg" alt="">
-                    <p>
-                        WORKING WITH BUYERS, SELLERS, & RENTALS
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','lead_generation_conversion')}}">
-                    <img src="/images/files/video-folder.svg" alt="">
-                    <p>
-                        LEAD GENERATION & CONVERSION
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','business_planning')}}">
-                    <img src="/images/files/video-folder.svg" alt="">
-                    <p>
-                        BUSINESS PLANNING & PERSONAL DEVELOPMENT
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','how_to_do_contracts_forms')}}">
-                    <img src="/images/files/video-folder.svg" alt="">
-                    <p>
-                        HOW TO DO CONTRACTS & FORMS
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','contracts_to_close')}}">
-                    <img src="/images/files/video-folder.svg" alt="">
-                    <p>
-                        CONTRACTS TO CLOSE
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','technology_walkthrough_how_to')}}">
-                    <img src="/images/files/video-folder.svg" alt="">
-                    <p>
-                        TECHNOLOGY WALK-THROUGH & HOW TO
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 mb-4">
-            <div class="folder mb-2">
-                <a href="javascript:void(0)">
-                    <img src="/images/files/video-folder.svg" alt="">
-                    <p>
-                        MARKETING & BRANDING
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','inspections_financing_title_insurance')}}">
-                    <img src="/images/files/video-folder.svg" alt="">
-                    <p>
-                        INSPECTIONS, FINANCING, TITLE, INSURANCE
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 mb-4">
-            <div class="folder mb-2">
-                <a href="{{route('video.folder','commercial_real_estate')}}">
-                    <img src="/images/files/video-folder.svg" alt="">
-                    <p>
-                        COMMERCIAL REAL ESTATE
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-12">
-            <a href="https://vimeo.com/manage/videos" class="btn btn-luxe w-100">View More</a>
-        </div> --}}
         </div>
     </div>
 @endsection
