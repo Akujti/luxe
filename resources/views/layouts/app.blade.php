@@ -210,9 +210,40 @@
         font-size: 40px;
     }
 
-    @media (min-width:994px) and (max-width: 1588px) {
-        .box-item {
+    .grid-layout {
+        display: grid;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .grid-layout .box-item {
+        border-radius: 10px;
+    }
+
+    @media (min-width: 1280px) {
+        .grid-layout {
+            grid-template-columns: 190px 190px 190px 190px;
+        }
+
+        .grid-layout .box-item {
+            height: 190px;
+        }
+    }
+
+    @media (min-width: 1538px) {
+        .grid-layout {
+            grid-template-columns: 250px 250px 250px 250px;
+        }
+
+        .grid-layout .box-item {
             height: 250px;
+        }
+    }
+
+
+    @media (max-width: 600px) {
+        .grid-layout {
+            grid-template-columns: 100%;
         }
     }
 </style>
