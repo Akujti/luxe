@@ -6,7 +6,7 @@
             width: 100%;
             height: 300px;
             object-fit: cover;
-            border-radius: 15px;
+            border-radius: 10px;
         }
 
         .staff-box {

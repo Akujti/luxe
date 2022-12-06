@@ -5,9 +5,9 @@
             /* background: url('{{ asset('images/bg-image1.jpg') }}'); */
             height: 100vh;
             /* background-size: cover;
-                background-position: center;
-                background-color: rgba(0, 0, 0, 0.7);
-                background-blend-mode: color; */
+                                            background-position: center;
+                                            background-color: rgba(0, 0, 0, 0.7);
+                                            background-blend-mode: color; */
 
         }
 
@@ -52,8 +52,6 @@
         .box-item {
             background-color: #F7F7F7;
             text-align: center;
-            height: 311px;
-            margin-bottom: 26px;
             border-radius: 30px;
             display: flex;
             align-items: center;
@@ -70,11 +68,6 @@
             width: 70px;
             height: 70px;
             object-fit: cover;
-        }
-
-        .box-item p {
-            font-size: 25px;
-            font-family: 'gothicregular';
         }
 
         a {
@@ -98,17 +91,15 @@
             <h1>Canva Marketing Designer</h1>
             <p>Please select the category which you would like to design.</p>
         </div>
-        <div class="row align-items-center">
+        <div class="grid grid-layout">
             @foreach ($marketing_categories as $category)
-                <div class="col-lg-3 col-md-6 my-2">
-                    <div class="box-item">
-                        <a href="{{ route('canva.marketing.request', $category) }}">
-                            <div>
-                                <img class="icon" src="{{ asset('storage/' . $category->image) }}" alt="">
-                                <p>{{ $category->title }}</p>
-                            </div>
-                        </a>
-                    </div>
+                <div class="box-item">
+                    <a href="{{ route('canva.marketing.request', $category) }}">
+                        <div>
+                            <img class="icon" src="{{ asset('storage/' . $category->image) }}" alt="">
+                            <p>{{ $category->title }}</p>
+                        </div>
+                    </a>
                 </div>
             @endforeach
         </div>

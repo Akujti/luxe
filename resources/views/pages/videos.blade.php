@@ -60,7 +60,6 @@
         }
 
         .folder .title {
-            font-size: 20px;
             color: white;
         }
 
@@ -86,7 +85,7 @@
         <div class="col-12 title mb-3 text-center">
             <h1 class="font-weight-bold">LUXE Online Video University</h1>
         </div>
-        <div class="grid-layout mb-3">
+        <div class="grid grid-layout mb-3">
             @foreach ($videoFolders as $folder)
                 <div class="folder box-item"
                     style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset($folder->image) }})">

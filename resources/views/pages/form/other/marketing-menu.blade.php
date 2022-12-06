@@ -74,7 +74,7 @@
                             </div>
                             <div class="form-group col-12 form-options">
                                 <h4>Custom & Copyright Services</h4>
-                                <div class="form-check">
+                                {{-- <div class="form-check">
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="option row">
@@ -125,7 +125,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" required name="option" id="opt1"
                                         data-price="150" value="Brand Package">
@@ -192,8 +192,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt4" data-price="35" value="Write Blog Post">
+                                    <input class="form-check-input" type="radio" required name="option" id="opt4"
+                                        data-price="35" value="Write Blog Post">
                                     <label class="form-check-label" for="opt4">
                                         <div class="row option">
                                             <div class="col-md-6 option-title">
@@ -209,8 +209,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt5" data-price="100" value="MLS Input">
+                                    <input class="form-check-input" type="radio" required name="option" id="opt5"
+                                        data-price="100" value="MLS Input">
                                     <label class="form-check-label" for="opt5">
                                         <div class="row option">
                                             <div class="col-md-6 option-title">

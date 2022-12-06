@@ -8,7 +8,7 @@
             text-align: center;
             min-height: 200px;
             margin-bottom: 26px;
-            border-radius: 30px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
