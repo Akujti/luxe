@@ -69,14 +69,15 @@
             }
 
             #map {
-                height: 500px;
-                position: sticky !important;
-                top: 150px;
+                height: 600px;
+                /* position: sticky !important;
+                                                    top: 150px; */
             }
         }
     </style>
     <div class="container-fluid mb-5">
         {{-- <h1 class="text-center h1-luxe mb-4">COMING SOON LISTINGS</h1> --}}
+
         <form action="" method="get" class="row">
             <div class="col-md-3 form-group">
                 <input type="number" name="zip" class="form-control" placeholder="ZIP Code"
@@ -100,11 +101,15 @@
                 <button class="btn btn-luxe w-100 form-control" type="submit">Search</button>
             </div>
         </form>
+        <div class="row justify-content-end">
+            <div class="col-md-3">
+                <a href="{{ route('listings.create') }}" class="btn btn-luxe mb-3 w-100">Create A New Listing</a>
+            </div>
+        </div>
         <hr class="mt-0">
         <div class="row">
             <div class="col-md-5 mb-3">
                 <div id="map"></div>
-                <a href="{{ route('listings.create') }}" class="btn btn-luxe w-100 mt-3">New Listing</a>
             </div>
             <div class="col-md-7 row listings">
                 @forelse ($listings as $item)

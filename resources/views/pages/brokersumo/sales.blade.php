@@ -50,7 +50,8 @@
                     <tbody>
                         @foreach ($results as $result)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $results->currentPage() * $results->perPage() - $results->perPage() + ($loop->index + 1) }}
+                                </td>
                                 <td>{{ $result->agent_name }}</td>
                                 <td>{{ '$' . number_format($result->yearly_sales_volumes) }}
                                 </td>

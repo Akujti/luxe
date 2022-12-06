@@ -50,6 +50,12 @@
         label {
             font-family: 'gothicregular';
         }
+
+        #map {
+            height: 600px;
+            position: sticky !important;
+            top: 150px;
+        }
     </style>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -58,31 +64,27 @@
         <div class="mt-3">
             <form action="{{ route('optin.agents.index') }}" method="GET" class="d-block">
                 <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-5">
                         <label for="name">Address</label>
                         <input type="text" name="address" class="form-control">
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-5">
                         <label for="name">Language</label>
                         <input type="text" name="language" class="form-control">
                     </div>
-                </div>
-                <div class="form-footer text-right p-0">
-                    <input type="submit" class="btn btn-luxe m-0" value="Search">
+                    <div class="col-md-2  form-group">
+                        <label for="name">&nbsp;</label>
+                        <button class="btn btn-luxe w-100 form-control" type="submit">Search</button>
+                    </div>
                 </div>
             </form>
         </div>
         <div class="row my-4">
-            <div class="col-md-12">
-                <style>
-                    #map {
-                        height: 500px;
-                    }
-                </style>
+            <div class="col-md-6">
                 <div id="map"></div>
             </div>
-            @foreach ($agents as $agent)
-                <div class="col-md-6">
+            <div class="col-md-6 ">
+                @foreach ($agents as $agent)
                     <div class="row-col">
                         <div class="row-details">
                             <img src="{{ $agent->avatar }}" alt="">
@@ -104,8 +106,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
         {{ $agents->links() }}
     </div>

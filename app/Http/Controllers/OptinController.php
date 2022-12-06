@@ -20,10 +20,15 @@ class OptinController extends Controller
             } else if ($filters['language']) {
                 $query->where('languages', 'like', "%\"{$filters['language']}\"%");
             }
-        })->whereOptin(true)->paginate(20);
+        })->whereOptin(true)->paginate(15);
 
         $agents_list = User::whereHas('profile', function ($query) use ($filters) {
             $query->whereNotNull('address');
+            if ($filters['address']) {
+                $query->where('address', 'like', '%' . $filters['address'] . '%');
+            } else if ($filters['language']) {
+                $query->where('languages', 'like', "%\"{$filters['language']}\"%");
+            }
         })->whereOptin(true)->with('profile')->get();
 
         if ($request->wantsJson()) {
