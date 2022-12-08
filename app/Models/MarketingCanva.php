@@ -27,12 +27,12 @@ class MarketingCanva extends Model
 
     public function templates()
     {
-        return $this->hasMany(MarketingCanvaTemplate::class, 'category_id')->latest();
+        return $this->hasMany(MarketingCanvaTemplate::class, 'category_id')->orderBy('created_at', 'DESC');
     }
 
     public function featured_templates()
     {
-        return $this->hasMany(MarketingCanvaTemplate::class, 'category_id')->whereFeatured(true)->orderBy('order');
+        return $this->hasMany(MarketingCanvaTemplate::class, 'category_id')->whereFeatured(true)->orderBy('created_at', 'DESC');
     }
 
     public function getImageUrlAttribute()
