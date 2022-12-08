@@ -27,7 +27,7 @@ class MarketingCanva extends Model
 
     public function templates()
     {
-        return $this->hasMany(MarketingCanvaTemplate::class, 'category_id')->orderBy('order', 'DESC');
+        return $this->hasMany(MarketingCanvaTemplate::class, 'category_id')->latest();
     }
 
     public function featured_templates()
