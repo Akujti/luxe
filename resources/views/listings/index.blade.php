@@ -43,6 +43,7 @@
 
         .listing .listing-meta {
             padding: 10px;
+            min-height: 140px;
         }
 
         @media screen and (min-width: 1280px) {
@@ -71,7 +72,7 @@
             #map {
                 height: 600px;
                 /* position: sticky !important;
-                                                    top: 150px; */
+                                                        top: 150px; */
             }
         }
     </style>

@@ -30,13 +30,7 @@ class Controller extends BaseController
         $featured_categories = MarketingCanva::with('featured_templates')->where('title', '!=', 'Presentation Booklet')->whereParentId(null)->get();
 
         $folder_id = Folder::where('title', 'XNV34gFFFa')->first()->id;
-        $social_media_posts = File::whereBetween(
-            'created_at',
-            [
-                Carbon::now()->startOfWeek(),
-                Carbon::now()->endOfWeek()
-            ]
-        )->where('folder_id', $folder_id)->latest()->take(6)->get();
+        $social_media_posts = File::where('folder_id', $folder_id)->latest()->take(6)->get();
 
         $today = Carbon::today()->format('Y-m-d');
         $upcoming_events = Event::whereDate('date', '>', $today)->orderBy('date')->take(5)->get();

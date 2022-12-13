@@ -8,7 +8,9 @@ use App\Models\FormSubmit;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Mail\GeneralMailTemplate;
+use App\Models\Listing;
 use App\Models\MarketingMenu;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -165,6 +167,21 @@ class FormController extends Controller
         }
         if ($request->form_title == "LUXE Coaching" || $request->form_title == "Request Your Agent Referral")
             session()->flash('modal', 'Success');
+        try {
+            if ($request->form_title == "Photoshoots For Listings") {
+                Listing::create(
+                    [
+                        'user_id' => auth()->id(),
+                        'address' => $request->property_address,
+                        'list_date' => now()->addDays(14),
+                        'main_image' => 'images/logo-black.png',
+                        'images' => json_encode([])
+                    ]
+                );
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('warning', 'Form has been submitted, but it wasn\'t added on the Coming Soon Listings!');
+        }
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
 

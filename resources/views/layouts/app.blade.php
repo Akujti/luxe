@@ -340,6 +340,14 @@
     a:focus {
         outline: none;
     }
+
+    #toast-container>div {
+        opacity: 1;
+    }
+
+    .toast {
+        opacity: 1 !important;
+    }
 </style>
 
 <body>
@@ -749,14 +757,12 @@
         "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
-        "showDuration": "300",
+        "showDuration": "420",
         "hideDuration": "1000",
         "timeOut": "6500",
         "extendedTimeOut": "1000",
         "showEasing": "swing",
         "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
     };
 </script>
 <script>

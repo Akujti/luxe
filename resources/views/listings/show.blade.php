@@ -21,11 +21,14 @@
                     <div class="col-md-3 col-6">
                         <img src="{{ asset($listing->main_image) }}" class="thumbnail" onclick="setImage(this.src)">
                     </div>
-                    @foreach ($images as $image)
-                        <div class="col-md-3 col-6">
-                            <img src="{{ asset($image) }}" class="thumbnail" onclick="setImage(this.src)">
-                        </div>
-                    @endforeach
+                    @if ($images)
+                        @foreach ($images as $image)
+                            <div class="col-md-3 col-6">
+                                <img src="{{ asset($image) }}" class="thumbnail" onclick="setImage(this.src)">
+                            </div>
+                        @endforeach
+                    @endif
+
                 </div>
             </div>
             <div class="form-group col-md-6">
@@ -89,7 +92,9 @@
     <script>
         function setImage(url) {
             console.log('url', url);
-            $('#main-image').attr("src", url);
+            if (url) {
+                $('#main-image').attr("src", url);
+            }
         }
     </script>
 @endsection
