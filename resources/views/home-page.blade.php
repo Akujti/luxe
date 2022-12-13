@@ -438,6 +438,11 @@
                 </div>
         </div>
         <div class="row p-0 m-0 w-100 mb-3" style="border-bottom: 3px solid #00000014;"></div>
+        <style>
+            .box-guide p {
+                text-align: center;
+            }
+        </style>
         <div class="row w-100 p-0 m-0">
             <div class="col-12 col-md-4">
                 <div class="box-item align-items-start box-guides row p-0 m-0"
@@ -538,7 +543,8 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark"
+                                    style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -562,7 +568,8 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark"
+                                    style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -586,7 +593,8 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark"
+                                    style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
