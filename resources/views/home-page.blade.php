@@ -452,7 +452,7 @@
                             <div class="box-guide col-6">
                                 <a href="/storage/{{ $post->file }}" download target="_blank" class="text-dark">
                                     <img src="/storage/{{ $post->thumbnail }}" alt=""
-                                        style="width: 100px;height:100px">
+                                        style="width: 100px;height:100px;flex-direction:column;">
                                     <p>{{ $post->title }}</p>
                                 </a>
                             </div>
@@ -487,7 +487,7 @@
                             @if ($marketing_request->title != 'Presentation Booklet')
                                 <div class="box-guide col-12 pl-4">
                                     <a href="{{ route('marketing.request', $marketing_request) }}"
-                                        class="text-luxe w-100">
+                                        class="text-luxe w-100" style="flex-direction:column;">
                                         <img src="{{ $marketing_request->image }}" alt="">
                                         <p>{{ $marketing_request->title }}</p>
                                     </a>
@@ -514,7 +514,8 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark"
+                                    style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
