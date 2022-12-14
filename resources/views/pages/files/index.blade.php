@@ -104,14 +104,12 @@
             margin-top: 20px;
         }
 
-        .folder:hover {
-            transition: .2s;
-            transform: translateY(3px);
+        .box-item:hover {
             cursor: pointer;
         }
 
-        .folder:hover .delete-button,
-        .folder:hover .edit-button {
+        .box-item:hover .delete-button,
+        .box-item:hover .edit-button {
             display: block;
         }
 
@@ -265,6 +263,14 @@
                 margin-left: 0px !important;
             }
         }
+
+        .box-item {
+            background-color: #F7F7F7;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
     </style>
     <div class="container-fluid">
         @if (isset($_GET['id']) && !empty($_GET['id']))
@@ -313,100 +319,73 @@
             </div>
         </div>
         @if (!request('view') || request('view') == 'badge')
-            <div class="row box-grid">
+            <div class="grid grid-layout mb-5">
                 @foreach ($folders as $folder)
-                    <div class="box-file col-12 col-md-6 col-lg-4">
-                        <div class="folder">
-                            <div class="w-100"
-                                onclick="window.location = '{{ route('files.index') . '?id=' . $folder->id . (isset($_GET['view']) ? '&view=' . $_GET['view'] : '') }}'">
-                                <p id="title">{{ $folder->title }}</p>
-                                <div class="row m-0 p-0 w-100 justify-content-between align-items-center">
-                                    <div>
-                                        <p id="num_of_file">
-                                            Number of items: {{ $folder->files->count() + $folder->children->count() }}
-                                        </p>
-                                        <p id="date">
-                                            {{ $folder->created_at->toDateString() }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <img src="/images/files/folder.png" alt="" id="folder-img">
-                                    </div>
-                                </div>
-                            </div>
-                            @if (Auth::user()->isAdmin)
-                                <div class="delete-form">
-                                    <form action="{{ route('folder.destroy', $folder->id) }}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="delete-button" type="submit"
-                                            onclick="return confirm('Are you sure you want to delete this directory?');">
-                                            <img src="{{ asset('images/files/delete-icon.svg') }}" alt=""
-                                                width="34px" height="34px">
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="edit-form">
-                                    <button class="edit-button" type="submit"
-                                        onclick="show_edit_modal({{ $folder }})">
-                                        <img src="{{ asset('images/files/pencil-icon.svg') }}" alt=""
-                                            width="34px" height="34px">
+                    <div class="box-item box-item-padding">
+                        <a
+                            href="{{ route('files.index') . '?id=' . $folder->id . (isset($_GET['view']) ? '&view=' . $_GET['view'] : '') }}">
+                            <img src="/images/files/folder.png" alt="" id="folder-img" width="80px"
+                                style="margin-bottom: 10px;">
+                            <p id="title">{{ $folder->title }}</p>
+                        </a>
+
+                        @if (Auth::user()->isAdmin)
+                            <div class="delete-form">
+                                <form action="{{ route('folder.destroy', $folder->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="delete-button" type="submit"
+                                        onclick="return confirm('Are you sure you want to delete this directory?');">
+                                        <img src="{{ asset('images/files/delete-icon.svg') }}" alt="" width="34px"
+                                            height="34px">
                                     </button>
-                                </div>
-                            @endif
-                        </div>
+                                </form>
+                            </div>
+                            <div class="edit-form">
+                                <button class="edit-button" type="submit" onclick="show_edit_modal({{ $folder }})">
+                                    <img src="{{ asset('images/files/pencil-icon.svg') }}" alt="" width="34px"
+                                        height="34px">
+                                </button>
+                            </div>
+                        @endif
                     </div>
                 @endforeach
                 @foreach ($files as $file)
-                    <div class="box-file col-12 col-md-6 col-lg-4">
-                        <div class="folder">
-                            <div class="w-100">
-                                <a href="{{ '/storage/' . $file->file }}" download target="_blank">
-                                    <p id="title">
-                                        {{ $file->title }}
-                                    </p>
-                                    <div class="row m-0 p-0 w-100 justify-content-between align-items-center">
-                                        <div>
-                                            <p>&nbsp;</p>
-                                            <p id="date">
-                                                {{ $file->created_at->toDateString() }}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            @if ($file->thumbnail)
-                                                <img class="preview-img" src="{{ '/storage/' . $file->thumbnail }}"
-                                                    style="width:100px !important; height: 100px !important;object-fit: contain;">
-                                            @elseif ($file->type == 'img')
-                                                <img class="preview-img" src="{{ '/storage/' . $file->file }}"
-                                                    id="folder-img">
-                                            @elseif($file->type == 'doc')
-                                                <img src="{{ '/images/files/' . $file->type . '.png' }}" width="45px"
-                                                    height="60px">
-                                            @else
-                                                <img src="{{ '/images/files/' . $file->type . '.png' }}" width="66px"
-                                                    height="68px">
-                                            @endif
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="edit-form">
-                                    <button class="edit-button" type="submit"
-                                        onclick="show_edit_file_modal({{ $file }})">
-                                        <img src="{{ asset('images/files/pencil-icon.svg') }}" alt=""
-                                            width="34px" height="34px">
-                                    </button>
+                    <div class="box-item box-item-padding">
+                        <a href="{{ '/storage/' . $file->file }}" download target="_blank">
+                            <div class="m-0 p-0 w-100 justify-content-between align-items-center">
+                                <div>
+                                    @if ($file->thumbnail)
+                                        <img class="preview-img" src="{{ '/storage/' . $file->thumbnail }}"
+                                            style="width:80px !important; height: 80px !important;object-fit: cover;">
+                                    @elseif ($file->type == 'img')
+                                        <img class="preview-img" src="{{ '/storage/' . $file->file }}" id="folder-img">
+                                    @elseif($file->type == 'doc')
+                                        <img src="{{ '/images/files/' . $file->type . '.png' }}" height="80px">
+                                    @else
+                                        <img src="{{ '/images/files/' . $file->type . '.png' }}" height="80px">
+                                    @endif
                                 </div>
-                                <div class="delete-form">
-                                    <form action="{{ route('file.destroy', $file->id) }}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="delete-button" type="submit"
-                                            onclick="return confirm('Are you sure you want to delete this file?');">
-                                            <img src="{{ asset('images/files/delete-icon.svg') }}" alt="">
-                                        </button>
-                                    </form>
-                                </div>
+                                <p id="title">
+                                    {{ $file->title }}
+                                </p>
                             </div>
+                        </a>
+                        <div class="edit-form">
+                            <button class="edit-button" type="submit" onclick="show_edit_file_modal({{ $file }})">
+                                <img src="{{ asset('images/files/pencil-icon.svg') }}" alt="" width="34px"
+                                    height="34px">
+                            </button>
+                        </div>
+                        <div class="delete-form">
+                            <form action="{{ route('file.destroy', $file->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="delete-button" type="submit"
+                                    onclick="return confirm('Are you sure you want to delete this file?');">
+                                    <img src="{{ asset('images/files/delete-icon.svg') }}" alt="">
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
