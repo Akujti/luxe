@@ -284,7 +284,18 @@
             var tax_proration = $('#tax-proration');
 
             var tax_proration_result = parseFloat(Math.round(((c7 * 30) - (30 - c8)) * (c9 / 365)));
-            tax_proration.html("$" + (isNaN(tax_proration_result) ? ' -' : tax_proration_result));
+            console.log('tax_proration_result');
+            console.log('c7', c7);
+            console.log('(c7 * 30)', (c7 * 30));
+            console.log('c8', c8);
+            console.log('(30 - c8)', (30 - c8));
+            console.log('c9', c9);
+            console.log('(c9 / 365)', (c9 / 365));
+            console.log('((c7 * 30) - (30 - c8))', ((c7 * 30) - (30 - c8)));
+            console.log('((c7 * 30) - (30 - c8)) * (c9 / 365))', ((c7 * 30) - (30 - c8)) * (c9 / 365));
+            console.log('Math.round(((c7 * 30) - (30 - c8)) * (c9 / 365))', Math.round(((c7 * 30) - (30 - c8)) * (c9 /
+                365)));
+            tax_proration.html("$" + (isNaN(tax_proration_result) ? ' ' : tax_proration_result));
 
 
             // Owners title policy calculator
@@ -333,8 +344,8 @@
             // Estimated Total deductions calculator
             var estimated_net = $('#estimated-net');
 
-            var estimated_net_result = parseFloat(estimated_total_result - c6);
-            estimated_net.html("$(" + (isNaN(estimated_net_result) ? '' : estimated_net_result) + ")");
+            var estimated_net_result = parseFloat(c6 - estimated_total_result);
+            estimated_net.html("$(" + (isNaN(estimated_net_result) ? ' -' : estimated_net_result) + ")");
         }
 
         function percentage(partialValue, totalValue) {
