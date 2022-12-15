@@ -132,7 +132,7 @@
                     </style>
                     <div class="contact_information">
                         <ul>
-                            @foreach ($referralPartner->meta_items as $item)
+                            @foreach ($meta_items as $item)
                                 @if ($item->type == 'general')
                                     <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg"
                                                 alt="" class="referral-meta-img">{{ $item->name }}</a></li>

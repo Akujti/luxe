@@ -55,7 +55,8 @@ class ReferralPartnerController extends Controller
         if (request()->wantsJson()) {
             return response()->json(['referralPartner' => $referralPartner->load('meta_items')]);
         }
-        return view('pages.referral-partners.show', compact('referralPartner'));
+        $meta_items = $referralPartner->meta_items()->orderBy('created_at', 'ASC')->get();
+        return view('pages.referral-partners.show', compact('referralPartner', 'meta_items'));
     }
 
     public function submit_inquiry(ReferralPartner $referralPartner)
