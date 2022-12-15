@@ -264,24 +264,26 @@
 @section('js')
     <script>
         function calculate() {
+            console.log('----');
+            console.log($('#c6').val().replace(",", ""));
             var [c6, c7, c8, c9, c10, c11, g14, g15, g16, g20, g21, g22, g23, g24, g25, g26, g27] = [
-                parseFloat($('#c6').val()),
-                parseFloat($('#c7').val()),
-                parseFloat($('#c8').val()),
-                parseFloat($('#c9').val()),
-                parseFloat($('#c10').val()),
-                parseFloat($('#c11').val()),
-                parseFloat($('#g14').val()),
-                parseFloat($('#g15').val()),
-                parseFloat($('#g16').val()),
-                parseFloat($('#g20').val()),
-                parseFloat($('#g21').val()),
-                parseFloat($('#g22').val()),
-                parseFloat($('#g23').val()),
-                parseFloat($('#g24').val()),
-                parseFloat($('#g25').val()),
-                parseFloat($('#g26').val()),
-                parseFloat($('#g27').val()),
+                parseFloat($('#c6').val().replace(/,/g, "")),
+                parseFloat($('#c7').val().replace(/,/g, "")),
+                parseFloat($('#c8').val().replace(/,/g, "")),
+                parseFloat($('#c9').val().replace(/,/g, "")),
+                parseFloat($('#c10').val().replace(/,/g, "")),
+                parseFloat($('#c11').val().replace(/,/g, "")),
+                parseFloat($('#g14').val().replace(/,/g, "")),
+                parseFloat($('#g15').val().replace(/,/g, "")),
+                parseFloat($('#g16').val().replace(/,/g, "")),
+                parseFloat($('#g20').val().replace(/,/g, "")),
+                parseFloat($('#g21').val().replace(/,/g, "")),
+                parseFloat($('#g22').val().replace(/,/g, "")),
+                parseFloat($('#g23').val().replace(/,/g, "")),
+                parseFloat($('#g24').val().replace(/,/g, "")),
+                parseFloat($('#g25').val().replace(/,/g, "")),
+                parseFloat($('#g26').val().replace(/,/g, "")),
+                parseFloat($('#g27').val().replace(/,/g, "")),
             ]
 
 
@@ -352,6 +354,7 @@
             var estimated_net = $('#estimated-net');
 
             var estimated_net_result = parseFloat(c6 - estimated_total_result);
+            console.log('finalString', finalString);
             estimated_net.html("$(" + (isNaN(estimated_net_result) ? ' -' : estimated_net_result) + ")");
         }
 
