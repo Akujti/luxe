@@ -700,6 +700,11 @@
                                 <li class="row m-0 @if (Request::path() == 'listings') active selected @endif">
                                     <a href="{{ route('listings.index') }}">Coming Soon & Off Market</a>
                                 </li>
+                                <li class="row m-0">
+                                    <a href="{{ route('listings.index') }}"
+                                        class="{{ isset($active) && $active == 'luxe_incentives' ? 'active_submenu' : '' }}">LUXE
+                                        Incentives</a>
+                                </li>
                                 </ul>
                             </div>
                             <div class="sidebar-details">

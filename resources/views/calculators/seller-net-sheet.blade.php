@@ -121,6 +121,11 @@
                                         <td class="input"><input type="number" id="c11" value="0"
                                                 onchange="calculate()"></td>
                                     </tr>
+                                    <tr>
+                                        <td class="">ARE YOU PAYING THE OWNERS POLICY</td>
+                                        <td class="input"><input type="checkbox" style="width: auto;"
+                                                id="owner-policy-checkbox" onchange="calculate()"></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -317,7 +322,9 @@
             } else if (g38(c6) > 10000000) {
                 owners_title_policy_result = (g38(c6) - 10000000) * 0.002 + 26325;
             }
-
+            if (!$('#owner-policy-checkbox').is(':checked')) {
+                owners_title_policy_result = 0
+            }
             owners_title_policy.html("$" + (isNaN(owners_title_policy_result) ? '0.00' : parseFloat(
                 owners_title_policy_result)));
 

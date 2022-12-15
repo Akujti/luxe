@@ -94,6 +94,7 @@ Route::post('general/form/send', [FormController::class, 'general_form_post'])->
 Route::get('form/other/marketing-budget', [FormController::class, 'marketing_budget_form']);
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::view('luxe-incentives', 'pages.luxe_incentives')->name('luxe-incentives');
     Route::view('generate-offer', 'generate.web');
     Route::post('generate-offer', [PDFController::class, 'generate_offer'])->name('generate.offer');
 
