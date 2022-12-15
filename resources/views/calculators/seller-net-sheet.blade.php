@@ -354,7 +354,6 @@
             var estimated_net = $('#estimated-net');
 
             var estimated_net_result = parseFloat(c6 - estimated_total_result);
-            console.log('finalString', finalString);
             estimated_net.html("$(" + (isNaN(estimated_net_result) ? ' -' : estimated_net_result) + ")");
         }
 
