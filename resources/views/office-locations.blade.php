@@ -96,8 +96,6 @@
                             <div class="form-group ">
                                 <p class="location">Pembroke Pines -- Coming Soon</p>
                                 <p class="address">1911 NW 150 Avenue #202, Pembroke Pines FL 33028</p>
-                                <button class="btn" onclick="toggleModal('Coral Gables','Keypad 555777#')">View Access
-                                    Instructions</button>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -129,7 +127,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <script>
         function toggleModal(location, text_1, text_2) {

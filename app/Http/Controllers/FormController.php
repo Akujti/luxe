@@ -174,7 +174,7 @@ class FormController extends Controller
                         'user_id' => auth()->id(),
                         'address' => $request->property_address,
                         'list_date' => now()->addDays(14),
-                        'main_image' => 'images/logo-black.png',
+                        'main_image' => 'images/image-coming-soon-placeholder.png',
                         'images' => json_encode([])
                     ]
                 );
