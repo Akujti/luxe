@@ -89,12 +89,6 @@
             outline: 0 !important;
         }
 
-        .preview-img {
-            height: 103px;
-            width: 103px;
-            object-fit: cover;
-        }
-
         .nav-body {
             display: flex;
             justify-content: space-between;
@@ -216,6 +210,11 @@
             justify-content: center;
             position: relative;
         }
+
+        .box-item img {
+            width: 75px !important;
+            height: 75px !important;
+        }
     </style>
 @endsection
 @section('content')
@@ -262,8 +261,7 @@
                     <div class="box-item box-item-padding">
                         <a href="{{ '/storage/' . $file->file }}" download target="_blank">
                             @if ($file->thumbnail)
-                                <img class="preview-img" src="{{ '/storage/' . $file->thumbnail }}"
-                                    style="width:75px !important; height: 75px !important">
+                                <img class="preview-img" src="{{ '/storage/' . $file->thumbnail }}">
                             @elseif ($file->type == 'img')
                                 <img class="preview-img" src="{{ '/storage/' . $file->file }}" id="folder-img">
                             @elseif($file->type == 'doc')
