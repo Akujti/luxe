@@ -111,7 +111,7 @@
                                 <input type="text" name="client_phone_number" class="form-control">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Upload Fully Executed Contract</label>
+                                <label for="name">Upload Fully Executed Contract and Addendums</label>
                                 <input type="file" name="contract" class="form-control p-1">
                             </div>
                             <div class="form-group form-footer col-12">
