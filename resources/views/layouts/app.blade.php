@@ -701,7 +701,7 @@
                                     <a href="{{ route('listings.index') }}">Coming Soon & Off Market</a>
                                 </li>
                                 <li class="row m-0">
-                                    <a href="{{ route('listings.index') }}"
+                                    <a href="{{ route('luxe-incentives') }}"
                                         class="{{ isset($active) && $active == 'luxe_incentives' ? 'active_submenu' : '' }}">LUXE
                                         Incentives</a>
                                 </li>
