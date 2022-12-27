@@ -227,11 +227,11 @@
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" required name="option"
-                                        id="opt6" data-price="0" value="Create RelaHQ Property Sites">
+                                        id="opt6" data-price="0" value="Property Website">
                                     <label class="form-check-label" for="opt3">
                                         <div class="row option">
                                             <div class="col-md-6 option-title">
-                                                Create RelaHQ Property Sites
+                                                Property Website
                                             </div>
                                             <div class="col-md-4 option-desc">
 

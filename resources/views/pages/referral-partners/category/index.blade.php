@@ -13,7 +13,6 @@
         .box-grid-item p {
             font-size: 18px;
             font-family: 'gothicregular';
-            text-transform: uppercase;
             margin: 0 !important;
             font-weight: bold;
             color: white;
