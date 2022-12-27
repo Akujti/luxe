@@ -23,7 +23,7 @@
 @section('content')
     <style>
     </style>
-    <div class="container-fluid">
+    <div class="container-fluid mb-4">
         <div class="col-12 title mb-3 text-center">
             <h1 class="font-weight-bold">Referral Partners</h1>
         </div>
