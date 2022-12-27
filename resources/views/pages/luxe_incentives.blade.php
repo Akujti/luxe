@@ -1,7 +1,12 @@
 @extends('layouts.app', ['active' => 'luxe_incentives'])
 @section('content')
     <style>
+        h4 {
+            margin-bottom: 15px;
+        }
+
         ul li {
+            margin-bottom: 15px;
             font-size: 24px;
         }
 
@@ -13,7 +18,6 @@
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="text-center">
-                    <img class="login-logo" src="/images/logo-black.png" alt="" height="110px">
                     <h2 class="under-contract my-5"><u>LUXE INCENTIVES</u></h2>
                 </div>
                 <h4><u>2022 TOP PRODUCERS</u></h4>

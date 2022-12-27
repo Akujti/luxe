@@ -47,7 +47,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="title mb-3 w-100">
-            <h1>FLIPPING HOUSE SHEET</h1>
+            <h1>AVR HOME INVESTMENT CALCULATOR</h1>
         </div>
         <div class="row justify-content-center">
             <div class="col-12 col-lg-7 col-xl-5 mb-4">

@@ -1857,12 +1857,12 @@
         </div>
         <div class="box-item box-item-center" onclick="window.location= '{{ route('calculators.flipping_house') }}'">
             <div>
-                <p>FLIPPING HOUSE SHEET</p>
+                <p>AVR HOME INVESTMENT CALCULATOR</p>
             </div>
         </div>
         <div class="box-item box-item-center" onclick="window.location= '{{ route('calculators.seller_net_sheet') }}'">
             <div>
-                <p>SELLER NET SHEET</p>
+                <p>SELLER NET CALCULATOR</p>
             </div>
         </div>
     </div>

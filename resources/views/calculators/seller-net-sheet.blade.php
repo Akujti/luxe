@@ -69,10 +69,10 @@
             <div class="col-12 col-xl-8 mb-4">
                 <div class="w-100 p-1" id="el">
                     <div class="mb-3 row justify-content-between">
-                        <div class="col-6">
-                            <h1>SELLER NET SHEET</h1>
+                        <div class="col-10">
+                            <h1>SELLER NET CALCULATOR</h1>
                         </div>
-                        <div class="col-6 d-flex justify-content-end">
+                        <div class="col-2 d-flex justify-content-end">
                             <img src="/images/favicon.png" alt="" width="55px" height="55px">
                         </div>
                     </div>

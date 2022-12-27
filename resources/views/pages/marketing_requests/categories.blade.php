@@ -187,14 +187,80 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn-luxe w-100">Request</button>
+                            <button type="button" class="btn-luxe w-100" data-toggle="modal"
+                                data-target="#exampleModal">Request</button>
+
+                            <div id="exampleModal" class="modal fade modal-new" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Custom Design Requests</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="">What is the purpose of this email blast?</label>
+                                                <input type="text" class="form-control" name="purpose_of_email_blast">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">What type of color palette would you like for this
+                                                    email blast?</label>
+                                                <input type="text" class="form-control"
+                                                    name="what_type_of_color_palette_would_you_like_for_this_email_blast">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">About clickable bottoms: would you like to
+                                                    redirect to website or personal acc?</label>
+                                                <input type="text" class="form-control"
+                                                    name="about_clickable_bottoms_would_you_like_to_redirect_to_website_or_personal_acc">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Would you like the contacts icons to redirect to
+                                                    your website / social media?</label>
+                                                <input type="text" class="form-control"
+                                                    name="would_you_like_the_contacts_icons_to_redirect_to_your_website_or_social_media">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Would you like to add features / highlights for
+                                                    the property to the email blast?</label>
+                                                <input type="text" class="form-control"
+                                                    name="would_you_like_to_add_features_or_highlights_for_the_property_to_the_email_blast">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Do you have pictures for the property?
+                                                    (photoshoot, if not we can offer photo / video services)</label>
+                                                <input type="text" class="form-control"
+                                                    name="do_you_have_pictures_for_the_property">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Would you like the email blast to be rebranded to
+                                                    your name / add your custom contact information?</label>
+                                                <input type="text" class="form-control"
+                                                    name="would_you_like_the_email_blast_to_be_rebranded_to_your_name_or_add_your_custom_contact_information">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">What would you like to add to the email blast -
+                                                    specifically?</label>
+                                                <input type="text" class="form-control"
+                                                    name="what_would_you_like_to_add_to_the_email_blast_specifically">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-luxe">Request</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
-
             {{-- @foreach ($marketing_categories as $category)
-        <div class="col-lg-3 col-md-6 my-2">
+        
+                <div class="col-lg-3 col-md-6 my-2">
             <div class="box-item">
                 <a href="{{route('marketing.request',$category)}}">
                     <div>
