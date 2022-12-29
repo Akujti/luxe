@@ -31,7 +31,7 @@
         }
 
         .form-check-input {
-            margin-top: 1.35rem;
+            margin-top: 0.45rem;
         }
 
         input[type=radio] {
@@ -40,6 +40,12 @@
 
         .form .btn-luxe {
             width: auto !important;
+        }
+
+        .option img {
+            height: 200px;
+            object-fit: cover;
+            outline: 1px solid #d6d6d6;
         }
     </style>
     <div class="container-fluid">
@@ -74,417 +80,622 @@
                             </div>
                             <div class="form-group col-12 form-options">
                                 <h4>Custom & Copyright Services</h4>
-                                {{-- <div class="form-check">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="option row">
-                                                <div class="col-md-9 pl-0">
-                                                    <div class="option-title">
-                                                        Brand Package
-                                                    </div>
-                                                    <div class="option-desc">
-                                                        Includes custom logo, letterhead, & 4 Instagram Templates
-                                                    </div>
-                                                    <div class="option-price">
-                                                        $150
-                                                    </div>
-
-                                                    <div class="mt-4">
-                                                        <button class="btn btn-luxe">ORDER NOW</button>
-                                                    </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Brand Package
                                                 </div>
-                                                <div class="col-md-3 p-0">
-                                                    <img src="https://static1.housesforsale.com/assets/cover/housesforsalebg.webp"
-                                                        alt="" class="w-100 rounded"
-                                                        style="height: 200px;object-fit:cover;">
+                                                <div class="option-desc">
+                                                    Includes custom logo, letterhead, & 4 Instagram Templates
+                                                </div>
+                                                <div class="option-price">
+                                                    $150
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required name="option"
+                                                        id="opt1" data-price="150" value="Brand Package">
+                                                    <label class="form-check-label" for="opt1">
+                                                        Click to Select
+                                                    </label>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="option row">
-                                                <div class="col-md-9 pl-0">
-                                                    <div class="option-title">
-                                                        Brand Package
-                                                    </div>
-                                                    <div class="option-desc">
-                                                        Includes custom logo, letterhead, & 4 Instagram Templates
-                                                    </div>
-                                                    <div class="option-price">
-                                                        $150
-                                                    </div>
-
-                                                    <div class="mt-4">
-                                                        <button class="btn btn-luxe">ORDER NOW</button>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 p-0">
-                                                    <img src="https://static1.housesforsale.com/assets/cover/housesforsalebg.webp"
-                                                        alt="" class="w-100 rounded"
-                                                        style="height: 200px;object-fit:cover;">
-                                                </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/brand-package.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/brand-package.jpg')">
                                             </div>
                                         </div>
                                     </div>
-                                </div> --}}
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option" id="opt1"
-                                        data-price="150" value="Brand Package">
-                                    <label class="form-check-label" for="opt1">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Brand Package
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                                Includes custom logo, letterhead, & 4 Instagram Templates
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                                $150
-                                            </div>
-                                            <div class="text-center">
-                                                {{-- <div>
-                                                    <img src="https://myluxehub.com/images/logo-black.png" alt=""
-                                                        class="w-100"
-                                                        style="border: 1px solid #262626;border-radius:5px;padding:10px;"
-                                                        onclick="showModal('https://myluxehub.com/images/logo-black.png')">
-                                                </div> --}}
-                                                {{-- <button type="button" class="btn btn-luxe"
-                                                    onclick="showModal('https://myluxehub.com/images/logo-black.png')">View</button> --}}
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option" id="opt2"
-                                        data-price="35" value="Create Google Business Page">
-                                    <label class="form-check-label" for="opt2">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Create Google Business Page
-                                            </div>
-                                            <div class="col-md-4 option-desc">
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Create Google Business Page
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    $35
+                                                </div>
 
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required name="option"
+                                                        id="opt2" data-price="35" value="Create Google Business Page">
+                                                    <label class="form-check-label" for="opt2">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-2 option-price">
-                                                $35
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/google-business-page.jpg" alt=""
+                                                    class="w-100 rounded" style="height: 200px;object-fit:cover;"
+                                                    onclick="showModal('/images/marketing-menu/google-business-page.jpg')">
                                             </div>
-                                            {{-- <div class="col-md-2 text-center">
-                                                <button type="button" class="btn btn-luxe"
-                                                    onclick="showModal('https://myluxehub.com/images/index-page/online-marketing-designer.svg')">View</button>
-                                            </div> --}}
                                         </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option" id="opt3"
-                                        data-price="35" value="Create Facebook Business Page">
-                                    <label class="form-check-label" for="opt3">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Create Facebook Business Page
-                                            </div>
-                                            <div class="col-md-4 option-desc">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Create Facebook Business Page
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    $35
+                                                </div>
 
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required name="option"
+                                                        id="opt3" data-price="35"
+                                                        value="Create Facebook Business Page">
+                                                    <label class="form-check-label" for="opt3">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-2 option-price">
-                                                $35
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/facebook-business-page.jpg" alt=""
+                                                    class="w-100 rounded"
+                                                    onclick="showModal('/images/marketing-menu/facebook-business-page.jpg')">
                                             </div>
                                         </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option" id="opt4"
-                                        data-price="35" value="Write Blog Post">
-                                    <label class="form-check-label" for="opt4">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Write Blog Post
-                                            </div>
-                                            <div class="col-md-4 option-desc">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Write Blog Post
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    $35
+                                                </div>
 
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt4" data-price="35"
+                                                        value="Write Blog Post">
+                                                    <label class="form-check-label" for="opt4">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-2 option-price">
-                                                $35
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option" id="opt5"
-                                        data-price="100" value="MLS Input">
-                                    <label class="form-check-label" for="opt5">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                MLS Input
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                                With copyright description
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                                $100
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/write-blog-post.jpg" alt=""
+                                                    class="w-100 rounded"
+                                                    onclick="showModal('/images/marketing-menu/write-blog-post.jpg')">
                                             </div>
                                         </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt6" data-price="0" value="Property Website">
-                                    <label class="form-check-label" for="opt3">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Property Website
-                                            </div>
-                                            <div class="col-md-4 option-desc">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    MLS Input
+                                                </div>
+                                                <div class="option-desc">
+                                                    With copyright description
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    $100
+                                                </div>
 
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt5" data-price="100"
+                                                        value="MLS Input">
+                                                    <label class="form-check-label" for="opt5">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-2 option-price">
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/mls-input.jpg" alt=""
+                                                    class="w-100 rounded"
+                                                    onclick="showModal('/images/marketing-menu/mls-input.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Property Website
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
 
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt7" data-price="50" value="Create Landing Page">
-                                    <label class="form-check-label" for="opt3">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Create Landing Page
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                                (Requires kvCORE or other third-party provider)
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                                $50
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt8" data-price="50" value="Set Up Zillow & Realtor.com Profiles">
-                                    <label class="form-check-label" for="opt3">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Set Up Zillow & Realtor.com Profiles
-                                            </div>
-                                            <div class="col-md-4 option-desc">
+                                                </div>
 
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt6" data-price="0"
+                                                        value="Property Website">
+                                                    <label class="form-check-label" for="opt6">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-2 option-price">
-                                                $50
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt9" data-price="0" value="Custom Bio">
-                                    <label class="form-check-label" for="opt3">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Custom Bio
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                            </div>
-                                            <div class="col-md-2 option-price">
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/property-website.jpg" alt=""
+                                                    class="w-100 rounded"
+                                                    onclick="showModal('/images/marketing-menu/property-website.jpg')">
                                             </div>
                                         </div>
-                                    </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Create Landing Page
+                                                </div>
+                                                <div class="option-desc">
+                                                    (Requires kvCORE or other third-party provider)
+                                                </div>
+                                                <div class="option-price">
+                                                    $50
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt7" data-price="50"
+                                                        value="Create Landing Page">
+                                                    <label class="form-check-label" for="opt7">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/create-landing-page.jpg" alt=""
+                                                    class="w-100 rounded"
+                                                    onclick="showModal('/images/marketing-menu/create-landing-page.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Set Up Zillow & Realtor.com Profiles
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    $50
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt8" data-price="50"
+                                                        value="Set Up Zillow & Realtor.com Profiles">
+                                                    <label class="form-check-label" for="opt7">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/set-up-realtor-profile.jpg"
+                                                    alt="" class="w-100 rounded"
+                                                    onclick="showModal('/images/marketing-menu/set-up-realtor-profile.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Custom Bio
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br><br>
+                                                </div>
+                                                <div class="option-price">
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt9" data-price="0" value="Custom Bio">
+                                                    <label class="form-check-label" for="opt9">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/custom-bio.jpg" alt=""
+                                                    class="w-100 rounded"
+                                                    onclick="showModal('/images/marketing-menu/custom-bio.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <h4>Paid Advertising</h4>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt10" data-price="199" value="Boosting Facebook Ads">
-                                    <label class="form-check-label" for="opt10">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Boosting Facebook Ads
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Boosting Facebook Ads
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    $199
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt10" data-price="199"
+                                                        value="Boosting Facebook Ads">
+                                                    <label class="form-check-label" for="opt10">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4 option-desc">
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                                $199
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt11" data-price="199" value="Boosting Instagram Ads">
-                                    <label class="form-check-label" for="opt11">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Boosting Instagram Ads
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                                $199
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt12" data-price="199" value="Google Ads Set Up - PPC">
-                                    <label class="form-check-label" for="opt12">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Google Ads Set Up - PPC
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                                On Existing Website or Landing Page
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                                $199
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/boost-facebook.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/boost-facebook.jpg')">
                                             </div>
                                         </div>
-                                    </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Boosting Instagram Ads
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    $199
+                                                </div>
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt11" data-price="199"
+                                                        value="Boosting Instagram Ads">
+                                                    <label class="form-check-label" for="opt11">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/boost-instagram.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/boost-instagram.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Google Ads Set Up - PPC
+                                                </div>
+                                                <div class="option-desc">
+                                                    On Existing Website or Landing Page
+                                                </div>
+                                                <div class="option-price">
+                                                    $199
+                                                </div>
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt12" data-price="199"
+                                                        value="Google Ads Set Up - PPC">
+                                                    <label class="form-check-label" for="opt12">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/google-adssetup.jpg" alt=""
+                                                    class="w-100 rounded"
+                                                    onclick="showModal('/images/marketing-menu/google-adssetup.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <h4>Digital Designs</h4>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt13" data-price="0" value="Email Blast">
-                                    <label class="form-check-label" for="opt13">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Email Blast
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Email Blast
+                                                </div>
+                                                <div class="option-desc">
+                                                    (just listed, just sold, under contract, open house, broker's open)
+                                                </div>
+                                                <div class="option-price">
+                                                    <br>
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt14" data-price="0"
+                                                        value="Social Media Posts">
+                                                    <label class="form-check-label" for="opt14">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4 option-desc">
-                                                (just listed, just sold, under contract, open house, broker's open)
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt14" data-price="0" value="Social Media Posts">
-                                    <label class="form-check-label" for="opt14">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Social Media Posts
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                                (new agent, just listed, just sold, under contract, open house, broker's
-                                                open)
-                                            </div>
-                                            <div class="col-md-2 option-price">
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/email-blast.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/email-blast.jpg')">
                                             </div>
                                         </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt15" data-price="0" value="Custom Email Signature">
-                                    <label class="form-check-label" for="opt15">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Custom Email Signature
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Social Media Posts
+                                                </div>
+                                                <div class="option-desc">
+                                                    (new agent, just listed, just sold, under contract, open house, broker's
+                                                    open)</div>
+                                                <div class="option-price">
+                                                    <br>
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt14" data-price="0"
+                                                        value="Social Media Posts">
+                                                    <label class="form-check-label" for="opt14">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4 option-desc">
-                                            </div>
-                                            <div class="col-md-2 option-price">
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/social-media.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/social-media.jpg')">
                                             </div>
                                         </div>
-                                    </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Custom Email Signature
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    <br>
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt15" data-price="0"
+                                                        value="Custom Email Signature">
+                                                    <label class="form-check-label" for="opt15">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/custom-email-signature.jpg"
+                                                    alt="" class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/custom-email-signature.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <h4>Print Designs</h4>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt16" data-price="0" value="Door Hangers">
-                                    <label class="form-check-label" for="opt16">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Door Hangers
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Door Hangers
+                                                </div>
+                                                <div class="option-desc">
+                                                    (just listed, just sold, under contract, open house, broker's open)
+                                                </div>
+                                                <div class="option-price">
+                                                    <br>
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt16" data-price="0"
+                                                        value="Door Hangers">
+                                                    <label class="form-check-label" for="opt16">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4 option-desc">
-                                                (just listed, just sold, under contract, open house, broker's open)
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt17" data-price="0" value="Flyers">
-                                    <label class="form-check-label" for="opt17">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Flyers
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                                (just listed, just sold, under contract, open house, broker's open)
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt18" data-price="0" value="Design Custom Signage">
-                                    <label class="form-check-label" for="opt18">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Design Custom Signage
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                                (for sale signs, open house signs, etc)
-                                            </div>
-                                            <div class="col-md-2 option-price">
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/door-hangers.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/door-hangers.jpg')">
                                             </div>
                                         </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt19" data-price="0" value="Design Custom Business Cards">
-                                    <label class="form-check-label" for="opt19">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Design Custom Business Cards
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Flyers
+                                                </div>
+                                                <div class="option-desc">
+                                                    (just listed, just sold, under contract, open house, broker's open)
+                                                </div>
+                                                <div class="option-price">
+                                                    <br>
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt18" data-price="0" value="Flyers">
+                                                    <label class="form-check-label" for="opt16">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4 option-desc">
-                                            </div>
-                                            <div class="col-md-2 option-price">
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt20" data-price="0" value="Design Custom Banner">
-                                    <label class="form-check-label" for="opt20">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Design Custom Banner
-                                            </div>
-                                            <div class="col-md-4 option-desc">
-                                                (digital or print)
-                                            </div>
-                                            <div class="col-md-2 option-price">
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/flyers.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/flyers.jpg')">
                                             </div>
                                         </div>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" required name="option"
-                                        id="opt21" data-price="0"
-                                        value="Mailers/EDDM - Postcard creation & community routes">
-                                    <label class="form-check-label" for="opt21">
-                                        <div class="row option">
-                                            <div class="col-md-6 option-title">
-                                                Mailers/EDDM - Postcard creation & community routes
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Design Custom Signage
+                                                </div>
+                                                <div class="option-desc">
+                                                    (for sale signs, open house signs, etc)
+                                                </div>
+                                                <div class="option-price">
+                                                    <br><br>
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt18" data-price="0"
+                                                        value="Design Custom Signage">
+                                                    <label class="form-check-label" for="opt18">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4 option-desc">
-                                            </div>
-                                            <div class="col-md-2 option-price">
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/design-custom-signage.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/design-custom-signage.jpg')">
                                             </div>
                                         </div>
-                                    </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Design Custom Business Cards
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    <br><br>
+                                                </div>
+
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt20" data-price="0"
+                                                        value="Design Custom Business Cards">
+                                                    <label class="form-check-label" for="opt20">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/business-cards.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/business-cards.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Design Custom Banner
+                                                </div>
+                                                <div class="option-desc">
+                                                    (digital or print)
+                                                </div>
+                                                <div class="option-price">
+                                                    <br><br>
+                                                </div>
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt20" data-price="0"
+                                                        value="Design Custom Banner">
+                                                    <label class="form-check-label" for="opt20">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/custom-banner.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/custom-banner.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="option row">
+                                            <div class="col-md-9 pl-0">
+                                                <div class="option-title">
+                                                    Mailers/EDDM - Postcard creation & community routes
+                                                </div>
+                                                <div class="option-desc">
+                                                    <br>
+                                                </div>
+                                                <div class="option-price">
+                                                    <br>
+                                                </div>
+                                                <div class="mt-4 form-check">
+                                                    <input class="form-check-input" type="radio" required
+                                                        name="option" id="opt21" data-price="0"
+                                                        value="Mailers/EDDM - Postcard creation & community routes">
+                                                    <label class="form-check-label" for="opt20">
+                                                        Click to Select
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 p-0">
+                                                <img src="/images/marketing-menu/mailers.jpg" alt=""
+                                                    class="w-100 rounded" style=""
+                                                    onclick="showModal('/images/marketing-menu/mailers.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <hr>
                                 <div class="form-group">
@@ -584,16 +795,16 @@
                     </div>
                     <div class="modal-body">
                         <div class="text-center">
-                            <img id="modalImage" src="" alt="" class="w-50 mb-5">
+                            <img id="modalImage" src="" alt="" class="w-100 mb-5">
                         </div>
-                        <p>Here are our services</p>
+                        {{-- <p>Here are our services</p>
                         <ul>
                             <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
                             <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco</li>
                             <li>Duis aute irure dolor in reprehenderit in voluptate velit esse</li>
                             <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa</li>
                             <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                        </ul>
+                        </ul> --}}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -605,8 +816,6 @@
     </div>
     <script>
         function showModal(url) {
-            console.log('clicked');
-            console.log(url);
             $("#modalImage").attr("src", url);
             $("#imgModal").modal("show");
         }

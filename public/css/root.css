@@ -126,7 +126,7 @@
 }
 .sidebar-details {
     position: absolute;
-    bottom: 0;
+    bottom: 22px;
     width: 76%;
     left: 46%;
     transform: translate(-50%, -0%);
