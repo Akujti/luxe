@@ -96,7 +96,7 @@
                             <p id="short-desc">{!! nl2br($product->description) !!}</p>
                         </div>
                         <div id="pricing" class="tab-pane fade">
-                            @foreach ($product->variants as $variant)
+                            @forelse ($product->variants as $variant)
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -121,7 +121,30 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            @endforeach
+                            @empty
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Product
+                                            </th>
+                                            <th>
+                                                Price
+                                            </th>
+                                            <th>
+                                                Sale Price
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ $product->name }}</td>
+                                            <td>$ {{ $product->price }}</td>
+                                            <td>$ {{ $product->sale_price ? $product->sale_price : '-' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -214,60 +237,60 @@
         </div>
     </div>
 
-@section('js')
-    <script>
-        function option_value() {
-            $('.stock-product').removeClass('d-none')
-            $('.stock-variant').removeClass('d-flex')
-            $('.stock-variant').addClass('d-none')
-            $('#show-option-value').html('')
-            var option = document.getElementById("select-option").value;
+    @section('js')
+        <script>
+            function option_value() {
+                $('.stock-product').removeClass('d-none')
+                $('.stock-variant').removeClass('d-flex')
+                $('.stock-variant').addClass('d-none')
+                $('#show-option-value').html('')
+                var option = document.getElementById("select-option").value;
 
-            if (option) {
-                var options = JSON.parse(JSON.stringify(<?php echo json_encode(@$product->variants[0]->values); ?>))
-                var row = options.filter(x => x.value == option)[0]
+                if (option) {
+                    var options = JSON.parse(JSON.stringify(<?php echo json_encode(@$product->variants[0]->values); ?>))
+                    var row = options.filter(x => x.value == option)[0]
 
-                if (row.sale_price) {
-                    $('#show-option-value').append('<p id="price" class="mr-3">$' + row.sale_price + '</p>')
-                    $('#show-option-value').append('<p id="sale-price"><del>$' + row.price + '</del></p>')
-                } else {
-                    $('#show-option-value').append('<p id="price">$' + row.price + '</p>')
-                }
-                if (row.stock) {
-                    if (row.stock < 500000) {
-                        $('.stock-variant').html('<p id="price" class="p-0 m-0">' + row.stock +
-                            '</p><p id="categories" class="p-0 m-0 ml-1">in stock</p>')
+                    if (row.sale_price) {
+                        $('#show-option-value').append('<p id="price" class="mr-3">$' + row.sale_price + '</p>')
+                        $('#show-option-value').append('<p id="sale-price"><del>$' + row.price + '</del></p>')
                     } else {
-                        $('.stock-variant').html('<p id="categories" class="p-0 m-0 ml-1">in stock</p>')
+                        $('#show-option-value').append('<p id="price">$' + row.price + '</p>')
                     }
-                    $('.stock-variant').removeClass('d-none')
-                    $('.stock-variant').addClass('d-flex')
-                    $('.stock-product').addClass('d-none')
+                    if (row.stock) {
+                        if (row.stock < 500000) {
+                            $('.stock-variant').html('<p id="price" class="p-0 m-0">' + row.stock +
+                                '</p><p id="categories" class="p-0 m-0 ml-1">in stock</p>')
+                        } else {
+                            $('.stock-variant').html('<p id="categories" class="p-0 m-0 ml-1">in stock</p>')
+                        }
+                        $('.stock-variant').removeClass('d-none')
+                        $('.stock-variant').addClass('d-flex')
+                        $('.stock-product').addClass('d-none')
+                    } else {
+                        $('.stock-variant').html('<p id="out-of-stock" class="p-0 m-0 ml-1">Out of Stock</p>')
+                        $('#btn-submit').attr('disabled', true)
+                        $('.stock-variant').removeClass('d-none')
+                        $('.stock-product').addClass('d-none')
+                    }
+                    $('#clear').show();
                 } else {
-                    $('.stock-variant').html('<p id="out-of-stock" class="p-0 m-0 ml-1">Out of Stock</p>')
-                    $('#btn-submit').attr('disabled', true)
-                    $('.stock-variant').removeClass('d-none')
-                    $('.stock-product').addClass('d-none')
+                    $('#show-option-value').text('')
+                    $('#clear').hide();
                 }
-                $('#clear').show();
-            } else {
-                $('#show-option-value').text('')
-                $('#clear').hide();
             }
-        }
 
-        function clear_selection() {
-            document.getElementById("select-option").value = '';
-            $('#clear').toggle();
-            $('#show-option-value').text('')
-            $('.stock-product').removeClass('d-none')
-            $('.stock-variant').removeClass('d-flex')
-            $('.stock-variant').addClass('d-none')
-        }
+            function clear_selection() {
+                document.getElementById("select-option").value = '';
+                $('#clear').toggle();
+                $('#show-option-value').text('')
+                $('.stock-product').removeClass('d-none')
+                $('.stock-variant').removeClass('d-flex')
+                $('.stock-variant').addClass('d-none')
+            }
 
-        function make_preview_image(e) {
-            $('#preview-image').attr('src', e.src)
-        }
-    </script>
-@endsection
+            function make_preview_image(e) {
+                $('#preview-image').attr('src', e.src)
+            }
+        </script>
+    @endsection
 @endsection
