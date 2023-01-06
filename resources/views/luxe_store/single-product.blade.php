@@ -32,6 +32,31 @@
             margin-bottom: 0px !important;
         }
 
+        #info-tabs li {
+            margin-right: 20px;
+        }
+
+        #info-tabs li a.active {
+            background-color: #262626;
+            border-radius: 5px;
+            color: white;
+            font-family: "gothicregular";
+        }
+
+        #info-tabs li a {
+            padding: 5px;
+            color: #262626;
+            font-family: "gothicregular";
+        }
+
+        #info-tabs li a:hover,
+        #info-tabs li a:focus {
+            text-decoration: none;
+        }
+
+        .nav-tabs {
+            padding-bottom: 10px;
+        }
     </style>
 @endsection
 @section('content')
@@ -59,14 +84,54 @@
                         </div>
                     @endforeach
                 </div>
+                <div id="info-tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#desc" class="active">Description</a></li>
+                        <li><a data-toggle="tab" href="#pricing">Pricing</a></li>
+                    </ul>
+
+                    <div class="tab-content pt-2">
+                        <div id="desc" class="tab-pane active">
+                            <p id="short-desc">{!! nl2br($product->description_2) !!}</p>
+                            <p id="short-desc">{!! nl2br($product->description) !!}</p>
+                        </div>
+                        <div id="pricing" class="tab-pane fade">
+                            @foreach ($product->variants as $variant)
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                {{ $variant->variant_name }}
+                                            </th>
+                                            <th>
+                                                Price
+                                            </th>
+                                            <th>
+                                                Sale Price
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($variant->values as $value)
+                                            <tr>
+                                                <td>{{ $value->value }}</td>
+                                                <td>$ {{ $value->price }}</td>
+                                                <td>$ {{ $value->sale_price ? $value->sale_price : '-' }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-12 col-md-12 col-lg-7 single-product-details pl-4 pd-l pd-r">
                 <h3 id="title" class="mb-4 mt-lg-5 mt-1">{{ $product->name }}</h3>
-
                 <form method="POST" action="{{ route('luxe_store.addtocart') }}" class="d-block">
                     @csrf
                     @if (!$product->variants->count())
-                        <div class="d-flex align-items-center mb-4">
+                        <div class="d-flex align-items-center">
                             @if ($product->sale_price)
                                 <p id="price" class="mr-3">${{ $product->sale_price }}</p>
                                 <p id="sale-price"><del>${{ $product->price }}</del></p>
@@ -74,14 +139,14 @@
                                 <p id="price">${{ $product->price }}</p>
                             @endif
                         </div>
-                        <p id="short-desc" class="mb-4">{!! nl2br($product->description_2) !!}</p>
+                        {{-- <p id="short-desc">{!! nl2br($product->description_2) !!}</p> --}}
                     @else
-                        <p id="price" class="mb-4">
+                        <p id="price">
                             {{ $product->variants[0]->max_value_price == $product->variants[0]->min_value_price
                                 ? '$' . $product->variants[0]->max_value_price
                                 : '$' . $product->variants[0]->min_value_price . ' - $' . $product->variants[0]->max_value_price }}
                         </p>
-                        <p id="short-desc" class="mb-4">{!! nl2br($product->description_2) !!}</p>
+                        {{-- <p id="short-desc" class="mb-4">{!! nl2br($product->description_2) !!}</p> --}}
 
                         <div id="show-variants" class="col-12 col-md-8">
                             @foreach ($product->variants as $variant)
@@ -117,8 +182,8 @@
                     @endif
 
                     <div class="d-flex align-items-center pd-r pd-l my-4">
-                        <input type="number" id="quantity-input" name="quantity" class="form-control py-2 mr-2" value="1"
-                            max="{{ $product->stock }}">
+                        <input type="number" id="quantity-input" name="quantity" class="form-control py-2 mr-2"
+                            value="1" max="{{ $product->stock }}">
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <button class="btn btn-luxe py-2 px-4" type="submit" style="border-radius:10px;" id="btn-submit"
                             {{ !$product->stock ? 'disabled' : '' }}>Add To cart</button>
@@ -135,16 +200,15 @@
                         <div class="stock-variant d-flex justify-content-between align-items-center ml-1"></div>
                     </div>
 
-                    <p id="categories">Categories: @foreach ($product->categories as $key => $category)
+                    {{-- <p id="categories">Categories: @foreach ($product->categories as $key => $category)
                             {{ $category->name }}
                             @if ($key == $product->categories->count() - 1)
                             @else
                                 ,
                             @endif
                         @endforeach
-                    </p>
+                    </p> --}}
 
-                    <p id="short-desc">{!! nl2br($product->description) !!}</p>
                 </form>
             </div>
         </div>
