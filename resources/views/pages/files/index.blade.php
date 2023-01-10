@@ -147,7 +147,7 @@
         .preview-img {
             height: 103px;
             width: 103px;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .nav-body {

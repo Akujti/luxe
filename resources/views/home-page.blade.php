@@ -181,11 +181,11 @@
                 <h1>WELCOME TO MYLUXEHUB</h1>
             </div>
 
-            <div class="row p-0 m-0 mb-5 mt-4">
+            <div class="row p-0 m-0 mb-6 mt-4">
                 <div class="col-12 col-lg-5 mt-3 agent-logs">
                     <x-brokersumo-tiers :user="auth()->user()" :row="true" />
                 </div>
-                <div class="col-12 col-lg-5 mt-3 agent-logs">
+                <div class="col-12 col-lg-6 mt-3 agent-logs">
                     <div class="w-100">
                         <div class="form-group">
                             <label for="">Branch Manager</label>
@@ -208,7 +208,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-2 mt-3 agent-logs">
+                {{-- <div class="col-12 col-lg-2 mt-3 agent-logs">
                     <div class="w-100" style="cursor: pointer">
                         <a href="{{ url('leaderboard/sales') }}" class="text-decoration-none-hover">
                             <div class="text-center">
@@ -225,7 +225,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-12 mb-3">
                     <div class="mb-2 log-title">
                         News Feed
