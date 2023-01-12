@@ -451,7 +451,7 @@
                                                 <div class="mt-4 form-check">
                                                     <input class="form-check-input" type="radio" required
                                                         name="option" id="opt14" data-price="0"
-                                                        value="Social Media Posts">
+                                                        value="Email Blast">
                                                     <label class="form-check-label" for="opt14">
                                                         Click to Select
                                                     </label>
@@ -727,51 +727,54 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="">What is the purpose of this email blast?</label>
-                                        <input type="text" class="form-control" name="purpose_of_email_blast">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">What type of color palette would you like for this
-                                            email blast?</label>
-                                        <input type="text" class="form-control"
-                                            name="what_type_of_color_palette_would_you_like_for_this_email_blast">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">About clickable bottoms: would you like to
-                                            redirect to website or personal acc?</label>
-                                        <input type="text" class="form-control"
-                                            name="about_clickable_bottoms_would_you_like_to_redirect_to_website_or_personal_acc">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Would you like the contacts icons to redirect to
-                                            your website / social media?</label>
-                                        <input type="text" class="form-control"
-                                            name="would_you_like_the_contacts_icons_to_redirect_to_your_website_or_social_media">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Would you like to add features / highlights for
-                                            the property to the email blast?</label>
-                                        <input type="text" class="form-control"
-                                            name="would_you_like_to_add_features_or_highlights_for_the_property_to_the_email_blast">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Do you have pictures for the property?
-                                            (photoshoot, if not we can offer photo / video services)</label>
-                                        <input type="text" class="form-control"
-                                            name="do_you_have_pictures_for_the_property">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Would you like the email blast to be rebranded to
-                                            your name / add your custom contact information?</label>
-                                        <input type="text" class="form-control"
-                                            name="would_you_like_the_email_blast_to_be_rebranded_to_your_name_or_add_your_custom_contact_information">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">What would you like to add to the email blast -
-                                            specifically?</label>
-                                        <input type="text" class="form-control"
-                                            name="what_would_you_like_to_add_to_the_email_blast_specifically">
+                                    <p id="modal-question">Are you sure you want to submit this form?</p>
+                                    <div id="email-blast-questions">
+                                        <div class="form-group">
+                                            <label for="">What is the purpose of this email blast?</label>
+                                            <input type="text" class="form-control" name="purpose_of_email_blast">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">What type of color palette would you like for this
+                                                email blast?</label>
+                                            <input type="text" class="form-control"
+                                                name="what_type_of_color_palette_would_you_like_for_this_email_blast">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">About clickable bottoms: would you like to
+                                                redirect to website or personal acc?</label>
+                                            <input type="text" class="form-control"
+                                                name="about_clickable_bottoms_would_you_like_to_redirect_to_website_or_personal_acc">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Would you like the contacts icons to redirect to
+                                                your website / social media?</label>
+                                            <input type="text" class="form-control"
+                                                name="would_you_like_the_contacts_icons_to_redirect_to_your_website_or_social_media">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Would you like to add features / highlights for
+                                                the property to the email blast?</label>
+                                            <input type="text" class="form-control"
+                                                name="would_you_like_to_add_features_or_highlights_for_the_property_to_the_email_blast">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Do you have pictures for the property?
+                                                (photoshoot, if not we can offer photo / video services)</label>
+                                            <input type="text" class="form-control"
+                                                name="do_you_have_pictures_for_the_property">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Would you like the email blast to be rebranded to
+                                                your name / add your custom contact information?</label>
+                                            <input type="text" class="form-control"
+                                                name="would_you_like_the_email_blast_to_be_rebranded_to_your_name_or_add_your_custom_contact_information">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">What would you like to add to the email blast -
+                                                specifically?</label>
+                                            <input type="text" class="form-control"
+                                                name="what_would_you_like_to_add_to_the_email_blast_specifically">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer pt-0 d-flex justify-content-center">
@@ -819,9 +822,8 @@
             $("#modalImage").attr("src", url);
             $("#imgModal").modal("show");
         }
-    </script>
-    <script>
-        $('input[type=radio][name=option]').change(function() {
+
+        $('input[type=radio][name=option]').change(function(event) {
             $("#file-upload-area").attr("disabled", false)
             $("#notes-area").attr("disabled", false)
             var price = this.getAttribute('data-price');
@@ -832,6 +834,14 @@
             } else {
                 $('#paypal-button-container').addClass('d-none')
                 $('#submit-btn').removeClass('d-none')
+            }
+
+            if ($(this).val() === 'Email Blast') {
+                $('#email-blast-questions').removeClass('d-none')
+                $('#modal-question').addClass('d-none')
+            } else {
+                $('#modal-question').removeClass('d-none')
+                $('#email-blast-questions').addClass('d-none')
             }
         });
     </script>
