@@ -728,7 +728,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p id="modal-question">Are you sure you want to submit this form?</p>
-                                    <div id="email-blast-questions">
+                                    <div id="email-blast-questions" class="d-none">
                                         <div class="form-group">
                                             <label for="">What is the purpose of this email blast?</label>
                                             <input type="text" class="form-control" name="purpose_of_email_blast">
