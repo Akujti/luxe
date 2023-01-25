@@ -3,8 +3,28 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                <div class="modal modal-new fade" id="modal">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content bg-white">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Disclaimer
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <p style="font-family: 'gothicregular';">We are currently at capacity for new agents to
+                                    join. You can still fill out the form
+                                    and we will notify you once we have space on the team.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
+
                     <div class="card-header">
                         <h1 class="text-center my-4">Join Zillow</h1>
                     </div>
@@ -89,4 +109,9 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#modal').modal('show');
+        });
+    </script>
 @endsection
