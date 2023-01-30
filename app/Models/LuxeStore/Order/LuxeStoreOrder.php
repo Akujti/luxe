@@ -11,7 +11,7 @@ class LuxeStoreOrder extends Model
     use HasFactory;
 
 
-    protected $fillable = ['information_seller', 'status'];
+    protected $fillable = ['information_seller', 'status', 'request_info', 'request_info_response'];
 
     protected $with = ['products', 'payment'];
 

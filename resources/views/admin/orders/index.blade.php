@@ -91,7 +91,12 @@
                 <div class="col-md-2 form-group">
                     <select name="status" class="form-control">
                         <option value>Status</option>
+                        <option value="Pending">Pending</option>
                         <option value="Paid">Paid</option>
+                        <option value="Request Info">Request Info</option>
+                        <option value="Updated Info">Updated Info</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
                         <option value="Completed">Completed</option>
                     </select>
                 </div>

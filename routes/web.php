@@ -364,6 +364,8 @@ Route::group(
         Route::get('diy-templates/{diyTemplateCategory}', [DiyTemplateCategoryController::class, 'agent_show'])->name('user.diy-templates.show');
         Route::get('/orders', [OrderController::class, 'my_orders'])->name('my_orders');
         Route::get('/orders/{id}', [OrderController::class, 'show_agent'])->name('my_orders.show');
+        Route::get('/orders/{id}/edit', [OrderController::class, 'edit_show'])->name('my_orders.edit');
+        Route::put('/orders/{id}/edit', [OrderController::class, 'update_request_info'])->name('my_orders.edit.put');
         Route::get('/marketing-orders/{id}', [TemplateSubmitController::class, 'show_agent'])->name('my.marketing.orders.show');
         Route::put('/marketing-orders/{id}', [TemplateSubmitController::class, 'update_marketing_order'])->name('my.marketing.orders.update');
 
@@ -526,6 +528,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
         Route::get('/', [OrderController::class, 'admin_index'])->name('index');
         Route::get('/{id}', [OrderController::class, 'show'])->name('show');
         Route::put('/{order}', [OrderController::class, 'complete'])->name('complete');
+        Route::put('/{order}', [OrderController::class, 'update_status'])->name('status');
     });
 
     Route::group(['prefix' => 'users', 'as' => 'users.'], function () {

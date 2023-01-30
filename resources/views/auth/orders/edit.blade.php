@@ -47,9 +47,12 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row m-0">
+    <form class="row m-0" action="{{ route('my_orders.edit.put', $order->id )}}" method="POST">
+        @csrf
+        @method('PUT')
         <div class="w-100 d-flex justify-content-between align-items-center mb-2">
             <h5 class="h5-luxe bold">Order #{{ $order->id }} details</h5>
+            <button class="btn-luxe py-2 px-4" type="submit">Save Changes</button>
         </div>
         
         <div class="w-100">
@@ -68,9 +71,6 @@
                         <label for="">Status:</label>
                         <div class="input-group d-flex align-items-center">
                             <p class="pr-2">{{ $order->status}}</p>
-                            @if($order->status == 'Request Info')
-                            <p><a href="{{ route('my_orders.edit', $order->id) }}" class="btn-luxe py-1 px-3">Edit</a></p>
-                            @endif
                         </div>
                         @if($order->status == 'Request Info')
                         <div class="input-group">
@@ -78,34 +78,66 @@
                         </div>
                         @endif
                     </div>
+                    @if($order->status == 'Request Info')
+                    <div class="form-group">
+                        <label for="">Response:</label>
+                        <div class="input-group">
+                            <textarea class="form-control w-100" name="request_info_response" rows="7"></textarea>
+                        </div>
+                    </div>
+                    @endif
                 </div>
                 <div class="col-4">
                     <h5 class="bold">Billing</h5>
                     <div>
-                        <p>{{ $order->billing_details->agent_name . ' ' . $order->billing_details->agent_surname }}</p>
-                        <p>{{ $order->billing_details->street_address }}</p>
-                        <p>{{ $order->billing_details->city .', '. $order->billing_details->zip_code }}</p>
+                        <div class="form-group">
+                            <label for="">First Name:</label>
+                            <input type="text" class="form-control" name="billing_first_name" value="{{ $order->billing_details->agent_name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Last Name:</label>
+                            <input type="text" class="form-control" name="billing_last_name" value="{{ $order->billing_details->agent_surname }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Street Address:</label>
+                            <input type="text" class="form-control" name="billing_street_address" value="{{ $order->billing_details->street_address }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">City:</label>
+                            <input type="text" class="form-control" name="billing_city" value="{{ $order->billing_details->city }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Zip/Postal code:</label>
+                            <input type="text" class="form-control" name="billing_zip_code" value="{{ $order->billing_details->zip_code }}">
+                        </div>
 
                         <label>Email address:</label>
-                        <p><a href="mailto:{{ $order->billing_details->email }}">{{ $order->billing_details->email }}</a></p>
+                        <p><input type="text" class="form-control" name="billing_email" value="{{ $order->billing_details->email }}"></p>
 
                         <label>Phone:</label>
-                        <p><a href="tel:{{ $order->billing_details->phone }}">{{ $order->billing_details->phone }}</a></p>
+                        <p><input type="text" class="form-control" name="billing_phone" value="{{ $order->billing_details->phone }}"></p>
                     </div>
                 </div>
 
                 <div class="col-4">
                     <h5 class="bold">Shipping</h5>
                     <div>
-                        <p>{{ $order->shipping_details->agent_name . ' ' . $order->shipping_details->agent_surname }}</p>
-                        <p>{{ $order->shipping_details->street_address }}</p>
-                        <p>{{ $order->shipping_details->city .', '. $order->shipping_details->zip_code }}</p>
+                    <label>First Name:</label>
+                        <p><input type="text" class="form-control" name="shipping_first_name" value="{{ $order->shipping_details->agent_name }}"></p>
+                        <label>Last Name:</label>
+                        <p><input type="text" class="form-control" name="shipping_last_name" value="{{ $order->shipping_details->agent_surname }}"></p>
+                        <label>Street Address:</label>
+                        <p><input type="text" class="form-control" name="shipping_street_address" value="{{ $order->shipping_details->street_address }}"></p>
+                        <label>City:</label>
+                        <p><input type="text" class="form-control" name="shipping_city" value="{{ $order->shipping_details->city }}"></p>
+                        <label>Zip/Postal code:</label>
+                        <p><input type="text" class="form-control" name="shipping_zip_code" value="{{ $order->shipping_details->zip_code }}"></p>
 
                         <label>Email address:</label>
-                        <p><a href="mailto:{{ $order->shipping_details->email }}">{{ $order->shipping_details->email }}</a></p>
+                        <p><input type="text" class="form-control" name="shipping_email" value="{{ $order->shipping_details->email }}"></p>
 
                         <label>Phone:</label>
-                        <p><a href="tel:{{ $order->shipping_details->phone }}">{{ $order->shipping_details->phone }}</a></p>
+                        <p><input type="text" class="form-control" name="shipping_phone" value="{{ $order->shipping_details->phone }}"></p>
                        
                     </div>
                 </div>
@@ -168,10 +200,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($order->inputs as $field)
+                            @forelse($order->inputs as $key =>  $field)
                                 <tr>
-                                    <td>{{ $field->input_name }}</td>
-                                    <td>{{ $field->input_value }}</td>
+                                    <input type="hidden" class="form-control" name="custom[{{$key}}][id]" value="{{ $field->id }}">
+                                    <td><input type="text" class="form-control" name="custom[{{$key}}][input_name]" value="{{ $field->input_name }}"></td>
+                                    <td><input type="text" class="form-control" name="custom[{{$key}}][input_value]" value="{{ $field->input_value }}"></td>
                                 </tr>
                             @empty
                             <tr>
@@ -183,8 +216,6 @@
                 </div>
             </div>
         </div>
-
-        
-    </div>
+</form>
 </div>
 @endsection
