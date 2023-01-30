@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\LuxeStore;
 
+use App\Models\User;
+use App\Mail\OrderCompleted;
 use Illuminate\Http\Request;
+use App\Models\MarketingMenu;
 use App\Mail\OrderMailTemplate;
 use App\Mail\GeneralMailTemplate;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use App\Models\UserCheckoutInformation;
 use Illuminate\Support\Facades\Session;
 use App\Models\LuxeStore\LuxeStoreProduct;
 use App\Models\LuxeStore\LuxeStoreCouponCode;
@@ -16,11 +20,9 @@ use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
 use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
-use App\Mail\OrderCompleted;
 use App\Models\LuxeStore\LuxeStoreProductVariantValues;
-use App\Models\MarketingMenu;
-use App\Models\User;
-use App\Models\UserCheckoutInformation;
+use App\Models\LuxeStore\Order\LuxeStoreOrderFormInputs;
+use App\Models\LuxeStore\Order\LuxeStoreOrderBillingDetails;
 
 class OrderController extends Controller
 {
@@ -78,6 +80,70 @@ class OrderController extends Controller
     {
         $order = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->findOrFail($id);
         return view('auth.orders.show', compact('order'));
+    }
+
+    public function edit_show($id)
+    {
+        $order = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->findOrFail($id);
+        return view('auth.orders.edit', compact('order'));
+    }
+
+    public function update_request_info(Request $req, $row)
+    {
+        // DB::beginTransaction();
+        try {
+
+            $row = LuxeStoreOrder::find($row);
+
+            if($row->status == 'Request Info') {
+                $row->request_info_response = $req->request_info_response;
+                $row->status = 'Updated Info';
+            }
+
+            $row->save();
+
+            if($req->has('custom')) {
+                foreach($req->custom as $custom) {
+                    $rowEl = LuxeStoreOrderFormInputs::find($custom['id']);
+                    if($rowEl) {
+                        $rowEl->input_name = $custom['input_name'];
+                        $rowEl->input_value = $custom['input_value'];
+                        $rowEl->save();
+                    }
+                }
+            }
+            
+            $billing = [
+                'agent_name' => $req->billing_first_name,
+                'agent_surname' => $req->billing_last_name,
+                'street_address' => $req->billing_street_address,
+                'city' => $req->billing_city,
+                'zip_code' => $req->billing_zip_code,
+                'email' => $req->billing_email,
+                'phone' => $req->billing_phone,
+            ];
+            $row->billing_details()->update($billing);
+
+            $shipping = [
+                'agent_name' => $req->shipping_first_name,
+                'agent_surname' => $req->shipping_last_name,
+                'street_address' => $req->shipping_street_address,
+                'city' => $req->shipping_city,
+                'zip_code' => $req->shipping_zip_code,
+                'email' => $req->shipping_email,
+                'phone' => $req->shipping_phone,
+            ];
+
+            $row->shipping_details()->update($shipping);
+
+            $details['order'] = $row;
+
+            Mail::to(['marketing@luxeknows.com', 'support@luxeknows.com'])->send(new OrderCompleted($details));
+          
+            return redirect()->route('my_orders.show', $row->id)->with('message', 'Successfully Updated!');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function create(AddOrderRequest $req)
@@ -213,6 +279,14 @@ class OrderController extends Controller
         $details['order'] = $order;
         Mail::to($order->user->email)->send(new OrderCompleted($details));
         return back()->with('message', 'Order Completed');
+    }
+
+    public function update_status(Request $req, LuxeStoreOrder $order)
+    {
+        $order->update(['status' => $req->status, 'request_info' => $req->request_info]);
+        $details['order'] = $order;
+        Mail::to($order->user->email)->send(new OrderCompleted($details));
+        return back()->with('message', 'Order Status Changed');
     }
 
     public function update(Request $req)

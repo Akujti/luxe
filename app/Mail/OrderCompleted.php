@@ -28,6 +28,6 @@ class OrderCompleted extends Mailable
      */
     public function build()
     {
-        return $this->subject('LUXE Store - Order Completed')->view('email-template.orderCompleted');
+        return $this->subject('LUXE Store - Order '. $this->details['order']->status)->view('email-template.orderCompleted');
     }
 }

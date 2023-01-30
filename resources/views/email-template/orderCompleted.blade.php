@@ -68,6 +68,7 @@
             <img src="{{ url('/images/logo-black.png') }}" alt="">
         </div>
         <hr>
+        @if($details['order']->status == 'Completed')
         <div class="" style="width: 100%">
             <div class="box">
                 <h3>Your <a href="{{ route('my_orders.show', $details['order']->id) }}">order</a> has been
@@ -81,6 +82,37 @@
                 <a href="https://myluxehub.com">https://myluxehub.com/</a>
             </div>
         </div>
+        @elseif($details['order']->status == 'Updated Info')
+        <div class="" style="width: 100%">
+            <div class="box">
+                <h3>The <a href="{{ route('admin.orders.show', $details['order']->id) }}">order</a> has changed -
+                    <a href="{{ route('admin.orders.show', $details['order']->id) }}">#{{ $details['order']->id }}</a>
+                </h3>
+                <p style="text-align:center">{{ $details['order']->request_info_response }}</p>
+            </div>
+            <div class="link">
+                <a href="https://myluxehub.com">https://myluxehub.com/</a>
+            </div>
+        </div>
+        @else
+        <div class="" style="width: 100%">
+            <div class="box">
+                @if($details['order']->status == 'Request Info')
+                <h3>Your <a href="{{ route('my_orders.edit', $details['order']->id) }}">order</a> status is <b>{{ $details['order']->status }}</b> -
+                    <a href="{{ route('my_orders.edit', $details['order']->id) }}">#{{ $details['order']->id }}</a>
+                </h3>
+                    <p style="text-align:center">{{ $details['order']->request_info }}</p>
+                @else
+                <h3>Your <a href="{{ route('my_orders.show', $details['order']->id) }}">order</a> status is <b>{{ $details['order']->status }}</b> -
+                    <a href="{{ route('my_orders.show', $details['order']->id) }}">#{{ $details['order']->id }}</a>
+                </h3>
+                @endif
+            </div>
+            <div class="link">
+                <a href="https://myluxehub.com">https://myluxehub.com/</a>
+            </div>
+        </div>
+        @endif
     </div>
 </body>
 
