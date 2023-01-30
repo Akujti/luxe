@@ -97,6 +97,9 @@
                                 <p class="location">Pembroke Pines -- Coming Soon</p>
                                 <p class="address">1911 NW 150 Avenue #202, Pembroke Pines FL 33028</p>
                             </div>
+                            <div class="form-group ">
+                                <p class="location">Dadeland -- Coming Soon</p>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <style>

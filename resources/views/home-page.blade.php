@@ -326,7 +326,7 @@
             </div>
         @endif
         @if (!isset($_GET['dir']))
-            <div class="col-12 title mb-3">
+            <div class="col-12 title my-3">
                 <h1>LUXE Services</h1>
             </div>
         @endif

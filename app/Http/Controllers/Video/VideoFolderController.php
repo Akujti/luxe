@@ -34,7 +34,7 @@ class VideoFolderController extends Controller
             } else {
                 $q->whereNull('folder_id');
             }
-        })->orderBy('title')->get();
+        })->latest()->get();
 
         if (request()->wantsJson()) {
             return response()->json(['videoFolders' => $videoFolders, 'videos' => $videos]);

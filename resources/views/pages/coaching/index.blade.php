@@ -69,7 +69,7 @@
             @endif
         </div>
         <div class="row box-items py-4">
-            <div class="col-lg-6">
+            <div class="col-lg-6 d-none">
                 <style>
                     iframe {
                         height: 400px;
@@ -81,14 +81,14 @@
                         }
                     }
                 </style>
-                <iframe src="https://drive.google.com/file/d/1YCfTMcHl6WYpFIG6PxzZKNywzlWXZenV/preview" width="100%"
-                    allow="autoplay"></iframe>
-                <div class="d-flex justify-content-center">
-                    <a class="btn btn-luxe" href="https://luxecoaching.myluxehub.com/" target="_blank">Agent Login</a>
-                </div>
+                {{-- <iframe src="https://drive.google.com/file/d/1YCfTMcHl6WYpFIG6PxzZKNywzlWXZenV/preview" width="100%"
+                    allow="autoplay"></iframe> --}}
             </div>
-            <div class="col-lg-6 coaching-text">
+            <div class="col-lg-12 coaching-text">
                 <div>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-luxe" href="https://luxecoaching.myluxehub.com/" target="_blank">Agent Login</a>
+                    </div>
                     <p>Group Coaching</p>
                     <ul>
                         <li>High impact in person group coaching twice a week for 90 minutes at one of our offices</li>
