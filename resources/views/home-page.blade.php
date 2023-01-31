@@ -457,8 +457,8 @@
                             <div class="box-guide col-6">
                                 <a href="/storage/{{ $post->file }}" download target="_blank" class="text-dark"
                                     style="flex-direction:column;">
-                                    <img src="/storage/{{ $post->thumbnail }}" alt=""
-                                        style="width: 100px;height:100px;">
+                                    <img src="/storage/{{ $post->thumbnail ? $post->thumbnail : $post->file }}"
+                                        alt="" style="width: 100px;height:100px;">
                                     <p>{{ $post->title }}</p>
                                 </a>
                             </div>
