@@ -219,259 +219,267 @@
 
 @section('content')
 
-<body>
-    <div class="container-fluid wrapper">
-        <div id="popup" class="card">
-            <div class="card-header text-center">
-                <h5>Open House Sign-Up Policy
-                </h5>
+    <body>
+        <div class="container-fluid wrapper">
+            <div id="popup" class="card">
+                <div class="card-header text-center">
+                    <h5>Open House Sign-Up Policy
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p>You will receive an email confirmation once you book an open house on the following page. The
+                        email confirmation only
+                        serves as a notification to you, listing agent, & staff that you have requested to host an
+                        open house.
+                    </p>
+                    <b>
+                        Your open house is not confirmed until you reach out to the listing agent for final
+                        approval.
+                    </b>
+                    <p>Listing agent will be the one to provide access instructions for the property.</p>
+                </div>
+                <div class="card-footer text-center">
+                    <button onclick="showForm()" class="btn btn-luxe px-4">I Agree</button>
+                </div>
             </div>
-            <div class="card-body">
-                <p>You will receive an email confirmation once you book an open house on the following page. The
-                    email confirmation only
-                    serves as a notification to you, listing agent, & staff that you have requested to host an
-                    open house.
-                </p>
-                <b>
-                    Your open house is not confirmed until you reach out to the listing agent for final
-                    approval.
-                </b>
-                <p>Listing agent will be the one to provide access instructions for the property.</p>
-            </div>
-            <div class="card-footer text-center">
-                <button onclick="showForm()" class="btn btn-luxe px-4">I Agree</button>
-            </div>
+            <form id="regForm" action="{{ route('appointments.store') }}" method="POST" class="d-none p-0">
+                <h1 class="h1-luxe position-relative">Appointments
+                    @if (Auth::user() && Auth::user()->isAdmin)
+                        <a href="{{ route('appointment-addresses.index') }}"
+                            class="btn btn-dark position-absolute text-white" style="right: 15px;top:15px">Addresses</a>
+                    @endif
+                </h1>
+                @csrf
+                <input type="hidden" class="form-control" name="phone">
+                <div class="tab">
+                    <h4 class="my-4 h4-luxe">1. Choose an address</h4>
+                    <hr>
+                    <div class="w-100">
+                        @foreach ($addresses as $item)
+                            <div class="shadow-box">
+                                <label for="html" class="label p-0 m-0">{{ $item->title }}</label>
+                                <input type="radio" id="html" name="appointment_address" value="{{ $item->id }}">
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="tab">
+                    <h4 class="my-4 h4-luxe">2. Date & Time</h4>
+                    <hr>
+                    <div class="form-group">
+                        <label for="" class="label">Select Date</label>
+                        <input type="text" id="datepicker" name="date" class="form-control date" autocomplete="off"
+                            required>
+                        <i class="label">Available days are Saturday and Sunday</i>
+                    </div>
+                    <label for="html" class="label">Select Time Slot</label>
+                    <p id="time-slot-available" class="d-none">No available time slots</p>
+                    <div class="form-group time-group">
+                    </div>
+                </div>
+                <div class="tab">
+                    <h4 class="my-4 h4-luxe">3. Your Information</h4>
+                    <hr>
+                    <div class="form-group">
+                        <label for="" class="label">Your Name</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="label">Phone</label>
+                        <input type="text" class="form-control" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="label">Email</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="label">Address</label>
+                        <input type="text" class="form-control" name="address">
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="" class="label">City</label>
+                            <input type="text" class="form-control" name="city">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="" class="label">State</label>
+                            <input type="text" class="form-control" name="state">
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="" class="label">Zip Code</label>
+                            <input type="text" class="form-control" name="zip">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="label">Comments</label>
+                        <input type="text" class="form-control" name="comments">
+                    </div>
+                </div>
+                <div style="overflow:auto;">
+                    <div style="float:left;">
+                        <button type="button" id="prevBtn" class="btn btn-previous"
+                            onclick="nextPrev(-1)">Previous</button>
+                        <button type="button" id="nextBtn" class="btn btn-luxe" onclick="nextPrev(1)">Next</button>
+                    </div>
+                </div>
+                <!-- Circles which indicates the steps of the form: -->
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>
+            </form>
         </div>
-        <form id="regForm" action="{{route('appointments.store')}}" method="POST" class="d-none p-0">
-            <h1 class="h1-luxe position-relative">Appointments
-                @if (Auth::user() && Auth::user()->isAdmin)
-                <a href="{{route('appointment-addresses.index')}}" class="btn btn-dark position-absolute text-white"
-                    style="right: 15px;top:15px">Addresses</a>
-                @endif
-            </h1>
-            @csrf
-            <input type="hidden" class="form-control" name="phone">
-            <div class="tab">
-                <h4 class="my-4 h4-luxe">1. Choose an address</h4>
-                <hr>
-                <div class="w-100">
-                    @foreach ($addresses as $item)
-                    <div class="shadow-box">
-                        <label for="html" class="label p-0 m-0">{{$item->title}}</label>
-                        <input type="radio" id="html" name="appointment_address" value="{{$item->id}}">
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-            <div class="tab">
-                <h4 class="my-4 h4-luxe">2. Date & Time</h4>
-                <hr>
-                <div class="form-group">
-                    <label for="" class="label">Select Date</label>
-                    <input type="text" id="datepicker" name="date" class="form-control date" autocomplete="off"
-                        required>
-                    <i class="label">Available days are Saturday and Sunday</i>
-                </div>
-                <label for="html" class="label">Select Time Slot</label>
-                <p id="time-slot-available" class="d-none">No available time slots</p>
-                <div class="form-group time-group">
-                </div>
-            </div>
-            <div class="tab">
-                <h4 class="my-4 h4-luxe">3. Your Information</h4>
-                <hr>
-                <div class="form-group">
-                    <label for="" class="label">Your Name</label>
-                    <input type="text" class="form-control" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="" class="label">Phone</label>
-                    <input type="text" class="form-control" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="" class="label">Email</label>
-                    <input type="email" class="form-control" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="" class="label">Address</label>
-                    <input type="text" class="form-control" name="address">
-                </div>
-                <div class="row">
-                    <div class="form-group col-4">
-                        <label for="" class="label">City</label>
-                        <input type="text" class="form-control" name="city">
-                    </div>
-                    <div class="form-group col-4">
-                        <label for="" class="label">State</label>
-                        <input type="text" class="form-control" name="state">
-                    </div>
-                    <div class="form-group col-4">
-                        <label for="" class="label">Zip Code</label>
-                        <input type="text" class="form-control" name="zip">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="" class="label">Comments</label>
-                    <input type="text" class="form-control" name="comments">
-                </div>
-            </div>
-            <div style="overflow:auto;">
-                <div style="float:left;">
-                    <button type="button" id="prevBtn" class="btn btn-previous" onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn" class="btn btn-luxe" onclick="nextPrev(1)">Next</button>
-                </div>
-            </div>
-            <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align:center;margin-top:40px;">
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-            </div>
-        </form>
-    </div>
-</body>
-<script>
-    function showForm(){
-        $('#popup').addClass('d-none')
-        $('#regForm').removeClass('d-none')
-        $('#regForm').addClass('d-block')
-    }
-
-    $("#datepicker").datepicker({
-        duration: "fast",
-        dateFormat: 'yy-mm-dd',
-        beforeShowDay: function(day) {
-            var day = day.getDay();
-            if (day == 1 || day == 2 || day == 3 || day == 4 || day == 5) {
-                return [false]
-            } else {
-                return [true]
-            }
+    </body>
+    <script>
+        function showForm() {
+            $('#popup').addClass('d-none')
+            $('#regForm').removeClass('d-none')
+            $('#regForm').addClass('d-block')
         }
-    });
-    
-</script>
-<script>
-    var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
-function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Book";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
-}
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  if (currentTab >= x.length) {
-    // ... the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
-  }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "" && y[i].hasAttribute('required')) {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
-    if ($('input[type=radio]:checked').length == 0) {
-        valid = false;
-    }
-  }
-  if(currentTab == 1){
-      console.log('asdas',$('input[name=time_slot]:checked'));
-      if ($('input[name=time_slot]:checked').length == 0) {
-        valid = false;
-    }
-  }
-  
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class on the current step:
-  x[n].className += " active";
-} 
-</script>
 
-<script>
-    $(document).ready(()=>{
-        const validate = dateString => {
-            var date = new Date();
-            date.setDate(date.getDate() + 90);
-            selected_date = (new Date(dateString))
-            console.log(selected_date<date);
-            const day = (new Date(dateString)).getDay();
-            if (day==1 || day==2 || day==3 || day==4 || day==5 || selected_date>=date) {
+        $("#datepicker").datepicker({
+            duration: "fast",
+            dateFormat: 'yy-mm-dd',
+            beforeShowDay: function(day) {
+                var day = day.getDay();
+                if (day == 1 || day == 2 || day == 3 || day == 4 || day == 5) {
+                    return [false]
+                } else {
+                    return [true]
+                }
+            }
+        });
+    </script>
+    <script>
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+        showTab(currentTab); // Display the current tab
+        function showTab(n) {
+            // This function will display the specified tab of the form...
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "block";
+            //... and fix the Previous/Next buttons:
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Book";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            //... and run a function that will display the correct step indicator:
+            fixStepIndicator(n)
+        }
+
+        function nextPrev(n) {
+            // This function will figure out which tab to display
+            var x = document.getElementsByClassName("tab");
+            // Exit the function if any field in the current tab is invalid:
+            if (n == 1 && !validateForm()) return false;
+            // Hide the current tab:
+            x[currentTab].style.display = "none";
+            // Increase or decrease the current tab by 1:
+            currentTab = currentTab + n;
+            // if you have reached the end of the form...
+            if (currentTab >= x.length) {
+                // ... the form gets submitted:
+                document.getElementById("regForm").submit();
                 return false;
             }
-            return true;
+            // Otherwise, display the correct tab:
+            showTab(currentTab);
         }
-        
-        // Sets the value to '' in case of an invalid date
-        document.querySelector('.date').onchange = evt => {
-            $('.time-group').empty()
-            if (!validate(evt.target.value)) {
-                evt.target.value = '';   
+
+        function validateForm() {
+            // This function deals with validation of the form fields
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            // A loop that checks every input field in the current tab:
+            for (i = 0; i < y.length; i++) {
+                // If a field is empty...
+                if (y[i].value == "" && y[i].hasAttribute('required')) {
+                    // add an "invalid" class to the field:
+                    y[i].className += " invalid";
+                    // and set the current valid status to false
+                    valid = false;
+                }
+                if ($('input[type=radio]:checked').length == 0) {
+                    valid = false;
+                }
             }
-            else{
-                $.ajax({
-                    type:'GET',
-                    url:'/appointment-timeslots/all?date='+evt.target.value,
-                    data:'_token = <?php echo csrf_token() ?>',
-                    success:function(data) {
-                        data = data.time_slots
-                        if(data.length){
-                            document.getElementById('time-slot-available').classList.add('d-none')
-                        }
-                        else{
-                            document.getElementById('time-slot-available').classList.remove('d-none')
-                        }
-                        data.forEach(element => {
-                            $('.time-group').append('<div class="shadow-box"> <label for="html">'+element.title+'</label><input type="radio" name="time_slot" value="'+element.id+'"></div>')
-                        });
-                    }
-                });
+            if (currentTab == 1) {
+                console.log('asdas', $('input[name=time_slot]:checked'));
+                if ($('input[name=time_slot]:checked').length == 0) {
+                    valid = false;
+                }
             }
+
+            // If the valid status is true, mark the step as finished and valid:
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid; // return the valid status
         }
-    })
-</script>
+
+        function fixStepIndicator(n) {
+            // This function removes the "active" class of all steps...
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            //... and adds the "active" class on the current step:
+            x[n].className += " active";
+        }
+    </script>
+
+    <script>
+        $(document).ready(() => {
+            const validate = dateString => {
+                var date = new Date();
+                date.setDate(date.getDate() + 90);
+                selected_date = (new Date(dateString))
+                console.log(selected_date < date);
+                const day = (new Date(dateString)).getDay();
+                if (day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || selected_date >= date) {
+                    return false;
+                }
+                return true;
+            }
+
+            // Sets the value to '' in case of an invalid date
+            document.querySelector('.date').onchange = evt => {
+                console.log(evt.target.value);
+                $('.time-group').empty()
+                if (!validate(evt.target.value)) {
+                    evt.target.value = '';
+                } else {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/appointment-timeslots/all?date=' + evt.target.value,
+                        data: '_token = <?php echo csrf_token(); ?>',
+                        success: function(data) {
+                            data = data.time_slots
+                            if (data.length) {
+                                document.getElementById('time-slot-available').classList.add(
+                                    'd-none')
+                            } else {
+                                document.getElementById('time-slot-available').classList.remove(
+                                    'd-none')
+                            }
+                            data.forEach(element => {
+                                $('.time-group').append(
+                                    '<div class="shadow-box"> <label for="html">' +
+                                    element.title +
+                                    '</label><input type="radio" name="time_slot" value="' +
+                                    element.id + '"></div>')
+                            });
+                        }
+                    });
+                }
+            }
+        })
+    </script>
 @endsection
