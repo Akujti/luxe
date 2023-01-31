@@ -13,9 +13,10 @@
             border: 1px solid #d5d5d5;
             border-radius: 5px;
             padding: 10px;
-            align-items: center;
+            /* align-items: center; */
             margin-bottom: 20px !important;
             margin: auto 0px auto 0px;
+            min-height: 235px;
         }
 
         .form .option-title {
@@ -116,8 +117,9 @@
                                                     Create Google Business Page
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
-                                                    <br>
+                                                    Includes adding your business name, location, and hours; being able to
+                                                    monitor and reply to customer reviews; adding photos; learning where and
+                                                    how people are searching for you, and more
                                                 </div>
                                                 <div class="option-price">
                                                     $35
@@ -145,8 +147,9 @@
                                                     Create Facebook Business Page
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
-                                                    <br>
+                                                    Includes setting up details about your company, category selections,
+                                                    Facebook analytics, audience insights, target a specific audience
+                                                    through paid campaigns and advertisements, and more
                                                 </div>
                                                 <div class="option-price">
                                                     $35
@@ -175,8 +178,8 @@
                                                     Write Blog Post
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
-                                                    <br>
+                                                    Includes typed blog entry on recent listing activities, market insights,
+                                                    engaging thoughts, and stories on your website about researched topics
                                                 </div>
                                                 <div class="option-price">
                                                     $35
@@ -205,8 +208,8 @@
                                                     MLS Input
                                                 </div>
                                                 <div class="option-desc">
-                                                    With copyright description
-                                                    <br>
+                                                    Includes filled out listing form for requested property together with
+                                                    amenities, descriptions, appliances, space, and more
                                                 </div>
                                                 <div class="option-price">
                                                     $100
@@ -235,9 +238,9 @@
                                                     Property Website
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
-                                                    <br>
-                                                    <br>
+                                                    Includes choosing from various design templates optimized for desktop,
+                                                    tablet, and mobile each equipped with fully-loaded features to make a
+                                                    listing stand out
                                                 </div>
                                                 <div class="option-price">
 
@@ -266,7 +269,9 @@
                                                     Create Landing Page
                                                 </div>
                                                 <div class="option-desc">
-                                                    (Requires kvCORE or other third-party provider)
+                                                    Includes tailoring a website to a specific campaign meant for conversion
+                                                    optimized for desktop, tablet, and mobile each equipped with
+                                                    fully-loaded features to make a listing stand out
                                                 </div>
                                                 <div class="option-price">
                                                     $50
@@ -295,7 +300,9 @@
                                                     Set Up Zillow & Realtor.com Profiles
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
+                                                    Includes filling out realtor details and professional information on
+                                                    each respective site, populating listings and sales map, and a typed
+                                                    description
                                                 </div>
                                                 <div class="option-price">
                                                     $50
@@ -324,7 +331,8 @@
                                                     Custom Bio
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br><br>
+                                                    Includes type description detailing professional and personal life in a
+                                                    creative, engaging way
                                                 </div>
                                                 <div class="option-price">
                                                 </div>
@@ -354,7 +362,7 @@
                                                     Boosting Facebook Ads
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
+                                                    Includes increased outreach to targeted audience on Facebook
                                                 </div>
                                                 <div class="option-price">
                                                     $199
@@ -383,7 +391,7 @@
                                                     Boosting Instagram Ads
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
+                                                    Includes increased outreach to targeted audience on Instagram
                                                 </div>
                                                 <div class="option-price">
                                                     $199
@@ -411,7 +419,8 @@
                                                     Google Ads Set Up - PPC
                                                 </div>
                                                 <div class="option-desc">
-                                                    On Existing Website or Landing Page
+                                                    Includes optimized headliners, keywords, area codes, and descriptions to
+                                                    promote site/services on Google's search engine to targeted audiences
                                                 </div>
                                                 <div class="option-price">
                                                     $199
@@ -442,10 +451,11 @@
                                                     Email Blast
                                                 </div>
                                                 <div class="option-desc">
-                                                    (just listed, just sold, under contract, open house, broker's open)
+                                                    Includes choosing from various design templates, just listed, just sold,
+                                                    open house, and broker's open headlines on requested listings together
+                                                    with agent information optimized for emailing
                                                 </div>
                                                 <div class="option-price">
-                                                    <br>
                                                 </div>
 
                                                 <div class="mt-4 form-check">
@@ -471,10 +481,10 @@
                                                     Social Media Posts
                                                 </div>
                                                 <div class="option-desc">
-                                                    (new agent, just listed, just sold, under contract, open house, broker's
-                                                    open)</div>
+                                                    Includes choosing from various or custom design templates, just listed,
+                                                    just sold, open house, and broker's open headlines on requested listings
+                                                    together with agent information optimized for social media posting</div>
                                                 <div class="option-price">
-                                                    <br>
                                                 </div>
 
                                                 <div class="mt-4 form-check">
@@ -500,10 +510,10 @@
                                                     Custom Email Signature
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
+                                                    Includes choosing between various or custom design templates, call to
+                                                    action buttons, banners, social links, and more
                                                 </div>
                                                 <div class="option-price">
-                                                    <br>
                                                 </div>
 
                                                 <div class="mt-4 form-check">
@@ -532,10 +542,11 @@
                                                     Door Hangers
                                                 </div>
                                                 <div class="option-desc">
-                                                    (just listed, just sold, under contract, open house, broker's open)
+                                                    Includes choosing from various or custom design templates, just listed,
+                                                    just sold, open house, and broker's open headlines on requested listings
+                                                    together with agent information optimized for doorhangers
                                                 </div>
                                                 <div class="option-price">
-                                                    <br>
                                                 </div>
 
                                                 <div class="mt-4 form-check">
@@ -561,10 +572,11 @@
                                                     Flyers
                                                 </div>
                                                 <div class="option-desc">
-                                                    (just listed, just sold, under contract, open house, broker's open)
+                                                    Includes choosing from various or custom design templates, just listed,
+                                                    just sold, open house, and broker's open headlines on requested listings
+                                                    together with agent information optimized for flyers
                                                 </div>
                                                 <div class="option-price">
-                                                    <br>
                                                 </div>
 
                                                 <div class="mt-4 form-check">
@@ -589,10 +601,12 @@
                                                     Design Custom Signage
                                                 </div>
                                                 <div class="option-desc">
-                                                    (for sale signs, open house signs, etc)
+                                                    Includes choosing from various or custom design templates, just listed,
+                                                    just sold, open house, and broker's open headlines on requested listings
+                                                    together with agent information optimized for signs
                                                 </div>
                                                 <div class="option-price">
-                                                    <br><br>
+
                                                 </div>
 
                                                 <div class="mt-4 form-check">
@@ -618,10 +632,10 @@
                                                     Design Custom Business Cards
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
+                                                    Includes choosing from various design templates to consist of agent
+                                                    information, logo, and headshot
                                                 </div>
                                                 <div class="option-price">
-                                                    <br><br>
                                                 </div>
 
                                                 <div class="mt-4 form-check">
@@ -647,10 +661,11 @@
                                                     Design Custom Banner
                                                 </div>
                                                 <div class="option-desc">
-                                                    (digital or print)
+                                                    Includes choosing from various or custom banner design templates to
+                                                    feature headlines, subtext, agent information, images, services,
+                                                    description, and more
                                                 </div>
                                                 <div class="option-price">
-                                                    <br><br>
                                                 </div>
                                                 <div class="mt-4 form-check">
                                                     <input class="form-check-input" type="radio" required
@@ -675,10 +690,11 @@
                                                     Mailers/EDDM - Postcard creation & community routes
                                                 </div>
                                                 <div class="option-desc">
-                                                    <br>
+                                                    Includes choosing from various or custom postcard design templates
+                                                    suited for holidays, special occasions, agent greetings, or personal
+                                                    recommendations, together with community routes to be mailed to
                                                 </div>
                                                 <div class="option-price">
-                                                    <br>
                                                 </div>
                                                 <div class="mt-4 form-check">
                                                     <input class="form-check-input" type="radio" required

@@ -247,7 +247,7 @@
                     </div>
                     <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
                         <div class="row m-0 logs w-100">
-                            @forelse(auth()->user()->load('form_submits')->form_submits->take(3) as $form_submit)
+                            @forelse(auth()->user()->load(['form_submits'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->form_submits->take(3) as $form_submit)
                                 <div>
                                     <span>{{ $form_submit->form_title }}&nbsp;</span>-
                                     {{ $form_submit->created_at->diffForHumans() }}
@@ -268,7 +268,7 @@
                     <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
                         <div class="row m-0 logs">
 
-                            @forelse(auth()->user()->load('template_submits')->template_submits->take(3) as $template_submit)
+                            @forelse(auth()->user()->load(['template_submits'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->template_submits->take(3) as $template_submit)
                                 <div>
                                     <span>{{ json_decode($template_submit->details, true)['template'] }}&nbsp;</span>-
                                     {{ $template_submit->created_at->diffForHumans() }} -
@@ -289,7 +289,7 @@
                     </div>
                     <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
                         <div class="row m-0 logs">
-                            @forelse(auth()->user()->load('orders')->orders->take(3) as $order)
+                            @forelse(auth()->user()->load(['orders'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->orders->take(3) as $order)
                                 <div>
                                     <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
                                     - {{ $order->status }}
@@ -309,10 +309,10 @@
                     <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
                         <div class="row m-0 logs">
 
-                            @forelse(auth()->user()->load('attending_events')->attending_events->take(3) as $attend_event)
+                            @forelse(auth()->user()->load(['attending_events'=>function($q){$q->where('events.date','>=',now());}])->attending_events->take(3) as $attend_event)
                                 <div>
                                     <span>{{ $attend_event->title }}&nbsp;</span>-
-                                    {{ $attend_event->created_at->diffForHumans() }}
+                                    {{ \Carbon\Carbon::parse($attend_event->date)->diffForHumans() }}
                                 </div>
                             @empty
                                 <div>
@@ -762,23 +762,11 @@
                 }
             </style>
             @foreach ($featured_categories as $diy)
-                <div class="col-md-6">
-                    <p><b>{{ $diy->title }}</b></p>
-                    <div class="row">
-                        @foreach ($diy->featured_templates as $item)
-                            <div class="col-md-4 mb-3">
-                                <a class="text-dark" href="{{ $item->url }}">
-                                    <img src="{{ $item->image_url }}" style="border-radius: 10px;"
-                                        class="w-100 canva-img">
-                                    <p class="ml-2 mt-2">{{ $item->title }}</p>
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-
-                    <div class="row">
-                        @foreach ($diy->categories as $category)
-                            @foreach ($category->featured_templates as $item)
+                @if ($diy->title !== 'Business Cards' && $diy->title !== 'Postcards')
+                    <div class="col-md-6">
+                        <p><b>{{ $diy->title }}</b></p>
+                        <div class="row">
+                            @foreach ($diy->featured_templates as $item)
                                 <div class="col-md-4 mb-3">
                                     <a class="text-dark" href="{{ $item->url }}">
                                         <img src="{{ $item->image_url }}" style="border-radius: 10px;"
@@ -787,12 +775,26 @@
                                     </a>
                                 </div>
                             @endforeach
-                        @endforeach
-                    </div>
-                    {{-- <p class="text-dark w-100">
+                        </div>
+
+                        <div class="row">
+                            @foreach ($diy->categories as $category)
+                                @foreach ($category->featured_templates as $item)
+                                    <div class="col-md-4 mb-3">
+                                        <a class="text-dark" href="{{ $item->url }}">
+                                            <img src="{{ $item->image_url }}" style="border-radius: 10px;"
+                                                class="w-100 canva-img">
+                                            <p class="ml-2 mt-2">{{ $item->title }}</p>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            @endforeach
+                        </div>
+                        {{-- <p class="text-dark w-100">
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
-                </div>
+                    </div>
+                @endif
             @endforeach
         </div>
         {{-- <div class="col-md-6">
