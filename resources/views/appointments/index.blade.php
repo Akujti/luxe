@@ -445,7 +445,7 @@
                 console.log(selected_date < date);
                 const day = (new Date(dateString)).getUTCDay();
                 console.log(day);
-                if (day == 0 || day == 1 || day == 2 || day == 3 || day == 4 || selected_date >= date) {
+                if (day == 5 || day == 1 || day == 2 || day == 3 || day == 4 || selected_date >= date) {
                     return false;
                 }
                 return true;
