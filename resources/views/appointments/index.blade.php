@@ -341,10 +341,10 @@
         $("#datepicker").datepicker({
             duration: "fast",
             dateFormat: 'yy-mm-dd',
-            firstDay: 7,
+            // firstDay: 7,
             beforeShowDay: function(day) {
                 var day = day.getUTCDay();
-                if (day == 1 || day == 2 || day == 3 || day == 4 || day == 0) {
+                if (day == 1 || day == 2 || day == 3 || day == 4) {
                     return [false]
                 } else {
                     return [true]
