@@ -341,10 +341,10 @@
         $("#datepicker").datepicker({
             duration: "fast",
             dateFormat: 'yy-mm-dd',
-            firstDay: 1,
+            firstDay: 0,
             beforeShowDay: function(day) {
                 var day = day.getUTCDay();
-                if (day == 1 || day == 2 || day == 3 || day == 4 || day == 0) {
+                if (day == 1 || day == 2 || day == 3 || day == 4 || day == 5) {
                     return [false]
                 } else {
                     return [true]
@@ -444,10 +444,10 @@
                 selected_date = (new Date(dateString))
                 console.log(selected_date < date);
                 const day = (new Date(dateString)).getUTCDay();
+                console.log(day);
                 if (day == 0 || day == 1 || day == 2 || day == 3 || day == 4 || selected_date >= date) {
                     return false;
                 }
-                console.log(day);
                 return true;
             }
 
