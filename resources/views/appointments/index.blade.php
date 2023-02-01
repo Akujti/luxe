@@ -257,8 +257,10 @@
                     <div class="w-100">
                         @foreach ($addresses as $item)
                             <div class="shadow-box">
-                                <label for="html" class="label p-0 m-0">{{ $item->title }}</label>
-                                <input type="radio" id="html" name="appointment_address" value="{{ $item->id }}">
+                                <label for="html-{{ $item->id }}"
+                                    class="label p-0 m-0 w-100">{{ $item->title }}</label>
+                                <input type="radio" id="html-{{ $item->id }}" name="appointment_address"
+                                    value="{{ $item->id }}">
                             </div>
                         @endforeach
                     </div>
