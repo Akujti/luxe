@@ -93,11 +93,13 @@ class TemplateSubmitController extends Controller
         $details['status'] = $request->status;
         $details['answer'] = $request->answer;
         $details['link'] = '<a href="' . route('my.marketing.orders.show', $form) . '">Click to see your order</a>';
+
         try {
             Mail::to($form->user->email)->send(new GeneralMailTemplate($details));
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'There was a problem sending email to agent!');
         }
+
         return back()->with('message', 'Submission Updated');
     }
 

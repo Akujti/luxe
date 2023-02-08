@@ -65,7 +65,6 @@
         .bold {
             font-family: 'gothicbold' !important;
         }
-
     </style>
 @endsection
 @section('content')
@@ -78,18 +77,26 @@
                         @csrf
                         @method('PUT')
                         <div>
-                            <select class="form-control" name="status" id="select-status" onchange="toggleBtnSave('save-btn')">
+                            <select class="form-control" name="status" id="select-status"
+                                onchange="toggleBtnSave('save-btn')">
                                 <option value="Pending" {{ $order->status == 'Pending' ? 'selected' : '' }}>Pending</option>
                                 <option value="Paid" {{ $order->status == 'Paid' ? 'selected' : '' }}>Paid</option>
-                                <option value="Request Info" {{ $order->status == 'Request Info' ? 'selected' : '' }}>Request Info</option>
-                                <option value="Updated Info" {{ $order->status == 'Updated Info' ? 'selected' : '' }}>Updated Info</option>
+                                <option value="Request Info" {{ $order->status == 'Request Info' ? 'selected' : '' }}>
+                                    Request Info</option>
+                                <option value="Updated Info" {{ $order->status == 'Updated Info' ? 'selected' : '' }}>
+                                    Updated Info</option>
                                 <option value="Shipped" {{ $order->status == 'Shipped' ? 'selected' : '' }}>Shipped</option>
-                                <option value="Delivered" {{ $order->status == 'Delivered' ? 'selected' : '' }}>Delivered</option>
-                                <option value="Completed" {{ $order->status == 'Completed' ? 'selected' : '' }}>Completed</option>
+                                <option value="Delivered" {{ $order->status == 'Delivered' ? 'selected' : '' }}>Delivered
+                                </option>
+                                <option value="Completed" {{ $order->status == 'Completed' ? 'selected' : '' }}>Completed
+                                </option>
                             </select>
-                            <textarea class="form-control mt-2 {{ $order->status != 'Request Info' ? 'd-none': '' }}" name="request_info" id="textarea-request-info" placeholder="Enter Request Info text">{{ $order->request_info }}</textarea>
+                            <textarea class="form-control mt-2 {{ $order->status != 'Request Info' ? 'd-none' : '' }}" name="request_info"
+                                id="textarea-request-info" placeholder="Enter Request Info text">{{ $order->request_info }}</textarea>
                             <!-- <button class="btn btn-luxe px-5 py-2" type="submit">Set as completed</button> -->
-                            <button class="btn btn-luxe px-5 py-2 mt-2 {{ $order->status != 'Request Info' ? 'd-none': '' }}" id="save-btn" type="submit">Save</button>
+                            <button
+                                class="btn btn-luxe px-5 py-2 mt-2 {{ $order->status != 'Request Info' ? 'd-none' : '' }}"
+                                id="save-btn" type="submit">Save</button>
                         </div>
                     </form>
                 @endif
@@ -112,10 +119,10 @@
                             <div class="input-group">
                                 <p>{{ $order->status }}</p>
                             </div>
-                            @if($order->status == 'Updated Info')
-                            <div class="input-group">
-                                <p>{{ $order->request_info_response }}</p>
-                            </div>
+                            @if ($order->status == 'Updated Info')
+                                <div class="input-group">
+                                    <p>{{ $order->request_info_response }}</p>
+                                </div>
                             @endif
                         </div>
 
@@ -140,8 +147,7 @@
                             </p>
 
                             <label>Phone:</label>
-                            <p><a
-                                    href="tel:{{ $order->billing_details->phone }}">{{ $order->billing_details->phone }}</a>
+                            <p><a href="tel:{{ $order->billing_details->phone }}">{{ $order->billing_details->phone }}</a>
                             </p>
                         </div>
                     </div>
@@ -256,7 +262,7 @@
     function toggleBtnSave(id) {
         let val = $('#select-status').val()
 
-        if(val == 'Request Info') {
+        if (val == 'Request Info') {
             $('#textarea-request-info').removeClass('d-none')
         } else {
             $('#textarea-request-info').addClass('d-none')

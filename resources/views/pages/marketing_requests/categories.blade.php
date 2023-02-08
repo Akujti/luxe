@@ -117,7 +117,7 @@
             <div class="col-12">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 col-lg-6">
-                        <form action="{{ route('marketing.sendemail') }}" method="POST" class="row p-0 m-0">
+                        <form id="form" action="{{ route('marketing.sendemail') }}" method="POST" class="row p-0 m-0">
                             @csrf
                             <input type="hidden" name="form_title" value="Design Request">
 
@@ -140,11 +140,21 @@
                                 <div class="input-group">
                                     <select name="marketing_item" id="category" class="form-control" required>
                                         <option value="">-- Choose One --</option>
-                                        <option value="Email Blast">Email Blast</option>
+                                        <option value="Email Blast"
+                                            {{ isset($_GET['type']) && $_GET['type'] == 'Email Blast' ? 'selected' : '' }}>
+                                            Email
+                                            Blast
+                                        </option>
                                         <option value="Postcard/Mailer">Postcard/Mailer</option>
-                                        <option value="Social Media Post">Social Media Post</option>
-                                        <option value="Flyer">Flyer</option>
-                                        <option value="Door Hanger">Door Hanger</option>
+                                        <option value="Social Media Post"
+                                            {{ isset($_GET['type']) && $_GET['type'] == 'Social Media Post' ? 'selected' : '' }}>
+                                            Social Media Post</option>
+                                        <option value="Flyer"
+                                            {{ isset($_GET['type']) && $_GET['type'] == 'Flyer' ? 'selected' : '' }}>Flyer
+                                        </option>
+                                        <option value="Door Hanger"
+                                            {{ isset($_GET['type']) && $_GET['type'] == 'Door Hanger' ? 'selected' : '' }}>
+                                            Door Hanger</option>
                                     </select>
                                 </div>
                             </div>
@@ -187,8 +197,8 @@
                                 </div>
                             </div>
 
-                            <button type="button" class="btn-luxe w-100" data-toggle="modal"
-                                data-target="#exampleModal">Request</button>
+                            <button id="showModalBtn" type="button" class="btn-luxe w-100"
+                                onclick="submitForm()">Request</button>
 
                             <div id="exampleModal" class="modal fade modal-new" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
@@ -258,24 +268,18 @@
                     </div>
                 </div>
             </div>
-            {{-- @foreach ($marketing_categories as $category)
-        
-                <div class="col-lg-3 col-md-6 my-2">
-            <div class="box-item">
-                <a href="{{route('marketing.request',$category)}}">
-                    <div>
-                        <img class="icon" src="{{$category->image}}" alt="">
-                        <p>{{$category->title}}</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        @endforeach --}}
         </div>
     </div>
 @endsection
 
 <script>
+    function submitForm() {
+        if ($('#category').val() == 'Email Blast') {
+            $('#exampleModal').modal()
+        } else {
+            $('#form').submit()
+        }
+    }
     // var categories = JSON.parse(JSON.stringify(<?php echo json_encode($diy_categories); ?>));
 
     // function checkCategories(e) {

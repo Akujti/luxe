@@ -391,49 +391,87 @@
                 <div class="col-12 title mb-3">
                     <h1>Marketing & Branding</h1>
                 </div>
-                <div class="grid grid-layout-three p-0 mb-3 ">
-                    <div class="box-item box-item-padding"
-                        onclick="window.location='{{ route('canva.marketing.requests') }}'">
-                        <div>
-                            <img class="icon p-1" src="/images/index-page/online-marketing-designer.svg" alt="">
-                            <p>Marketing Designer </p>
+                <div class="d-md-flex" style="gap:14px;">
+                    <div class="grid grid-layout-three p-0 mb-auto">
+                        <div class="box-item box-item-padding"
+                            onclick="window.location='{{ route('canva.marketing.requests') }}'">
+                            <div>
+                                <img class="icon p-1" src="/images/index-page/online-marketing-designer.svg"
+                                    alt="">
+                                <p>Marketing Designer </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="box-item box-item-padding"
-                        onclick="window.open('https://realtorprint.com/collections/luxe')">
-                        <div>
-                            <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                            <p>Print Marketing<br></p>
+                        <div class="box-item box-item-padding"
+                            onclick="window.open('https://realtorprint.com/collections/luxe')">
+                            <div>
+                                <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
+                                <p>Print Marketing<br></p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="box-item box-item-padding"
-                        onclick="window.location = '{{ url('/home?dir=signs_photo_design_requests') }}'">
-                        <div>
-                            <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                            <p>Signs, Photo, & Design Requests</p>
+                        <div class="box-item box-item-padding"
+                            onclick="window.location = '{{ url('/home?dir=signs_photo_design_requests') }}'">
+                            <div>
+                                <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
+                                <p>Signs, Photo, & Design Requests</p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="box-item box-item-padding" onclick="window.location = '{{ url('resume') }}'">
+                            <div>
+                                <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
+                                <p>Resume Builder</p>
+                            </div>
+                        </div>
+                        <div class="box-item box-item-padding" onclick="window.location='/user/files?id=22'">
+                            <div>
+                                <img class="icon" src="/images/favicon.png" alt="">
+                                <p>Logos</p>
+                            </div>
+                        </div>
 
-                    <div class="box-item box-item-padding" onclick="window.location = '{{ url('resume') }}'">
-                        <div>
-                            <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
-                            <p>Resume Builder</p>
+                        <div class="box-item box-item-padding"
+                            onclick="window.location='/general/form/other/marketing-menu'">
+                            <div>
+                                <img class="icon" src="/images/index-page/logo_creation_request.svg" alt="">
+                                <p>Marketing Menu & Services</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="box-item box-item-padding" onclick="window.location='/user/files?id=22'">
-                        <div>
-                            <img class="icon" src="/images/favicon.png" alt="">
-                            <p>Logos</p>
-                        </div>
-                    </div>
+                    <style>
+                        @media(min-width: 1538px) {
+                            #marketing-template-requests {
+                                height: 514px;
+                            }
+                        }
+                    </style>
+                    <div>
 
-                    <div class="box-item box-item-padding" onclick="window.location='/general/form/other/marketing-menu'">
-                        <div>
-                            <img class="icon" src="/images/index-page/logo_creation_request.svg" alt="">
-                            <p>Marketing Menu & Services</p>
+                        <div id="marketing-template-requests"
+                            class="box-item align-items-start box-guides row p-0 m-0 mt-md-0 mt-3">
+                            <div class="w-100 p-0 m-0">
+                                <h3 class="text-center px-4 my-4">
+                                    Submit Marketing Template Requests
+                                </h3>
+                                @forelse($marketing_requests as $marketing_request)
+                                    @if ($marketing_request->title != 'Presentation Booklet')
+                                        <div class="box-guide">
+                                            <a href="{{ route('marketing.requests') }}?type={{ $marketing_request->title }}"
+                                                class="text-luxe" style="flex-direction:column;">
+                                                <img src="{{ $marketing_request->image }}" alt=""
+                                                    style="object-fit:contain">
+                                                <p>{{ $marketing_request->title }}</p>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @empty
+                                    <div class="box-guide justify-content-start pl-4">
+                                        <p>No results found.</p>
+                                    </div>
+                                @endforelse
+                            </div>
                         </div>
+                        <a class="mt-3 btn btn-luxe w-100" target="_blank">Schedule 1-ON-1</a>
                     </div>
                 </div>
         </div>
@@ -462,43 +500,6 @@
                                     <p>{{ $post->title }}</p>
                                 </a>
                             </div>
-                        @empty
-                            <div class="box-guide justify-content-start pl-4">
-                                <p>No results found.</p>
-                            </div>
-                        @endforelse
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="box-item align-items-start box-guides row p-0 m-0"
-                    style="min-height: 490px !important;height:100% !important;">
-                    <div class="w-100 row p-0 m-0">
-                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-3 px-4">
-                            <span>Submit Marketing Template Requests</span>
-                        </h3>
-
-                        {{-- <div class="template-box-images">
-                            <img src="/images/templates-examples/template1.png" alt="">
-                            <img src="/images/templates-examples/template2.png" alt="">
-                            <img src="/images/templates-examples/template3.png" alt="">
-                            <img src="/images/templates-examples/template4.png" alt="">
-                        </div>
-                        <div class="mt-2 px-4 w-100">
-                            <a class="text-luxe btn-luxe btn-block" style="font-family:gothicbold;"
-                                href="{{ route('marketing.requests') }}">Click Here</a>
-                        </div> --}}
-
-                        @forelse($marketing_requests as $marketing_request)
-                            @if ($marketing_request->title != 'Presentation Booklet')
-                                <div class="box-guide col-12 pl-4">
-                                    <a href="{{ route('marketing.request', $marketing_request) }}"
-                                        class="text-luxe w-100" style="flex-direction:column;">
-                                        <img src="{{ $marketing_request->image }}" alt="">
-                                        <p>{{ $marketing_request->title }}</p>
-                                    </a>
-                                </div>
-                            @endif
                         @empty
                             <div class="box-guide justify-content-start pl-4">
                                 <p>No results found.</p>
@@ -619,6 +620,33 @@
                                 <p>No results found.</p>
                             </div>
                         @endif
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="box-item align-items-start box-guides row p-0 m-0"
+                    style="min-height: 490px !important;height:auto !important;">
+                    <div class="w-100 row p-0 m-0">
+                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-3 px-4">
+                            <span>Unbranded Posts</span>
+                            <a class="text-luxe"
+                                href="{{ route('files.index') . '?id=' . $unbranded_media_posts_folder_id }}">See
+                                more</a>
+                        </h3>
+                        @forelse($unbranded_media_posts as $post)
+                            <div class="box-guide col-6">
+                                <a href="/storage/{{ $post->file }}" download target="_blank" class="text-dark"
+                                    style="flex-direction:column;">
+                                    <img src="/storage/{{ $post->thumbnail ? $post->thumbnail : $post->file }}"
+                                        alt="" style="width: 100px;height:100px;">
+                                    <p>{{ $post->title }}</p>
+                                </a>
+                            </div>
+                        @empty
+                            <div class="box-guide justify-content-start pl-4">
+                                <p>No results found.</p>
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>

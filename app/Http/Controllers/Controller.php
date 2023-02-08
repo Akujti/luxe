@@ -32,6 +32,9 @@ class Controller extends BaseController
         $folder_id = Folder::where('title', 'XNV34gFFFa')->first()->id;
         $social_media_posts = File::where('folder_id', $folder_id)->latest()->take(6)->get();
 
+        $unbranded_media_posts_folder_id = Folder::where('title', '5KK08TSWXF')->first()->id;
+        $unbranded_media_posts = File::where('folder_id', $unbranded_media_posts_folder_id)->latest()->take(6)->get();
+
         $today = Carbon::today()->format('Y-m-d');
         $upcoming_events = Event::whereDate('date', '>', $today)->orderBy('date')->take(5)->get();
 
@@ -43,6 +46,8 @@ class Controller extends BaseController
                 'marketing_requests',
                 'featured_categories',
                 'social_media_posts',
+                'unbranded_media_posts',
+                'unbranded_media_posts_folder_id',
                 'videos',
                 'upcoming_events',
                 'email_blasts'

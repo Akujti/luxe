@@ -76,6 +76,7 @@ class OrderController extends Controller
         $marketing_orders = MarketingMenu::where('user_id', auth()->user()->id)->latest()->paginate(20);
         return view('auth.orders.index', compact('orders', 'marketing_orders'));
     }
+
     public function show_agent($id)
     {
         $order = LuxeStoreOrder::with(['products', 'billing_details', 'payment', 'inputs', 'user'])->findOrFail($id);
@@ -95,24 +96,24 @@ class OrderController extends Controller
 
             $row = LuxeStoreOrder::find($row);
 
-            if($row->status == 'Request Info') {
+            if ($row->status == 'Request Info') {
                 $row->request_info_response = $req->request_info_response;
                 $row->status = 'Updated Info';
             }
 
             $row->save();
 
-            if($req->has('custom')) {
-                foreach($req->custom as $custom) {
+            if ($req->has('custom')) {
+                foreach ($req->custom as $custom) {
                     $rowEl = LuxeStoreOrderFormInputs::find($custom['id']);
-                    if($rowEl) {
+                    if ($rowEl) {
                         $rowEl->input_name = $custom['input_name'];
                         $rowEl->input_value = $custom['input_value'];
                         $rowEl->save();
                     }
                 }
             }
-            
+
             $billing = [
                 'agent_name' => $req->billing_first_name,
                 'agent_surname' => $req->billing_last_name,
@@ -139,7 +140,7 @@ class OrderController extends Controller
             $details['order'] = $row;
 
             Mail::to(['marketing@luxeknows.com', 'support@luxeknows.com'])->send(new OrderCompleted($details));
-          
+
             return redirect()->route('my_orders.show', $row->id)->with('message', 'Successfully Updated!');
         } catch (\Throwable $th) {
             throw $th;
