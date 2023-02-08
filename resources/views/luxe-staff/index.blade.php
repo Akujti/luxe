@@ -87,7 +87,7 @@
                 <p class="staff-role">Marketing Coordinator</p>
                 <p class="staff-email">designs@luxeknow.com</p>
             </div>
-            <div class="col-md-3 staff-box">
+            <!-- <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
                 <p class="staff-name">Roxie Cordoba</p>
                 <p class="staff-role">Lead Admin</p>
@@ -98,7 +98,7 @@
                 <p class="staff-name">Albert Babani</p>
                 <p class="staff-role">Sales Coach</p>
                 <p class="staff-email">albert@babaniproperties.com</p>
-            </div>
+            </div> -->
         </div>
     </div>
 @endsection
