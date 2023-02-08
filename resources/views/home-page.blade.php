@@ -625,7 +625,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="box-item align-items-start box-guides row p-0 m-0"
-                    style="min-height: 490px !important;height:auto !important;">
+                    style="min-height: 490px !important;height: 100% !important;">
                     <div class="w-100 row p-0 m-0">
                         <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-3 px-4">
                             <span>Unbranded Posts</span>
