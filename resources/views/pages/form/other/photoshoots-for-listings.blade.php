@@ -12,6 +12,120 @@
                 padding-left: 300px;
             }
         }
+
+        .ui-datepicker-week-end a {
+            /* outline: 1px solid #262626; */
+        }
+
+        #ui-datepicker-div {
+            display: none;
+            background-color: #fff;
+            box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+            margin-top: 0.25rem;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .ui-datepicker-calendar thead th {
+            padding: 0.25rem 0;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #78909C;
+        }
+
+        .ui-datepicker-calendar tbody td {
+            width: 2.5rem;
+            text-align: center;
+            padding: 0;
+        }
+
+        .ui-datepicker-calendar tbody td a,
+        .ui-datepicker-calendar tbody td span {
+            margin-bottom: 4px;
+            display: block;
+            border-radius: 0.25rem;
+            line-height: 2rem;
+            transition: 0.3s all;
+            color: #262626;
+            font-size: 0.875rem;
+            text-decoration: none;
+        }
+
+        .ui-datepicker-calendar tbody td a:hover {
+            background-color: #262626;
+            color: #fff;
+        }
+
+        .ui-datepicker-calendar tbody td a.ui-state-active {
+            background-color: #262626;
+            color: #fff;
+        }
+
+        .ui-datepicker-header a.ui-corner-all {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            margin: 0.5rem;
+            border-radius: 0.25rem;
+            transition: 0.3s all;
+        }
+
+        .ui-datepicker-header a.ui-corner-all:hover {
+            background-color: #ECEFF1;
+        }
+
+        .ui-datepicker-header a.ui-datepicker-prev {
+            left: 0;
+            background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==");
+            background-repeat: no-repeat;
+            background-size: 0.5rem;
+            background-position: 50%;
+            transform: rotate(180deg);
+        }
+
+        .ui-datepicker-header a.ui-datepicker-next {
+            right: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==');
+            background-repeat: no-repeat;
+            background-size: 10px;
+            background-position: 50%;
+        }
+
+        .ui-datepicker-header a>span {
+            display: none;
+        }
+
+        .ui-datepicker-title {
+            text-align: center;
+            line-height: 2rem;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding-bottom: 0.25rem;
+        }
+
+        .ui-datepicker-week-col {
+            color: #78909C;
+            font-weight: 400;
+            font-size: 0.75rem;
+        }
+
+        .h1-luxe,
+        .h4-luxe {
+            font-family: 'gothicbold';
+        }
+
+        .label {
+            font-family: 'gothicbold';
+        }
+
+        .btn-previous {
+            font-family: 'gothicbold';
+            font-size: 18px !important;
+        }
     </style>
     <div class="container-fluid">
         <div class="row justify-content-center my-4">
@@ -111,17 +225,23 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Date & Time Option #1</label>
-                                <input type="date" name="date_option_1" class="form-control mb-2" required>
+                                <input type="text" name="date_option_1" class="datepicker form-control date mb-2"
+                                    autocomplete="off" required>
+                                {{-- <input type="date" name="date_option_1" class="form-control mb-2" required> --}}
                                 <input type="time" name="time_option_1" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Date & Time Option #2</label>
-                                <input type="date" name="date_option_2" class="form-control mb-2" required>
+                                <input type="text" name="date_option_2" class="datepicker form-control date mb-2"
+                                    autocomplete="off" required>
+                                {{-- <input type="date" name="date_option_2" class="form-control mb-2" required> --}}
                                 <input type="time" name="time_option_2" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Date & Time Option #3</label>
-                                <input type="date" name="date_option_3" class="form-control mb-2" required>
+                                <input type="text" name="date_option_3" class="datepicker form-control date mb-2"
+                                    autocomplete="off" required>
+                                {{-- <input type="date" name="date_option_3" class="form-control mb-2" required> --}}
                                 <input type="time" name="time_option_3" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
@@ -146,6 +266,40 @@
         function showForm() {
             $('#popup').addClass('d-none')
             $('form').removeClass('d-none')
+            window.scrollTo(0, 0)
+        }
+        const today = new Date()
+        let tomorrow = new Date()
+        let afterTomorrow = new Date()
+        tomorrow.setDate(today.getDate() + 1)
+        afterTomorrow.setDate(today.getDate() + 2)
+        var dates = ['02/13/2023'];
+        $(".datepicker").datepicker({
+            duration: "fast",
+            dateFormat: 'yy-mm-dd',
+            minDate: 0,
+            firstDay: 0,
+            // disableDates: dates,
+            beforeShowDay: function(date) {
+                var disabledDates = [
+                    today, tomorrow, afterTomorrow
+                ];
+                for (var i = 0; i < disabledDates.length; i++) {
+                    if (
+                        date.getFullYear() === disabledDates[i].getFullYear() &&
+                        date.getMonth() === disabledDates[i].getMonth() &&
+                        date.getDate() === disabledDates[i].getDate()
+                    ) {
+                        return [false];
+                    }
+                }
+                return [true];
+            }
+        });
+
+        function disableDates(date) {
+            var string = $.datepicker.formatDate('dd-mm-yy', date);
+            return [dates.indexOf(string) == -1];
         }
     </script>
 @endsection

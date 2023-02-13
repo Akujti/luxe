@@ -99,6 +99,14 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="name">Is this a LUXE CINC lead?</label>
+                                <select name="is_this_a_luxe_cinc_lead" class="form-control">
+                                    <option value="-">-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="name">Client Name</label>
                                 <input type="text" name="client_name" class="form-control">
                             </div>

@@ -439,14 +439,19 @@
                         </div>
                     </div>
                     <style>
-                        @media(min-width: 1538px) {
-                            #marketing-template-requests {
-                                height: 514px;
+                        #marketing-template-requests .box-guide img {
+                            width: 52px;
+                            height: 52px;
+                        }
+
+                        @media(max-width:1539px) {
+                            #marketing-template-requests .box-guide img {
+                                width: 46px;
+                                height: 46px;
                             }
                         }
                     </style>
                     <div>
-
                         <div id="marketing-template-requests"
                             class="box-item align-items-start box-guides row p-0 m-0 mt-md-0 mt-3">
                             <div class="w-100 p-0 m-0">

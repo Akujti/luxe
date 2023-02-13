@@ -110,7 +110,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 title ">
-            <h1>Custom Design Requests</h1>
+            <h1>Design Requests</h1>
             <p>Please select the category which you would like to design.</p>
         </div>
         <div class="row align-items-center justify-content-center mb-3">
@@ -277,7 +277,11 @@
         if ($('#category').val() == 'Email Blast') {
             $('#exampleModal').modal()
         } else {
-            $('#form').submit()
+            if (document.getElementById("form").checkValidity()) {
+                $('#form').submit()
+            } else {
+                document.getElementById("form").reportValidity()
+            }
         }
     }
     // var categories = JSON.parse(JSON.stringify(<?php echo json_encode($diy_categories); ?>));
