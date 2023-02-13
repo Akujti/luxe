@@ -54,8 +54,8 @@
                         @foreach ($submissions as $submission)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $submission->user->profile->fullname }}</td>
-                                <td>{{ $submission->user->email }}</td>
+                                <td>{{ $submission->user ? $submission->user->profile->fullname : '' }}</td>
+                                <td>{{ $submission->user ? $submission->user->email : '' }}</td>
                                 <td>{{ Carbon\Carbon::parse($submission->created_at)->format('m-d-Y') }}</td>
                                 <td>{{ $submission->status }}</td>
                                 <td>
