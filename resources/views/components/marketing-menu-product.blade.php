@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <a class="btn">ORDER NOW</a>
+                    <a class="btn" href="{{ '/store/product/' . $product->slug }}">ORDER NOW</a>
                 </div>
             </div>
             <div class="col-md-3 p-0">
