@@ -91,7 +91,7 @@ class TemplateSubmitController extends Controller
 
         $details['form_title'] = "Marketing Menu - Milestone";
         $details['status'] = $request->status;
-        $details['answer'] = $request->answer;
+        $details['requested_information'] = $request->answer;
         $details['link'] = '<a href="' . route('my.marketing.orders.show', $form) . '">Click to see your order</a>';
 
         try {

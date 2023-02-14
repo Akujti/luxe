@@ -289,7 +289,9 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a href="{{ route('admin.orders.index') }}"
-                                        class="{{ isset($active) && $active == 'Orders' ? 'active selected' : '' }}">Orders</a>
+                                        class="{{ isset($active) }}">Orders</a>
+                                    <a href="{{ route('admin.orders.marketing.menu.index') }}"
+                                        class="{{ isset($active) }}">Marketing Orders</a>
                                     <a href="{{ route('admin.luxe_store.index') }}"
                                         class="{{ isset($active) && $active == 'Categories' ? 'active selected' : '' }}">Categories</a>
                                     <a href="{{ route('admin.luxe_store.products.index') }}"

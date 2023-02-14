@@ -65,7 +65,7 @@
     <div class="container-fluid">
         <div class="m-0">
             <div class="w-100 d-flex justify-content-between align-items-center mb-5">
-                <h5 class="h5-luxe">Orders</h5>
+                <h5 class="h5-luxe">{{ isset($page_title) ? $page_title : 'Orders' }}</h5>
             </div>
             <form action="" method="get" class="row">
                 <div class="col-md-2 form-group">

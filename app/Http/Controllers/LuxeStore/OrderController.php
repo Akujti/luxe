@@ -20,6 +20,7 @@ use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
 use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
+use App\Models\LuxeStore\LuxeStoreCategory;
 use App\Models\LuxeStore\LuxeStoreProductVariantValues;
 use App\Models\LuxeStore\Order\LuxeStoreOrderFormInputs;
 use App\Models\LuxeStore\Order\LuxeStoreOrderBillingDetails;
@@ -36,7 +37,14 @@ class OrderController extends Controller
             'product' => $request->get('product'),
         ];
         $products = LuxeStoreProduct::orderBy('name')->get();
-        $orders = LuxeStoreOrder::where(function ($query) use ($filters) {
+        $marketing_menu_category = LuxeStoreCategory::where('slug', 'marketing-menu')->firstOrFail();
+        $orders = LuxeStoreOrder::whereHas('products', function ($q) use ($marketing_menu_category) {
+            $q->whereHas('product', function ($q) use ($marketing_menu_category) {
+                $q->whereHas('categories', function ($q) use ($marketing_menu_category) {
+                    $q->where('luxe_store_categories.id', '!=', $marketing_menu_category->id);
+                });
+            });
+        })->where(function ($query) use ($filters) {
             if ($filters['status']) {
                 $query->where('status', $filters['status']);
             }
@@ -61,7 +69,57 @@ class OrderController extends Controller
                     });
                 });
             })->latest()->paginate(20);
+
+
         return view('admin.orders.index', compact('orders', 'products'));
+    }
+
+    public function marketing_menu_index(Request $request)
+    {
+        $filters = [
+            'name' => $request->get('name'),
+            'status' => $request->get('status'),
+            'date' => $request->get('date'),
+            'price' => $request->get('price'),
+            'product' => $request->get('product'),
+        ];
+        $marketing_menu_category = LuxeStoreCategory::where('slug', 'marketing-menu')->firstOrFail();
+        $products = LuxeStoreProduct::whereHas('categories', function ($q) use ($marketing_menu_category) {
+            $q->where('luxe_store_categories.id',  $marketing_menu_category->id);
+        })->orderBy('name')->get();
+        $orders = LuxeStoreOrder::whereHas('products', function ($q) use ($marketing_menu_category) {
+            $q->whereHas('product', function ($q) use ($marketing_menu_category) {
+                $q->whereHas('categories', function ($q) use ($marketing_menu_category) {
+                    $q->where('luxe_store_categories.id', $marketing_menu_category->id);
+                });
+            });
+        })->where(function ($query) use ($filters) {
+            if ($filters['status']) {
+                $query->where('status', $filters['status']);
+            }
+            if ($filters['date']) {
+                $query->whereDate('created_at', '=', $filters['date']);
+            }
+        })->with(['products', 'billing_details', 'payment', 'inputs', 'user'])
+            ->when($filters['name'], function ($q, $name) {
+                $q->whereHas('user.profile', function ($q) use ($name) {
+                    $q->where('fullname', 'like', $name . '%');
+                });
+            })
+            ->when($filters['price'], function ($q, $price) {
+                $q->whereHas('payment', function ($q) use ($price) {
+                    $q->where('total_price', $price);
+                });
+            })
+            ->when($filters['product'], function ($q, $product) {
+                $q->whereHas('products', function ($q) use ($product) {
+                    $q->whereHas('product', function ($q) use ($product) {
+                        $q->where('id', $product);
+                    });
+                });
+            })->latest()->paginate(20);
+        $page_title = "Marketing Menu Orders";
+        return view('admin.orders.index', compact('orders', 'products', 'page_title'));
     }
 
     public function show($id)
