@@ -54,7 +54,7 @@
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label for="name">Milestone Status: <b>{{ $submission->status }}</b></label>
+                <label for="name">Order Update Status: <b>{{ $submission->status }}</b></label>
                 <select name="status" class="form-control">
                     <option value>-</option>
                     <option value="Missing">Missing</option>
@@ -64,7 +64,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="name">Answer</label>
+                <label for="name">Request Information</label>
                 <textarea class="form-control w-100" rows="3" name="answer"></textarea>
             </div>
             <div class="form-group">
