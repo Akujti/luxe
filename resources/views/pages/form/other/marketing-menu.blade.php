@@ -114,7 +114,7 @@
                                 $design_custom_banner = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-custom-banner')->first();
                                 $mailers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('mailerseddm-postcard-creation-community-routes')->first();
                             @endphp
-                            <div class="form-group col-12 form-options">
+                            <div class="form-group col-12 form-options mb-0">
                                 <h4>Custom & Copyright Services</h4>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -190,8 +190,8 @@
                                         <x-marketing-menu-product :product="$mailers" />
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="form-group">
+                                {{-- <hr> --}}
+                                {{-- <div class="form-group">
                                     <label for="files">Notes</label>
                                     <textarea id="notes-area" class="w-100 form-control" rows="3" disabled name="notes"></textarea>
                                 </div>
@@ -199,12 +199,12 @@
                                     <label for="files">Upload Files</label>
                                     <input id="file-upload-area" type="file" class="form-control-file form-control p-1"
                                         id="files" name="files[]" multiple disabled>
-                                </div>
+                                </div> --}}
                             </div>
-                            <div class="form-group form-footer col-12">
+                            {{-- <div class="form-group form-footer col-12">
                                 <button type="button" class="btn-luxe w-100" data-toggle="modal"
                                     data-target="#exampleModal">Request</button>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 
