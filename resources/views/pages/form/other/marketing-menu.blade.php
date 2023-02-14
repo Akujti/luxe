@@ -16,7 +16,7 @@
             /* align-items: center; */
             margin-bottom: 20px !important;
             margin: auto 0px auto 0px;
-            min-height: 235px;
+            min-height: 245px;
         }
 
         .form .option-title {
