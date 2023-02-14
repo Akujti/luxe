@@ -113,6 +113,10 @@
             font-size: 0.75rem;
         }
 
+        .ui-datepicker-unselectable.ui-state-disabled {
+            opacity: 0.3;
+        }
+
         .h1-luxe,
         .h4-luxe {
             font-family: 'gothicbold';

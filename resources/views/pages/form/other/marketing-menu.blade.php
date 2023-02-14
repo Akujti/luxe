@@ -48,6 +48,15 @@
             object-fit: cover;
             outline: 1px solid #d6d6d6;
         }
+
+        .option .btn {
+            background: #262626;
+            border-radius: 15px;
+            color: white !important;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-family: 'gothicbold';
+        }
     </style>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -63,7 +72,7 @@
                     <input type="hidden" name="form_title" value="MARKETING MENU">
                     <div class="card-body">
                         <div class="row">
-                            <input type="hidden" name="price" id="option-price">
+                            {{-- <input type="hidden" name="price" id="option-price">
                             <div class="form-group col-md-4">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
@@ -78,639 +87,107 @@
                                 <label for="name">Agent Email</label>
                                 <input type="text" name="agent_email" class="form-control"
                                     value="{{ auth()->user()->email }}" required>
-                            </div>
+                            </div> --}}
+                            @php
+                                $brand_package = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('brand-package')->first();
+                                $create_google_business_page = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('create-google-business-page')->first();
+                                $create_facebook_business_page = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('create-facebook-business-page')->first();
+                                $write_blog_post = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('write-blog-post')->first();
+                                $mls_input = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('mls-input')->first();
+                                $property_website = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('property-website')->first();
+                                $create_landing_page = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('create-landing-page')->first();
+                                $set_up_zillow = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('set-up-zillow-realtorcom-profiles')->first();
+                                $custom_bio = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('custom-bio')->first();
+                                
+                                $boost_facebook_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('boosting-facebook-ads')->first();
+                                $boost_instagram_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('boosting-instagram-ads')->first();
+                                $google_ads_set_up = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('google-ads-set-up-ppc')->first();
+                                
+                                $email_blast = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('email-blast')->first();
+                                $social_media_posts = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('social-media-posts')->first();
+                                $custom_email_signature = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('custom-email-signature')->first();
+                                
+                                $door_hangers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('door-hangers')->first();
+                                $flyers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('flyers')->first();
+                                $design_custom_signage = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-custom-signage')->first();
+                                $design_custom_business_cards = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-custom-business-cards')->first();
+                                $design_custom_banner = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-custom-banner')->first();
+                                $mailers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('mailerseddm-postcard-creation-community-routes')->first();
+                            @endphp
                             <div class="form-group col-12 form-options">
                                 <h4>Custom & Copyright Services</h4>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Brand Package
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes custom logo, letterhead, & 4 Instagram Templates
-                                                </div>
-                                                <div class="option-price">
-                                                    $150
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required name="option"
-                                                        id="opt1" data-price="150" value="Brand Package">
-                                                    <label class="form-check-label" for="opt1">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/brand-package.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/brand-package.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$brand_package" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Create Google Business Page
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes adding your business name, location, and hours; being able to
-                                                    monitor and reply to customer reviews; adding photos; learning where and
-                                                    how people are searching for you, and more
-                                                </div>
-                                                <div class="option-price">
-                                                    $35
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required name="option"
-                                                        id="opt2" data-price="35" value="Create Google Business Page">
-                                                    <label class="form-check-label" for="opt2">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/google-business-page.jpg" alt=""
-                                                    class="w-100 rounded" style="height: 200px;object-fit:cover;"
-                                                    onclick="showModal('/images/marketing-menu/google-business-page.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$create_google_business_page" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Create Facebook Business Page
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes setting up details about your company, category selections,
-                                                    Facebook analytics, audience insights, target a specific audience
-                                                    through paid campaigns and advertisements, and more
-                                                </div>
-                                                <div class="option-price">
-                                                    $35
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required name="option"
-                                                        id="opt3" data-price="35"
-                                                        value="Create Facebook Business Page">
-                                                    <label class="form-check-label" for="opt3">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/facebook-business-page.jpg" alt=""
-                                                    class="w-100 rounded"
-                                                    onclick="showModal('/images/marketing-menu/facebook-business-page.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$create_facebook_business_page" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Write Blog Post
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes typed blog entry on recent listing activities, market insights,
-                                                    engaging thoughts, and stories on your website about researched topics
-                                                </div>
-                                                <div class="option-price">
-                                                    $35
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt4" data-price="35"
-                                                        value="Write Blog Post">
-                                                    <label class="form-check-label" for="opt4">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/write-blog-post.jpg" alt=""
-                                                    class="w-100 rounded"
-                                                    onclick="showModal('/images/marketing-menu/write-blog-post.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$write_blog_post" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    MLS Input
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes filled out listing form for requested property together with
-                                                    amenities, descriptions, appliances, space, and more
-                                                </div>
-                                                <div class="option-price">
-                                                    $100
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt5" data-price="100"
-                                                        value="MLS Input">
-                                                    <label class="form-check-label" for="opt5">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/mls-input.jpg" alt=""
-                                                    class="w-100 rounded"
-                                                    onclick="showModal('/images/marketing-menu/mls-input.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$mls_input" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Property Website
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing from various design templates optimized for desktop,
-                                                    tablet, and mobile each equipped with fully-loaded features to make a
-                                                    listing stand out
-                                                </div>
-                                                <div class="option-price">
-
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt6" data-price="0"
-                                                        value="Property Website">
-                                                    <label class="form-check-label" for="opt6">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/property-website.jpg" alt=""
-                                                    class="w-100 rounded"
-                                                    onclick="showModal('/images/marketing-menu/property-website.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$property_website" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Create Landing Page
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes tailoring a website to a specific campaign meant for conversion
-                                                    optimized for desktop, tablet, and mobile each equipped with
-                                                    fully-loaded features to make a listing stand out
-                                                </div>
-                                                <div class="option-price">
-                                                    $50
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt7" data-price="50"
-                                                        value="Create Landing Page">
-                                                    <label class="form-check-label" for="opt7">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/create-landing-page.jpg" alt=""
-                                                    class="w-100 rounded"
-                                                    onclick="showModal('/images/marketing-menu/create-landing-page.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$create_landing_page" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Set Up Zillow & Realtor.com Profiles
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes filling out realtor details and professional information on
-                                                    each respective site, populating listings and sales map, and a typed
-                                                    description
-                                                </div>
-                                                <div class="option-price">
-                                                    $50
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt8" data-price="50"
-                                                        value="Set Up Zillow & Realtor.com Profiles">
-                                                    <label class="form-check-label" for="opt7">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/set-up-realtor-profile.jpg"
-                                                    alt="" class="w-100 rounded"
-                                                    onclick="showModal('/images/marketing-menu/set-up-realtor-profile.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$set_up_zillow" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Custom Bio
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes type description detailing professional and personal life in a
-                                                    creative, engaging way
-                                                </div>
-                                                <div class="option-price">
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt9" data-price="0" value="Custom Bio">
-                                                    <label class="form-check-label" for="opt9">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/custom-bio.jpg" alt=""
-                                                    class="w-100 rounded"
-                                                    onclick="showModal('/images/marketing-menu/custom-bio.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$custom_bio" />
                                     </div>
                                 </div>
                                 <h4>Paid Advertising</h4>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Boosting Facebook Ads
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes increased outreach to targeted audience on Facebook
-                                                </div>
-                                                <div class="option-price">
-                                                    $199
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt10" data-price="199"
-                                                        value="Boosting Facebook Ads">
-                                                    <label class="form-check-label" for="opt10">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/boost-facebook.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/boost-facebook.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$boost_facebook_ads" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Boosting Instagram Ads
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes increased outreach to targeted audience on Instagram
-                                                </div>
-                                                <div class="option-price">
-                                                    $199
-                                                </div>
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt11" data-price="199"
-                                                        value="Boosting Instagram Ads">
-                                                    <label class="form-check-label" for="opt11">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/boost-instagram.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/boost-instagram.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$boost_instagram_ads" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Google Ads Set Up - PPC
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes optimized headliners, keywords, area codes, and descriptions to
-                                                    promote site/services on Google's search engine to targeted audiences
-                                                </div>
-                                                <div class="option-price">
-                                                    $199
-                                                </div>
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt12" data-price="199"
-                                                        value="Google Ads Set Up - PPC">
-                                                    <label class="form-check-label" for="opt12">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/google-adssetup.jpg" alt=""
-                                                    class="w-100 rounded"
-                                                    onclick="showModal('/images/marketing-menu/google-adssetup.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$google_ads_set_up" />
                                     </div>
                                 </div>
                                 <h4>Digital Designs</h4>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Email Blast
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing from various design templates, just listed, just sold,
-                                                    open house, and broker's open headlines on requested listings together
-                                                    with agent information optimized for emailing
-                                                </div>
-                                                <div class="option-price">
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt14" data-price="0"
-                                                        value="Email Blast">
-                                                    <label class="form-check-label" for="opt14">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/email-blast.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/email-blast.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$email_blast" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Social Media Posts
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing from various or custom design templates, just listed,
-                                                    just sold, open house, and broker's open headlines on requested listings
-                                                    together with agent information optimized for social media posting</div>
-                                                <div class="option-price">
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt14" data-price="0"
-                                                        value="Social Media Posts">
-                                                    <label class="form-check-label" for="opt14">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/social-media.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/social-media.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$social_media_posts" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Custom Email Signature
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing between various or custom design templates, call to
-                                                    action buttons, banners, social links, and more
-                                                </div>
-                                                <div class="option-price">
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt15" data-price="0"
-                                                        value="Custom Email Signature">
-                                                    <label class="form-check-label" for="opt15">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/custom-email-signature.jpg"
-                                                    alt="" class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/custom-email-signature.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$custom_email_signature" />
                                     </div>
                                 </div>
                                 <h4>Print Designs</h4>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Door Hangers
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing from various or custom design templates, just listed,
-                                                    just sold, open house, and broker's open headlines on requested listings
-                                                    together with agent information optimized for doorhangers
-                                                </div>
-                                                <div class="option-price">
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt16" data-price="0"
-                                                        value="Door Hangers">
-                                                    <label class="form-check-label" for="opt16">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/door-hangers.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/door-hangers.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$door_hangers" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Flyers
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing from various or custom design templates, just listed,
-                                                    just sold, open house, and broker's open headlines on requested listings
-                                                    together with agent information optimized for flyers
-                                                </div>
-                                                <div class="option-price">
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt18" data-price="0" value="Flyers">
-                                                    <label class="form-check-label" for="opt16">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/flyers.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/flyers.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$flyers" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Design Custom Signage
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing from various or custom design templates, just listed,
-                                                    just sold, open house, and broker's open headlines on requested listings
-                                                    together with agent information optimized for signs
-                                                </div>
-                                                <div class="option-price">
-
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt18" data-price="0"
-                                                        value="Design Custom Signage">
-                                                    <label class="form-check-label" for="opt18">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/design-custom-signage.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/design-custom-signage.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$design_custom_signage" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Design Custom Business Cards
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing from various design templates to consist of agent
-                                                    information, logo, and headshot
-                                                </div>
-                                                <div class="option-price">
-                                                </div>
-
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt20" data-price="0"
-                                                        value="Design Custom Business Cards">
-                                                    <label class="form-check-label" for="opt20">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/business-cards.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/business-cards.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$design_custom_business_cards" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Design Custom Banner
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing from various or custom banner design templates to
-                                                    feature headlines, subtext, agent information, images, services,
-                                                    description, and more
-                                                </div>
-                                                <div class="option-price">
-                                                </div>
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt20" data-price="0"
-                                                        value="Design Custom Banner">
-                                                    <label class="form-check-label" for="opt20">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/custom-banner.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/custom-banner.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$design_custom_banner" />
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="option row">
-                                            <div class="col-md-9 pl-0">
-                                                <div class="option-title">
-                                                    Mailers/EDDM - Postcard creation & community routes
-                                                </div>
-                                                <div class="option-desc">
-                                                    Includes choosing from various or custom postcard design templates
-                                                    suited for holidays, special occasions, agent greetings, or personal
-                                                    recommendations, together with community routes to be mailed to
-                                                </div>
-                                                <div class="option-price">
-                                                </div>
-                                                <div class="mt-4 form-check">
-                                                    <input class="form-check-input" type="radio" required
-                                                        name="option" id="opt21" data-price="0"
-                                                        value="Mailers/EDDM - Postcard creation & community routes">
-                                                    <label class="form-check-label" for="opt20">
-                                                        Click to Select
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 p-0">
-                                                <img src="/images/marketing-menu/mailers.jpg" alt=""
-                                                    class="w-100 rounded" style=""
-                                                    onclick="showModal('/images/marketing-menu/mailers.jpg')">
-                                            </div>
-                                        </div>
+                                        <x-marketing-menu-product :product="$mailers" />
                                     </div>
                                 </div>
                                 <hr>
@@ -720,9 +197,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="files">Upload Files</label>
-                                    <input id="file-upload-area" type="file"
-                                        class="form-control-file form-control p-1" id="files" name="files[]" multiple
-                                        disabled>
+                                    <input id="file-upload-area" type="file" class="form-control-file form-control p-1"
+                                        id="files" name="files[]" multiple disabled>
                                 </div>
                             </div>
                             <div class="form-group form-footer col-12">

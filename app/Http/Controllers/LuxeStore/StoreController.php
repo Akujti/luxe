@@ -16,33 +16,38 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class StoreController extends Controller
 {
-    public function index() {
-        $categories = LuxeStoreCategory::with('products')->latest()->paginate(8); 
+    public function index()
+    {
+        $categories = LuxeStoreCategory::with('products')->latest()->paginate(8);
         return view('luxe_store.index', compact('categories'));
     }
 
-    public function products_index($category_slug) {
+    public function products_index($category_slug)
+    {
         $category = LuxeStoreCategory::where('slug', $category_slug)->firstOrFail();
-        
+
         $products = $category->products()->paginate(8);
         return view('luxe_store.products', compact('category', 'products'));
     }
 
-    public function single_product_index($product_slug) {
+    public function single_product_index($product_slug)
+    {
         $product = LuxeStoreProduct::with('inputs')->where('slug', $product_slug)->firstOrFail();
         return view('luxe_store.single-product', compact('product'));
     }
 
-    public function new_product($id = null) {
+    public function new_product($id = null)
+    {
         $product = null;
-        if($id) {
+        if ($id) {
             $product = LuxeStoreProduct::with('inputs')->where('id', $id)->firstOrFail();
         }
         $categories = LuxeStoreCategory::latest()->get();
         return view('admin.store.add-edit-product', compact('categories', 'product'));
     }
 
-    public function admin_products() {
+    public function admin_products()
+    {
         $products = LuxeStoreProduct::latest()->paginate(15);
         return view('admin.store.products', compact('products'));
     }
@@ -58,8 +63,8 @@ class StoreController extends Controller
         $row->sale_price = $req->sale_price;
         $row->stock = $req->stock;
 
-        
-        if($req->preview_image) {
+
+        if ($req->preview_image) {
             $name = time() . Str::random(10) . '.' . $req->preview_image->getClientOriginalExtension();
             $path = $req->preview_image->storeAs('/luxe_store', $name, 'public');
             $img = Image::make($req->preview_image);
@@ -68,23 +73,30 @@ class StoreController extends Controller
                 $constraint->aspectRatio();
             });
             $img->save(storage_path('app/public/luxe_store/' . $name));
-            $row->preview_image = 'luxe_store/'. $name;
+            $row->preview_image = 'luxe_store/' . $name;
+        }
+        if ($req->thumbnail) {
+            $name = time() . Str::random(10) . '.' . $req->thumbnail->getClientOriginalExtension();
+            $path = $req->thumbnail->storeAs('/luxe_store', $name, 'public');
+            // $img = Image::make($req->thumbnail);
+            // $img->save(storage_path('app/public/luxe_store/' . $name));
+            $row->second_thumbnail = 'luxe_store/' . $name;
         }
         $row->save();
-        
-        foreach($req->categories as $category) {
+
+        foreach ($req->categories as $category) {
             $row->categories()->attach($category);
         }
 
-        if($req->has('variant_name') && $req->variant_name) {
+        if ($req->has('variant_name') && $req->variant_name) {
             $variant = LuxeStoreProductVariants::create([
                 'variant_name' => $req->variant_name,
                 'product_id' => $row->id
             ]);
 
-            if($req->has('variant_values')) {
+            if ($req->has('variant_values')) {
                 $valueModels = [];
-                foreach($req->variant_values as $value) {
+                foreach ($req->variant_values as $value) {
                     $valueModels[] = $value;
                 }
 
@@ -92,18 +104,18 @@ class StoreController extends Controller
             }
         }
 
-        if($req->has('form')) {
+        if ($req->has('form')) {
             $formModels = [];
-            foreach($req->form as $form) {
+            foreach ($req->form as $form) {
                 $formModels[] = ['input_name' => $form];
             }
 
             $row->inputs()->createMany($formModels);
         }
 
-        if($req->has('images')) {
+        if ($req->has('images')) {
             $formModels = [];
-            foreach($req->images as $image) {
+            foreach ($req->images as $image) {
                 $name = time() . Str::random(10) . '.' . $image->getClientOriginalExtension();
                 $img = Image::make($image);
 
@@ -111,7 +123,7 @@ class StoreController extends Controller
                     $constraint->aspectRatio();
                 });
                 $img->save(storage_path('app/public/luxe_store/' . $name));
-                $formModels[] = ['image' => 'luxe_store/'. $name];
+                $formModels[] = ['image' => 'luxe_store/' . $name];
             }
 
             $row->images()->createMany($formModels);
@@ -131,36 +143,41 @@ class StoreController extends Controller
         $row->sale_price = $req->sale_price;
         $row->stock = $req->stock;
 
-        
-        if($req->preview_image) {
+
+        if ($req->preview_image) {
             $name = time() . Str::random(10) . '.' . $req->preview_image->getClientOriginalExtension();
             $path = $req->preview_image->storeAs('/luxe_store', $name, 'public');
-            $img = Image::make($req->preview_image);
+            // $img = Image::make($req->preview_image);
 
-            $img->fit(624, 500, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            $img->save(storage_path('app/public/luxe_store/' . $name));
-            $row->preview_image = 'luxe_store/'. $name;
+            // $img->fit(800, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // });
+            // $img->save(storage_path('app/public/luxe_store/' . $name));
+            $row->preview_image = 'luxe_store/' . $name;
+        }
+        if ($req->thumbnail) {
+            $name = time() . Str::random(10) . '.' . $req->thumbnail->getClientOriginalExtension();
+            $path = $req->thumbnail->storeAs('/luxe_store', $name, 'public');
+            $row->second_thumbnail = 'luxe_store/' . $name;
         }
         $row->save();
-        
-        
+
+
         $row->categories()->detach();
-        foreach($req->categories as $category) {
+        foreach ($req->categories as $category) {
             $row->categories()->attach($category);
         }
 
         $row->variants()->delete();
-        if($req->has('variant_name') && $req->variant_name) {
+        if ($req->has('variant_name') && $req->variant_name) {
             $variant = LuxeStoreProductVariants::create([
                 'variant_name' => $req->variant_name,
                 'product_id' => $row->id
             ]);
 
-            if($req->has('variant_values')) {
+            if ($req->has('variant_values')) {
                 $valueModels = [];
-                foreach($req->variant_values as $value) {
+                foreach ($req->variant_values as $value) {
                     $valueModels[] = $value;
                 }
 
@@ -169,18 +186,18 @@ class StoreController extends Controller
         }
 
         $row->inputs()->delete();
-        if($req->has('form')) {
+        if ($req->has('form')) {
             $formModels = [];
-            foreach($req->form as $form) {
+            foreach ($req->form as $form) {
                 $formModels[] = ['input_name' => $form];
             }
 
             $row->inputs()->createMany($formModels);
         }
 
-        if($req->has('images')) {
+        if ($req->has('images')) {
             $formModels = [];
-            foreach($req->images as $image) {
+            foreach ($req->images as $image) {
                 $name = time() . Str::random(10) . '.' . $image->getClientOriginalExtension();
                 $img = Image::make($image);
 
@@ -188,7 +205,7 @@ class StoreController extends Controller
                     $constraint->aspectRatio();
                 });
                 $img->save(storage_path('app/public/luxe_store/' . $name));
-                $formModels[] = ['image' => 'luxe_store/'. $name];
+                $formModels[] = ['image' => 'luxe_store/' . $name];
             }
 
             $row->images()->createMany($formModels);
@@ -197,16 +214,18 @@ class StoreController extends Controller
         return back()->with('message', 'Updated successfully');
     }
 
-    public function delete(DeleteRequest $req) {
+    public function delete(DeleteRequest $req)
+    {
         $row = LuxeStoreProduct::find($req->id);
 
-        if($row) {
+        if ($row) {
             $row->delete();
         }
         return back()->with('message', 'Deleted successfully');
     }
 
-    public function delete_image_product(DeleteImageRequest $req) {
+    public function delete_image_product(DeleteImageRequest $req)
+    {
         $row = LuxeStoreProductImage::find($req->id);
 
         $row->delete();

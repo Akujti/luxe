@@ -227,6 +227,7 @@ return array(
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\View\\Components\\BrokersumoTiers' => $baseDir . '/app/View/Components/BrokersumoTiers.php',
+    'App\\View\\Components\\MarketingMenuProduct' => $baseDir . '/app/View/Components/MarketingMenuProduct.php',
     'App\\View\\Components\\PreviewImage' => $baseDir . '/app/View/Components/PreviewImage.php',
     'App\\View\\Components\\StaffNotes' => $baseDir . '/app/View/Components/StaffNotes.php',
     'App\\View\\Components\\UserNote' => $baseDir . '/app/View/Components/UserNote.php',

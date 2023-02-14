@@ -11,7 +11,7 @@ class LuxeStoreProduct extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'description', 'description_2', 'price', 'sale_price', 'stock', 'preview_image'];
+    protected $fillable = ['name', 'slug', 'description', 'description_2', 'price', 'sale_price', 'stock', 'preview_image', 'second_thumbnail'];
 
     protected $with = ['images', 'variants'];
 

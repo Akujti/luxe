@@ -476,7 +476,8 @@
                                 @endforelse
                             </div>
                         </div>
-                        <a class="mt-3 btn btn-luxe w-100" target="_blank">Schedule 1-ON-1</a>
+                        <a href="https://calendly.com/luxeknows" class="mt-3 btn btn-luxe w-100" target="_blank">Schedule
+                            1-ON-1</a>
                     </div>
                 </div>
         </div>
@@ -1284,12 +1285,18 @@
                 <p>Sign Posts</p>
             </div>
         </div>
-        <div class="box-item box-item-padding" onclick="window.location='{{ url('store/product/background-check') }}'">
+        <div class="box-item box-item-padding" onclick="window.location='{{ url('store/client-screening') }}'">
             <div>
                 <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
                 <p>Client Screening</p>
             </div>
         </div>
+        {{-- <div class="box-item box-item-padding" onclick="window.location='{{ url('store/product/background-check') }}'">
+            <div>
+                <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
+                <p>Client Screening</p>
+            </div>
+        </div> --}}
         <div class="box-item box-item-padding"
             onclick="window.location='{{ url('store/product/fiu-course-grow-your-real-estate-business-3-modules') }}'">
             <div>

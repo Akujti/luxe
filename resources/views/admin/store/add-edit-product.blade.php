@@ -64,7 +64,7 @@
                         <a href="{{ route('luxe_store.single_product', $product->slug) }}">Go to product</a>
                     </div>
                 @else
-                    <h5 class="h5-luxe">Add new Product</h5>
+                    <h5 class="h5-luxe">Add New Product</h5>
                 @endif
             </div>
             <div class="row m-0 w-100">
@@ -87,8 +87,16 @@
                                         <input type="file" name="preview_image" id="preview-image-input"
                                             style="display:none" onchange="onFileChanged(this)">
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Thumbnail</label>
+                                        <input class="form-control p-1" type="file" id="formFile" name="thumbnail">
+                                    </div>
                                 @else
                                     <input type="file" name="preview_image" required>
+                                    <div class="my-3">
+                                        <label for="formFile" class="form-label">Thumbnail</label>
+                                        <input class="form-control p-1" type="file" id="formFile" name="thumbnail">
+                                    </div>
                                 @endif
                             </div>
                             <div class="form-group col-12 col-md-6 col-lg-4">
@@ -98,17 +106,17 @@
                             </div>
                             <div class="form-group col-12 col-lg-2 col-md-4">
                                 <label for="">Price</label>
-                                <input type="text" name="price" class="form-control"
+                                <input type="number" name="price" class="form-control"
                                     value="{{ $product ? $product->price : '' }}">
                             </div>
                             <div class="form-group col-12 col-lg-2 col-md-4">
                                 <label for="">Sale Price</label>
-                                <input type="text" name="sale_price" class="form-control"
+                                <input type="number" name="sale_price" class="form-control"
                                     value="{{ $product ? $product->sale_price : '' }}">
                             </div>
                             <div class="form-group col-12 col-lg-2 col-md-4">
                                 <label for="">Stock</label>
-                                <input type="text" name="stock" class="form-control"
+                                <input type="number" name="stock" class="form-control"
                                     value="{{ $product ? $product->stock : '' }}" required>
                             </div>
                         </div>

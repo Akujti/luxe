@@ -3,16 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Exports\FormExport;
+use App\Models\Form;
 use App\Models\FormSubmit;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Excel;
 
 class FormSubmitController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $submissions = FormSubmit::latest()->paginate(50);
-        return view('pages.form-submits.index', compact('submissions'));
+        $filters = [
+            'name' => $request->get('name'),
+            'status' => $request->get('status'),
+            'date' => $request->get('date'),
+            'form_title' => $request->get('form_title'),
+        ];
+        $forms = Form::orderBy('title')->get();
+        $submissions = FormSubmit::where(function ($query) use ($filters) {
+            if ($filters['name']) {
+                $query->where('agent_name', 'like', $filters['name'] . '%');
+            }
+            if ($filters['form_title']) {
+                $query->where('form_title', $filters['form_title']);
+            }
+            if ($filters['status'] != null) {
+                $query->where('status', $filters['status']);
+            }
+            if ($filters['date']) {
+                $query->whereDate('created_at', '=', $filters['date']);
+            }
+        })->latest()->paginate(50);
+        return view('pages.form-submits.index', compact('submissions', 'forms'));
     }
 
     public function show(FormSubmit $formSubmit)

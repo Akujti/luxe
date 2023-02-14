@@ -875,6 +875,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\View\\Components\\BrokersumoTiers' => __DIR__ . '/../..' . '/app/View/Components/BrokersumoTiers.php',
+        'App\\View\\Components\\MarketingMenuProduct' => __DIR__ . '/../..' . '/app/View/Components/MarketingMenuProduct.php',
         'App\\View\\Components\\PreviewImage' => __DIR__ . '/../..' . '/app/View/Components/PreviewImage.php',
         'App\\View\\Components\\StaffNotes' => __DIR__ . '/../..' . '/app/View/Components/StaffNotes.php',
         'App\\View\\Components\\UserNote' => __DIR__ . '/../..' . '/app/View/Components/UserNote.php',
