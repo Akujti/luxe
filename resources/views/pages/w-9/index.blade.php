@@ -60,7 +60,7 @@
                             <tr>
                                 <td scope="row" style="vertical-align: middle">
                                     {{ (($_REQUEST['page'] ?? 1) - 1) * 50 + $loop->iteration }}</td>
-                                <td>{{ $submission->user->profile ? $submission->user->profile->fullname : '' }}</td>
+                                <td>{{ $submission->user->profile->fullname }}</td>
                                 <td>{{ $submission->user->email }}</td>
                                 <td>{{ Carbon\Carbon::parse($submission->created_at)->format('m-d-Y') }}</td>
                                 <td>
