@@ -10,6 +10,34 @@ use PDF;
 
 class W9Controller extends Controller
 {
+    public function index(Request $request)
+    {
+        $filters = [
+            'name' => $request->get('name'),
+            'date' => $request->get('date'),
+        ];
+        $submissions = W9::where(
+            function ($query) use ($filters) {
+                if ($filters['name']) {
+                    $query->whereHas('user', function ($q) use ($filters) {
+                        $q->whereHas('profile', function ($q) use ($filters) {
+                            $q->where('fullname', 'like', $filters['name'] . '%');
+                        });
+                    });
+                }
+                if ($filters['date']) {
+                    $query->whereDate('created_at', '=', $filters['date']);
+                }
+            }
+        )->with('user')->latest()->paginate(50);
+        return view('pages.w-9.index', compact('submissions'));
+    }
+
+    public function show(W9 $w_9)
+    {
+        return view('pages.w-9.show', compact('w_9'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([

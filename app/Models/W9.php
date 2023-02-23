@@ -27,4 +27,9 @@ class W9 extends Model
         'signature',
         'date'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

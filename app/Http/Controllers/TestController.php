@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\BrokersumoAgent;
+use App\Models\LuxeStore\LuxeStoreCategory;
+use App\Models\LuxeStore\LuxeStoreProduct;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,8 +14,11 @@ class TestController extends Controller
 {
     public function index()
     {
-        return DB::table('users')->pluck('email');
-
+        $productDb = LuxeStoreProduct::findOrFail(63);
+        $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
+        $is_marketing_menu_product  = $productDb->categories()->get();
+        $is_marketing_menu_product  = $productDb->categories()->where('luxe_store_categories.id', $marketing_menu_category->id)->exists();
+        return [$productDb, $marketing_menu_category->name, $is_marketing_menu_product];
         // $events = Event::whereMonth('date', '>=', date('m'))->get();
         // $today = Carbon::today()->format('Y-m-d');
         // $upcoming_events = Event::whereDate('date', '>', now())->orderBy('date')->take(5)->get();

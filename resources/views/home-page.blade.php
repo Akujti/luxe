@@ -499,8 +499,9 @@
 
                         @forelse($social_media_posts as $post)
                             <div class="box-guide col-6">
-                                <a href="/storage/{{ $post->file }}" download target="_blank" class="text-dark"
-                                    style="flex-direction:column;">
+                                <a href="/storage/{{ $post->file }}"
+                                    download="{{ $post->title }}.{{ $post->type_file }}" target="_blank"
+                                    class="text-dark" style="flex-direction:column;">
                                     <img src="/storage/{{ $post->thumbnail ? $post->thumbnail : $post->file }}"
                                         alt="" style="width: 100px;height:100px;">
                                     <p>{{ $post->title }}</p>
@@ -527,8 +528,9 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark"
-                                    style="flex-direction:column;">
+                                <a href="{{ '/storage/' . $guide->file }}"
+                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
+                                    class="text-dark" style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -551,8 +553,9 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark"
-                                    style="flex-direction:column;">
+                                <a href="{{ '/storage/' . $guide->file }}"
+                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
+                                    class="text-dark" style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -576,8 +579,9 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark"
-                                    style="flex-direction:column;">
+                                <a href="{{ '/storage/' . $guide->file }}"
+                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
+                                    class="text-dark" style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -601,8 +605,9 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark"
-                                    style="flex-direction:column;">
+                                <a href="{{ '/storage/' . $guide->file }}"
+                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
+                                    class="text-dark" style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
                                     <p>{{ $guide->title }}</p>
                                 </a>
@@ -641,8 +646,9 @@
                         </h3>
                         @forelse($unbranded_media_posts as $post)
                             <div class="box-guide col-6">
-                                <a href="/storage/{{ $post->file }}" download target="_blank" class="text-dark"
-                                    style="flex-direction:column;">
+                                <a href="/storage/{{ $post->file }}"
+                                    download="{{ $post->title }}.{{ $post->type_file }}" target="_blank"
+                                    class="text-dark" style="flex-direction:column;">
                                     <img src="/storage/{{ $post->thumbnail ? $post->thumbnail : $post->file }}"
                                         alt="" style="width: 100px;height:100px;">
                                     <p>{{ $post->title }}</p>
@@ -999,7 +1005,8 @@
                 <img src="/images/index-page/partner_2-removebg-preview.png" alt="">
             </div>
         </div>
-        <div class="box-item box-item-center" onclick="window.location = '{{ url('general/form/leads/opcity-leads') }}'">
+        <div class="box-item box-item-center"
+            onclick="window.location = '{{ url('general/form/leads/opcity-leads') }}'">
             <div>
                 <img src="/images/index-page/partner_3-removebg-preview.png" alt="">
             </div>

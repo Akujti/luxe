@@ -463,6 +463,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('marketing-requests', TemplateSubmitController::class);
     Route::resource('form-submit', FormSubmitController::class);
+    Route::resource('w-9', W9Controller::class);
 
     Route::resource('referral-partners', ReferralPartnerController::class);
     Route::resource('referral-partner-category', ReferralPartnerCategoryController::class);

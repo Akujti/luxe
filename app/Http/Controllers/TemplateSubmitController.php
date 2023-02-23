@@ -19,9 +19,32 @@ class TemplateSubmitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $submissions = MarketingMenu::latest()->paginate(30);
+        $filters = [
+            'name' => $request->get('name'),
+            'status' => $request->get('status'),
+            'product' => $request->get('product'),
+            'date' => $request->get('date'),
+        ];
+        $submissions = MarketingMenu::where(function ($query) use ($filters) {
+            if ($filters['name']) {
+                $query->whereHas('user', function ($q) use ($filters) {
+                    $q->whereHas('profile', function ($q) use ($filters) {
+                        $q->where('fullname', 'like', $filters['name'] . '%');
+                    });
+                });
+            }
+            if ($filters['status'] != null) {
+                $query->where('status', $filters['status']);
+            }
+            if ($filters['date']) {
+                $query->whereDate('created_at', '=', $filters['date']);
+            }
+            if ($filters['product']) {
+                $query->whereJsonContains('details->option', $filters['product']);
+            }
+        })->latest()->paginate(30);
         return view('pages.template-submits.index', compact('submissions'));
     }
 

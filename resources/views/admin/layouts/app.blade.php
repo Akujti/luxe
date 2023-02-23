@@ -275,6 +275,9 @@
                                 <a href="{{ route('admin.form-submit.index') }}"
                                     class="{{ isset($active) && $active == 'Form Submissions' ? 'active selected' : '' }}">Form
                                     Submissions</a>
+                                <a href="{{ route('admin.w-9.index') }}"
+                                    class="{{ isset($active) && $active == 'W-9 Submissions' ? 'active selected' : '' }}">W-9
+                                    Submissions</a>
                                 <a href="{{ route('admin.diy-categories.index') }}"
                                     class="{{ isset($active) && $active == 'Diy' ? 'active selected' : '' }}">DIY</a>
                                 <a href="{{ route('admin.marketing-requests.index') }}"

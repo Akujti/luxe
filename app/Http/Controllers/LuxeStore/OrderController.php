@@ -207,8 +207,6 @@ class OrderController extends Controller
 
     public function create(AddOrderRequest $req)
     {
-
-
         DB::beginTransaction();
         try {
             $row = new LuxeStoreOrder;
@@ -243,12 +241,16 @@ class OrderController extends Controller
 
             $sub_total = 0;
             $total_price = 0;
+            $is_marketing_menu_order = false;
             if (Session::get('shopping_cart')) {
                 $cart_data = Session::get('shopping_cart')[0];
-
                 foreach ($cart_data as $product) {
                     $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
-
+                    $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
+                    if ($marketing_menu_category) {
+                        $is_marketing_menu_product  = $productDb->categories()->where('luxe_store_categories.id', $marketing_menu_category->id)->exists();
+                        $is_marketing_menu_order = $is_marketing_menu_order || $is_marketing_menu_product;
+                    }
                     if (isset($product['item_variant'])) {
                         $orderProductVariant = LuxeStoreProductVariantValues::find($product['item_variant'][0]['choosed_id']);
                         $orderProductVariant->stock = $orderProductVariant->stock - $product['item_quantity'];
@@ -266,6 +268,7 @@ class OrderController extends Controller
                         'variant_name' => (isset($product['item_variant'])) ? $product['item_variant'][0]['variant_name'] : null,
                         'variant_value' => (isset($product['item_variant'])) ? $product['item_variant'][0]['choosed']['value'] : null
                     ];
+
                     $order_product = $row->products()->createMany([$productModels]);
 
                     $orderProduct = LuxeStoreOrderProduct::find($order_product[0]->id);
@@ -316,7 +319,13 @@ class OrderController extends Controller
             $cc = [];
             $details['type'] = 'admin';
             $details['data'] = $row;
-            Mail::to(['marketing@luxeknows.com', 'support@luxeknows.com'])->cc($cc)->send(new OrderMailTemplate($details));
+            $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
+            if ($is_marketing_menu_order)
+                array_push($emails, 'designs@luxeknows.com');
+            else
+                array_push($emails, 'support@luxeknows.com');
+
+            Mail::to($emails)->cc($cc)->send(new OrderMailTemplate($details));
 
             $details['type'] = 'agent';
             $details['data'] = $row;
