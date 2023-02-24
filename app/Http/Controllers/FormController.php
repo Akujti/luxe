@@ -165,7 +165,10 @@ class FormController extends Controller
         if ($request->wantsJson()) {
             return response()->json('success');
         }
-        if ($request->form_title == "LUXE Coaching" || $request->form_title == "Request Your Agent Referral")
+        if (
+            $request->form_title == "LUXE Coaching" || $request->form_title == "Request Your Agent Referral"
+            || $request->form_title == "Join CINC Buyer Team"
+        )
             session()->flash('modal', 'Success');
         try {
             if ($request->form_title == "Photoshoots For Listings") {
