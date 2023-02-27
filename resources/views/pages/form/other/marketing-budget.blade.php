@@ -55,8 +55,10 @@
                                             approved vendor Planet Marketing(Print Marketing Store)</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="options[]" value="4 - Brand Package" id="opt4">
-                                        <label for="opt4" class="font-weight-normal">4 - Brand Package</label>
+                                        <input type="checkbox" name="options[]"
+                                            value="4 - Brand Package from Marketing Menu" id="opt4">
+                                        <label for="opt4" class="font-weight-normal">4 - Brand Package from Marketing
+                                            Menu</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
@@ -75,9 +77,10 @@
                                         <label for="opt7" class="font-weight-normal">7 - Write Blog Post</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="options[]" value="8 - Create A Landing Page"
-                                            id="opt8">
-                                        <label for="opt8" class="font-weight-normal">8 - Create A Landing Page</label>
+                                        <input type="checkbox" name="options[]"
+                                            value="8 - Create A Landing Page from Marketing Menu" id="opt8">
+                                        <label for="opt8" class="font-weight-normal">8 - Create A Landing Page from
+                                            Marketing Menu</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
@@ -92,34 +95,42 @@
                                             PPC</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="options[]" value="11 - Printed LUXE Guides"
-                                            id="opt11">
-                                        <label for="opt11" class="font-weight-normal">11 - Printed LUXE Guides</label>
+                                        <input type="checkbox" name="options[]"
+                                            value="11 - Printed LUXE Guides from Marketplace" id="opt11">
+                                        <label for="opt11" class="font-weight-normal">11 - Printed LUXE Guides from
+                                            Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="12 - Doorhanger w/ Business Card Slits" id="opt12">
+                                            value="12 - Doorhanger w/ Business Card Slits from Marketplace"
+                                            id="opt12">
                                         <label for="opt12" class="font-weight-normal">12 - Doorhanger w/ Business Card
-                                            Slits</label>
+                                            Slits from Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="13 - Hard Cover Book - For Listing Presentations" id="opt13">
+                                            value="13 - Hard Cover Book - For Listing Presentations from Marketplace"
+                                            id="opt13">
                                         <label for="opt13" class="font-weight-normal">13 - Hard Cover Book - For
-                                            Listing Presentations</label>
+                                            Listing Presentations from Marketplace</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="options[]" value="14 - LUXE Holiday Cards"
-                                            id="opt14">
-                                        <label for="opt14" class="font-weight-normal">14 - LUXE Holiday Cards</label>
+                                        <input type="checkbox" name="options[]"
+                                            value="14 - LUXE Holiday Cards from Marketplace" id="opt14">
+                                        <label for="opt14" class="font-weight-normal">14 - LUXE Holiday Cards from
+                                            Marketplace</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="options[]" value="15 - Skip Trace" id="opt15">
-                                        <label for="opt15" class="font-weight-normal">15 - Skip Trace</label>
+                                        <input type="checkbox" name="options[]" value="15 - Skip Trace from Marketplace"
+                                            id="opt15">
+                                        <label for="opt15" class="font-weight-normal">15 - Skip Trace from
+                                            Marketplace</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="options[]" value="16 - MLS Input" id="opt16">
-                                        <label for="opt16" class="font-weight-normal">16 - MLS Input</label>
+                                        <input type="checkbox" name="options[]"
+                                            value="16 - MLS Input from Marketing Menu" id="opt16">
+                                        <label for="opt16" class="font-weight-normal">16 - MLS Input from Marketing
+                                            Menu</label>
                                     </div>
                                     {{-- <div>
                                         <input type="checkbox" name="options[]"
