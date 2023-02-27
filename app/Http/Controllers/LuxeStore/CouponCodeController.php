@@ -12,15 +12,17 @@ use App\Http\Requests\LuxeStore\Coupon\UpdateRequest;
 
 class CouponCodeController extends Controller
 {
-    public function index() {
-        $coupons = LuxeStoreCouponCode::latest()->paginate(15); 
+    public function index()
+    {
+        $coupons = LuxeStoreCouponCode::latest()->paginate(15);
         return view('admin.coupons.index', compact('coupons'));
     }
 
-    public function apply_coupon(Request $req) {
+    public function apply_coupon(Request $req)
+    {
         $row = LuxeStoreCouponCode::where('code', $req->code)->first();
 
-        if($row && $row->count() && $row->expired == 0) {
+        if ($row && $row->count() && $row->expired == 0) {
             Session::put('coupon_code', ['code' => $row->code, 'price' => $row->price]);
 
             return back()->with('message', 'You have successfully earned a coupon code');
@@ -28,7 +30,7 @@ class CouponCodeController extends Controller
             return back()->with('error', 'Coupon is expired or something went wrong!');
         }
     }
-    
+
     public function create(AddRequest $req)
     {
         $row = new LuxeStoreCouponCode;
@@ -46,16 +48,17 @@ class CouponCodeController extends Controller
 
         $row->code = $req->code;
         $row->price = $req->price;
-        $row->expired = true;
+        $row->expired = $req->expired;
         $row->save();
 
         return back()->with('message', 'Updated successfully');
     }
 
-    public function delete(DeleteRequest $req) {
+    public function delete(DeleteRequest $req)
+    {
         $row = LuxeStoreCouponCode::find($req->id);
 
-        if($row) {
+        if ($row) {
             $row->delete();
         }
         return back()->with('message', 'Deleted successfully');

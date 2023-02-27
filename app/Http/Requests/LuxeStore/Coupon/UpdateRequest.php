@@ -26,7 +26,8 @@ class UpdateRequest extends FormRequest
         return [
             'id' => 'required|exists:luxe_store_coupon_codes,id',
             'code' => 'required',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'expired' => 'required',
         ];
     }
 }

@@ -4,7 +4,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Coupon</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('admin.luxe_store.coupons.update') }}" method="POST">
@@ -18,12 +19,19 @@
                                 <input type="text" class="w-100 form-control" name="code" id="code" required>
                             </div>
                         </div>
-                       
+
                         <div class="form-group">
                             <label for="start">Price</label>
                             <div class='input-group'>
                                 <input type="text" class="w-100 form-control" name="price" id="price" required>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="start">Status</label>
+                            <select name="expired" class="form-control" id="expired">
+                                <option value='0'>Active</option>
+                                <option value='1'>Expired</option>
+                            </select>
                         </div>
                     </div>
             </div>

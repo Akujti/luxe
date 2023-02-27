@@ -292,10 +292,10 @@ class OrderController extends Controller
                 $coupon_code = Session::get('coupon_code');
                 $total_price -= $coupon_code['price'];
 
-                $couponDb = LuxeStoreCouponCode::where('code', $coupon_code['code'])->firstOrFail();
+                // $couponDb = LuxeStoreCouponCode::where('code', $coupon_code['code'])->firstOrFail();
 
-                $couponDb->expired = 1;
-                $couponDb->save();
+                // $couponDb->expired = 1;
+                // $couponDb->save();
             }
 
             $row->payment()->create([
