@@ -54,6 +54,7 @@ class EventController extends Controller
         }
         return view('pages.events.my-events', compact('events'));
     }
+
     public function attend(Request $request)
     {
         try {
@@ -179,6 +180,7 @@ class EventController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'location' => 'required',
+            'description' => 'nullable',
             'date' => 'required|date',
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
             'start_time' => 'nullable',
@@ -212,6 +214,7 @@ class EventController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'location' => 'required',
+            'description' => 'nullable',
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
             'start_time' => 'required',
             'end_time' => 'required',

@@ -112,6 +112,12 @@
                                             required>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="start">{{ __('Description') }}</label>
+                                    <div class='input-group date'>
+                                        <textarea name="description" id="description" class="w-100 form-control" style="font-family: gothicregular"></textarea>
+                                    </div>
+                                </div>
                                 <div class="d-flex">
                                     <div class="form-group w-50 pr-1">
                                         <label for="start">{{ __('Start Time') }}</label>
@@ -222,6 +228,12 @@
                                     <div class='input-group date'>
                                         <input type="text" id="location" name="location"
                                             class="w-100 form-control update_field" disabled required>
+                                    </div>
+                                </div>
+                                <div class="mt-1 form-group">
+                                    <label for="start">{{ __('Description') }}</label>
+                                    <div class='input-group date'>
+                                        <textarea name="description" id="description" class="w-100 form-control" style="font-family: gothicregular"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -363,6 +375,7 @@
                 $('.single-event').find('#event_id_attend').val(event._def.publicId);
                 $('.single-event').find('#title').val(event.title);
                 $('.single-event').find('#location').val(event.extendedProps.location);
+                $('.single-event').find('#description').val(event.extendedProps.description);
                 $('.single-event').find('#start_time').val(event.extendedProps.start_time);
                 $('.single-event').find('#end_time').val(event.extendedProps.end_time);
                 $('.single-event').find('#user_id').val(event.extendedProps.user_id);
