@@ -32,6 +32,16 @@
                                     items.</p>
                                 <div class="form-group">
                                     <div>
+                                        <p class="mt-2 mb-0"><b>PRINT MARKETING</b></p>
+                                        <p class="">Print Marketing items are handled by our third-party vendor,
+                                            Planet Marketing.
+                                            Reminder you can order directly <a
+                                                href="https://realtorprint.com/pages/luxe">Here</a> with
+                                            your Promo Code. Jason from Planet
+                                            Marketing is aware of and can be reached out to for any assistance on your
+                                            designs and orders.</p>
+                                    </div>
+                                    <div>
                                         <input type="checkbox" name="options[]"
                                             value="1 - Mailers/ Door Hangers/Flyers/Postcards from our approved vendor Planet Marketing(Print Marketing Store)"
                                             id="opt1">
@@ -41,7 +51,8 @@
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="2 - For Sale Signs, Open House Signs, Open House Flags, Car Magnets from our approved vendor Planet Marketing(Print Marketing Store)"
+                                            value="2 - For Sale Signs, Open House Signs, Open House Flags, Car Magnets from our approved vendor Planet Marketing(Print Marketing Store)
+"
                                             id="opt2">
                                         <label for="opt2" class="font-weight-normal">2 - For Sale Signs, Open House
                                             Signs, Open House Flags, Car Magnets from our approved vendor Planet
@@ -55,82 +66,108 @@
                                             approved vendor Planet Marketing(Print Marketing Store)</label>
                                     </div>
                                     <div>
+                                        <p class="mt-2 mb-0"><b>MARKETING MENU</b></p>
+                                        <p>Marketing Menu items are completed by our in-house marketing team. Reminder you
+                                            can order directly <a
+                                                href="{{ route('general.email.index', ['other', 'marketing-menu']) }}">Here</a>
+                                            with your Promo Code.</p>
+                                    </div>
+                                    <div>
                                         <input type="checkbox" name="options[]"
-                                            value="4 - Brand Package from Marketing Menu" id="opt4">
-                                        <label for="opt4" class="font-weight-normal">4 - Brand Package from Marketing
+                                            value="1 - Brand Package from Marketing Menu" id="opt4">
+                                        <label for="opt4" class="font-weight-normal">1 - Brand Package from Marketing
                                             Menu</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="5 - Creation of Google Business/Facebook Business" id="opt5">
-                                        <label for="opt5" class="font-weight-normal">5 - Creation of Google
-                                            Business/Facebook Business</label>
+                                            value="2 - Boosting Facebook Ads/Instagram Ads Set up from Marketing Menu"
+                                            id="opt5">
+                                        <label for="opt5" class="font-weight-normal">2 - Boosting Facebook Ads/Instagram
+                                            Ads Set up from Marketing Menu</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="6 - Set Up Zillow & Realtor.com Profiles" id="opt6">
-                                        <label for="opt6" class="font-weight-normal">6 - Set Up Zillow & Realtor.com
-                                            Profiles</label>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" name="options[]" value="7 - Write Blog Post" id="opt7">
-                                        <label for="opt7" class="font-weight-normal">7 - Write Blog Post</label>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" name="options[]"
-                                            value="8 - Create A Landing Page from Marketing Menu" id="opt8">
-                                        <label for="opt8" class="font-weight-normal">8 - Create A Landing Page from
+                                            value="3 - Google Ads Set Up - PPC from Marketing Menu" id="opt6">
+                                        <label for="opt6" class="font-weight-normal">3 - Google Ads Set Up - PPC from
                                             Marketing Menu</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="9 - Boosting Facebook Ads/Instagram Ads" id="opt9">
-                                        <label for="opt9" class="font-weight-normal">9 - Boosting Facebook Ads/Instagram
-                                            Ads</label>
+                                            value="4 - Pictures/Video For Your Listings with LUXE Approved Photographer"
+                                            id="opt7">
+                                        <label for="opt7" class="font-weight-normal">4 - Pictures/Video For Your
+                                            Listings with LUXE Approved Photographer</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="options[]" value="10 - Google Ads Set Up - PPC"
-                                            id="opt10">
-                                        <label for="opt10" class="font-weight-normal">10 - Google Ads Set Up -
-                                            PPC</label>
+                                        <p class="mt-2 mb-0"><b>MARKETPLACE</b></p>
+                                        <p>Marketplace orders are grab and go items that we have in stock at one of our LUXE
+                                            offices. Reminder you can order directly on <a
+                                                href="/home?dir=luxe_apparel">Here</a>
+                                            with your Promo Code.</p>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="11 - Printed LUXE Guides from Marketplace" id="opt11">
-                                        <label for="opt11" class="font-weight-normal">11 - Printed LUXE Guides from
+                                            value="1 - Hard Cover Book For Listing Presentations from Marketplace"
+                                            id="opt8">
+                                        <label for="opt8" class="font-weight-normal">1 - Hard Cover Book For Listing
+                                            Presentations from Marketplace</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]"
+                                            value="2 - Printed LUXE Guides from Marketplace" id="opt9">
+                                        <label for="opt9" class="font-weight-normal">2 - Printed LUXE Guides from
                                             Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="12 - Doorhanger w/ Business Card Slits from Marketplace"
-                                            id="opt12">
-                                        <label for="opt12" class="font-weight-normal">12 - Doorhanger w/ Business Card
+                                            value="3 - Doorhanger w/ Business Card Slits from Marketplace" id="opt10">
+                                        <label for="opt10" class="font-weight-normal">3 - Doorhanger w/ Business Card
                                             Slits from Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="13 - Hard Cover Book - For Listing Presentations from Marketplace"
-                                            id="opt13">
-                                        <label for="opt13" class="font-weight-normal">13 - Hard Cover Book - For
-                                            Listing Presentations from Marketplace</label>
+                                            value="4 - Skip Trace from Marketplace (A skip trace is getting owner phone numbers and emails for areas/neighborhoods! Great information to have for farming purposes)"
+                                            id="opt11">
+                                        <label for="opt11" class="font-weight-normal">4 - Skip Trace from Marketplace
+                                            (A skip trace is getting owner phone numbers and emails for areas/neighborhoods!
+                                            Great information to have for farming purposes)</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="14 - LUXE Holiday Cards from Marketplace" id="opt14">
-                                        <label for="opt14" class="font-weight-normal">14 - LUXE Holiday Cards from
+                                            value="5 - LUXE Holiday Cards from Marketplace" id="opt12">
+                                        <label for="opt12" class="font-weight-normal">5 - LUXE Holiday Cards from
                                             Marketplace</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="options[]" value="15 - Skip Trace from Marketplace"
+                                        <p class="mt-2 mb-2"><b>PRIVATE OFFICES</b></p>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]"
+                                            value="1 - Private Office In Dadeland - $500" id="opt13">
+                                        <label for="opt13" class="font-weight-normal">1 - Private Office In Dadeland -
+                                            $500</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]"
+                                            value="2 - Private Office In Kendall - $250" id="opt14">
+                                        <label for="opt14" class="font-weight-normal">2 - Private Office In Kendall -
+                                            $250</label>
+                                    </div>
+                                    <div>
+                                        <p class="mt-2 mb-2"><b>KVCORE & LOOPNET</b></p>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]" value="1 - kvCORE Property Boosts"
                                             id="opt15">
-                                        <label for="opt15" class="font-weight-normal">15 - Skip Trace from
-                                            Marketplace</label>
+                                        <label for="opt15" class="font-weight-normal">1 - kvCORE Property
+                                            Boosts</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="16 - MLS Input from Marketing Menu" id="opt16">
-                                        <label for="opt16" class="font-weight-normal">16 - MLS Input from Marketing
-                                            Menu</label>
+                                            value="2 - Loopnet Advertising for Listings on Company Account"
+                                            id="opt16">
+                                        <label for="opt16" class="font-weight-normal">2 - Loopnet Advertising for
+                                            Listings on Company Account</label>
                                     </div>
                                     {{-- <div>
                                         <input type="checkbox" name="options[]"

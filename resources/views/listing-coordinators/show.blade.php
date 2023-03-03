@@ -10,8 +10,8 @@
         }
 
         /* #paypal-button-container:hover {
-                                                                                            background: #F2BA36
-                                                                                        } */
+                                                                                                background: #F2BA36
+                                                                                            } */
     </style>
     <div class="container-fluid">
         <div class="row justify-content-center mb-4">
@@ -20,7 +20,8 @@
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">LISTING COORDINATOR - {{ $listingCoordinator->name }}</h1>
-                        <h6 id="agent-text" class="text-center" style="font-size: 21px;">LISTING INPUT ONLY $100</h6>
+                        <h6 id="agent-text" class="text-center" style="font-size: 21px;">Zillow Basic Package $300 - Standard
+                            Package $400</h6>
                         <h5 class="text-center">Coordinator Will Reach Out Within 1 Business Day</h5>
                     </div>
                     <input type="hidden" name="form_title" value="LISTING COORDINATORS - {{ $listingCoordinator->name }}">

@@ -403,7 +403,7 @@
                         </div>
 
                         <div class="box-item box-item-padding"
-                            onclick="window.open('https://realtorprint.com/collections/luxe')">
+                            onclick="window.open('https://realtorprint.com/pages/luxe')">
                             <div>
                                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
                                 <p>Print Marketing<br></p>
