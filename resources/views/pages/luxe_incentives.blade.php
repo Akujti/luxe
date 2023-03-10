@@ -28,6 +28,21 @@
         h4.text-center {
             letter-spacing: 6px;
         }
+
+        .incentive-img {
+            border-radius: 10px;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .shadow-img {
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
+        }
+
+        p {
+            font-family: gothicregular;
+            margin-top: 20px
+        }
     </style>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -36,47 +51,56 @@
                     <h2 class="under-contract my-5">LUXE INCENTIVES</h2>
                 </div>
                 <h4 class="text-center">2022 TOP PRODUCERS</h4>
-                <ul>
-                    <li>$5 Million in Yearly Sales - $250 Monthly Marketing Budget</li>
-                    <li>$10 Million in Yearly Sales - $500 Monthly Marketing Budget</li>
-                    <li>$15 Million in Yearly Sales - $1,000 Monthly Marketing Budget </li>
+                <ul class="list-unstyled">
+                    <li>★ $5 Million in Yearly Sales - $250 Monthly Marketing Budget</li>
+                    <li>★ $10 Million in Yearly Sales - $500 Monthly Marketing Budget</li>
+                    <li>★ $15 Million in Yearly Sales - $1,000 Monthly Marketing Budget </li>
                 </ul>
                 <hr>
                 <h4 class="text-center">LEGACY INCENTIVES</h4>
-                <div class="row">
+                <div class="row text-center">
+                    <h4 class="col-12">$10 Million Dollar Club</h4>
                     <div class="col-md-6">
-                        <h4>$10 Million Dollar Club</h4>
-                        <ul>
-                            <li>Dinner at Capital Grille</li>
-                            <li>2 Heat Tickets</li>
-                        </ul>
+                        <img src="/images/incentives/capital.png" alt="" class="incentive-img">
+                        <p>Dinner at Capital Grille</p>
                     </div>
                     <div class="col-md-6">
-                        <h4>$25 Million Dollar Club</h4>
-                        <ul>
-                            <li>Macbook Pro</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h4>$50 Million Dollar Club</h4>
-                        <ul>
-                            <li>3-Night Trip to All-Inclusive Resort - Tropical Destination </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h4>$75 Million Dollar Club</h4>
-                        <ul>
-                            <li>Rolex Oyster Perpetual</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h4>$100 Million Dollar Club</h4>
-                        <ul>
-                            <li>10-Day Trip to Europe </li>
-                        </ul>
+                        <img src="/images/incentives/miami.png" alt="" class="incentive-img" height="160px">
+                        <p>2 Heat Tickets</p>
                     </div>
                 </div>
-
+                <hr>
+                <div class="row text-center justify-content-center">
+                    <h4 class="col-12">$25 Million Dollar Club</h4>
+                    <div class="col-md-6">
+                        <img src="/images/incentives/macbook.png" alt="" class="incentive-img">
+                        <p>Macbook Pro</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-center justify-content-center">
+                    <h4 class="col-12">$50 Million Dollar Club</h4>
+                    <div class="col-md-6">
+                        <img src="/images/incentives/hotel.jpg" alt="" class="incentive-img shadow-img">
+                    </div>
+                    <p>3-Night Trip to All-Inclusive Resort - Tropical Destination</p>
+                </div>
+                <hr>
+                <div class="row text-center justify-content-center">
+                    <h4 class="col-12">$75 Million Dollar Club</h4>
+                    <div class="col-md-6">
+                        <img src="/images/incentives/watch.png" alt="" class="incentive-img" height="200px">
+                        <p>Rolex Oyster Perpetual</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-center justify-content-center">
+                    <h4 class="col-12">$100 Million Dollar Club</h4>
+                    <div class="col-md-6">
+                        <img src="/images/incentives/paris.jpg" alt="" class="incentive-img shadow-img">
+                        <p>10-Day Trip to Europe</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

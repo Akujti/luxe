@@ -401,7 +401,7 @@
                     $('#zoom_group').css('display', 'none');
                 }
                 $('.single-event').find('.modal-footer').css('display', 'none');
-                if (event.extendedProps.user_id == {{ Auth::id() }} && {{ $isAdmin }}) {
+                if (event.extendedProps.user_id == {{ Auth::id() }} || {{ $isAdmin }}) {
                     $('.single-event').find('.modal-footer').css('display', 'flex');
                     $('.single-event').find('.update_field').removeAttr('disabled');
                     $('.single-event').find('.image_group').removeClass('d-none');

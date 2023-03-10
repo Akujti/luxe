@@ -115,8 +115,8 @@
                                         @foreach ($variant->values as $value)
                                             <tr>
                                                 <td>{{ $value->value }}</td>
-                                                <td>$ {{ $value->price }}</td>
-                                                <td>$ {{ $value->sale_price ? $value->sale_price : '-' }}</td>
+                                                <td>{{ $value->price ? '$ ' . $value->price : 'FREE' }}</td>
+                                                <td>{{ $product->sale_price ? '$ ' . $product->sale_price : '-' }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -139,8 +139,8 @@
                                     <tbody>
                                         <tr>
                                             <td>{{ $product->name }}</td>
-                                            <td>$ {{ $product->price }}</td>
-                                            <td>$ {{ $product->sale_price ? $product->sale_price : '-' }}</td>
+                                            <td>{{ $product->price ? '$ ' . $product->price : 'FREE' }}</td>
+                                            <td>{{ $product->sale_price ? '$ ' . $product->sale_price : '-' }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -158,8 +158,10 @@
                             @if ($product->sale_price)
                                 <p id="price" class="mr-3">${{ $product->sale_price }}</p>
                                 <p id="sale-price"><del>${{ $product->price }}</del></p>
-                            @else
+                            @elseif($product->price)
                                 <p id="price">${{ $product->price }}</p>
+                            @else
+                                <p id="price">FREE</p>
                             @endif
                         </div>
                         {{-- <p id="short-desc">{!! nl2br($product->description_2) !!}</p> --}}

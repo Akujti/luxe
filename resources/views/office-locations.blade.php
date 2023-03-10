@@ -94,7 +94,7 @@
                                     Instructions</button>
                             </div>
                             <div class="form-group ">
-                                <p class="location">Pembroke Pines -- Coming Soon</p>
+                                <p class="location">Pembroke Pines</p>
                                 <p class="address">1911 NW 150 Avenue #202, Pembroke Pines FL 33028</p>
                             </div>
                             <div class="form-group ">
@@ -154,7 +154,7 @@
                 ['Aventura', 25.952880, -80.143430],
                 ['Orlando', 28.5525227, -81.628067],
                 ['South Miami', 25.70264828581291, -80.2908567003317],
-                ['Pembroke Pines -- Coming Soon', 26.025562885970274, -80.34676792739103],
+                ['Pembroke Pines', 26.025562885970274, -80.34676792739103],
             ];
 
             var map = new google.maps.Map(document.getElementById('map'), {

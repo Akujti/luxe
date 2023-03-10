@@ -16,6 +16,7 @@ class MarketingCanvaTemplate extends Model
         'image',
         'featured',
         'url',
+        'order',
         'template_url'
     ];
 

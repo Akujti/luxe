@@ -9,7 +9,7 @@
                     {{ $product->description }}
                 </div>
                 <div class="option-price">
-                    {{ $product->sale_price || $product->price ? '$' : '' }}{{ $product->sale_price ?? $product->price }}
+                    {{ $product->sale_price || $product->price ? '$' : 'FREE' }}{{ $product->sale_price ?? $product->price }}
                 </div>
 
                 <div class="mt-4">
