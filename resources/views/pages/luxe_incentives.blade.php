@@ -41,10 +41,11 @@
 
         p {
             font-family: gothicregular;
-            margin-top: 20px
+            margin-top: 20px;
+            margin-bottom: 0px;
         }
     </style>
-    <div class="container-fluid">
+    <div class="container-fluid mb-4">
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="text-center">
