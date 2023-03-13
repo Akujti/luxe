@@ -748,10 +748,11 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 @if (Route::currentRouteName() != 'optin.agents.index' &&
-    Route::currentRouteName() != 'office.locations' &&
-    Route::currentRouteName() != 'showing.agents.index' &&
-    Route::currentRouteName() != 'listings.index' &&
-    Route::currentRouteName() != 'listings.show')
+        Route::currentRouteName() != 'office.locations' &&
+        Route::currentRouteName() != 'showing.agents.index' &&
+        Route::currentRouteName() != 'listings.index' &&
+        Route::currentRouteName() != 'mls-directory' &&
+        Route::currentRouteName() != 'listings.show')
     <script
         src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
         defer></script>

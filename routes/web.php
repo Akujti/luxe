@@ -412,6 +412,8 @@ Route::group(
         Route::post('marketing-menu', [FormController::class, 'submit_marketing_menu'])->name('marketing.menu');
 
         Route::resource('listings', ListingController::class);
+
+        Route::get('mls/mls-directory', [PageController::class, 'mls_directory'])->name('mls-directory');
     }
 );
 
