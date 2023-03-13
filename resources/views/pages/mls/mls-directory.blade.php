@@ -29,6 +29,7 @@
 
         ul {
             list-style-type: none;
+            padding: 0;
         }
 
         h2 {
@@ -44,7 +45,7 @@
                 <h2>The MIAMI Association of Realtors </h2>
                 <p>MLS Name: MiamiMLS</p>
                 <p>Phone: <a href="tel:305.468.7005">305.468.7005</a></p>
-                <p>Website To Join: <a href="https://join.miamirealtors.com/ver4">https://join.miamirealtors.com/ver4</a></p>
+                <p>Website To Join: <a href="https://join.miamirealtors.com/ver4">Click Here</a></p>
                 <p>Cost: $862 - price due to change without notice</p>
                 <ul>
                     <li>St. Lucie</li>
@@ -64,11 +65,9 @@
                 <h2>Orlando Regional REALTORS Association</h2>
                 <p>MLS Name: Stellar MLS</p>
                 <p>Phone: <a href="tel:407.253.3580">407.253.3580</a></p>
-                <p>Website To Join: <a
-                        href="https://www.orlandorealtors.org/joinrealtor">https://www.orlandorealtors.org/joinrealtor</a>
+                <p>Website To Join: <a href="https://www.orlandorealtors.org/joinrealtor">Click Here</a>
                 </p>
-                <p>Secondary Membership: <a
-                        href="https://www.orlandorealtors.org/othermembertypes">https://www.orlandorealtors.org/othermembertypes</a>
+                <p>Secondary Membership: <a href="https://www.orlandorealtors.org/othermembertypes">Click Here</a>
                 </p>
                 <p>Cost: $1,130.09 - price due to change without notice</p>
             </div>
@@ -82,11 +81,9 @@
                 <h2>Broward, Palm Beaches & St. Lucie Realtors</h2>
                 <p>MLS Name: Beaches MLS</p>
                 <p>Phone: <a href="tel:561.585.4544">561.585.4544</a></p>
-                <p>Website To Join: <a
-                        href="https://form.jotform.com/220874294480158">https://form.jotform.com/220874294480158</a>
+                <p>Website To Join: <a href="https://form.jotform.com/220874294480158">Click Here</a>
                 </p>
-                <p>Secondary Membership: <a
-                        href="https://www.orlandorealtors.org/othermembertypes">https://www.orlandorealtors.org/othermembertypes</a>
+                <p>Secondary Membership: <a href="https://www.orlandorealtors.org/othermembertypes">Click Here</a>
                 </p>
                 <p>Cost: $499 - price due to change without notice</p>
                 <ul>
@@ -110,7 +107,8 @@
                 <p>MLS Name: FlexMLS</p>
                 <p>Phone: <a href="tel:305-852-9294">305-852-9294</a></p>
                 <p>Application: <a
-                        href="https://www.flkeysboardofrealtors.com/wp-content/uploads/2018/02/FKBR_Realtor_Membership_Application-2018.pdf">https://www.flkeysboardofrealtors.com/wp-content/uploads/2018/02/FKBR_Realtor_Membership_Application-2018.pdf</a>
+                        href="https://www.flkeysboardofrealtors.com/wp-content/uploads/2018/02/FKBR_Realtor_Membership_Application-2018.pdf">Click
+                        Here</a>
                 </p>
                 <p>Cost To Join: $200 one-time fee plus $45/month</p>
             </div>
@@ -125,7 +123,8 @@
                 <p>MLS Name: FlexMLS</p>
                 <p>Phone: <a href="tel:321.242.2211">321.242.2211</a></p>
                 <p>Website To Join: <a
-                        href="https://www.spacecoastmls.com/membership/association-member-application/mls-only-membership">https://www.spacecoastmls.com/membership/association-member-application/mls-only-membership</a>
+                        href="https://www.spacecoastmls.com/membership/association-member-application/mls-only-membership">Click
+                        Here</a>
                 </p>
                 <p>Cost: $150 one-time fee plus $92 per quarter, prorated</p>
             </div>
