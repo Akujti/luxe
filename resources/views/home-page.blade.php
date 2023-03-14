@@ -1268,6 +1268,12 @@
                 <p>Request Your<br> Agent Referral</p>
             </div>
         </div>
+        <div class="box-item box-item-padding" onclick="window.location = '{{ route('mls-directory') }}'">
+            <div>
+                <img src="/images/index-page/global-search.svg" class="icon" alt="">
+                <p>MLS Directory</p>
+            </div>
+        </div>
     </div>
 @elseif($_GET['dir'] == 'luxe_apparel')
     <div class="col-12 title mb-3 text-center">
