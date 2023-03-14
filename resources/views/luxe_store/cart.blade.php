@@ -79,8 +79,8 @@
         <div class="row m-0 justify-content-center">
             <div class="w-100 d-flex justify-content-between align-items-center mb-5">
                 <h5 class="h5-luxe">Your Cart</h5>
-                <a href="{{ route('luxe_store.index') }}" id="back"><img src="/images/files/left-icon.svg"
-                        alt=""> Back to shop</a>
+                <a href="{{ route('luxe_store.index') }}" id="back"><img src="/images/files/left-icon.svg" alt="">
+                    Back to shop</a>
             </div>
 
             <div class="col-12 col-md-12 col-lg-8 row p-0 m-0">
@@ -129,6 +129,7 @@
                 <div class="w-50 coupon mt-4">
                     <form action="{{ route('luxe_store.apply_coupon') }}" method="POST">
                         @csrf
+                        <input type="hidden" value="{{ $sub_total }}" name="sub_total">
                         <div class="form-group w-100">
                             <label for="" class="bold">Have a coupon code?</label>
                             <div class="input-group">

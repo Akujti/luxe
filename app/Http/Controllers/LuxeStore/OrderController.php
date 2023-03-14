@@ -20,6 +20,7 @@ use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
 use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
+use App\Mail\CouponUsedMailTemplate;
 use App\Models\LuxeStore\LuxeStoreCategory;
 use App\Models\LuxeStore\LuxeStoreProductVariantValues;
 use App\Models\LuxeStore\Order\LuxeStoreOrderFormInputs;
@@ -288,12 +289,11 @@ class OrderController extends Controller
 
             $coupon_code = null;
             $total_price = $sub_total;
+            $couponDb = null;
             if (Session::get('coupon_code')) {
                 $coupon_code = Session::get('coupon_code');
                 $total_price -= $coupon_code['price'];
-
                 $couponDb = LuxeStoreCouponCode::where('code', $coupon_code['code'])->firstOrFail();
-
                 $couponDb->expired = 1;
                 $couponDb->save();
             }
@@ -320,6 +320,15 @@ class OrderController extends Controller
             $details['type'] = 'admin';
             $details['data'] = $row;
             $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
+            if ($couponDb) {
+                try {
+                    $details['coupon'] = $couponDb;
+                    $details['email'] = $req->billing['email'];
+                    $details['order'] = $row;
+                    Mail::to($emails)->send(new CouponUsedMailTemplate($details));
+                } catch (\Throwable $th) {
+                }
+            }
             if ($is_marketing_menu_order)
                 array_push($emails, 'designs@luxeknows.com');
             else

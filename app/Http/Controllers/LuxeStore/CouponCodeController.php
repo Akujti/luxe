@@ -22,7 +22,7 @@ class CouponCodeController extends Controller
     {
         $row = LuxeStoreCouponCode::where('code', $req->code)->first();
 
-        if ($row && $row->count() && $row->expired == 0) {
+        if ($row && $row->count() && $row->expired == 0 && $row->price <= $req->sub_total) {
             Session::put('coupon_code', ['code' => $row->code, 'price' => $row->price]);
 
             return back()->with('message', 'You have successfully earned a coupon code');
