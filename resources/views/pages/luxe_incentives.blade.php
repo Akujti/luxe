@@ -59,10 +59,10 @@
                 </ul>
                 <hr>
                 <h4 class="text-center">LEGACY INCENTIVES</h4>
-                <div class="row text-center">
+                <div class="row text-center align-items-end">
                     <h4 class="col-12">$10 Million Dollar Club</h4>
                     <div class="col-md-6">
-                        <img src="/images/incentives/capital.png" alt="" class="incentive-img">
+                        <img src="/images/incentives/capital.png" alt="" class="incentive-img" height="120px">
                         <p>Dinner at Capital Grille</p>
                     </div>
                     <div class="col-md-6">
