@@ -84,7 +84,9 @@
                     <div class="col-md-6">
                         <img src="/images/incentives/hotel.jpg" alt="" class="incentive-img shadow-img">
                     </div>
-                    <p>3-Night Trip to All-Inclusive Resort - Tropical Destination</p>
+                    <div class="col-12">
+                        <p>3-Night Trip to All-Inclusive Resort - Tropical Destination</p>
+                    </div>
                 </div>
                 <hr>
                 <div class="row text-center justify-content-center">

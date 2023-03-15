@@ -96,6 +96,10 @@
                             <div class="form-group ">
                                 <p class="location">Pembroke Pines</p>
                                 <p class="address">1911 NW 150 Avenue #202, Pembroke Pines FL 33028</p>
+                                <button class="btn"
+                                    onclick="toggleModal('Office Lockbox 1025','After Hours Building Code 8372')">View
+                                    Access
+                                    Instructions</button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Dadeland -- Coming Soon</p>
