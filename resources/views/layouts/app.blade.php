@@ -540,8 +540,8 @@
                                             <li><a class="{{ isset($subactive) && $subactive == 'downloadable_guides' ? 'active_submenu' : '' }}"
                                                     href="{{ url('user/files') }}">Downloadable
                                                     Docs, Guides & Excels</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('coaching.index') }}">LUXE Coaching</a></li>
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('coaching.index') }}">LUXE Coaching</a></li> --}}
                                             <li><a class="{{ isset($subactive) && $subactive == 'email_addendum_verbiage_builder' ? 'active_submenu' : '' }}"
                                                     href="{{ url('/home?dir=email_addendum_verbiage_builder') }}">Email
                                                     &

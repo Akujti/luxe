@@ -1143,12 +1143,12 @@
                 </div>
             </div>
 
-            <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/coaching') }}'">
+            {{-- <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/coaching') }}'">
                 <div class="inside-box">
                     <img src="/images/index-page/mentors.svg" class="icon" alt="">
                     <p>LUXE Coaching</p>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/files') }}'">
                 <div class="inside-box">
