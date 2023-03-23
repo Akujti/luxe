@@ -1,16 +1,15 @@
 function getScreenShot(div_id) {
-       
     let c = document.getElementById(div_id);
     html2canvas(c, {
         letterRendering: 1,
-        allowTaint : true,
+        allowTaint: true,
         useCORS: true,
         scale: 3,
         scrollY: -window.scrollY
-    }).then((canvas) => {
+    }).then(canvas => {
         var t = canvas.toDataURL().replace("data:image/png;base64,", "");
-        this.downloadBase64File('image/png',t,'luxe-image');
-    })
+        this.downloadBase64File("image/png", t, "luxe-image");
+    });
 }
 
 function downloadBase64File(contentType, base64Data, fileName) {
@@ -22,31 +21,60 @@ function downloadBase64File(contentType, base64Data, fileName) {
 }
 
 function getDayName() {
-    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ];
     var d = new Date();
 
     return days[d.getDay()];
 }
 function getDateName() {
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
     var m = new Date();
 
-    return months[m.getMonth()] + ' ' + m.getDay() + ', ' + m.getFullYear();
+    return months[m.getMonth()] + " " + m.getDay() + ", " + m.getFullYear();
 }
 
-async function generatePDF(width = 100, height = 254.6, orientation = '') {
-    const el = document.getElementById('el');
+async function generatePDF(
+    width = 100,
+    height = 254.6,
+    orientation = "",
+    name = "Template"
+) {
+    const el = document.getElementById("el");
     var opt = {
-        margin:       [0, 0],
-        filename:     'Template.pdf',
+        margin: [0, 0],
+        filename: name + ".pdf",
         html2canvas: {
             dpi: 192,
-            scale:4,
+            scale: 4,
             letterRendering: true,
             useCORS: true
-          },
-        jsPDF:        { unit: 'mm', format: [width, height], orientation: orientation}
-      };
-    await html2pdf().set(opt).from(el).save()
-    return true
+        },
+        jsPDF: { unit: "mm", format: [width, height], orientation: orientation }
+    };
+    await html2pdf()
+        .set(opt)
+        .from(el)
+        .save();
+    return true;
 }

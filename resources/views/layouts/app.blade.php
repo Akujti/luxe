@@ -692,6 +692,8 @@
                                                 href="{{ url('/general/form/other/request-your-agent-referral') }}">Request
                                                 Your Agent
                                                 Referral</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'MLS Directory' ? 'active_submenu' : '' }}"
+                                                href="{{ route('mls-directory') }}">MLS Directory</a></li>
                                     </ul>
                                 </li>
                                 <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">

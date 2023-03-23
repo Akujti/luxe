@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'MLS Directory'])
+@extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'MLS Directory'])
 @section('css')
     <style>
         #map {

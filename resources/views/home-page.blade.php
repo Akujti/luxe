@@ -203,8 +203,8 @@
                                     value="{{ auth()->user()->profile->loan_officer_name }}" readonly>
                             </div>
                             <div>
-                                <a href="/general/form/contract-help/index" class="btn btn-luxe">Get Contract Help</a>
-                                <a href="https://calendly.com/luxeknows" class="btn btn-luxe">Book A Marketing
+                                <a href="/general/form/contract-help/index" class="btn btn-luxe mt-2">Get Contract Help</a>
+                                <a href="https://calendly.com/luxeknows" class="btn btn-luxe mt-2">Book A Marketing
                                     Appointment</a>
                             </div>
                         </div>
@@ -529,104 +529,78 @@
                             $guide = $guides->where('title', 'The Home Selling Guide')->first();
                         @endphp
                         @if ($guide)
-                            <div class="box-guide col-md-12">
+                            <div class="box-guide col-6">
                                 <a href="{{ '/storage/' . $guide->file }}"
                                     download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
                                     class="text-dark" style="flex-direction:column;">
-                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
+                                        style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
                                 </a>
                             </div>
                         @endif
-                        {{-- @php
-                            $guide = $guides->where('title', 'FSBO Guide')->first();
-                        @endphp
-                        @if ($guide)
-                            <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
-                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
-                                    <p>{{ $guide->title }}</p>
-                                </a>
-                            </div>
-                        @endif --}}
-
                         @php
                             $guide = $guides->where('title', 'The Home Buying Guide')->first();
                         @endphp
                         @if ($guide)
-                            <div class="box-guide col-md-12">
+                            <div class="box-guide col-6">
                                 <a href="{{ '/storage/' . $guide->file }}"
                                     download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
                                     class="text-dark" style="flex-direction:column;">
-                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
+                                        style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
                                 </a>
                             </div>
                         @endif
-
-                        {{-- @php
+                        @php
                             $guide = $guides->where('title', 'Miami-Dade Neighborhood Guide')->first();
                         @endphp
                         @if ($guide)
-                            <div class="box-guide col-md-6">
+                            <div class="box-guide col-6">
                                 <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
-                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
-                                    <p>{{ $guide->title }}</p>
-                                </a>
-                            </div>
-                        @endif --}}
-
-                        @php
-                            $guide = $guides->where('title', 'Spanish - Home Selling Guide')->first();
-                        @endphp
-                        @if ($guide)
-                            <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}"
-                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
-                                    class="text-dark" style="flex-direction:column;">
-                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
+                                        style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
                                 </a>
                             </div>
                         @endif
-
-                        {{-- @php
-                            $guide = $guides->where('title', 'The Commercial Real Estate Guide')->first();
-                        @endphp
-                        @if ($guide)
-                            <div class="box-guide col-md-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
-                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
-                                    <p>{{ $guide->title }}</p>
-                                </a>
-                            </div>
-                        @endif --}}
-
                         @php
-                            $guide = $guides->where('title', 'Spanish - Home Buying Guide')->first();
+                            $guide = $guides->where('title', 'FSBO Guide')->first();
                         @endphp
                         @if ($guide)
-                            <div class="box-guide col-md-12">
-                                <a href="{{ '/storage/' . $guide->file }}"
-                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
-                                    class="text-dark" style="flex-direction:column;">
-                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                            <div class="box-guide col-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
+                                        style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
                                 </a>
                             </div>
                         @endif
-
-                        {{-- @php
+                        @php
                             $guide = $guides->where('title', "Expired Guide - My House Didn't Sell... Now What?")->first();
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-md-6">
                                 <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
-                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt="">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
+                                        style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
                                 </a>
                             </div>
-                        @endif --}}
+                        @endif
+                        @php
+                            $guide = $guides->where('title', 'The Commercial Real Estate Guide')->first();
+                        @endphp
+                        @if ($guide)
+                            <div class="box-guide col-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
+                                        style="width: 100px;height:100px;">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
+                            </div>
+                        @endif
 
                         @if ($guides->count() == 0)
                             <div class="box-guide justify-content-start pl-4">
@@ -1909,17 +1883,17 @@
     <div class="grid grid-layout-three">
         <div class="box-item box-item-center" onclick="window.location= '{{ route('calculators.cap_rate') }}'">
             <div>
-                <p>CAP RATE CALCULATOR</p>
+                <p>Cap Rate Calculator</p>
             </div>
         </div>
         <div class="box-item box-item-center" onclick="window.location= '{{ route('calculators.flipping_house') }}'">
             <div>
-                <p>AVR HOME INVESTMENT CALCULATOR</p>
+                <p>AVR Home Investment Calculator</p>
             </div>
         </div>
         <div class="box-item box-item-center" onclick="window.location= '{{ route('calculators.seller_net_sheet') }}'">
             <div>
-                <p>SELLER NET CALCULATOR</p>
+                <p>Seller Net Calculator</p>
             </div>
         </div>
     </div>

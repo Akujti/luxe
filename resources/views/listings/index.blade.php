@@ -72,7 +72,7 @@
             #map {
                 height: 600px;
                 /* position: sticky !important;
-                                                        top: 150px; */
+                                                            top: 150px; */
             }
         }
     </style>
@@ -114,32 +114,32 @@
             </div>
             <div class="col-md-7 row listings">
                 @forelse ($listings as $item)
-                    @if (now() <= \Carbon\Carbon::parse($item->list_date)->addDays(7))
-                        <div class="col-md-6">
-                            <a href="{{ route('listings.show', $item) }}">
-                                <div class="listing">
-                                    <div class="position-relative">
-                                        <img src="{{ asset($item->main_image) }}" alt="" class="w-100">
-                                        <p class="position-absolute created-at">Coming Soon</p>
-                                    </div>
-                                    <div class="listing-meta">
-                                        <p class="price">
-                                            <b>${{ number_format($item->price) }}{{ $item->rental ? '/mo' : '' }}</b>
-                                        </p>
-                                        <p class="info"><b>{{ $item->beds }}</b> bd | <b>{{ $item->baths }}</b> ba |
-                                            <b>{{ $item->living_area }}</b> sqft
-                                        </p>
-                                        @if ($item->type == 'Rental')
-                                            <p><b>{{ $item->type }}</b></p>
-                                        @else
-                                            <p><b>{{ $item->type }}</b> for sale</p>
-                                        @endif
-                                        <p class="address">{{ $item->address }}</p>
-                                    </div>
+                    {{-- @if (now() <= \Carbon\Carbon::parse($item->list_date)->addDays(7)) --}}
+                    <div class="col-md-6">
+                        <a href="{{ route('listings.show', $item) }}">
+                            <div class="listing">
+                                <div class="position-relative">
+                                    <img src="{{ asset($item->main_image) }}" alt="" class="w-100">
+                                    <p class="position-absolute created-at">Coming Soon</p>
                                 </div>
-                            </a>
-                        </div>
-                    @endif
+                                <div class="listing-meta">
+                                    <p class="price">
+                                        <b>${{ number_format($item->price) }}{{ $item->rental ? '/mo' : '' }}</b>
+                                    </p>
+                                    <p class="info"><b>{{ $item->beds }}</b> bd | <b>{{ $item->baths }}</b> ba |
+                                        <b>{{ $item->living_area }}</b> sqft
+                                    </p>
+                                    @if ($item->type == 'Rental')
+                                        <p><b>{{ $item->type }}</b></p>
+                                    @else
+                                        <p><b>{{ $item->type }}</b> for sale</p>
+                                    @endif
+                                    <p class="address">{{ $item->address }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {{-- @endif --}}
                 @empty
                     No search results
                 @endforelse
