@@ -243,7 +243,7 @@ class EventController extends Controller
     public function destroy(Request $request)
     {
         $event = Event::find($request->event_id);
-        if (Auth::id() == $event->user_id) {
+        if (Auth::user()->isAdmin) {
             $event->delete();
             return redirect()->route('events.index')->with('message', 'Deleted Successfully');
         }
