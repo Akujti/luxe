@@ -142,6 +142,16 @@
                                     <input type="text" class="w-100 form-control" name="profile[address]">
                                 </div>
                             </div>
+                            <div class="form-group col-6 pl-0">
+                                <label for="start">Status</label>
+                                <div class='input-group'>
+                                    <select name="status" class="form-control">
+                                        <option value="1">Silver</option>
+                                        <option value="2">Gold</option>
+                                        <option value="3">Platinum</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-6">

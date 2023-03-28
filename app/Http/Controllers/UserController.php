@@ -122,6 +122,7 @@ class UserController extends Controller
             $row->password = Hash::make($req->password);
             $row->isAdmin = ($req->role == 'admin') ? 1 : 0;
             $row->role = $req->role;
+            $row->status = $req->status;
             $row->save();
 
             $image = null;
@@ -170,6 +171,7 @@ class UserController extends Controller
             }
             $row->isAdmin = ($req->role == 'admin') ? 1 : 0;
             $row->role = $req->role;
+            $row->status = $req->status;
             $row->showing_agent = $req->showing_agent;
             $row->optin = $req->optin;
 

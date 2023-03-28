@@ -369,7 +369,7 @@
         </div>
     </div>
     <script
-        src="https://www.paypal.com/sdk/js?client-id={{ env('paypal_client_id') }}&disable-funding=credit&components=buttons">
+        src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
     </script>
     <script>
         $('[id^="option-"]').change(function() {

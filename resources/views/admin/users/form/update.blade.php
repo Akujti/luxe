@@ -168,6 +168,16 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group col-6 pr-0">
+                                <label for="start">Status</label>
+                                <div class='input-group'>
+                                    <select name="status" class="form-control">
+                                        <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Silver</option>
+                                        <option value="2" {{ $user->status == 2 ? 'selected' : '' }}>Gold</option>
+                                        <option value="3" {{ $user->status == 3 ? 'selected' : '' }}>Platinum</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-6">
