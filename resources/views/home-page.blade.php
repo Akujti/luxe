@@ -580,7 +580,7 @@
                             $guide = $guides->where('title', "Expired Guide - My House Didn't Sell... Now What?")->first();
                         @endphp
                         @if ($guide)
-                            <div class="box-guide col-md-6">
+                            <div class="box-guide col-6">
                                 <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
                                         style="width: 100px;height:100px;">

@@ -136,55 +136,47 @@
             <div class="col-md-12">
                 <div id="popup" class="card">
                     <div class="card-header text-center">
-                        <h5>Prior to scheduling a photoshoot for your listing you must agree to the following terms:</h5>
+                        <h5>Please agree to the following terms to schedule a photoshoot for your listing:</h5>
                     </div>
-                    <div class="card-body">
-                        <pre style="font-family: Arial;">
-        <b>Photoshoots take staff 48 hours to confirm. Keep in mind requests are only viewed during office hours.</b>
-                    If your listing agreement does not meet the requirements for the shoot to be covered by LUXE, you
-                    understand that you will be responsible for submitting payment prior to the shoot.
-
-                    Requirements for shoots covered by LUXE below. Photos for listings not meeting these
-                    requirements will be responsibility of the agent.<br>
-                    • Listing agreement for sale (single-family, townhouses, condos)
-                    • 6-month listing agreement
-                    • Minimum list price of $250K
-                    • Minimum 5% gross commission (2.5% listing side)
-                    • Property size of 2,000 SqFt or less - 10% buffer on size (anything over will have a surcharge
-                    to be paid on LUXE store)<br>
-                    See below for our standard photography policies:<br>
-                    • pics/videos done Monday-Thursday are turned in on Fridays by the end of the day
-                    • pics/videos done Friday-Sunday will turned in the following Friday
-                    • please request any specific shots when you book the photoshoot through Setmore
-                    &#9;o for example, if you need pictures of amenities or nearby surroundings
-                    • listing agents must be present throughout the entire photoshoot
-                    • photographers are not allowed to be alone at properties or close/lock up the property
-                    • photographers reserve the right to not photograph a property if it is not photoshoot ready
-                    &#9;o we provide you with a guide on how to prepare properties for the shoot when we confirm your
-                    appointment
-                    &#9;o no cars in front of the property
-                    • if you need any additional or custom work, please feel free to talk to the photographers as
-                    they are always willing to
-                    help :)
-                    • $225 charge for RENTAL shoots for pictures & video
-                    • $100-$150 charge for RENTAL shoots for pictures only
-                    • $100 surcharge for duplex
-                    • $200 surcharge for triplex
-                    • $300 surcharge for fourplex
-                    • $500 surcharge for 10+ units
-                    • $225 charge if property not set up correctly/prepared before photographer arrival
-                    • $225 charge if photographer must make a 2nd visit to same property
-                    • $100 Travel Free for any property past W Atlantic Blvd
-                    • Only properties in Miami-Dade or Broward county are covered
-                    <b>*Please note: If property does not sell (cancelled, expired, or withdrawn), agent will be charged for shoot fee​​.​​*<b></pre>
+                    <div class="card-body row justify-content-center">
+                        <div class="col-md-8">
+                            <p><b>Turnaround time for scheduling shoots is at least 48-72 hours. Keep in mind requests are
+                                    viewed
+                                    during office hours only.</b></p>
+                            <p>Standard Photography Policies:</p>
+                            <ul class="list-unstyled">
+                                <li>• Shoots done Monday-Thursday are turned in on Fridays by the end of the day</li>
+                                <li>• Shoots done Friday-Sunday will turned in the following Friday</li>
+                                <li>• please request any specific shots when you book the photoshoot</li>
+                                <li>• for example, if you need pictures of amenities or nearby surroundings</li>
+                                <li>• listing agents must be present throughout the entire photoshoot</li>
+                                <li>• photographers are not allowed to be alone at properties or close/lock up the property
+                                </li>
+                                <li>• photographers reserve the right to not photograph a property if it is not photoshoot
+                                    ready
+                                </li>
+                                <li>• we provide you with a guide on how to prepare properties for the shoot when we confirm
+                                    your
+                                    appointment</li>
+                                <li>• no cars in front of the property</li>
+                                <li>• $225 charge if property not set up correctly/prepared before photographer arrival</li>
+                                <li>• $225 charge if photographer must make a 2nd visit to same property</li>
+                                <li>• Only properties in Miami-Dade or Broward county are covered</li>
+                                <li>• $100 Travel Free for any property past W Atlantic Blvd</li>
+                                <li><b>**If you need any additional or custom work, please feel free to talk to the
+                                        photographers
+                                        as they
+                                        are always willing to help :)</b></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="card-footer text-center">
                         <button onclick="showForm()" class="btn btn-luxe px-4">I Agree</button>
                     </div>
                 </div>
 
-                <form action="{{ route('general.email.post') }}" class="card form mb-4 p-3 d-none" method="POST"
-                    enctype="multipart/form-data">
+                <form id="photo-form" action="{{ route('general.email.post') }}" class="card form mb-4 p-3 d-none"
+                    method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Photoshoots For Listings</h1>
@@ -198,9 +190,28 @@
                                     value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Agent Phone Number</label>
+                                <label for="name">Property Address For Shoot</label>
+                                <input type="text" name="property_address" class="form-control map-search" required
+                                    placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Agent Phone</label>
                                 <input type="text" name="agent_number" class="form-control"
                                     value="{{ auth()->user()->profile->phone }}" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Property Type</label>
+                                <select id="option-property-type" type="text" name="property_type" class="form-control"
+                                    required>
+                                    <option value>-</option>
+                                    <option value="Single Family">Single Family</option>
+                                    <option value="Condo/Apartment">Condo/Apartment</option>
+                                    <option value="Duplex" data-price="100">Duplex</option>
+                                    <option value="Triplex" data-price="200">Triplex</option>
+                                    <option value="Quadplex" data-price="300">Quadplex</option>
+                                    <option value="Entire Condo Building">Entire Condo Building</option>
+                                    <option value="Commercial">Commercial</option>
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Email</label>
@@ -208,20 +219,37 @@
                                     value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Property Address For Shoot</label>
-                                <input type="text" name="property_address" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="name">Property Type</label>
-                                <select type="text" name="property_type" class="form-control" required>
+                                <label for="name">Property Living Area Square Footage</label>
+                                <select id="option-living-area" type="text" name="property_living_area_square_footage"
+                                    class="form-control" required>
                                     <option value>-</option>
-                                    <option value="Single Family">Single Family</option>
-                                    <option value="Condo/Apartment">Condo/Apartment</option>
-                                    <option value="Duplex">Duplex</option>
-                                    <option value="Triplex">Triplex</option>
-                                    <option value="Quadplex">Quadplex</option>
-                                    <option value="Entire Condo Building">Entire Condo Building</option>
-                                    <option value="Commercial">Commercial</option>
+                                    <option value="Equal to or less than 2,100" data-price="0">Equal to or less than 2,100
+                                    </option>
+                                    <option value="2,101-3,100" data-price="100">2,101-3,100</option>
+                                    <option value="3,101-4,100" data-price="200">3,101-4,100</option>
+                                    <option value="4,101-5,100" data-price="300">4,101-5,100</option>
+                                    <option value="5,101-6,100" data-price="400">5,101-6,100</option>
+                                    <option value="6,101-7,100" data-price="500">6,101-7,100</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Total Commission For Listing</label>
+                                <input type="number" name="total_commision_for_listing" class="form-control" required
+                                    step="0.01">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">% to LUXE - Listing Side Commission</label>
+                                <input type="number" name="listing_side_commission" class="form-control" required
+                                    step="0.01">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Preferred Photographer</label>
+                                <select type="text" name="preferred_photographer" class="form-control" required>
+                                    <option value>-</option>
+                                    <option value="JSR King-Jorge Sosa">JSR King-Jorge Sosa</option>
+                                    <option value="Steven Vivar">Steven Vivar</option>
+                                    <option value="Albert Rodriguez">Albert Rodriguez</option>
+                                    <option value="David Peretz">David Peretz</option>
                                 </select>
                             </div>
                             <div class="form-group col-12 text-center">
@@ -257,21 +285,177 @@
                                     been assigned**
                                 </h6>
                             </div>
+                            <div class="form-group col-md-12">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Photos Only (12-15 images)
+                                </label>
+                                <input id="option-0" class="form-check-input ml-2" type="checkbox"
+                                    value="Photos Only (12-15 images)"
+                                    data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked>
+                                @if (auth()->user()->status == 2)
+                                    <p>**Sale Listing Agreement must have minimum list price of $250K and minimum 5% gross
+                                        commission (2.5% listing side)**</p>
+                                @endif
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="name">Add Ons</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" data-price="100" id="option-1"
+                                        name="add-ons[]" value="Additional 25-30 Photos">
+                                    <label class="form-check-label font-weight-normal" for="option-1">
+                                        Additional 25-30 Photos
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" data-price="50" id="option-2"
+                                        name="add-ons[]" value="Drone">
+                                    <label class="form-check-label font-weight-normal" for="option-2">
+                                        Drone
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" data-price="100" id="option-3"
+                                        name="add-ons[]" value="Reel of Photos w/ drone video clip">
+                                    <label class="form-check-label font-weight-normal" for="option-3">
+                                        Reel of Photos w/ drone video clip
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" data-price="125" id="option-4"
+                                        name="add-ons[]" value="Reel of Video Walkthrough">
+                                    <label class="form-check-label font-weight-normal" for="option-4">
+                                        Reel of Video Walkthrough
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" data-price="400" id="option-5"
+                                        name="add-ons[]" value="Full Walkthrough Video Up to 3,000 sqft">
+                                    <label class="form-check-label font-weight-normal" for="option-5">
+                                        Full Walkthrough Video Up to 3,000 sqft
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" data-price="600" id="option-6"
+                                        name="add-ons[]" value="Full Walkthrough Video Up to 6,000 sqft">
+                                    <label class="form-check-label font-weight-normal" for="option-6">
+                                        Full Walkthrough Video Up to 6,000 sqft
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" data-price="150" id="option-7"
+                                        name="add-ons[]" value="3D Zillow Tour">
+                                    <label class="form-check-label font-weight-normal" for="option-7">
+                                        3D Zillow Tour
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" data-price="200" id="option-8"
+                                        name="add-ons[]" value="3D Zillow Tour & Interactive Floorplan">
+                                    <label class="form-check-label font-weight-normal" for="option-8">
+                                        3D Zillow Tour & Interactive Floorplan
+                                    </label>
+                                </div>
+                            </div>
                             <div class="form-group form-footer col-12">
-                                <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
+                                <input id="submit-btn" type="submit" class="btn btn-luxe w-100" value="SUBMIT">
+                                <div id="paypal-button-container" class="d-none"></div>
                             </div>
                         </div>
                     </div>
                 </form>
+                {{-- Total: <p id="total"></p>
+                <button onclick="calculate()">Test</button> --}}
             </div>
         </div>
     </div>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id={{ env('paypal_client_id') }}&disable-funding=credit&components=buttons">
+    </script>
     <script>
+        $('[id^="option-"]').change(function() {
+            calculate()
+        });
+        var amount = 0;
+        calculate()
+
+        function calculate() {
+            var total = 0;
+            var status = {{ auth()->user()->status }};
+            console.log(status);
+            var elements = $('input[id^="option-"]:checked').toArray();
+            elements.forEach(element => {
+                if (element.getAttribute("data-price")) {
+                    total += Number(element.getAttribute("data-price"));
+                }
+            });
+
+            var elements = $('[id^="option-"]').find(':selected').toArray();
+            elements.forEach(element => {
+                if (element.getAttribute("data-price")) {
+                    total += Number(element.getAttribute("data-price"));
+                }
+            });
+            if (status == 3)
+                amount = 0
+            else
+                amount = total
+
+            // document.getElementById('total').innerHTML = amount
+            if (amount == 0) {
+                $('#submit-btn').removeClass('d-none')
+                $('#paypal-button-container').addClass('d-none')
+            } else {
+                $('#paypal-button-container').removeClass('d-none')
+                $('#submit-btn').addClass('d-none')
+            }
+            console.log('amount', amount);
+        }
+
+        paypal.Buttons({
+            style: {
+                layout: 'horizontal',
+                size: 'small',
+                label: 'pay',
+                height: 40,
+                tagline: 'false'
+            },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: amount
+                        }
+                    }]
+                });
+            },
+            onInit: function(data, actions) {
+                actions.disable();
+                document.querySelectorAll('input').forEach(item => {
+                    item.addEventListener('input', () => {
+                        if (document.getElementById("photo-form").checkValidity()) {
+                            actions.enable();
+                        } else {
+                            actions.disable();
+                        }
+                    });
+                });
+            },
+            onClick: function() {
+                document.getElementById("photo-form").reportValidity()
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    document.getElementById("photo-form").submit();
+                });
+            }
+        }).render('#paypal-button-container');
+
         function showForm() {
             $('#popup').addClass('d-none')
             $('form').removeClass('d-none')
             window.scrollTo(0, 0)
         }
+
         const today = new Date()
         let tomorrow = new Date()
         let afterTomorrow = new Date()
