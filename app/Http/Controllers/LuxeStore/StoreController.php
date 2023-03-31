@@ -84,9 +84,10 @@ class StoreController extends Controller
         }
         $row->save();
 
-        foreach ($req->categories as $category) {
-            $row->categories()->attach($category);
-        }
+        if ($req->categories)
+            foreach ($req->categories as $category) {
+                $row->categories()->attach($category);
+            }
 
         if ($req->has('variant_name') && $req->variant_name) {
             $variant = LuxeStoreProductVariants::create([
@@ -164,9 +165,10 @@ class StoreController extends Controller
 
 
         $row->categories()->detach();
-        foreach ($req->categories as $category) {
-            $row->categories()->attach($category);
-        }
+        if ($req->categories)
+            foreach ($req->categories as $category) {
+                $row->categories()->attach($category);
+            }
 
         $row->variants()->delete();
         if ($req->has('variant_name') && $req->variant_name) {

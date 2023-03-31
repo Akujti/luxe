@@ -70,7 +70,14 @@ class OrderController extends Controller
                     });
                 });
             })->latest()->paginate(20);
-
+        $orders = LuxeStoreOrder::whereHas('products', function ($q) use ($marketing_menu_category) {
+            $q->whereHas('product', function ($q) use ($marketing_menu_category) {
+                $q->when('categories', function ($q) use ($marketing_menu_category) {
+                    $q->where('luxe_store_categories.id', '!=', $marketing_menu_category->id);
+                });
+            });
+        })->latest()->paginate(20);
+        // $orders = LuxeStoreOrder::latest()->paginate(20);
 
         return view('admin.orders.index', compact('orders', 'products'));
     }
