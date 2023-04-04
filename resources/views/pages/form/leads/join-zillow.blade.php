@@ -22,12 +22,16 @@
                         </div>
                     </div>
                 </div>
+                
+                <x-verbiage-form-text :formInfo=$formInfo />
+                
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
 
                     <div class="card-header">
                         <h1 class="text-center my-4">Join Zillow</h1>
                     </div>
+                    
                     <input type="hidden" name="form_title" value="Join Zillow">
                     <div class="card-body">
                         <div class="row">
@@ -112,6 +116,7 @@
     <script type="text/javascript">
         $(window).on('load', function() {
             // $('#modal').modal('show');
+            // $('#modalVerbiages').modal('show');
         });
     </script>
 @endsection

@@ -26,7 +26,9 @@ class UpdateFormRequest extends FormRequest
         return [
             'id' => 'required|exists:forms,id',
             'title' => 'required|max:255',
-            'path' => 'required'
+            'path' => 'required',
+            'verbiages_text' => 'nullable',
+            'verbiages_title' => 'nullable'
         ];
     }
 }

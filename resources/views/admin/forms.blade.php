@@ -138,6 +138,20 @@
                             <input type="text" class="form-control mr-2" name="path" id="path">
                         </div>
                     </div>
+
+                    <div class="form-group row p-0 m-0 mt-2">
+                        <label for="">Verbiages Title</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control mr-2" name="verbiages_title" id="verbiages_title">
+                        </div>
+                    </div>
+
+                    <div class="form-group row p-0 m-0 mt-2">
+                        <label for="">Verbiages Text</label>
+                        <div class="input-group pr-2">
+                            <textarea class="text w-100" name="verbiages_text" id="verbiages_text"></textarea>
+                        </div>
+                    </div>
                     
             </div>
             <div class="modal-footer">
@@ -208,10 +222,13 @@
         })
     }
     function update(form) {
+        console.log(form)
         $('.update').modal('show')
         $('.update').find('#id').val(form.id)
         $('.update').find('#title').val(form.title)
         $('.update').find('#path').val(form.path)
+        $('.update').find('#verbiages_title').val(form.verbiages_title)
+        CKEDITOR.instances.verbiages_text.setData(form.verbiages_text)
     }
     function delete_event(form) {
         $('.delete-event').modal('show')
@@ -220,5 +237,9 @@
     function remove_email(e) {
         $(e).parents('.email-row').remove()
     }
+</script>
+<script>
+    CKEDITOR.replace('verbiages_text');
+    CKEDITOR.config.width = '100%'
 </script>
 @endsection

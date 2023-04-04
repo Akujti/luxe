@@ -66,7 +66,17 @@ class FormController extends Controller
 
     public function general_form_index($folder, $form)
     {
-        return view('pages/form/' . $folder . '/' . $form);
+        $formInfo = null;
+
+        if($form == 'zillow-leads-weekly-update') {
+            $formSql = Form::where('title', 'LIKE', 'TEAM FLEX - ZILLOW LEADS WEEKLY UPDATE')->first();
+        } else {
+            $formSql = Form::where('title', 'LIKE',  "%".Str::title(str_replace('-', ' ', $form))."%")->first();
+        }
+        if($formSql) {
+            $formInfo = $formSql;
+        }
+        return view('pages/form/' . $folder . '/' . $form, ['formInfo' => $formInfo]);
     }
 
     public function marketing_budget_form()
