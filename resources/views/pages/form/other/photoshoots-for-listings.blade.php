@@ -130,6 +130,15 @@
             font-family: 'gothicbold';
             font-size: 18px !important;
         }
+
+        input[type="checkbox"]:disabled+label::before {
+            background: gray;
+        }
+
+        input[type="checkbox"]:disabled+label:hover::before {
+            background: gray;
+            border: 1px solid #d4d4d5;
+        }
     </style>
     <div class="container-fluid">
         <div class="row justify-content-center my-4">
@@ -286,12 +295,13 @@
                                 </h6>
                             </div>
                             <div class="form-group col-md-12">
-                                <label class="form-check-label" for="defaultCheck1">
+                                <input id="option-0" class="form-check-input ml-0" type="checkbox"
+                                    value="Photos Only (12-15 images)"
+                                    data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked
+                                    disabled>
+                                <label class="ml-4">
                                     Photos Only (12-15 images)
                                 </label>
-                                <input id="option-0" class="form-check-input ml-2 d-none" type="checkbox"
-                                    value="Photos Only (12-15 images)"
-                                    data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked>
                                 @if (auth()->user()->status == 2)
                                     <p>**Sale Listing Agreement must have minimum list price of $250K and minimum 5% gross
                                         commission (2.5% listing side)**</p>
