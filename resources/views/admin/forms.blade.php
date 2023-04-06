@@ -140,14 +140,14 @@
                     </div>
 
                     <div class="form-group row p-0 m-0 mt-2">
-                        <label for="">Verbiages Title</label>
+                        <label for="">Verbiage Title</label>
                         <div class="input-group">
                             <input type="text" class="form-control mr-2" name="verbiages_title" id="verbiages_title">
                         </div>
                     </div>
 
                     <div class="form-group row p-0 m-0 mt-2">
-                        <label for="">Verbiages Text</label>
+                        <label for="">Verbiage Text</label>
                         <div class="input-group pr-2">
                             <textarea class="text w-100" name="verbiages_text" id="verbiages_text"></textarea>
                         </div>

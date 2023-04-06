@@ -130,7 +130,7 @@
                                 <textarea name="description_2" class="form-control" rows="6">{{ $product ? $product->description_2 : '' }}</textarea>
                             </div>
                             <div class="form-group col-12 col-xl-4">
-                                <label for="">Verbiages Text</label>
+                                <label for="">Verbiage Text</label>
                                 <textarea name="verbiages_text" class="form-control" rows="6">{{ $product ? $product->verbiages_text : '' }}</textarea>
                             </div>
                         </div>
