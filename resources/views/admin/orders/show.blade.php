@@ -241,7 +241,13 @@
                                 @forelse($order->inputs as $field)
                                     <tr>
                                         <td>{{ $field->input_name }}</td>
-                                        <td>{{ $field->input_value }}</td>
+                                        <td>
+                                            @if($field->is_file)
+                                                <a href="{{ asset('storage/'. $field->input_value) }}" download="">Click here to download</a>
+                                            @else
+                                                {{ $field->input_value }}
+                                            @endif
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>

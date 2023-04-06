@@ -121,13 +121,17 @@
                             </div>
                         </div>
                         <div class="row p-0 m-0 d-flex col-12">
-                            <div class="form-group col-12 col-md-6">
+                            <div class="form-group col-12 col-xl-4">
                                 <label for="">Description</label>
                                 <textarea name="description" class="form-control" rows="6">{{ $product ? $product->description : '' }}</textarea>
                             </div>
-                            <div class="form-group col-12 col-md-6">
+                            <div class="form-group col-12 col-xl-4">
                                 <label for="">Short Description</label>
                                 <textarea name="description_2" class="form-control" rows="6">{{ $product ? $product->description_2 : '' }}</textarea>
+                            </div>
+                            <div class="form-group col-12 col-xl-4">
+                                <label for="">Verbiages Text</label>
+                                <textarea name="verbiages_text" class="form-control" rows="6">{{ $product ? $product->verbiages_text : '' }}</textarea>
                             </div>
                         </div>
                         <div class="border-bottom mt-3 mb-4 col-12"></div>
@@ -214,10 +218,16 @@
                                 </div>
                                 <div class="col-12 mt-2 p-0" id="form-box">
                                     @if ($product && $product->inputs->count())
-                                        @foreach ($product->inputs as $row)
-                                            <div class="col-12 p-0 mt-2 input-box d-flex">
-                                                <input type="text" name="form[]" class="form-control mr-2"
+                                        @foreach ($product->inputs as $key => $row)
+                                            <div class="col-12 p-0 mt-2 input-box d-flex align-items-center">
+                                                <input type="text" name="form[{{ $key }}][input_name]" class="form-control mr-2"
                                                     value="{{ $row->input_name }}">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" @if($row->is_file) checked @endif name="form[{{ $key }}][is_file]" value="1" id="flexCheckDefault">
+                                                    <label class="form-check-label label-is-file p-0 m-0" for="flexCheckDefault">
+                                                        Is File
+                                                    </label>
+                                                </div>
                                                 <button class="btn btn-danger btn-rounded" type="button"
                                                     onclick="remove_input(this)">-</button>
                                             </div>
@@ -315,10 +325,20 @@
         }
 
         function add_new_input() {
-            var html = '<div class="col-12 p-0 mt-2 input-box d-flex p-0">' +
-                '<input type="text" name="form[]" class="form-control mr-2">' +
-                '<button class="btn btn-danger btn-rounded" type="button" onclick="remove_input(this)">-</button>' +
-                '</div>'
+            let numRows = 1;
+            $('#form-box').each( function() {
+                numRows = $('.input-box', $(this)).length
+            })
+            var html = `<div class="col-12 p-0 mt-2 input-box d-flex align-items-center p-0">
+                <input type="text" name="form[${numRows}][input_name]" class="form-control mr-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="form[${numRows}][is_file]" value="1" id="flexCheckDefault">
+                    <label class="form-check-label label-is-file p-0 m-0" for="flexCheckDefault">
+                        Is File
+                    </label>
+                </div>
+                <button class="btn btn-danger btn-rounded" type="button" onclick="remove_input(this)">-</button>
+                </div>`
             $('#form-box').append(html)
         }
 
@@ -384,3 +404,8 @@
     </script>
 @endsection
 @endsection
+<style>
+    .label-is-file {
+        width: 63px;
+    }
+</style>

@@ -244,7 +244,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Preferred Photographer</label>
-                                <select type="text" name="preferred_photographer" class="form-control" required>
+                                <select type="text" name="preferred_photographer" class="form-control">
                                     <option value>-</option>
                                     <option value="JSR King-Jorge Sosa">JSR King-Jorge Sosa</option>
                                     <option value="Steven Vivar">Steven Vivar</option>
@@ -289,10 +289,10 @@
                                 <label class="form-check-label" for="defaultCheck1">
                                     Photos Only (12-15 images)
                                 </label>
-                                <input id="option-0" class="form-check-input ml-2" type="checkbox"
+                                <input id="option-0" class="form-check-input ml-2 d-none" type="checkbox"
                                     value="Photos Only (12-15 images)"
                                     data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked>
-                                @if (auth()->user()->status == 2)
+                                @if (auth()->user()->statu-s == 2)
                                     <p>**Sale Listing Agreement must have minimum list price of $250K and minimum 5% gross
                                         commission (2.5% listing side)**</p>
                                 @endif

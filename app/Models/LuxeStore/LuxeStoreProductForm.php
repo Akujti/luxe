@@ -11,7 +11,12 @@ class LuxeStoreProductForm extends Model
     use HasFactory;
 
     protected $table = 'luxe_store_product_form';
-    protected $fillable = ['input_name', 'input_value', 'product_id'];
+    protected $fillable = [
+        'input_name',
+        'input_value',
+        'product_id',
+        'is_file'
+    ];
 
     public function setInputNameAttribute($value)
     {
