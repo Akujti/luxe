@@ -65,6 +65,48 @@
         td {
             /* padding: 0; */
         }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            max-width: 300px;
+            background: #fff;
+            border: 1px solid #a0a0a0;
+            border-radius: 4px;
+            padding-left: 0.5rem;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        .input-box .prefix {
+            font-weight: 300;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .input-box input {
+            flex-grow: 1;
+            font-size: 14px;
+            background: #fff;
+            border: none;
+            outline: none;
+            padding: 0.5rem;
+        }
+
+        .input-box:focus-within {
+            border-color: #777;
+        }
+
+        .dollar-sign::before {
+            content: '$';
+            position: absolute;
+            top: 39px;
+            left: 25px;
+        }
+
+        .dollar-input {
+            padding-left: 23px
+        }
     </style>
 @endsection
 @section('content')
@@ -165,8 +207,9 @@
                             </tr>
                             <tr>
                                 <th>Seller Concessions</th>
-                                <td class="input"><input type="text" id="g14" value="0"
-                                        onchange="calculate()"></td>
+                                <td class="input">
+                                    <input type="text" id="g14" value="0" onchange="calculate()">
+                                </td>
                             </tr>
                             <tr>
                                 <th>VA / FHA Fees</th>
@@ -291,9 +334,9 @@
         function updateTextView(_obj) {
             var num = getNumber(_obj.val());
             if (num == 0) {
-                _obj.val('');
+                _obj.val('$');
             } else {
-                _obj.val(num.toLocaleString());
+                _obj.val('$' + num.toLocaleString());
             }
         }
 
@@ -322,23 +365,23 @@
             console.log('----');
             console.log($('#miami-dade-checkbox').is(":checked"));
             var [c6, c7, c8, c9, c10, c11, g14, g15, g16, g20, g21, g22, g23, g24, g25, g26, g27] = [
-                parseNumber($('#c6').val().replace(/,/g, "")),
-                parseNumber($('#c7').val().replace(/,/g, "")),
-                parseNumber($('#c8').val().replace(/,/g, "")),
-                parseNumber($('#c9').val().replace(/,/g, "")),
-                parseNumber($('#c10').val().replace(/,/g, "")),
-                parseNumber($('#c11').val().replace(/,/g, "")),
-                parseNumber($('#g14').val().replace(/,/g, "")),
-                parseNumber($('#g15').val().replace(/,/g, "")),
-                parseNumber($('#g16').val().replace(/,/g, "")),
-                parseNumber($('#g20').val().replace(/,/g, "")),
-                parseNumber($('#g21').val().replace(/,/g, "")),
-                parseNumber($('#g22').val().replace(/,/g, "")),
-                parseNumber($('#g23').val().replace(/,/g, "")),
-                parseNumber($('#g24').val().replace(/,/g, "")),
-                parseNumber($('#g25').val().replace(/,/g, "")),
-                parseNumber($('#g26').val().replace(/,/g, "")),
-                parseNumber($('#g27').val().replace(/,/g, "")),
+                parseNumber($('#c6').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#c7').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#c8').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#c9').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#c10').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#c11').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g14').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g15').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g16').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g20').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g21').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g22').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g23').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g24').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g25').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g26').val().replace('$', '').replace(/,/g, "")),
+                parseNumber($('#g27').val().replace('$', '').replace(/,/g, "")),
             ]
 
 
