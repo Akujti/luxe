@@ -85,11 +85,11 @@
                     <div class="row mb-2">
                         <div class="form-group col-md-4">
                             <label for="name">NAME</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" class="form-control simple-input" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="name">PROPERTY ADDRESS</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" class="form-control simple-input" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="name">SALES PRICE</label>
@@ -309,7 +309,7 @@
         }
 
         $(document).ready(function() {
-            $('input[type=text]').on('keyup', function() {
+            $('input[type=text]').not(".simple-input").on('keyup', function() {
                 updateTextView($(this));
             });
         });
