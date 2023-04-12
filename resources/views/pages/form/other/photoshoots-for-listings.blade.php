@@ -300,7 +300,7 @@
                                     data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked
                                     disabled>
                                 <label class="ml-4">
-                                    Photos Only (12-15 images)
+                                    Photos Only (12-15 images) - {{ auth()->user()->status != 1 ? 'FREE' : '$100' }}
                                 </label>
                                 @if (auth()->user()->status == 2)
                                     <p>**Sale Listing Agreement must have minimum list price of $250K and minimum 5% gross
@@ -313,56 +313,60 @@
                                     <input class="form-check-input" type="checkbox" data-price="100" id="option-1"
                                         name="add-ons[]" value="Additional 25-30 Photos">
                                     <label class="form-check-label font-weight-normal" for="option-1">
-                                        Additional 25-30 Photos
+                                        Additional 25-30 Photos - {{ auth()->user()->status == 3 ? 'FREE' : '$100' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" data-price="50" id="option-2"
                                         name="add-ons[]" value="Drone">
                                     <label class="form-check-label font-weight-normal" for="option-2">
-                                        Drone
+                                        Drone - {{ auth()->user()->status == 3 ? 'FREE' : '$50' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" data-price="100" id="option-3"
                                         name="add-ons[]" value="Reel of Photos w/ drone video clip">
                                     <label class="form-check-label font-weight-normal" for="option-3">
-                                        Reel of Photos w/ drone video clip
+                                        Reel of Photos w/ drone video clip -
+                                        {{ auth()->user()->status == 3 ? 'FREE' : '$100' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" data-price="125" id="option-4"
                                         name="add-ons[]" value="Reel of Video Walkthrough">
                                     <label class="form-check-label font-weight-normal" for="option-4">
-                                        Reel of Video Walkthrough
+                                        Reel of Video Walkthrough - {{ auth()->user()->status == 3 ? 'FREE' : '$125' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" data-price="400" id="option-5"
                                         name="add-ons[]" value="Full Walkthrough Video Up to 3,000 sqft">
                                     <label class="form-check-label font-weight-normal" for="option-5">
-                                        Full Walkthrough Video Up to 3,000 sqft
+                                        Full Walkthrough Video Up to 3,000 sqft -
+                                        {{ auth()->user()->status == 3 ? 'FREE' : '$400' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" data-price="600" id="option-6"
                                         name="add-ons[]" value="Full Walkthrough Video Up to 6,000 sqft">
                                     <label class="form-check-label font-weight-normal" for="option-6">
-                                        Full Walkthrough Video Up to 6,000 sqft
+                                        Full Walkthrough Video Up to 6,000 sqft -
+                                        {{ auth()->user()->status == 3 ? 'FREE' : '$600' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" data-price="150" id="option-7"
                                         name="add-ons[]" value="3D Zillow Tour">
                                     <label class="form-check-label font-weight-normal" for="option-7">
-                                        3D Zillow Tour
+                                        3D Zillow Tour - {{ auth()->user()->status == 3 ? 'FREE' : '$150' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" data-price="200" id="option-8"
                                         name="add-ons[]" value="3D Zillow Tour & Interactive Floorplan">
                                     <label class="form-check-label font-weight-normal" for="option-8">
-                                        3D Zillow Tour & Interactive Floorplan
+                                        3D Zillow Tour & Interactive Floorplan -
+                                        {{ auth()->user()->status == 3 ? 'FREE' : '$200' }}
                                     </label>
                                 </div>
                             </div>

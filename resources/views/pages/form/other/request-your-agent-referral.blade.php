@@ -42,8 +42,10 @@
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Request Your Agent Referral</h1>
-                        <h5 class="text-center">When an agent your refer reaches their first $1K Company Dollars, you earn a
-                            $1K referral payout. Referral Payouts occur the first Friday of every month.</h5>
+                        <h5 class="text-center">When an agent you refer reaches their first $1K Company Dollars, you earn a
+                            $1K referral payout. </h5>
+                        <h5 class="text-center">Referral Payouts occur the first 15<sup>th</sup> or 30<sup>th</sup> of every
+                            month.</h5>
                     </div>
                     <input type="hidden" name="form_title" value="Request Your Agent Referral">
                     <div class="card-body">
