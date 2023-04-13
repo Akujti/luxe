@@ -26,6 +26,7 @@
 
     <!-- CKE Editor -->
     <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.0/adapters/jquery.min.js" integrity="sha512-YRvgGnMe4D3Vyx168nR0pr1HS0zToBpfePcCa+KnAk56YqaCLJyLWrxmw2+bwvAMMBfwiCsRbHRlU9hObT5E2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

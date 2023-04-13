@@ -28,6 +28,7 @@ class UpdateRequest extends FormRequest
             'name' => 'required|max:200',
             'description' => 'nullable',
             'description_2' => 'nullable',
+            'verbiages_text' => 'nullable',
             'price' => 'nullable|numeric',
             'sale_price' => 'nullable|numeric',
             'stock' => 'required',
@@ -38,6 +39,10 @@ class UpdateRequest extends FormRequest
             'variant_values' => 'nullable|array',
             'variant_values.*.value' => 'required|string',
             'variant_values.*.price' => 'required|numeric',
+
+            // 'form' => 'nullable|array',
+            // 'form.input_name' => 'required|string',
+            // 'form.is_file' => 'required|bool',
 
             'images' => 'nullable|array'
         ];

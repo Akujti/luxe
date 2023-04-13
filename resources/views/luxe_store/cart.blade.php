@@ -109,7 +109,6 @@
                                             value="{{ $product['item_quantity'] }}">
                                     </div>
                                 </div>
-
                                 <form action="{{ route('luxe_store.deletecart') }}" method="POST"
                                     class="m-0 p-0 form-delete">
                                     @method('delete')

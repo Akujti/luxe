@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\LuxeStore\Order\LuxeStoreOrder;
+use App\Observers\OrderObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Request;
@@ -27,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        LuxeStoreOrder::observe(OrderObserver::class);
         Paginator::useBootstrap();
 
         $this->app->resolving(Paginator::class, function ($paginator) {
