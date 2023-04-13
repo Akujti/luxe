@@ -273,7 +273,7 @@ class OrderController extends Controller
 
                     $productModels = [
                         'product_id' => $product['item_id'],
-                        'price' => $product['item_price'],
+                        'price' => $product['item_price'] ? $product['item_price'] : 0,
                         'quantity' => (int) $product['item_quantity'],
                         'variant_name' => (isset($product['item_variant'])) ? $product['item_variant'][0]['variant_name'] : null,
                         'variant_value' => (isset($product['item_variant'])) ? $product['item_variant'][0]['choosed']['value'] : null
@@ -412,7 +412,7 @@ class OrderController extends Controller
         $quantity = $req->input('quantity');
         $variant_value = $req->input('variant_value', null);
 
-        if($req->form) {
+        if ($req->form) {
             $form = $req->form;
         } else {
             $form = null;
@@ -475,7 +475,7 @@ class OrderController extends Controller
 
                 foreach ($form as $key => $value) {
                     $is_file = false;
-                    if($value instanceof UploadedFile) {
+                    if ($value instanceof UploadedFile) {
                         $name = time() . Str::random(10) . '.' . $value->getClientOriginalExtension();
                         $path = $value->storeAs('/order_images', $name, 'public');
                         $value = $path;

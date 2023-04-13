@@ -31,8 +31,9 @@ class ListingController extends Controller
             if ($filters['type']) {
                 $query->where('type', $filters['type']);
             }
-        })->with('user', 'user.profile')->get();
-        return view('listings.index', compact('listings'));
+        })->with('user', 'user.profile')->paginate(20);
+        $listings_all = Listing::with('user', 'user.profile')->get();
+        return view('listings.index', compact('listings', 'listings_all'));
     }
 
     public function create()

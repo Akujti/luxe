@@ -72,7 +72,7 @@
             #map {
                 height: 600px;
                 /* position: sticky !important;
-                                                            top: 150px; */
+                                                                                                                                                                                                top: 150px; */
             }
         }
     </style>
@@ -143,6 +143,7 @@
                 @empty
                     No search results
                 @endforelse
+                {{ $listings->links() }}
             </div>
         </div>
     </div>
@@ -161,9 +162,10 @@
 
             var marker, i;
             var AllLatLng = [];
-            var listings = JSON.parse(JSON.stringify(<?php echo json_encode($listings); ?>))
+            var listings = JSON.parse(JSON.stringify(<?php echo json_encode($listings_all); ?>))
             listings.forEach((el) => {
                 if (el.lng && el.lat) {
+                    console.log(el);
                     codeAddress(el, function(coords) {
                         AllLatLng.push({
                             lat: coords[0],
@@ -192,7 +194,8 @@
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                             return function() {
                                 infowindow.setContent(
-                                    "<div class='d-flex align-items-center' style='gap:10px;margin-bottom:6px'>" +
+                                    "<div class='d-flex align-items-center mb-3 gap-3' data-id='" +
+                                    el.id + "'>" +
                                     "<img style='width:58px;height:58px;border-radius:50%;' src='" +
                                     el.main_image + "'>" +
                                     "<h5>" + el.address + "</h5><br>" +
