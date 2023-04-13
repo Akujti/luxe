@@ -271,7 +271,7 @@ class OrderController extends Controller
 
                     $productModels = [
                         'product_id' => $product['item_id'],
-                        'price' => $product['item_price'],
+                        'price' => $product['item_price'] ? $product['item_price'] : 0,
                         'quantity' => (int) $product['item_quantity'],
                         'variant_name' => (isset($product['item_variant'])) ? $product['item_variant'][0]['variant_name'] : null,
                         'variant_value' => (isset($product['item_variant'])) ? $product['item_variant'][0]['choosed']['value'] : null
@@ -407,6 +407,12 @@ class OrderController extends Controller
         $variant_value = $req->input('variant_value', null);
         $form = $req->input('form', null);
 
+        if ($req->form) {
+            $form = $req->form;
+        } else {
+            $form = null;
+        }
+
         if (Session::get('shopping_cart')) {
             $cart_data = Session::get('shopping_cart')[0];
         } else {
@@ -463,7 +469,14 @@ class OrderController extends Controller
                 $form_inputs = [];
 
                 foreach ($form as $key => $value) {
-                    $form_inputs[] = ['input' => LuxeStoreProductForm::select('id', 'input_name')->where('input_value', $key)->firstOrFail()->toArray(), 'value' => $value];
+                    $is_file = false;
+                    if ($value instanceof UploadedFile) {
+                        $name = time() . Str::random(10) . '.' . $value->getClientOriginalExtension();
+                        $path = $value->storeAs('/order_images', $name, 'public');
+                        $value = $path;
+                        $is_file = true;
+                    }
+                    $form_inputs[] = ['input' => LuxeStoreProductForm::select('id', 'input_name')->where('input_value', $key)->firstOrFail()->toArray(), 'value' => $value, 'is_file' => $is_file];
                 }
             }
 

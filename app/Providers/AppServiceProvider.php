@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +28,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+
+        $this->app->resolving(Paginator::class, function ($paginator) {
+            return $paginator->appends(Arr::except(Request::query(), $paginator->getPageName()));
+        });
+        $this->app->resolving(LengthAwarePaginator::class, function ($paginator) {
+            return $paginator->appends(Arr::except(Request::query(), $paginator->getPageName()));
+        });
     }
 }
