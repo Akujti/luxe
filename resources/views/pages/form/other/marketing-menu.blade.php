@@ -107,6 +107,7 @@
                                 $email_blast = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('email-blast')->first();
                                 $social_media_posts = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('social-media-posts')->first();
                                 $custom_email_signature = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('custom-email-signature')->first();
+                                $custom_email_template = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('custom-email-template')->first();
                                 
                                 $door_hangers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('door-hangers')->first();
                                 $flyers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('flyers')->first();
@@ -167,10 +168,13 @@
                                         <x-marketing-menu-product :product="$email_blast" />
                                     </div>
                                     <div class="col-md-6">
-                                        <x-marketing-menu-product :product="$social_media_posts" />
+                                        <x-marketing-menu-product :product="$custom_email_template" />
                                     </div>
                                     <div class="col-md-6">
                                         <x-marketing-menu-product :product="$custom_email_signature" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <x-marketing-menu-product :product="$social_media_posts" />
                                     </div>
                                 </div>
                                 <h4>Print Designs</h4>
