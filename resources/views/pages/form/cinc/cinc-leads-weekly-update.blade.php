@@ -9,7 +9,7 @@
                         <button class="btn btn-danger" onclick="deleteSubmissions()">DELETE SUBMISSIONS</button>
                     </div>
                 @endif
-                <x-verbiage-form-text :formInfo=$formInfo />
+                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modalVerbiage')" />
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
                     <div class="card-header">
@@ -17,6 +17,7 @@
 
                     </div>
                     <input type="hidden" name="form_title" value="CINC LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="form_verbiages_text" value="{{ $formInfo->email_verbiages_text }}">
                     {{-- <input type="hidden" name="to_email[]" id="team_email" value="">
                     <input type="hidden" name="to_email[]" id="team_email_2" value=""> --}}
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">

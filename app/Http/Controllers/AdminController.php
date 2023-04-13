@@ -29,7 +29,7 @@ class AdminController extends Controller
     public function update(UpdateFormRequest $req)
     {
         $form = Form::find($req->id);
-        $form->fill($req->only(['title', 'path', 'verbiages_text', 'verbiages_title']));
+        $form->fill($req->only(['title', 'path', 'verbiages_text', 'verbiages_title', 'after_submit_verbiages_text', 'after_submit_verbiages_title', 'email_verbiages_text']));
         $form->save();
 
         return back()->with('message', 'Successfully Updated');

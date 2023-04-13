@@ -16,6 +16,9 @@ class AddExtraFieldToFormsTable extends Migration
         Schema::table('forms', function (Blueprint $table) {
             $table->string('verbiages_title')->nullable();
             $table->text('verbiages_text')->nullable();
+            $table->text('after_submit_verbiages_text')->nullable();
+            $table->text('after_submit_verbiages_title')->nullable();
+            $table->text('email_verbiages_text')->nullable();
         });
     }
 
@@ -27,7 +30,7 @@ class AddExtraFieldToFormsTable extends Migration
     public function down()
     {
         Schema::table('forms', function (Blueprint $table) {
-            $table->dropColumn(['verbiages_title', 'verbiages_text']);
+            $table->dropColumn(['verbiages_title', 'verbiages_text', 'after_submit_verbiages_text','after_submit_verbiages_title', 'email_verbiages_text']);
         });
     }
 }

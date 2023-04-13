@@ -60,17 +60,22 @@
             @if (isset($details['special']))
                 <p class="bold-text">{{ $details['special'] }}</p>
             @endif
+            @if (isset($details['form_verbiages_text']))
+                <div style="text-align: center;">{!! $details['form_verbiages_text'] !!}</div>
+            @endif
             @foreach ($details as $key => $val)
-                <p class="bold-text"><b>{{ ucwords(str_replace('_', ' ', $key)) }}:</b>
-                    @if (preg_match('(storage/images/marketing)', $val))
-                        <a href="{{ route('form.file.download') }}?path={{ $val }}">Click to download</a>
-                    @elseif ($key == 'agreement')
-                        <a href="{{ $details['agreement'] }}">Click to download</a>
-                    @elseif($key != 'special')
-                        {!! $val !!}
-                    @endif
-                </p>
-                <hr>
+                @if($key != 'form_verbiages_text')
+                    <p class="bold-text"><b>{{ ucwords(str_replace('_', ' ', $key)) }}:</b>
+                        @if (preg_match('(storage/images/marketing)', $val))
+                            <a href="{{ route('form.file.download') }}?path={{ $val }}">Click to download</a>
+                        @elseif ($key == 'agreement')
+                            <a href="{{ $details['agreement'] }}">Click to download</a>
+                        @elseif($key != 'special')
+                            {!! $val !!}
+                        @endif
+                    </p>
+                    <hr>
+                @endif
             @endforeach
             <div class="link">
                 <a href="https://myluxehub.com">https://myluxehub.com/</a>

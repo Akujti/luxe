@@ -7,9 +7,11 @@ use Illuminate\View\Component;
 class VerbiageFormText extends Component
 {
     public $formInfo;
-    public function __construct($formInfo)
+    public $afterSubmit;
+    public function __construct($formInfo, $afterSubmit = null)
     {
         $this->formInfo = $formInfo;
+        $this->afterSubmit = $afterSubmit;
     }
 
     public function render()

@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 
-                <x-verbiage-form-text :formInfo=$formInfo />
+                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modalVerbiage')" />
                 
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
@@ -33,6 +33,7 @@
                     </div>
                     
                     <input type="hidden" name="form_title" value="Join Zillow">
+                    <input type="hidden" name="form_verbiages_text" value="{{ $formInfo->email_verbiages_text }}">
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">

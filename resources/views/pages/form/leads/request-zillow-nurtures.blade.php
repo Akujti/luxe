@@ -4,13 +4,14 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             
-            <x-verbiage-form-text :formInfo=$formInfo />
+            <x-verbiage-form-text :formInfo=$formInfo  :afterSubmit="session()->get('modalVerbiage')" />
             <form action="{{route('general.email.post')}}" class="card form p-3" method="POST">
                 @csrf
                 <div class="card-header">
                     <h1 class="text-center my-4">Request Zillow Nurtures</h1>
                 </div>
                 <input type="hidden" name="form_title" value="Request Zillow Nurtures">
+                <input type="hidden" name="form_verbiages_text" value="{{ $formInfo->email_verbiages_text }}">
                 <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
                 <input type="hidden" name="to_email[]" value="operations@luxeknows.com">

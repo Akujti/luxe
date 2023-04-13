@@ -69,7 +69,7 @@ class FormController extends Controller
         $formInfo = null;
 
         if($form == 'zillow-leads-weekly-update') {
-            $formSql = Form::where('title', 'LIKE', 'TEAM FLEX - ZILLOW LEADS WEEKLY UPDATE')->first();
+            $formSql = Form::where('title', 'LIKE', 'ZILLOW LEADS WEEKLY UPDATE')->first();
         } else {
             $formSql = Form::where('title', 'LIKE',  "%".Str::title(str_replace('-', ' ', $form))."%")->first();
         }
@@ -175,11 +175,15 @@ class FormController extends Controller
         if ($request->wantsJson()) {
             return response()->json('success');
         }
-        if (
-            $request->form_title == "LUXE Coaching" || $request->form_title == "Request Your Agent Referral"
-            || $request->form_title == "Join CINC Buyer Team"
-        )
+
+        $formItems = ["LUXE Coaching", "Request Your Agent Referral", "Join CINC Buyer Team"];
+        if (in_array($request->form_title, $formItems))
             session()->flash('modal', 'Success');
+
+        $formItemsVerbiageModal = ["Join Zillow", "CINC LEADS WEEKLY UPDATE", "Request Zillow Nurtures", "ZILLOW LEADS WEEKLY UPDATE", "Join CINC Buyer Team", "CINC LEADS WEEKLY UPDATE"];
+
+        if (in_array($request->form_title, $formItemsVerbiageModal))
+            session()->flash('modalVerbiage', 'Success');
         try {
             if ($request->form_title == "Photoshoots For Listings") {
                 Listing::create(
