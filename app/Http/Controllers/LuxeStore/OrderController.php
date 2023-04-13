@@ -3,27 +3,25 @@
 namespace App\Http\Controllers\LuxeStore;
 
 use App\Models\User;
-use Illuminate\Support\Str;
 use App\Mail\OrderCompleted;
 use Illuminate\Http\Request;
 use App\Models\MarketingMenu;
 use App\Mail\OrderMailTemplate;
 use App\Mail\GeneralMailTemplate;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Mail\CouponUsedMailTemplate;
 use Illuminate\Support\Facades\Mail;
 use App\Models\UserCheckoutInformation;
 use Illuminate\Support\Facades\Session;
 use App\Models\LuxeStore\LuxeStoreProduct;
-use App\Models\LuxeStore\LuxeStoreCategory;
 use App\Models\LuxeStore\LuxeStoreCouponCode;
 use App\Models\LuxeStore\LuxeStoreProductForm;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
 use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
+use App\Mail\CouponUsedMailTemplate;
+use App\Models\LuxeStore\LuxeStoreCategory;
 use App\Models\LuxeStore\LuxeStoreProductVariantValues;
 use App\Models\LuxeStore\Order\LuxeStoreOrderFormInputs;
 use App\Models\LuxeStore\Order\LuxeStoreOrderBillingDetails;
@@ -288,8 +286,7 @@ class OrderController extends Controller
                             $formInputsModels[] = [
                                 'product_id' => $orderProduct->id,
                                 'input_name' => $input['input']['input_name'],
-                                'input_value' => $input['value'],
-                                'is_file' => $input['is_file'] ?? 0
+                                'input_value' => $input['value']
                             ];
                         }
                         $row->inputs()->createMany($formInputsModels);
@@ -329,8 +326,6 @@ class OrderController extends Controller
             $cc = [];
             $details['type'] = 'admin';
             $details['data'] = $row;
-            $details['products'] = $row->products()->get();
-
             $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
             if ($couponDb) {
                 try {
@@ -350,7 +345,6 @@ class OrderController extends Controller
 
             $details['type'] = 'agent';
             $details['data'] = $row;
-            $details['products'] = $row->products()->get();
             $details['form_title'] = 'New Order';
             if (auth()->user())
                 Mail::to(auth()->user()->email)->cc($cc)->send(new OrderMailTemplate($details));
@@ -411,12 +405,7 @@ class OrderController extends Controller
         $prod_id = $req->input('product_id');
         $quantity = $req->input('quantity');
         $variant_value = $req->input('variant_value', null);
-
-        if ($req->form) {
-            $form = $req->form;
-        } else {
-            $form = null;
-        }
+        $form = $req->input('form', null);
 
         if (Session::get('shopping_cart')) {
             $cart_data = Session::get('shopping_cart')[0];
@@ -474,14 +463,7 @@ class OrderController extends Controller
                 $form_inputs = [];
 
                 foreach ($form as $key => $value) {
-                    $is_file = false;
-                    if ($value instanceof UploadedFile) {
-                        $name = time() . Str::random(10) . '.' . $value->getClientOriginalExtension();
-                        $path = $value->storeAs('/order_images', $name, 'public');
-                        $value = $path;
-                        $is_file = true;
-                    }
-                    $form_inputs[] = ['input' => LuxeStoreProductForm::select('id', 'input_name')->where('input_value', $key)->firstOrFail()->toArray(), 'value' => $value, 'is_file' => $is_file];
+                    $form_inputs[] = ['input' => LuxeStoreProductForm::select('id', 'input_name')->where('input_value', $key)->firstOrFail()->toArray(), 'value' => $value];
                 }
             }
 
