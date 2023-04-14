@@ -9,5 +9,10 @@ class LuxeStoreOrderFormInputs extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_id', 'input_name', 'input_value'];
+    protected $fillable = [
+        'product_id',
+        'input_name',
+        'input_value',
+        'is_file'
+    ];
 }

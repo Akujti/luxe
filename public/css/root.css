@@ -474,3 +474,12 @@ button {
     width: 90%;
     border-radius: 10px;
 }
+.ck-rounded-corners .ck.ck-balloon-panel, .ck.ck-balloon-panel.ck-rounded-corners {
+    z-index: 10055 !important;
+    position: unset !important;
+}
+.ck.ck-balloon-panel {
+    z-index: 1050 !important;
+    position: unset !important;
+}
+.ck-balloon-panel{z-index:9998 !important}

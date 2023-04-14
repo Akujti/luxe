@@ -138,7 +138,41 @@
                             <input type="text" class="form-control mr-2" name="path" id="path">
                         </div>
                     </div>
-                    
+
+                    <div class="form-group row p-0 m-0 mt-2">
+                        <label for="">Verbiage Title</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control mr-2" name="verbiages_title" id="verbiages_title">
+                        </div>
+                    </div>
+
+                    <div class="form-group row p-0 m-0 mt-2">
+                        <label for="">Verbiage Text</label>
+                        <div class="input-group pr-2">
+                            <textarea class="text w-100" name="verbiages_text" id="verbiages_text"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row p-0 m-0 mt-2">
+                        <label for="">After Submit Verbiage Title</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control mr-2" name="after_submit_verbiages_title" id="after_submit_verbiages_title">
+                        </div>
+                    </div>
+
+                    <div class="form-group row p-0 m-0 mt-2">
+                        <label for="">After Submit Verbiage Text</label>
+                        <div class="input-group pr-2">
+                            <textarea class="text w-100" name="after_submit_verbiages_text" id="after_submit_verbiages_text"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row p-0 m-0 mt-2">
+                        <label for="">Email Verbiage Text</label>
+                        <div class="input-group pr-2">
+                            <textarea class="text w-100" name="email_verbiages_text" id="email_verbiages_text"></textarea>
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -212,6 +246,11 @@
         $('.update').find('#id').val(form.id)
         $('.update').find('#title').val(form.title)
         $('.update').find('#path').val(form.path)
+        $('.update').find('#verbiages_title').val(form.verbiages_title)
+        $('.update').find('#after_submit_verbiages_title').val(form.after_submit_verbiages_title)
+        CKEDITOR.instances.verbiages_text.setData(form.verbiages_text)
+        CKEDITOR.instances.after_submit_verbiages_text.setData(form.after_submit_verbiages_text)
+        CKEDITOR.instances.email_verbiages_text.setData(form.email_verbiages_text)
     }
     function delete_event(form) {
         $('.delete-event').modal('show')
@@ -220,5 +259,24 @@
     function remove_email(e) {
         $(e).parents('.email-row').remove()
     }
+</script>
+<script>
+    CKEDITOR.replace('verbiages_text');
+    CKEDITOR.replace('after_submit_verbiages_text');
+    CKEDITOR.replace('email_verbiages_text');
+    CKEDITOR.config.width = '100%'
+
+    $(document).ready(() => {
+        $.fn.modal.Constructor.prototype._enforceFocus = function() {
+            var $modalElement = this.$element;
+            $(document).on('focusin.modal',function(e) {
+                if ($modalElement && $modalElement.length > 0 && $modalElement[0] !== e.target
+                    && !$modalElement.has(e.target).length
+                    && $(e.target).parentsUntil('*[role="dialog"]').length === 0) {
+                    $modalElement.focus();
+                }
+            });
+        };
+    })
 </script>
 @endsection

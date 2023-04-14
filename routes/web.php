@@ -586,3 +586,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 Route::group(['prefix' => 'themes', 'middleware' => ['auth']], function () {
     Route::get('/{path}', ThemeController::class)->where('path', '(.*)')->name('themes.page');
 });
+
+
+Route::get('testjob', [AdminController::class, 'testjob']);

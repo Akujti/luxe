@@ -3,7 +3,7 @@
 @section('css')
 <style>
     th,td {
-        text-align: center;
+        text-align: center; 
     }
     th {
         border:none !important;

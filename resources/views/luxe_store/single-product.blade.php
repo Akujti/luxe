@@ -151,7 +151,7 @@
             </div>
             <div class="col-12 col-md-12 col-lg-7 single-product-details pl-4 pd-l pd-r">
                 <h3 id="title" class="mb-4 mt-lg-5 mt-1">{{ $product->name }}</h3>
-                <form method="POST" action="{{ route('luxe_store.addtocart') }}" class="d-block">
+                <form method="POST" enctype="multipart/form-data" action="{{ route('luxe_store.addtocart') }}" class="d-block">
                     @csrf
                     @if (!$product->variants->count())
                         <div class="d-flex align-items-center">
@@ -199,8 +199,13 @@
                             @foreach ($product->inputs as $input)
                                 <div class="form-group">
                                     <label for="">{{ $input->input_name }}</label>
+                                    @if($input->is_file)
+                                    <input type="file" name="form[{{ $input->input_value }}]" class="form-control"
+                                        required>
+                                    @else 
                                     <input type="text" name="form[{{ $input->input_value }}]" class="form-control"
                                         required>
+                                    @endif
                                 </div>
                             @endforeach
                         </div>

@@ -12,7 +12,7 @@ class Form extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'title', 'path'
+        'title', 'path', 'verbiages_text', 'verbiages_title', 'after_submit_verbiages_text','after_submit_verbiages_title', 'email_verbiages_text'
     ];
 
 

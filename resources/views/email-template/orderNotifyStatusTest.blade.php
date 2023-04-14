@@ -66,32 +66,10 @@
         </div>
         <hr>
         <div class="" style="width: 100%">
-        @if($details['type'] == 'admin')
             <div class="box">
-                <h3>A new order has been added</h3>
-
-                @if($details['products'])
-                    @foreach($details['products'] as $rowProduct)
-                        @if($rowProduct->product->verbiages_text)
-                            <p class="border-bottom pb-3 text-center">{{ $rowProduct->product->verbiages_text }}</p>
-                        @endif
-                    @endforeach
-                @endif
-                <h5><a href="{{ route('admin.orders.show', $details['data']->id) }}">Go to orders</a></h5>
+                <h3>test</h3>
             </div>
-        @else
-            <div class="box">
-                <h3>The order has been successfully created - #{{$details['data']->id}}</h3>
-                @if($details['products'])
-                    @foreach($details['products'] as $rowProduct)
-                        @if($rowProduct->product->verbiages_text)
-                            <p class="border-bottom pb-3 text-center">{{ $rowProduct->product->verbiages_text }}</p>
-                        @endif
-                    @endforeach
-                @endif
-                <h5>Thanks for the purchase.</h5>
-            </div>
-        @endif
+       
             <div class="link">
                 <a href="https://myluxehub.com">https://myluxehub.com/</a>
             </div>
@@ -101,13 +79,10 @@
 
 </html>
 <style>
-    .border-bottom {
-        border-bottom: 1px solid black;
-    }
-    .pb-3 {
-        padding-bottom: 15px !important;
-    }
     .text-center {
         text-align: center;
+    }
+    .h4 {
+        font-size: 20px;
     }
 </style>

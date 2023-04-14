@@ -66,7 +66,17 @@ class FormController extends Controller
 
     public function general_form_index($folder, $form)
     {
-        return view('pages/form/' . $folder . '/' . $form);
+        $formInfo = null;
+
+        if($form == 'zillow-leads-weekly-update') {
+            $formSql = Form::where('title', 'LIKE', 'ZILLOW LEADS WEEKLY UPDATE')->first();
+        } else {
+            $formSql = Form::where('title', 'LIKE',  "%".Str::title(str_replace('-', ' ', $form))."%")->first();
+        }
+        if($formSql) {
+            $formInfo = $formSql;
+        }
+        return view('pages/form/' . $folder . '/' . $form, ['formInfo' => $formInfo]);
     }
 
     public function marketing_budget_form()
@@ -165,10 +175,10 @@ class FormController extends Controller
         if ($request->wantsJson()) {
             return response()->json('success');
         }
-        if (
-            $request->form_title == "LUXE Coaching" || $request->form_title == "Request Your Agent Referral"
-            || $request->form_title == "Join CINC Buyer Team"
-        )
+
+        $formItemsVerbiageModal = ["Join Zillow", "CINC LEADS WEEKLY UPDATE", "Request Zillow Nurtures", "ZILLOW LEADS WEEKLY UPDATE", "Join CINC Buyer Team", "CINC LEADS WEEKLY UPDATE", "Request Your Agent Referral", "LUXE Coaching"];
+
+        if (in_array($request->form_title, $formItemsVerbiageModal))
             session()->flash('modal', 'Success');
         try {
             if ($request->form_title == "Photoshoots For Listings") {

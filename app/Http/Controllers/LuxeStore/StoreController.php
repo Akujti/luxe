@@ -59,10 +59,10 @@ class StoreController extends Controller
         $row->name = $req->name;
         $row->description = $req->description;
         $row->description_2 = $req->description_2;
+        $row->verbiages_text = $req->verbiages_text;
         $row->price = $req->price;
         $row->sale_price = $req->sale_price;
         $row->stock = $req->stock;
-
 
         if ($req->preview_image) {
             $name = time() . Str::random(10) . '.' . $req->preview_image->getClientOriginalExtension();
@@ -108,7 +108,10 @@ class StoreController extends Controller
         if ($req->has('form')) {
             $formModels = [];
             foreach ($req->form as $form) {
-                $formModels[] = ['input_name' => $form];
+                $formModels[] = [
+                    'input_name' => $form['input_name'],
+                    'is_file' => $form['is_file'] ?? 0
+                ];
             }
 
             $row->inputs()->createMany($formModels);
@@ -140,6 +143,7 @@ class StoreController extends Controller
         $row->name = $req->name;
         $row->description = $req->description;
         $row->description_2 = $req->description_2;
+        $row->verbiages_text = $req->verbiages_text;
         $row->price = $req->price;
         $row->sale_price = $req->sale_price;
         $row->stock = $req->stock;
@@ -191,7 +195,10 @@ class StoreController extends Controller
         if ($req->has('form')) {
             $formModels = [];
             foreach ($req->form as $form) {
-                $formModels[] = ['input_name' => $form];
+                $formModels[] = [
+                    'input_name' => $form['input_name'],
+                    'is_file' => $form['is_file'] ?? 0
+                ];
             }
 
             $row->inputs()->createMany($formModels);
