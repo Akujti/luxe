@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Form;
 use App\Models\EmailsForm;
 use App\Models\FormSubmit;
 use Illuminate\Http\Request;
+use App\Models\CustomSection;
 use App\Models\AgentTransaction;
+use App\Jobs\OrderStatusNotCompleted;
 use App\Http\Requests\Form\UpdateRequest;
 use App\Http\Requests\Form\UpdateFormRequest;
-use App\Models\CustomSection;
+use App\Jobs\OrderStatusTest;
 
 class AdminController extends Controller
 {
@@ -72,5 +75,12 @@ class AdminController extends Controller
         $data[4] = $top_agents->pluck('agent_name');
         $data[5] = $top_agents->pluck('total_amounts');
         return collect($data);
+    }
+
+    public function testjob() {
+        $delay = Carbon::now()->addSeconds(2);
+        OrderStatusTest::dispatch()->delay($delay);
+
+        dd('email will be sent after 2 seconds');
     }
 }

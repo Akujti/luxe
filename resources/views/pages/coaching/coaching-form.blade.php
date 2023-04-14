@@ -60,40 +60,14 @@
             </div>
             <h1>NEXT LEVEL SALES COACHING REGISTRATION FORM</h1>
             <p>Please select your enrollment type from the options below in order to sign up for the coaching program.</p>
-
-            <div class="modal fade modal-new" id="exampleModalCenter" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-show="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Success</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>You have successfully signed up for the Next Level Sales Coaching & the coach will reach out
-                                to you soon!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @if (session()->get('modal'))
-                <script type="text/javascript">
-                    $(window).on('load', function() {
-                        $('#exampleModalCenter').modal('show');
-                    });
-                </script>
-            @endif
         </div>
         <div class="row box-items py-4 justify-content-center">
             <div class="col-12 col-md-12 col-lg-6">
+                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')" />
                 <form action="{{ route('coaching.form.submit') }}" method="POST" class="row p-0 m-0">
                     @csrf
                     <input type="hidden" name="form_title" value="LUXE Coaching">
+                    <input type="hidden" name="form_verbiages_text" value="{{ $formInfo->email_verbiages_text }}">
                     <input type="hidden" name="agent_full_name" value="{{ auth()->user()->profile->fullname }}">
                     <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
                     <input type="hidden" name="agent_phone" value="{{ auth()->user()->profile->phone }}">

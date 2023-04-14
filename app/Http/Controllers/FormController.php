@@ -176,14 +176,10 @@ class FormController extends Controller
             return response()->json('success');
         }
 
-        $formItems = ["LUXE Coaching", "Request Your Agent Referral", "Join CINC Buyer Team"];
-        if (in_array($request->form_title, $formItems))
-            session()->flash('modal', 'Success');
-
-        $formItemsVerbiageModal = ["Join Zillow", "CINC LEADS WEEKLY UPDATE", "Request Zillow Nurtures", "ZILLOW LEADS WEEKLY UPDATE", "Join CINC Buyer Team", "CINC LEADS WEEKLY UPDATE"];
+        $formItemsVerbiageModal = ["Join Zillow", "CINC LEADS WEEKLY UPDATE", "Request Zillow Nurtures", "ZILLOW LEADS WEEKLY UPDATE", "Join CINC Buyer Team", "CINC LEADS WEEKLY UPDATE", "Request Your Agent Referral", "LUXE Coaching"];
 
         if (in_array($request->form_title, $formItemsVerbiageModal))
-            session()->flash('modalVerbiage', 'Success');
+            session()->flash('modal', 'Success');
         try {
             if ($request->form_title == "Photoshoots For Listings") {
                 Listing::create(

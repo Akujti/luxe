@@ -5,6 +5,7 @@ namespace App\Jobs;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotifyStatusNotCompleted;
+use App\Mail\NotifyStatusTest;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Queue\InteractsWithQueue;
@@ -13,14 +14,12 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class OrderStatusNotCompleted implements ShouldQueue
+class OrderStatusTest implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $data;
-    public function __construct($data)
+    public function __construct()
     {
-        $this->data = $data;
     }
 
     /**
@@ -30,12 +29,7 @@ class OrderStatusNotCompleted implements ShouldQueue
      */
     public function handle()
     {
-        $row = LuxeStoreOrder::find($this->data->id);
-    
-        if($row && $row->status != 'Completed') {
-            $to = ['support@myluxehub.com'];
-
-            Mail::to($to)->send(new NotifyStatusNotCompleted($row));
-        }
+        $to = ['test@test.com'];
+        Mail::to($to)->send(new NotifyStatusTest());
     }
 }

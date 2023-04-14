@@ -10,7 +10,7 @@
                     </div>
                 @endif
 
-                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modalVerbiage')" />
+                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')" />
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
                     <div class="card-header">

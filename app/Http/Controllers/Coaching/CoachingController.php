@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Coaching;
 
 use PDF;
 use Exception;
+use App\Models\Form;
 use Illuminate\Http\Request;
 use App\Mail\GeneralMailTemplate;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\FormController;
 
 class CoachingController extends Controller
 {
@@ -16,7 +17,13 @@ class CoachingController extends Controller
         return view('pages.coaching.index');
     }
     public function form() {
-        return view('pages.coaching.coaching-form');
+        $formInfo = null;
+
+        $formSql = Form::where('title', 'LIKE', 'Luxe Coaching')->first();
+        if($formSql) {
+            $formInfo = $formSql;
+        }
+        return view('pages.coaching.coaching-form', ['formInfo' => $formInfo]);
     }
     public function formpdf(Request $req) {
         $details = $req->all();
