@@ -300,7 +300,8 @@
                                     data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked
                                     disabled>
                                 <label class="ml-4">
-                                    Photos Only (12-15 images) - {{ auth()->user()->status != 1 ? 'FREE' : '$100' }}
+                                    Photos Only (12-15 images)
+                                    {{ auth()->user()->status != 1 ? (auth()->user()->status == 2 ? '- FREE' : '') : '- $100' }}
                                 </label>
                                 @if (auth()->user()->status == 2)
                                     <p>**Sale Listing Agreement must have minimum list price of $250K and minimum 5% gross

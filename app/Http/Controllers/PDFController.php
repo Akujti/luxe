@@ -2208,8 +2208,7 @@ class PDFController extends Controller
     }
 
 
-    public
-    function generate_data($data)
+    public function generate_data($data)
     {
 
         $pdf = PDF::loadView('testPDF', $data);
@@ -2217,8 +2216,7 @@ class PDFController extends Controller
         return $pdf->download('Home Selling Guide.pdf');
     }
 
-    public
-    function uploadimage(Request $request)
+    public function uploadimage(Request $request)
     {
         $imageName = Str::uuid() . '.' . request()->file('file')->getClientOriginalExtension();
         $request->file('file')->move(public_path('uploadedimages'), $imageName);
