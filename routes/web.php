@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\CustomSection;
 use Illuminate\Routing\Router;
 use App\Models\AppointmentTimeslot;
 use App\Http\Controllers\Controller;
@@ -7,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\W9Controller;
 use App\Http\Controllers\PDFController;
+use App\Models\ReferralPartnerCategory;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
@@ -20,40 +22,39 @@ use App\Http\Controllers\OptinController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CMA\CMAController;
+use App\Http\Controllers\ListingController;
 use App\Http\Controllers\AgentEmailController;
 use App\Http\Controllers\BrokerSumoController;
 use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DiyTemplateController;
 use App\Http\Controllers\Video\VideoController;
+use App\Http\Controllers\CustomSectionController;
+use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\MarketingPostController;
 use App\Http\Controllers\TemplateSubmitController;
 use App\Http\Controllers\LuxeStore\OrderController;
 use App\Http\Controllers\LuxeStore\StoreController;
+use App\Http\Controllers\ReferralPartnerController;
 use App\Http\Controllers\Video\VideoFileController;
 use App\Http\Controllers\Video\VideoViewController;
 use App\Http\Controllers\AddendumTemplateController;
+use App\Http\Controllers\Coaching\CoachingController;
 use App\Http\Controllers\MarketingCategoryController;
 use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\Video\VideoFolderController;
 use App\Http\Controllers\AppointmentAddressController;
 use App\Http\Controllers\ClosingCoordinatorController;
+use App\Http\Controllers\EmailBlastHomePageController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\LuxeStore\CategoryController;
 use App\Http\Controllers\AppointmentTimeslotController;
-use App\Http\Controllers\Coaching\CoachingController;
-use App\Http\Controllers\CustomSectionController;
-use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\DiyTemplateCategoryController;
-use App\Http\Controllers\EmailBlastHomePageController;
-use App\Http\Controllers\ListingController;
 use App\Http\Controllers\LuxeStore\CouponCodeController;
-use App\Http\Controllers\ReferralPartnerCategoryController;
-use App\Http\Controllers\ReferralPartnerController;
 use App\Http\Controllers\WrittenEmailTemplateController;
+use App\Http\Controllers\ReferralPartnerCategoryController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
-use App\Models\CustomSection;
-use App\Models\ReferralPartnerCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -377,6 +378,12 @@ Route::group(
         });
 
         Route::get('app-links', [PageController::class, 'app_links']);
+
+        Route::group(['prefix' => 'cma-report', 'as' => 'cma.'], function () {
+            Route::get('/', [CMAController::class, 'index'])->name('index');
+            Route::get('/search', [CMAController::class, 'search'])->name('search');
+            Route::get('/results', [CMAController::class, 'show'])->name('show');
+        });
     }
 );
 
