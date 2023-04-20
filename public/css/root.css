@@ -4,6 +4,7 @@
     position: fixed;
     width: 407px;
     height: 89vh;
+    z-index: 1;
 }
 .sidebar.active {
     display: flex !important;
