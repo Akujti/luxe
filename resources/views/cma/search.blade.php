@@ -28,7 +28,7 @@
                 <div class="table-box w-100 px-2">
                     <div class="table-box-header d-flex align-items-center justify-content-between w-100">
                         <h5>Subject Property Search</h5>
-                        <a href="{{ route('cma.index') }}" class="btn-luxe">Back to List</a>
+                        <a href="{{ route('cma.index') }}" class="btn-luxe">Back</a>
                     </div>
 
                     <div class="table-box-body">

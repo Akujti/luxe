@@ -51,56 +51,61 @@
             <div class="box-charts row">
                 <div class="table-box w-100 px-2">
                     <div class="table-box-header d-flex align-items-center justify-content-between w-100">
-                        <h5>Seller CMA</h5>
+                        <h5 class="h5-title">Seller CMA</h5>
                         <a href="{{ route('cma.search') }}" class="btn-luxe">Add Seller CMA</a>
                     </div>
 
                     <div class="table-box-body">
                         <div class="table-action d-flex align-items-center justify-content-between my-3">
                             <div>
-                                <!-- <a href="#">Show 10 rows</a> -->
-                                <a href="#" class="btn-action">CSV</a>
-                                <a href="#" class="btn-action">Print</a>
+                                <div class="btn-action-div">
+                                    <a href="#" class="btn-action">CSV</a>
+                                </div>
+                                <div class="btn-action-div">
+                                    <a href="#" class="btn-action">Print</a>
+                                </div>
                             </div>
                             <div>
                                 <input type="search" class="form-control" placeholder="Search">
                             </div>
                         </div>
-                        <table id="cma-report">
-                            <thead>
-                                <tr>
-                                    <th># ID</th>
-                                    <th>Seller Name</th>
-                                    <th>Address</th>
-                                    <th>Last Modified</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>9203</td>
-                                    <td>DALOMAFA LLC</td>
-                                    <td>3131 NE 7TH AVE # 2804</td>
-                                    <td>2023-01-03 16:34:14</td>
-                                    <td>
-                                        <a href="#">
-                                            <img src="{{ asset('images/files/delete-icon.svg') }}">
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>9202</td>
-                                    <td>MARY A PAYAN</td>
-                                    <td>ALVARO HURTADO</td>
-                                    <td>2023-01-03 16:34:14</td>
-                                    <td>
-                                        <a href="#">
-                                            <img src="{{ asset('images/files/delete-icon.svg') }}">
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table" id="cma-report">
+                                <thead>
+                                    <tr>
+                                        <th># ID</th>
+                                        <th>Seller Name</th>
+                                        <th>Address</th>
+                                        <th>Last Modified</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>9203</td>
+                                        <td>DALOMAFA LLC</td>
+                                        <td>3131 NE 7TH AVE # 2804</td>
+                                        <td>2023-01-03 16:34:14</td>
+                                        <td>
+                                            <a href="#">
+                                                <img src="{{ asset('images/files/delete-icon.svg') }}">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>9202</td>
+                                        <td>MARY A PAYAN</td>
+                                        <td>ALVARO HURTADO</td>
+                                        <td>2023-01-03 16:34:14</td>
+                                        <td>
+                                            <a href="#">
+                                                <img src="{{ asset('images/files/delete-icon.svg') }}">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>        
             </div>
