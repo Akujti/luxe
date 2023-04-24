@@ -33,7 +33,7 @@ class OrderStatusNotCompleted implements ShouldQueue
         $row = LuxeStoreOrder::find($this->data->id);
 
         if ($row && $row->status != 'Completed') {
-            $to = ['designer@luxeknows.com', 'operations@luxeknows.com', 'email@luxeknows.com'];
+            $to = ['desigs@luxeknows.com', 'operations@luxeknows.com', 'email@luxeknows.com', 'wesley@luxeknows.com'];
 
             Mail::to($to)->send(new NotifyStatusNotCompleted($row));
         }
