@@ -383,6 +383,7 @@ Route::group(
             Route::get('/', [CMAController::class, 'index'])->name('index');
             Route::get('/search', [CMAController::class, 'search'])->name('search');
             Route::get('/results', [CMAController::class, 'show'])->name('show');
+            Route::get('/average-sale-price', [CMAController::class, 'averageSalePrice'])->name('averageSalePrice');
         });
     }
 );

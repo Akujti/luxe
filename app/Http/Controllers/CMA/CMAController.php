@@ -21,6 +21,11 @@ class CMAController extends Controller
         return view('cma.show');
     }
 
+    public function averageSalePrice()
+    {
+        return view('cma.average-sales-price');
+    }
+
     public function create()
     {
     }

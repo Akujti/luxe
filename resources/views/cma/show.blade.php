@@ -360,7 +360,7 @@
                     <div class="table-box-footer w-100">
                         <div class="d-flex align-items-center justify-content-between">
                             <a href="{{ route('cma.search') }}" class="btn-action"><i class="fa-solid fa-chevron-left"></i> Previous</a>
-                            <a href="" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
+                            <a href="{{ route('cma.averageSalePrice') }}" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>        
