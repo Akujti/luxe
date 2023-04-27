@@ -31,16 +31,73 @@
                 <div class="col-12 col-xl-6">
                     <div class="small-charts">
                         <div class="chart blue border-left">
-                            Sold Listings
+                            <div class="d-flex">
+                                <div class="circle mr-2">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                </div>
+                                <div>
+                                    <span>
+                                        Sold Listings
+                                    </span><br>
+                                    <span class="value">2</span>
+                                    <hr class="p-0 m-0">
+                                    <p>(LAST 12 MONTHS)</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="chart yellow border-left">
-                            Active Listings
+                            <div class="d-flex">
+                                <div class="circle mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 130 130">
+                                        <g id="Group_57" data-name="Group 57" transform="translate(-203 -609)">
+                                            <circle id="Ellipse_22" data-name="Ellipse 22" cx="65" cy="65" r="65" transform="translate(203 609)" fill="#f6c232"/>
+                                            <rect id="Rectangle_128" data-name="Rectangle 128" width="5" height="84" transform="translate(238 632)" fill="#fff"/>
+                                            <rect id="Rectangle_129" data-name="Rectangle 129" width="5" height="77" transform="translate(232 650) rotate(-90)" fill="#fff"/>
+                                            <rect id="Rectangle_130" data-name="Rectangle 130" width="59" height="40" rx="5" transform="translate(246 654)" fill="#fff"/>
+                                            <rect id="Rectangle_131" data-name="Rectangle 131" width="5" height="17" transform="translate(263 646)" fill="#fff"/>
+                                            <rect id="Rectangle_132" data-name="Rectangle 132" width="5" height="17" transform="translate(279 646)" fill="#fff"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span>
+                                        Active Listings
+                                    </span><br>
+                                    <span class="value">0</span>
+                                    <hr class="p-0 m-0">
+                                    <p>(CURRENT)</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="chart green border-left">
-                            Listing Listings
+                            <div class="d-flex">
+                                <div class="circle mr-2">
+                                    <i class="fa-solid fa-file-contract"></i>
+                                </div>
+                                <div>
+                                    <span>
+                                        Listing Contracts
+                                    </span><br>
+                                    <span class="value">0</span>
+                                    <hr class="p-0 m-0">
+                                    <p>(LAST 12 MONTHS)</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="chart orange border-left">
-                            CMA Reports
+                            <div class="d-flex">
+                                <div class="circle mr-2">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <span>
+                                        CMA Reports
+                                    </span><br>
+                                    <span class="value">5</span>
+                                    <hr class="p-0 m-0">
+                                    <p>(LAST 12 MONTHS)</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -134,20 +191,20 @@
     function addChart() {
         Highcharts.chart('big-chart', {
             title: {
-                text: 'CMA Reports'
+                text: null
             },
             xAxis: {
-                categories: ['January', 'February', 'March']
+                categories: ['2022-02', '2022-03', '2022-04','2022-05', '2022-06', '2022-07','2022-08', '2022-09', '2022-10','2022-11', '2022-12', '2023-01']
             },
             yAxis: {
                 title: {
-                    text: 'Number of New Users'
+                    text: null
                 }
             },
             legend: {
                 layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
+                align: 'top',
+                verticalAlign: 'top'
             },
             plotOptions: {
                 series: {
@@ -155,8 +212,8 @@
                 }
             },
             series: [{
-                name: 'New Users',
-                data: [10, 20, 30]
+                name: 'CMA Reports',
+                data: [10, 20, 30, 14, 23, 44, 10, 8, 25, 13, 70, 100]
             }],
             responsive: {
                 rules: [{

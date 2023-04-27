@@ -26,15 +26,18 @@ class CMAController extends Controller
         return view('cma.average-sales-price');
     }
 
-    public function create()
+    public function propertyTaxes()
     {
+        return view('cma.property-taxes');
     }
 
-    public function update()
+    public function finishPage()
     {
+        return view('cma.finish-page');
     }
 
-    public function delete()
+    public function showReport()
     {
+        return view('cma.show-report');
     }
 }

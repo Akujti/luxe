@@ -256,7 +256,7 @@
                                 <select type="text" name="preferred_photographer" class="form-control">
                                     <option value>-</option>
                                     <option value="JSR King-Jorge Sosa">JSR King-Jorge Sosa</option>
-                                    <option value="Steven Vivar">Steven Vivar</option>
+                                    <!-- <option value="Steven Vivar">Steven Vivar</option> -->
                                     <option value="Albert Rodriguez">Albert Rodriguez</option>
                                     <option value="David Peretz">David Peretz</option>
                                 </select>

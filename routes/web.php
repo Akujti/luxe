@@ -384,6 +384,8 @@ Route::group(
             Route::get('/search', [CMAController::class, 'search'])->name('search');
             Route::get('/results', [CMAController::class, 'show'])->name('show');
             Route::get('/average-sale-price', [CMAController::class, 'averageSalePrice'])->name('averageSalePrice');
+            Route::get('/property-taxes', [CMAController::class, 'propertyTaxes'])->name('propertyTaxes');
+            Route::get('/finish-page', [CMAController::class, 'finishPage'])->name('finishPage');
         });
     }
 );
@@ -597,3 +599,5 @@ Route::group(['prefix' => 'themes', 'middleware' => ['auth']], function () {
 
 
 Route::get('testjob', [AdminController::class, 'testjob']);
+
+Route::get('/cma-report/show-report', [CMAController::class, 'showReport'])->name('cma.showReport');

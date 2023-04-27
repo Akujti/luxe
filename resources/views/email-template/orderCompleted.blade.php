@@ -98,8 +98,7 @@
         <div class="" style="width: 100%">
             <div class="box">
                 @if($details['order']->status == 'Request Info')
-                <h3>Your <a href="{{ route('my_orders.edit', $details['order']->id) }}">order</a> status is <b>{{ $details['order']->status }}</b> -
-                    <a href="{{ route('my_orders.edit', $details['order']->id) }}">#{{ $details['order']->id }}</a>
+                <h3>Info is requested for order <a href="{{ route('my_orders.edit', $details['order']->id) }}">#{{ $details['order']->id }}</a>. Please click here to view and respond.
                 </h3>
                     <p style="text-align:center">{{ $details['order']->request_info }}</p>
                 @else

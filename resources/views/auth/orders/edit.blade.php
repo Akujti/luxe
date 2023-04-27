@@ -52,7 +52,7 @@
         @method('PUT')
         <div class="w-100 d-flex justify-content-between align-items-center mb-2">
             <h5 class="h5-luxe bold">Order #{{ $order->id }} details</h5>
-            <button class="btn-luxe py-2 px-4" type="submit">Save Changes</button>
+            <!-- <button class="btn-luxe py-2 px-4" type="submit">Save Changes</button> -->
         </div>
         
         <div class="w-100">
@@ -60,7 +60,7 @@
             <hr>
             <div class="row p-0 m-0">
                 <div class="col-4 pl-0">
-                    <h5 class="bold">General</h5>
+                    <h5 class="bold">READ HERE FOR REQUESTED INFO AND REPLY</h5>
                     <div class="form-group">
                         <label for="">Date created:</label>
                         <div class="input-group">
@@ -85,6 +85,8 @@
                             <textarea class="form-control w-100" name="request_info_response" rows="7"></textarea>
                         </div>
                     </div>
+
+                    <button class="btn-luxe py-2 px-4" type="submit">SUBMIT RESPONSE</button>
                     @endif
                 </div>
                 <div class="col-4">

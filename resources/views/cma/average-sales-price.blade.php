@@ -553,8 +553,8 @@
             <div class="table-box w-100 px-2">
                 <div class="table-box-footer border-none w-100">
                     <div class="d-flex align-items-center justify-content-between">
-                        <a href="{{ route('cma.search') }}" class="btn-action"><i class="fa-solid fa-chevron-left"></i> Previous</a>
-                        <a href="" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
+                        <a href="{{ route('cma.show') }}" class="btn-action"><i class="fa-solid fa-chevron-left"></i> Previous</a>
+                        <a href="{{ route('cma.propertyTaxes') }}" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
