@@ -132,5 +132,37 @@
                 <img src="/images/mls/map.png" alt="" class="map-image">
             </div>
         </div>
+        <hr>
+        <div class="row my-5">
+            <div class="col-md-6">
+                <h2>Tallahassee Board of REALTORS</h2>
+                <p>MLS Name: Paragon 5 MLS</p>
+                <p>Phone: <a href="tel:850.224.7713">850.224.7713</a></p>
+                <p>Application: <a
+                        href="https://www.tbrnet.org/transaction-forms-forms-menu/tbr-document-uploads/realtor-applications/205-realtor-application-3/file.html">Click
+                        Here</a>
+                </p>
+                <p>Cost: $685</p>
+            </div>
+            <div class="col-md-6">
+                <img src="/images/mls/map5.png" alt="" class="map-image">
+            </div>
+        </div>
+        <hr>
+        <div class="row my-5">
+            <div class="col-md-6">
+                <h2>The Naples Area Board of REALTORS</h2>
+                <p>MLS Name: SWFLMLS</p>
+                <p>Phone: <a href="tel:239.597.1666">239.597.1666</a></p>
+                <p>Website To Join: <a
+                        href="https://www.nabor.com/membership/join">Click
+                        Here</a>
+                </p>
+                <p>Cost: $868</p>
+            </div>
+            <div class="col-md-6">
+                <img src="/images/mls/map6.png" alt="" class="map-image">
+            </div>
+        </div>
     </div>
 @endsection
