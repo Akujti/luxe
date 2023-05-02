@@ -13,6 +13,7 @@ use App\Jobs\OrderStatusNotCompleted;
 use App\Http\Requests\Form\UpdateRequest;
 use App\Http\Requests\Form\UpdateFormRequest;
 use App\Jobs\OrderStatusTest;
+use App\Models\LuxeStore\Order\LuxeStoreOrder;
 
 class AdminController extends Controller
 {
@@ -78,9 +79,10 @@ class AdminController extends Controller
     }
 
     public function testjob() {
-        $delay = Carbon::now()->addSeconds(2);
-        OrderStatusTest::dispatch()->delay($delay);
+        $delay = Carbon::now()->addSecond(1);
+        $luxeStoreOrder = LuxeStoreOrder::find(1);
+        OrderStatusNotCompleted::dispatch($luxeStoreOrder)->delay($delay);
 
-        dd('email will be sent after 2 seconds');
+        dd('email will be sent after 1 second');
     }
 }
