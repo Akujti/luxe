@@ -553,18 +553,6 @@
                             </div>
                         @endif
                         @php
-                            $guide = $guides->where('title', 'Miami-Dade Neighborhood Guide')->first();
-                        @endphp
-                        @if ($guide)
-                            <div class="box-guide col-6">
-                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
-                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
-                                        style="width: 100px;height:100px;">
-                                    <p>{{ $guide->title }}</p>
-                                </a>
-                            </div>
-                        @endif
-                        @php
                             $guide = $guides->where('title', 'FSBO Guide')->first();
                         @endphp
                         @if ($guide)
@@ -590,6 +578,18 @@
                         @endif
                         @php
                             $guide = $guides->where('title', 'The Commercial Real Estate Guide')->first();
+                        @endphp
+                        @if ($guide)
+                            <div class="box-guide col-6">
+                                <a href="{{ '/storage/' . $guide->file }}" download target="_blank" class="text-dark">
+                                    <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
+                                        style="width: 100px;height:100px;">
+                                    <p>{{ $guide->title }}</p>
+                                </a>
+                            </div>
+                        @endif
+                        @php
+                            $guide = $guides->where('title', 'Miami Neighborhood Guide')->first();
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-6">
@@ -1235,12 +1235,12 @@
             </div>
         </div>
         <!-- <div class="box-item box-item-padding"
-            onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
-            <div>
-                <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                <p>Request Your<br> Agent Referral</p>
-            </div>
-        </div> -->
+                    onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
+                    <div>
+                        <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
+                        <p>Request Your<br> Agent Referral</p>
+                    </div>
+                </div> -->
         <div class="box-item box-item-padding" onclick="window.location = '{{ route('mls-directory') }}'">
             <div>
                 <img src="/images/index-page/global-search.svg" class="icon" alt="">
