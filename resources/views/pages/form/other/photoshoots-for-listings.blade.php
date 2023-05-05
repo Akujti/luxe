@@ -252,10 +252,10 @@
                                     step="0.01">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Preferred Photographer</label>
+                                <label for="name">Preferred Photographer (Photographer availability varies)</label>
                                 <select type="text" name="preferred_photographer" class="form-control">
                                     <option value>-</option>
-                                    <option value="JSR King-Jorge Sosa">JSR King-Jorge Sosa</option>
+                                    {{-- <option value="JSR King-Jorge Sosa">JSR King-Jorge Sosa</option> --}}
                                     <!-- <option value="Steven Vivar">Steven Vivar</option> -->
                                     <option value="Albert Rodriguez">Albert Rodriguez</option>
                                     <option value="David Peretz">David Peretz</option>
