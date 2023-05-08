@@ -27,6 +27,11 @@
         button {
             cursor: pointer;
         }
+
+        .btn-luxe:disabled, .btn-luxe[disabled] {
+            background-color: #2626268c !important;
+            border-color: #2626268c !important;
+        }
     </style>
 @endsection
 @section('content')
@@ -710,7 +715,7 @@
                             <div id="paypal-button-container"></div>
                         @else
                             <div class="d-flex justify-content-center">
-                                <button type="button" onclick="submit_form()" class="btn-luxe w-100">Finish
+                                <button type="button" onclick="submit_form()" id="btn-luxe-checkout" class="btn-luxe w-100">Finish
                                     Order</button>
                             </div>
                         @endif
@@ -767,6 +772,7 @@
 
     <script>
         function submit_form() {
+            $('#btn-luxe-checkout').prop('disabled', true)
             var form = $('#form')
             var reportValidity = form[0].reportValidity();
 

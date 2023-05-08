@@ -254,6 +254,10 @@ class OrderController extends Controller
             $is_marketing_menu_order = false;
             if (Session::get('shopping_cart')) {
                 $cart_data = Session::get('shopping_cart')[0];
+                if(count($cart_data) == 0) {
+                    return redirect()->back()->with('error', 'Something went  wrong! Please try again.');
+                }
+
                 foreach ($cart_data as $product) {
                     $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
                     $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
@@ -295,6 +299,8 @@ class OrderController extends Controller
                         $row->inputs()->createMany($formInputsModels);
                     }
                 }
+            } else {
+                return redirect()->back()->with('error', 'Something went  wrong! Please try again.');
             }
 
             $coupon_code = null;
