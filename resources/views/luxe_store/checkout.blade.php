@@ -778,6 +778,8 @@
 
             if (reportValidity) {
                 form.submit();
+            } else {
+                $('#btn-luxe-checkout').prop('disabled', false)
             }
         }
 
