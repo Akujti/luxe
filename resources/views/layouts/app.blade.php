@@ -782,6 +782,11 @@
 @yield('js')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+<script src="{{ asset('js/axios.js') }}"></script>
+<script>
+    var cmaApiCredentials = JSON.parse(JSON.stringify(<?php echo json_encode($cmaApiCredentails) ?>));
+</script>
 @if (Route::currentRouteName() != 'optin.agents.index' &&
         Route::currentRouteName() != 'office.locations' &&
         Route::currentRouteName() != 'showing.agents.index' &&

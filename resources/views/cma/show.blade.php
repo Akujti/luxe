@@ -39,10 +39,10 @@
                                     </div>
                                 </div>
                                 <div class="">
-                                    <h4 class="p-0 m-0 d-flex align-items-center h-title">27709 coconut ave
+                                    <h4 class="p-0 m-0 d-flex align-items-center h-title"><span id="UnparsedAddress"></span>
                                         <div class="edit-btn ml-2"><i class="fa-solid fa-pen"></i></div>
                                     </h4>
-                                    <p class="p-0 m-0 p-luxe text-uppercase">Luis j moreno</p>
+                                    <p class="p-0 m-0 p-luxe text-uppercase"><span id="BuyerAgentFullName"></span></p>
 
                                     <div>
                                         <p class="p-0 m-0 p-luxe">MLS price by</p>
@@ -56,22 +56,22 @@
                             <div class="col-12 col-xl-8">
                                 <div class="subject-property-details">
                                     <div>
-                                        <h5 class="h-title">2 <br> Bed</h5>
+                                        <h5 class="h-title"><span id="BedroomsTotal"></span> <br> Bed</h5>
                                     </div>
                                     <div>
-                                        <h5 class="h-title">3.5 <br> Bath</h5>
+                                        <h5 class="h-title"><span id="BathroomsTotalInteger"></span> <br> Bath</h5>
                                     </div>
                                     <div>
-                                        <h5 class="h-title">2005 <br> Built</h5>
+                                        <h5 class="h-title"><span id="YearBuilt"></span> <br> Built</h5>
                                     </div>
                                     <div>
-                                        <h5 class="h-title">1,963 <br> SqFt</h5>
+                                        <h5 class="h-title"><span id="MIAMIRE_MaximumLeasableSqft"></span> <br> SqFt</h5>
                                     </div>
                                     <div>
-                                        <h5 class="h-title">1,963 <br> T.SqFt</h5>
+                                        <h5 class="h-title"><span id="MIAMIRE_LPAmtSqFt"></span> <br> T.SqFt</h5>
                                     </div>
                                     <div>
-                                        <h5 class="h-title">0 <br> Size</h5>
+                                        <h5 class="h-title"><span id="LotSizeDimensions"></span> <br> Size</h5>
                                     </div>
                                     <div class="border-none">
                                         <select class="form-control">
@@ -369,4 +369,27 @@
     </div>
 </div>
 
+@endsection
+@section('js')
+<script>
+    $(document).ready(function() {
+        mounted();
+    })
+
+    async function mounted() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const listingId = urlParams.get('listingId');
+
+        var response = await axiosInc(`listings/${listingId}`, 'get', null);
+        if (response.data) {
+            var data = response.data.bundle;
+
+            Object.keys(data).forEach((el) => {
+                let row = data[el];
+                $('#' + el).html(data[el] ?? 0);
+            })
+
+        }
+    }
+</script>
 @endsection

@@ -137,30 +137,7 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>9203</td>
-                                        <td>DALOMAFA LLC</td>
-                                        <td>3131 NE 7TH AVE # 2804</td>
-                                        <td>2023-01-03 16:34:14</td>
-                                        <td>
-                                            <a href="#">
-                                                <img src="{{ asset('images/files/delete-icon.svg') }}">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9202</td>
-                                        <td>MARY A PAYAN</td>
-                                        <td>ALVARO HURTADO</td>
-                                        <td>2023-01-03 16:34:14</td>
-                                        <td>
-                                            <a href="#">
-                                                <img src="{{ asset('images/files/delete-icon.svg') }}">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <tbody id="table-body"></tbody>
                             </table>
                         </div>
                     </div>
@@ -175,11 +152,40 @@
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 @section('js')
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="{{ asset('js/moment.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         addChart();
         addTable();
+
+        getApiRoutes();
     })
+    async function getApiRoutes() {
+        var response = await axiosInc('Property', 'get', null);
+
+        let body = '';
+        if(response.data) {
+            for(index in response.data.value) {
+                let row = response.data.value[index];
+
+                console.log(row)
+
+                body += `<tr>
+                            <td>...${row.ListingKey.substr(row.ListingKey.length / 2, 100)}</td>
+                            <td>DALOMAFA LLC</td>
+                            <td>${row.StreetName ?? 'N/A'} ${row.StreetName ? row.StreetNumber : ''}</td>
+                            <td>${ moment(row.ModificationTimestamp).format('YYYY-MM-DD HH:mm:ss')}</td>
+                            <td>
+                                <a href="#">
+                                    <img src="{{ asset('images/files/delete-icon.svg') }}">
+                                </a>
+                            </td>
+                        </tr>`;
+
+                $('#table-body').html(body);
+            }
+        }
+    }
     function addTable() {
         let table = new DataTable('#cma-report', {
             bPaginate: false,
