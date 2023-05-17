@@ -28,7 +28,8 @@
             cursor: pointer;
         }
 
-        .btn-luxe:disabled, .btn-luxe[disabled] {
+        .btn-luxe:disabled,
+        .btn-luxe[disabled] {
             background-color: #2626268c !important;
             border-color: #2626268c !important;
         }
@@ -715,7 +716,8 @@
                             <div id="paypal-button-container"></div>
                         @else
                             <div class="d-flex justify-content-center">
-                                <button type="button" onclick="submit_form()" id="btn-luxe-checkout" class="btn-luxe w-100">Finish
+                                <button type="button" onclick="submit_form()" id="btn-luxe-checkout"
+                                    class="btn-luxe w-100">Finish
                                     Order</button>
                             </div>
                         @endif
@@ -748,9 +750,11 @@
                 });
             },
             onInit: function(data, actions) {
-                actions.disable();
+                // actions.disable();
                 document.querySelectorAll('input').forEach(item => {
                     item.addEventListener('input', () => {
+                        console.log('validity', document.getElementById("form")
+                            .checkValidity());
                         if (document.getElementById("form").checkValidity()) {
                             actions.enable();
                         } else {
