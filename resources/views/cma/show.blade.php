@@ -43,14 +43,6 @@
                                         <div class="edit-btn ml-2"><i class="fa-solid fa-pen"></i></div>
                                     </h4>
                                     <p class="p-0 m-0 p-luxe text-uppercase"><span id="BuyerAgentFullName"></span></p>
-
-                                    <div>
-                                        <p class="p-0 m-0 p-luxe">MLS price by</p>
-                                        <select class="form-control form-role">
-                                            <option value="">--</option>
-                                            <option value="role" selected>Role</option>
-                                        </select>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-12 col-xl-8">
@@ -70,20 +62,14 @@
                                     <div>
                                         <h5 class="h-title"><span id="MIAMIRE_LPAmtSqFt"></span> <br> T.SqFt</h5>
                                     </div>
-                                    <div>
-                                        <h5 class="h-title"><span id="LotSizeDimensions"></span> <br> Size</h5>
-                                    </div>
                                     <div class="border-none">
-                                        <select class="form-control">
-                                            <option value="">None selected</option>
-                                        </select>
-                                        <h5 class="h-title">Extras</h5>
+                                        <h5 class="h-title"><span id="LotSizeDimensions"></span> <br> Size</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>        
+                </div>
             </div>
         </div>
         <div class="col-12 mt-5">
@@ -97,7 +83,12 @@
                     <div class="table-box-body">
                         <div class="table-action row my-3">
                             <div class="col-12 col-xl-6">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.387759900309!2d-74.00987042341329!3d40.70947963776896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a18049ba121%3A0xebaf26c536e06652!2s123%20William%20St%2C%20New%20York%2C%20NY%2010038%2C%20USA!5e0!3m2!1sen!2s!4v1681568456111!5m2!1sen!2s" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <style>
+                                    #map {
+                                        height: 100%;
+                                    }
+                                </style>
+                                <div id="map"></div>
                             </div>
                             <div class="col-12 col-xl-6">
                                 <div class="market-anysis-rows-header">
@@ -122,7 +113,9 @@
                                                     </button>
                                                     <div class="dropdown-menu dropdown-search-filter" onclick="event.stopPropagation()" aria-labelledby="dropdownMenuButton">
                                                         <div class="row">
-                                                            <div class="col-12"> <h5 class="h5-title text-center">Search Filter Form</h5></div>
+                                                            <div class="col-12">
+                                                                <h5 class="h5-title text-center">Search Filter Form</h5>
+                                                            </div>
                                                             <div class="col-12 col-xl-6">
                                                                 <div class="form-group mb-1">
                                                                     <label for="">Search Area</label>
@@ -263,115 +256,29 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="market-analysis-rows">
-                                    @for($i = 0; $i < 5; $i++)
-                                        <div class="market-analysis-row">
-                                            <div class="position-relative">
-
-                                                <div class="image-checkbox">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    </div>
-                                                </div>
-                                                <img src="https://images.unsplash.com/photo-1625602812206-5ec545ca1231?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YW1lcmljYW4lMjBob3VzZXN8ZW58MHx8MHx8&w=1000&q=80" alt="">
-
-                                                <div class="image-overlay">
-                                                    <div class="image-overlay-div">
-                                                        <div>
-                                                            <p class="sqft-price">
-                                                                <i class="fa-solid fa-star"></i>
-                                                                <b>$699,9999 | $373 Sq.Ft</b>
-                                                            </p>
-                                                            <p class="sqft-price">
-                                                                2765 Coconut Ave 2765
-                                                            </p>
-                                                        </div>
-
-                                                        <div class="subject-property-details d-flex align-items-center justify-content-end">
-                                                            <div>
-                                                                <h6>2 <br> Beds</h6>
-                                                            </div>
-                                                            <div>
-                                                                <h6>3.5 <br> Baths</h6>
-                                                            </div>
-                                                            
-                                                            <div class="border-none">
-                                                                <h6>1,963 <br> SqFt</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="location">Miami, FL 33133</p>
-                                                        <p class="location">Villaggio in The Grove Con</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="div-table-market-analysis">
-                                                <table class="table-market-analysis">
-                                                    <tbody>
-                                                        @for($j = 0; $j < 10;$j++)
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="flex">
-                                                                        <p>MLS</p>
-                                                                        <p>A111445522</p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="flex">
-                                                                        <p>Year Built</p>
-                                                                        <p>2005</p>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        @endfor
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="flex">
-                                                                        <p>Agent</p>
-                                                                        <p>Jenilyn Martine</p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="flex">
-                                                                        <p>Phone</p>
-                                                                        <p>305-330-5481</p>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="4">
-                                                                    <div class="flex">
-                                                                        <p>Company</p>
-                                                                        <p>Compass Florida, LLC</p>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    @endfor
-                                </div>
+                                <div class="market-analysis-rows"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="table-box-footer w-100">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a href="{{ route('cma.search') }}" class="btn-action"><i class="fa-solid fa-chevron-left"></i> Previous</a>
-                            <a href="{{ route('cma.averageSalePrice') }}" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
-                        </div>
+                </div>
+                <div class="table-box-footer w-100">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="{{ route('cma.search') }}" class="btn-action"><i class="fa-solid fa-chevron-left"></i> Previous</a>
+                        <a href="{{ route('cma.averageSalePrice') }}" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
                     </div>
-                </div>        
+                </div>
             </div>
         </div>
     </div>
 </div>
+</div>
 
 @endsection
 @section('js')
+<script src="{{ asset('js/moment.min.js') }}"></script>
 <script>
+    var showByIdRow = null,
+        showRows = null;
     $(document).ready(function() {
         mounted();
     })
@@ -384,11 +291,222 @@
         if (response.data) {
             var data = response.data.bundle;
 
+            showByIdRow = data;
+            const validate = validateString;
+
             Object.keys(data).forEach((el) => {
                 let row = data[el];
-                $('#' + el).html(data[el] ?? 0);
+                $('#' + el).html(validate(data[el]));
             })
 
+        }
+
+        await getMatchedListings();
+    }
+    let locations = [];
+    async function getMatchedListings() {
+        var data = {
+            'ListPrice.lte': showByIdRow.ListPrice
+        }
+        var response = await axiosInc('listings', 'get', data);
+
+        if (response.data) {
+            const resForHtml = response.data.bundle.map(item => {
+                console.log(item.UnparsedAddress)
+                locations.push([item.BuyerAgentFullName, item.Latitude, item.Longitude])
+                let html = `<div class="market-analysis-row">
+                    <div class="position-relative">
+
+                        <div class="image-checkbox">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            </div>
+                        </div>
+                        <img src="${item.Media.length ? item.Media[0].MediaURL : ''}">
+
+                        <div class="image-overlay">
+                            <div class="image-overlay-div">
+                                <div>
+                                    <p class="sqft-price">
+                                        <i class="fa-solid fa-star"></i>
+                                        <b>$${validateString(item.ListPrice)} | $${validateString(item.MIAMIRE_RATIO_CurrentPrice_By_SQFT)} Sq.Ft</b>
+                                    </p>
+                                    <p class="sqft-price">
+                                        ${validateString(item.UnparsedAddress.split(',')[0])}
+                                    </p>
+                                </div>
+
+                                <div class="subject-property-details d-flex align-items-center justify-content-end">
+                                    <div>
+                                        <h6>${validateString(item.BedroomsTotal)} <br> Beds</h6>
+                                    </div>
+                                    <div>
+                                        <h6>${validateString(item.BathroomsFull)} <br> Baths</h6>
+                                    </div>
+                                    
+                                    <div class="border-none">
+                                        <h6>${validateString(item.MIAMIRE_MaximumLeasableSqft)} <br> SqFt</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="location">${validateString(item.City)} ${validateString(item.PostalCode)}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-table-market-analysis">
+                        <table class="table-market-analysis">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="flex">
+                                            <p>MLS</p>
+                                            <p>${item.ListAgentMlsId}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Year Built</p>
+                                            <p>${item.YearBuilt}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Pool</p>
+                                            <p>${item.PoolPrivateYN ? 'Yes': 'No'}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Lot Size</p>
+                                            <p>${validateString(item.LotSizeDimensions)}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Living Sq.Ft.</p>
+                                            <p>${item.LivingArea}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="flex">
+                                            <p>On Market</p>
+                                            <p>${item.DaysOnMarket ? item.DaysOnMarket + ' Days': 'No'}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Sold</p>
+                                            <p>${item.CloseDate ? moment().diff(moment(item.CloseDate, 'YYYY-MM-DD'), 'days') + ' Days ago' : 'Not Yet'}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Status</p>
+                                            <p>${item.StandardStatus}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="flex">
+                                            <p>Prop. Type</p>
+                                            <p>${item.PropertyType}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Water Front</p>
+                                            <p>${item.WaterfrontYN ? 'Yes': 'No'}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Listing Price</p>
+                                            <p>$${item.ListPrice}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Agent</p>
+                                            <p>${item.BuyerAgentFullName}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="flex">
+                                            <p>Phone</p>
+                                            <p>${item.BuyerAgentDirectPhone}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="flex">
+                                            <p>Company</p>
+                                            <p>${item.BuyerOfficeName}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>`;
+                return html;
+            });
+
+            $('.market-analysis-rows').html(resForHtml.toString().replaceAll(',', '\n'))
+            initMap()
+        }
+    }
+
+    function validateString(string, isNumber = true) {
+        return string ?? (isNumber ? 0 : 'N/A');
+    }
+
+    function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: new google.maps.LatLng(25.751360, -80.255580),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+        const svgMarker = {
+            path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+            fillColor: "black",
+            fillOpacity: 0.72,
+            strokeWeight: 0,
+            rotation: 0,
+            scale: 2,
+            anchor: new google.maps.Point(15, 30),
+        };
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                icon: svgMarker,
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
         }
     }
 </script>

@@ -3,7 +3,7 @@ function axiosInc(urlPath, method = 'get', data = null) {
     var addExtraOData = '';
 
     if(urlPath == 'Property') {
-        addExtraOData = 'OData'
+        addExtraOData = 'OData/'
     }
 
     var url = `${cmaApiCredentials.apiLink}${addExtraOData}${cmaApiCredentials.dataset}/${urlPath}?access_token=${cmaApiCredentials.serverToken}`;
