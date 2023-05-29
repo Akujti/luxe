@@ -125,6 +125,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .subject-property-details div {
@@ -239,7 +240,7 @@
 .market-analysis-row .table-market-analysis td .flex {
     display: flex;
     justify-content: space-between;
-    padding: 0px 5px;
+    padding: 3px 5px;
 }
 
 .table-action .edit-btn {
@@ -503,8 +504,13 @@
 .table-cma th {
     padding: 0.30rem;
 }
-
+#UnparsedAddress {
+    width: 312px;
+}
 @media (max-width: 992px) {
+    #UnparsedAddress {
+        width: 90%;
+    }
     .market-analysis-rows .market-analysis-row {
         width: 100%;
         display: grid;

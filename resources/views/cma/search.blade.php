@@ -70,27 +70,20 @@
 
         $(document).on('keyup', '.select2-search__field', function(e) {
             event.stopPropagation();
-
             var val = e.target.value;
-
             searchListings('filter-search', val);
-
-
         });
 
-
         $('#filter-value').on('select2:select', function(e) {
-            // Get the selected data from the event object
             const data = e.params.data;
             var nextBtn = $('#next-btn');
-            var nextBtnHref = $('#next-btn').attr('href');
+            var nextBtnHref = "{{ route('cma.show') }}";
             nextBtn.attr('href', nextBtnHref + '?listingId=' + data.id)
             nextBtn.removeClass('d-none');
         });
     });
     
     async function searchListings(filterSearchId, filterValueId) {
-
         var valueOfFilterSearch = $('#' + filterSearchId).val(),
             valueOfFilterValue = filterValueId;
 
