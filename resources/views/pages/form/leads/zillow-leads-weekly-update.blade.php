@@ -22,8 +22,8 @@
                     <input type="hidden" name="to_email[]" id="team_email" value="">
                     <input type="hidden" name="to_email[]" id="team_email_2" value="">
                     <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                                                                                                                                        <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
-                                                                                                                                                                        <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
+                                                                                                                                                                            <input type="hidden" name="to_email[]" value="irais@luxeknows.com">
+                                                                                                                                                                            <input type="hidden" name="to_email[]" value="zillowluxe@gmail.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -265,12 +265,12 @@
                                 <label for="name">Reason for Pause</label>
                                 <input id="reason_zillow_pause" type="text" class="form-control" name="reason_pause">
                             </div>
-                            <div class="form-group col-md-6 d-none">
+                            <div class="form-group col-md-6">
                                 <label for="name">Clients referred to LUXE Lending for the week</label>
                                 <input type="text" class="form-control"
                                     name="clients_referred_to_LUXE_Lending_for_the_week">
                             </div>
-                            <div class="form-group col-md-6 d-none">
+                            <div class="form-group col-md-6">
                                 <label for="name">Clients referred to Zillow Home Loans for the Week</label>
                                 <input type="text" class="form-control"
                                     name="clients_referred_to_zillow_home_loans_for_the_week">
