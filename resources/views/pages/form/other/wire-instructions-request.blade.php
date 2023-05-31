@@ -39,10 +39,10 @@
                     </div>
                     <input type="hidden" name="form_title" value="WIRE INSTRUCTIONS REQUEST">
                     <!-- <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="support@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="email@luxeknows.com"> -->
+                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
+                        <input type="hidden" name="to_email[]" value="support@luxeknows.com">
+                        <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
+                        <input type="hidden" name="to_email[]" value="email@luxeknows.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -66,7 +66,7 @@
                                     required id="">
                                     <option value="-">-</option>
                                     <option value="Agent Commission">Agent Commission</option>
-                                    <option value="Rental Escrow Deposit">Rental Escrow Deposit</option>
+                                    {{-- <option value="Rental Escrow Deposit">Rental Escrow Deposit</option> --}}
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
