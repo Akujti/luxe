@@ -295,8 +295,10 @@
                                 </h6>
                             </div>
                             <div class="form-group col-md-12">
-                                <input id="option-0" class="form-check-input ml-0" type="checkbox"
+                                <input id="option-0" class="form-check-input ml-0 d-none" type="checkbox"
                                     value="Photos Only (12-15 images)"
+                                    data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked>
+                                <input class="form-check-input ml-0" type="checkbox" value="Photos Only (12-15 images)"
                                     data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked
                                     disabled>
                                 <label class="ml-4">
