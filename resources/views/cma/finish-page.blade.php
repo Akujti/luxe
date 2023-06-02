@@ -36,7 +36,7 @@
                             </div>
                             <p>Processing your report! Please wait...</p>
                         </div>
-                        <a href="{{ route('cma.showReport') }}" class="btn-luxe d-none" id="view-report">View Report</a>
+                        <a href="{{ route('cma.showReport') }}?@querystring" class="btn-luxe d-none" id="view-report">View Report</a>
                     </div>
                 </div>        
             </div>

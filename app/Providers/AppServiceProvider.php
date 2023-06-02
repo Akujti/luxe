@@ -6,6 +6,7 @@ use Illuminate\Support\Arr;
 use App\Observers\OrderObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
@@ -30,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::directive('querystring', function () {
+            return "<?php echo str_replace('%2C', ',', request()->getQueryString()); ?>";
+        });
+        
         LuxeStoreOrder::observe(OrderObserver::class);
         Paginator::useBootstrap();
 

@@ -93,12 +93,13 @@
                             <div class="col-12 col-xl-6">
                                 <div class="market-anysis-rows-header">
                                     <p class="p-0 m-0">
-                                        0/3 Solds Compos Selected
+                                        <span>
+                                            <span id="results-scan">0/0</span> Solds Compos Selected
+                                        </span>
                                         <i class="fa-solid fa-circle-play"></i>
                                     </p>
 
                                     <div class="d-flex align-items-center">
-                                        <p class="p-0 m-0 pr-4">5/6 Results</p>
                                         <div class="filter-buttons">
                                             <button>
                                                 <i class="fa-solid fa-arrow-up-z-a"></i>
@@ -264,7 +265,8 @@
                 <div class="table-box-footer w-100">
                     <div class="d-flex align-items-center justify-content-between">
                         <a href="{{ route('cma.search') }}" class="btn-action"><i class="fa-solid fa-chevron-left"></i> Previous</a>
-                        <a href="{{ route('cma.averageSalePrice') }}" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
+                        <!-- <a href="{{ route('cma.averageSalePrice') }}" id="next-btn" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a> -->
+                        <a href="{{ route('cma.finishPage') }}" id="next-btn" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -277,10 +279,10 @@
 @section('js')
 <script src="{{ asset('js/moment.min.js') }}"></script>
 <script>
-    var showByIdRow = null,
-        showRows = null;
-    $(document).ready(function() {
-        mounted();
+    var showByIdRow = null, showRows = null, checkedIds = [];
+    $(document).ready(async function() {
+        await mounted();
+        await checkedListings();
     })
 
     async function mounted() {
@@ -303,6 +305,30 @@
 
         await getMatchedListings();
     }
+
+    function checkedListings() {
+        $('.checkbox-check').change(function() {
+            var checkedCheckbox = $('.checkbox-check:checked');
+
+            checkedIds = [];
+
+            checkedCheckbox.map(el => {
+                let row = checkedCheckbox[el];
+
+                checkedIds.push(row.value);
+                return;
+            })
+
+            var nextBtn = $('#next-btn');
+            var nextBtnHref = "{{ route('cma.finishPage') }}";
+            nextBtn.attr('href', `${nextBtnHref}?listingId=${showByIdRow.ListingId}&listingIds=${checkedIds.toString()}`)
+
+            var resultScan = $('#results-scan');
+            var html = resultScan.html().split('/')[1];
+
+            resultScan.html(`${checkedCheckbox.length}/${html}`);
+        })
+    }
     let locations = [];
     async function getMatchedListings() {
         var data = {
@@ -311,15 +337,15 @@
         var response = await axiosInc('listings', 'get', data);
 
         if (response.data) {
+            $('#results-scan').html('0/' + response.data.bundle.length)
             const resForHtml = response.data.bundle.map(item => {
-                console.log(item.UnparsedAddress)
                 locations.push([item.BuyerAgentFullName, item.Latitude, item.Longitude])
                 let html = `<div class="market-analysis-row">
                     <div class="position-relative">
 
                         <div class="image-checkbox">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <input class="form-check-input checkbox-check" type="checkbox" value="${item.ListingId}" id="flexCheckDefault">
                             </div>
                         </div>
                         <img src="${item.Media.length ? item.Media[0].MediaURL : ''}">
