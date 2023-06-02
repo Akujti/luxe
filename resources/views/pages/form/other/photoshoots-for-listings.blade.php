@@ -374,6 +374,7 @@
                                 </div>
                             </div>
                             <div class="form-group form-footer col-12">
+                                <input id="total" type="hidden" name="total" value="$0">
                                 <input id="submit-btn" type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                                 <div id="paypal-button-container" class="d-none"></div>
                             </div>
@@ -398,7 +399,6 @@
         function calculate() {
             var total = 0;
             var status = {{ auth()->user()->status }};
-            console.log(status);
             var elements = $('input[id^="option-"]:checked').toArray();
             elements.forEach(element => {
                 if (element.getAttribute("data-price")) {
@@ -417,7 +417,7 @@
             else
                 amount = total
 
-            // document.getElementById('total').innerHTML = amount
+            document.getElementById('total').value = '$' + amount
             if (amount == 0) {
                 $('#submit-btn').removeClass('d-none')
                 $('#paypal-button-container').addClass('d-none')
@@ -425,7 +425,6 @@
                 $('#paypal-button-container').removeClass('d-none')
                 $('#submit-btn').addClass('d-none')
             }
-            console.log('amount', amount);
         }
 
         paypal.Buttons({

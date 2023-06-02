@@ -1,24 +1,46 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Console\Commands;
 
-use App\Mail\CouponUsedMailTemplate;
 use App\Mail\DailyStoreReport;
-use App\Models\BrokersumoAgent;
 use App\Models\LuxeStore\LuxeStoreCategory;
-use App\Models\LuxeStore\LuxeStoreCouponCode;
-use App\Models\LuxeStore\LuxeStoreProduct;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
-use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
 
-class TestController extends Controller
+class SendDailyStoreReport extends Command
 {
-    public function index()
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'daily:report';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Command description';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
     {
         $marketing_menu_category = LuxeStoreCategory::where('slug', 'marketing-menu')->firstOrFail();
         $orders = LuxeStoreOrder::whereHas('products', function ($q) use ($marketing_menu_category) {
@@ -45,18 +67,8 @@ class TestController extends Controller
         }
         $details['total'] = $total;
         $details['orders'] = $final_orders;
-        $details['timezone'] = now();
-        $details['orders'] = $orders;
+        $details['test'] = $orders;
         $emails = ['art@ajroni.com'];
         Mail::to($emails)->send(new DailyStoreReport($details));
-        return $details;
-    }
-
-    public function update_vimeo()
-    {
-    }
-
-    public function submit(Request $request)
-    {
     }
 }
