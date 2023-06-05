@@ -49,7 +49,7 @@ class SendDailyStoreReport extends Command
                     $q->where('luxe_store_categories.id', '!=', $marketing_menu_category->id);
                 });
             });
-        })->whereDate('created_at', Carbon::today())->with(['products', 'billing_details', 'payment', 'inputs', 'user'])->latest()->get();
+        })->whereDate('created_at', Carbon::yesterday())->with(['products', 'billing_details', 'payment', 'inputs', 'user'])->latest()->get();
         $details['no_orders'] = count($orders);
         $total = 0;
         $final_orders = [];

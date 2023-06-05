@@ -45,7 +45,8 @@ class TestController extends Controller
         }
         $details['total'] = $total;
         $details['orders'] = $final_orders;
-        $details['timezone'] = now();
+        $details['timezone'] = Carbon::yesterday();
+        $details['timezone_1'] = Carbon::today('America/New_York');
         $details['orders'] = $orders;
         $emails = ['art@ajroni.com'];
         Mail::to($emails)->send(new DailyStoreReport($details));
