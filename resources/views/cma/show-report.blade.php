@@ -46,19 +46,22 @@
         <div class="d-flex align-items-center justify-content-around">
             <p>
                 <i class="fa-solid fa-location-dot"></i>
-                2759 COCONUT AVE MIAMI FL 33133
+                <span class="UnparsedAddress"></span>
             </p>
             <p>
                 <i class="fa-solid fa-table-cells-large"></i>
-                1,963 sqft
+                <span class="MIAMIRE_MaximumLeasableSqft"></span>
+                sqft
             </p>
             <p>
                 <i class="fa-solid fa-bed"></i>
-                2 beds
+                <span class="BedroomsTotal"></span>
+                beds
             </p>
             <p>
                 <i class="fa-solid fa-toilet"></i>
-                2 toilets
+                <span class="BathroomsTotalInteger"></span>
+                toilets
             </p>
         </div>
     </section>
@@ -66,7 +69,6 @@
 
 <section class="section-map">
     <div>
-        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14377.148685373455!2d-80.27733083339375!3d25.72801527140639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b7c4a72958db%3A0x277e3b9f623100fb!2sCoconut%20Grove%2C%20Miami%2C%20FL%2C%20USA!5e0!3m2!1sen!2s!4v1682631578934!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
         <style>
             #map {
                 height: 100%;
@@ -108,27 +110,6 @@
             </div>
         </div>
     </section>
-
-    <!-- <section class="section-details">
-        <div class="d-flex align-items-center justify-content-around">
-            <p>
-                <i class="fa-solid fa-location-dot"></i>
-                2759 COCONUT AVE MIAMI FL 33133
-            </p>
-            <p>
-                <i class="fa-solid fa-table-cells-large"></i>
-                1,963 sqft
-            </p>
-            <p>
-                <i class="fa-solid fa-bed"></i>
-                2 beds
-            </p>
-            <p>
-                <i class="fa-solid fa-toilet"></i>
-                2 toilets
-            </p>
-        </div>
-    </section> -->
 </section>
 
 <section class="section-header section-comparables">
@@ -183,242 +164,12 @@
     </section>
 </section>
 
-<section class="section-header section-comparables section-top-comparables">
-    <section class="section-img">
+<section class="section-header section-comparables section-top-comparables" style="height:auto;min-height:100vh;max-height:300vh;">
+    <section class="section-img" style="position:relative;transform:unset !important;top:unset;left:unset;">
         <h1>Top Comparables</h1>
         <div>
-
-            <div class="row p-0 m-0">
-                <div class="col-12 col-xl-4">
-                    <div class="top-post">
-                        <div class="img-top-post">
-                            <img src="{{ asset('images/cma/house.jpeg') }}" width="100%">
-                            <div class="sold">SOLD</div>
-                            <div class="price">$1,100,000</div>
-                            <div class="details">
-                                <div>
-                                    <p>2566 Trapp Ave 25661 <br> Miami, FL 33133</p>
-                                    <p>2.5 <br>Baths</p>
-                                    <p>2,119 <br>Sq.Ft.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="under-img">
-                            TRAPP AVENUE CONDO
-                        </div>
-                        <div class="details-top-post">
-                            <div class="d-flex">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <p class="d-inline-block">Year 2006</p>
-                                    <p class="d-inline-block"> Lot size 2,119</p>
-                                </div>
-
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">On Market 203 days</p>
-                                <p class="d-inline-block">Association</p>
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">Pool No</p>
-                                <p class="d-inline-block">Waterfront No</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-xl-4">
-                    <div class="top-post">
-                        <div class="img-top-post">
-                            <img src="{{ asset('images/cma/house1.jpeg') }}" width="100%">
-                            <div class="sold">SOLD</div>
-                            <div class="price">$1,100,000</div>
-                            <div class="details">
-                                <div>
-                                    <p>2566 Trapp Ave 25661 <br> Miami, FL 33133</p>
-                                    <p>2.5 <br>Baths</p>
-                                    <p>2,119 <br>Sq.Ft.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="under-img">
-                            TRAPP AVENUE CONDO
-                        </div>
-                        <div class="details-top-post">
-                            <div class="d-flex">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <p class="d-inline-block">Year 2006</p>
-                                    <p class="d-inline-block"> Lot size 2,119</p>
-                                </div>
-
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">On Market 203 days</p>
-                                <p class="d-inline-block">Association</p>
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">Pool No</p>
-                                <p class="d-inline-block">Waterfront No</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-xl-4">
-                    <div class="top-post">
-                        <div class="img-top-post">
-                            <img src="{{ asset('images/cma/house2.jpeg') }}" width="100%">
-                            <div class="sold">SOLD</div>
-                            <div class="price">$1,100,000</div>
-                            <div class="details">
-                                <div>
-                                    <p>2566 Trapp Ave 25661 <br> Miami, FL 33133</p>
-                                    <p>2.5 <br>Baths</p>
-                                    <p>2,119 <br>Sq.Ft.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="under-img">
-                            TRAPP AVENUE CONDO
-                        </div>
-                        <div class="details-top-post">
-                            <div class="d-flex">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <p class="d-inline-block">Year 2006</p>
-                                    <p class="d-inline-block"> Lot size 2,119</p>
-                                </div>
-
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">On Market 203 days</p>
-                                <p class="d-inline-block">Association</p>
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">Pool No</p>
-                                <p class="d-inline-block">Waterfront No</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-xl-4">
-                    <div class="top-post">
-                        <div class="img-top-post">
-                            <img src="{{ asset('images/cma/house3.jpeg') }}" width="100%">
-                            <div class="sold">SOLD</div>
-                            <div class="price">$1,100,000</div>
-                            <div class="details">
-                                <div>
-                                    <p>2566 Trapp Ave 25661 <br> Miami, FL 33133</p>
-                                    <p>2.5 <br>Baths</p>
-                                    <p>2,119 <br>Sq.Ft.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="under-img">
-                            TRAPP AVENUE CONDO
-                        </div>
-                        <div class="details-top-post">
-                            <div class="d-flex">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <p class="d-inline-block">Year 2006</p>
-                                    <p class="d-inline-block"> Lot size 2,119</p>
-                                </div>
-
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">On Market 203 days</p>
-                                <p class="d-inline-block">Association</p>
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">Pool No</p>
-                                <p class="d-inline-block">Waterfront No</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-xl-4">
-                    <div class="top-post">
-                        <div class="img-top-post">
-                            <img src="{{ asset('images/cma/house4.jpeg') }}" width="100%">
-                            <div class="sold">SOLD</div>
-                            <div class="price">$1,100,000</div>
-                            <div class="details">
-                                <div>
-                                    <p>2566 Trapp Ave 25661 <br> Miami, FL 33133</p>
-                                    <p>2.5 <br>Baths</p>
-                                    <p>2,119 <br>Sq.Ft.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="under-img">
-                            TRAPP AVENUE CONDO
-                        </div>
-                        <div class="details-top-post">
-                            <div class="d-flex">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <p class="d-inline-block">Year 2006</p>
-                                    <p class="d-inline-block"> Lot size 2,119</p>
-                                </div>
-
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">On Market 203 days</p>
-                                <p class="d-inline-block">Association</p>
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">Pool No</p>
-                                <p class="d-inline-block">Waterfront No</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-xl-4">
-                    <div class="top-post">
-                        <div class="img-top-post">
-                            <img src="{{ asset('images/cma/house5.jpeg') }}" width="100%">
-                            <div class="sold">SOLD</div>
-                            <div class="price">$1,100,000</div>
-                            <div class="details">
-                                <div>
-                                    <p>2566 Trapp Ave 25661 <br> Miami, FL 33133</p>
-                                    <p>2.5 <br>Baths</p>
-                                    <p>2,119 <br>Sq.Ft.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="under-img">
-                            TRAPP AVENUE CONDO
-                        </div>
-                        <div class="details-top-post">
-                            <div class="d-flex">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <p class="d-inline-block">Year 2006</p>
-                                    <p class="d-inline-block"> Lot size 2,119</p>
-                                </div>
-
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">On Market 203 days</p>
-                                <p class="d-inline-block">Association</p>
-                            </div>
-                            <div class="d-flex w-100 justify-content-between">
-                                <p class="d-inline-block">Pool No</p>
-                                <p class="d-inline-block">Waterfront No</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-footer mt-4">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div></div>
-
-                    <div class="logo">
-                        <img src="{{ asset('images/logo-black.png') }}" height="95px">
-                    </div>
-
-                    <div class="text-dark gothicRegular">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </div>
+            <div class="row p-0 m-0" id="top-comparables">
+                <h1 class="text-center" style="color:black;font-size:20px;text-align:center;width:100%;">Loading...</h1>
             </div>
         </div>
     </section>
@@ -453,19 +204,19 @@
         <div class="d-flex align-items-center justify-content-around">
             <p>
                 <i class="fa-solid fa-location-dot"></i>
-                2759 COCONUT AVE MIAMI FL 33133
+                <span class="UnparsedAddress"></span>
             </p>
             <p>
                 <i class="fa-solid fa-table-cells-large"></i>
-                1,963 sqft
+                <span class="MIAMIRE_MaximumLeasableSqft"></span> sqft
             </p>
             <p>
                 <i class="fa-solid fa-bed"></i>
-                2 beds
+                <span class="BedroomsTotal"></span> beds
             </p>
             <p>
                 <i class="fa-solid fa-toilet"></i>
-                2 toilets
+                <span class="BathroomsTotalInteger"></span> toilets
             </p>
         </div>
     </section>
@@ -484,6 +235,9 @@
         await mounted();
         await getMatchedListings();
     })
+    function validateString(string, isNumber = true) {
+        return string ?? (isNumber ? 0 : 'N/A');
+    }
 
     async function mounted() {
         var listingId = "{{ request()->get('listingId') }}";
@@ -491,23 +245,26 @@
         if (response.data) {
             var data = response.data.bundle;
 
-            // console.log(data);
-            // Object.keys(data).forEach((el) => {
-            //     let row = data[el];
-            //     $('#' + el).html(validate(data[el]));
-            // })
+            var validate = validateString;
+
+            Object.keys(data).forEach((el) => {
+                let row = data[el];
+                $('.' + el).html(validate(data[el]));
+            })
 
         }
     }
-
+    var listingsIdsData = [];
     let locations = [];
     async function getMatchedListings() {
         var listingIds = "{{ request()->get('listingIds') }}".split(',');
-        let html = ``;
+        let html = ``,
+            html2 = ``;
         let rows = await Promise.all(listingIds.map(async el => {
             var response = await axiosInc(`listings/${el}`, 'get', null);
             if (response.data) {
                 var data = response.data.bundle;
+                listingsIdsData.push(data);
                 html += `<tr>
                             <td>${data.ListingId}</td>
                             <td>
@@ -520,13 +277,51 @@
                             <td>${data.BathroomsHalf ?? 0}</td>
                             <td>${data.UnparsedAddress}</td>
                         </tr>`;
-                console.log(data)
+
+                html2 += `<div class="col-12 col-xl-4">
+                    <div class="top-post">
+                        <div class="img-top-post">
+                            <img src="${data.Media.length ? data.Media[0].MediaURL : ''}" width="100%">
+                            <div class="sold">SOLD</div>
+                            <div class="price">$${data.ListPrice}</div>
+                            <div class="details">
+                                <div>
+                                    <p>${data.UnparsedAddress}</p>
+                                    <p>${data.BathroomsTotalInteger ?? 0} <br>Baths</p>
+                                    <p>2,119 <br>Sq.Ft.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="under-img">
+                            ${data.BuyerAgentFullName}
+                        </div>
+                        <div class="details-top-post">
+                            <div class="d-flex">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <p class="d-inline-block">Year ${data.YearBuilt ?? 'N/A'}</p>
+                                    <p class="d-inline-block"> Lot size ${data.LotSizeDimensions ?? 'N/A'}</p>
+                                </div>
+
+                            </div>
+                            <div class="d-flex w-100 justify-content-between">
+                                <p class="d-inline-block">On Market ${data.DaysOnMarket ? data.DaysOnMarket + ' Days': 'No'}</p>
+                                <p class="d-inline-block">Association</p>
+                            </div>
+                            <div class="d-flex w-100 justify-content-between">
+                                <p class="d-inline-block">Pool ${data.PoolPrivateYN ? 'Yes': 'No'}</p>
+                                <p class="d-inline-block">Waterfront ${data.WaterfrontYN ? 'Yes': 'No'}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
                 locations.push([data.BuyerAgentFullName, data.Latitude, data.Longitude])
             }
             return [data.BuyerAgentFullName, data.Latitude, data.Longitude];
         }));
         $('#table-comparables').html(html)
+        $('#top-comparables').html(html2)
         initMap()
+        fillCharts();
 
     }
 
@@ -564,127 +359,114 @@
             })(marker, i));
         }
     }
-    Highcharts.chart('chart', {
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: null,
-            align: 'left'
-        },
-        subtitle: {
-            text: null,
-            align: 'left'
-        },
-        xAxis: {
-            categories: ['Internet', 'Real Estate Agent', 'Yard Sign', 'Open House'],
-            title: {
-                text: null
+
+    function fillCharts() {
+        Highcharts.chart('chart', {
+            chart: {
+                zoomType: 'xy'
             },
-            gridLineWidth: 1,
-            lineWidth: 0
-        },
-        yAxis: {
-            min: 0,
             title: {
                 text: null,
-                align: 'high'
+                align: 'left'
             },
-            labels: {
-                overflow: 'justify'
+            subtitle: {
+                text: null
             },
-            gridLineWidth: 0
-        },
-        tooltip: {
-            valueSuffix: ' millions'
-        },
-        plotOptions: {
-            bar: {
-                borderRadius: '50%',
-                dataLabels: {
-                    enabled: true
+            xAxis: [{
+                categories: Object.values(listingsIdsData).map(el => el.BuyerAgentFullName),
+                crosshair: true
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+                    format: '{value}',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
                 },
-                groupPadding: 0.1
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            x: -40,
-            y: 80,
-            floating: true,
-            borderWidth: 1,
-            backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-            shadow: true
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            name: 'Year 2020',
-            data: [631, 727, 3202, 721]
-        }, {
-            name: 'Year 2021',
-            data: [814, 841, 3714, 726]
-        }, {
-            name: 'Year 2022',
-            data: [1044, 944, 4170, 735]
-        }, {
-            name: 'Year 2023',
-            data: [1276, 1007, 4561, 746]
-        }]
-    });
-
-
-    Highcharts.chart('chart1', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: null,
-            align: 'left'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        accessibility: {
-            point: {
-                valueSuffix: '%'
-            }
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                title: {
+                    text: null,
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
                 }
-            }
-        },
-        series: [{
-            name: 'Brands',
-            colorByPoint: true,
-            data: [{
-                name: 'Internet',
-                y: 70.67,
-                sliced: true,
-                selected: true
+            }, { // Secondary yAxis
+                title: {
+                    text: null,
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                labels: {
+                    format: '{value}',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                align: 'left',
+                x: 80,
+                verticalAlign: 'top',
+                y: 80,
+                floating: true,
+                backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || 'rgba(255,255,255,0.25)'
+            },
+            series: [ {
+                name: 'List Price',
+                type: 'spline',
+                data: Object.values(listingsIdsData).map(el => el.ListPrice),
+                tooltip: {
+                    valueSuffix: ''
+                }
             }, {
-                name: 'Real Estate Agent',
-                y: 14.77
-            }, {
-                name: 'Yard Sign',
-                y: 4.86
-            }, {
-                name: 'Open House',
-                y: 4.86
+                name: 'Close Price',
+                type: 'spline',
+                data: Object.values(listingsIdsData).map(el => el.ClosePrice),
+                tooltip: {
+                    valueSuffix: ''
+                }
             }]
-        }]
-    });
+        });
+
+        Highcharts.chart('chart1', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: null,
+                align: 'left'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: ${point.y}'
+                    }
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: Object.values(listingsIdsData).map(el => {return { name: el.BuyerAgentFullName, y: el.ListPrice }})
+            }]
+        });
+    }
 </script>
 @endsection
