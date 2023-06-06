@@ -42,14 +42,7 @@ class SendDailyStoreReport extends Command
      */
     public function handle()
     {
-        $marketing_menu_category = LuxeStoreCategory::where('slug', 'marketing-menu')->firstOrFail();
-        $orders = LuxeStoreOrder::whereHas('products', function ($q) use ($marketing_menu_category) {
-            $q->whereHas('product', function ($q) use ($marketing_menu_category) {
-                $q->whereHas('categories', function ($q) use ($marketing_menu_category) {
-                    $q->where('luxe_store_categories.id', '!=', $marketing_menu_category->id);
-                });
-            });
-        })->whereDate('created_at', Carbon::yesterday())->with(['products', 'billing_details', 'payment', 'inputs', 'user'])->latest()->get();
+        $orders = LuxeStoreOrder::whereHas('products')->whereDate('created_at', Carbon::yesterday())->with(['products', 'billing_details', 'payment', 'inputs', 'user'])->latest()->get();
         $details['no_orders'] = count($orders);
         $total = 0;
         $final_orders = [];
@@ -68,7 +61,7 @@ class SendDailyStoreReport extends Command
         $details['total'] = $total;
         $details['orders'] = $final_orders;
         $details['test'] = $orders;
-        $emails = ['art@ajroni.com'];
+        $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
         Mail::to($emails)->send(new DailyStoreReport($details));
     }
 }
