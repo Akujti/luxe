@@ -61,7 +61,7 @@ class SendDailyStoreReport extends Command
         $details['total'] = $total;
         $details['orders'] = $final_orders;
         $details['test'] = $orders;
-        $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
+        $emails = ['operations@luxeknows.com', 'email@luxeknows.com', 'wesley@luxeknows.com'];
         Mail::to($emails)->send(new DailyStoreReport($details));
     }
 }

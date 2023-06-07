@@ -16,10 +16,6 @@
             font-size: 18px;
         }
 
-        .box-items p {
-            text-decoration: underline;
-        }
-
         .btn-luxe {
             border-radius: 10px;
             cursor: pointer;
@@ -38,7 +34,7 @@
     <div class="container-fluid">
         <div class="col-12 title mb-3">
             <h1>LUXE Coaching</h1>
-            <p>"Taking your real estate business to the Next Level".</p>
+            <p>30 Days to Success - Unlock Your Potential!</p>
 
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-show="true">
@@ -69,58 +65,41 @@
             @endif
         </div>
         <div class="row box-items py-4">
-            <div class="col-lg-6 d-none">
-                <style>
-                    iframe {
-                        height: 400px;
-                    }
-
-                    @media(max-width:500px) {
-                        iframe {
-                            height: 200px;
-                        }
-                    }
-                </style>
-                {{-- <iframe src="https://drive.google.com/file/d/1YCfTMcHl6WYpFIG6PxzZKNywzlWXZenV/preview" width="100%"
-                    allow="autoplay"></iframe> --}}
-            </div>
             <div class="col-lg-12 coaching-text">
                 <div>
-                    <div class="d-flex justify-content-center">
-                        <a class="btn btn-luxe" href="https://luxecoaching.myluxehub.com/" target="_blank">Agent Login</a>
-                    </div>
-                    <p>Group Coaching</p>
-                    <ul>
-                        <li>High impact in person group coaching twice a week for 90 minutes at one of our offices</li>
-                        <li>Grow your business with a proven sales process used by top agents all over North America</li>
-                        <li>Learn and practice dialogues that will take your business to the next level</li>
-                    </ul>
-                </div>
-                <div>
-                    <p>On Demand Coaching 24/7 and 365 days a year</p>
-                    <ul>
-                        <li>3 powerful lessons available online every week to help you "next level" your business</li>
-                        <li>Learn how to build a predictable and duplicatable business</li>
-                        <li>Next level your business by using techniques that having you
-                            thinking bigger so you can have the life and business that you want</li>
-                    </ul>
-                </div>
-                <div>
-                    <p>One in person half day seminar a month</p>
-                    <ul>
-                        <li>Once a month participate in an in person half day
-                            seminar that will help keep you focused on your goals and providing your with the
-                            road map to take your business to the next level</li>
-                    </ul>
-                </div>
-                <div>
-                    <p>Online platform connecting a community of like-minded agents</p>
-                    <ul>
-                        <li>Exclusive access to all learning materials and lessons from one easy to use
-                            online platform that is accessible from your desktop or any mobile device
-                        </li>
-                        <li>Online community chat for additional support to all coaching clients</li>
-                    </ul>
+                    <p>Are you ready to take your real estate career to new heights? Are you looking to maximize your
+                        earning potential and achieve unparalleled success in the dynamic world of real estate? Look no
+                        further! Our 30 days to success program are designed to empower you with the knowledge, skills, and
+                        strategies you need to thrive in today's competitive market.</p>
+                    <p><b>Knowledge is Power:</b> Gain access to a treasure trove of industry-leading insights and proven
+                        techniques that will propel your career forward. We have a deep understanding of the real estate
+                        landscape and will provide you with expert guidance tailored to your unique goals and aspirations.
+                    </p>
+                    <p>
+                        <b>Accelerate Your Growth:</b> Whether you're just starting out or an experienced agent looking for
+                        a
+                        refresher course, our class is designed to get you back to basics and understanding the process of
+                        real estate.
+                    </p>
+                    <p>
+                        <b>Unleash Your Entrepreneurial Spirit:</b> Real estate is not just a job; it's an opportunity to
+                        build
+                        your own business and create a life of financial freedom. We will empower you with the
+                        entrepreneurial mindset needed to build a thriving real estate empire. From lead generation to
+                        building a robust referral network, we'll guide you every step of the way.
+                    </p>
+                    <p>
+                        <b>Dominate Your Market:</b> In today's rapidly evolving real estate landscape, staying ahead of the
+                        curve
+                        is crucial. Our classes will equip you with the latest market trends, cutting-edge technology tools,
+                        and innovative sales strategies to dominate your market. We'll help you identify emerging
+                        opportunities and adapt to changing consumer behaviors.
+                    </p>
+                    <p><b>Personalized Support:</b> We understand that every real estate professional is unique, with
+                        individual
+                        strengths and areas for growth. That's why our coaching program is tailored to your specific needs.
+                        Our teacher will provide one-on-one guidance, offering personalized feedback, accountability, and
+                        support to ensure you achieve exceptional results.</p>
                 </div>
 
                 <div class="row p-0 m-0 justify-content-center">
