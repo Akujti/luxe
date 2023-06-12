@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Mail\DailyStoreReport;
+use App\Models\FormSubmit;
 use App\Models\LuxeStore\LuxeStoreCategory;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use Carbon\Carbon;
@@ -58,6 +59,7 @@ class SendDailyStoreReport extends Command
             $temp['created_at'] = $order->created_at;
             array_push($final_orders, $temp);
         }
+        $details['submissions'] = FormSubmit::whereDate('created_at', Carbon::yesterday())->get();
         $details['total'] = $total;
         $details['orders'] = $final_orders;
         $details['test'] = $orders;

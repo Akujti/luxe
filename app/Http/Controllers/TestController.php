@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\CouponUsedMailTemplate;
 use App\Mail\DailyStoreReport;
 use App\Models\BrokersumoAgent;
+use App\Models\FormSubmit;
 use App\Models\LuxeStore\LuxeStoreCategory;
 use App\Models\LuxeStore\LuxeStoreCouponCode;
 use App\Models\LuxeStore\LuxeStoreProduct;
@@ -36,6 +37,8 @@ class TestController extends Controller
             $temp['created_at'] = $order->created_at;
             array_push($final_orders, $temp);
         }
+
+        $details['submissions'] = FormSubmit::whereDate('created_at', Carbon::yesterday())->get();
         $details['total'] = $total;
         $details['orders'] = $final_orders;
         $details['test'] = $orders;

@@ -103,6 +103,47 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+        <br><br>
+        <div class="" style="width: 100%">
+            <p class="bold-text"><b>No. of submissions:</b> {{ count($details['submissions']) }}</p>
+            <br>
+            <table width="100%" cellpadding="0" cellspacing="0" style="min-width:100%;">
+                <thead>
+                    <tr>
+                        <th class="bold-text" scope="col"
+                            style="padding:5px; font-size: 16px; line-height:20px;line-height:30px;text-align:left">
+                            Agent Name</th>
+                        <th class="bold-text" scope="col-2"
+                            style="padding:5px; font-size: 16px; line-height:20px;line-height:30px;text-align:left">
+                            Agent Email</th>
+                        <th class="bold-text" scope="col-2"
+                            style="padding:5px; font-size: 16px; line-height:20px;line-height:30px;text-align:left">
+                            Form</th>
+                        <th class="bold-text" scope="col"
+                            style="padding:5px; font-size: 16px; line-height:20px;line-height:30px;text-align:right">
+                            Date / Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($details['submissions'] as $submission)
+                        <tr>
+                            <td valign="top" style="padding:5px; font-size: 16px; line-height:20px;">
+                                {{ $submission['agent_name'] }}
+                            </td>
+                            <td valign="top" style="padding:5px; font-size: 16px; line-height:20px;">
+                                {{ $submission['agent_email'] }}
+                            </td>
+                            <td valign="top" style="padding:5px; font-size: 16px; line-height:20px;">
+                                {{ $submission['form_title'] }}
+                            </td>
+                            <td valign="top" style="padding:5px; font-size: 16px; line-height:20px;text-align:right">
+                                {{ $submission['created_at'] }}
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
             <div class="link">
                 <a href="https://myluxehub.com">https://myluxehub.com/</a>
             </div>
