@@ -26,7 +26,9 @@
 
     <!-- CKE Editor -->
     <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.0/adapters/jquery.min.js" integrity="sha512-YRvgGnMe4D3Vyx168nR0pr1HS0zToBpfePcCa+KnAk56YqaCLJyLWrxmw2+bwvAMMBfwiCsRbHRlU9hObT5E2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.0/adapters/jquery.min.js"
+        integrity="sha512-YRvgGnMe4D3Vyx168nR0pr1HS0zToBpfePcCa+KnAk56YqaCLJyLWrxmw2+bwvAMMBfwiCsRbHRlU9hObT5E2w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -281,9 +283,9 @@
                                     Submissions</a>
                                 <a href="{{ route('admin.diy-categories.index') }}"
                                     class="{{ isset($active) && $active == 'Diy' ? 'active selected' : '' }}">DIY</a>
-                                <a href="{{ route('admin.marketing-requests.index') }}"
+                                {{-- <a href="{{ route('admin.marketing-requests.index') }}"
                                     class="{{ isset($active) && $active == 'Marketing_requests' ? 'active selected' : '' }}">Marketing
-                                    Requests</a>
+                                    Requests</a> --}}
                                 <a href="{{ route('admin.canva.marketing.index_admin') }}"
                                     class="{{ isset($active) && $active == 'Marketing_canva' ? 'active selected' : '' }}">Canva</a>
                                 <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
