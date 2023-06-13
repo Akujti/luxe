@@ -16,8 +16,8 @@ class OrderObserver
      */
     public function created(LuxeStoreOrder $luxeStoreOrder)
     {
-        // $delay = Carbon::now()->addHours(72);
-        $delay = Carbon::now()->addSecond(5);
+        $delay = Carbon::now()->addHours(72);
+        // $delay = Carbon::now()->addSecond(1);
         OrderStatusNotCompleted::dispatch($luxeStoreOrder)->delay($delay);
     }
 

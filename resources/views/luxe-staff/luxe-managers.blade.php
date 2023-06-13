@@ -46,6 +46,12 @@
                 <p class="staff-email">denisse@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/justin.jpg') }}" class="staff-image">
+                <p class="staff-name">Justin Kirkwood</p>
+                <p class="staff-role">Dadeland Branch Manager</p>
+                <p class="staff-email">justink@luxeknows.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/katherine.jpg') }}" class="staff-image">
                 <p class="staff-name">Katherine Arteta</p>
                 <p class="staff-role">Pembroke Pines Manager</p>
