@@ -462,7 +462,7 @@
                 }
             },
             series: [{
-                name: 'Brands',
+                name: 'Value',
                 colorByPoint: true,
                 data: Object.values(listingsIdsData).map(el => {return { name: el.BuyerAgentFullName, y: el.ListPrice }})
             }]

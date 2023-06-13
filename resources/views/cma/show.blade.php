@@ -266,7 +266,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <a href="{{ route('cma.search') }}" class="btn-action"><i class="fa-solid fa-chevron-left"></i> Previous</a>
                         <!-- <a href="{{ route('cma.averageSalePrice') }}" id="next-btn" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a> -->
-                        <a href="{{ route('cma.finishPage') }}" id="next-btn" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
+                        <a href="{{ route('cma.averageSalePrice') }}" id="next-btn" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -320,7 +320,7 @@
             })
 
             var nextBtn = $('#next-btn');
-            var nextBtnHref = "{{ route('cma.finishPage') }}";
+            var nextBtnHref = "{{ route('cma.averageSalePrice') }}";
             nextBtn.attr('href', `${nextBtnHref}?listingId=${showByIdRow.ListingId}&listingIds=${checkedIds.toString()}`)
 
             var resultScan = $('#results-scan');
