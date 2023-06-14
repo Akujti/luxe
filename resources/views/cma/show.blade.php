@@ -279,29 +279,29 @@
 
         var data = [];
         if (yearbuiltMax && yearbuiltMin) {
-            data['YearBuilt.lt'] = yearbuiltMin;
-            data['YearBuilt.gt'] = yearbuiltMax;
+            data['YearBuilt.gt'] = yearbuiltMin;
+            data['YearBuilt.lt'] = yearbuiltMax;
         }
 
 
         if (lotsizeMin && lotsizeMax) {
-            data['LotSizeAcres.lt'] = lotsizeMin;
-            data['LotSizeAcres.gt'] = lotsizeMax;
+            data['LotSizeAcres.gt'] = lotsizeMin;
+            data['LotSizeAcres.lt'] = lotsizeMax;
         }
 
         if(bedroomsMin && bedroomsMax) {
-            data['BedroomsTotal.lt'] = bedroomsMin;
-            data['BedroomsTotal.gt'] = bedroomsMax;
+            data['BedroomsTotal.gt'] = bedroomsMin;
+            data['BedroomsTotal.lt'] = bedroomsMax;
         }
 
         if(fullbathMin && fullbathMax) {
-            data['BathroomsFull.lt'] = fullbathMin;
-            data['BathroomsFull.gt'] = fullbathMax;
+            data['BathroomsFull.gt'] = fullbathMin;
+            data['BathroomsFull.lt'] = fullbathMax;
         }
 
         if(halfbathMin && halfbathMax) {
-            data['BathroomsHalf.lt'] = halfbathMin;
-            data['BathroomsHalf.gt'] = halfbathMax;
+            data['BathroomsHalf.gt'] = halfbathMin;
+            data['BathroomsHalf.lt'] = halfbathMax;
         }
 
         if(pool) {
@@ -388,7 +388,7 @@
                                 <input class="form-check-input checkbox-check" type="checkbox" value="${item.ListingId}" id="flexCheckDefault">
                             </div>
                         </div>
-                        <img src="${item.Media.length ? item.Media[0].MediaURL : ''}">
+                        <img src="${(item.Media && item.Media.length) ? item.Media[0].MediaURL : ''}">
 
                         <div class="image-overlay">
                             <div class="image-overlay-div">
