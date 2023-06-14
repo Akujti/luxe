@@ -14,9 +14,15 @@
     .row img {
         object-fit: cover;
     }
+
+    #loading {
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 @endsection
 @section('content')
+
 <div class="container-fluid">
     <div class="row box-title p-0 m-0">
         <h3 class="text-center">Seller CMA</h3>
@@ -94,7 +100,7 @@
                                 <div class="market-anysis-rows-header">
                                     <p class="p-0 m-0">
                                         <span>
-                                            <span id="results-scan">0/0</span> Solds Compos Selected
+                                            <span id="results-scan">0/0</span> <span id="results-status"></span> Compos Selected
                                         </span>
                                         <i class="fa-solid fa-circle-play"></i>
                                     </p>
@@ -104,9 +110,6 @@
                                         <div class="filter-buttons">
                                             <div class="d-inline-block">
                                                 <div class="dropdown" id="search-dropdown">
-                                                    <span>
-                                                        <span id="results-status"></span>
-                                                    </span>
                                                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="fa-solid fa-bars"></i>
                                                     </button>
@@ -267,21 +270,38 @@
         showRows = null,
         checkedIds = [];
     $(document).ready(async function() {
+        loadingDiv(1);
         await mounted();
         $('#dropdownMenuButton').dropdown('toggle');
-        $('#results-status').html("Status: " + statusGl);
+        $('#results-status').html(statusGl);
+        loadingDiv(0);
+
     })
+
+    function loadingDiv(status) {
+        if (status) {
+            $('#loading').removeClass('d-none')
+            $('#loading').addClass('d-flex')
+        } else {
+            $('#loading').addClass('d-none')
+            $('#loading').removeClass('d-flex')
+        }
+    }
 
     var limit = 20;
 
-    function nextPage() {
+    async function nextPage() {
         limit = 20;
         statusGl = 'Active';
         locations = [];
-        $('#results-status').html("Status: " + statusGl);
-        filterSearch();
+        $('#results-status').html(statusGl);
+        $('#results-scan').html('0/20');
+
+        await filterSearch();
+
     }
     async function filterSearch(limit) {
+        loadingDiv(1);
         var pool = $("#pool").val();
         var mls = $("#mls").val();
         var lotsizeMin = $("#lot-size-min").val();
@@ -333,6 +353,10 @@
         await getMatchedListings(data);
 
         await checkedListings();
+
+        await loadingDiv(0);
+
+
 
 
         $("#drop-filter").removeClass('show');
@@ -427,7 +451,6 @@
             } else {
                 $('#view-more').addClass('d-none')
             }
-            console.log(response.data)
             $('#results-scan').html('0/' + response.data.bundle.length)
             const resForHtml = response.data.bundle.map(item => {
                 locations.push([item.BuyerAgentFullName, item.Latitude, item.Longitude])
@@ -473,7 +496,7 @@
                         </div>
                     </div>
                     <div class="div-table-market-analysis">
-                        <table class="table-market-analysis">
+                        <table class="table-market-analysis table-striped">
                             <tbody>
                                 <tr>
                                     <td>
@@ -583,6 +606,13 @@
             });
 
             $('.market-analysis-rows div').html(resForHtml.toString().replaceAll(',', '\n'))
+
+            $('.market-analysis-row div').scrollTop(0)
+
+            var marketDiv = $('.market-analysis-rows');
+            var innerDiv = marketDiv.find('div');
+
+            marketDiv.scrollTop(innerDiv.offset().top - marketDiv.offset().top);
             initMap()
         }
     }

@@ -381,10 +381,17 @@
     .toast {
         opacity: 1 !important;
     }
+    #loading {
+        background-color: white;
+        z-index: 9999999;
+    }
 </style>
 
 <body>
     <div id="app">
+    <div id="loading" class="d-none">
+        <section class="paytm-loader"></section>
+    </div>
         <header>
             <div class="header">
                 <div class="container-flud">
