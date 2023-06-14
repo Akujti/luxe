@@ -1,6 +1,8 @@
 @extends('layouts.app', ['active' => 'CMA'])
 @section('css')
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" defer></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
 <link rel="stylesheet" href="{{ asset('/css/cma-report.css') }}">
 <style>
     a {
@@ -38,11 +40,10 @@
                                 <select class="form-control" id="filter-search">
                                     <option value="">--</option>
                                     <option value="UnparsedAddress" selected>Address</option>
-                                    <option value="StreetAdditionalInfo">Street Additional Info</option>
                                 </select>
                             </div>
                             <div class="filter-search">
-                                <select id="filter-value" data-live-search="true" oninput="searchListings('filter-search', 'filter-value')"></select>
+                                <input id="search-input1" class="form-control" type="text">
                             </div>
                         </div>
                     </div>
@@ -61,45 +62,38 @@
 @endsection
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+
 <script>
-    $(document).ready(function() {
-        $('#filter-value').select2({
-            placeholder: "Search by address"
-        });
-
-        $(document).on('keyup', '.select2-search__field', function(e) {
-            event.stopPropagation();
-            var val = e.target.value;
-            searchListings('filter-search', val);
-        });
-
-        $('#filter-value').on('select2:select', function(e) {
-            const data = e.params.data;
-            var nextBtn = $('#next-btn');
-            var nextBtnHref = "{{ route('cma.show') }}";
-            nextBtn.attr('href', nextBtnHref + '?listingId=' + data.id)
-            nextBtn.removeClass('d-none');
-        });
-    });
-    
-    async function searchListings(filterSearchId, filterValueId) {
-        var valueOfFilterSearch = $('#' + filterSearchId).val(),
-            valueOfFilterValue = filterValueId;
-
+    $('#search-input1').on('keyup', async function() {
+        let search_input = $('#search-input1').val();
+        var filterSearch = $('#filter-search').val()
         var data = {};
-        data[valueOfFilterSearch + '.in'] = valueOfFilterValue;
-
-        if (!valueOfFilterValue) return;
-
+        data[filterSearch + '.in'] = search_input;
         var response = await axiosInc('listings', 'get', data);
-        const $select = $('#filter-value');
-        let body = '';
+
         if (response.data) {
-            const options = response.data.bundle.map(item => `<option value="${item.ListingId}">${item.UnparsedAddress}</option>`);
-            $select.html(options);
-            $select.select2()
+            const options = response.data.bundle.map(item => { return { label: item.UnparsedAddress, value: item.ListingId } });
+            console.log(options)
+            await searchFunc(options);
         }
+    })
+    function searchFunc(options) {
+        $("#search-input1").autocomplete({
+            source: function(request, response) {
+                var filteredOptions = options.filter(function(option) {
+                    return option.value.toLowerCase().search(request.term.toLowerCase());
+                });
+                response(filteredOptions);
+            },
+            select: function(event, ui) {
+                event.preventDefault();
+                $(this).val(ui.item.label);
+                var nextBtn = $('#next-btn');
+                var nextBtnHref = "{{ route('cma.show') }}";
+                nextBtn.attr('href', nextBtnHref + '?listingId=' + ui.item.value)
+                nextBtn.removeClass('d-none');
+            },
+        });
     }
 </script>
 @endsection
