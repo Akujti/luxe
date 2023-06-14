@@ -22,20 +22,7 @@
         <h3 class="text-center">Seller CMA</h3>
     </div>
     <div class="row mt-2 mb-5 justify-content-start p-0 m-0">
-        <div class="col-12 col-xl-6 mt-5">
-            <div class="box-charts row m-0">
-                <div class="table-box w-100 px-2">
-                    <div class="table-box-header d-flex align-items-center justify-content-between w-100">
-                        <h5>Average Sales Price <small>(by price)</small></h5>
-                    </div>
-
-                    <div class="table-box-body">
-                        <div class="big-chart" id="big-chart"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-xl-6 mt-5">
+        <div class="col-12 col-xl-12 mt-5">
             <div class="box-charts rowm-0">
                 <div class="table-box w-100 px-2">
                     <div class="table-box-header d-flex align-items-center justify-content-between w-100">
@@ -239,7 +226,6 @@
     $(document).ready(async function() {
         await mounted();
         await getMatchedListings();
-        await addChart();
         await addTypeChart();
         await addType1Chart();
     })
@@ -313,8 +299,8 @@
             }
         }));
 
-        $('#sqftA').html("$" + sqftA);
-        $('#sqftS').html("$" + sqftS);
+        $('#sqftA').html("$" + parseFloat(sqftA).toFixed(0));
+        $('#sqftS').html("$" + parseFloat(sqftS).toFixed(0));
         $('#daysA').html("$" + parseFloat(isNaN(daysA / daysAC) ? 0 : daysA / daysAC).toFixed(0));
         $('#daysS').html("$" + parseFloat(isNaN(daysS / daysSC) ? 0 : daysS / daysSC).toFixed(0));
 
@@ -329,83 +315,6 @@
         $('#high').val(`$${high}`)
         $('#mid').val(`$${parseFloat(Number(high) + Number(low)).toFixed(0) / 2}`)
     }
-
-
-
-    function addChart() {
-        Highcharts.chart('big-chart', {
-            chart: {
-                zoomType: 'xy'
-            },
-            title: {
-                text: null,
-                align: 'left'
-            },
-            subtitle: {
-                text: null
-            },
-            xAxis: [{
-                categories: Object.values(listingsIdsData).map(el => el.BuyerAgentFullName),
-                crosshair: true
-            }],
-            yAxis: [{ // Primary yAxis
-                labels: {
-                    format: '{value}',
-                    style: {
-                        color: Highcharts.getOptions().colors[1]
-                    }
-                },
-                title: {
-                    text: null,
-                    style: {
-                        color: Highcharts.getOptions().colors[1]
-                    }
-                }
-            }, { // Secondary yAxis
-                title: {
-                    text: null,
-                    style: {
-                        color: Highcharts.getOptions().colors[0]
-                    }
-                },
-                labels: {
-                    format: '{value}',
-                    style: {
-                        color: Highcharts.getOptions().colors[0]
-                    }
-                },
-                opposite: true
-            }],
-            tooltip: {
-                shared: true
-            },
-            legend: {
-                align: 'left',
-                x: 80,
-                verticalAlign: 'top',
-                y: 80,
-                floating: true,
-                backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || 'rgba(255,255,255,0.25)'
-            },
-            series: [{
-                name: 'List Price',
-                type: 'spline',
-                data: Object.values(listingsIdsData).map(el => el.ListPrice),
-                tooltip: {
-                    valueSuffix: ''
-                }
-            }, {
-                name: 'Close Price',
-                type: 'spline',
-                data: Object.values(listingsIdsData).map(el => el.ClosePrice),
-                tooltip: {
-                    valueSuffix: ''
-                }
-            }]
-        });
-    }
-
-
 
     function addTypeChart() {
         let rows = [];

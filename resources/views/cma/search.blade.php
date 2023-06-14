@@ -38,7 +38,6 @@
                         <div class="table-action d-flex align-items-center justify-content-center my-3" style="column-gap: 15px;">
                             <div class="filter-select">
                                 <select class="form-control" id="filter-search">
-                                    <option value="">--</option>
                                     <option value="UnparsedAddress" selected>Address</option>
                                 </select>
                             </div>

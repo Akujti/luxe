@@ -101,12 +101,6 @@
 
                                     <div class="d-flex align-items-center">
                                         <div class="filter-buttons">
-                                            <button>
-                                                <i class="fa-solid fa-arrow-up-z-a"></i>
-                                            </button>
-                                            <button>
-                                                <i class="fa-solid fa-plus"></i>
-                                            </button>
                                             <div class="d-inline-block">
                                                 <div class="dropdown" id="search-dropdown">
                                                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
