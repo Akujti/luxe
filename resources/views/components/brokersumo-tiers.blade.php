@@ -66,8 +66,8 @@
                     <img src="{{ asset('images/ribbon2.png') }}" alt="" style="max-width: 50px">
                 </div>
             @endif
-            <p class="text-center"><b>{{ date('Y') }} Top Producer:</b><br>
-                {{ $user->profile->badge['yearly_title'] }}
+            <p class="text-center"><b>{{ date('Y') }} Top Producer</b><br>
+                {{-- {{ $user->profile->badge['yearly_title'] }} --}}
             </p>
             <div class="d-flex justify-content-center">
                 <div class="w-50 d-flex justify-content-between">
