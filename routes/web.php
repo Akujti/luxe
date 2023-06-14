@@ -385,6 +385,8 @@ Route::group(
             Route::get('/results', [CMAController::class, 'show'])->name('show');
             Route::get('/average-sale-price', [CMAController::class, 'averageSalePrice'])->name('averageSalePrice');
             Route::get('/finish-page', [CMAController::class, 'finishPage'])->name('finishPage');
+            Route::post('/create', [CMAController::class, 'create'])->name('create');
+            Route::delete('/delete/{id}', [CMAController::class, 'delete'])->name('delete');
         });
     }
 );

@@ -106,48 +106,28 @@
                                                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="fa-solid fa-bars"></i>
                                                     </button>
-                                                    <div class="dropdown-menu dropdown-search-filter" onclick="event.stopPropagation()" aria-labelledby="dropdownMenuButton">
-                                                        <div class="row">
+                                                    <div class="dropdown-menu dropdown-search-filter" id="drop-filter" onclick="event.stopPropagation()" aria-labelledby="dropdownMenuButton">
+                                                        <form class="row" id="form">
                                                             <div class="col-12">
                                                                 <h5 class="h5-title text-center">Search Filter Form</h5>
                                                             </div>
                                                             <div class="col-12 col-xl-6">
                                                                 <div class="form-group mb-1">
-                                                                    <label for="">Search Area</label>
-                                                                    <select class="form-control">
+                                                                    <label for="">Pool</label>
+                                                                    <select class="form-control" id="pool">
                                                                         <option value="">--</option>
+                                                                        <option value="yes">Yes</option>
+                                                                        <option value="no">No</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-xl-6">
-                                                                <div class="form-group mb-1">
-                                                                    <label for="">Amenities</label>
-                                                                    <select class="form-control">
-                                                                        <option value="">--</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-xl-6">
-                                                                <div class="form-group mb-1">
-                                                                    <label for="">Complex | Builing | Subdivision</label>
-                                                                    <select class="form-control">
-                                                                        <option value="">--</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-xl-6">
-                                                                <div class="form-group mb-1">
-                                                                    <label for="">Sold since</label>
-                                                                    <select class="form-control">
-                                                                        <option value="">--</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
+
                                                             <div class="col-12 col-xl-6">
                                                                 <div class="form-group mb-1">
                                                                     <label for="">MLS #</label>
-                                                                    <select class="form-control">
+                                                                    <select class="form-control" id="mls">
                                                                         <option value="">--</option>
+                                                                        <option value="mls">mls</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -155,11 +135,11 @@
                                                                 <div class="form-group mb-1">
                                                                     <label for="">Lotsize</label>
                                                                     <div class="form-min-max">
-                                                                        <input type="text" class="form-control m-0" placeholder="Min">
+                                                                        <input type="text" id="lot-size-min" class="form-control m-0" placeholder="Min">
                                                                         <div>
                                                                             -
                                                                         </div>
-                                                                        <input type="text" class="form-control m-0" placeholder="Max">
+                                                                        <input type="text" id="lot-size-max" class="form-control m-0" placeholder="Max">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -191,11 +171,11 @@
                                                                 <div class="form-group mb-1">
                                                                     <label for="">Bed Rooms</label>
                                                                     <div class="form-min-max">
-                                                                        <input type="text" class="form-control m-0" placeholder="Min">
+                                                                        <input type="text" id="bed-room-min" class="form-control m-0" placeholder="Min">
                                                                         <div>
                                                                             -
                                                                         </div>
-                                                                        <input type="text" class="form-control m-0" placeholder="Max">
+                                                                        <input type="text" id="bed-room-max" class="form-control m-0" placeholder="Max">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -203,48 +183,50 @@
                                                                 <div class="form-group mb-1">
                                                                     <label for="">Full Bath</label>
                                                                     <div class="form-min-max">
-                                                                        <input type="text" class="form-control m-0" placeholder="Min">
+                                                                        <input type="text" id="full-bath-min" class="form-control m-0" placeholder="Min">
                                                                         <div>
                                                                             -
                                                                         </div>
-                                                                        <input type="text" class="form-control m-0" placeholder="Max">
+                                                                        <input type="text" id="full-bath-max" class="form-control m-0" placeholder="Max">
                                                                     </div>
                                                                 </div>
                                                             </div>
+
                                                             <div class="col-12 col-xl-6">
                                                                 <div class="form-group mb-1">
                                                                     <label for="">Half Bath</label>
                                                                     <div class="form-min-max">
-                                                                        <input type="text" class="form-control m-0" placeholder="Min">
+                                                                        <input type="text" id="half-bath-min" class="form-control m-0" placeholder="Min">
                                                                         <div>
                                                                             -
                                                                         </div>
-                                                                        <input type="text" class="form-control m-0" placeholder="Max">
+                                                                        <input type="text" id="half-bath-max" class="form-control m-0" placeholder="Max">
                                                                     </div>
                                                                 </div>
                                                             </div>
+
                                                             <div class="col-12 col-xl-6">
                                                                 <div class="form-group mb-1">
                                                                     <label for="">Year Built</label>
                                                                     <div class="form-min-max">
-                                                                        <input type="text" class="form-control m-0" placeholder="Min">
+                                                                        <input type="text" id="year-built-min" class="form-control m-0" placeholder="Min">
                                                                         <div>
                                                                             -
                                                                         </div>
-                                                                        <input type="text" class="form-control m-0" placeholder="Max">
+                                                                        <input type="text" id="year-built-max" class="form-control m-0" placeholder="Max">
                                                                     </div>
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-12 text-center pt-4">
-                                                                <a class="btn-luxe">
+                                                                <a class="btn-luxe" style="cursor:pointer;" onclick="filterSearch()">
                                                                     <span>
                                                                         <i class="fa-solid fa-magnifying-glass"></i>
                                                                     </span>
                                                                     Search
                                                                 </a>
                                                             </div>
-                                                        </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -273,11 +255,67 @@
 @section('js')
 <script src="{{ asset('js/moment.min.js') }}"></script>
 <script>
-    var showByIdRow = null, showRows = null, checkedIds = [];
+    var showByIdRow = null,
+        showRows = null,
+        checkedIds = [];
     $(document).ready(async function() {
         await mounted();
         await checkedListings();
     })
+
+    function filterSearch() {
+        var pool = $("#pool").val();
+        var mls = $("#mls").val();
+        var lotsizeMin = $("#lot-size-min").val();
+        var lotsizeMax = $("#lot-size-max").val();
+        var bedroomsMin = $("#bed-room-min").val();
+        var bedroomsMax = $("#bed-room-max").val();
+        var fullbathMin = $("#full-bath-min").val();
+        var fullbathMax = $("#full-bath-max").val();
+        var halfbathMin = $("#half-bath-min").val();
+        var halfbathMax = $("#half-bath-max").val();
+        var yearbuiltMin = $("#year-built-min").val();
+        var yearbuiltMax = $("#year-built-max").val();
+
+        var data = [];
+        if (yearbuiltMax && yearbuiltMin) {
+            data['YearBuilt.lt'] = yearbuiltMin;
+            data['YearBuilt.gt'] = yearbuiltMax;
+        }
+
+
+        if (lotsizeMin && lotsizeMax) {
+            data['LotSizeAcres.lt'] = lotsizeMin;
+            data['LotSizeAcres.gt'] = lotsizeMax;
+        }
+
+        if(bedroomsMin && bedroomsMax) {
+            data['BedroomsTotal.lt'] = bedroomsMin;
+            data['BedroomsTotal.gt'] = bedroomsMax;
+        }
+
+        if(fullbathMin && fullbathMax) {
+            data['BathroomsFull.lt'] = fullbathMin;
+            data['BathroomsFull.gt'] = fullbathMax;
+        }
+
+        if(halfbathMin && halfbathMax) {
+            data['BathroomsHalf.lt'] = halfbathMin;
+            data['BathroomsHalf.gt'] = halfbathMax;
+        }
+
+        if(pool) {
+            data['PoolPrivateYN'] = pool;
+        }
+
+        if(mls) {
+            data['MlsStatus'] = mls;
+        }
+        
+        getMatchedListings(data);
+
+        $("#drop-filter").removeClass('show');
+    }
 
     async function mounted() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -324,15 +362,23 @@
         })
     }
     let locations = [];
-    async function getMatchedListings() {
+    async function getMatchedListings(request = null) {
+        var mergeData = null;
+        
         var data = {
             'ListPrice.lte': showByIdRow.ListPrice
         }
-        var response = await axiosInc('listings', 'get', data);
+        mergeData = {...data}
+        if(request) {
+            mergeData = {...data, ...request}
+        }
+
+        var response = await axiosInc('listings', 'get', mergeData);
 
         if (response.data) {
             $('#results-scan').html('0/' + response.data.bundle.length)
             const resForHtml = response.data.bundle.map(item => {
+                console.log(item)
                 locations.push([item.BuyerAgentFullName, item.Latitude, item.Longitude])
                 let html = `<div class="market-analysis-row">
                     <div class="position-relative">

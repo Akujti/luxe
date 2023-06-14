@@ -51,12 +51,47 @@
                                     <tr>
                                         <th># ID</th>
                                         <th>Seller Name</th>
-                                        <th>Address</th>
                                         <th>Last Modified</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody id="table-body"></tbody>
+                                <tbody id="table-body">
+
+                                    @if($rows)
+                                        @foreach($rows as $row)
+                                            @php $listingIds = ''; 
+                                            
+                                            foreach($row->listings as $key => $listing) {
+                                                if($key > 0) {
+                                                    $listingIds .= ','.$listing->listing_id;
+                                                } else {
+                                                    $listingIds .= $listing->listing_id;
+                                                }
+                                            }
+                                            @endphp
+                                            <tr>
+                                                <td>{{ $row->id }}</td>
+                                                <td>{{ auth()->user()->profile->fullname }}</td>
+                                                <td>{{ $row->updated_at}}</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <form action="{{ route('cma.delete', $row->id) }}" method="post">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="p-0 m-0 bg-transparent" style="border:none">
+                                                                <img src="{{ asset('images/files/delete-icon.svg') }}">
+                                                            </button>
+                                                        </form>
+                                                        <a style="background:black;color:white;padding:3px 7px;border-radius:20px;" href="{{ route('cma.averageSalePrice') }}?listingId={{ $row->address }}&listingIds={{ $listingIds }}&watch=true">
+                                                            View
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -73,33 +108,8 @@
 <script>
     $(document).ready(function() {
         addTable();
-
-        getApiRoutes();
     })
-    async function getApiRoutes() {
-        var response = await axiosInc('Property', 'get', null);
-
-        let body = '';
-        if(response.data) {
-            for(index in response.data.value) {
-                let row = response.data.value[index];
-
-                body += `<tr>
-                            <td>...${row.ListingKey.substr(row.ListingKey.length / 2, 100)}</td>
-                            <td>DALOMAFA LLC</td>
-                            <td>${row.StreetName ?? 'N/A'} ${row.StreetName ? row.StreetNumber : ''}</td>
-                            <td>${ moment(row.ModificationTimestamp).format('YYYY-MM-DD HH:mm:ss')}</td>
-                            <td>
-                                <a href="#">
-                                    <img src="{{ asset('images/files/delete-icon.svg') }}">
-                                </a>
-                            </td>
-                        </tr>`;
-
-                $('#table-body').html(body);
-            }
-        }
-    }
+    
     function addTable() {
         let table = new DataTable('#cma-report', {
             bPaginate: false,

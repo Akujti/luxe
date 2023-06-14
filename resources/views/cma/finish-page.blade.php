@@ -36,7 +36,7 @@
                             </div>
                             <p>Processing your report! Please wait...</p>
                         </div>
-                        <a href="{{ route('cma.showReport') }}?@querystring" class="btn-luxe d-none" id="view-report">View Report</a>
+                        <a href="{{ route('cma.showReport') }}?@querystring" onclick="create();return false;" class="btn-luxe d-none" id="view-report">View Report</a>
                     </div>
                 </div>        
             </div>
@@ -55,5 +55,37 @@
             $('#view-report').removeClass('d-none')
         }, 3000);
     })
+
+    function create() {
+
+        var watch = '{{request()->get("watch") }}';
+
+        console.log($('#view-report').attr('href'));
+
+        if(watch) {
+            window.location.href = $('#view-report').attr('href');
+            return;
+        } else {
+            $.ajax({
+                url: '{{ route('cma.create') }}',
+                type: 'post',
+                // cache: false,
+                // contentType: false,
+                // processData: false,
+                data: {
+                    listing_id: "{{ request()->get('listingId') }}",
+                    listings_id: "{{ request()->get('listingIds') }}"
+                },
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function(output) {
+                    window.location.href = $('#view-report').attr('href');
+                }
+            });
+        }
+    }
 </script>
+
+<!--  -->
 @endsection
