@@ -27,7 +27,7 @@
                 <div class="table-box w-100 px-2">
                     <div class="table-box-header d-flex align-items-center justify-content-between w-100">
                         <h5>Subject Property</h5>
-                        <a href="{{ route('cma.index') }}" class="btn-luxe">Back</a>
+                        <a href="{{ route('cma.search') }}" class="btn-luxe">Back</a>
                     </div>
 
                     <div class="table-box-body">
@@ -99,10 +99,14 @@
                                         <i class="fa-solid fa-circle-play"></i>
                                     </p>
 
+
                                     <div class="d-flex align-items-center">
                                         <div class="filter-buttons">
                                             <div class="d-inline-block">
                                                 <div class="dropdown" id="search-dropdown">
+                                                    <span>
+                                                        <span id="results-status"></span>
+                                                    </span>
                                                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="fa-solid fa-bars"></i>
                                                     </button>
@@ -116,8 +120,8 @@
                                                                     <label for="">Pool</label>
                                                                     <select class="form-control" id="pool">
                                                                         <option value="">--</option>
-                                                                        <option value="yes">Yes</option>
-                                                                        <option value="no">No</option>
+                                                                        <option value="Yes">Yes</option>
+                                                                        <option value="No">No</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -233,7 +237,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="market-analysis-rows"></div>
+                                <div class="market-analysis-rows">
+                                    <div></div>
+                                    <button class="mt-2 w-100 btn-luxe d-none" id="view-more" onclick="filterSearch(limit = limit + 20)">View more</button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -241,8 +249,7 @@
                 <div class="table-box-footer w-100">
                     <div class="d-flex align-items-center justify-content-between">
                         <a href="{{ route('cma.search') }}" class="btn-action"><i class="fa-solid fa-chevron-left"></i> Previous</a>
-                        <!-- <a href="{{ route('cma.averageSalePrice') }}" id="next-btn" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a> -->
-                        <a href="{{ route('cma.averageSalePrice') }}" id="next-btn" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
+                        <a href="#0" id="next-btn" onclick="nextPage()" class="btn-action">Next<i class="fa-solid fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -255,15 +262,26 @@
 @section('js')
 <script src="{{ asset('js/moment.min.js') }}"></script>
 <script>
+    var statusGl = 'Closed';
     var showByIdRow = null,
         showRows = null,
         checkedIds = [];
     $(document).ready(async function() {
         await mounted();
-        await checkedListings();
+        $('#dropdownMenuButton').dropdown('toggle');
+        $('#results-status').html("Status: " + statusGl);
     })
 
-    function filterSearch() {
+    var limit = 20;
+
+    function nextPage() {
+        limit = 20;
+        statusGl = 'Active';
+        locations = [];
+        $('#results-status').html("Status: " + statusGl);
+        filterSearch();
+    }
+    async function filterSearch(limit) {
         var pool = $("#pool").val();
         var mls = $("#mls").val();
         var lotsizeMin = $("#lot-size-min").val();
@@ -289,30 +307,33 @@
             data['LotSizeAcres.lt'] = lotsizeMax;
         }
 
-        if(bedroomsMin && bedroomsMax) {
+        if (bedroomsMin && bedroomsMax) {
             data['BedroomsTotal.gt'] = bedroomsMin;
             data['BedroomsTotal.lt'] = bedroomsMax;
         }
 
-        if(fullbathMin && fullbathMax) {
+        if (fullbathMin && fullbathMax) {
             data['BathroomsFull.gt'] = fullbathMin;
             data['BathroomsFull.lt'] = fullbathMax;
         }
 
-        if(halfbathMin && halfbathMax) {
+        if (halfbathMin && halfbathMax) {
             data['BathroomsHalf.gt'] = halfbathMin;
             data['BathroomsHalf.lt'] = halfbathMax;
         }
 
-        if(pool) {
+        if (pool) {
             data['PoolPrivateYN'] = pool;
         }
 
-        if(mls) {
+        if (mls) {
             data['MlsStatus'] = mls;
         }
-        
-        getMatchedListings(data);
+
+        await getMatchedListings(data);
+
+        await checkedListings();
+
 
         $("#drop-filter").removeClass('show');
     }
@@ -334,26 +355,50 @@
             })
 
         }
-
-        await getMatchedListings();
     }
+
+    var checkedIds = [];
 
     function checkedListings() {
         $('.checkbox-check').change(function() {
             var checkedCheckbox = $('.checkbox-check:checked');
 
-            checkedIds = [];
+            if (checkedCheckbox.length > 3) {
+                $(this).prop('checked', false);
+                return;
+            }
 
             checkedCheckbox.map(el => {
                 let row = checkedCheckbox[el];
 
-                checkedIds.push(row.value);
+                if (checkedIds.includes(row.value)) {
+                    delete checkedIds[row.value];
+                } else {
+                    checkedIds.push(row.value);
+                }
+
                 return;
             })
 
-            var nextBtn = $('#next-btn');
-            var nextBtnHref = "{{ route('cma.averageSalePrice') }}";
-            nextBtn.attr('href', `${nextBtnHref}?listingId=${showByIdRow.ListingId}&listingIds=${checkedIds.toString()}`)
+            var checkedCheckbox1 = $('.checkbox-check:not(:checked)');
+
+            checkedCheckbox1.map(el => {
+                let row = checkedCheckbox1[el];
+
+                if (checkedIds.includes(row.value)) {
+                    var inx = checkedIds.findIndex(el1 => el1 == row.value)
+                    checkedIds.splice(inx, 1);
+                }
+
+                return;
+            })
+
+            if (statusGl == 'Active') {
+                var nextBtn = $('#next-btn');
+                var nextBtnHref = "{{ route('cma.averageSalePrice') }}";
+                nextBtn.attr('href', `${nextBtnHref}?listingId=${showByIdRow.ListingId}&listingIds=${checkedIds.toString()}`)
+            }
+
 
             var resultScan = $('#results-scan');
             var html = resultScan.html().split('/')[1];
@@ -364,21 +409,27 @@
     let locations = [];
     async function getMatchedListings(request = null) {
         var mergeData = null;
-        
-        var data = {
-            'ListPrice.lte': showByIdRow.ListPrice
-        }
-        mergeData = {...data}
-        if(request) {
-            mergeData = {...data, ...request}
+
+        mergeData = {
+            ...request
         }
 
+        mergeData['StandardStatus'] = statusGl;
+
+        mergeData['limit'] = limit;
         var response = await axiosInc('listings', 'get', mergeData);
 
+
         if (response.data) {
+
+            if (response.data.total > limit) {
+                $('#view-more').removeClass('d-none')
+            } else {
+                $('#view-more').addClass('d-none')
+            }
+            console.log(response.data)
             $('#results-scan').html('0/' + response.data.bundle.length)
             const resForHtml = response.data.bundle.map(item => {
-                console.log(item)
                 locations.push([item.BuyerAgentFullName, item.Latitude, item.Longitude])
                 let html = `<div class="market-analysis-row">
                     <div class="position-relative">
@@ -531,7 +582,7 @@
                 return html;
             });
 
-            $('.market-analysis-rows').html(resForHtml.toString().replaceAll(',', '\n'))
+            $('.market-analysis-rows div').html(resForHtml.toString().replaceAll(',', '\n'))
             initMap()
         }
     }

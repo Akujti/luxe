@@ -32,25 +32,12 @@
                     </div>
 
                     <div class="table-box-body">
-                        <div class="table-action d-flex align-items-center justify-content-between my-3">
-                            <div>
-                                <div class="btn-action-div">
-                                    <a href="#" class="btn-action">CSV</a>
-                                </div>
-                                <div class="btn-action-div">
-                                    <a href="#" class="btn-action">Print</a>
-                                </div>
-                            </div>
-                            <div>
-                                <input type="search" class="form-control" placeholder="Search">
-                            </div>
-                        </div>
                         <div class="table-responsive">
                             <table class="table" id="cma-report">
                                 <thead>
                                     <tr>
                                         <th># ID</th>
-                                        <th>Seller Name</th>
+                                        <th>Agent Name</th>
                                         <th>Last Modified</th>
                                         <th>Actions</th>
                                     </tr>
@@ -82,7 +69,7 @@
                                                                 <img src="{{ asset('images/files/delete-icon.svg') }}">
                                                             </button>
                                                         </form>
-                                                        <a style="background:black;color:white;padding:3px 7px;border-radius:20px;" href="{{ route('cma.averageSalePrice') }}?listingId={{ $row->address }}&listingIds={{ $listingIds }}&watch=true">
+                                                        <a target="_blank" style="background:black;color:white;padding:3px 7px;border-radius:20px;" href="{{ route('cma.showReport') }}?listingId={{ $row->address }}&listingIds={{ $listingIds }}&watch=true">
                                                             View
                                                         </a>
 

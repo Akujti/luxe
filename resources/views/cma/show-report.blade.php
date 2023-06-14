@@ -175,15 +175,13 @@
     </section>
 </section>
 
-<section class="section-header section-comparables section-top-comparables">
+<section class="section-header section-comparables section-top-comparables" style="height:auto;min-height:79vh;max-height:300vh;">
     <section class="section-img">
         <h1>Buyer Major Sources</h1>
         <div>
             <div class="row p-0 m-0">
-                <div class="col-12">
-                    <div class="col-xl-6 ml-auto">
-                        <div class="chart" id="chart"></div>
-                    </div>
+                <div class="col-12 col-xl-6">
+                    <div class="chart" id="chart"></div>
                 </div>
 
                 <div class="col-12 col-xl-6">
@@ -270,12 +268,12 @@
                             <td>
                                 ${data.StandardStatus == 'Active' ? `<div class="circle bg-success">A</div>`: `<div class="circle bg-warning">S</div>`}
                             </td>
-                            <td>${data.BuyerAgentFullName}</td>
-                            <td>$${data.ListPrice}</td>
+                            <td>${data.BuyerAgentFullName ?? ''}</td>
+                            <td>$${data.ListPrice ?? ''}</td>
                             <td>${data.BedroomsTotal ?? 0}</td>
                             <td>${data.BathroomsTotalInteger ?? 0}</td>
                             <td>${data.BathroomsHalf ?? 0}</td>
-                            <td>${data.UnparsedAddress}</td>
+                            <td>${data.UnparsedAddress ?? ''}</td>
                         </tr>`;
 
                 html2 += `<div class="col-12 col-xl-4">
@@ -283,17 +281,17 @@
                         <div class="img-top-post">
                             <img src="${data.Media.length ? data.Media[0].MediaURL : ''}" width="100%">
                             <div class="sold">SOLD</div>
-                            <div class="price">$${data.ListPrice}</div>
+                            <div class="price">$${data.ListPrice ?? ''}</div>
                             <div class="details">
                                 <div>
-                                    <p>${data.UnparsedAddress}</p>
+                                    <p>${data.UnparsedAddress ?? ''}</p>
                                     <p>${data.BathroomsTotalInteger ?? 0} <br>Baths</p>
                                     <p>2,119 <br>Sq.Ft.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="under-img">
-                            ${data.BuyerAgentFullName}
+                            ${data.BuyerAgentFullName ?? ''}
                         </div>
                         <div class="details-top-post">
                             <div class="d-flex">

@@ -80,14 +80,14 @@
                         <div>
                             <div class="comparables-div border-bottom-div">
                                 <p class="title-p green">Active Price</p>
-                                <p class="price">&nbsp;</p>
+                                <p class="price" id="active-range">&nbsp;</p>
                                 <p class="under-price">$/FT</p>
 
                                 <div class="d-flex align-items-center justify-content-between">
                                     <p class="price-div"><span id="lowestPriceA"></span></p>
 
                                     <div class="input-range">
-                                        <input type="range" class="form-range" id="customRange1">
+                                        <input type="range" id="active-range-input" min="" max="" class="form-range" id="customRange1">
                                     </div>
 
                                     <p class="price-div"><span id="biggestPriceA"></span></p>
@@ -102,14 +102,14 @@
 
                             <div class="comparables-div">
                                 <p class="title-p orange">Sold Price</p>
-                                <p class="price">&nbsp;</p>
+                                <p class="price" id="sold-range">&nbsp;</p>
                                 <p class="under-price">$/FT</p>
 
                                 <div class="d-flex align-items-center justify-content-between">
                                     <p class="price-div"><span id="lowestPriceS"></span></p>
 
                                     <div class="input-range">
-                                        <input type="range" class="form-range" id="customRange1">
+                                        <input type="range" id="sold-range-input" min="" max="" class="form-range" id="customRange1">
                                     </div>
 
                                     <p class="price-div"><span id="biggestPriceS"></span></p>
@@ -306,8 +306,20 @@
 
         $('#lowestPriceA').html('$' + lowestPrice.active)
         $('#biggestPriceA').html('$' + biggestPrice.active)
+        $("#active-range-input").attr('min', lowestPrice.active)
+        $("#active-range-input").attr('max', biggestPrice.active)
         $('#lowestPriceS').html('$' + lowestPrice.sold)
         $('#biggestPriceS').html('$' + biggestPrice.sold)
+        $("#sold-range-input").attr('min', lowestPrice.sold)
+        $("#sold-range-input").attr('max', biggestPrice.sold)
+
+        $(document).on('input change', '#active-range-input', function() {
+            $('#active-range').html( "$" + $(this).val() );
+        });
+
+        $(document).on('input change', '#sold-range-input', function() {
+            $('#sold-range').html( "$" + $(this).val() );
+        });
 
         let low = (lowestPrice.sold < lowestPrice.active) ? lowestPrice.sold : lowestPrice.active;
         let high = (biggestPrice.sold > biggestPrice.active) ? biggestPrice.sold : biggestPrice.active;

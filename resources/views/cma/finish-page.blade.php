@@ -27,6 +27,8 @@
                 <div class="table-box w-100 px-2">
                     <div class="table-box-header d-flex align-items-center justify-content-between w-100">
                         <h5>View Report</h5>
+
+                        <a href="{{ route('cma.index') }}" class="btn-luxe">Home</a>
                     </div>
 
                     <div class="table-box-body pt-3">
@@ -36,7 +38,7 @@
                             </div>
                             <p>Processing your report! Please wait...</p>
                         </div>
-                        <a href="{{ route('cma.showReport') }}?@querystring" onclick="create();return false;" class="btn-luxe d-none" id="view-report">View Report</a>
+                        <a target="_blank" href="{{ route('cma.showReport') }}?@querystring" onclick="create();return false;" class="btn-luxe d-none" id="view-report">View Report</a>
                     </div>
                 </div>        
             </div>
@@ -63,7 +65,7 @@
         console.log($('#view-report').attr('href'));
 
         if(watch) {
-            window.location.href = $('#view-report').attr('href');
+            window.open($('#view-report').attr('href'), '_blank');
             return;
         } else {
             $.ajax({
@@ -80,7 +82,7 @@
                     'X-CSRF-Token': $('[name="_token"]').val()
                 },
                 success: function(output) {
-                    window.location.href = $('#view-report').attr('href');
+                    window.open($('#view-report').attr('href'), '_blank');
                 }
             });
         }
