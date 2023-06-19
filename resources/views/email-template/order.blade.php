@@ -85,11 +85,11 @@
                 <div class="box">
                     <h3>The order has been successfully created - #{{ $details['data']->id }}</h3>
                     @if ($details['is_marketing_menu_order'])
-                        <p class="text-center">Templated requests:</p>
+                        <p class="text-center bold-text ">Templated requests:</p>
                         <p class="text-center">2 business days turnaround</p>
                         <p class="text-center">Examples: Email signature, email blast templates, door hangers.</p>
                         <br>
-                        <p class="text-center">Custom requests:</p>
+                        <p class="text-center bold-text ">Custom requests:</p>
                         <p class="text-center">Expect email communication from Marketing Dept within 48 hours. Project
                             turnaround time TBD based on request.</p>
                         <p class="text-center">Examples: Brand package, custom designs, logos</p>
