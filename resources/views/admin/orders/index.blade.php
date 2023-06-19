@@ -98,6 +98,9 @@
                         <option value="Shipped">Shipped</option>
                         <option value="Delivered">Delivered</option>
                         <option value="Completed">Completed</option>
+                        <option value="New">New</option>
+                        <option value="In Production">In Production</option>
+                        <option value="Proof Sent">Proof Sent</option>
                     </select>
                 </div>
                 <div class="col-md-2 form-group">

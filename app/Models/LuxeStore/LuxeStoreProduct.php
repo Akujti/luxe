@@ -43,7 +43,7 @@ class LuxeStoreProduct extends Model
 
     public function inputs()
     {
-        return $this->hasMany(LuxeStoreProductForm::class, 'product_id');
+        return $this->hasMany(LuxeStoreProductForm::class, 'product_id')->latest();
     }
 
     public function setNameAttribute($value)

@@ -90,6 +90,14 @@
                                 </option>
                                 <option value="Completed" {{ $order->status == 'Completed' ? 'selected' : '' }}>Completed
                                 </option>
+                                <option value="New" {{ $order->status == 'New' ? 'selected' : '' }}>New
+                                </option>
+                                <option value="In Production" {{ $order->status == 'In Production' ? 'selected' : '' }}>In
+                                    Production
+                                </option>
+                                <option value="Proof Sent" {{ $order->status == 'Proof Sent' ? 'selected' : '' }}>Proof
+                                    Sent
+                                </option>
                             </select>
                             <textarea class="form-control mt-2 {{ $order->status != 'Request Info' ? 'd-none' : '' }}" name="request_info"
                                 id="textarea-request-info" placeholder="Enter Request Info text">{{ $order->request_info }}</textarea>
@@ -242,8 +250,9 @@
                                     <tr>
                                         <td>{{ $field->input_name }}</td>
                                         <td>
-                                            @if($field->is_file)
-                                                <a href="{{ asset('storage/'. $field->input_value) }}" download="">Click here to download</a>
+                                            @if ($field->is_file)
+                                                <a href="{{ asset('storage/' . $field->input_value) }}" download="">Click
+                                                    here to download</a>
                                             @else
                                                 {{ $field->input_value }}
                                             @endif
