@@ -64,6 +64,7 @@ class BrokerSumoController extends Controller
 
     private function getAmount($money)
     {
+        return $money;
         $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
         $onlyNumbersString = preg_replace('/([^0-9])/i', '', $money);
 
