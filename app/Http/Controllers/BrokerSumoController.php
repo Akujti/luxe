@@ -37,7 +37,7 @@ class BrokerSumoController extends Controller
                 ['agent_name' => $result[0][$i][0]],
                 [
                     'agent_name' => $result[0][$i][0],
-                    'sales_volumes' => $this->getAmount($result[0][$i][7]),
+                    'sales_volumes' => $this->getAmount($result[0][$i][1]),
                 ]
             );
         }
@@ -54,8 +54,8 @@ class BrokerSumoController extends Controller
                 ['agent_name' => $result[0][$i][0]],
                 [
                     'agent_name' => $result[0][$i][0],
-                    'deals' => $result[0][$i][6],
-                    'yearly_sales_volumes' => $this->getAmount($result[0][$i][7]),
+                    'deals' => 0,
+                    'yearly_sales_volumes' => $this->getAmount($result[0][$i][1]),
                 ]
             );
         }
