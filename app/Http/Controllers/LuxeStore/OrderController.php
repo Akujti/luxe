@@ -254,7 +254,7 @@ class OrderController extends Controller
             $is_marketing_menu_order = false;
             if (Session::get('shopping_cart')) {
                 $cart_data = Session::get('shopping_cart')[0];
-                if(count($cart_data) == 0) {
+                if (count($cart_data) == 0) {
                     return redirect()->back()->with('error', 'Something went  wrong! Please try again.');
                 }
 
@@ -335,6 +335,7 @@ class OrderController extends Controller
             $cc = [];
             $details['type'] = 'admin';
             $details['data'] = $row;
+            $details['is_marketing_menu_order'] = $is_marketing_menu_order;
             $details['products'] = $row->products()->get();
 
             $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];

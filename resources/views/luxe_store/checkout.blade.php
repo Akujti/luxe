@@ -717,8 +717,7 @@
                         @else
                             <div class="d-flex justify-content-center">
                                 <button type="button" onclick="submit_form()" id="btn-luxe-checkout"
-                                    class="btn-luxe w-100">Finish
-                                    Order</button>
+                                    class="btn-luxe w-100">Finish Order</button>
                             </div>
                         @endif
                     </div>
