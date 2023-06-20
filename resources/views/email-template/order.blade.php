@@ -101,7 +101,7 @@
                             @endif
                         @endforeach
                     @endif
-                    <h5>Thanks for the purchase.</h5>
+                    <h5 class="bold-text">Thank you.</h5>
                 </div>
             @endif
             <div class="link">

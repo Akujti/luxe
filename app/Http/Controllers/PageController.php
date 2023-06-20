@@ -55,6 +55,11 @@ class PageController extends Controller
         return view('luxe-staff.luxe-managers');
     }
 
+    public function real_estate_teams()
+    {
+        return view('luxe-staff.real-estate-teams');
+    }
+
     public function mls_directory()
     {
         return view('pages.mls.mls-directory');
