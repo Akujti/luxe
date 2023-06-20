@@ -381,6 +381,7 @@
     .toast {
         opacity: 1 !important;
     }
+
     #loading {
         background-color: white;
         z-index: 9999999;
@@ -389,9 +390,9 @@
 
 <body>
     <div id="app">
-    <div id="loading" class="d-none">
-        <section class="paytm-loader"></section>
-    </div>
+        <div id="loading" class="d-none">
+            <section class="paytm-loader"></section>
+        </div>
         <header>
             <div class="header">
                 <div class="container-flud">
@@ -720,6 +721,8 @@
                                         <li><a class="{{ isset($subactive) && $subactive == 'luxe_managers' ? 'active_submenu' : '' }}"
                                                 href="{{ route('luxe.managers.index') }}">Your LUXE
                                                 Mangers</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'real_estate_teams' ? 'active_submenu' : '' }}"
+                                                href="{{ route('real.estate.teams') }}">Real Estate Teams</a></li>
                                         <li><a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
                                                 href="{{ url('general/form/agent_referrals/index') }}">New Agents To
                                                 Join LUXE</a></li>
