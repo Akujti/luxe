@@ -117,7 +117,7 @@
             <div class="col-12">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 col-lg-6">
-                        <form id="form" action="{{ route('marketing.sendemail') }}" method="POST" class="row p-0 m-0">
+                        <form id="form" action="{{ route('general.email.post') }}" method="POST" class="row p-0 m-0">
                             @csrf
                             <input type="hidden" name="form_title" value="Design Request">
 
