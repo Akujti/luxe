@@ -62,14 +62,14 @@
                 <p class="staff-email">E: <a href="mailto:julioblandon@luxeknows.com">julioblandon@luxeknows.com</a></p>
             </div>
             <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/placeholder.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/real-estate/people.jpg') }}" class="staff-image">
                 <p class="staff-name">The Akers Group</p>
                 <p class="staff-role">Team Leader: Zach Akers</p>
                 <p class="staff-email">D: <a href="tel:305.343.5371">305.343.5371</a></p>
                 <p class="staff-email">E: <a href="mailto:zdakers@outlook.com">zdakers@outlook.com</a></p>
             </div>
             <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/placeholder.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/real-estate/people.jpg') }}" class="staff-image">
                 <p class="staff-name">The Bocanegra Group</p>
                 <p class="staff-role">Team Leader:</p>
                 <p class="staff-email">D: <a href="tel:786.205.6319">786.205.6319</a></p>
@@ -77,7 +77,7 @@
                         href="mailto:bocanegramiamirealestate@gmail.com">bocanegramiamirealestate@gmail.com</a></p>
             </div>
             <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/placeholder.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/real-estate/people.jpg') }}" class="staff-image">
                 <p class="staff-name">The Calderin Estates</p>
                 <p class="staff-role">Team Leader: Zuly Calderin</p>
                 <p class="staff-email">D: <a href="tel:786.717.4706">786.717.4706</a></p>
@@ -85,7 +85,7 @@
                 </p>
             </div>
             <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/placeholder.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/real-estate/people.jpg') }}" class="staff-image">
                 <p class="staff-name">The Calimano Team</p>
                 <p class="staff-role">Team Leader: Giovanna Calimano</p>
                 <p class="staff-email">D: <a href="tel:786.797.0012">786.797.0012</a></p>
