@@ -132,6 +132,12 @@ class FormController extends Controller
             return redirect()->back()->with('error', 'Form isn\'t saved, there was a problem with the entered data');
         }
 
+        if (!$request->has('form_verbiages_text')) {
+            $form = Form::where('title', $request->form_title)->first();
+            if ($form)
+                $details['form_verbiages_text'] = $form->email_verbiages_text;
+        }
+
         try {
             FormSubmit::create([
                 'form_title' => $request->form_title,
@@ -195,6 +201,7 @@ class FormController extends Controller
         } catch (\Throwable $th) {
             return redirect()->back()->with('warning', 'Form has been submitted, but it wasn\'t added on the Coming Soon Listings!');
         }
+
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
 
