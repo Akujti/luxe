@@ -12,6 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Support\Facades\Log;
 
 class OrderStatusNotCompleted implements ShouldQueue
 {
@@ -30,12 +31,12 @@ class OrderStatusNotCompleted implements ShouldQueue
      */
     public function handle()
     {
-        $row = LuxeStoreOrder::find($this->data->id);
+        $row = LuxeStoreOrder::find($this->data[0]->id);
 
         if ($row && $row->status != 'Completed') {
             $to = ['designs@luxeknows.com', 'operations@luxeknows.com', 'email@luxeknows.com', 'wesley@luxeknows.com'];
 
-            Mail::to($to)->send(new NotifyStatusNotCompleted($row));
+            Mail::to($to)->send(new NotifyStatusNotCompleted($row, $this->data[1]));
         }
     }
 }

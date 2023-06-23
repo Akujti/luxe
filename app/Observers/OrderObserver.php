@@ -16,11 +16,15 @@ class OrderObserver
      */
     public function created(LuxeStoreOrder $luxeStoreOrder)
     {
-        // $delay = Carbon::now()->addSecond(1);
-        $delay = Carbon::now()->addHours(72);
-        OrderStatusNotCompleted::dispatch($luxeStoreOrder)->delay($delay);
+        $delay = Carbon::now()->addDays(3);
+        $days = 3;
+        OrderStatusNotCompleted::dispatch([$luxeStoreOrder, $days])->delay($delay);
         $delay = Carbon::now()->addDays(5);
-        OrderStatusNotCompleted::dispatch($luxeStoreOrder)->delay($delay);
+        $days = 5;
+        OrderStatusNotCompleted::dispatch([$luxeStoreOrder, $days])->delay($delay);
+        $delay = Carbon::now()->addDays(10);
+        $days = 10;
+        OrderStatusNotCompleted::dispatch([$luxeStoreOrder, $days])->delay($delay);
     }
 
     /**

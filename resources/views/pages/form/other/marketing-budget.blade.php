@@ -169,6 +169,23 @@
                                         <label for="opt16" class="font-weight-normal">2 - Loopnet Advertising for
                                             Listings on Company Account</label>
                                     </div>
+                                    <div>
+                                        <p class="mt-2 mb-2"><b>DIGITAL MARKETING</b></p>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]"
+                                            value="1 - Luxury Presence Agent Website - Set Up Fee" id="opt17">
+                                        <label for="opt17" class="font-weight-normal">1 - Luxury Presence Agent Website
+                                            - Set Up Fee</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]"
+                                            value="2 - Buzz Cube - Graphic Design & Web Development - https://www.buzzcube.io/"
+                                            id="opt18">
+                                        <label for="opt18" class="font-weight-normal">2 - Buzz Cube - Graphic Design &
+                                            Web Development - <a href="https://www.buzzcube.io/"
+                                                target="_blank">https://www.buzzcube.io</a></label>
+                                    </div>
                                     {{-- <div>
                                         <input type="checkbox" name="options[]"
                                             value="1 - Mailers and/or Door Hangers from our approved vendors Planet Marketing or RSP Pro"

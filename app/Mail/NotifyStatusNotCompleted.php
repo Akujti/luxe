@@ -11,21 +11,14 @@ class NotifyStatusNotCompleted extends Mailable
 {
     use Queueable, SerializesModels;
     public $details;
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($details)
+    public $days;
+
+    public function __construct($details, $days = '4')
     {
         $this->details = $details;
+        $this->days = $days;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this->subject('LUXE Store - Order Status Notification')->view('email-template.orderNotifyStatusNotCompleted');

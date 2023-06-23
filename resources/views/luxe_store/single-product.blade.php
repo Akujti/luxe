@@ -168,9 +168,13 @@
                         {{-- <p id="short-desc">{!! nl2br($product->description_2) !!}</p> --}}
                     @else
                         <p id="price">
-                            {{ $product->variants[0]->max_value_price == $product->variants[0]->min_value_price
-                                ? '$' . $product->variants[0]->max_value_price
-                                : '$' . $product->variants[0]->min_value_price . ' - $' . $product->variants[0]->max_value_price }}
+                            @if ($product->variants[0]->max_value_price > 0)
+                                {{ $product->variants[0]->max_value_price == $product->variants[0]->min_value_price
+                                    ? '$' . $product->variants[0]->max_value_price
+                                    : '$' . $product->variants[0]->min_value_price . ' - $' . $product->variants[0]->max_value_price }}
+                            @else
+                                FREE
+                            @endif
                         </p>
                         {{-- <p id="short-desc" class="mb-4">{!! nl2br($product->description_2) !!}</p> --}}
 
@@ -260,7 +264,8 @@
                         $('#show-option-value').append('<p id="price" class="mr-3">$' + row.sale_price + '</p>')
                         $('#show-option-value').append('<p id="sale-price"><del>$' + row.price + '</del></p>')
                     } else {
-                        $('#show-option-value').append('<p id="price">$' + row.price + '</p>')
+                        let text_price = row.price > 0 ? '$' + row.price : 'FREE';
+                        $('#show-option-value').append('<p id="price">' + text_price + '</p>')
                     }
                     if (row.stock) {
                         if (row.stock < 500000) {

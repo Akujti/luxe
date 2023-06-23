@@ -77,7 +77,7 @@
                         href="mailto:bocanegramiamirealestate@gmail.com">bocanegramiamirealestate@gmail.com</a></p>
             </div>
             <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/people.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/real-estate/tce.jpeg') }}" class="staff-image">
                 <p class="staff-name">The Calderin Estates</p>
                 <p class="staff-role">Team Leader: Zuly Calderin</p>
                 <p class="staff-email">D: <a href="tel:786.717.4706">786.717.4706</a></p>
