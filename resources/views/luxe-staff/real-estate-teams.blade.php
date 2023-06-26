@@ -34,6 +34,13 @@
                 <h1>Real Estate Teams</h1>
             </div>
             <div class="col-md-6 staff-box">
+                <img src="{{ asset('images/real-estate/balestra.jpg') }}" class="staff-image">
+                <p class="staff-name">Balestra Group</p>
+                <p class="staff-role">Team Leader: Annette Balestra</p>
+                <p class="staff-email">D: <a href="tel:305.335.5967">305.335.5967</a></p>
+                <p class="staff-email">E: <a href="mailto:annette@luxeknows.com">annette@luxeknows.com</a></p>
+            </div>
+            <div class="col-md-6 staff-box">
                 <img src="{{ asset('images/real-estate/emg.jpg') }}" class="staff-image">
                 <p class="staff-name">Empire Miami Group</p>
                 <p class="staff-role">Team Leader: Meisha Jattin</p>
