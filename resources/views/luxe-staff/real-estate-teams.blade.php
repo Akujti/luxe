@@ -91,6 +91,14 @@
                 <p class="staff-email">D: <a href="tel:786.797.0012">786.797.0012</a></p>
                 <p class="staff-email">E: <a href="mailto:g.calimano@gmail.com">g.calimano@gmail.com</a></p>
             </div>
+            <div class="col-md-6 staff-box">
+                <img src="{{ asset('images/real-estate/rld.jpg') }}" class="staff-image">
+                <p class="staff-name">The RLD Team</p>
+                <p class="staff-role">Team Leaders: Lysandra Wu & Devona Wu</p>
+                <p class="staff-email">D: <a href="tel:786.325.2566">786.325.2566</a> or <a
+                        href="tel:786.202.5484">786.202.5484</a></p>
+                <p class="staff-email">E: <a href="mailto:info@therldteam.com">info@therldteam.com</a></p>
+            </div>
         </div>
     </div>
 @endsection
