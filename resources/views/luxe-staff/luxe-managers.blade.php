@@ -57,12 +57,12 @@
                 <p class="staff-role">Pembroke Pines Manager</p>
                 <p class="staff-email">katherine@investinsouthfl.com</p>
             </div>
-            <div class="col-md-3 staff-box">
+            {{-- <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/kristy.jpg') }}" class="staff-image">
                 <p class="staff-name">Kristy Martinez</p>
                 <p class="staff-role">South Miami Manager</p>
                 <p class="staff-email">kristy@luxeknows.com</p>
-            </div>
+            </div> --}}
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/shanut.jpg') }}" class="staff-image">
                 <p class="staff-name">Shanut Anaut</p>

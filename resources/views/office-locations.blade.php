@@ -46,40 +46,44 @@
                             <div class="form-group ">
                                 <p class="location">Coral Gables</p>
                                 <p class="address">55 Merrick Way #402, Coral Gables, FL 33134</p>
-                                <button class="btn" onclick="toggleModal('Coral Gables','Keypad 555777#')">View Access
-                                    Instructions</button>
+                                <button class="btn"
+                                    onclick="toggleModal('Coral Gables','Keypad 555777#','Wi-Fi name- Luxe Guest','Password- Luxe1234$')">View
+                                    Access & Wifi Instructions</button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Midtown</p>
                                 <p class="address">30 NW 34 Street #102, Miami, FL 33127</p>
-                                <button class="btn" onclick="toggleModal('Midtown','Supra','Alarm 1234')">View
-                                    Access
-                                    Instructions</button>
+                                <button class="btn"
+                                    onclick="toggleModal('Midtown','Supra','Alarm 1234','Wi-Fi name- Luxeproperties','Password- Luxeknows')">View
+                                    Access & Wifi Instructions</button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Kendall</p>
                                 <p class="address">12464 SW 127 Avenue, Miami, FL 33186</p>
-                                <button class="btn" onclick="toggleModal('Kendall','Lockbox 1986','Alarm 2019')">View
-                                    Access
-                                    Instructions</button>
+                                <button class="btn"
+                                    onclick="toggleModal('Kendall','Lockbox 1986','Alarm 2019','Wi-Fi name- luxekendall2.5 / luxekendall5','Password- Luxe12345')">View
+                                    Access & Wifi Instructions</button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Miami Lakes</p>
                                 <p class="address">17670 NW 78th Avenue #206, Hialeah, FL 33015</p>
-                                <button class="btn" onclick="toggleModal('Miami Lakes','Keypad 5557')">View Access
-                                    Instructions</button>
+                                <button class="btn"
+                                    onclick="toggleModal('Miami Lakes','Keypad 5557','Wi-Fi name- Luxeproperties','Password- abcde123')">View
+                                    Access & Wifi Instructions</button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Homestead</p>
                                 <p class="address">2016 NE 8 Street, Homestead, FL 33033</p>
-                                <button class="btn" onclick="toggleModal('Homestead','Lockbox 7400')">View Access
-                                    Instructions</button>
+                                <button class="btn"
+                                    onclick="toggleModal('Homestead','Lockbox 7400','Wi-Fi name- Luxe Prop 2.4','Password- Luxe1234$')">View
+                                    Access & Wifi Instructions</button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Aventura</p>
                                 <p class="address">2875 NE 191 Street #PH5, Aventura, FL 33180</p>
-                                <button class="btn" onclick="toggleModal('Aventura','Lockbox 1976')">View Access
-                                    Instructions</button>
+                                <button class="btn"
+                                    onclick="toggleModal('Aventura','Lockbox 1976','Wi-Fi name- LUXE PROPERTIES','Password: Luxeknows123')">View
+                                    Access & Wifi Instructions</button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Orlando</p>
@@ -89,17 +93,15 @@
                                 <p class="location">South Miami</p>
                                 <p class="address">5966 S Dixie Highway #300, South Miami, FL 33143</p>
                                 <button class="btn"
-                                    onclick="toggleModal('South Miami','Buro Building Open From 8:30am - 5:30pm')">View
-                                    Access
-                                    Instructions</button>
+                                    onclick="toggleModal('South Miami','Buro Building Open From 8:30am - 5:30pm','','')">View
+                                    Access & Wifi Instructions</button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Pembroke Pines</p>
                                 <p class="address">1911 NW 150 Avenue #202, Pembroke Pines FL 33028</p>
                                 <button class="btn"
-                                    onclick="toggleModal('Office Lockbox 1025','After Hours Building Code 8372')">View
-                                    Access
-                                    Instructions</button>
+                                    onclick="toggleModal('Office Lockbox 1025','After Hours Building Code 8372','Wi-Fi name- Luxepines','Password- Luxe1234$')">View
+                                    Access & Wifi Instructions</button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Dadeland -- Coming Soon</p>
@@ -127,6 +129,8 @@
                                     <p id="modal-location"></p>
                                     <p id="modal-text-one"></p>
                                     <p id="modal-text-two"></p>
+                                    <p id="modal-text-three"></p>
+                                    <p id="modal-text-four"></p>
                                 </div>
                             </div>
                         </div>
@@ -136,10 +140,12 @@
         </div>
     </div>
     <script>
-        function toggleModal(location, text_1, text_2) {
+        function toggleModal(location, text_1, text_2, text_3 = '', text_4 = '') {
             $('#modal-location').text(location);
             $('#modal-text-one').text(text_1);
             $('#modal-text-two').text(text_2);
+            $('#modal-text-three').text(text_3);
+            $('#modal-text-four').text(text_4);
             $('#modal').modal('show');
         }
     </script>
