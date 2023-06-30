@@ -1927,8 +1927,8 @@
                     Lending</a></li>
             <li><a href="tel: (305) 907 7081" class="text-luxe"><img src="/images/index-page/phone-black-1.svg"
                         alt=""> 305.907.7081</a></li>
-            <li><a href="mailto:info@luxehomelean.com" class="text-luxe"><img src="/images/index-page/link_web.svg"
-                        alt=""> info@luxehomelean.com</a></li>
+            <li><a href="mailto:info@luxehomeloan.com" class="text-luxe"><img src="/images/index-page/link_web.svg"
+                        alt=""> info@luxehomeloan.com</a></li>
         </ul>
     </div>
     @endif

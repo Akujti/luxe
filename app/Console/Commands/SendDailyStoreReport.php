@@ -51,16 +51,20 @@ class SendDailyStoreReport extends Command
             $total += $order->payment->total_price;
             $temp['agent'] = $order->user &&  $order->user->profile ? $order->user->profile->fullname : '-';
             $temp['amount'] = $order->payment ? $order->payment->total_price : '-';
-            $products = [];
+            $products = '';
             foreach ($order->products as $product) {
-                array_push($products, $product->product->name);
+                $products .= ' '. $product->product->name;
             }
             $temp['products']  = $products;
             $temp['created_at'] = $order->created_at;
             array_push($final_orders, $temp);
         }
-        $details['submissions'] = FormSubmit::whereDate('created_at', Carbon::yesterday())->get();
+        $details['submissions'] = FormSubmit::whereDate('created_at', Carbon::yesterday())->orderBy('form_title', 'asc')->get();
         $details['total'] = $total;
+
+        usort($final_orders, function ($a, $b) {
+            return strcmp($a['products'], $b['products']);
+        });
         $details['orders'] = $final_orders;
         $details['test'] = $orders;
         $emails = ['operations@luxeknows.com', 'email@luxeknows.com', 'wesley@luxeknows.com'];

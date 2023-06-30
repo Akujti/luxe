@@ -28,9 +28,9 @@ class ReferralPartnerMetaSeeder extends Seeder
             ]);
 
             $partner->meta_items()->create([
-                'name' => 'info@luxehomelean.com',
+                'name' => 'info@luxehomeloan.com',
                 'type' => 'email',
-                'path' => 'mailto:info@luxehomelean.com'
+                'path' => 'mailto:info@luxehomeloan.com'
             ]);
         }
 

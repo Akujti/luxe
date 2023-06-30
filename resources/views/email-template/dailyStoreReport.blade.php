@@ -89,9 +89,7 @@
                                 {{ $order['agent'] }}
                             </td>
                             <td valign="top" style="padding:5px; font-size: 16px; line-height:20px;">
-                                @foreach ($order['products'] as $product)
-                                    {{ $product }}
-                                @endforeach
+                                {{ $order['products'] }}
                             </td>
                             <td valign="top" style="padding:5px; font-size: 16px; line-height:20px;">
                                 ${{ $order['amount'] }}
