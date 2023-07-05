@@ -25,7 +25,7 @@ class VideoController extends Controller
         $folders = Folder::where('id', '!=', $folder_id)->where('title', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'folders');
         $files = File::where('folder_id', '!=', $folder_id)->where('title', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'files');
         $guides = File::where('folder_id', $folder_id)->where('title', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'guides');
-        $videos = Video::where('title', 'like', '%' . $req->search . '%')->paginate(4, ['*'], 'videos');
+        $videos = Video::where('title', 'like', '%' . $req->search . '%')->latest()->paginate(4, ['*'], 'videos');
         $products = LuxeStoreProduct::where('name', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'products');
 
         if ($req->wantsJson()) {
