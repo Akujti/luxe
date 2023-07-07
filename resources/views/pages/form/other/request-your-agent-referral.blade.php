@@ -44,9 +44,9 @@
                                 <label for="name">Name of Agent You Referred</label>
                                 <input type="text" name="referred_agent_name" class="form-control" required>
                             </div>
-                            <div class="form-group form-footer col-12">
+                            {{-- <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </form>
