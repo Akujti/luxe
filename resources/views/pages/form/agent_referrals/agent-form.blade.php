@@ -63,6 +63,16 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Would you like to sign up as a showing agent? Check out our current
+                                    showing agents on <a href="https://myluxehub.com/showing-agents" target="_blank">this
+                                        page</a></label>
+                                <select name="would_you_like_to_sign_up_as_a_showing_agent " class="form-control">
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
                             <div class="form-group col-md-6 d-none" id="preferred-email">
                                 <br>
                                 <label>Please provide your preferred email so we can add you to our email
