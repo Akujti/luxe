@@ -720,9 +720,12 @@
                                                 Staff</a></li>
                                         <li><a class="{{ isset($subactive) && $subactive == 'luxe_managers' ? 'active_submenu' : '' }}"
                                                 href="{{ route('luxe.managers.index') }}">Your LUXE
-                                                Mangers</a></li>
+                                                Managers</a></li>
                                         <li><a class="{{ isset($subactive) && $subactive == 'real_estate_teams' ? 'active_submenu' : '' }}"
                                                 href="{{ route('real.estate.teams') }}">Real Estate Teams</a></li>
+                                        <li><a class="{{ isset($subactive) && $subactive == 'luxe_loan_officers' ? 'active_submenu' : '' }}"
+                                                href="{{ route('luxe.loan.officers.index') }}">Your LUXE Loan
+                                                Officers</a></li>
                                         <li><a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
                                                 href="{{ url('general/form/agent_referrals/index') }}">New Agents To
                                                 Join LUXE</a></li>
