@@ -41,7 +41,7 @@
                 <p class="staff-email"><a href="mailto:alfonso@luxehomeloan.com">alfonso@luxehomeloan.com</a></p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/alex.jpg') }}" class="staff-image">
                 <p class="staff-name">Alex Ramirez</p>
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:7862390668">786.239.0668</a></p>
