@@ -16,13 +16,13 @@ class OrderObserver
      */
     public function created(LuxeStoreOrder $luxeStoreOrder)
     {
-        $delay = Carbon::now()->addDays(3);
+        $delay = Carbon::now()->addWeekdays(3);
         $days = 3;
         OrderStatusNotCompleted::dispatch([$luxeStoreOrder, $days])->delay($delay);
-        $delay = Carbon::now()->addDays(5);
+        $delay = Carbon::now()->addWeekdays(5);
         $days = 5;
         OrderStatusNotCompleted::dispatch([$luxeStoreOrder, $days])->delay($delay);
-        $delay = Carbon::now()->addDays(10);
+        $delay = Carbon::now()->addWeekdays(10);
         $days = 10;
         OrderStatusNotCompleted::dispatch([$luxeStoreOrder, $days])->delay($delay);
     }

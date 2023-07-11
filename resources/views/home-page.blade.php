@@ -1220,6 +1220,12 @@
                 <p>Real Estate Teams<br>&nbsp;</p>
             </div>
         </div>
+        <div class="box-item box-item-padding" onclick="window.location = '{{ route('luxe.loan.officers.index') }}'">
+            <div>
+                <img src="/images/index-page/leads-icon.svg" class="icon" alt="">
+                <p>Your LUXE Loan Officers<br>&nbsp;</p>
+            </div>
+        </div>
         <div class="box-item box-item-padding"
             onclick="window.location = '{{ url('general/form/agent_referrals/index') }}'">
             <div>
@@ -1240,12 +1246,12 @@
             </div>
         </div>
         <!-- <div class="box-item box-item-padding"
-                                                onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
-                                                <div>
-                                                    <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                                                    <p>Request Your<br> Agent Referral</p>
-                                                </div>
-                                            </div> -->
+                                                            onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
+                                                            <div>
+                                                                <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
+                                                                <p>Request Your<br> Agent Referral</p>
+                                                            </div>
+                                                        </div> -->
         <div class="box-item box-item-padding" onclick="window.location = '{{ route('mls-directory') }}'">
             <div>
                 <img src="/images/index-page/global-search.svg" class="icon" alt="">

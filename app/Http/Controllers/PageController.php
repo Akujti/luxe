@@ -55,6 +55,11 @@ class PageController extends Controller
         return view('luxe-staff.luxe-managers');
     }
 
+    public function loan_officers()
+    {
+        return view('luxe-staff.loan-officers');
+    }
+
     public function real_estate_teams()
     {
         return view('luxe-staff.real-estate-teams');
