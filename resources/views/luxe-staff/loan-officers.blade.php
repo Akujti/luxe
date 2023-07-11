@@ -76,7 +76,7 @@
                 <p class="staff-email"><a href="mailto:ducene@luxehomeloan.com">ducene@luxehomeloan.com</a></p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/eddie.jpeg') }}" class="staff-image">
                 <p class="staff-name">Eddie Peña</p>
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:7863551488">786.355.1488</a></p>
