@@ -297,13 +297,13 @@
                             <div class="form-group col-md-12">
                                 <input id="option-0" class="form-check-input ml-0 d-none" type="checkbox"
                                     value="Photos Only (12-15 images)"
-                                    data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked>
+                                    data-price="{{ auth()->user()->status == 2 ? 0 : 125 }}" name="add-ons[]" checked>
                                 <input class="form-check-input ml-0" type="checkbox" value="Photos Only (12-15 images)"
                                     data-price="{{ auth()->user()->status == 2 ? 0 : 100 }}" name="add-ons[]" checked
                                     disabled>
                                 <label class="ml-4">
                                     Photos Only (12-15 images)
-                                    {{ auth()->user()->status != 1 ? (auth()->user()->status == 2 ? '- FREE' : '') : '- $100' }}
+                                    {{ auth()->user()->status != 1 ? (auth()->user()->status == 2 ? '- FREE' : '') : '- $125' }}
                                 </label>
                                 @if (auth()->user()->status == 2)
                                     <p>**Sale Listing Agreement must have minimum list price of $250K and minimum 5% gross
@@ -327,18 +327,18 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" data-price="100" id="option-3"
+                                    <input class="form-check-input" type="checkbox" data-price="125" id="option-3"
                                         name="add-ons[]" value="Reel of Photos w/ drone video clip">
                                     <label class="form-check-label font-weight-normal" for="option-3">
                                         Reel of Photos w/ drone video clip -
-                                        {{ auth()->user()->status == 3 ? 'FREE' : '$100' }}
+                                        {{ auth()->user()->status == 3 ? 'FREE' : '$125' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" data-price="125" id="option-4"
+                                    <input class="form-check-input" type="checkbox" data-price="150" id="option-4"
                                         name="add-ons[]" value="Reel of Video Walkthrough">
                                     <label class="form-check-label font-weight-normal" for="option-4">
-                                        Reel of Video Walkthrough - {{ auth()->user()->status == 3 ? 'FREE' : '$125' }}
+                                        Reel of Video Walkthrough - {{ auth()->user()->status == 3 ? 'FREE' : '$150' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
@@ -358,18 +358,18 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" data-price="150" id="option-7"
+                                    <input class="form-check-input" type="checkbox" data-price="160" id="option-7"
                                         name="add-ons[]" value="3D Zillow Tour">
                                     <label class="form-check-label font-weight-normal" for="option-7">
-                                        3D Zillow Tour - {{ auth()->user()->status == 3 ? 'FREE' : '$150' }}
+                                        3D Zillow Tour - {{ auth()->user()->status == 3 ? 'FREE' : '$160' }}
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" data-price="200" id="option-8"
+                                    <input class="form-check-input" type="checkbox" data-price="220" id="option-8"
                                         name="add-ons[]" value="3D Zillow Tour & Interactive Floorplan">
                                     <label class="form-check-label font-weight-normal" for="option-8">
                                         3D Zillow Tour & Interactive Floorplan -
-                                        {{ auth()->user()->status == 3 ? 'FREE' : '$200' }}
+                                        {{ auth()->user()->status == 3 ? 'FREE' : '$220' }}
                                     </label>
                                 </div>
                             </div>
