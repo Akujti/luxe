@@ -31,7 +31,7 @@
     <div class="container">
         <div class="row my-5">
             <div class="col-12 title mb-3 text-center">
-                <h1>Your LUXE Loan Officers </h1>
+                <h1>LUXE Lending - Your LUXE Loan Officers</h1>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/alfonso.jpg') }}" class="staff-image">
