@@ -47,13 +47,13 @@
                 <p class="staff-email">D: <a href="tel:786.203.6277">786.203.6277</a></p>
                 <p class="staff-email">E: <a href="mailto:meishamiami@luxeknows.com">meishamiami@luxeknows.com</a></p>
             </div>
-            <div class="col-md-6 staff-box">
+            {{-- <div class="col-md-6 staff-box">
                 <img src="{{ asset('images/real-estate/llc.jpg') }}" class="staff-image" style="object-position: top;">
                 <p class="staff-name">Luxury Lifestyle Collective</p>
                 <p class="staff-role">Team Leader: Nina Millman</p>
                 <p class="staff-email">D: <a href="tel:305.333.8292">305.333.8292</a></p>
                 <p class="staff-email">E: <a href="mailto:nina@luxeknows.com">nina@luxeknows.com</a></p>
-            </div>
+            </div> --}}
             <div class="col-md-6 staff-box">
                 <img src="{{ asset('images/real-estate/mcc.jpg') }}" class="staff-image" style="object-position: top;">
                 <p class="staff-name">Miami Casa Collective</p>
