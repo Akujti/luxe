@@ -46,6 +46,8 @@
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:7862390668">786.239.0668</a></p>
                 <p class="staff-email"><a href="mailto:alex@luxehomeloan.com">alex@luxehomeloan.com</a></p>
+
+                <a target="_blank" href="https://2086660.my1003app.com/1743529/register" class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/ana-arias.jpg') }}" class="staff-image">
@@ -53,6 +55,8 @@
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:3057331932">305.733.1932</a></p>
                 <p class="staff-email"><a href="mailto:ana@luxehomeloan.com">ana@luxehomeloan.com</a></p>
+
+                <a target="_blank" href="https://2086660.my1003app.com/2093307/register" class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/anais.jpg') }}" class="staff-image">
@@ -67,6 +71,8 @@
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:3057533264">305.753.3264</a></p>
                 <p class="staff-email"><a href="mailto:brandon@luxehomeloan.com">brandon@luxehomeloan.com</a></p>
+
+                <a target="_blank" href="https://2086660.my1003app.com/1266291/register" class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/ducene.jpg') }}" class="staff-image">
@@ -81,6 +87,8 @@
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:7863551488">786.355.1488</a></p>
                 <p class="staff-email"><a href="mailto:eddie@luxehomeloan.com">eddie@luxehomeloan.com</a></p>
+
+                <a target="_blank" href="https://2086660.my1003app.com/498845/register" class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/elda.jpg') }}" class="staff-image">
