@@ -66,6 +66,9 @@
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:3056070512">305.607.0512</a></p>
                 <p class="staff-email"><a href="mailto:anais@luxehomeloan.com">anais@luxehomeloan.com</a></p>
+
+                <a target="_blank" href="https://2086660.my1003app.com/2142886/register"
+                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/brandon.png') }}" class="staff-image">
