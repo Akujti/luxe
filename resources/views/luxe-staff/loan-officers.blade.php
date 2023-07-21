@@ -114,7 +114,7 @@
                 <a target="_blank" href="https://2086660.my1003app.com/2144327/register"
                     class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
-            <div class="col-md-3 staff-box">
+            <!-- <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
                 <p class="staff-name">Michael Castro</p>
                 <p class="staff-role">Mortgage Loan Officer</p>
@@ -127,7 +127,7 @@
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:7865567543">786.556.7543</a></p>
                 <p class="staff-email"><a href="mailto:orlando@luxehomeloan.com">orlando@luxehomeloan.com</a></p>
-            </div>
+            </div> -->
         </div>
     </div>
 @endsection
