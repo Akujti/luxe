@@ -17,7 +17,7 @@ class FolderController extends Controller
         // Delete records older than 6 months
         $sixMonthsAgo = Carbon::now()->subMonths(6);
 
-        File::where('created_at', '<', $sixMonthsAgo)->delete();
+        File::where('folder_id', 96)->where('created_at', '<', $sixMonthsAgo)->delete();
 
         $folder_id = $request->id;
         $filters = [
