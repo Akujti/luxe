@@ -36,19 +36,21 @@ class FolderController extends Controller
             } else {
                 $query->whereNull('folder_id');
             }
-        }); 
+        });
 
-        if($filters['id'] && $filters['id'] == 96) {
+        if ($filters['id'] && $filters['id'] == 96) {
             $files->orderBy('created_at', 'desc');
         } else {
             $files->orderBy('title', $request->input('sort', 'asc'));
         }
 
-        $files = $files->get();
+
 
         if (request()->wantsJson()) {
+            $files = $files->get();
             return response()->json(['folders' => $folders, 'files' => $files]);
         }
+        $files = $files->paginate(20);
         return view('pages.files.index', compact('folders', 'files', 'folder_id'));
     }
 
