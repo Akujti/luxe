@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\File;
 use App\Models\Folder;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\Input;
 
 class FolderController extends Controller
 {
     public function index(Request $request)
     {
+        // Delete records older than 6 months
+        $sixMonthsAgo = Carbon::now()->subMonths(6);
+
+        File::where('created_at', '<', $sixMonthsAgo)->delete();
+
         $folder_id = $request->id;
         $filters = [
             'id' => $request->get('id'),
@@ -29,7 +36,15 @@ class FolderController extends Controller
             } else {
                 $query->whereNull('folder_id');
             }
-        })->orderBy('title', $request->input('sort', 'asc'))->get();
+        }); 
+
+        if($filters['id'] && $filters['id'] == 96) {
+            $files->orderBy('created_at', 'desc');
+        } else {
+            $files->orderBy('title', $request->input('sort', 'asc'));
+        }
+
+        $files = $files->get();
 
         if (request()->wantsJson()) {
             return response()->json(['folders' => $folders, 'files' => $files]);
