@@ -16,6 +16,9 @@
                     <input type="hidden" name="form_title_value" value="CLOSING COORDINATORS">
                     <input type="hidden" name="special" value="Coordinator Will Reach Out Within 1 Business Day">
                     <input type="hidden" name="to_email[]" value="{{ $coordinator->email }}">
+                    @if ($coordinator->id == 2)
+                        <input type="hidden" name="to_email[]" value="tc@thetransaction.co">
+                    @endif
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
