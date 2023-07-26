@@ -81,13 +81,13 @@
                 <p class="staff-role">Broker</p>
                 <p class="staff-email">wesley@luxeknows.com</p>
             </div>
-            <div class="col-md-3 staff-box">
+            {{-- <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
                 <p class="staff-name">Valentina Grad</p>
                 <p class="staff-role">Marketing Coordinator</p>
                 <p class="staff-email">marketingcoordinator@luxeknows.com</p>
             </div>
-            {{-- <div class="col-md-3 staff-box">
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/kendra.jpeg') }}" class="staff-image">
                 <p class="staff-name">Kendra Lopez</p>
                 <p class="staff-role">Agent Onboarding</p>
