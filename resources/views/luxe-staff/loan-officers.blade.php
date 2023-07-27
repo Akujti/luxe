@@ -86,6 +86,9 @@
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:7862602777">786.260.2777</a></p>
                 <p class="staff-email"><a href="mailto:ducene@luxehomeloan.com">ducene@luxehomeloan.com</a></p>
+
+                <a target="_blank" href="https://2086660.my1003app.com/1895607/register"
+                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/eddie.jpeg') }}" class="staff-image">
