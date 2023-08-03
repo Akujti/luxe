@@ -621,6 +621,10 @@
                                                     href="{{ url('general/form/contract-help/index') }}">Get
                                                     Contract Help</a>
                                             </li>
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'get_commercial_help' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/commercial-help/index') }}">Get
+                                                    Commercial Help</a>
+                                            </li> --}}
                                             <li><a class="{{ isset($subactive) && $subactive == 'design_requests' ? 'active_submenu' : '' }}"
                                                     href="{{ route('marketing.requests') }}">Design Requests</a>
                                             </li>

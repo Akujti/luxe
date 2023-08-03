@@ -918,6 +918,13 @@
                 <p>Get Contract Help</p>
             </div>
         </div>
+        {{-- <div class="box-item box-item-padding"
+            onclick="window.location = '{{ url('general/form/commercial-help/index') }}'">
+            <div>
+                <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
+                <p>Get Commercial Help</p>
+            </div>
+        </div> --}}
         <div class="box-item box-item-padding" onclick="window.location = '{{ route('marketing.requests') }}'">
             <div>
                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
@@ -1246,12 +1253,12 @@
             </div>
         </div>
         <!-- <div class="box-item box-item-padding"
-                                                            onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
-                                                            <div>
-                                                                <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                                                                <p>Request Your<br> Agent Referral</p>
-                                                            </div>
-                                                        </div> -->
+                                                                            onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
+                                                                            <div>
+                                                                                <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
+                                                                                <p>Request Your<br> Agent Referral</p>
+                                                                            </div>
+                                                                        </div> -->
         <div class="box-item box-item-padding" onclick="window.location = '{{ route('mls-directory') }}'">
             <div>
                 <img src="/images/index-page/global-search.svg" class="icon" alt="">
