@@ -63,12 +63,12 @@
                 <p class="staff-role">Lead Director</p>
                 <p class="staff-email">jorgef@luxeknows.com</p>
             </div>
-            <div class="col-md-3 staff-box">
+            {{-- <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/monica.jpg') }}" class="staff-image">
                 <p class="staff-name">Monica Estupinan</p>
                 <p class="staff-role">Education Specialist & Coaching</p>
                 <p class="staff-email">monica@luxeknows.com</p>
-            </div>
+            </div> --}}
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/sabrina.jpg') }}" class="staff-image">
                 <p class="staff-name">Sabrina Mirabent</p>
@@ -100,17 +100,17 @@
                 <p class="staff-email">onboarding@luxeknows.com</p>
             </div> --}}
             <!-- <div class="col-md-3 staff-box">
-                                                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
-                                                <p class="staff-name">Roxie Cordoba</p>
-                                                <p class="staff-role">Lead Admin</p>
-                                                <p class="staff-email">leadadmin@luxeknows.com</p>
-                                            </div>
-                                            <div class="col-md-3 staff-box">
-                                                <img src="{{ asset('images/staff/albert.jpg') }}" class="staff-image">
-                                                <p class="staff-name">Albert Babani</p>
-                                                <p class="staff-role">Sales Coach</p>
-                                                <p class="staff-email">albert@babaniproperties.com</p>
-                                            </div> -->
+                                                    <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                                                    <p class="staff-name">Roxie Cordoba</p>
+                                                    <p class="staff-role">Lead Admin</p>
+                                                    <p class="staff-email">leadadmin@luxeknows.com</p>
+                                                </div>
+                                                <div class="col-md-3 staff-box">
+                                                    <img src="{{ asset('images/staff/albert.jpg') }}" class="staff-image">
+                                                    <p class="staff-name">Albert Babani</p>
+                                                    <p class="staff-role">Sales Coach</p>
+                                                    <p class="staff-email">albert@babaniproperties.com</p>
+                                                </div> -->
         </div>
     </div>
 @endsection
