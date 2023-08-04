@@ -918,13 +918,13 @@
                 <p>Get Contract Help</p>
             </div>
         </div>
-        {{-- <div class="box-item box-item-padding"
+        <div class="box-item box-item-padding"
             onclick="window.location = '{{ url('general/form/commercial-help/index') }}'">
             <div>
                 <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
                 <p>Get Commercial Help</p>
             </div>
-        </div> --}}
+        </div>
         <div class="box-item box-item-padding" onclick="window.location = '{{ route('marketing.requests') }}'">
             <div>
                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">

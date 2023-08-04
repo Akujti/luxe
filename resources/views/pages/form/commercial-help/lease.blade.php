@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'get_contract_help'])
+@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'get_commercial_help'])
 @section('content')
     <style>
         .form-group {
