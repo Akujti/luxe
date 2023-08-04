@@ -32,7 +32,7 @@ class BrokerSumoController extends Controller
         $path1 = $request->file('sheet')->store('temp');
         $path = storage_path('app') . '/' . $path1;
         $result = Excel::toArray(AgentImport::class, $path);
-        for ($i = 1; $i < count($result[0]) - 2; $i++) {
+        for ($i = 1; $i < count($result[0]); $i++) {
             BrokersumoAgent::updateOrCreate(
                 ['agent_name' => $result[0][$i][0]],
                 [
@@ -49,7 +49,7 @@ class BrokerSumoController extends Controller
         $path1 = $request->file('sheet')->store('temp');
         $path = storage_path('app') . '/' . $path1;
         $result = Excel::toArray(AgentImport::class, $path);
-        for ($i = 1; $i < count($result[0]) - 2; $i++) {
+        for ($i = 1; $i < count($result[0]); $i++) {
             BrokersumoAgent::updateOrCreate(
                 ['agent_name' => $result[0][$i][0]],
                 [
