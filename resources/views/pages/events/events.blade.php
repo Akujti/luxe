@@ -195,17 +195,20 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
-                    <div class="modal-body mb-0 pb-0" id="event_attend_form_wrapper">
-                        <form id="event_attend_form" action="{{ route('events.attend') }}" method="POST"
-                            class="m-0 p-0">
-                            @csrf
-                            <input type="hidden" name="event_id" id="event_id_attend">
-                            <input type="hidden" name="status" id="event_attend_status">
-                            <label>Are you going to attend this event?</label>
-                            <br>
-                            <button class="btn btn-luxe" onclick="attend_event(1)">Yes</button>
-                            <button class="btn btn-luxe" onclick="attend_event(0)">No</button>
-                        </form>
+                    <div class="modal-body mb-0 pb-0">
+                        <a href="#" class="text-dark" target="_blank" id="show-more-link" style="text-decoration: underline; font-size:17px;">Show event details.</a>
+                        <div id="event_attend_form_wrapper">
+                            <form id="event_attend_form" action="{{ route('events.attend') }}" method="POST"
+                                class="m-0 p-0">
+                                @csrf
+                                <input type="hidden" name="event_id" id="event_id_attend">
+                                <input type="hidden" name="status" id="event_attend_status">
+                                <label>Are you going to attend this event?</label>
+                                <br>
+                                <button class="btn btn-luxe" onclick="attend_event(1)">Yes</button>
+                                <button class="btn btn-luxe" onclick="attend_event(0)">No</button>
+                            </form>
+                        </div>
                     </div>
                     <form action="{{ route('events.update', 0) }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -360,6 +363,7 @@
                 var event = event.event;
                 $('.single-event').modal('show');
                 $('.single-event').find('#event_id').val(event._def.publicId);
+                $('.single-event').find('#show-more-link').attr('href', '/user/events/' + event._def.publicId);
                 $(".single-event").find('#event_stats_link').attr("href", '/user/events/' + event
                     ._def.publicId + '/attendance')
                 var startdt = event.extendedProps.fullDate + 'T' + event.extendedProps.start_time

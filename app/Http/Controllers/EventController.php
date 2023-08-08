@@ -31,6 +31,12 @@ class EventController extends Controller
         return view('pages.events.events', compact('events', 'isAdmin'));
     }
 
+    public function show(Event $event)
+    {
+        $isAdmin = Auth::user()->isAdmin;
+        return view('pages.events.show', compact('event', 'isAdmin'));
+    }
+
     public function attendance(Event $event)
     {
         $agents = $event->attendees()->withPivot('status', 'canceled')->get();
