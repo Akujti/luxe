@@ -976,13 +976,13 @@
     <div class="col-12 title mb-3">
         <h1>Leads</h1>
     </div>
-    <div class="grid grid-layout">
+    <div class="grid grid-layout-three">
         <div class="box-item box-item-center" onclick="window.location = '{{ url('general/form/leads/index') }}'">
             <div>
                 <img src="/images/index-page/partner_1-removebg-preview.png" alt="">
             </div>
         </div>
-        <div class="box-item box-item-center" onclick="window.location = '{{ url('general/form/cinc/index') }}'">
+        <div class="box-item box-item-center d-none" onclick="window.location = '{{ url('general/form/cinc/index') }}'">
             <div>
                 <img src="/images/index-page/partner_2-removebg-preview.png" alt="">
             </div>
