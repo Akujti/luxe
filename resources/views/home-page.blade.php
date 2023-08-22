@@ -761,7 +761,7 @@
             @endforelse
         </div>
         <div class="row p-0 m-0 w-100 mb-3 mt-4" style="border-bottom: 3px solid #00000014;"></div>
-        <div class="box-guides">
+        <!-- <div class="box-guides">
             <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4 ">
                 <span>Most popular marketing templates</span>
                 <a href="{{ route('canva.marketing.requests') }}" class="text-luxe text-bold" style="font-size:16px">See
@@ -811,7 +811,7 @@
                     </div>
                 @endif
             @endforeach
-        </div>
+        </div> -->
         {{-- <div class="col-md-6">
                 <div class="box-item align-items-start box-guides row p-0 m-0 bg-transparent"
                     style="height: 470px !important;">
