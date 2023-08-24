@@ -89,7 +89,7 @@
                 AGREEMENT</div>
             <p>This agreement outlines the terms and conditions of the $100 deposit for the
                 coaching program.</p>
-            <p>30 Days to Success Accountability program will be hosted at the Miami Lakes
+            <p>30 Days to Success Accountability program will be hosted at the Coral Gables
                 office from 10am to 12pm Monday through Friday. There are 20 instructional
                 days of the 30 days from the start date of the program. Weekends are meant
                 for independent work provided by your coach.</p>
