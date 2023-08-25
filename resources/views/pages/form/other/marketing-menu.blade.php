@@ -99,6 +99,7 @@
                                 $set_up_zillow = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('set-up-zillow-realtorcom-profiles')->first();
                                 $custom_bio = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('custom-bio')->first();
                                 $design_team_logo = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-team-logo')->first();
+                                $crm_services = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('kvcore-crm-setup')->first();
                                 
                                 $boost_facebook_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('boosting-facebook-ads')->first();
                                 $boost_instagram_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('boosting-instagram-ads')->first();
@@ -148,6 +149,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <x-marketing-menu-product :product="$design_team_logo" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <x-marketing-menu-product :product="$crm_services" />
                                     </div>
                                 </div>
                                 <h4>Paid Advertising</h4>
