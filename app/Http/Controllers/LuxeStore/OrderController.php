@@ -485,17 +485,17 @@ class OrderController extends Controller
             $form_inputs = null;
             if ($product->inputs->count()) {
                 $form_inputs = [];
-
-                foreach ($form as $key => $value) {
-                    $is_file = false;
-                    if ($value instanceof UploadedFile) {
-                        $name = time() . Str::random(10) . '.' . $value->getClientOriginalExtension();
-                        $path = $value->storeAs('/order_images', $name, 'public');
-                        $value = $path;
-                        $is_file = true;
+                if ($form)
+                    foreach ($form as $key => $value) {
+                        $is_file = false;
+                        if ($value instanceof UploadedFile) {
+                            $name = time() . Str::random(10) . '.' . $value->getClientOriginalExtension();
+                            $path = $value->storeAs('/order_images', $name, 'public');
+                            $value = $path;
+                            $is_file = true;
+                        }
+                        $form_inputs[] = ['input' => LuxeStoreProductForm::select('id', 'input_name')->where('input_value', $key)->firstOrFail()->toArray(), 'value' => $value, 'is_file' => $is_file];
                     }
-                    $form_inputs[] = ['input' => LuxeStoreProductForm::select('id', 'input_name')->where('input_value', $key)->firstOrFail()->toArray(), 'value' => $value, 'is_file' => $is_file];
-                }
             }
 
             $variant_input = null;

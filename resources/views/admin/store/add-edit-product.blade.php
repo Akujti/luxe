@@ -106,12 +106,12 @@
                             </div>
                             <div class="form-group col-12 col-lg-2 col-md-4">
                                 <label for="">Price</label>
-                                <input type="number" name="price" class="form-control"
+                                <input type="number" name="price" class="form-control" step="0.01"
                                     value="{{ $product ? $product->price : '' }}">
                             </div>
                             <div class="form-group col-12 col-lg-2 col-md-4">
                                 <label for="">Sale Price</label>
-                                <input type="number" name="sale_price" class="form-control"
+                                <input type="number" name="sale_price" class="form-control" step="0.01"
                                     value="{{ $product ? $product->sale_price : '' }}">
                             </div>
                             <div class="form-group col-12 col-lg-2 col-md-4">
@@ -183,13 +183,13 @@
                                                     </div>
                                                     <div class="form-group col p-0 m-0 mr-1">
                                                         <label for="" class="label">Price</label>
-                                                        <input type="number"
+                                                        <input type="number" step="0.01"
                                                             name="variant_values[{{ $key }}][price]"
                                                             class="form-control" value="{{ $row->price }}">
                                                     </div>
                                                     <div class="form-group col p-0 m-0 mr-1">
                                                         <label for="" class="label">Sale Price</label>
-                                                        <input type="number"
+                                                        <input type="number" step="0.01"
                                                             name="variant_values[{{ $key }}][sale_price]"
                                                             class="form-control" value="{{ $row->sale_price }}">
                                                     </div>
@@ -220,11 +220,15 @@
                                     @if ($product && $product->inputs->count())
                                         @foreach ($product->inputs as $key => $row)
                                             <div class="col-12 p-0 mt-2 input-box d-flex align-items-center">
-                                                <input type="text" name="form[{{ $key }}][input_name]" class="form-control mr-2"
-                                                    value="{{ $row->input_name }}">
+                                                <input type="text" name="form[{{ $key }}][input_name]"
+                                                    class="form-control mr-2" value="{{ $row->input_name }}">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" @if($row->is_file) checked @endif name="form[{{ $key }}][is_file]" value="1" id="flexCheckDefault">
-                                                    <label class="form-check-label label-is-file p-0 m-0" for="flexCheckDefault">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        @if ($row->is_file) checked @endif
+                                                        name="form[{{ $key }}][is_file]" value="1"
+                                                        id="flexCheckDefault">
+                                                    <label class="form-check-label label-is-file p-0 m-0"
+                                                        for="flexCheckDefault">
                                                         Is File
                                                     </label>
                                                 </div>
@@ -308,11 +312,13 @@
                 '</div>' +
                 '<div class="form-group col p-0 m-0 mr-1">' +
                 '<label for="" class="label">Price</label>' +
-                '<input type="number" name="variant_values[' + variant_count + '][price]" class="form-control">' +
+                '<input type="number" step="0.01" name="variant_values[' + variant_count +
+                '][price]" class="form-control">' +
                 '</div>' +
                 '<div class="form-group col p-0 m-0 mr-1">' +
                 '<label for="" class="label">Sale Price</label>' +
-                '<input type="number" name="variant_values[' + variant_count + '][sale_price]" class="form-control">' +
+                '<input type="number" step="0.01" name="variant_values[' + variant_count +
+                '][sale_price]" class="form-control">' +
                 '</div>' +
                 '<div class="form-group col p-0 m-0 mr-1">' +
                 '<label for="" class="label">Stock</label>' +
@@ -326,7 +332,7 @@
 
         function add_new_input() {
             let numRows = 1;
-            $('#form-box').each( function() {
+            $('#form-box').each(function() {
                 numRows = $('.input-box', $(this)).length
             })
             var html = `<div class="col-12 p-0 mt-2 input-box d-flex align-items-center p-0">
@@ -405,7 +411,7 @@
 @endsection
 @endsection
 <style>
-    .label-is-file {
-        width: 63px;
-    }
+.label-is-file {
+    width: 63px;
+}
 </style>
