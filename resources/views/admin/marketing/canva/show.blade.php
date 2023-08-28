@@ -85,6 +85,7 @@
                                 <th>Id</th>
                                 <th>Title</th>
                                 <th>Image</th>
+                                <th>Link</th>
                                 <th>Created at</th>
                                 <th>Order</th>
                                 <th>Actions</th>
@@ -96,6 +97,15 @@
                                     <td>{{ $template->id }}</td>
                                     <td>{{ $template->title }}</td>
                                     <td><img src="{{ $template->image_url }}" id="img" width="75px" height="75px">
+                                    </td>
+                                    <td>
+                                        @if ($template->url)
+                                            <a href="{{ $template->url }}">Canva Link</a>
+                                        @endif
+                                        {{-- <br>
+                                        @if ($template->template_url)
+                                            <a href="{{ $template->template_url }}">LUXE Theme Link</a>
+                                        @endif --}}
                                     </td>
                                     <td>{{ $template->created_at->diffForHumans() }}</td>
                                     <td>{{ $template->order }}</td>

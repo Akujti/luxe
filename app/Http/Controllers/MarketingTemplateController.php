@@ -39,25 +39,26 @@ class MarketingTemplateController extends Controller
      */
     public function index_admin()
     {
-        $canvas = MarketingCanva::whereNull('parent_id')->orderBy('order', 'asc')->paginate(15);
-        $last_order = MarketingCanva::latest()->first()->order ?? 0;
+        $canvas = MarketingCanva::withTrashed()->whereNull('parent_id')->orderBy('order', 'asc')->paginate(15);
+        $last_order = MarketingCanva::withTrashed()->latest()->first()->order ?? 0;
         ++$last_order;
         return view('admin.marketing.canva.index', compact('canvas', 'last_order'));
     }
 
     public function admin_categories($id)
     {
-        $category = MarketingCanva::findOrFail($id)->load('categories');
-        $last_order = MarketingCanva::where('parent_id', $category->id)->latest()->first()->order ?? 0;
-        $templates = $category->templates;
+        $category = MarketingCanva::withTrashed()->findOrFail($id)->load('categories');
+        $last_order = MarketingCanva::withTrashed()->where('parent_id', $category->id)->latest()->first()->order ?? 0;
+        $templates = $category->templates()->withTrashed()->get();
         ++$last_order;
-        $last_order_template = MarketingCanvaTemplate::where('category_id', $category->id)->latest()->first()->order ?? 0;
+        $last_order_template = MarketingCanvaTemplate::where('category_id', $category->id)->latest()->withTrashed()->first()->order ?? 0;
         ++$last_order_template;
 
         $diy_templates = DiyTemplateCategory::with('templates')->get();
 
         return view('admin.marketing.canva.show', compact('category', 'templates', 'last_order', 'last_order_template', 'diy_templates'));
     }
+
     public function admin_templates($marketing_id, $category_id)
     {
         $category = MarketingCanvaCategory::with('templates')->find($category_id);
