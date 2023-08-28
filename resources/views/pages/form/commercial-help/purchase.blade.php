@@ -109,7 +109,7 @@
                                     name="what_is_the_amount_the_client_is_willing_to_invest_in_the_purchase"
                                     class="form-control" required>
                             </div>
-                            <div class="form-group col-md-6">
+                            {{-- <div class="form-group col-md-6">
                                 <label for="name">IF the purchase is an investment, what are they looking to achieve
                                     from the purchase?</label>
                                 <select
@@ -121,7 +121,7 @@
                                     <option value="Passive Income">Passive Income</option>
                                     <option value="Cash on Cash Return">Cash on Cash Return</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="form-group col-md-6">
                                 <label for="name">Location - Is the Client looking to purchase in a specific sub-market?
                                     - Doral, Hialeah, Medley, Little River, Little Havana, or Allapattah</label>
