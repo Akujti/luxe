@@ -33,6 +33,13 @@
             <div class="col-12 title mb-3 text-center">
                 <h1>Your LUXE Branch Managers</h1>
             </div>
+            {{-- <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/kristy.jpg') }}" class="staff-image">
+                <p class="staff-name">Kristy Martinez</p>
+                <p class="staff-role">South Miami Manager</p>
+                <p class="staff-email">kristy@luxeknows.com</p>
+            </div> --}}
+
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/bianca.jpg') }}" class="staff-image">
                 <p class="staff-name">Bianca Guevara</p>
@@ -40,10 +47,22 @@
                 <p class="staff-email">bianca@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/deanna.jpg') }}" class="staff-image">
+                <p class="staff-name">Deanna Meredith</p>
+                <p class="staff-role">Orlando Manager</p>
+                <p class="staff-email">deanna@meredithteam.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/denisse.jpg') }}" class="staff-image">
                 <p class="staff-name">Denisse Uyema</p>
                 <p class="staff-role">Kendall Manager</p>
                 <p class="staff-email">denisse@luxeknows.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/diana.jpg') }}" class="staff-image">
+                <p class="staff-name">Diana-Kay Pearce</p>
+                <p class="staff-role">Homestead Manager</p>
+                <p class="staff-email">dkp@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/justin.jpg') }}" class="staff-image">
@@ -57,17 +76,17 @@
                 <p class="staff-role">Pembroke Pines Manager</p>
                 <p class="staff-email">katherine@investinsouthfl.com</p>
             </div>
-            {{-- <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/kristy.jpg') }}" class="staff-image">
-                <p class="staff-name">Kristy Martinez</p>
-                <p class="staff-role">South Miami Manager</p>
-                <p class="staff-email">kristy@luxeknows.com</p>
-            </div> --}}
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/shanut.jpg') }}" class="staff-image">
                 <p class="staff-name">Shanut Anaut</p>
                 <p class="staff-role">South Miami Manager</p>
                 <p class="staff-email">shanut@luxeknows.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/steven.jpg') }}" class="staff-image">
+                <p class="staff-name">Steven Vivar</p>
+                <p class="staff-role">Kendall Manager</p>
+                <p class="staff-email">steven@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/tania2.jpg') }}" class="staff-image">
@@ -86,24 +105,6 @@
                 <p class="staff-name">Yesenia Ferro</p>
                 <p class="staff-role">Miami Lakes Manager</p>
                 <p class="staff-email">yesenia@luxeknows.com</p>
-            </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/deanna.jpg') }}" class="staff-image">
-                <p class="staff-name">Deanna Meredith</p>
-                <p class="staff-role">Orlando Manager</p>
-                <p class="staff-email">deanna@meredithteam.com</p>
-            </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/diana.jpg') }}" class="staff-image">
-                <p class="staff-name">Diana-Kay Pearce</p>
-                <p class="staff-role">Homestead Manager</p>
-                <p class="staff-email">dkp@luxeknows.com</p>
-            </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/steven.jpg') }}" class="staff-image">
-                <p class="staff-name">Steven Vivar</p>
-                <p class="staff-role">Kendall Manager</p>
-                <p class="staff-email">steven@luxeknows.com</p>
             </div>
         </div>
     </div>
