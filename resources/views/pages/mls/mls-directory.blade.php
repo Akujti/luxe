@@ -120,7 +120,7 @@
                 <p>Cost To Join: $200 one-time fee plus $45/month</p>
             </div>
             <div class="col-md-6">
-                <img src="/images/mls/map.png" alt="" class="map-image">
+                <img src="/images/mls/map9.png" alt="" class="map-image">
             </div>
         </div>
         <hr>
@@ -136,7 +136,7 @@
                 <p>Cost: $150 one-time fee plus $92 per quarter, prorated</p>
             </div>
             <div class="col-md-6">
-                <img src="/images/mls/map.png" alt="" class="map-image">
+                <img src="/images/mls/map11.png" alt="" class="map-image">
             </div>
         </div>
         <hr>
@@ -194,7 +194,7 @@
                 </ul>
             </div>
             <div class="col-md-6">
-                <img src="/images/mls/map.png" alt="" class="map-image">
+                <img src="/images/mls/map10.png" alt="" class="map-image">
             </div>
         </div>
         <hr>

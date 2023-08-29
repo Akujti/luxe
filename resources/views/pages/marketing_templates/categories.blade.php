@@ -5,9 +5,9 @@
             /* background: url('{{ asset('images/bg-image1.jpg') }}'); */
             height: 100vh;
             /* background-size: cover;
-                                                        background-position: center;
-                                                        background-color: rgba(0, 0, 0, 0.7);
-                                                        background-blend-mode: color; */
+                                                            background-position: center;
+                                                            background-color: rgba(0, 0, 0, 0.7);
+                                                            background-blend-mode: color; */
 
         }
 
@@ -91,7 +91,7 @@
             <h1>Canva Marketing Designer</h1>
             <p>Please select the category which you would like to design.</p>
         </div>
-        <div class="grid grid-layout-two">
+        <div class="grid grid-layout">
             @foreach ($marketing_categories as $category)
                 <div class="box-item">
                     <a href="{{ route('canva.marketing.request', $category) }}">

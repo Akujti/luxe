@@ -39,49 +39,86 @@
             font-family: 'gothicbold';
         }
 
-        .fc-daygrid-event.in_person_trainings {
+        .in_person_trainings {
             background-color: #6BE386;
         }
 
-        .fc-daygrid-event.zoom_trainings {
+        .zoom_trainings {
             background-color: #A5C6FF;
         }
 
-        .fc-daygrid-event.tours {
+        .tours {
             background-color: #F2F256;
         }
 
-        .fc-daygrid-event.team_office_meetings {
+        .team_office_meetings {
             background-color: #f0a3b1;
         }
 
-        .fc-daygrid-event.career_fair {
+        .career_fair {
             background-color: #99ec33;
         }
 
-        .fc-daygrid-event.volunteering {
+        .volunteering {
             background-color: #ed87fb;
         }
 
-        .fc-daygrid-event.holidays {
+        .holidays {
             background-color: #2ebbfc;
         }
 
-        .fc-daygrid-event.luxe_coaching_program {
+        .luxe_coaching_program {
             background-color: #ffc107;
         }
 
         .modal-new select {
             border-radius: 3px;
         }
+
+        .color-picker {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
     </style>
 @endsection
 @section('content')
     <div class="container-fluid">
         <div class="row w-100 m-0 mb-5">
-            <div class="col-12 title mb-3 text-center">
-                <h1>LUXE Events</h1>
-                <a class="btn btn-luxe" href="{{ route('my.events') }}">My Events</a>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6 title mb-3 text-center md:flex">
+                <div>
+                    <h1>LUXE Events</h1>
+                    <a class="btn btn-luxe" href="{{ route('my.events') }}">My Events</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker career_fair "></div> Career Fair
+                </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker holidays "></div> Holidays
+                </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker in_person_trainings"></div> In Person Trainings
+                </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker luxe_coaching_program "></div> Luxe Coaching Program
+                </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker team_office_meetings"></div> Team Office Meetings
+                </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker tours"></div> Tours
+                </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker volunteering "></div> Volunteering
+                </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker zoom_trainings"></div> Zoom Trainings
+                </div>
             </div>
             <div id='calendar' style="width: 100%; display: inline-block;"></div>
         </div>
@@ -196,7 +233,8 @@
                                 aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body mb-0 pb-0">
-                        <a href="#" class="text-dark" target="_blank" id="show-more-link" style="text-decoration: underline; font-size:17px;">Show event details.</a>
+                        <a href="#" class="text-dark" target="_blank" id="show-more-link"
+                            style="text-decoration: underline; font-size:17px;">Show event details.</a>
                         <div id="event_attend_form_wrapper">
                             <form id="event_attend_form" action="{{ route('events.attend') }}" method="POST"
                                 class="m-0 p-0">
@@ -363,7 +401,8 @@
                 var event = event.event;
                 $('.single-event').modal('show');
                 $('.single-event').find('#event_id').val(event._def.publicId);
-                $('.single-event').find('#show-more-link').attr('href', '/user/events/' + event._def.publicId);
+                $('.single-event').find('#show-more-link').attr('href', '/user/events/' + event._def
+                    .publicId);
                 $(".single-event").find('#event_stats_link').attr("href", '/user/events/' + event
                     ._def.publicId + '/attendance')
                 var startdt = event.extendedProps.fullDate + 'T' + event.extendedProps.start_time
