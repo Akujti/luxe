@@ -47,6 +47,10 @@
             background-color: #A5C6FF;
         }
 
+        .zoom_trainings_2 {
+            background-color: #b2cc32;
+        }
+
         .tours {
             background-color: #F2F256;
         }
@@ -108,6 +112,9 @@
                     <div class="color-picker luxe_coaching_program "></div> Luxe Coaching Program
                 </div>
                 <div class="d-md-flex align-items-center">
+                    <div class="color-picker zoom_trainings"></div> Morning Calls
+                </div>
+                <div class="d-md-flex align-items-center">
                     <div class="color-picker team_office_meetings"></div> Team Office Meetings
                 </div>
                 <div class="d-md-flex align-items-center">
@@ -117,7 +124,7 @@
                     <div class="color-picker volunteering "></div> Volunteering
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker zoom_trainings"></div> Zoom Trainings
+                    <div class="color-picker zoom_trainings_2"></div> Zoom Trainings
                 </div>
             </div>
             <div id='calendar' style="width: 100%; display: inline-block;"></div>
@@ -188,7 +195,8 @@
                                     <select class="form-group form-select mb-0" name="type">
                                         <option value="-" selected>Select event type</option>
                                         <option value="in_person_trainings">In Person Traninings</option>
-                                        <option value="zoom_trainings">Zoom Trainings</option>
+                                        <option value="zoom_trainings">Morning Calls</option>
+                                        <option value="zoom_trainings_2">Zoom Trainings</option>
                                         <option value="tours">Tours</option>
                                         <option value="team_office_meetings">Team/Office Meetings</option>
                                         <option value="career_fair">Career Fair</option>
