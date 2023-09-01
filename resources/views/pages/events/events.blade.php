@@ -335,7 +335,8 @@
                                     <select class="form-group form-select mb-0" name="type">
                                         <option value>Select event type</option>
                                         <option value="in_person_trainings">In Person Traninings</option>
-                                        <option value="zoom_trainings">Zoom Trainings</option>
+                                        <option value="zoom_trainings">Morning Calls</option>
+                                        <option value="zoom_trainings_2">Zoom Trainings</option>
                                         <option value="tours">Tours</option>
                                         <option value="team_office_meetings">Team/Office Meetings</option>
                                         <option value="career_fair">Career Fair</option>
