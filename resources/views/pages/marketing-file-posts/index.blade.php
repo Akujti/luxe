@@ -211,9 +211,14 @@
             position: relative;
         }
 
-        .box-item img {
+        .box-item>img {
             width: 75px !important;
             height: 75px !important;
+        }
+
+        .box-item:hover .delete-button,
+        .box-item:hover .edit-button {
+            display: block;
         }
     </style>
 @endsection
