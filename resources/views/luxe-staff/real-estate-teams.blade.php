@@ -106,6 +106,14 @@
                         href="tel:786.202.5484">786.202.5484</a></p>
                 <p class="staff-email">E: <a href="mailto:info@therldteam.com">info@therldteam.com</a></p>
             </div>
+            <div class="col-md-6 staff-box">
+                <img src="{{ asset('images/real-estate/olmedillo.jpg') }}" class="staff-image">
+                <p class="staff-name">Olmedillo Group</p>
+                <p class="staff-role">Team Leader: Aya Olmedillo</p>
+                <p class="staff-email">D: <a href="tel:3053219861">305.321.9861</a> or <a
+                        href="tel:786.202.5484">786.202.5484</a></p>
+                <p class="staff-email">E: <a href="mailto:aya@luxeknows.com">aya@luxeknows.com</a></p>
+            </div>
         </div>
     </div>
 @endsection

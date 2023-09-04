@@ -47,7 +47,8 @@ class MarketingTemplateController extends Controller
 
     public function admin_categories($id)
     {
-        $category = MarketingCanva::withTrashed()->findOrFail($id)->load('categories');
+        $category = MarketingCanva::withTrashed()->findOrFail($id);
+        $category->categories = $category->categories()->withTrashed()->get();
         $last_order = MarketingCanva::withTrashed()->where('parent_id', $category->id)->latest()->first()->order ?? 0;
         $templates = $category->templates()->withTrashed()->get();
         ++$last_order;

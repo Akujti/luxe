@@ -79,7 +79,7 @@
         <div class="row box-items py-4 justify-content-center">
             <div class="col-12 col-md-12 col-lg-6">
                 <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')" />
-                <form id="form" action="{{ route('coaching.form.submit') }}" method="POST" class="row p-0 m-0">
+                <form id="form" action="{{ route('general.email.post') }}" method="POST" class="row p-0 m-0">
                     @csrf
                     <input type="hidden" name="form_title" value="LUXE Coaching">
                     <input type="hidden" name="form_verbiages_text" value="{{ $formInfo->email_verbiages_text }}">
