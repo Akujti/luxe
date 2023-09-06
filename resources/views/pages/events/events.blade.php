@@ -51,6 +51,14 @@
             background-color: #b2cc32;
         }
 
+        .events {
+            background-color: #FF5733;
+        }
+
+        .sales_meetings {
+            background-color: #C09288;
+        }
+
         .tours {
             background-color: #F2F256;
         }
@@ -126,6 +134,12 @@
                 <div class="d-md-flex align-items-center">
                     <div class="color-picker zoom_trainings_2"></div> Zoom Trainings
                 </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker events"></div> Events
+                </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker sales_meetings"></div> Sales Meetings
+                </div>
             </div>
             <div id='calendar' style="width: 100%; display: inline-block;"></div>
         </div>
@@ -194,15 +208,17 @@
                                     <label for="start">Event Type</label>
                                     <select class="form-group form-select mb-0" name="type">
                                         <option value="-" selected>Select event type</option>
-                                        <option value="in_person_trainings">In Person Traninings</option>
-                                        <option value="zoom_trainings">Morning Calls</option>
-                                        <option value="zoom_trainings_2">Zoom Trainings</option>
-                                        <option value="tours">Tours</option>
-                                        <option value="team_office_meetings">Team/Office Meetings</option>
                                         <option value="career_fair">Career Fair</option>
                                         <option value="holidays">Holidays</option>
-                                        <option value="volunteering">Volunteering</option>
+                                        <option value="in_person_trainings">In Person Traninings</option>
                                         <option value="luxe_coaching_program">LUXE Coaching Program</option>
+                                        <option value="zoom_trainings">Morning Calls</option>
+                                        <option value="team_office_meetings">Team/Office Meetings</option>
+                                        <option value="tours">Tours</option>
+                                        <option value="volunteering">Volunteering</option>
+                                        <option value="zoom_trainings_2">Zoom Trainings</option>
+                                        <option value="events">Events</option>
+                                        <option value="sales_meetings">Sales Meetings</option>
                                     </select>
                                 </div>
                                 @if ($isAdmin)
@@ -334,15 +350,17 @@
                                 @if ($isAdmin)
                                     <select class="form-group form-select mb-0" name="type">
                                         <option value>Select event type</option>
-                                        <option value="in_person_trainings">In Person Traninings</option>
-                                        <option value="zoom_trainings">Morning Calls</option>
-                                        <option value="zoom_trainings_2">Zoom Trainings</option>
-                                        <option value="tours">Tours</option>
-                                        <option value="team_office_meetings">Team/Office Meetings</option>
                                         <option value="career_fair">Career Fair</option>
                                         <option value="holidays">Holidays</option>
-                                        <option value="volunteering">Volunteering</option>
+                                        <option value="in_person_trainings">In Person Traninings</option>
                                         <option value="luxe_coaching_program">LUXE Coaching Program</option>
+                                        <option value="zoom_trainings">Morning Calls</option>
+                                        <option value="team_office_meetings">Team/Office Meetings</option>
+                                        <option value="tours">Tours</option>
+                                        <option value="volunteering">Volunteering</option>
+                                        <option value="zoom_trainings_2">Zoom Trainings</option>
+                                        <option value="events">Events</option>
+                                        <option value="sales_meetings">Sales Meetings</option>
                                     </select>
                                 @else
                                     <input type="text" id="event_type" class="w-100 form-control text-capitalize"
@@ -399,6 +417,7 @@
     }
     document.addEventListener('DOMContentLoaded', function() {
         const data = @json($events);
+        console.log(data);
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             select: function(start, end, allDay, jsEvent, view) {
