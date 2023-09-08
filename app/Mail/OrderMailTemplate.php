@@ -28,6 +28,6 @@ class OrderMailTemplate extends Mailable
      */
     public function build()
     {
-        return $this->subject('New Order')->view('email-template.order');
+        return $this->subject('LUXE Properties - New Order - Marketplace')->view('email-template.order');
     }
 }

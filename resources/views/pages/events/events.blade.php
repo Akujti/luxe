@@ -48,7 +48,7 @@
         }
 
         .zoom_trainings_2 {
-            background-color: #b2cc32;
+            background-color: #2FBBB3;
         }
 
         .events {
@@ -56,7 +56,12 @@
         }
 
         .sales_meetings {
-            background-color: #C09288;
+            background-color: #000000;
+            color: white !important;
+        }
+
+        .sales_meetings .fc-event-title {
+            color: white !important;
         }
 
         .tours {
@@ -107,9 +112,9 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="d-md-flex align-items-center">
+                <!-- <div class="d-md-flex align-items-center">
                     <div class="color-picker career_fair "></div> Career Fair
-                </div>
+                </div> -->
                 <div class="d-md-flex align-items-center">
                     <div class="color-picker holidays "></div> Holidays
                 </div>
@@ -208,7 +213,7 @@
                                     <label for="start">Event Type</label>
                                     <select class="form-group form-select mb-0" name="type">
                                         <option value="-" selected>Select event type</option>
-                                        <option value="career_fair">Career Fair</option>
+                                        <!-- <option value="career_fair">Career Fair</option> -->
                                         <option value="holidays">Holidays</option>
                                         <option value="in_person_trainings">In Person Traninings</option>
                                         <option value="luxe_coaching_program">LUXE Coaching Program</option>
@@ -350,7 +355,7 @@
                                 @if ($isAdmin)
                                     <select class="form-group form-select mb-0" name="type">
                                         <option value>Select event type</option>
-                                        <option value="career_fair">Career Fair</option>
+                                        <!-- <option value="career_fair">Career Fair</option> -->
                                         <option value="holidays">Holidays</option>
                                         <option value="in_person_trainings">In Person Traninings</option>
                                         <option value="luxe_coaching_program">LUXE Coaching Program</option>
