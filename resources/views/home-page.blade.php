@@ -415,7 +415,7 @@
                             onclick="window.location = '{{ url('/home?dir=signs_photo_design_requests') }}'">
                             <div>
                                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                                <p>Signs, Photo, & Design Requests</p>
+                                <p>Photo, & Design Requests</p>
                             </div>
                         </div>
                         <div class="box-item box-item-padding" onclick="window.location = '{{ url('resume') }}'">
@@ -772,56 +772,56 @@
         </div>
         <div class="row p-0 m-0 w-100 mb-3 mt-4" style="border-bottom: 3px solid #00000014;"></div>
         <!-- <div class="box-guides">
-                                                                                                                <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4 ">
-                                                                                                                    <span>Most popular marketing templates</span>
-                                                                                                                    <a href="{{ route('canva.marketing.requests') }}" class="text-luxe text-bold" style="font-size:16px">See
-                                                                                                                        more</a>
-                                                                                                                </h3>
-                                                                                                            </div>
-                                                                                                            <div class="row w-100 my-4 px-4">
-                                                                                                                <style>
-                                                                                                                    .canva-img {
-                                                                                                                        height: 160px;
-                                                                                                                        object-fit: cover;
-                                                                                                                        object-position: top;
-                                                                                                                    }
-                                                                                                                </style>
-                                                                                                                @foreach ($featured_categories as $diy)
+                                                                                                                                            <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4 ">
+                                                                                                                                                <span>Most popular marketing templates</span>
+                                                                                                                                                <a href="{{ route('canva.marketing.requests') }}" class="text-luxe text-bold" style="font-size:16px">See
+                                                                                                                                                    more</a>
+                                                                                                                                            </h3>
+                                                                                                                                        </div>
+                                                                                                                                        <div class="row w-100 my-4 px-4">
+                                                                                                                                            <style>
+                                                                                                                                                .canva-img {
+                                                                                                                                                    height: 160px;
+                                                                                                                                                    object-fit: cover;
+                                                                                                                                                    object-position: top;
+                                                                                                                                                }
+                                                                                                                                            </style>
+                                                                                                                                            @foreach ($featured_categories as $diy)
     @if ($diy->title !== 'Business Cards' && $diy->title !== 'Postcards')
     <div class="col-md-6">
-                                                                                                                            <p><b>{{ $diy->title }}</b></p>
-                                                                                                                            <div class="row">
-                                                                                                                                @foreach ($diy->featured_templates as $item)
+                                                                                                                                                        <p><b>{{ $diy->title }}</b></p>
+                                                                                                                                                        <div class="row">
+                                                                                                                                                            @foreach ($diy->featured_templates as $item)
     <div class="col-md-4 mb-3">
-                                                                                                                                        <a class="text-dark" href="{{ $item->url }}">
-                                                                                                                                            <img src="{{ $item->image_url }}" style="border-radius: 10px;"
-                                                                                                                                                class="w-100 canva-img">
-                                                                                                                                            <p class="ml-2 mt-2">{{ $item->title }}</p>
-                                                                                                                                        </a>
-                                                                                                                                    </div>
+                                                                                                                                                                    <a class="text-dark" href="{{ $item->url }}">
+                                                                                                                                                                        <img src="{{ $item->image_url }}" style="border-radius: 10px;"
+                                                                                                                                                                            class="w-100 canva-img">
+                                                                                                                                                                        <p class="ml-2 mt-2">{{ $item->title }}</p>
+                                                                                                                                                                    </a>
+                                                                                                                                                                </div>
     @endforeach
-                                                                                                                            </div>
+                                                                                                                                                        </div>
 
-                                                                                                                            <div class="row">
-                                                                                                                                @foreach ($diy->categories as $category)
+                                                                                                                                                        <div class="row">
+                                                                                                                                                            @foreach ($diy->categories as $category)
     @foreach ($category->featured_templates as $item)
     <div class="col-md-4 mb-3">
-                                                                                                                                            <a class="text-dark" href="{{ $item->url }}">
-                                                                                                                                                <img src="{{ $item->image_url }}" style="border-radius: 10px;"
-                                                                                                                                                    class="w-100 canva-img">
-                                                                                                                                                <p class="ml-2 mt-2">{{ $item->title }}</p>
-                                                                                                                                            </a>
-                                                                                                                                        </div>
+                                                                                                                                                                        <a class="text-dark" href="{{ $item->url }}">
+                                                                                                                                                                            <img src="{{ $item->image_url }}" style="border-radius: 10px;"
+                                                                                                                                                                                class="w-100 canva-img">
+                                                                                                                                                                            <p class="ml-2 mt-2">{{ $item->title }}</p>
+                                                                                                                                                                        </a>
+                                                                                                                                                                    </div>
     @endforeach
     @endforeach
-                                                                                                                            </div>
-                                                                                                                            {{-- <p class="text-dark w-100">
+                                                                                                                                                        </div>
+                                                                                                                                                        {{-- <p class="text-dark w-100">
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
-                                                                                                                        </div>
+                                                                                                                                                    </div>
     @endif
     @endforeach
-                                                                                                            </div> -->
+                                                                                                                                        </div> -->
         {{-- <div class="col-md-6">
                 <div class="box-item align-items-start box-guides row p-0 m-0 bg-transparent"
                     style="height: 470px !important;">
@@ -848,7 +848,7 @@
     </div>
 @elseif($_GET['dir'] == 'signs_photo_design_requests')
     <div class="col-12 title mb-3">
-        <h1>Signs, Photo, & Design Requests</h1>
+        <h1>Photo, & Design Requests</h1>
     </div>
     <div class="grid grid-layout">
         <div class="box-item box-item-padding"
@@ -869,12 +869,6 @@
             <div>
                 <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
                 <p>Photo Fees</p>
-            </div>
-        </div>
-        <div class="box-item box-item-padding" onclick="window.location = '{{ url('/store/custom-items') }}'">
-            <div>
-                <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
-                <p>Custom Signs</p>
             </div>
         </div>
         <div class="box-item box-item-padding"
@@ -1263,12 +1257,12 @@
             </div>
         </div>
         <!-- <div class="box-item box-item-padding"
-                                                                                                                                                                                onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
-                                                                                                                                                                                <div>
-                                                                                                                                                                                    <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                                                                                                                                                                                    <p>Request Your<br> Agent Referral</p>
-                                                                                                                                                                                </div>
-                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                            onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
+                                                                                                                                                                                                            <div>
+                                                                                                                                                                                                                <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
+                                                                                                                                                                                                                <p>Request Your<br> Agent Referral</p>
+                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                        </div> -->
         <div class="box-item box-item-padding" onclick="window.location = '{{ route('mls-directory') }}'">
             <div>
                 <img src="/images/index-page/global-search.svg" class="icon" alt="">
@@ -1331,6 +1325,12 @@
             <div>
                 <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
                 <p>CRM Services</p>
+            </div>
+        </div>
+        <div class="box-item box-item-padding" onclick="window.location = '{{ url('/store/custom-items') }}'">
+            <div>
+                <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
+                <p>Open House Signs & Kit</p>
             </div>
         </div>
     </div>

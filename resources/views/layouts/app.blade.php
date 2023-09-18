@@ -547,8 +547,7 @@
                                                     href="{{ url('user/guides') }}">Downloadable
                                                     Presentations</a></li> --}}
                                             <li><a class="@if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active_submenu @endif {{ isset($subactive) && $subactive == 'signs_photo_design_requests' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=signs_photo_design_requests') }}">Signs,
-                                                    Photo,
+                                                    href="{{ url('/home?dir=signs_photo_design_requests') }}">Photo,
                                                     & Design Requests</a></li>
                                             <li><a class="{{ isset($subactive) && $subactive == 'resume_builder' ? 'active_submenu' : '' }}"
                                                     href="{{ route('resume') }}">Resume Builder</a></li>

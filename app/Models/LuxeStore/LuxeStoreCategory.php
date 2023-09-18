@@ -13,20 +13,21 @@ class LuxeStoreCategory extends Model
 
     protected $fillable = ['name', 'image', 'slug'];
 
-    public function products() {
+    public function products()
+    {
         return $this->belongsToMany(LuxeStoreProduct::class, 'luxe_store_product_categories', 'category_id', 'product_id');
     }
 
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
-        if($this->id) {
-            $this->attributes['slug'] = LuxeStoreCategory::where([
-                ['slug', Str::slug($value)],
-                ['id', '!=', $this->id]
-            ])->count() ? Str::slug($value) .'-'. uniqid() : Str::slug($value);
+        if ($this->id) {
+            // $this->attributes['slug'] = LuxeStoreCategory::where([
+            //     ['slug', Str::slug($value)],
+            //     ['id', '!=', $this->id]
+            // ])->count() ? Str::slug($value) .'-'. uniqid() : Str::slug($value);
         } else {
-            $this->attributes['slug'] = LuxeStoreCategory::where('slug', Str::slug($value))->count() ? Str::slug($value) .'-'. uniqid() : Str::slug($value);
+            $this->attributes['slug'] = LuxeStoreCategory::where('slug', Str::slug($value))->count() ? Str::slug($value) . '-' . uniqid() : Str::slug($value);
         }
     }
 }
