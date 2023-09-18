@@ -45,7 +45,7 @@
     </style>
     <div class="{{ auth()->check() ? 'container-fluid' : 'container mt-4' }}">
         <div class="col-12 title mb-3">
-            <h1>Get Commercial Help</h1>
+            <h1>Get A Mentor/Partner For Commercial Transactions</h1>
         </div>
         <div class="grid grid-layout">
             <div></div>

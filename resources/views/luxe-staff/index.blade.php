@@ -37,7 +37,7 @@
                 <img src="{{ asset('images/staff/ana.jpg') }}" class="staff-image">
                 <p class="staff-name">Ana Gonzalez</p>
                 <p class="staff-role">Contract Specialist</p>
-                <p class="staff-email">ana.gonzalez.white@gmail.com</p>
+                <p class="staff-email">ana.gonzalez@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/bianca-p.jpg') }}" class="staff-image">
