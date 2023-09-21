@@ -7,7 +7,7 @@
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Zillow Seller Leads Weekly Update</h1>
-
+                        <input type="hidden" name="form_title" value="Zillow Seller Leads Weekly Update">
                     </div>
                     <div class="card-body">
                         <div class="row">
