@@ -7,9 +7,12 @@
                 <form action="{{ route('general.email.post') }}" class="card form p-3" method="POST">
                     @csrf
                     <div class="card-header">
-                        <h1 class="text-center my-4">Refer An Agent</h1>
+                        <h1 class="text-center my-4">Refer An Agent - Profit Sharing</h1>
+                        <h5 class="text-center">The agent you refer has 45 days, from the date this form is submitted, to
+                            sign with LUXE in order
+                            to qualify for your profit sharing.</h5>
                     </div>
-                    <input type="hidden" name="form_title" value="Refer An Agent">
+                    <input type="hidden" name="form_title" value="Refer An Agent - Profit Sharing">
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">

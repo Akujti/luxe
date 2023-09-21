@@ -100,6 +100,7 @@
                                 $custom_bio = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('custom-bio')->first();
                                 $design_team_logo = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-team-logo')->first();
                                 $crm_services = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('kvcore-crm-setup')->first();
+                                $lifestyle_property_tour = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('lifestyle-property-tour-video')->first();
                                 
                                 $boost_facebook_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('boosting-facebook-ads')->first();
                                 $boost_instagram_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('boosting-instagram-ads')->first();
@@ -152,6 +153,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <x-marketing-menu-product :product="$crm_services" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <x-marketing-menu-product :product="$lifestyle_property_tour" />
                                     </div>
                                 </div>
                                 <h4>Paid Advertising</h4>
