@@ -11,7 +11,7 @@
                         <h5 class="text-center">Please upload a referral agreement that is completely filled out and ready
                             for review.</h5>
                     </div>
-                    <input type="hidden" name="form_title" value="Refer An Agent">
+                    <input type="hidden" name="form_title" value="Get Your Referral Agreement Signed">
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
