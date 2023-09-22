@@ -6,7 +6,7 @@
                     {{ $product->name }}
                 </div>
                 <div class="option-desc">
-                    {{ $product->description }}
+                    {{ Illuminate\Support\Str::limit($product->description, 430, '...') }}
                 </div>
                 <div class="option-price">
                     {{ $product->price && $product->price > 0 ? '$' . $product->price : 'FREE' }}

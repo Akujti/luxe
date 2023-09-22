@@ -92,6 +92,14 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Do you need to be paused and/or remain paused?</label>
+                                <select name="do_you_need_to_be_paused_and_or_remain_paused" class="form-control" required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                             </div>

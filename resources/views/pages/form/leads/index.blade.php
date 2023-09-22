@@ -42,7 +42,7 @@
         <div class="card-title text-center">
             <h1>Leads - Select Form</h1>
         </div>
-        <div class="grid grid-layout-three">
+        <div class="grid grid-layout">
             <div class="box-item">
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'join-zillow']) }}"
@@ -61,6 +61,12 @@
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-leads-weekly-update']) }}"
                         class="">Zillow Leads
                         Weekly Update</a>
+                </p>
+            </div>
+            <div class="box-item">
+                <p>
+                    <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-seller-leads-weekly-update']) }}"
+                        class="">Zillow Seller Leads Weekly Update</a>
                 </p>
             </div>
         </div>

@@ -461,7 +461,6 @@ class OrderController extends Controller
             foreach ($cart_data as $key => $value) {
                 $value_from_req = $product->variants[0]->values()->where('value', $variant_value)->firstOrFail();
                 if ($cart_data[$key]["item_variant"][0]["choosed_id"] == $value_from_req->id) {
-
                     $cart_data[$key]["item_quantity"] = $cart_data[$key]["item_quantity"] + $req->input('quantity');
 
                     $checkStock = LuxeStoreProduct::findOrFail($cart_data[$key]["item_id"]);
