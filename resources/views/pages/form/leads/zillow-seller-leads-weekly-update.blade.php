@@ -100,6 +100,36 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">In the past 7 days, have you met with any Zillow Sellers?</label>
+                                <br><br>
+                                <select id="showDivSelect" name="in_the_past_7_days_have_you_met_with_any_zillow_sellers"
+                                    class="form-control" required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div id="zillowDiv" class="d-none form-group col-md-6">
+                                <label for="name">Please list names as shown on Zillow CRM</label>
+                                <textarea name="list_names_as_shown_on_zillow_crm" class="form-control" rows="4"></textarea>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Do you have any listing appointments with Zillow Sellers scheduled
+                                    for the next 7 days?</label>
+                                <select id="listing_appointments_select"
+                                    name="do_you_have_any_listing_appointments_with_zillow_sellers_scheduled_for_the_next_7_days"
+                                    class="form-control" required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div id="listing_appointments_div" class="d-none form-group col-md-6">
+                                <label for="name">Please list names as shown on Zillow CRM and date of
+                                    appointment</label>
+                                <textarea name="list_names_as_shown_on_zillow_crm_and_date_of_appointment" class="form-control" rows="4"></textarea>
+                            </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                             </div>
@@ -109,4 +139,26 @@
             </div>
         </div>
     </div>
+    <script>
+        // Function to show/hide the div based on the select option
+        $(document).ready(function() {
+            $('#listing_appointments_select').on('change', function() {
+                var selectedValue = $(this).val();
+                if (selectedValue === 'Yes') {
+                    $('#listing_appointments_div').removeClass('d-none');
+                } else {
+                    $('#listing_appointments_div').addClass('d-none');
+                }
+            });
+
+            $('#showDivSelect').on('change', function() {
+                var selectedValue = $(this).val();
+                if (selectedValue === 'Yes') {
+                    $('#zillowDiv').removeClass('d-none');
+                } else {
+                    $('#zillowDiv').addClass('d-none');
+                }
+            });
+        });
+    </script>
 @endsection
