@@ -3,6 +3,12 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                @if (auth()->user() && auth()->user()->isAdmin)
+                    <div class="form-group text-center">
+                        <button class="btn btn-luxe" onclick="createCsv()">EXPORT CSV</button>
+                        <button class="btn btn-danger" onclick="deleteSubmissions()">DELETE SUBMISSIONS</button>
+                    </div>
+                @endif
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
                     <div class="card-header">
@@ -136,18 +142,31 @@
                         </div>
                     </div>
                 </form>
+                <form action="{{ route('getCsv') }}" method="post" id="csv">
+                    @csrf
+                    <input type="hidden" name="title" value="Zillow Seller Leads Weekly Update">
+                </form>
+                <form action="{{ route('deleteSubmissions') }}" method="POST" id="deleteSubmissions">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="title" value="Zillow Seller Leads Weekly Update">
+                </form>
             </div>
         </div>
     </div>
     <script>
-        // Function to show/hide the div based on the select option
         $(document).ready(function() {
             $('#listing_appointments_select').on('change', function() {
+                console.log($(`input[name="list_names_as_shown_on_zillow_crm"]`));
                 var selectedValue = $(this).val();
                 if (selectedValue === 'Yes') {
                     $('#listing_appointments_div').removeClass('d-none');
+                    $(`textarea[name="list_names_as_shown_on_zillow_crm_and_date_of_appointment"]`).attr(
+                        'required', true)
                 } else {
                     $('#listing_appointments_div').addClass('d-none');
+                    $('textarea[name="list_names_as_shown_on_zillow_crm_and_date_of_appointment"]').attr(
+                        'required', false)
                 }
             });
 
@@ -155,10 +174,22 @@
                 var selectedValue = $(this).val();
                 if (selectedValue === 'Yes') {
                     $('#zillowDiv').removeClass('d-none');
+                    $(`textarea[name="list_names_as_shown_on_zillow_crm"]`).attr('required', true)
                 } else {
                     $('#zillowDiv').addClass('d-none');
+                    $(`textarea[name="list_names_as_shown_on_zillow_crm"]`).attr('required', false);
                 }
             });
+
         });
+
+        function createCsv() {
+            $('#csv').submit()
+        }
+
+        function deleteSubmissions() {
+            if (confirm('Are you sure, you want to delete all submissions for this form?'))
+                $('#deleteSubmissions').submit()
+        }
     </script>
 @endsection
