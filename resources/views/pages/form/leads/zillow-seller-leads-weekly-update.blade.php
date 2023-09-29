@@ -70,7 +70,8 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Please list the addresses of the fully executed Zillow Listings along
                                     with the Seller Name as it appears on Zillow</label>
-                                <textarea name="agent_email" class="form-control" required></textarea>
+                                <textarea name="list_the_addresses_of_fully_executed_zillows_listings_along_with_the_seller_name" class="form-control"
+                                    required></textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Were any of the contracts above executed in the last 7 days?</label>
