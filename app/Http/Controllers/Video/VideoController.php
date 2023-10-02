@@ -21,7 +21,7 @@ class VideoController extends Controller
     public function search(Request $req)
     {
         $folder_id = Folder::where('title', 'XNvgkxNbjU')->first()->id;
-        $forms = Form::where('title', 'like', '%' . $req->search . '%')->where('title', 'not like', '%business%')->paginate(8, ['*'], 'forms');
+        $forms = Form::where('path', '!=', null)->where('title', 'like', '%' . $req->search . '%')->where('title', 'not like', '%business%')->paginate(8, ['*'], 'forms');
         $folders = Folder::where('id', '!=', $folder_id)->where('title', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'folders');
         $files = File::where('folder_id', '!=', $folder_id)->where('title', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'files');
         $guides = File::where('folder_id', $folder_id)->where('title', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'guides');
