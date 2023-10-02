@@ -1,5 +1,9 @@
 @extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'request_your_agent'])
 @section('content')
+    @php
+        header('Location: ' . URL::to('/home'), true, 302);
+        exit();
+    @endphp
     <style>
         @media(min-width:1200px) {
             pre {
