@@ -49,13 +49,13 @@
                         class="">Join Zillow</a>
                 </p>
             </div>
-            <div class="box-item">
+            {{-- <div class="box-item">
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'request-zillow-nurtures']) }}"
                         class="">Request Zillow <br>
                         Nurtures</a>
                 </p>
-            </div>
+            </div> --}}
             <div class="box-item">
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-leads-weekly-update']) }}"
