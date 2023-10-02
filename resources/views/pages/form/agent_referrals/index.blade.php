@@ -43,10 +43,10 @@
                 <a href="{{ route('general.email.index', ['folder' => 'agent_referrals', 'form' => 'refer-an-agent']) }}">Refer
                     An Agent</a>
             </div>
-            <div class="box-item box-item-center">
+            {{-- <div class="box-item box-item-center">
                 <a href="{{ route('general.email.index', ['folder' => 'agent_referrals', 'form' => 'flex-agent-form']) }}">Flex
                     Agent Form</a>
-            </div>
+            </div> --}}
             <div class="box-item box-item-center">
                 <a target="_blank" href="{{ url('user/w-9') }}">W-9 Form</a>
             </div>
