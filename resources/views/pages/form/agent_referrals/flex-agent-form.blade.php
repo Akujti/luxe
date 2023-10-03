@@ -14,13 +14,6 @@
                         <h1 class="text-center my-4">FLEX Agent Form</h1>
                     </div>
                     <input type="hidden" name="form_title" value="FLEX Agent Form">
-                    <!-- <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="support@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="kristy@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="shanut@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                    <input type="hidden" name="to_email[]" value="monica@luxeknows.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">

@@ -182,7 +182,7 @@ class FormController extends Controller
             return response()->json('success');
         }
 
-        $formItemsVerbiageModal = ["Join Zillow", "CINC LEADS WEEKLY UPDATE", "Request Zillow Nurtures", "ZILLOW LEADS WEEKLY UPDATE", "Join CINC Buyer Team", "CINC LEADS WEEKLY UPDATE", "Request Your Agent Referral", "LUXE Coaching"];
+        $formItemsVerbiageModal = ["Join Zillow Seller Team", "Join Zillow", "CINC LEADS WEEKLY UPDATE", "Request Zillow Nurtures", "ZILLOW LEADS WEEKLY UPDATE", "Join CINC Buyer Team", "CINC LEADS WEEKLY UPDATE", "Request Your Agent Referral", "LUXE Coaching"];
 
         if (in_array($request->form_title, $formItemsVerbiageModal))
             session()->flash('modal', 'Success');

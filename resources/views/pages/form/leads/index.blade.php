@@ -69,6 +69,12 @@
                         class="">Zillow Seller Leads Weekly Update</a>
                 </p>
             </div>
+            <div class="box-item">
+                <p>
+                    <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'join-zillow-seller-team']) }}"
+                        class="">Join Zillow Seller Team</a>
+                </p>
+            </div>
         </div>
     </div>
 @endsection
