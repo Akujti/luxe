@@ -103,9 +103,12 @@ class FormController extends Controller
     {
         try {
             $details = [];
-
-            $details['form_agent_full_name'] = $request->agent_full_name;
-            $details['form_agent_email'] = $request->agent_email;
+            if (isset($request->agent_full_name)) {
+                $details['form_agent_full_name'] = $request->agent_full_name;
+            }
+            if (isset($request->agent_email)) {
+                $details['form_agent_email'] = $request->agent_email;
+            }
 
             foreach ($request->except('_token', 'to_email', 'form') as $key => $val) {
                 if ($request->hasFile($key)) {
@@ -154,14 +157,17 @@ class FormController extends Controller
         }
 
         try {
+            $to = [];
             if (isset($request->form_title_value)) {
+                $form = Form::where('title', $request->form_title_value)->first();
                 $to = $this->getEmails($request->form_title_value, $request->to_email);
             } else {
+                $form = Form::where('title', $request->form_title)->first();
                 $to = $this->getEmails($request->form_title, $request->to_email);
             }
-            array_push($to, $request->agent_email);
+            if (!$form->hide_agent_email && isset($request->agent_email))
+                array_push($to, $request->agent_email);
             $cc = [];
-
             try {
                 Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
             } catch (\Exception $exception) {
@@ -296,7 +302,7 @@ class FormController extends Controller
             } else {
                 $to = $this->getEmails($request->form_title, $request->to_email);
             }
-            array_push($to, $request->agent_email);
+            // array_push($to, $request->agent_email);
             $cc = [];
 
             try {

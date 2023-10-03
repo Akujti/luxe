@@ -11,44 +11,48 @@
                         <h5 class="text-center">The agent you refer has 45 days, from the date this form is submitted, to
                             sign with LUXE in order
                             to qualify for your profit sharing.</h5>
+                        <h5 class="text-center">This is a private link that can never be shared. Do not share this with other
+                            agents. Do not share this with the agent you are referring.</h5>
                     </div>
                     <input type="hidden" name="form_title" value="Refer An Agent - Profit Sharing">
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="name">Full Name</label>
-                                <input type="text" name="agent_full_name" class="form-control"
-                                    value="{{ auth()->user()->profile->fullname }}" required>
+                                <label for="name">Full Name of Agent Referral</label>
+                                <input type="text" name="full_name_of_agent_referral" class="form-control" value=""
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Number</label>
-                                <input type="text" name="number" class="form-control"
-                                    value="{{ auth()->user()->profile->phone }}" required>
+                                <label for="name">Phone Number for Agent Referral</label>
+                                <input type="text" name="phone_number_for_agent_referral" class="form-control"
+                                    value="" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Email</label>
-                                <input type="text" name="agent_email" class="form-control"
-                                    value="{{ auth()->user()->email }}" required>
+                                <label for="name">Email for Agent Referral</label>
+                                <input type="text" name="email_for_agent_referral" class="form-control" value=""
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">New Licensee</label>
-                                <select name="new_licensee" class="form-control" id="">
-                                    <option value="-">-</option>
+                                <label for="name">Is Your Agent Referral A New Licensee?</label>
+                                <select name="is_your_agent_referral_a_new_licensee" class="form-control" id=""
+                                    required>
+                                    <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Current Brokerage</label>
+                                <label for="name">Current Brokerage of Agent Referral</label>
                                 <input type="text" name="current_brokerage" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Years In Real Estate</label>
-                                <input type="text" name="years_in_real_estate" class="form-control" required>
+                                <label for="name">Years In Real Estate for Agent Referral</label>
+                                <input type="text" name="years_in_real_estate_for_agent_referral" class="form-control"
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">License Number</label>
-                                <input type="text" name="license_number" class="form-control" required>
+                                <label for="name">License Number of Agent Referral</label>
+                                <input type="text" name="license_number_of_agent_referral" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Referring LUXE Agent Name</label>
