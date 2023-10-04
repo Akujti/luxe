@@ -22,16 +22,16 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')" />
-                
+
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
 
                     <div class="card-header">
                         <h1 class="text-center my-4">Join Zillow</h1>
                     </div>
-                    
+
                     <input type="hidden" name="form_title" value="Join Zillow">
                     <input type="hidden" name="form_verbiages_text" value="{{ $formInfo->email_verbiages_text }}">
                     <div class="card-body">
@@ -71,8 +71,9 @@
                                     class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">What zip code do you live in?</label>
-                                <input type="text" name="what_zip_code_do_you_live_in" class="form-control" required>
+                                <label for="name">What is your home address?</label>
+                                <input type="text" name="what_is_your_home_address" class="form-control map-search"
+                                    required placeholder="Type your home address">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">What languages do you speak fluently?</label>
@@ -88,7 +89,7 @@
                                 <label for="name">Are you working full-time or part-time in real estate?</label>
                                 <select name="are_you_working_full_time_or_part_time_in_real_estate" class="form-control"
                                     required id="">
-                                    <option value="-">-</option>
+                                    <option value>-</option>
                                     <option value="Full-time">Full-time</option>
                                     <option value="Part-time">Part-time</option>
                                 </select>
@@ -96,14 +97,39 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Do you have an active MLS?</label>
                                 <select name="do_you_have_an_active_mls" class="form-control" required id="">
-                                    <option value="-">-</option>
+                                    <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 <label for="name">Real Estate License Number</label>
                                 <input type="text" name="real_estate_license_number" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Do you currently have a Follow Up Boss account?</label>
+                                <select name="do_you_currently_have_a_follow_boss_account" class="form-control" required
+                                    id="">
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Please provide list of your 10 closed sales. ​**If you do not have 10
+                                    sales, you will be considered for our Zillow Inbox Leads</label>
+                                <textarea name="list_of_10_closed_sales" class="form-control" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Do you agree to use the Zillow Team's preferred lender and title
+                                    company?</label>
+                                <br><br>
+                                <select name="do_you_agree_to_use_the_zillow_teams_preferred_lender_and_title_company"
+                                    class="form-control" required>
+                                    <option value>-</option>
+                                    <option value="Yes, I agree">Yes, I agree</option>
+                                    <option value="No, I do not agree">No, I do not agree</option>
+                                </select>
                             </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
