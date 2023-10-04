@@ -7,11 +7,12 @@
                 <div id="popup" class="card mb-5">
                     <div class="card-header text-center">
                         <h5>Please agree to the following terms to apply to the Zillow Seller Team:</h5>
+                        <h5>Agents must work full time in real estate and have at least 6 closed listings in the past 12
+                            months. </h5>
                     </div>
                     <div class="card-body row justify-content-center">
                         <div class="col-md-8">
-                            <p>Agents must work full time in real estate and have at least 6 closed listings in the past 12
-                                months. Below is a breakdown of the compensation structure and team terms. </p>
+                            <p>Below is a breakdown of the compensation structure and team terms. </p>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -84,7 +85,9 @@
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Join Zillow Seller Team</h1>
-
+                        <h5 class="text-center">Agents must work full time in real estate and have at least 6 closed
+                            listings in the past 12
+                            months. </h5>
                     </div>
                     <input type="hidden" name="form_title" value="Join Zillow Seller Team">
 
