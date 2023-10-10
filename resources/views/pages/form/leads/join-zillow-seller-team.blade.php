@@ -118,10 +118,10 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Please list the addresses of the listings you have closed in the past
-                                    12 months. </label>
-                                <textarea name="please_list_the_addresses_of_the_listings_you_have_closed_in_the_past" rows="6"
-                                    class="form-control">
+                                <label for="name">Please list the addresses of the listings you listed and have closed
+                                    in the past 12 months.</label>
+                                <textarea name="please_list_the_addresses_of_the_listings_you_listed_and_have_closed_in_the_past_12_months"
+                                    rows="6" class="form-control">
 1.  
 2.  
 3.  
