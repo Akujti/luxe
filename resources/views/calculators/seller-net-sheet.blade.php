@@ -131,7 +131,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="name">PROPERTY ADDRESS</label>
-                            <input type="text" class="form-control simple-input" required>
+                            <input id="property-address" type="text" class="form-control simple-input" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="name">SALES PRICE</label>
@@ -470,8 +470,9 @@
         }
 
         function submitPDF() {
+            var address = $('#property-address').val()
             calculate()
-            generatePDF(250, 370, '', 'Seller Net Calculator')
+            generatePDF(250, 370, '', 'Seller Net Calculator - ' + address)
         }
     </script>
 @endsection

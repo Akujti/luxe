@@ -45,14 +45,14 @@
         <div class="grid grid-layout-two">
             <div class="box-item">
                 <p>
-                    <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-seller-leads-weekly-update']) }}"
-                        class="">Zillow Seller Leads Weekly Update</a>
+                    <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'join-zillow-seller-team']) }}"
+                        class="">Join Zillow Seller Team</a>
                 </p>
             </div>
             <div class="box-item">
                 <p>
-                    <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'join-zillow-seller-team']) }}"
-                        class="">Join Zillow Seller Team</a>
+                    <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-seller-leads-weekly-update']) }}"
+                        class="">Zillow Seller Leads Weekly Update</a>
                 </p>
             </div>
         </div>
