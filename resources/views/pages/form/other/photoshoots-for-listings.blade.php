@@ -132,7 +132,7 @@
         }
 
         input[type="checkbox"]:disabled+label::before {
-            background: gray;
+     background: gray;
         }
 
         input[type="checkbox"]:disabled+label:hover::before {
@@ -259,6 +259,15 @@
                                     <!-- <option value="Steven Vivar">Steven Vivar</option> -->
                                     <option value="Albert Rodriguez">Albert Rodriguez</option>
                                     <option value="David Peretz">David Peretz</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Is this a Zillow lead?</label>
+                                <select name="is_this_a_zillow_lead" class="form-control">
+                                    <option value>-</option>
+                                    <option value="Yes, from Zillow seller team">Yes, from Zillow seller team</option>
+                                    <option value="Yes, from Zillow buyer team">Yes, from Zillow buyer team</option>
+                                    <option value="Not, not a Zillow lead">Not, not a Zillow lead</option>
                                 </select>
                             </div>
                             <div class="form-group col-12 text-center">
