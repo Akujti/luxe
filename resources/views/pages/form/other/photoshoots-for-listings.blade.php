@@ -172,6 +172,7 @@
                                 <li>• $225 charge if photographer must make a 2nd visit to same property</li>
                                 <li>• Only properties in Miami-Dade or Broward county are covered</li>
                                 <li>• $100 Travel Free for any property past W Atlantic Blvd</li>
+                                <li>• Properties over 2,000 SqFt will have additional overage fees</li>
                                 <li><b>**If you need any additional or custom work, please feel free to talk to the
                                         photographers
                                         as they
