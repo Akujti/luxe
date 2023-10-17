@@ -95,7 +95,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Is this a LUXE Zillow lead?</label>
-                                <select name="is_this_luxe_zillow_lead" class="form-control">
+                                <select id="zillow_lead" name="is_this_luxe_zillow_lead" class="form-control"
+                                    onchange="toggleHiddenInput(this)">
                                     <option value="-">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -134,4 +135,25 @@
             </div>
         </div>
     </div>
+    <script>
+        function toggleHiddenInput(selectElement) {
+            var form = document.getElementById('myForm');
+            var hiddenInput = document.getElementById('hiddenInput');
+
+            if (selectElement.value === 'Yes') {
+                // If "Yes" is selected, create and add the hidden input
+                hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'to_email[]';
+                hiddenInput.value = 'zillow@luxeknows.com';
+                hiddenInput.id = 'hiddenInput';
+                form.appendChild(hiddenInput);
+            } else {
+                // If any other option is selected, remove the hidden input if it exists
+                if (hiddenInput) {
+                    hiddenInput.parentNode.removeChild(hiddenInput);
+                }
+            }
+        }
+    </script>
 @endsection

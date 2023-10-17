@@ -165,6 +165,9 @@ class FormController extends Controller
                 $form = Form::where('title', $request->form_title)->first();
                 $to = $this->getEmails($request->form_title, $request->to_email);
             }
+            if ($request->form_title_value == "CLOSING COORDINATORS" && $request->is_this_luxe_zillow_lead == 'Yes') {
+                array_push($to, 'zillow@luxeknows.com');
+            }
             if (!$form->hide_agent_email && isset($request->agent_email))
                 array_push($to, $request->agent_email);
             $cc = [];
