@@ -68,7 +68,7 @@
                                 <p class="location">Miami Lakes</p>
                                 <p class="address">17670 NW 78th Avenue #206, Hialeah, FL 33015</p>
                                 <button class="btn"
-                                    onclick="toggleModal('Miami Lakes','Keypad 5557','Wi-Fi name- Luxeproperties','Password- abcde123')">View
+                                    onclick="toggleModal('Miami Lakes','Lockbox 5557','Wi-Fi name- Luxeproperties','Password- abcde123')">View
                                     Access & Wifi Instructions</button>
                             </div>
                             <div class="form-group ">
