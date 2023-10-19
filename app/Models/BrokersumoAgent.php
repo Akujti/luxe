@@ -57,7 +57,8 @@ class BrokersumoAgent extends Model
 
     public function setYearlySalesVolumesAttribute($value)
     {
-        return '';
+        $this->attributes['yearly_sales_volumes'] = $value;
+        return;
         if ($this->yearly_sales_volumes <= $value && $value > 0) {
             $profile = UserProfile::where('fullname', $this->agent_name)->first();
             if ($profile) {

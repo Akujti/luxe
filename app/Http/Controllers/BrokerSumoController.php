@@ -50,12 +50,18 @@ class BrokerSumoController extends Controller
         $path = storage_path('app') . '/' . $path1;
         $result = Excel::toArray(AgentImport::class, $path);
         for ($i = 1; $i < count($result[0]); $i++) {
-            BrokersumoAgent::updateOrCreate(
+
+            // dd([
+            //     'agent_name' => $result[0][$i][0],
+            //     'deals' => 0,
+            //     'yearly_sales_volumes' => $this->getAmount($result[0][$i][1]),
+            // ]);
+            $agent = BrokersumoAgent::updateOrCreate(
                 ['agent_name' => $result[0][$i][0]],
                 [
                     'agent_name' => $result[0][$i][0],
                     'deals' => 0,
-                    'yearly_sales_volumes' => $this->getAmount($result[0][$i][1]),
+                    'yearly_sales_volumes' => $result[0][$i][1],
                 ]
             );
         }
