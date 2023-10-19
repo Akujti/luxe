@@ -51,14 +51,14 @@
                 </div>
             </div>
             <p class="text-center my-2 mb-0">
-                Current sales: {{ '$' . number_format($user->profile->badge['sales_volumes']) }}
+                Current lifetime sales: {{ '$' . number_format($user->profile->badge['sales_volumes']) }}
                 {{-- <br>
                 For the next level you need: {{ '$' . number_format($user->profile->badge['next_sales_level']) }} --}}
             </p>
-            <div class="level-title mt-2">
+            {{-- <div class="level-title mt-2">
                 <p id="bold">Level {{ $user->profile->badge['level'] }}</p>
                 <p id="regular">&nbsp;/ 5</p>
-            </div>
+            </div> --}}
         </div>
         <div class="profile-level {{ $row ? 'col-md-6' : '' }}">
             @if (Route::current()->uri() == 'home')
@@ -87,10 +87,10 @@
                 For the next level you need:
                 {{ '$' . number_format($user->profile->badge['next_yearly_sales_level']) }} --}}
             </p>
-            <div class="level-title mt-2">
+            {{-- <div class="level-title mt-2">
                 <p id="bold">Level {{ $user->profile->badge['yearly_level'] }}</p>
                 <p id="regular">&nbsp;/ 3</p>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
