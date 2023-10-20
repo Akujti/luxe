@@ -210,7 +210,7 @@ class FormController extends Controller
         } catch (\Throwable $th) {
             return redirect()->back()->with('warning', 'Form has been submitted, but it wasn\'t added on the Coming Soon Listings!');
         }
-
+        session()->flash('formPost', 'Form submitted successfully.');
         return redirect()->back()->with('message', 'Form has been submitted!');
     }
 

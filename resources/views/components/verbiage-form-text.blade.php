@@ -1,11 +1,11 @@
 <div>
-    @if($afterSubmit && $formInfo->after_submit_verbiages_title && $formInfo->after_submit_verbiages_text)
+    @if (session('formPost') && $formInfo->after_submit_verbiages_title && $formInfo->after_submit_verbiages_text)
         <div class="modal modal-new fade" id="modalVerbiages">
-            
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content bg-white">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">{{ $formInfo->after_submit_verbiages_title }}</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{ $formInfo->after_submit_verbiages_title }}
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -24,7 +24,6 @@
         </script>
     @elseif($formInfo && $formInfo->verbiages_title && $formInfo->verbiages_text)
         <div class="modal modal-new fade" id="modalVerbiages">
-            
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content bg-white">
                     <div class="modal-header">
