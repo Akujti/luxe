@@ -72,7 +72,7 @@
                         <div class="bg-transparent">
                             <a href="{{ route('listing-coordinators.show', $coordinator->id) }}">
                                 <div class="card-header">
-                                    <img src="{{ asset($coordinator->image) }}" alt="" class="w-100">
+                                    <img src="{{ $coordinator->imageUrl }}" alt="" class="w-100">
                                     <p class="agent-name">{{ $coordinator->name }}</p>
                                 </div>
                             </a>
