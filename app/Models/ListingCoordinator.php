@@ -18,7 +18,9 @@ class ListingCoordinator extends Model
 
     public function getImageUrlAttribute()
     {
-        return asset($this->image);
+        if ($this->image)
+            return asset($this->image);
+        return 'https://ui-avatars.com/api/?name=' . $this->name . '&size=512&background=F7F7F7';
     }
 
     public function getWebUrlAttribute()

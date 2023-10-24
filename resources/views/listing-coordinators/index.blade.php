@@ -46,6 +46,7 @@
             max-height: 350px;
             object-fit: cover;
             object-position: top;
+            aspect-ratio: 3/3.5;
         }
 
         .h1-luxe {
