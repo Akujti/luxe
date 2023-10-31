@@ -55,6 +55,7 @@ use App\Http\Controllers\LuxeStore\CouponCodeController;
 use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\ReferralPartnerCategoryController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
+use App\Http\Controllers\ListingCoordinatorPackageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -412,6 +413,8 @@ Route::group(
         Route::post('showing-agents/{user}', [UserController::class, 'request_showing_agents'])->name('request.showing.agents');
         Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
         Route::resource('listing-coordinators', ListingCoordinatorController::class);
+        Route::get('listing-coordinator-packages', [ListingCoordinatorPackageController::class, 'index']);
+        Route::get('listing-coordinator-packages/{type}', [ListingCoordinatorPackageController::class, 'show']);
         Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
 
         Route::get('leaderboard/sales', [BrokerSumoController::class, 'leaderboard_sales']);
@@ -581,7 +584,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
             Route::delete('/', [VideoFileController::class, 'delete'])->name('delete');
         });
     });
-
 
 
     Route::get('update-role', [UserController::class, 'update_role']);

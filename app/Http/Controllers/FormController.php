@@ -71,7 +71,7 @@ class FormController extends Controller
         if ($form == 'zillow-leads-weekly-update') {
             $formSql = Form::where('title', 'LIKE', 'ZILLOW LEADS WEEKLY UPDATE')->first();
         } else {
-            $formSql = Form::where('title', 'LIKE',  "%" . Str::title(str_replace('-', ' ', $form)) . "%")->first();
+            $formSql = Form::where('title', 'LIKE', "%" . Str::title(str_replace('-', ' ', $form)) . "%")->first();
         }
         if ($formSql) {
             $formInfo = $formSql;
