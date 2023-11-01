@@ -54,7 +54,7 @@
                     <th scope="col">
                         <h1 class="h1-luxe">PACKAGES</h1>
                     </th>
-                    <th scope="col">
+                    <th scope="col" class="highlight package-highlight">
                         <div class="pricing">
                             <p class="pricing-title">Silver Package</p>
                             <p class="pricing-price">$99</p>
@@ -86,73 +86,73 @@
                 <tbody>
                 <tr>
                     <td>MLS Input Only</td>
-                    <td><img src="/images/checkmark.svg" alt="" class="text-center"></td>
+                    <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                     <td><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Prepare Property Description</td>
-                    <td></td>
+                    <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                     <td><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Schedule Photos</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Order Sign & Sign Post</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Edits to MLS: price changes, open houses, status changes</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Add listing agreement to Broker Sumo</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Outreach to owner(s) (ex photos, open houses, information)</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Obtain Seller Property Disclosure</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Obtain Information for Spec Sheet</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Obtain HOA application & attach to MLS</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Obtain budget for HOA</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Obtain condo docs</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
@@ -169,19 +169,19 @@
                             </ul>
                         </div>
                     </td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Order Brochure</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>
                 <tr>
                     <td>Order Mailers</td>
-                    <td></td>
+                    <td class="highlight"></td>
                     <td></td>
                     <td class="highlight"><img src="/images/checkmark.svg" alt="" class="text-center"></td>
                 </tr>

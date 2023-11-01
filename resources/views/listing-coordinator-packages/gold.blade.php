@@ -341,7 +341,8 @@
                             </div>
                             <div class="open-house d-none form-group col-md-6">
                                 <label class="form-check-label">Please provide date & time of open house.</label>
-                                <input type="text" class="form-control mt-2" name="date_and_time_of_open_house"/>
+                                <input type="datetime-local" class="form-control mt-2"
+                                       name="date_and_time_of_open_house"/>
                             </div>
                             <div class="open-house d-none form-group col-md-6">
                                 <label class="form-check-label">Do you need an email blast for the open house?</label>
@@ -363,6 +364,21 @@
                                 </select>
                             </div>
                             <div class="broker-scheduled d-none form-group col-md-6">
+                                <label class="form-check-label">Please provide date & time of broker's open.</label>
+                                <input type="datetime-local" class="form-control mt-2"
+                                       name="date_and_time_of_broker's_open"/>
+                            </div>
+                            <div class="broker-scheduled d-none form-group col-md-6">
+                                <label class="form-check-label">Do you need an email blast for the broker's
+                                    open?</label>
+                                <select class="form-control mt-2"
+                                        name="do_you_need_an_email_blast_for_the_broker's_open">
+                                    <option value="">-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label class="form-check-label">Would you like a property spec sheet?</label>
                                 <select class="form-control mt-2"
                                         name="would_you_like_a_property_spec_sheet">
@@ -371,7 +387,7 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
-                            <div class="broker-scheduled d-none form-group col-md-6">
+                            <div class="form-group col-md-6">
                                 <label class="form-check-label">Would you like property brochures? **There is a printing
                                     cost, approximately $100. </label>
                                 <select class="form-control mt-2"
@@ -381,7 +397,7 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
-                            <div class="broker-scheduled d-none form-group col-md-6">
+                            <div class="form-group col-md-6">
                                 <label class="form-check-label">Would you like property mailers (EDDM)? **There is a
                                     cost for printing & postage.</label>
                                 <select class="form-control mt-2"
