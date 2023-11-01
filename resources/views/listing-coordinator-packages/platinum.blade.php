@@ -19,7 +19,7 @@
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Listing Coordinator - {{ $type->coordinator->name }}</h1>
-                        <h6 id="agent-text" class="text-center" style="font-size: 21px;">LISTING INPUT ONLY
+                        <h6 id="agent-text" class="text-center" style="font-size: 21px;">PLATINUM PACKAGE
                             ${{$type->price}}</h6>
                         <h5 class="text-center">Coordinator Will Reach Out Within 1 Business Day</h5>
                     </div>
