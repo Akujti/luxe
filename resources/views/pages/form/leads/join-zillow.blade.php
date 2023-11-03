@@ -48,6 +48,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Email</label>
+                                <br><br>
                                 <input type="text" name="agent_email" class="form-control"
                                        value="{{ auth()->user()->email }}" required>
                             </div>
