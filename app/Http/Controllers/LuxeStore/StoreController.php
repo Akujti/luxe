@@ -26,7 +26,7 @@ class StoreController extends Controller
     {
         $category = LuxeStoreCategory::where('slug', $category_slug)->firstOrFail();
 
-        $products = $category->products()->paginate(8);
+        $products = $category->products()->orderBy('name', 'asc')->paginate(8);
         return view('luxe_store.products', compact('category', 'products'));
     }
 
