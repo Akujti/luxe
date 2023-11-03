@@ -439,7 +439,6 @@
                                 </select>
                             </div>
                             <div class="form-group col-12 mt-3">
-                                <button type="submit">Submit</button>
                                 <div id="paypal-button-wrapper">
                                     <div id="paypal-button-container"></div>
                                 </div>

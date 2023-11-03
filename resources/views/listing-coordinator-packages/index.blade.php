@@ -59,7 +59,7 @@
                             <p class="pricing-title">Silver Package</p>
                             <p class="pricing-price">$99</p>
                             <button class="pricing-button"
-                                    onclick="window.location.href='/listing-coordinator-packages/silver'">Buy Package
+                                    onclick="window.location.href='/listing-coordinators/silver'">Buy Package
                             </button>
                         </div>
                     </th>
@@ -68,7 +68,7 @@
                             <p class="pricing-title">Gold Package</p>
                             <p class="pricing-price">$149</p>
                             <button class="pricing-button"
-                                    onclick="window.location.href='/listing-coordinator-packages/gold'">Buy Package
+                                    onclick="window.location.href='/listing-coordinators/gold'">Buy Package
                             </button>
                         </div>
                     </th>
@@ -77,7 +77,7 @@
                             <p class="pricing-title">Platinum Package</p>
                             <p class="pricing-price">$299</p>
                             <button class="pricing-button"
-                                    onclick="window.location.href='/listing-coordinator-packages/platinum'">Buy Package
+                                    onclick="window.location.href='/listing-coordinators/platinum'">Buy Package
                             </button>
                         </div>
                     </th>

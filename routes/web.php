@@ -270,8 +270,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('test', [TestController::class, 'index']);
     Route::post('test', [TestController::class, 'submit']);
 
-    Route::resource('listing-coordinators', ListingCoordinatorController::class);
-    Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
+//    Route::resource('listing-coordinators', ListingCoordinatorController::class);
+//    Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
 
 
     Route::resource('form', FormController::class);
@@ -412,10 +412,10 @@ Route::group(
         Route::get('showing-agents', [UserController::class, 'showing_agents'])->name('showing.agents.index');
         Route::post('showing-agents/{user}', [UserController::class, 'request_showing_agents'])->name('request.showing.agents');
         Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
-        Route::resource('listing-coordinators', ListingCoordinatorController::class);
-        Route::get('listing-coordinator-packages', [ListingCoordinatorPackageController::class, 'index']);
-        Route::get('listing-coordinator-packages/{type}', [ListingCoordinatorPackageController::class, 'show']);
-        Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
+//        Route::resource('listing-coordinators', ListingCoordinatorController::class);
+        Route::get('listing-coordinators', [ListingCoordinatorPackageController::class, 'index']);
+        Route::get('listing-coordinators/{type}', [ListingCoordinatorPackageController::class, 'show']);
+//        Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
 
         Route::get('leaderboard/sales', [BrokerSumoController::class, 'leaderboard_sales']);
         Route::get('leaderboard/units', [BrokerSumoController::class, 'leaderboard_units']);
