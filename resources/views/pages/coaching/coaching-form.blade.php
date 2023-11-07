@@ -102,7 +102,6 @@
                     <div class="col-12">
                         <div id="paypal-button-container"></div>
                     </div>
-                    <button type="submit">Submit</button>
                 </form>
             </div>
 
