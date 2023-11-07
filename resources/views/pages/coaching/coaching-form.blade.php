@@ -62,8 +62,8 @@
                 <h1>LUXE COACHING - 30 DAYS TO SUCCESS ACCOUNTABILITY AGREEMENT</h1>
                 <p>This agreement outlines the terms and conditions of the $100 deposit for the
                     coaching program.</p>
-                <p>30 Days to Success Accountability program will be hosted at the Coral Gables
-                    office from 10am to 12pm Monday through Friday. There are 20 instructional
+                <p>30 Days to Success Accountability program will be hosted at the Kendall Office
+                    from 10:30am- 12:30pm Monday through Friday. There are 20 instructional
                     days of the 30 days from the start date of the program. Weekends are meant
                     for independent work provided by your coach.</p>
                 <p>
@@ -78,7 +78,7 @@
         </div>
         <div class="row box-items py-4 justify-content-center">
             <div class="col-12 col-md-12 col-lg-6">
-                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')" />
+                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')"/>
                 <form id="form" action="{{ route('general.email.post') }}" method="POST" class="row p-0 m-0">
                     @csrf
                     <input type="hidden" name="form_title" value="LUXE Coaching">
@@ -86,7 +86,7 @@
                     <input type="hidden" name="agent_full_name" value="{{ auth()->user()->profile->fullname }}">
                     <input type="hidden" name="agent_email" value="{{ auth()->user()->email }}">
                     <input type="hidden" name="agent_languages"
-                        value="{{ auth()->user()->profile->languages ? implode(',', auth()->user()->profile->languages) : null }}">
+                           value="{{ auth()->user()->profile->languages ? implode(',', auth()->user()->profile->languages) : null }}">
                     <div class="form-group col-12">
                         <label for="">Full Name:</label>
                         <div class="input-group">
@@ -102,6 +102,7 @@
                     <div class="col-12">
                         <div id="paypal-button-container"></div>
                     </div>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
 
@@ -119,35 +120,35 @@
                 height: 40,
                 tagline: 'false'
             },
-            createOrder: function(data, actions) {
+            createOrder: function (data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
                             value: 100
                         }
                     }]
-                });
+                })
             },
-            onInit: function(data, actions) {
-                actions.disable();
+            onInit: function (data, actions) {
+                actions.disable()
                 document.querySelectorAll('input').forEach(item => {
                     item.addEventListener('input', () => {
-                        if (document.getElementById("form").checkValidity()) {
-                            actions.enable();
+                        if (document.getElementById('form').checkValidity()) {
+                            actions.enable()
                         } else {
-                            actions.disable();
+                            actions.disable()
                         }
-                    });
-                });
+                    })
+                })
             },
-            onClick: function() {
-                document.getElementById("form").reportValidity()
+            onClick: function () {
+                document.getElementById('form').reportValidity()
             },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    document.getElementById("form").submit();
-                });
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    document.getElementById('form').submit()
+                })
             }
-        }).render('#paypal-button-container');
+        }).render('#paypal-button-container')
     </script>
 @endsection
