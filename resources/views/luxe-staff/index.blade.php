@@ -88,13 +88,13 @@
                 <p class="staff-email">marketingcoordinator@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/jennifer.jpg') }}" class="staff-image">
                 <p class="staff-name">Jennifer Bru Escobar</p>
                 <p class="staff-role">Education Specialist</p>
                 <p class="staff-email">trainings@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/kayleen.jpg') }}" class="staff-image">
                 <p class="staff-name">Kayleen Chinea</p>
                 <p class="staff-role">Agent Experience Specialist</p>
                 <p class="staff-email">onboarding@luxeknows.com</p>
