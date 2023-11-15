@@ -99,6 +99,13 @@
                 <p class="staff-role">Agent Experience Specialist</p>
                 <p class="staff-email">onboarding@luxeknows.com</p>
             </div>
+
+            <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/yesenia.jpg') }}" class="staff-image">
+                <p class="staff-name">Yesenia Ferro</p>
+                <p class="staff-role">Recruiting Specialist</p>
+                <p class="staff-email">yesenia@luxeknows.com</p>
+            </div>
             {{-- <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
                 <p class="staff-name">Valentina Grad</p>

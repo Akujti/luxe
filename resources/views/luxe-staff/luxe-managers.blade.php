@@ -100,12 +100,6 @@
                 <p class="staff-role">Broker</p>
                 <p class="staff-email">wesley@luxeknows.com</p>
             </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/yesenia.jpg') }}" class="staff-image">
-                <p class="staff-name">Yesenia Ferro</p>
-                <p class="staff-role">Miami Lakes Manager</p>
-                <p class="staff-email">yesenia@luxeknows.com</p>
-            </div>
         </div>
     </div>
 @endsection
