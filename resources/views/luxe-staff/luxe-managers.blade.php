@@ -65,6 +65,12 @@
                 <p class="staff-email">dkp@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/jennifer.jpg') }}" class="staff-image">
+                <p class="staff-name">Jennifer Bru Escobar</p>
+                <p class="staff-role">Miami Lakes Manager</p>
+                <p class="staff-email">jennifer@luxeknows.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/justin.jpg') }}" class="staff-image">
                 <p class="staff-name">Justin Kirkwood</p>
                 <p class="staff-role">Dadeland Branch Manager</p>
