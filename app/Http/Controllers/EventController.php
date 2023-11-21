@@ -6,6 +6,7 @@ use App\Mail\AddToEmailCalendar;
 use App\Models\Event;
 use App\Models\EventUser;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::whereMonth('date', '>=', date('m'))->get();
+        $events = Event::where('date', '>=', Carbon::now()->startOfMonth())->get();
         if (request()->wantsJson()) {
             return response()->json(['events' => $events]);
         }
