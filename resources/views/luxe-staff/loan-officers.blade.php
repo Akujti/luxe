@@ -80,6 +80,17 @@
                 <a target="_blank" href="https://2086660.my1003app.com/1266291/register"
                     class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
+
+            <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/christian.jpg') }}" class="staff-image">
+                <p class="staff-name">Christian Benedico</p>
+                <p class="staff-role">Mortgage Loan Officer</p>
+                <p class="staff-email"><a href="tel:7866510775">786.651.0775</a></p>
+                <p class="staff-email"><a href="mailto:Christian@luxehomeloan.com">Christian@luxehomeloan.com</a></p>
+
+                <a target="_blank" href="https://2086660.my1003app.com/2054824/register"
+                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
+            </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/ducene.jpg') }}" class="staff-image">
                 <p class="staff-name">Ducene Raphael</p>
@@ -105,7 +116,8 @@
                 <p class="staff-name">Elda Diaz</p>
                 <p class="staff-role">Loan Processor</p>
                 <p class="staff-email"><a href="tel:7866180515">786.618.0515</a></p>
-                <p class="staff-email"><a href="mailto:elda.processor@luxehomeloan.com">elda.processor@luxehomeloan.com</a>
+                <p class="staff-email"><a
+                        href="mailto:elda.processor@luxehomeloan.com">elda.processor@luxehomeloan.com</a>
                 </p>
             </div>
             <div class="col-md-3 staff-box">
@@ -118,19 +130,19 @@
                     class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <!-- <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
-                <p class="staff-name">Michael Castro</p>
-                <p class="staff-role">Mortgage Loan Officer</p>
-                <p class="staff-email"><a href="tel:3057901754">305.790.1754</a></p>
-                <p class="staff-email"><a href="mailto:michael@luxehomeloan.com">michael@luxehomeloan.com</a></p>
-            </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
-                <p class="staff-name">Orlando Castillo</p>
-                <p class="staff-role">Mortgage Loan Officer</p>
-                <p class="staff-email"><a href="tel:7865567543">786.556.7543</a></p>
-                <p class="staff-email"><a href="mailto:orlando@luxehomeloan.com">orlando@luxehomeloan.com</a></p>
-            </div> -->
+                    <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                    <p class="staff-name">Michael Castro</p>
+                    <p class="staff-role">Mortgage Loan Officer</p>
+                    <p class="staff-email"><a href="tel:3057901754">305.790.1754</a></p>
+                    <p class="staff-email"><a href="mailto:michael@luxehomeloan.com">michael@luxehomeloan.com</a></p>
+                </div>
+                <div class="col-md-3 staff-box">
+                    <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                    <p class="staff-name">Orlando Castillo</p>
+                    <p class="staff-role">Mortgage Loan Officer</p>
+                    <p class="staff-email"><a href="tel:7865567543">786.556.7543</a></p>
+                    <p class="staff-email"><a href="mailto:orlando@luxehomeloan.com">orlando@luxehomeloan.com</a></p>
+                </div> -->
         </div>
     </div>
 @endsection
