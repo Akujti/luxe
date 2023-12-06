@@ -110,7 +110,10 @@
                                     Access & Wifi Instructions
                                 </button>
                             </div>
-
+                            <div class="form-group ">
+                                <p class="location">Dadeland</p>
+                                <p class="address">9200 S Dadeland Blvd #402, Miami, FL 33156</p>
+                            </div>
                             <div class="form-group ">
                                 <p class="location">South Miami -- Coming Soon</p>
                                 {{-- <p class="address">5966 S Dixie Highway #300, South Miami, FL 33143</p>
@@ -119,9 +122,6 @@
                                     View
                                     Access & Wifi Instructions
                                 </button> --}}
-                            </div>
-                            <div class="form-group ">
-                                <p class="location">Dadeland -- Coming Soon</p>
                             </div>
                         </div>
                         <div class="col-md-6">
