@@ -148,8 +148,8 @@ class FormController extends Controller
             FormSubmit::create([
                 'form_title' => $request->form_title,
                 'status' => 0,
-                'agent_name' => $request->agent_full_name,
-                'agent_email' => $request->agent_email,
+                'agent_name' => $request->agent_full_name ?? auth()->user()->profile->fullname,
+                'agent_email' => $request->agent_email ?? auth()->user()->email,
                 'details' => json_encode($details),
             ]);
         } catch (Exception $e) {
