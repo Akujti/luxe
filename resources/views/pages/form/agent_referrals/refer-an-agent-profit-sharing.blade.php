@@ -22,22 +22,22 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Full Name of Agent Referral</label>
                                 <input type="text" name="full_name_of_agent_referral" class="form-control" value=""
-                                       required>
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Phone Number for Agent Referral</label>
                                 <input type="text" name="phone_number_for_agent_referral" class="form-control"
-                                       value="" required>
+                                    value="" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Email for Agent Referral</label>
                                 <input type="text" name="email_for_agent_referral" class="form-control" value=""
-                                       required>
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Is Your Agent Referral A New Licensee?</label>
                                 <select name="is_your_agent_referral_a_new_licensee" class="form-control" id=""
-                                        required>
+                                    required>
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -50,18 +50,17 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Years In Real Estate for Agent Referral</label>
                                 <input type="text" name="years_in_real_estate_for_agent_referral" class="form-control"
-                                       required>
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">License Number of Agent Referral</label>
-                                <input type="text" name="license_number_of_agent_referral" class="form-control"
-                                       required>
+                                <input type="text" name="license_number_of_agent_referral" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Referring LUXE Agent Name</label>
-                                <input type="text" name="referring_LUXE_agent_name" class="form-control"
-                                       {{(auth()->user()->role == 'admin' || auth()->user()->role == 'other') ? '':'disabled'}}
-                                       value="{{auth()->user()->profile->fullname}}">
+                                <input type="text" name="referring_LUXE_agent_name" class="form-control" required
+                                    {{ auth()->user()->role == 'admin' || auth()->user()->role == 'other' ? '' : 'disabled' }}
+                                    value="{{ auth()->user()->profile->fullname }}">
                             </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
