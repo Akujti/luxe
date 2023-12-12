@@ -103,12 +103,16 @@ class FormController extends Controller
     {
         try {
             $details = [];
-            if (isset($request->agent_full_name)) {
+
+            if (isset($request->agent_full_name))
                 $details['form_agent_full_name'] = $request->agent_full_name;
-            }
-            if (isset($request->agent_email)) {
+            else
+                $details['form_agent_full_name'] = auth()->user()->profile->fullname;
+
+            if (isset($request->agent_email))
                 $details['form_agent_email'] = $request->agent_email;
-            }
+            else
+                $details['form_agent_email'] = auth()->user()->email;
 
             foreach ($request->except('_token', 'to_email', 'form') as $key => $val) {
                 if ($request->hasFile($key)) {
