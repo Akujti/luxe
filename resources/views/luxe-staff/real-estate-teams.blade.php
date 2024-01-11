@@ -40,13 +40,13 @@
                 <p class="staff-email">D: <a href="tel:305.335.5967">305.335.5967</a></p>
                 <p class="staff-email">E: <a href="mailto:annette@luxeknows.com">annette@luxeknows.com</a></p>
             </div>
-            <div class="col-md-6 staff-box">
+            {{-- <div class="col-md-6 staff-box">
                 <img src="{{ asset('images/real-estate/emg.jpg') }}" class="staff-image">
                 <p class="staff-name">Empire Miami Group</p>
                 <p class="staff-role">Team Leader: Meisha Jattin</p>
                 <p class="staff-email">D: <a href="tel:786.203.6277">786.203.6277</a></p>
                 <p class="staff-email">E: <a href="mailto:meishamiami@luxeknows.com">meishamiami@luxeknows.com</a></p>
-            </div>
+            </div> --}}
             {{-- <div class="col-md-6 staff-box">
                 <img src="{{ asset('images/real-estate/llc.jpg') }}" class="staff-image" style="object-position: top;">
                 <p class="staff-name">Luxury Lifestyle Collective</p>

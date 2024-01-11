@@ -74,7 +74,7 @@
                                 <p class="location">Miami Lakes</p>
                                 <p class="address">17670 NW 78th Avenue #206, Hialeah, FL 33015</p>
                                 <button class="btn"
-                                    onclick="toggleModal('Miami Lakes','Lockbox 5557','Wi-Fi name- Luxeproperties','Password- abcde123')">
+                                    onclick="toggleModal('Miami Lakes','Lockbox 5557 (Located at the top of the stairwell with a LUXE sticker)','Wi-Fi name- Luxeproperties','Password- abcde123')">
                                     View
                                     Access & Wifi Instructions
                                 </button>
@@ -112,10 +112,10 @@
                             </div>
                             <div class="form-group ">
                                 <p class="location">Dadeland</p>
-                                <p class="address">9200 S Dadeland Blvd #402, Miami, FL 33156</p>
+                                <p class="address">9200 S Dadeland Blvd #420, Miami, FL 33156</p>
                             </div>
                             <div class="form-group ">
-                                <p class="location">South Miami -- Coming Soon</p>
+                                <p class="location">South Miami -- Relocating</p>
                                 {{-- <p class="address">5966 S Dixie Highway #300, South Miami, FL 33143</p>
                                 <button class="btn"
                                         onclick="toggleModal('South Miami','Buro Building Open From 8:30am - 5:30pm','','')">
