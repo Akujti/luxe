@@ -48,8 +48,7 @@
                                 <p class="address">55 Merrick Way #402, Coral Gables, FL 33134</p>
                                 <button class="btn"
                                     onclick="toggleModal('Coral Gables','Keypad 555777#','Wi-Fi name- Luxe Guest','Password- Luxe1234$')">
-                                    View
-                                    Access & Wifi Instructions
+                                    View Access & Wifi Instructions
                                 </button>
                             </div>
                             <div class="form-group ">
@@ -57,8 +56,7 @@
                                 <p class="address">30 NW 34 Street #102, Miami, FL 33127</p>
                                 <button class="btn"
                                     onclick="toggleModal('Midtown','Supra','Alarm 1234','Wi-Fi name- Luxeproperties','Password- Luxeknows')">
-                                    View
-                                    Access & Wifi Instructions
+                                    View Access & Wifi Instructions
                                 </button>
                             </div>
                             <div class="form-group ">
@@ -66,8 +64,7 @@
                                 <p class="address">12464 SW 127 Avenue, Miami, FL 33186</p>
                                 <button class="btn"
                                     onclick="toggleModal('Kendall','Lockbox 1986','Alarm 2019','Wi-Fi name- luxekendall2.5 / luxekendall5','Password- Luxe12345')">
-                                    View
-                                    Access & Wifi Instructions
+                                    View Access & Wifi Instructions
                                 </button>
                             </div>
                             <div class="form-group ">
@@ -84,8 +81,7 @@
                                 <p class="address">2016 NE 8 Street, Homestead, FL 33033</p>
                                 <button class="btn"
                                     onclick="toggleModal('Homestead','Lockbox 7400','Wi-Fi name- Luxe Prop 2.4','Password- Luxe1234$','Alarm 2016')">
-                                    View
-                                    Access & Wifi Instructions
+                                    View Access & Wifi Instructions
                                 </button>
                             </div>
                             <div class="form-group ">
@@ -93,8 +89,7 @@
                                 <p class="address">2875 NE 191 Street #PH5, Aventura, FL 33180</p>
                                 <button class="btn"
                                     onclick="toggleModal('Aventura','Lockbox 1976','Wi-Fi name- LUXE PROPERTIES','Password: Luxeknows123')">
-                                    View
-                                    Access & Wifi Instructions
+                                    View Access & Wifi Instructions
                                 </button>
                             </div>
                             <div class="form-group ">
@@ -106,13 +101,16 @@
                                 <p class="address">1911 NW 150 Avenue #202, Pembroke Pines FL 33028</p>
                                 <button class="btn"
                                     onclick="toggleModal('Office Lockbox 1025','After Hours Building Code 8372','Wi-Fi name- Luxepines','Password- Luxe1234$')">
-                                    View
-                                    Access & Wifi Instructions
+                                    View Access & Wifi Instructions
                                 </button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">Dadeland</p>
                                 <p class="address">9200 S Dadeland Blvd #420, Miami, FL 33156</p>
+                                <button class="btn"
+                                    onclick="toggleModal('Lockbox 5557','Wi-Fi name - Luxe Properties Dadeland','Password - Luxeknows$123')">
+                                    View Access & Wifi Instructions
+                                </button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">South Miami -- Relocating</p>
