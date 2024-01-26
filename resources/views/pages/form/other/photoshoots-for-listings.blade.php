@@ -132,7 +132,7 @@
         }
 
         input[type="checkbox"]:disabled+label::before {
-     background: gray;
+            background: gray;
         }
 
         input[type="checkbox"]:disabled+label:hover::before {
@@ -263,13 +263,18 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Is this a Zillow lead?</label>
-                                <select name="is_this_a_zillow_lead" class="form-control">
+                                <label for="name">What is the lead source for this listing?</label>
+                                <select id="other-lead-source-select" name="what_is_the_lead_source_for_this_listing"
+                                    class="form-control" required @>
                                     <option value>-</option>
-                                    <option value="Yes, from Zillow seller team">Yes, from Zillow seller team</option>
-                                    <option value="Yes, from Zillow buyer team">Yes, from Zillow buyer team</option>
-                                    <option value="Not, not a Zillow lead">Not, not a Zillow lead</option>
+                                    <option value="Personal">Personal</option>
+                                    <option value="Zillow Seller Team">Zillow Seller Team</option>
+                                    <option value="Zillow Buyer Team">Zillow Buyer Team</option>
+                                    <option value="CINC Seller Team">CINC Seller Team</option>
+                                    <option value="Other">Other</option>
                                 </select>
+                                <input id="other-lead-source-input" class="form-control mt-3 d-none"
+                                    name="other_lead_source" placeholder="Write the other lead source here">
                             </div>
                             <div class="form-group col-12 text-center">
                                 <h6>**Photoshoots can only be scheduled between 8AM-3PM**</h6>
@@ -400,6 +405,16 @@
         src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
     </script>
     <script>
+        $('#other-lead-source-select').change(function() {
+            var option = $(this).val()
+            if (option == 'Other') {
+                $('#other-lead-source-input').removeClass('d-none')
+                $('#other-lead-source-input').prop('required', true);
+            } else {
+                $('#other-lead-source-input').addClass('d-none')
+                $('#other-lead-source-input').prop('required', false);
+            }
+        });
         $('[id^="option-"]').change(function() {
             calculate()
         });
