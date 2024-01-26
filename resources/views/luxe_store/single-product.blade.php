@@ -205,9 +205,11 @@
                                 <div class="form-group">
                                     <label for="">{{ $input->input_name }}</label>
                                     @if ($input->is_file)
-                                        <input type="file" name="form[{{ $input->input_value }}]" class="form-control">
+                                        <input type="file" name="form[{{ $input->input_value }}]" class="form-control"
+                                            {{ $input->required ? 'required' : '' }}>
                                     @else
-                                        <input type="text" name="form[{{ $input->input_value }}]" class="form-control">
+                                        <input type="text" name="form[{{ $input->input_value }}]" class="form-control"
+                                            {{ $input->required ? 'required' : '' }}>
                                     @endif
                                 </div>
                             @endforeach
