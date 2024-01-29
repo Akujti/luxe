@@ -52,7 +52,7 @@
         <div class="card-title text-center">
             <h1>Escrow - Select Form</h1>
         </div>
-        <div class="grid grid-layout-two">
+        <div class="grid grid-layout-three">
             <div class="box-item">
                 <a href="{{ route('general.email.index', ['folder' => 'escrow', 'form' => 'request-store']) }}">Request Store
                     - Rental Escrow Disbursement</a>
@@ -61,6 +61,12 @@
             <div class="box-item">
                 <a href="{{ route('general.email.index', ['folder' => 'escrow', 'form' => 'request-escrow-letter']) }}">Request
                     Escrow Letter</a>
+            </div>
+
+            <div class="box-item">
+                <a
+                    href="{{ route('general.email.index', ['folder' => 'escrow', 'form' => 'request-escrow-client-refund']) }}">Request
+                    Request Escrow Client Refund</a>
             </div>
         </div>
     </div>

@@ -265,7 +265,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">What is the lead source for this listing?</label>
                                 <select id="other-lead-source-select" name="what_is_the_lead_source_for_this_listing"
-                                    class="form-control" required @>
+                                    class="form-control" required>
                                     <option value>-</option>
                                     <option value="Personal">Personal</option>
                                     <option value="Zillow Seller Team">Zillow Seller Team</option>

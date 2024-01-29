@@ -175,8 +175,13 @@ class FormController extends Controller
             if ($request->form_title_value == "CLOSING COORDINATORS" && $request->is_this_luxe_zillow_lead == 'Yes') {
                 array_push($to, 'zillow@luxeknows.com');
             }
-            if (!$form->hide_agent_email && isset($request->agent_email))
-                array_push($to, $request->agent_email);
+            if (!$form->hide_agent_email) {
+                if (isset($request->agent_email))
+                    array_push($to, $request->agent_email);
+                else
+                    array_push($to, auth()->user()->email);
+            }
+
             $cc = [];
             try {
                 Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
