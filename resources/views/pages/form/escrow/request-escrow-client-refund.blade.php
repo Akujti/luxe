@@ -4,7 +4,8 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
 
-                <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
+                <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4 text-uppercase">Request Escrow Client Refund</h1>
@@ -13,21 +14,22 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label for="name">Was there a contract signed?</label>
-                                <select id="was-there-a-contract-signed" name="was_there_a_contract_signed"
-                                    class="form-control" required>
+                                <label for="name">Was there a Contract to Lease or Lease Agreement signed?</label>
+                                <select id="was-there-a-contract-signed"
+                                    name="was_there_a_contract_to_lease_or_lease_agreement_signed" class="form-control"
+                                    required>
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="answer-yes form-group col-md-6 d-none">
-                                <label for="name">Release Form</label>
-                                <input type="file" name="release_form" class="form-control p-1">
+                                <label for="name">Upload Release & Cancellation</label>
+                                <input type="file" name="release_&_cancellation" class="form-control p-1">
                             </div>
                             <div class="answer-yes form-group col-md-6 d-none">
-                                <label for="name">Cancelation Form</label>
-                                <input type="file" name="cancelation_form" class="form-control p-1">
+                                <label for="name">Upload Signed Contract/Agreement</label>
+                                <input type="file" name="signed_contract_agreement" class="form-control p-1">
                             </div>
                             <div class="answer-no form-group col-md-6 d-none">
                                 <label for="name">Agent Name</label>

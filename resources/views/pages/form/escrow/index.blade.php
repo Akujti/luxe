@@ -65,7 +65,7 @@
 
             <div class="box-item">
                 <a
-                    href="{{ route('general.email.index', ['folder' => 'escrow', 'form' => 'request-escrow-client-refund']) }}">Request
+                    href="{{ route('general.email.index', ['folder' => 'escrow', 'form' => 'request-escrow-client-refund']) }}">
                     Request Escrow Client Refund</a>
             </div>
         </div>
