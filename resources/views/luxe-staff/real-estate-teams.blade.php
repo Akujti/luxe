@@ -121,6 +121,13 @@
                 <p class="staff-email">D: <a href="tel:7864878527">786.487.8527</a> </p>
                 <p class="staff-email">E: <a href="mailto:s.martins@luxeknows.com">s.martins@luxeknows.com</a></p>
             </div>
+            <div class="col-md-6 staff-box">
+                <img src="{{ asset('images/real-estate/ssm.jpg') }}" class="staff-image">
+                <p class="staff-name">SamSellsMiami Group</p>
+                <p class="staff-role">Team Leader: Samuel Juarez</p>
+                <p class="staff-email">D: <a href="tel:7862224176">786.222.4176</a> </p>
+                <p class="staff-email">E: <a href="mailto:sam@samsellsmiami.com">sam@samsellsmiami.com</a></p>
+            </div>
         </div>
     </div>
 @endsection
