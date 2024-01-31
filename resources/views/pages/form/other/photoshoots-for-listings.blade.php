@@ -437,10 +437,7 @@
                     total += Number(element.getAttribute("data-price"));
                 }
             });
-            if (status == 3)
-                amount = 0
-            else
-                amount = total
+            amount = total
 
             document.getElementById('total').value = '$' + amount
             if (amount == 0) {
