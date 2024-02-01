@@ -312,13 +312,13 @@
                             <div class="form-group col-md-12">
                                 <input id="option-0" class="form-check-input ml-0 d-none" type="checkbox"
                                     value="Photos Only (12-15 images)"
-                                    data-price="{{ auth()->user()->status == 1 ? 150 : 100 }}" name="add-ons[]" checked>
+                                    data-price="{{ auth()->user()->status == 1 ? 150 : 0 }}" name="add-ons[]" checked>
                                 <input class="form-check-input ml-0" type="checkbox" value="Photos Only (12-15 images)"
-                                    data-price="{{ auth()->user()->status == 1 ? 150 : 100 }}" name="add-ons[]" checked
+                                    data-price="{{ auth()->user()->status == 1 ? 150 : 0 }}" name="add-ons[]" checked
                                     disabled>
                                 <label class="ml-4">
                                     Photos Only (12-15 images)
-                                    {{ auth()->user()->status == 1 ? '- $150' : '- $100' }}
+                                    {{ auth()->user()->status == 1 ? '- $150' : '- Included ($100 VALUE)' }}
                                 </label>
                                 @if (auth()->user()->status == 2)
                                     <p>**Sale Listing Agreement must have minimum list price of $250K and minimum 5% gross
