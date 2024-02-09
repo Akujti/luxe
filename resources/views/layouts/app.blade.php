@@ -700,7 +700,7 @@
                                                 href="{{ url('store/product/background-check') }}">Client
                                                 Screening</a></li>
                                         <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                                href="{{ url('store/product/fiu-course-grow-your-real-estate-business-3-modules') }}">Real
+                                                href="{{ url('store/product/special-offer-5-part-payment-plan-fiu-course') }}">Real
                                                 Estate Course</a></li>
                                     </ul>
                                 </li>

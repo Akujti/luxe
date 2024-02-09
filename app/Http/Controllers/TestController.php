@@ -13,6 +13,7 @@ use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
@@ -21,7 +22,8 @@ class TestController extends Controller
 {
     public function index()
     {
-        return Carbon::now()->addWeekdays(7);
+        $a = Auth::loginUsingId(149);
+        return $a;
     }
 
     public function update_vimeo()

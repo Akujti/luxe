@@ -5,13 +5,9 @@
             margin-bottom: 15px;
         }
 
-        ul li {
+        ul.list-unstyled li {
             margin-bottom: 15px;
             font-size: 24px;
-        }
-
-        ul {
-            margin-bottom: 35px;
         }
 
         h2.under-contract {
@@ -51,11 +47,22 @@
                 <div class="text-center">
                     <h2 class="under-contract my-5">LUXE INCENTIVES</h2>
                 </div>
-                <h4 class="text-center">2022 TOP PRODUCERS</h4>
-                <ul class="list-unstyled">
-                    <li>★ $5 Million in Yearly Sales - $250 Monthly Marketing Budget</li>
-                    <li>★ $10 Million in Yearly Sales - $500 Monthly Marketing Budget</li>
-                    <li>★ $15 Million in Yearly Sales - $1,000 Monthly Marketing Budget </li>
+                <h4 class="text-center">2023 TOP PRODUCERS</h4>
+                <p class="text-center mb-5">Yearly Top Producers are reviewed in January for the previous calendar year and
+                    marketing budgets are released in February.</p>
+                <hr>
+                <ul class="list-unstyled my-3">
+                    <li>★ $6 Million in Yearly Sales - $250 Monthly Marketing Budget</li>
+                    <li>★ $11 Million in Yearly Sales - $500 Monthly Marketing Budget</li>
+                    <li class="mb-0">★ $16 Million in Yearly Sales - $1,000 Monthly Marketing Budget </li>
+                </ul>
+                <p>Please take a moment to review the below:</p>
+                <ul>
+                    <li>Yearly top producers are the top 5% of agents who have been with the brokerage for at least 6 months
+                        or more.</li>
+                    <li>The sales volume tiers below are subject to change every year dependent of the top 5%.</li>
+                    <li>Minimum company dollars must be met in order to qualify for a marketing budget.</li>
+                    <li>Marketing budgets will have set duration periods.</li>
                 </ul>
                 <hr>
                 <h4 class="text-center">LEGACY INCENTIVES</h4>

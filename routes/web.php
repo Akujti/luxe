@@ -69,7 +69,7 @@ use App\Http\Controllers\ListingCoordinatorPackageController;
 */
 
 // Route::get('setCoordinates', [UserController::class, 'setUserCoordinates']);
-
+Route::get('test', [TestController::class, 'index']);
 Route::get('general/form/file/download/', [FormController::class, 'file_download'])->name('form.file.download');
 
 Route::view('office-locations', 'office-locations')->name('office.locations')->middleware('auth');
@@ -267,11 +267,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('appointments', AppointmentController::class);
     Route::get('appointment-addresses/all', [AppointmentAddressController::class, 'all']);
     Route::get('appointment-timeslots/all', [AppointmentTimeslotController::class, 'all']);
-    Route::get('test', [TestController::class, 'index']);
+
     Route::post('test', [TestController::class, 'submit']);
 
-//    Route::resource('listing-coordinators', ListingCoordinatorController::class);
-//    Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
+    //    Route::resource('listing-coordinators', ListingCoordinatorController::class);
+    //    Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
 
 
     Route::resource('form', FormController::class);
@@ -412,10 +412,10 @@ Route::group(
         Route::get('showing-agents', [UserController::class, 'showing_agents'])->name('showing.agents.index');
         Route::post('showing-agents/{user}', [UserController::class, 'request_showing_agents'])->name('request.showing.agents');
         Route::post('general/form/other/closing-coordinators-agents', [ClosingCoordinatorController::class, 'change_status'])->name('change_status');
-//        Route::resource('listing-coordinators', ListingCoordinatorController::class);
+        //        Route::resource('listing-coordinators', ListingCoordinatorController::class);
         Route::get('listing-coordinators', [ListingCoordinatorPackageController::class, 'index']);
         Route::get('listing-coordinators/{type}', [ListingCoordinatorPackageController::class, 'show']);
-//        Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
+        //        Route::post('listing-coordinators/{id}/change-status', [ListingCoordinatorController::class, 'change_status'])->name('listing_coordinator.change_status');
 
         Route::get('leaderboard/sales', [BrokerSumoController::class, 'leaderboard_sales']);
         Route::get('leaderboard/units', [BrokerSumoController::class, 'leaderboard_units']);
