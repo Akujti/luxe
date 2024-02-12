@@ -39,16 +39,11 @@
         <div class="card-title text-center">
             <h1>CINC - Select Form</h1>
         </div>
-        <div class="grid grid-layout-two">
+        <div class="grid grid-layout-one">
             <div class="box-item box-item-center">
-                <a href="{{ route('general.email.index', ['folder' => 'cinc', 'form' => 'join-cinc-buyer-team']) }}">Join
-                    CINC Buyer
+                <a href="{{ route('general.email.index', ['folder' => 'cinc', 'form' => 'join-cinc-seller-team']) }}">Join
+                    CINC Seller
                     Team</a>
-            </div>
-            <div class="box-item box-item-center">
-                <a href="{{ route('general.email.index', ['folder' => 'cinc', 'form' => 'cinc-leads-weekly-update']) }}">CINC
-                    Leads
-                    Weekly Update</a>
             </div>
         </div>
     </div>

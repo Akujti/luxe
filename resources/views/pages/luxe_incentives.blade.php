@@ -54,21 +54,22 @@
                 <h4 class="text-center">2023 TOP PRODUCERS</h4>
                 <p class="text-center mb-5">Yearly Top Producers are reviewed in January for the previous calendar year and
                     marketing budgets are released in February.</p>
-                <hr>
                 <ul class="list-unstyled my-3">
                     <li>★ $6 Million in Yearly Sales - $250 Monthly Marketing Budget</li>
                     <li>★ $11 Million in Yearly Sales - $500 Monthly Marketing Budget</li>
                     <li class="mb-0">★ $16 Million in Yearly Sales - $1,000 Monthly Marketing Budget </li>
                 </ul>
                 <p>Please take a moment to review the below:</p>
-                <ul>
-                    <li>Yearly top producers are the top 5% of agents who have been with the brokerage for at least 6 months
+                <ul class="pl-0" style="list-style-position: inside;">
+                    <li class="ms-0">Yearly top producers are the top 5% of agents who have been with the brokerage for at
+                        least 6 months
                         or more.</li>
                     <li>The sales volume tiers below are subject to change every year dependent of the top 5%.</li>
                     <li>Minimum company dollars must be met in order to qualify for a marketing budget.</li>
                     <li>Marketing budgets will have set duration periods.</li>
+                    <li>Company deals such as Zillow and CINC are not included.</li>
                 </ul>
-                <hr>
+                <hr class="my-5">
                 <h4 class="text-center">LEGACY INCENTIVES</h4>
                 <div class="row text-center align-items-end">
                     <h4 class="col-12">$10 Million Dollar Club</h4>
