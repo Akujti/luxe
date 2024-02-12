@@ -5,13 +5,13 @@
             margin-bottom: 15px;
         }
 
-        ul li {
+        * {
             font-family: 'Montserrat'
         }
 
         ul.list-unstyled li {
             margin-bottom: 15px;
-            font-size: 24px;
+            font-size: 20px;
         }
 
         h2.under-contract {
