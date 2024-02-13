@@ -30,6 +30,12 @@
                                     value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="name">Branch Manager:</label>
+                                <input type="text" name="agent_email" class="form-control"
+                                    value="{{ auth()->user()->profile ? auth()->user()->profile->support_specialist_name : '' }}"
+                                    required>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="name">Transaction Type:</label>
                                 <select name="transaction_type" id="transaction_type" class="form-control"
                                     onchange="toggleOptions('transaction_type')" required>
@@ -46,9 +52,25 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="name">What do you need help with?</label>
+                                <select name="what_do_you__need_help" id="help_select" class="form-control" required
+                                    onchange="toggleOptionsRepresenting()">
+                                    <option value="">-</option>
+                                    <option value="Review Paperwork">Review Paperwork</option>
+                                    <option value="Draft Addendum Verbiage">Draft Addendum Verbiage</option>
+                                    <option value="Negotiations">Negotiations</option>
+                                    <option value="General Contract Questions">General Contract Questions</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div id="please_explain_div" class="form-group col-md-6 d-none">
+                                <label for="name">Please Explain:</label>
+                                <input type="text" name="please_explain" class="form-control p-1">
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="name">Upload Document You Would Like Reviewed:</label>
                                 <input type="file" name="upload_document_you_would_like_reviewed"
-                                    class="form-control p-1" required>
+                                    class="form-control p-1">
                             </div>
 
                             <div class="form-group form-footer col-12">
@@ -77,6 +99,18 @@
                     <option value="Tenant">Tenant</option>
                     <option value="Landlord">Landlord</option>
                 `)
+            }
+        }
+
+        function toggleOptionsRepresenting() {
+            var value = $('#help_select').val();
+
+            if (value == 'Other') {
+                $('#please_explain_div').removeClass('d-none');
+                $('input[name="please_explain"]').attr('required', 'required');
+            } else {
+                $('#please_explain_div').addClass('d-none');
+                $('input[name="please_explain"]').removeAttr('required')
             }
         }
     </script>
