@@ -183,8 +183,14 @@ class FormController extends Controller
             }
 
             $cc = [];
+            $bcc = [];
             try {
-                Mail::to($to)->cc($cc)->send(new GeneralMailTemplate($details));
+                $bcc = $form->emails()->where('bcc', true)->get()->pluck('email')->toArray();
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            try {
+                Mail::to($to)->cc($cc)->bcc($bcc)->send(new GeneralMailTemplate($details));
             } catch (\Exception $exception) {
                 Log::alert($exception);
                 if ($request->wantsJson()) {
@@ -258,7 +264,7 @@ class FormController extends Controller
     {
         $form = Form::where('title', $title)->first();
 
-        $data = $form ? $form->emails()->get()->pluck('email')->toArray() : [];
+        $data = $form ? $form->emails()->where('bcc', false)->get()->pluck('email')->toArray() : [];
         if ($extraEmail) {
             $data = array_merge($data, $extraEmail);
         }

@@ -50,6 +50,7 @@ class AdminController extends Controller
 
     public function update_form(UpdateRequest $req)
     {
+        $bcc = $req->bcc;
         $form = Form::find($req->id);
 
         $form->emails()->delete();
@@ -57,7 +58,10 @@ class AdminController extends Controller
         if ($req->emails) {
             $emailModels = [];
             foreach ($req->emails as $row) {
-                $emailModels[] = ["email" => $row];
+                $emailModels[] = [
+                    "email" => $row,
+                    "bcc" => isset($bcc[$row])
+                ];
             }
 
             $form->emails()->createMany($emailModels);
@@ -78,7 +82,8 @@ class AdminController extends Controller
         return collect($data);
     }
 
-    public function testjob() {
+    public function testjob()
+    {
         $delay = Carbon::now()->addSecond(1);
         $luxeStoreOrder = LuxeStoreOrder::find(1);
         OrderStatusNotCompleted::dispatch($luxeStoreOrder)->delay($delay);

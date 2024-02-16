@@ -14,7 +14,8 @@ class EmailsForm extends Model
 
     protected $fillable = [
         'email',
-        'form_id'
+        'form_id',
+        'bcc'
     ];
 
     public function form()

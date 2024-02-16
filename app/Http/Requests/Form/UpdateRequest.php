@@ -25,7 +25,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'id' => 'required|exists:forms,id',
-            'emails' => 'required|array'
+            'emails' => 'required|array',
+            'bcc' => 'nullable|array'
         ];
     }
 }
