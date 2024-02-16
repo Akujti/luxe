@@ -272,7 +272,7 @@
         }
 
         function remove_email(e) {
-            $(e).parents('.email-row').remove()
+            $(e).parents('tr').remove()
         }
     </script>
     <script>
