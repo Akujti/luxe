@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Branch Manager:</label>
-                                <input type="text" name="agent_email" class="form-control"
+                                <input type="text" name="branch_manager" class="form-control"
                                     value="{{ auth()->user()->profile ? auth()->user()->profile->support_specialist_name : '' }}"
                                     required>
                             </div>
