@@ -223,7 +223,6 @@
 
             var html = '<table class="table mb-0">';
             for (let i = 0; i < data.length; i++) {
-                console.log(data[i]);
                 html += '<tr>' +
                     '<td class="py-0 text-left border-0">' + data[i].email + '</td>' +
                     '<td class="py-0 border-0 d-flex align-items-center gap-2"><input class="mr-2" type="checkbox" ' +
@@ -241,11 +240,14 @@
             $('.update-event').find('#add-new-button').click(function() {
                 var new_email = $('.update-event').find('#add-new').val()
                 if (new_email) {
-                    $('.update-event').find('#emails').append(
-                        '<div class="email-row d-flex justify-content-between w-100 mb-2">' +
-                        new_email +
-                        ' <button type="button" class="btn btn-danger btn-delete" onclick="remove_email(this)">&times;</button>' +
-                        '<input type="hidden" name="emails[]" value="' + new_email + '"></div>')
+                    $('.update-event').find('#emails table').append(
+                        '<tr>' +
+                        '<td class="py-0 text-left border-0">' + new_email + '</td>' +
+                        '<td class="py-0 border-0 d-flex align-items-center gap-2"><input class="mr-2" type="checkbox" ' +
+                        'name="bcc[' + new_email + ']">BCC</td>' +
+                        '<td class="py-0 border-0"><button type="button" class="btn btn-danger btn-delete" onclick="remove_email(this)">&times;</button></td>' +
+                        '<td class="py-0 border-0"><input type="hidden" name="emails[]" value="' + new_email +
+                        '"></td></tr>')
                     $('.update-event').find('#add-new').val('')
                 }
 
