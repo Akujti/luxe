@@ -440,16 +440,23 @@
                                         </div>
 
                                     @endauth
-                                    <div class="sidebar__item-menu">
-                                        <a class="btm-phn justify-content-start" href="tel:(305) 438 7764">
-                                            <span style="font-size: 16px"><b>SUPPORT LINE
-                                                    (305)-438-7764</b></span></a>
-                                        <a class="btm-phn justify-content-start" href="tel:(305) 908 1116">
-                                            <span style="font-size: 16px"><b>MARKETING LINE
-                                                    (305)-908-1116</b></span></a>
-                                        <a class="btm-phn justify-content-start" href="tel:(305) 306 8896">
-                                            <span style="font-size: 16px"><b>ACCOUNTING LINE
-                                                    (305)-306-8896</b></span></a>
+                                    <div class="sidebar__item-menu d-flex">
+                                        <div>
+                                            <a class="btm-phn justify-content-start" href="tel:(305) 438 7764">
+                                                <span style="font-size: 14px"><b>SUPPORT LINE
+                                                        (305)-438-7764</b></span></a>
+                                            <a class="btm-phn justify-content-start" href="tel:(305) 908 1116">
+                                                <span style="font-size: 14px"><b>MARKETING LINE
+                                                        (305)-908-1116</b></span></a>
+                                        </div>
+                                        <div>
+                                            <a class="btm-phn justify-content-start" href="tel:(305) 306 8896">
+                                                <span style="font-size: 14px"><b>ACCOUNTING LINE
+                                                        (305)-306-8896</b></span></a>
+                                            <a class="btm-phn justify-content-start" href="tel:(305) 998-6239">
+                                                <span style="font-size: 14px"><b>ESCROW LINE
+                                                        (305) 998-6239</b></span></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
