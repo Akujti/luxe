@@ -192,6 +192,7 @@
                         <h1 class="text-center my-4">Photoshoots For Listings</h1>
                     </div>
                     <input type="hidden" name="form_title" value="Photoshoots For Listings">
+                    <input id="transaction_id" type="hidden" name="transaction_id">
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -437,7 +438,10 @@
                     total += Number(element.getAttribute("data-price"));
                 }
             });
-            amount = total
+            if (status == 3)
+                amount = 0
+            else
+                amount = total
 
             document.getElementById('total').value = '$' + amount
             if (amount == 0) {
@@ -483,6 +487,8 @@
             },
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(details) {
+                    var transactionId = details.id;
+                    document.getElementById('transaction_id').value = transactionId
                     document.getElementById("photo-form").submit();
                 });
             }

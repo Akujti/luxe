@@ -104,6 +104,9 @@ class FormController extends Controller
         try {
             $details = [];
 
+            Log::channel('stack')->info('Form Submission');
+            Log::channel('stack')->info(json_encode($request->all()));
+
             if (isset($request->agent_full_name))
                 $details['form_agent_full_name'] = $request->agent_full_name;
             else

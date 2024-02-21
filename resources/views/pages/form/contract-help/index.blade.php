@@ -58,7 +58,7 @@
                                     <option value="">-</option>
                                     <option value="Review Paperwork">Review Paperwork</option>
                                     <option value="Draft Addendum Verbiage">Draft Addendum Verbiage</option>
-                                    <option value="Negotiations">Negotiations</option>
+                                    {{-- <option value="Negotiations">Negotiations</option> --}}
                                     <option value="General Contract Questions">General Contract Questions</option>
                                     <option value="Other">Other</option>
                                 </select>
