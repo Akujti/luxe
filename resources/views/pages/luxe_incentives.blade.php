@@ -68,7 +68,9 @@
                 <div class="text-center">
                     <h2 class="under-contract my-5">LUXE INCENTIVES</h2>
                 </div>
-                <h4 class="text-center">2023 TOP PRODUCERS</h4>
+                <h4 class="text-center">ANNUAL TOP PRODUCERS</h4>
+                <h6 class="text-center">2023 Edition</h6>
+
                 <p class="text-center">Yearly Top Producers are reviewed in January for the previous calendar year and
                     marketing budgets are released in February.</p>
                 <ul class="list-unstyled my-5">
@@ -82,9 +84,11 @@
                         least 6 months
                         or more.</li>
                     <li>The sales volume tiers below are subject to change every year dependent of the top 5%.</li>
-                    <li>Minimum company dollars must be met in order to qualify for a marketing budget.</li>
-                    <li>Marketing budgets will have set duration periods.</li>
-                    <li>Company deals such as Zillow and CINC are not included.</li>
+                    <li>Minimum company dollars based on a 3% commission at that sales volume must be met in order to
+                        qualify for a marketing budget.</li>
+                    <li>Marketing budgets will have set duration periods for 3 months.</li>
+                    <li>Company leads such as Zillow and CINC are excluded from sales volume calculation.</li>
+                    <li>Only Team Leaders Qualify for these Incentives.</li>
                 </ul>
             </div>
             <div class="col-md-6">
