@@ -375,11 +375,14 @@ class UserController extends Controller
         return back();
     }
 
-    public function showing_agents()
+    public function showing_agents(Request $request)
     {
-        $agents = User::where('showing_agent', true)->whereHas('profile', function ($query) {
-            $query->whereNotNull('address');
-        })->paginate(20);
+        $agents = UserProfile::when($request->name, function ($query) use ($request) {
+            $query->where('fullname', 'like', $request->name . '%');
+        })->whereNotNull('address')->whereHas('user', function ($query) {
+            $query->where('showing_agent', true);
+        })->orderBy('fullname')->paginate(20);
+
         $agents_list = User::where('showing_agent', true)->whereHas('profile', function ($query) {
             $query->whereNotNull('address');
         })->get();

@@ -64,22 +64,28 @@
                 <style>
                     #map {
                         height: 500px;
+                        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+                        border-radius: 15px;
                     }
                 </style>
+                <form method="GET" class="mb-3 d-md-flex">
+                    <input name="name" type="text" class="form-control mr-2" placeholder="Search by name">
+                    <button class="btn btn-luxe">Search</button>
+                </form>
                 <div id="map"></div>
             </div>
             @foreach ($agents as $agent)
                 <div class="col-md-6">
                     <div class="row-col">
                         <div class="row-details">
-                            <img src="{{ $agent->avatar }}" alt="">
+                            <img src="{{ $agent->user->avatar }}" alt="">
                             <div>
-                                <h4>{{ $agent->profile->fullname }}&nbsp;</h4>
-                                <p>Email: {{ $agent->email }}&nbsp;</p>
-                                <p>Phone: {{ $agent->profile->phone }}&nbsp;</p>
+                                <h4>{{ $agent->fullname }}&nbsp;</h4>
+                                <p>Email: {{ $agent->user->email }}&nbsp;</p>
+                                <p>Phone: {{ $agent->phone }}&nbsp;</p>
                                 <p>Languages:
-                                    @if ($agent->profile->languages)
-                                        @foreach ($agent->profile->languages as $language)
+                                    @if ($agent->languages)
+                                        @foreach ($agent->languages as $language)
                                             <span>{{ $language }} @if (!$loop->last)
                                                     ,
                                                 @endif
@@ -88,13 +94,13 @@
                                     @endif
                                     &nbsp;
                                 </p>
-                                <p>Address: {{ $agent->profile->address }}</p>
-                                <p>Service Areas: {{ $agent->profile->service_areas }}</p>
+                                <p>Address: {{ $agent->address }}</p>
+                                <p>Service Areas: {{ $agent->service_areas }}</p>
                             </div>
                         </div>
                         <button class="btn btn-luxe" data-toggle="modal"
-                            data-target="#modal-{{ $agent->id }}">Request</button>
-                        <div class="modal modal-new fade" id="modal-{{ $agent->id }}">
+                            data-target="#modal-{{ $agent->user->id }}">Request</button>
+                        <div class="modal modal-new fade" id="modal-{{ $agent->user->id }}">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content bg-white">
                                     <div class="modal-header">
@@ -106,7 +112,7 @@
                                     </div>
 
                                     <div class="modal-body">
-                                        <form action="{{ route('request.showing.agents', $agent) }}" method="post">
+                                        <form action="{{ route('request.showing.agents', $agent->user) }}" method="post">
                                             @csrf
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Select Service</label>
