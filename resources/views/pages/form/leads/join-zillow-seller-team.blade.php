@@ -184,8 +184,7 @@
                             <div class="form-group form-footer col-12">
                                 <input id="submit-button" type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                                 <p id="cannot-submit-text" class="text-center d-none text-danger font-weight-bold">Thank
-                                    you
-                                    for your form. Only Full Time Agents Can Join</p>
+                                    you for your form. Only Full Time Agents Can Join</p>
                             </div>
                         </div>
                     </div>
