@@ -29,28 +29,82 @@
                                     value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="name">Agent Address</label>
+                                <input type="text" name="agent_address" class="form-control"
+                                    value="{{ auth()->user()->profile->address }}" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Years of Experience</label>
+                                <input type="number" name="years_of_experience" class="form-control" value=""
+                                    min="0" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Are you comfortable overcoming objections?</label>
+                                <select name="are_you_comfortable_overcoming_objections" class="form-control" required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Are you comfortable with the listing presentation?</label>
+                                <select name="are_you_comfortable_with_the_listing_presentation" class="form-control"
+                                    required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="name">Are you a full time or part time real estate agent?</label>
                                 <select name="are_you_a_full_time_or_part_time_real_estate_agent" class="form-control"
-                                    required>
+                                    required onchange="canSubmitForm(this)">
                                     <option value>-</option>
                                     <option value="Full Time">Full Time</option>
                                     <option value="Part Time">Part Time</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="name">What do you typically bring to your listing presentations?</label>
+                                <input type="text" name="what_do_you_typically_bring_to_your_listing_presentations"
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">How long are your listing presentations?</label>
+                                <input type="text" name="how_long_are_your_listing_presentations" class="form-control"
+                                    required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">What steps do you take to prequalify a seller prior to meeting with
+                                    them?</label>
+                                <input type="text"
+                                    name="what_steps_do_you_take_to_prequalify_a_seller_prior_to_meeting_with_them"
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-12">
                                 <label for="name">Please list the addresses of the listings you listed and have closed
                                     in the past 12 months.</label>
-                                <textarea name="please_list_the_addresses_of_the_listings_you_listed_and_have_closed_in_the_past_12_months"
-                                    rows="6" class="form-control">
-1.  
-2.  
-3.  
-4.  
-5.  
-6.  </textarea>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="listing_address_1" placeholder="Address 1"
+                                    class="form-control mb-3">
+                                <input type="text" name="listing_address_2" placeholder="Address 2"
+                                    class="form-control mb-3">
+                                <input type="text" name="listing_address_3" placeholder="Address 3"
+                                    class="form-control mb-3">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="listing_address_4" placeholder="Address 4"
+                                    class="form-control mb-3">
+                                <input type="text" name="listing_address_5" placeholder="Address 5"
+                                    class="form-control mb-3">
+                                <input type="text" name="listing_address_6" placeholder="Address 6"
+                                    class="form-control mb-3">
                             </div>
                             <div class="form-group form-footer col-12">
-                                <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
+                                <input id="submit-button" type="submit" class="btn btn-luxe w-100" value="SUBMIT">
+                                <p id="cannot-submit-text" class="text-center d-none text-danger font-weight-bold">Thank
+                                    you for your form. Only Full Time Agents Can Join</p>
                             </div>
                         </div>
                     </div>
@@ -68,5 +122,16 @@
         </div>
     </div>
 
-    <script></script>
+    <script>
+        function canSubmitForm(select) {
+            const input = $(select).val()
+            if (input == 'Part Time') {
+                $('#submit-button').addClass('d-none')
+                $('#cannot-submit-text').removeClass('d-none')
+            } else {
+                $('#submit-button').removeClass('d-none')
+                $('#cannot-submit-text').addClass('d-none')
+            }
+        }
+    </script>
 @endsection

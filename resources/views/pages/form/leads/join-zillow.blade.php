@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')"/>
+                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')" />
 
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
@@ -39,18 +39,18 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Full name</label>
                                 <input type="text" name="agent_full_name" class="form-control" required
-                                       value="{{ auth()->user()->profile->fullname }}">
+                                    value="{{ auth()->user()->profile->fullname }}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Phone</label>
                                 <input type="text" name="phone" class="form-control"
-                                       value="{{ auth()->user()->profile->phone }}" required>
+                                    value="{{ auth()->user()->profile->phone }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Email</label>
                                 <br><br>
                                 <input type="text" name="agent_email" class="form-control"
-                                       value="{{ auth()->user()->email }}" required>
+                                    value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent zillow profile link **Please note if you do not have a Zillow
@@ -60,41 +60,40 @@
                             <div class="form-group col-md-6">
                                 <label for="name">How long have you been practicing real estate?</label>
                                 <input type="text" name="how_long_have_you_been_practicing_real_estate"
-                                       class="form-control" required>
+                                    class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">How many transactions have you closed in the past year?</label>
                                 <input type="text" name="how_many_transactions_have_you_closed_in_the_past_year"
-                                       class="form-control" required>
+                                    class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">What was your total volume for the past year?</label>
                                 <input type="text" name="what_was_your_total_volume_for_the_past_year"
-                                       class="form-control" required>
+                                    class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">What is your home address?</label>
                                 <input type="text" name="what_is_your_home_address" class="form-control map-search"
-                                       required placeholder="Type your home address">
+                                    required placeholder="Type your home address">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">What languages do you speak fluently?</label>
                                 <input type="text" name="what_languages_do_you_speak_fluently" class="form-control"
-                                       required>
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Have you been set up on the Bundle?</label>
                                 <input type="text" name="have_you_been_set_up_on_the_bundle" class="form-control"
-                                       required>
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Are you working full-time or part-time in real estate?</label>
-                                <select name="are_you_working_full_time_or_part_time_in_real_estate"
-                                        class="form-control"
-                                        required id="">
+                                <select name="are_you_working_full_time_or_part_time_in_real_estate" class="form-control"
+                                    required id="" onchange="canSubmitForm(this)">
                                     <option value>-</option>
-                                    <option value="Full-time">Full-time</option>
-                                    <option value="Part-time">Part-time</option>
+                                    <option value="Full Time">Full Time</option>
+                                    <option value="Part Time">Part Time</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -112,31 +111,54 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Do you currently have a Follow Up Boss account?</label>
                                 <select name="do_you_currently_have_a_follow_boss_account" class="form-control" required
-                                        id="">
+                                    id="">
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Please provide list of your 10 closed sales. ​**If you do not have 10
+                            <div class="form-group col-md-12">
+                                <label for="name">Please provide list of your 10 closed sales **If you do not have 10
                                     sales, you will be considered for our Zillow Inbox Leads</label>
-                                <textarea name="list_of_10_closed_sales" class="form-control" rows="5"
-                                          required></textarea>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="closed_sale_1" placeholder="Address 1" required
+                                    class="form-control mb-3">
+                                <input type="text" name="closed_sale_2" placeholder="Address 2"
+                                    class="form-control mb-3">
+                                <input type="text" name="closed_sale_3" placeholder="Address 3"
+                                    class="form-control mb-3">
+                                <input type="text" name="closed_sale_4" placeholder="Address 4"
+                                    class="form-control mb-3">
+                                <input type="text" name="closed_sale_5" placeholder="Address 5"
+                                    class="form-control mb-3">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="closed_sale_6" placeholder="Address 6"
+                                    class="form-control mb-3">
+                                <input type="text" name="closed_sale_7" placeholder="Address 7"
+                                    class="form-control mb-3">
+                                <input type="text" name="closed_sale_8" placeholder="Address 8"
+                                    class="form-control mb-3">
+                                <input type="text" name="closed_sale_9" placeholder="Address 9"
+                                    class="form-control mb-3">
+                                <input type="text" name="closed_sale_10" placeholder="Address 10"
+                                    class="form-control mb-3">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Do you agree to use the Zillow Team's preferred lender and title
                                     company?</label>
-                                <br><br>
                                 <select name="do_you_agree_to_use_the_zillow_teams_preferred_lender_and_title_company"
-                                        class="form-control" required>
+                                    class="form-control" required>
                                     <option value>-</option>
                                     <option value="Yes, I agree">Yes, I agree</option>
                                     <option value="No, I do not agree">No, I do not agree</option>
                                 </select>
                             </div>
                             <div class="form-group form-footer col-12">
-                                <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
+                                <input id="submit-button" type="submit" class="btn btn-luxe w-100" value="SUBMIT">
+                                <p id="cannot-submit-text" class="text-center d-none text-danger font-weight-bold">Thank
+                                    you for your form. Only Full Time Agents Can Join</p>
                             </div>
                         </div>
                     </div>
@@ -145,9 +167,15 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(window).on('load', function () {
-            // $('#modal').modal('show');
-            // $('#modalVerbiages').modal('show');
-        })
+        function canSubmitForm(select) {
+            const input = $(select).val()
+            if (input == 'Part Time') {
+                $('#submit-button').addClass('d-none')
+                $('#cannot-submit-text').removeClass('d-none')
+            } else {
+                $('#submit-button').removeClass('d-none')
+                $('#cannot-submit-text').addClass('d-none')
+            }
+        }
     </script>
 @endsection
