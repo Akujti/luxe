@@ -157,9 +157,15 @@
                             <div class="form-group col-md-6">
                                 <label for="name">What steps do you take to prequalify a seller prior to meeting with
                                     them?</label>
+                                <br><br>
                                 <input type="text"
                                     name="what_steps_do_you_take_to_prequalify_a_seller_prior_to_meeting_with_them"
                                     class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Please provide a sample CMA for 415 Aledo Avenue in Coral Gables
+                                    Florida 33134 so we can see your real estate proficiency</label>
+                                <input type="file" name="CMA_sample" class="form-control p-1" required>
                             </div>
                             <div class="col-12">
                                 <label for="name">Please list the addresses of the listings you listed and have closed

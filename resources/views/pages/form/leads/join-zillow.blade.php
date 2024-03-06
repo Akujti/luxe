@@ -117,6 +117,18 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Please provide a Purchase and Sale Contract for the same address with
+                                    a 45 day closing, 7 day inspection period, financing with 20% down and a $15,000
+                                    deposit. The rest of the terms are your recommendations to the buyer</label>
+                                <input type="file" name="purchase_sale_contract" class="form-control p-1" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Please provide a sample CMA for 415 Aledo Avenue in Coral Gables
+                                    Florida 33134 so we can see your real estate proficiency</label>
+                                <br><br>
+                                <input type="file" name="CMA_sample" class="form-control p-1" required>
+                            </div>
                             <div class="form-group col-md-12">
                                 <label for="name">Please provide list of your 10 closed sales **If you do not have 10
                                     sales, you will be considered for our Zillow Inbox Leads</label>

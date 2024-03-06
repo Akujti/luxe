@@ -96,16 +96,16 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Is this a LUXE Zillow lead?</label>
                                 <select id="zillow_lead" name="is_this_luxe_zillow_lead" class="form-control"
-                                    onchange="toggleHiddenInput(this)">
-                                    <option value="-">-</option>
+                                    onchange="toggleHiddenInput(this)" required>
+                                    <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Is this a LUXE CINC lead?</label>
-                                <select name="is_this_a_luxe_cinc_lead" class="form-control">
-                                    <option value="-">-</option>
+                                <select name="is_this_a_luxe_cinc_lead" class="form-control" required>
+                                    <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
@@ -124,7 +124,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Upload Fully Executed Contract and Addendums</label>
-                                <input type="file" name="contract" class="form-control p-1">
+                                <input type="file" name="contract" class="form-control p-1" required>
                             </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
