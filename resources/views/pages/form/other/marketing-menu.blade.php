@@ -89,34 +89,81 @@
                                     value="{{ auth()->user()->email }}" required>
                             </div> --}}
                             @php
-                                $brand_package = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('brand-package')->first();
-                                $create_google_business_page = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('create-google-business-page')->first();
-                                $create_facebook_business_page = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('create-facebook-business-page')->first();
-                                $write_blog_post = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('write-blog-post')->first();
+                                $brand_package = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'brand-package',
+                                )->first();
+                                $create_google_business_page = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'create-google-business-page',
+                                )->first();
+                                $create_facebook_business_page = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'create-facebook-business-page',
+                                )->first();
+                                $write_blog_post = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'write-blog-post',
+                                )->first();
                                 $mls_input = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('mls-input')->first();
-                                $property_website = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('property-website')->first();
-                                $create_landing_page = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('create-landing-page')->first();
-                                $set_up_zillow = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('set-up-zillow-realtorcom-profiles')->first();
+                                $property_website = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'property-website',
+                                )->first();
+                                $create_landing_page = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'create-landing-page',
+                                )->first();
+                                $set_up_zillow = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'set-up-zillow-realtorcom-profiles',
+                                )->first();
                                 $custom_bio = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('custom-bio')->first();
-                                $design_team_logo = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-team-logo')->first();
-                                $crm_services = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('kvcore-crm-setup')->first();
-                                $lifestyle_property_tour = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('lifestyle-property-tour-video')->first();
-                                
-                                $boost_facebook_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('boosting-facebook-ads')->first();
-                                $boost_instagram_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('boosting-instagram-ads')->first();
-                                $google_ads_set_up = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('google-ads-set-up-ppc')->first();
-                                
-                                $email_blast = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('email-blast')->first();
-                                $social_media_posts = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('social-media-posts')->first();
-                                $custom_email_signature = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('custom-email-signature')->first();
-                                $custom_email_template = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('custom-email-template')->first();
-                                
-                                $door_hangers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('door-hangers')->first();
+                                $design_team_logo = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'design-team-logo',
+                                )->first();
+                                $crm_services = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'kvcore-crm-setup',
+                                )->first();
+                                $lifestyle_property_tour = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'lifestyle-property-tour-video',
+                                )->first();
+
+                                $boost_facebook_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'boosting-facebook-ads',
+                                )->first();
+                                $boost_instagram_ads = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'boosting-instagram-ads',
+                                )->first();
+                                $google_ads_set_up = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'google-ads-set-up-ppc',
+                                )->first();
+
+                                $email_blast = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'email-blast',
+                                )->first();
+                                $social_media_posts = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'social-media-posts',
+                                )->first();
+                                $custom_email_signature = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'custom-email-signature',
+                                )->first();
+                                $custom_email_template = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'custom-email-template',
+                                )->first();
+
+                                $property_brochurs = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'property-brochures',
+                                )->first();
+                                $door_hangers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'door-hangers',
+                                )->first();
                                 $flyers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('flyers')->first();
-                                $design_custom_signage = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-custom-signage')->first();
-                                $design_custom_business_cards = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-custom-business-cards')->first();
-                                $design_custom_banner = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('design-custom-banner')->first();
-                                $mailers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug('mailerseddm-postcard-creation-community-routes')->first();
+                                $design_custom_signage = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'design-custom-signage',
+                                )->first();
+                                $design_custom_business_cards = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'design-custom-business-cards',
+                                )->first();
+                                $design_custom_banner = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'design-custom-banner',
+                                )->first();
+                                $mailers = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                    'mailerseddm-postcard-creation-community-routes',
+                                )->first();
                             @endphp
                             <div class="form-group col-12 form-options mb-0">
                                 <h4>Custom & Copyright Services</h4>
@@ -187,6 +234,9 @@
                                 </div>
                                 <h4>Print Designs</h4>
                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <x-marketing-menu-product :product="$property_brochurs" />
+                                    </div>
                                     <div class="col-md-6">
                                         <x-marketing-menu-product :product="$door_hangers" />
                                     </div>
