@@ -29,6 +29,7 @@
                     <div class="table-box-header d-flex align-items-center justify-content-between w-100">
                         <h5 class="h5-title">Seller CMA</h5>
                         <a href="{{ route('cma.search') }}" class="btn-luxe">Add Seller CMA</a>
+                        <a href="http://127.0.0.1:8000/user/cma-report/download" class="btn-luxe">Download</a>
                     </div>
 
                     <div class="table-box-body">
@@ -46,8 +47,8 @@
 
                                     @if($rows)
                                         @foreach($rows as $row)
-                                            @php $listingIds = ''; 
-                                            
+                                            @php $listingIds = '';
+
                                             foreach($row->listings as $key => $listing) {
                                                 if($key > 0) {
                                                     $listingIds .= ','.$listing->listing_id;
@@ -82,7 +83,7 @@
                             </table>
                         </div>
                     </div>
-                </div>        
+                </div>
             </div>
         </div>
     </div>
@@ -96,7 +97,7 @@
     $(document).ready(function() {
         addTable();
     })
-    
+
     function addTable() {
         let table = new DataTable('#cma-report', {
             bPaginate: false,

@@ -3,8 +3,9 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')" />
-                <form id="regForm" action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
+                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')"/>
+                <form id="regForm" action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST"
+                      enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Join CINC Seller Team</h1>
@@ -16,27 +17,27 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                    value="{{ auth()->user()->profile->fullname }}" required>
+                                       value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Phone Number</label>
                                 <input type="text" name="agent_phone_number" class="form-control"
-                                    value="{{ auth()->user()->profile->phone }}" required>
+                                       value="{{ auth()->user()->profile->phone }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                    value="{{ auth()->user()->email }}" required>
+                                       value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Address</label>
                                 <input type="text" name="agent_address" class="form-control"
-                                    value="{{ auth()->user()->profile->address }}" required>
+                                       value="{{ auth()->user()->profile->address }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Years of Experience</label>
                                 <input type="number" name="years_of_experience" class="form-control" value=""
-                                    min="0" required>
+                                       min="0" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Are you comfortable overcoming objections?</label>
@@ -49,7 +50,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Are you comfortable with the listing presentation?</label>
                                 <select name="are_you_comfortable_with_the_listing_presentation" class="form-control"
-                                    required>
+                                        required>
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -58,7 +59,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Are you a full time or part time real estate agent?</label>
                                 <select name="are_you_a_full_time_or_part_time_real_estate_agent" class="form-control"
-                                    required onchange="canSubmitForm(this)">
+                                        required onchange="canSubmitForm(this)">
                                     <option value>-</option>
                                     <option value="Full Time">Full Time</option>
                                     <option value="Part Time">Part Time</option>
@@ -67,20 +68,20 @@
                             <div class="form-group col-md-6">
                                 <label for="name">What do you typically bring to your listing presentations?</label>
                                 <input type="text" name="what_do_you_typically_bring_to_your_listing_presentations"
-                                    class="form-control" required>
+                                       class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">How long are your listing presentations?</label>
                                 <input type="text" name="how_long_are_your_listing_presentations" class="form-control"
-                                    required>
+                                       required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">What steps do you take to prequalify a seller prior to meeting with
                                     them?</label>
                                 <br><br>
                                 <input type="text"
-                                    name="what_steps_do_you_take_to_prequalify_a_seller_prior_to_meeting_with_them"
-                                    class="form-control" required>
+                                       name="what_steps_do_you_take_to_prequalify_a_seller_prior_to_meeting_with_them"
+                                       class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Please provide a sample CMA for 415 Aledo Avenue in Coral Gables
@@ -93,19 +94,19 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="text" name="listing_address_1" placeholder="Address 1"
-                                    class="form-control mb-3">
+                                       class="form-control mb-3">
                                 <input type="text" name="listing_address_2" placeholder="Address 2"
-                                    class="form-control mb-3">
+                                       class="form-control mb-3">
                                 <input type="text" name="listing_address_3" placeholder="Address 3"
-                                    class="form-control mb-3">
+                                       class="form-control mb-3">
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="text" name="listing_address_4" placeholder="Address 4"
-                                    class="form-control mb-3">
+                                       class="form-control mb-3">
                                 <input type="text" name="listing_address_5" placeholder="Address 5"
-                                    class="form-control mb-3">
+                                       class="form-control mb-3">
                                 <input type="text" name="listing_address_6" placeholder="Address 6"
-                                    class="form-control mb-3">
+                                       class="form-control mb-3">
                             </div>
                             <div class="form-group form-footer col-12">
                                 <input id="submit-button" type="submit" class="btn btn-luxe w-100" value="SUBMIT">
@@ -129,7 +130,7 @@
     </div>
 
     <script>
-        function canSubmitForm(select) {
+        function canSubmitForm (select) {
             const input = $(select).val()
             if (input == 'Part Time') {
                 $('#submit-button').addClass('d-none')
