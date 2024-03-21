@@ -627,6 +627,10 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         ),
     );
 
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/ianw/quickchart',
+    );
+
     public static $prefixesPsr0 = array (
         'M' => 
         array (
@@ -6004,6 +6008,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
+        'QuickChart' => __DIR__ . '/..' . '/ianw/quickchart/QuickChart.php',
         'Ramsey\\Collection\\AbstractArray' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractArray.php',
         'Ramsey\\Collection\\AbstractCollection' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractCollection.php',
         'Ramsey\\Collection\\AbstractSet' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractSet.php',
@@ -7394,6 +7399,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit714ebb60fd553448c7c778ea2773f128::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit714ebb60fd553448c7c778ea2773f128::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit714ebb60fd553448c7c778ea2773f128::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit714ebb60fd553448c7c778ea2773f128::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit714ebb60fd553448c7c778ea2773f128::$classMap;
 

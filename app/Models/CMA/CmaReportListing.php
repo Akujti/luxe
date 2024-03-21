@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class CmaReportListing extends Model
 {
     use HasFactory;
+
     protected $table = 'cma_report_listings';
 
-    protected $fillable = ['cma_report_id', 'listing_id'];
+    protected $fillable = ['cma_report_id', 'listing_id', 'data'];
+
+    protected $casts = [
+        'data' => 'array',
+    ];
 }

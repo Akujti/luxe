@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'a9dfd6f0272f9dac43caed097628833a450b8582',
+        'reference' => '5e81e218b283ab52642ab3af261ce16c10f1d821',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -265,6 +265,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'ianw/quickchart' => array(
+            'pretty_version' => 'v1.3.2',
+            'version' => '1.3.2.0',
+            'reference' => '428e8c406d7af9b31214b510d4bbb23d122d417b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ianw/quickchart',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'illuminate/auth' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -478,7 +487,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'a9dfd6f0272f9dac43caed097628833a450b8582',
+            'reference' => '5e81e218b283ab52642ab3af261ce16c10f1d821',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

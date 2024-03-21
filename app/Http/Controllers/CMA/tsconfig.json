@@ -1,0 +1,324 @@
+{
+    "type": "bar",
+    "data": {
+        "datasets": [
+            {
+                "label": "Original Price",
+                "data": [
+                    700,
+                    650,
+                    840,
+                    400
+                ],
+                "backgroundColor": "rgba(198, 164, 103, 0.48)",
+                "borderColor": "#C6A467",
+                "borderWidth": 2,
+                "fill": false,
+                "spanGaps": false,
+                "lineTension": 0.4,
+                "pointRadius": 3,
+                "pointHoverRadius": 3,
+                "pointStyle": "circle",
+                "borderDash": [
+                    0,
+                    0
+                ],
+                "barPercentage": 0.9,
+                "categoryPercentage": 0.8,
+                "type": "bar",
+                "hidden": false,
+                "xAxisID": "X1"
+            },
+            {
+                "fill": false,
+                "spanGaps": false,
+                "lineTension": 0.4,
+                "pointRadius": 3,
+                "pointHoverRadius": 3,
+                "pointStyle": "circle",
+                "borderDash": [
+                    0,
+                    0
+                ],
+                "barPercentage": 0.9,
+                "categoryPercentage": 0.8,
+                "data": [
+                    800,
+                    550,
+                    940,
+                    500
+                ],
+                "type": "bar",
+                "label": "Sold price",
+                "borderColor": "#0d0701",
+                "backgroundColor": "rgba(9, 4, 0, 0.08)",
+                "borderWidth": 1,
+                "hidden": false,
+                "yAxisID": "Y1"
+            }
+        ],
+        "labels": [
+            1,
+            2,
+            3,
+            4
+        ]
+    },
+    "options": {
+        "annotation": {
+            "annotations": [
+                {
+                    "type": "line",
+                    "mode": "vertical",
+                    "scaleID": "X1",
+                    "value": 1,
+                    "borderWidth": 0.00001,
+                    "label": {
+                        "position": "bottom",
+                        "enabled": true,
+                        "content": "230 Days",
+                        "fontSize": 15
+                    }
+                },
+                {
+                    "type": "line",
+                    "mode": "vertical",
+                    "scaleID": "X1",
+                    "value": 2,
+                    "borderWidth": 0.00001,
+                    "label": {
+                        "position": "bottom",
+                        "enabled": true,
+                        "content": "230 Days",
+                        "fontSize": 15
+                    }
+                },
+                {
+                    "type": "line",
+                    "mode": "vertical",
+                    "scaleID": "X1",
+                    "value": 3,
+                    "borderWidth": 0.00001,
+                    "label": {
+                        "position": "bottom",
+                        "enabled": true,
+                        "content": "230 Days",
+                        "fontSize": 15
+                    }
+                },
+                {
+                    "type": "line",
+                    "mode": "vertical",
+                    "scaleID": "X1",
+                    "value": 4,
+                    "borderWidth": 0.00001,
+                    "label": {
+                        "position": "bottom",
+                        "enabled": true,
+                        "content": "230 Days",
+                        "fontSize": 15
+                    }
+                }
+            ]
+        },
+        "scales": {
+            "xAxes": [
+                {
+                    "id": "X1",
+                    "ticks": {
+                        "beginAtZero": true,
+                        "display": true,
+                        "fontSize": 20,
+                        "fontFamily": "sans-serif",
+                        "fontColor": "#666666",
+                        "fontStyle": "normal",
+                        "padding": 10,
+                        "stepSize": 350,
+                        "minRotation": 0,
+                        "maxRotation": 20,
+                        "mirror": false,
+                        "reverse": false
+                    },
+                    "display": true,
+                    "position": "bottom",
+                    "type": "category",
+                    "stacked": true,
+                    "offset": true,
+                    "time": {
+                        "unit": false,
+                        "stepSize": 1,
+                        "displayFormats": {
+                            "millisecond": "h:mm:ss.SSS a",
+                            "second": "h:mm:ss a",
+                            "minute": "h:mm a",
+                            "hour": "hA",
+                            "day": "MMM D",
+                            "week": "ll",
+                            "month": "MMM YYYY",
+                            "quarter": "[Q]Q - YYYY",
+                            "year": "YYYY"
+                        }
+                    },
+                    "distribution": "linear",
+                    "gridLines": {
+                        "display": true,
+                        "color": "rgba(0, 0, 0, 0.1)",
+                        "borderDash": [
+                            0,
+                            0
+                        ],
+                        "lineWidth": 1,
+                        "drawBorder": true,
+                        "drawOnChartArea": true,
+                        "drawTicks": false,
+                        "tickMarkLength": 10,
+                        "zeroLineWidth": 1,
+                        "zeroLineColor": "rgba(0, 0, 0, 0.25)",
+                        "zeroLineBorderDash": [
+                            0,
+                            0
+                        ]
+                    },
+                    "angleLines": {
+                        "display": true,
+                        "color": "rgba(0, 0, 0, 0.1)",
+                        "borderDash": [
+                            0,
+                            0
+                        ],
+                        "lineWidth": 1
+                    },
+                    "pointLabels": {
+                        "display": true,
+                        "fontColor": "#666",
+                        "fontSize": 10,
+                        "fontStyle": "normal"
+                    },
+                    "scaleLabel": {
+                        "display": false,
+                        "labelString": "Axis label",
+                        "lineHeight": 1.2,
+                        "fontColor": "#666666",
+                        "fontFamily": "sans-serif",
+                        "fontSize": 12,
+                        "fontStyle": "normal",
+                        "padding": 4
+                    }
+                }
+            ],
+            "yAxes": [
+                {
+                    "id": "Y1",
+                    "position": "right",
+                    "ticks": {
+                        "beginAtZero": true,
+                        "display": true,
+                        "fontSize": 20,
+                        "fontFamily": "sans-serif",
+                        "fontColor": "#666666",
+                        "fontStyle": "normal",
+                        "padding": 10,
+                        "min": 100,
+                        "stepSize": 400,
+                        "minRotation": 0,
+                        "maxRotation": 20,
+                        "mirror": false,
+                        "reverse": false
+                    },
+                    "display": true,
+                    "type": "linear",
+                    "stacked": false,
+                    "offset": false,
+                    "time": {
+                        "unit": false,
+                        "stepSize": 1,
+                        "displayFormats": {
+                            "millisecond": "h:mm:ss.SSS a",
+                            "second": "h:mm:ss a",
+                            "minute": "h:mm a",
+                            "hour": "hA",
+                            "day": "MMM D",
+                            "week": "ll",
+                            "month": "MMM YYYY",
+                            "quarter": "[Q]Q - YYYY",
+                            "year": "YYYY"
+                        }
+                    },
+                    "distribution": "linear",
+                    "gridLines": {
+                        "display": true,
+                        "color": "rgba(0, 0, 0, 0.1)",
+                        "borderDash": [
+                            2,
+                            2
+                        ],
+                        "lineWidth": 1,
+                        "drawBorder": true,
+                        "drawOnChartArea": true,
+                        "drawTicks": false,
+                        "tickMarkLength": 0,
+                        "zeroLineWidth": 1,
+                        "zeroLineColor": "rgba(0, 0, 0, 0.25)",
+                        "zeroLineBorderDash": [
+                            0,
+                            0
+                        ]
+                    },
+                    "angleLines": {
+                        "display": true,
+                        "color": "rgba(0, 0, 0, 0.1)",
+                        "borderDash": [
+                            0,
+                            0
+                        ],
+                        "lineWidth": 1
+                    },
+                    "pointLabels": {
+                        "display": true,
+                        "fontColor": "#666",
+                        "fontSize": 10,
+                        "fontStyle": "normal"
+                    },
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "$ / SqFt",
+                        "lineHeight": 1,
+                        "fontColor": "#666666",
+                        "fontFamily": "sans-serif",
+                        "fontSize": 20,
+                        "fontStyle": "normal",
+                        "padding": 4
+                    }
+                }
+            ]
+        },
+        "plugins": {
+            "datalabels": {
+                "display": false,
+                "align": "center",
+                "anchor": "end",
+                "backgroundColor": "#eee",
+                "borderColor": "#ddd",
+                "borderRadius": 6,
+                "borderWidth": 1,
+                "padding": 4,
+                "color": "#666666",
+                "font": {
+                    "family": "sans-serif",
+                    "size": 10,
+                    "style": "normal"
+                }
+            },
+            "datalabelsZAxis": {
+                "enabled": false
+            },
+            "googleSheets": {},
+            "airtable": {},
+            "tickFormat": "$0"
+        },
+        "cutoutPercentage": 50,
+        "rotation": -1.5707963267948966,
+        "circumference": 6.283185307179586,
+        "startAngle": -1.5707963267948966
+    }
+}

@@ -381,7 +381,7 @@ Route::group(
         Route::get('app-links', [PageController::class, 'app_links']);
 
         Route::group(['prefix' => 'cma-report', 'as' => 'cma.'], function () {
-            Route::get('download', [CMAController::class, 'generatePdf']);
+            Route::get('pdf/{id}', [CMAController::class, 'generatePdf'])->name('pdf');
             Route::get('/', [CMAController::class, 'index'])->name('index');
             Route::get('/search', [CMAController::class, 'search'])->name('search');
             Route::get('/results', [CMAController::class, 'show'])->name('show');

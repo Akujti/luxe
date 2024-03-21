@@ -93,13 +93,14 @@
     'normal' => $fontDir . '/fontawesome-normal_e1a313ca83905f53a32ee29693775520',
   ),
   'montserrat' => array(
-    'normal' => $fontDir . '/montserrat-normal_d7b9f5e95298c71fecec5dd1831abcb5',
-    'bold' => $fontDir . '/montserrat-bold_6beb6e27cd8907eec374534ce0d119ec',
+    'normal' => $fontDir . '/montserrat-normal_00833106404dc8458cdfb436c759f23d',
+    'bold' => $fontDir . '/montserrat-bold_5da7810bf4e960efe50d20e94a894069',
     '800' => $fontDir . '/montserrat-800_3593059443dde0e05fef2d4793944645',
     '900' => $fontDir . '/montserrat-900_112533be530cce45147fe268f78174dc',
-    '600' => $fontDir . '/montserrat-600_f97af35255e21c92a9a0ce314fd1f754',
-    '500' => $fontDir . '/montserrat-500_f99c806a7c955d6cafe5ed7742c302d3',
+    '600' => $fontDir . '/montserrat-600_485729d96603ccf9729bf58de2db0851',
+    '500' => $fontDir . '/montserrat-500_1236ec90acb329158f494b3fcb44327e',
     'italic' => $fontDir . '/montserrat-italic_9f2777e486c3bc6f95029ab6c49afef5',
+    '300' => $fontDir . '/montserrat-300_11be3eb1825a588a468235740322e12d',
   ),
   'gochi hand' => array(
     'normal' => $fontDir . '/gochi-hand-normal_0d3bd12162fdd9df133517f5e887d297',

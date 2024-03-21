@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CMA\CmaReport;
+use App\Models\CMA\CmaReportListing;
 use Carbon\Carbon;
 use App\Models\Form;
 use App\Models\EmailsForm;
@@ -14,6 +16,7 @@ use App\Http\Requests\Form\UpdateRequest;
 use App\Http\Requests\Form\UpdateFormRequest;
 use App\Jobs\OrderStatusTest;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
+use Illuminate\Support\Facades\Http;
 
 class AdminController extends Controller
 {
@@ -24,6 +27,7 @@ class AdminController extends Controller
         $showing_agents = CustomSection::whereTitle('Showing Agents')->first();
         return view('admin.index', compact('stats', 'news_feed', 'showing_agents'));
     }
+
     public function forms()
     {
         $forms = Form::with('emails')->orderBy('title', 'asc')->paginate(20);
@@ -38,6 +42,7 @@ class AdminController extends Controller
 
         return back()->with('message', 'Successfully Updated');
     }
+
     public function delete(Request $req)
     {
         $form = Form::find($req->id);
@@ -82,12 +87,36 @@ class AdminController extends Controller
         return collect($data);
     }
 
-    public function testjob()
+    public function testjob(Request $request)
     {
-        $delay = Carbon::now()->addSecond(1);
-        $luxeStoreOrder = LuxeStoreOrder::find(1);
-        OrderStatusNotCompleted::dispatch($luxeStoreOrder)->delay($delay);
+        $row = CmaReport::create([
+            'user_id' => auth()->id(),
+            'address' => $request->listing_id
+        ]);
 
-        dd('email will be sent after 1 second');
+        $listings = explode(',', $request->listings_id);
+
+        foreach ($listings as $listing) {
+            $res = $this->getListingData($listing);
+            CmaReportListing::create(['cma_report_id' => $row->id, 'listing_id' => $listing, 'data' => json_encode($res)]);
+        }
+
+        return true;
+    }
+
+    public function getListingData($id)
+    {
+        $cmaApiCredentails = [
+            'apiLink' => env('CMA_API_URL', 'https://api.bridgedataoutput.com/api/v2/'),
+            'serverToken' => env('CMA_SERVER_TOKEN'),
+            'browserToken' => env('CMA_BROWSER_TOKEN'),
+            'dataset' => env('CMA_DATASET'),
+            'clientId' => env('CMA_CLIENT_ID'),
+            'clientSecret' => env('CMA_CLIENT_SECRET'),
+        ];
+
+        $url = $cmaApiCredentails['apiLink'] . $cmaApiCredentails['dataset'] . '/listings/' . $id . '?access_token=' . $cmaApiCredentails['serverToken'];
+        $res = Http::get($url);
+        return $res->json()['bundle'];
     }
 }
