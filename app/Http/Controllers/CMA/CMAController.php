@@ -747,7 +747,7 @@ class CMAController extends Controller
         $filename = 'cma/reports/' . Str::random(12) . '.pdf';
         Storage::put($filename, $pdfContent);
         $report->update(['path' => $filename]);
-        return $pdf->download('LUXE CMA Report.pdf');
+        return Storage::download($filename, 'CMA Report.pdf');
     }
 
     public function getListingData($id)
