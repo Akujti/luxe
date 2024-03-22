@@ -88,6 +88,16 @@
                                     Florida 33134 so we can see your real estate proficiency</label>
                                 <input type="file" name="CMA_sample" class="form-control p-1" required>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Are you a member of another team within LUXE? </label>
+                                <select name="are_you_a_member_of_another_team_within_LUXE" class="form-control"
+                                        required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+
                             <div class="form-group col-md-12">
                                 <label for="name">Please list the addresses of the listings you listed and have closed
                                     in the past 12 months.</label>

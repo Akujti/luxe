@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- Fonts -->
@@ -30,22 +30,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     {{-- @toastr_css --}}
     @yield('css')
     <script>
-        (function(d) {
-            var s = d.createElement("script");
+        (function (d) {
+            var s = d.createElement('script')
             /* uncomment the following line to override default position*/
-            s.setAttribute("data-position", 2);
+            s.setAttribute('data-position', 2)
             /* uncomment the following line to override default size (values: small, large)*/
             /* s.setAttribute("data-size", "small");*/
             /* uncomment the following line to override default language (e.g., fr, de, es, he, nl, etc.)*/
             /* s.setAttribute("data-language", "language");*/
             /* uncomment the following line to override color set via widget (e.g., #053f67)*/
-            s.setAttribute("data-color", "#262626");
+            s.setAttribute('data-color', '#262626')
             /* uncomment the following line to override type set via widget (1=person, 2=chair, 3=eye, 4=text)*/
             /* s.setAttribute("data-type", "1");*/
             /* s.setAttribute("data-statement_text:", "Our Accessibility Statement");*/
@@ -54,9 +54,9 @@
             /* s.setAttribute("data-mobile", true);*/
             /* uncomment the following line to set custom trigger action for accessibility menu*/
             /* s.setAttribute("data-trigger", "triggerId")*/
-            s.setAttribute("data-account", "wYGtJlc9Nk");
-            s.setAttribute("src", "https://cdn.userway.org/widget.js");
-            (d.body || d.head).appendChild(s);
+            s.setAttribute('data-account', 'wYGtJlc9Nk')
+            s.setAttribute('src', 'https://cdn.userway.org/widget.js');
+            (d.body || d.head).appendChild(s)
         })(document)
     </script>
     <noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website
@@ -66,13 +66,13 @@
     @font-face {
         font-family: "gothicbold";
         src: local("gothicbold"),
-            url("{{ asset('fonts/index-page/gothicbold.ttf') }}") format("truetype");
+        url("{{ asset('fonts/index-page/gothicbold.ttf') }}") format("truetype");
     }
 
     @font-face {
         font-family: "gothicregular";
         src: local("gothicregular"),
-            url("{{ asset('fonts/index-page/gothicregular.ttf') }}") format("truetype");
+        url("{{ asset('fonts/index-page/gothicregular.ttf') }}") format("truetype");
     }
 
     footer {
@@ -374,7 +374,7 @@
         outline: none;
     }
 
-    #toast-container>div {
+    #toast-container > div {
         opacity: 1;
     }
 
@@ -389,74 +389,73 @@
 </style>
 
 <body>
-    <div id="app">
-        <div id="loading" class="d-none">
-            <section class="paytm-loader"></section>
-        </div>
-        <header>
-            <div class="header">
-                <div class="container-flud">
-                    <div class="row m-0">
-                        <div
-                            class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
-                            <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
-                                <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px"
-                                    alt="">
-                            </button>
-                        </div>
-                        <div
-                            class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
-                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="73px"></a>
-                        </div>
-                        <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
-                            <div class="contact-details">
-                                <div class="right-contactsd">
-                                    {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
-                                    <a href="{{ route('luxe_store.cart') }}" data-toggle="tooltip" data-placement="top"
-                                        title="Cart"><img src="/images/cart.svg" alt=""></a>
-                                    <a href="{{ route('profile.my_profile') }}" data-toggle="tooltip"
-                                        data-placement="top" title="My Profile"><img src="/images/account-icon.svg"
-                                            alt=""></a>
-                                    <div class="sidebar__item-menu search-box d-none">
-                                        <a href="#">
-                                            <form action="{{ route('user.search') }}" method="get" class="">
-                                                <input type="search" id="search-input" name="search"
-                                                    placeholder="Search and press Enter.">
+<div id="app">
+    <div id="loading" class="d-none">
+        <section class="paytm-loader"></section>
+    </div>
+    <header>
+        <div class="header">
+            <div class="container-flud">
+                <div class="row m-0">
+                    <div
+                        class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
+                        <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
+                            <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px"
+                                 alt="">
+                        </button>
+                    </div>
+                    <div
+                        class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
+                        <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="73px"></a>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
+                        <div class="contact-details">
+                            <div class="right-contactsd">
+                                {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
+                                <a href="{{ route('luxe_store.cart') }}" data-toggle="tooltip" data-placement="top"
+                                   title="Cart"><img src="/images/cart.svg" alt=""></a>
+                                <a href="{{ route('profile.my_profile') }}" data-toggle="tooltip"
+                                   data-placement="top" title="My Profile"><img src="/images/account-icon.svg"
+                                                                                alt=""></a>
+                                <div class="sidebar__item-menu search-box d-none">
+                                    <a href="#">
+                                        <form action="{{ route('user.search') }}" method="get" class="">
+                                            <input type="search" id="search-input" name="search"
+                                                   placeholder="Search and press Enter.">
+                                        </form>
+                                    </a>
+                                </div>
+                                <a href="#" onclick="toggleSearch()" data-toggle="tooltip"
+                                   data-placement="top" title="Search"><img src="/images/search-icon.svg"
+                                                                            alt=""></a>
+                                @auth
+                                    <div class="sidebar__item-menu">
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Logout">
+                                            <form action="{{ route('logout') }}" method="post" class="m-0">
+                                                @csrf
+                                                <button class="btn btn-link text-white p-0"><img
+                                                        src="/images/logout.svg" alt=""></button>
                                             </form>
                                         </a>
                                     </div>
-                                    <a href="#" onclick="toggleSearch()" data-toggle="tooltip"
-                                        data-placement="top" title="Search"><img src="/images/search-icon.svg"
-                                            alt=""></a>
-                                    @auth
-                                        <div class="sidebar__item-menu">
-                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Logout">
-                                                <form action="{{ route('logout') }}" method="post" class="m-0">
-                                                    @csrf
-                                                    <button class="btn btn-link text-white p-0"><img
-                                                            src="/images/logout.svg" alt=""></button>
-                                                </form>
-                                            </a>
-                                        </div>
 
-                                    @endauth
-                                    <div class="sidebar__item-menu d-flex">
-                                        <div>
-                                            <a class="btm-phn justify-content-start" href="tel:(305) 438 7764">
+                                @endauth
+                                <div class="sidebar__item-menu d-flex">
+                                    <div>
+                                        <a class="btm-phn justify-content-start" href="tel:(305) 438 7764">
                                                 <span style="font-size: 14px"><b>SUPPORT LINE
                                                         (305)-438-7764</b></span></a>
-                                            <a class="btm-phn justify-content-start" href="tel:(305) 908 1116">
+                                        <a class="btm-phn justify-content-start" href="tel:(305) 908 1116">
                                                 <span style="font-size: 14px"><b>MARKETING LINE
                                                         (305)-908-1116</b></span></a>
-                                        </div>
-                                        <div>
-                                            <a class="btm-phn justify-content-start" href="tel:(305) 306 8896">
+                                    </div>
+                                    <div>
+                                        <a class="btm-phn justify-content-start" href="tel:(305) 306 8896">
                                                 <span style="font-size: 14px"><b>ACCOUNTING LINE
                                                         (305)-306-8896</b></span></a>
-                                            <a class="btm-phn justify-content-start" href="tel:(305) 998-6239">
+                                        <a class="btm-phn justify-content-start" href="tel:(305) 998-6239">
                                                 <span style="font-size: 14px"><b>ESCROW LINE
                                                         (305) 998-6239</b></span></a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -464,342 +463,384 @@
                     </div>
                 </div>
             </div>
-        </header>
-        <div class="row d-flex w-100 m-0">
-            @if (auth()->user())
-                <div class="sidebar d-none d-lg-flex">
-                    <div class="sidebar-main">
-                        <div class="row p-0 m-0 justify-content-center">
-                            <div class="sidebar-logo-details row p-0 d-flex d-lg-none d-xl-none m-0 my-3">
-                                <div class="w-100 d-flex align-items-center justify-content-between d-md-none">
-                                    <img src="/images/logo.png" height="50px" alt=""
-                                        onclick="window.location.href = '{{ url('/home') }}'">
-                                    <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
-                                        <img src="/images/index-page/close-icon.svg" width="40px" height="40px"
-                                            alt="">
-                                    </button>
-                                </div>
-                                <div class="w-100 sidebar-logo-details-details row p-0 m-0 align-items-center mt-4">
-                                    <div class="d-flex justify-content-start align-items-center">
-                                        {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
-                                        <a class="mr-4" href="{{ route('profile.my_profile') }}"><img
-                                                src="/images/account-icon.svg" alt=""></a>
-                                        {{-- <a href="#"><img src="/images/search-icon.svg" alt=""></a> --}}
-                                        @auth
-                                            <a href="#">
-                                                <form action="{{ route('logout') }}" method="post" class="m-0">
-                                                    @csrf
-                                                    <button class="btn btn-link text-white p-0 "><img
-                                                            src="/images/logout.svg" alt=""></button>
-                                                </form>
-                                            </a>
+        </div>
+    </header>
+    <div class="row d-flex w-100 m-0">
+        @if (auth()->user())
+            <div class="sidebar d-none d-lg-flex">
+                <div class="sidebar-main">
+                    <div class="row p-0 m-0 justify-content-center">
+                        <div class="sidebar-logo-details row p-0 d-flex d-lg-none d-xl-none m-0 my-3">
+                            <div class="w-100 d-flex align-items-center justify-content-between d-md-none">
+                                <img src="/images/logo.png" height="50px" alt=""
+                                     onclick="window.location.href = '{{ url('/home') }}'">
+                                <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
+                                    <img src="/images/index-page/close-icon.svg" width="40px" height="40px"
+                                         alt="">
+                                </button>
+                            </div>
+                            <div class="w-100 sidebar-logo-details-details row p-0 m-0 align-items-center mt-4">
+                                <div class="d-flex justify-content-start align-items-center">
+                                    {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
+                                    <a class="mr-4" href="{{ route('profile.my_profile') }}"><img
+                                            src="/images/account-icon.svg" alt=""></a>
+                                    {{-- <a href="#"><img src="/images/search-icon.svg" alt=""></a> --}}
+                                    @auth
+                                        <a href="#">
+                                            <form action="{{ route('logout') }}" method="post" class="m-0">
+                                                @csrf
+                                                <button class="btn btn-link text-white p-0 "><img
+                                                        src="/images/logout.svg" alt=""></button>
+                                            </form>
+                                        </a>
 
-                                        @endauth
-                                    </div>
-                                    <a class="btm-phn text-white pt-3" href="tel:(305) 438 7764">
+                                    @endauth
+                                </div>
+                                <a class="btm-phn text-white pt-3" href="tel:(305) 438 7764">
                                         <span>
                                             NEED HELP?<br>
                                             <b>SUPPORT LINE (305) 438 7764</b>
                                         </span>
-                                    </a>
-                                    <div class="w-100 search-box-mobile">
-                                        <form action="{{ route('user.search') }}" method="get"
-                                            class="w-100 pl-5 mt-3 d-flex justify-content-center">
-                                            <input type="text" name="search" id="search-input"
-                                                placeholder="Search and press Enter.">
-                                        </form>
-                                    </div>
+                                </a>
+                                <div class="w-100 search-box-mobile">
+                                    <form action="{{ route('user.search') }}" method="get"
+                                          class="w-100 pl-5 mt-3 d-flex justify-content-center">
+                                        <input type="text" name="search" id="search-input"
+                                               placeholder="Search and press Enter.">
+                                    </form>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="sidebar__item sidebar-navigation">
-                                <ul>
-                                    <li class="row m-0 border-bottom">
-                                        <a href="{{ url('user/app-links') }}"
-                                            style="font-weight: 700;color:white">Click Here To
-                                            Download
-                                            Hub App</a>
-                                    </li>
-                                    <li class="row m-0 @if (Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif">
-                                        <a href="{{ url('/home') }}">Dashboard </a>
-                                    </li>
-                                    @auth
-                                        @if (auth()->user()->role == 'admin')
-                                            <li class="row m-0">
-                                                <a href="{{ route('admin.index') }}">Admin Dashboard</a>
-                                            </li>
-                                        @endif
-                                        @if (auth()->user()->role == 'other')
-                                            <li
-                                                class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
-                                                <a href="{{ route('agent_list') }}">Agents</a>
-                                            </li>
-                                        @endif
-                                    @endauth
-                                    <li
-                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if (isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ isset($active) && $active == 'marketing_branding' ? 'active selected' : '' }}">
-                                        <a href="{{ url('/home?dir=marketing_branding') }}">Marketing & Branding
-                                        </a>
-                                        <em id="li-plus"><img src="/images/plus.png"></em>
-                                        <em id="li-minus"><img src="/images/minus.png"></em>
-
-                                        <ul class="w-100">
-                                            <li><a class="{{ isset($subactive) && $subactive == 'canva_marketing_designer' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('canva.marketing.requests') }}">Marketing
-                                                    Designer</a></li>
-                                            <li><a href="{{ url('https://realtorprint.com/collections/luxe') }}"
-                                                    target="_blank">Print
-                                                    Marketing</a></li>
-                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'downloadable_presentations' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('user/guides') }}">Downloadable
-                                                    Presentations</a></li> --}}
-                                            <li><a class="@if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active_submenu @endif {{ isset($subactive) && $subactive == 'signs_photo_design_requests' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=signs_photo_design_requests') }}">Photo,
-                                                    & Design Requests</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'resume_builder' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('resume') }}">Resume Builder</a></li>
-                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'online_marketing_designer' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('user.diy-templates') }}">Online Marketing
-                                                    Designer</a></li> --}}
-                                            <li><a href="{{ url('user/files?id=22') }}">Logos</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'marketing_menu' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/general/form/other/marketing-menu') }}">Marketing
-                                                    Menu &
-                                                    Services</a></li>
-                                        </ul>
-                                    </li>
-                                    <li
-                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'training_knowledge_center') active selected @endif {{ isset($active) && ($active == 'Tools&TrainingVideos' || $active == 'training_knowledge_center') ? 'active selected' : '' }}">
-                                        <a href="{{ url('/home?dir=training_knowledge_center') }}">Training &
-                                            Knowledge
-                                            Center</a>
-                                        <em id="li-plus"><img src="/images/plus.png"></em>
-                                        <em id="li-minus"><img src="/images/minus.png"></em>
-
-                                        <ul class="w-100">
-                                            <li><a class="{{ isset($subactive) && $subactive == 'training_videos' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('user/videos') }}">LUXE Online Video University</a>
-                                            </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'events' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/user/events') }}">Training & Events Calendar</a>
-                                            </li>
-                                            <!-- <li><a href="{{ url('user/links') }}">Link to other services</a></li> -->
-                                            <li><a class="{{ isset($subactive) && $subactive == 'downloadable_guides' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('user/files') }}">Downloadable
-                                                    Docs, Guides & Excels</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('coaching.index') }}">LUXE Coaching</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'email_addendum_verbiage_builder' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=email_addendum_verbiage_builder') }}">Email
-                                                    &
-                                                    Addendum Verbiage Builder</a>
-                                            </li>
-                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('agreement-agents') }}">LUXE Mentors</a></li> --}}
-                                            <li><a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=calculators') }}">Real Estate
-                                                    Worksheets</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li
-                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'leads_services_support') active selected @endif {{ isset($active) && $active == 'leads_services_support' ? 'active selected' : '' }}">
-                                        <a href="{{ url('/home?dir=leads_services_support') }}">Leads, Services &
-                                            Support</a>
-                                        <em id="li-plus"><img src="/images/plus.png"></em>
-                                        <em id="li-minus"><img src="/images/minus.png"></em>
-
-                                        <ul class="w-100">
-                                            <li><a class="{{ isset($subactive) && $subactive == 'get_leads' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=leads') }}">Get Leads</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'request_listing_closing_coordinators' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=request_listing_closing_coordinators') }}">Request
-                                                    Listing/Closing
-                                                    Coordinators</a>
-                                            </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'rental_escrow_disbursement' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('general/form/escrow/index') }}">Rental Escrow
-                                                    Disbursement</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'open_house_signup' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('appointments/create') }}">Open House Signup</a>
-                                            </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'get_contract_help' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('general/form/contract-help/index') }}">Get
-                                                    Contract Help</a>
-                                            </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'get_commercial_help' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('general/form/commercial-help/index') }}">Get
-                                                    Commercial Help</a>
-                                            </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'design_requests' ? 'active_submenu' : '' }}"
-                                                    href="{{ route('marketing.requests') }}">Design Requests</a>
-                                            </li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'wire_instructions_requests' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('general/form/other/wire-instructions-request') }}">Wire
-                                                    Instructions
-                                                    Request</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=calculators') }}">Real Estate
-                                                    Worksheets</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li
-                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
-                                        <a href="{{ route('referral-partner-category.index') }}">Referral
-                                            Partners</a>
-                                        <em id="li-plus"><img src="/images/plus.png"></em>
-                                        <em id="li-minus"><img src="/images/minus.png"></em>
-
-                                        <ul class="w-100">
-                                            @php
-                                                $referral_categories = App\Models\ReferralPartnerCategory::whereNull('parent_id')->get();
-                                            @endphp
-                                            @foreach ($referral_categories as $item)
-                                                <li><a class="{{ isset($subactive) && $subactive == $item->title ? 'active_submenu' : '' }}"
-                                                        href="{{ route('referral-partner-category.show', $item) }}">{{ $item->title }}</a>
-                                                </li>
-                                            @endforeach
-                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'lending_services' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=lending_services') }}">Lending
-                                                    Services</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'title' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=title') }}">Title</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'insurance' ? 'active_submenu' : '' }}"
-                                                            href="{{ url('/home?dir=insurance') }}">Insurance</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'inspectors' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=home_inspectors') }}">Home Inspectors</a></li>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'accountant' ? 'active_submenu' : '' }}"
-                                                    href="{{ url('/home?dir=accountant') }}">Accountant</a>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'moving_company' ? 'active_submenu' : '' }}"
-                                            href="{{ url('/home?dir=moving_company') }}">Moving Company</a>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'staging_company' ? 'active_submenu' : '' }}"
-                                            href="{{ url('/home?dir=staging_company') }}">Staging Company</a>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'marketing_company' ? 'active_submenu' : '' }}"
-                                            href="{{ url('/home?dir=marketing_company') }}">Marketing Company</a>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'contractors' ? 'active_submenu' : '' }}"
-                                            href="{{ url('/home?dir=coming_soon') }}">Contractors</a>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'permit_runners' ? 'active_submenu' : '' }}"
-                                            href="{{ url('/home?dir=coming_soon') }}">Permit Runners</a>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'attorneys' ? 'active_submenu' : '' }}"
-                                            href="{{ url('/home?dir=attorneys') }}">Attorneys</a>
-                                            <li><a class="{{ isset($subactive) && $subactive == 'cleaning_company' ? 'active_submenu' : '' }}"
-                                            href="{{ url('/home?dir=cleaning_company') }}">Cleaning Company</a> --}}
-                                    </li>
-                                </ul>
+                        <div class="sidebar__item sidebar-navigation">
+                            <ul>
+                                <li class="row m-0 border-bottom">
+                                    <a href="{{ url('user/app-links') }}"
+                                       style="font-weight: 700;color:white">Click Here To
+                                        Download
+                                        Hub App</a>
                                 </li>
+                                <li class="row m-0 @if (Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif">
+                                    <a href="{{ url('/home') }}">Dashboard </a>
+                                </li>
+                                @auth
+                                    @if (auth()->user()->role == 'admin')
+                                        <li class="row m-0">
+                                            <a href="{{ route('admin.index') }}">Admin Dashboard</a>
+                                        </li>
+                                    @endif
+                                    @if (auth()->user()->role == 'other')
+                                        <li
+                                            class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
+                                            <a href="{{ route('agent_list') }}">Agents</a>
+                                        </li>
+                                    @endif
+                                @endauth
                                 <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">
-                                    <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Marketplace</a>
+                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if (isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ isset($active) && $active == 'marketing_branding' ? 'active selected' : '' }}">
+                                    <a href="{{ url('/home?dir=marketing_branding') }}">Marketing & Branding
+                                    </a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
                                     <ul class="w-100">
-                                        <li><a class="{{ isset($subactive) && $subactive == 'rental_escrow' ? 'active_submenu' : '' }}"
-                                                href="{{ url('store/grab-go-merchandise') }}">Printed Guides</a>
-                                        </li>
-                                        <li><a class="{{ isset($subactive) && $subactive == 'listing_coordinators' ? 'active_submenu' : '' }}"
-                                                href="{{ url('store/luxe-apparel') }}">LUXE Apparel</a></li>
-                                        <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                                href="{{ url('store/signs-posts') }}">Signs &
-                                                Posts</a></li>
-                                        <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                                href="{{ url('store/product/background-check') }}">Client
-                                                Screening</a></li>
-                                        <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                                href="{{ url('store/product/special-offer-5-part-payment-plan-fiu-course') }}">Real
-                                                Estate Course</a></li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'canva_marketing_designer' ? 'active_submenu' : '' }}"
+                                               href="{{ route('canva.marketing.requests') }}">Marketing
+                                                Designer</a></li>
+                                        <li><a href="{{ url('https://realtorprint.com/collections/luxe') }}"
+                                               target="_blank">Print
+                                                Marketing</a></li>
+                                        {{-- <li><a class="{{ isset($subactive) && $subactive == 'downloadable_presentations' ? 'active_submenu' : '' }}"
+                                                href="{{ url('user/guides') }}">Downloadable
+                                                Presentations</a></li> --}}
+                                        <li>
+                                            <a class="@if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active_submenu @endif {{ isset($subactive) && $subactive == 'signs_photo_design_requests' ? 'active_submenu' : '' }}"
+                                               href="{{ url('/home?dir=signs_photo_design_requests') }}">Photo,
+                                                & Design Requests</a></li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'resume_builder' ? 'active_submenu' : '' }}"
+                                               href="{{ route('resume') }}">Resume Builder</a></li>
+                                        {{-- <li><a class="{{ isset($subactive) && $subactive == 'online_marketing_designer' ? 'active_submenu' : '' }}"
+                                                href="{{ route('user.diy-templates') }}">Online Marketing
+                                                Designer</a></li> --}}
+                                        <li><a href="{{ url('user/files?id=22') }}">Logos</a></li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'marketing_menu' ? 'active_submenu' : '' }}"
+                                               href="{{ url('/general/form/other/marketing-menu') }}">Marketing
+                                                Menu &
+                                                Services</a></li>
                                     </ul>
                                 </li>
                                 <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'office_staff_directory') active selected @endif {{ isset($active) && $active == 'office_staff_directory' ? 'active selected' : '' }}">
-                                    <a href="{{ url('/home?dir=office_staff_directory') }}">Office & Staff
-                                        Directory</a>
+                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'training_knowledge_center') active selected @endif {{ isset($active) && ($active == 'Tools&TrainingVideos' || $active == 'training_knowledge_center') ? 'active selected' : '' }}">
+                                    <a href="{{ url('/home?dir=training_knowledge_center') }}">Training &
+                                        Knowledge
+                                        Center</a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
                                     <em id="li-minus"><img src="/images/minus.png"></em>
 
                                     <ul class="w-100">
-                                        <li><a class="{{ isset($subactive) && $subactive == 'office_locations' ? 'active_submenu' : '' }}"
-                                                href="{{ url('/office-locations') }}">Office Locations</a>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'training_videos' ? 'active_submenu' : '' }}"
+                                               href="{{ url('user/videos') }}">LUXE Online Video University</a>
                                         </li>
-                                        <li><a class="{{ isset($subactive) && $subactive == 'conference_room_reservations' ? 'active_submenu' : '' }}"
-                                                href="{{ url('bookings') }}">Conference Room Reservations</a>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'events' ? 'active_submenu' : '' }}"
+                                               href="{{ url('/user/events') }}">Training & Events Calendar</a>
                                         </li>
-                                        <li><a class="{{ isset($subactive) && $subactive == 'your_luxe_staff' ? 'active_submenu' : '' }}"
-                                                href="{{ route('luxe.staff.index') }}">Your LUXE
-                                                Staff</a></li>
-                                        <li><a class="{{ isset($subactive) && $subactive == 'luxe_managers' ? 'active_submenu' : '' }}"
-                                                href="{{ route('luxe.managers.index') }}">Your LUXE
-                                                Managers</a></li>
-                                        <li><a class="{{ isset($subactive) && $subactive == 'real_estate_teams' ? 'active_submenu' : '' }}"
-                                                href="{{ route('real.estate.teams') }}">Real Estate Teams</a></li>
-                                        <li><a class="{{ isset($subactive) && $subactive == 'luxe_loan_officers' ? 'active_submenu' : '' }}"
-                                                href="{{ route('luxe.loan.officers.index') }}">Your LUXE Loan
-                                                Officers</a></li>
-                                        <li><a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
-                                                href="{{ url('general/form/agent_referrals/index') }}">New Agents To
-                                                Join LUXE</a></li>
-                                        <li><a class="{{ isset($subactive) && $subactive == 'optin_agents' ? 'active_submenu' : '' }}"
-                                                href="{{ route('optin.agents.index') }}">Referral Agents
-                                                With LUXE</a></li>
-                                        <li><a class="{{ isset($subactive) && $subactive == 'showing_agents' ? 'active_submenu' : '' }}"
-                                                href="{{ route('showing.agents.index') }}">Showing Agents</a></li>
-                                        {{-- <li><a class="{{ isset($subactive) && $subactive == 'request_your_agent' ? 'active_submenu' : '' }}"
-                                                href="{{ url('/general/form/other/request-your-agent-referral') }}">Request
-                                                Your Agent
-                                                Referral</a></li> --}}
-                                        <li><a class="{{ isset($subactive) && $subactive == 'MLS Directory' ? 'active_submenu' : '' }}"
-                                                href="{{ route('mls-directory') }}">MLS Directory</a></li>
+                                        <!-- <li><a href="{{ url('user/links') }}">Link to other services</a></li> -->
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'downloadable_guides' ? 'active_submenu' : '' }}"
+                                               href="{{ url('user/files') }}">Downloadable
+                                                Docs, Guides & Excels</a></li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
+                                               href="{{ route('coaching.index') }}">LUXE Coaching</a></li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'email_addendum_verbiage_builder' ? 'active_submenu' : '' }}"
+                                               href="{{ url('/home?dir=email_addendum_verbiage_builder') }}">Email
+                                                &
+                                                Addendum Verbiage Builder</a>
+                                        </li>
+                                        {{-- <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
+                                                href="{{ url('agreement-agents') }}">LUXE Mentors</a></li> --}}
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
+                                               href="{{ url('/home?dir=calculators') }}">Real Estate
+                                                Worksheets</a>
+                                        </li>
+
                                     </ul>
                                 </li>
-                                <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
-                                    <a href="{{ url('/user/events') }}">Live Classes & Events</a>
+                                <li
+                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'leads_services_support') active selected @endif {{ isset($active) && $active == 'leads_services_support' ? 'active selected' : '' }}">
+                                    <a href="{{ url('/home?dir=leads_services_support') }}">Leads, Services &
+                                        Support</a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
+
+                                    <ul class="w-100">
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'get_leads' ? 'active_submenu' : '' }}"
+                                               href="{{ url('/home?dir=leads') }}">Get Leads</a></li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'request_listing_closing_coordinators' ? 'active_submenu' : '' }}"
+                                               href="{{ url('/home?dir=request_listing_closing_coordinators') }}">Request
+                                                Listing/Closing
+                                                Coordinators</a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'rental_escrow_disbursement' ? 'active_submenu' : '' }}"
+                                               href="{{ url('general/form/escrow/index') }}">Rental Escrow
+                                                Disbursement</a></li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'open_house_signup' ? 'active_submenu' : '' }}"
+                                               href="{{ url('appointments/create') }}">Open House Signup</a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'get_contract_help' ? 'active_submenu' : '' }}"
+                                               href="{{ url('general/form/contract-help/index') }}">Get
+                                                Contract Help</a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'get_commercial_help' ? 'active_submenu' : '' }}"
+                                               href="{{ url('general/form/commercial-help/index') }}">Get
+                                                Commercial Help</a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'design_requests' ? 'active_submenu' : '' }}"
+                                               href="{{ route('marketing.requests') }}">Design Requests</a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'wire_instructions_requests' ? 'active_submenu' : '' }}"
+                                               href="{{ url('general/form/other/wire-instructions-request') }}">Wire
+                                                Instructions
+                                                Request</a></li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
+                                               href="{{ url('/home?dir=calculators') }}">Real Estate
+                                                Worksheets</a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank"
+                                               href="https://cal.com/luxeproperties/vulcan-7">Vulcan 7 Reservation</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="row m-0 @if (Request::path() == 'listings') active selected @endif">
-                                    <a href="{{ route('listings.index') }}">Coming Soon & Off Market</a>
+                                <li
+                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
+                                    <a href="{{ route('referral-partner-category.index') }}">Referral
+                                        Partners</a>
+                                    <em id="li-plus"><img src="/images/plus.png"></em>
+                                    <em id="li-minus"><img src="/images/minus.png"></em>
+
+                                    <ul class="w-100">
+                                        @php
+                                            $referral_categories = App\Models\ReferralPartnerCategory::whereNull('parent_id')->get();
+                                        @endphp
+                                        @foreach ($referral_categories as $item)
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == $item->title ? 'active_submenu' : '' }}"
+                                                   href="{{ route('referral-partner-category.show', $item) }}">{{ $item->title }}</a>
+                                            </li>
+                                    @endforeach
+                                    {{-- <li><a class="{{ isset($subactive) && $subactive == 'lending_services' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=lending_services') }}">Lending
+                                            Services</a></li>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'title' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=title') }}">Title</a></li>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'insurance' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=insurance') }}">Insurance</a></li>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'inspectors' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=home_inspectors') }}">Home Inspectors</a></li>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'accountant' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/home?dir=accountant') }}">Accountant</a>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'moving_company' ? 'active_submenu' : '' }}"
+                                    href="{{ url('/home?dir=moving_company') }}">Moving Company</a>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'staging_company' ? 'active_submenu' : '' }}"
+                                    href="{{ url('/home?dir=staging_company') }}">Staging Company</a>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'marketing_company' ? 'active_submenu' : '' }}"
+                                    href="{{ url('/home?dir=marketing_company') }}">Marketing Company</a>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'contractors' ? 'active_submenu' : '' }}"
+                                    href="{{ url('/home?dir=coming_soon') }}">Contractors</a>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'permit_runners' ? 'active_submenu' : '' }}"
+                                    href="{{ url('/home?dir=coming_soon') }}">Permit Runners</a>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'attorneys' ? 'active_submenu' : '' }}"
+                                    href="{{ url('/home?dir=attorneys') }}">Attorneys</a>
+                                    <li><a class="{{ isset($subactive) && $subactive == 'cleaning_company' ? 'active_submenu' : '' }}"
+                                    href="{{ url('/home?dir=cleaning_company') }}">Cleaning Company</a> --}}
                                 </li>
-                                <li class="row m-0">
-                                    <a href="{{ route('luxe-incentives') }}"
-                                        class="{{ isset($active) && $active == 'luxe_incentives' ? 'active_submenu' : '' }}">LUXE
-                                        Incentives</a>
-                                </li>
+                            </ul>
+                            </li>
+                            <li
+                                class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">
+                                <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Marketplace</a>
+                                <em id="li-plus"><img src="/images/plus.png"></em>
+                                <em id="li-minus"><img src="/images/minus.png"></em>
+
+                                <ul class="w-100">
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'rental_escrow' ? 'active_submenu' : '' }}"
+                                           href="{{ url('store/grab-go-merchandise') }}">Printed Guides</a>
+                                    </li>
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'listing_coordinators' ? 'active_submenu' : '' }}"
+                                           href="{{ url('store/luxe-apparel') }}">LUXE Apparel</a></li>
+                                    <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                           href="{{ url('store/signs-posts') }}">Signs &
+                                            Posts</a></li>
+                                    <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                           href="{{ url('store/product/background-check') }}">Client
+                                            Screening</a></li>
+                                    <li><a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                           href="{{ url('store/product/special-offer-5-part-payment-plan-fiu-course') }}">Real
+                                            Estate Course</a></li>
                                 </ul>
-                            </div>
-                            <div class="sidebar-details">
-                                <p class="d-flex align-items-center"
-                                    onclick="window.location = 'https://goo.gl/maps/UxezmFmdTJE8SmJL6'">
-                                    <span><img src="/images/index-page/location-icon.svg" alt=""></span>
-                                    <span class="text">55 Merrick Way #402 <br> Coral Gables, FL 33134</span>
-                                </p>
-                                <p class="d-flex align-items-center"
-                                    onclick="window.location = 'http://www.luxeknows.com/'">
-                                    <span><img src="/images/index-page/web-icon.svg" alt=""></span>
-                                    <span class="text">www.luxeknows.com</span>
-                                </p>
-                                <p class="d-flex align-items-center" onclick="window.location = 'tel:(305) 438 7764'">
-                                    <span><img src="/images/index-page/phone-icon-white.svg" alt=""></span>
-                                    <span class="text">(305) 438 7764</span>
-                                </p>
-                            </div>
+                            </li>
+                            <li
+                                class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'office_staff_directory') active selected @endif {{ isset($active) && $active == 'office_staff_directory' ? 'active selected' : '' }}">
+                                <a href="{{ url('/home?dir=office_staff_directory') }}">Office & Staff
+                                    Directory</a>
+                                <em id="li-plus"><img src="/images/plus.png"></em>
+                                <em id="li-minus"><img src="/images/minus.png"></em>
+
+                                <ul class="w-100">
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'office_locations' ? 'active_submenu' : '' }}"
+                                           href="{{ url('/office-locations') }}">Office Locations</a>
+                                    </li>
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'conference_room_reservations' ? 'active_submenu' : '' }}"
+                                           href="{{ url('bookings') }}">Conference Room Reservations</a>
+                                    </li>
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'your_luxe_staff' ? 'active_submenu' : '' }}"
+                                           href="{{ route('luxe.staff.index') }}">Your LUXE
+                                            Staff</a></li>
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'luxe_managers' ? 'active_submenu' : '' }}"
+                                           href="{{ route('luxe.managers.index') }}">Your LUXE
+                                            Managers</a></li>
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'real_estate_teams' ? 'active_submenu' : '' }}"
+                                           href="{{ route('real.estate.teams') }}">Real Estate Teams</a></li>
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'luxe_loan_officers' ? 'active_submenu' : '' }}"
+                                           href="{{ route('luxe.loan.officers.index') }}">Your LUXE Loan
+                                            Officers</a></li>
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
+                                           href="{{ url('general/form/agent_referrals/index') }}">New Agents To
+                                            Join LUXE</a></li>
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'optin_agents' ? 'active_submenu' : '' }}"
+                                           href="{{ route('optin.agents.index') }}">Referral Agents
+                                            With LUXE</a></li>
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'showing_agents' ? 'active_submenu' : '' }}"
+                                           href="{{ route('showing.agents.index') }}">Showing Agents</a></li>
+                                    {{-- <li><a class="{{ isset($subactive) && $subactive == 'request_your_agent' ? 'active_submenu' : '' }}"
+                                            href="{{ url('/general/form/other/request-your-agent-referral') }}">Request
+                                            Your Agent
+                                            Referral</a></li> --}}
+                                    <li>
+                                        <a class="{{ isset($subactive) && $subactive == 'MLS Directory' ? 'active_submenu' : '' }}"
+                                           href="{{ route('mls-directory') }}">MLS Directory</a></li>
+                                    <li>
+                                        <a target="_blank"
+                                           href="https://www.dropbox.com/scl/fo/1niqrz6qu1dt655i5djk5/h?rlkey=35vy56avcxm2vxtieb09wqpna&dl=0">Events
+                                            Gallery</a></li>
+                                </ul>
+                            </li>
+                            <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
+                                <a href="{{ url('/user/events') }}">Live Classes & Events</a>
+                            </li>
+                            <li class="row m-0 @if (Request::path() == 'listings') active selected @endif">
+                                <a href="{{ route('listings.index') }}">Coming Soon & Off Market</a>
+                            </li>
+                            <li class="row m-0">
+                                <a href="{{ route('luxe-incentives') }}"
+                                   class="{{ isset($active) && $active == 'luxe_incentives' ? 'active_submenu' : '' }}">LUXE
+                                    Incentives</a>
+                            </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-details">
+                            <p class="d-flex align-items-center"
+                               onclick="window.location = 'https://goo.gl/maps/UxezmFmdTJE8SmJL6'">
+                                <span><img src="/images/index-page/location-icon.svg" alt=""></span>
+                                <span class="text">55 Merrick Way #402 <br> Coral Gables, FL 33134</span>
+                            </p>
+                            <p class="d-flex align-items-center"
+                               onclick="window.location = 'http://www.luxeknows.com/'">
+                                <span><img src="/images/index-page/web-icon.svg" alt=""></span>
+                                <span class="text">www.luxeknows.com</span>
+                            </p>
+                            <p class="d-flex align-items-center" onclick="window.location = 'tel:(305) 438 7764'">
+                                <span><img src="/images/index-page/phone-icon-white.svg" alt=""></span>
+                                <span class="text">(305) 438 7764</span>
+                            </p>
                         </div>
                     </div>
-
                 </div>
-            @endif
-            <div class="col p-0 m-0">
-                <main class="">
-                    @yield('content')
-                </main>
+
             </div>
+        @endif
+        <div class="col p-0 m-0">
+            <main class="">
+                @yield('content')
+            </main>
         </div>
     </div>
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            @php
-                toastr()->error($error);
-            @endphp
-        @endforeach
-    @endif
+</div>
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        @php
+            toastr()->error($error);
+        @endphp
+    @endforeach
+@endif
 
 </body>
 @yield('js')
@@ -808,7 +849,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
 <script src="{{ asset('js/axios.js') }}"></script>
 <script>
-    var cmaApiCredentials = JSON.parse(JSON.stringify(<?php echo json_encode($cmaApiCredentails); ?>));
+    var cmaApiCredentials = JSON.parse(JSON.stringify(<?php echo json_encode($cmaApiCredentails); ?>))
 </script>
 @if (Route::currentRouteName() != 'optin.agents.index' &&
         Route::currentRouteName() != 'office.locations' &&
@@ -822,144 +863,145 @@
 @endif
 <script type="text/javascript">
     toastr.options = {
-        "closeButton": false,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "420",
-        "hideDuration": "1000",
-        "timeOut": "6500",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-    };
+        'closeButton': false,
+        'debug': false,
+        'newestOnTop': false,
+        'progressBar': false,
+        'positionClass': 'toast-top-right',
+        'preventDuplicates': false,
+        'onclick': null,
+        'showDuration': '420',
+        'hideDuration': '1000',
+        'timeOut': '6500',
+        'extendedTimeOut': '1000',
+        'showEasing': 'swing',
+        'hideEasing': 'linear',
+    }
 </script>
 <script>
     @if ($errors->any())
         @foreach ($errors->all() as $error)
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ $error }}");
-        @endforeach
-    @endif
-    @if (Session::has('message'))
         toastr.options = {
-            "closeButton": true,
-            "progressBar": true
-        }
-        toastr.success("{{ session('message') }}");
-    @endif
-
-    @if (Session::has('error'))
+        'closeButton': true,
+        'progressBar': true
+    }
+    toastr.error("{{ $error }}")
+    @endforeach
+        @endif
+        @if (Session::has('message'))
         toastr.options = {
-            "closeButton": true,
-            "progressBar": true
-        }
-        toastr.error("{{ session('error') }}");
+        'closeButton': true,
+        'progressBar': true
+    }
+    toastr.success("{{ session('message') }}")
     @endif
 
-    @if (Session::has('info'))
+        @if (Session::has('error'))
         toastr.options = {
-            "closeButton": true,
-            "progressBar": true
-        }
-        toastr.info("{{ session('info') }}");
+        'closeButton': true,
+        'progressBar': true
+    }
+    toastr.error("{{ session('error') }}")
     @endif
 
-    @if (Session::has('warning'))
+        @if (Session::has('info'))
         toastr.options = {
-            "closeButton": true,
-            "progressBar": true
-        }
-        toastr.warning("{{ session('warning') }}");
+        'closeButton': true,
+        'progressBar': true
+    }
+    toastr.info("{{ session('info') }}")
+    @endif
+
+        @if (Session::has('warning'))
+        toastr.options = {
+        'closeButton': true,
+        'progressBar': true
+    }
+    toastr.warning("{{ session('warning') }}")
     @endif
 </script>
 
 <script>
-    $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-    $('.toggleSidebar').click(function() {
-        $('.sidebar').toggleClass('active');
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    $('.toggleSidebar').click(function () {
+        $('.sidebar').toggleClass('active')
     })
 
-    $(function() {
-        var $ul = $('.sidebar-navigation > ul');
+    $(function () {
+        var $ul = $('.sidebar-navigation > ul')
 
-        $ul.find('li em').click(function(e) {
-            var $li = $(this).parent();
+        $ul.find('li em').click(function (e) {
+            var $li = $(this).parent()
 
             if ($li.find('ul').length > 0) {
-                e.preventDefault();
+                e.preventDefault()
 
                 if ($li.hasClass('selected')) {
 
-                    $li.removeClass('selected').find('li').removeClass('selected');
-                    $li.find('ul').slideUp(400);
-                    $li.find('a em').removeClass('mdi-flip-v');
-                    $(this).find('img').attr("src", "/images/plus.png")
+                    $li.removeClass('selected').find('li').removeClass('selected')
+                    $li.find('ul').slideUp(400)
+                    $li.find('a em').removeClass('mdi-flip-v')
+                    $(this).find('img').attr('src', '/images/plus.png')
                 } else {
-                    $(this).find('img').attr("src", "/images/minus.png")
+                    $(this).find('img').attr('src', '/images/minus.png')
                     if ($li.parents('li.selected').length == 0) {
-                        $ul.find('li').removeClass('selected');
-                        $ul.find('ul').slideUp(400);
-                        $ul.find('li a em').removeClass('mdi-flip-v');
+                        $ul.find('li').removeClass('selected')
+                        $ul.find('ul').slideUp(400)
+                        $ul.find('li a em').removeClass('mdi-flip-v')
                     } else {
-                        $li.parent().find('li').removeClass('selected');
-                        $li.parent().find('> li ul').slideUp(400);
-                        $li.parent().find('> li a em').removeClass('mdi-flip-v');
+                        $li.parent().find('li').removeClass('selected')
+                        $li.parent().find('> li ul').slideUp(400)
+                        $li.parent().find('> li a em').removeClass('mdi-flip-v')
                     }
 
-                    $li.addClass('selected');
-                    $li.find('>ul').slideDown(400);
-                    $li.find('>a>em').addClass('mdi-flip-v');
+                    $li.addClass('selected')
+                    $li.find('>ul').slideDown(400)
+                    $li.find('>a>em').addClass('mdi-flip-v')
                 }
             }
-        });
+        })
 
-        $('.sidebar-navigation > ul ul').each(function(i) {
+        $('.sidebar-navigation > ul ul').each(function (i) {
             if ($(this).find('>li>ul').length > 0) {
-                var paddingLeft = $(this).parent().parent().find('>li>a').css('padding-left');
-                var pIntPLeft = parseInt(paddingLeft);
-                var result = pIntPLeft + 20;
+                var paddingLeft = $(this).parent().parent().find('>li>a').css('padding-left')
+                var pIntPLeft = parseInt(paddingLeft)
+                var result = pIntPLeft + 20
 
-                $(this).find('>li>a').css('padding-left', result);
+                $(this).find('>li>a').css('padding-left', result)
             } else {
-                var paddingLeft = $(this).parent().parent().find('>li>a').css('padding-left');
-                var pIntPLeft = parseInt(paddingLeft);
-                var result = pIntPLeft + 20;
+                var paddingLeft = $(this).parent().parent().find('>li>a').css('padding-left')
+                var pIntPLeft = parseInt(paddingLeft)
+                var result = pIntPLeft + 20
 
-                $(this).find('>li>a').css('padding-left', result).parent().addClass('selected--last');
+                $(this).find('>li>a').css('padding-left', result).parent().addClass('selected--last')
             }
-        });
+        })
 
-        var t = ' li > ul ';
+        var t = ' li > ul '
         for (var i = 1; i <= 10; i++) {
-            $('.sidebar-navigation > ul > ' + t.repeat(i)).addClass('subMenuColor' + i);
+            $('.sidebar-navigation > ul > ' + t.repeat(i)).addClass('subMenuColor' + i)
         }
 
-    });
+    })
 
-    function toggleSearch() {
+    function toggleSearch () {
         $('.search-box').toggleClass('d-none')
     }
 
-    $('.active_submenu').focus();
+    $('.active_submenu').focus()
 </script>
 
 <script>
-    function initAutocomplete() {
-        const input = document.getElementsByClassName("map-search")[0];
+    function initAutocomplete () {
+        const input = document.getElementsByClassName('map-search')[0]
         if (input) {
-            const searchBox = new google.maps.places.SearchBox(input);
+            const searchBox = new google.maps.places.SearchBox(input)
         }
     }
-    window.initAutocomplete = initAutocomplete;
+
+    window.initAutocomplete = initAutocomplete
 </script>
 
 </html>
