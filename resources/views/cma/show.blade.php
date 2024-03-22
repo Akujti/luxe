@@ -473,7 +473,7 @@
             }
 
             mergeData['StandardStatus'] = statusGl
-            mergeData['near'] = $('#UnparsedAddress').text()
+            mergeData['near'] = coordinates[0] + ',' + coordinates[1]
 
             mergeData['limit'] = limit
             var response = await axiosInc('listings', 'get', mergeData)
