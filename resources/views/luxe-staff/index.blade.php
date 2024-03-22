@@ -66,6 +66,13 @@
                 <p class="staff-email">support@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/fritz.jpg') }}" class="staff-image">
+                <p class="staff-name">Fritz Moise</p>
+                <p class="staff-role">Marketing Coordinator</p>
+                <p class="staff-email">marketingcoordinator@luxeknows.com</p>
+                <p class="staff-email">305.908.1116</p>
+            </div>
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/gabriela.jpeg') }}" class="staff-image">
                 <p class="staff-name">Gabriela Suarez</p>
                 <p class="staff-role">Zillow Flex Team Leader</p>
@@ -73,11 +80,23 @@
                 <p class="staff-email">786.473.5119</p>
             </div>
             <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/jennifer.jpg') }}" class="staff-image">
+                <p class="staff-name">Jennifer Bru Escobar</p>
+                <p class="staff-role">Education Specialist</p>
+                <p class="staff-email">trainings@luxeknows.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/jorge.jpg') }}" class="staff-image">
                 <p class="staff-name">Jorge Fernandez</p>
                 <p class="staff-role">Lead Director</p>
                 <p class="staff-email">jorgef@luxeknows.com</p>
                 <p class="staff-email">305.297.6958</p>
+            </div>
+            <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/kayleen.jpg') }}" class="staff-image">
+                <p class="staff-name">Kayleen Chinea</p>
+                <p class="staff-role">Agent Experience Specialist</p>
+                <p class="staff-email">onboarding@luxeknows.com</p>
             </div>
             {{-- <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/monica.jpg') }}" class="staff-image">
@@ -109,25 +128,6 @@
                 <p class="staff-name">Wesley Ulloa</p>
                 <p class="staff-role">Broker</p>
                 <p class="staff-email">wesley@luxeknows.com</p>
-            </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/fritz.jpg') }}" class="staff-image">
-                <p class="staff-name">Fritz Moise</p>
-                <p class="staff-role">Marketing Coordinator</p>
-                <p class="staff-email">marketingcoordinator@luxeknows.com</p>
-                <p class="staff-email">305.908.1116</p>
-            </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/jennifer.jpg') }}" class="staff-image">
-                <p class="staff-name">Jennifer Bru Escobar</p>
-                <p class="staff-role">Education Specialist</p>
-                <p class="staff-email">trainings@luxeknows.com</p>
-            </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/kayleen.jpg') }}" class="staff-image">
-                <p class="staff-name">Kayleen Chinea</p>
-                <p class="staff-role">Agent Experience Specialist</p>
-                <p class="staff-email">onboarding@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/yesenia.jpg') }}" class="staff-image">
