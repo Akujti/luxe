@@ -31,14 +31,15 @@
                         </div>
 
                         <div class="table-box-body pt-3">
-                            <div class="d-flex" id="loading-report">
+                            <div class="d-none" id="loading-report">
                                 <div class="mr-4">
                                     <div class="spinner"></div>
                                 </div>
                                 <p>Processing your report! Please wait...</p>
                             </div>
-                            <a target="_blank" href="{{ route('cma.showReport') }}?@querystring"
-                               onclick="create();return false;" class="btn-luxe d-none" id="view-report">View Report</a>
+                            <button id="generate-btn" class="btn-luxe" onclick="create()">Generate Report</button>
+                            <a target="_blank" class="btn-luxe d-none" id="download-report">Download Report</a>
+                            <a target="_blank" class="btn-luxe d-none" id="view-report">View Report</a>
                         </div>
                     </div>
                 </div>
@@ -50,45 +51,35 @@
 
 @section('js')
     <script>
-        $(document).ready(function () {
-            setTimeout(() => {
-                $('#loading-report').addClass('d-none')
-                $('#loading-report').removeClass('d-flex')
-                $('#view-report').removeClass('d-none')
-            }, 3000)
-        })
-
         function create () {
-            var watch = '{{request()->get("watch") }}'
+            $('#loading-report').removeClass('d-none')
+            $('#loading-report').addClass('d-flex')
+            $('#generate-btn').addClass('d-none')
 
-            console.log($('#view-report').attr('href'))
-
-            if (watch) {
-                window.open($('#view-report').attr('href'), '_blank')
-                return
-            } else {
-                $.ajax({
-                    url: '{{ route('cma.create') }}',
-                    type: 'post',
-                    // cache: false,
-                    // contentType: false,
-                    // processData: false,
-                    data: {
-                        listing_id: "{{ request()->get('listingId') }}",
-                        listings_id: "{{ request()->get('listingIds') }}"
-                    },
-                    headers: {
-                        'X-CSRF-Token': $('[name="_token"]').val()
-                    },
-                    success: function (output) {
-                        window.open($('#view-report').attr('href'), '_blank')
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        console.log(xhr.status)
-                        console.log(thrownError)
-                    }
-                })
-            }
+            $.ajax({
+                url: '{{ route('cma.create') }}',
+                type: 'post',
+                data: {
+                    listing_id: "{{ request()->get('listingId') }}",
+                    listings_id: "{{ request()->get('listingIds') }}"
+                },
+                headers: {
+                    'X-CSRF-Token': $('[name="_token"]').val()
+                },
+                success: function (output) {
+                    console.log(output)
+                    $('#view-report').removeClass('d-none')
+                    $('#view-report').attr('href', '/cma-report/show-report/' + output)
+                    $('#download-report').attr('href', '/user/cma-report/pdf/' + output)
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.status)
+                    console.log(thrownError)
+                }, finish: function () {
+                    $('#loading-report').removeClass('d-flex')
+                    $('#loading-report').addClass('d-none')
+                }
+            })
         }
     </script>
 

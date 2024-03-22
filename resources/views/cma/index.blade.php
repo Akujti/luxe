@@ -73,7 +73,7 @@
                                                         </form>
                                                         <a target="_blank" class="theme"
                                                            style="background:black;color:white;padding:3px 10px;border-radius:20px;margin-right:3px;font-family: 'Montserrat'"
-                                                           href="{{ route('cma.showReport') }}?listingId={{ $row->address }}&listingIds={{ $listingIds }}&watch=true">
+                                                           href="{{ route('cma.showReport',$row) }}">
                                                             View
                                                         </a>
                                                         <a href="{{route('cma.pdf',$row->id)}}"

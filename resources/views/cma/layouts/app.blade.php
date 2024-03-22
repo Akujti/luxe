@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
     <link rel="stylesheet" href="{{ asset('css/index-page/style.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- Fonts -->
@@ -29,21 +30,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     {{-- @toastr_css --}}
     @yield('css')
     <script>
-        (function(d) {
-            var s = d.createElement("script");
+        (function (d) {
+            var s = d.createElement('script')
             /* uncomment the following line to override default position*/
-            s.setAttribute("data-position", 2);
+            s.setAttribute('data-position', 2)
             /* uncomment the following line to override default size (values: small, large)*/
             /* s.setAttribute("data-size", "small");*/
             /* uncomment the following line to override default language (e.g., fr, de, es, he, nl, etc.)*/
             /* s.setAttribute("data-language", "language");*/
             /* uncomment the following line to override color set via widget (e.g., #053f67)*/
-            s.setAttribute("data-color", "#262626");
+            s.setAttribute('data-color', '#262626')
             /* uncomment the following line to override type set via widget (1=person, 2=chair, 3=eye, 4=text)*/
             /* s.setAttribute("data-type", "1");*/
             /* s.setAttribute("data-statement_text:", "Our Accessibility Statement");*/
@@ -52,9 +55,9 @@
             /* s.setAttribute("data-mobile", true);*/
             /* uncomment the following line to set custom trigger action for accessibility menu*/
             /* s.setAttribute("data-trigger", "triggerId")*/
-            s.setAttribute("data-account", "wYGtJlc9Nk");
-            s.setAttribute("src", "https://cdn.userway.org/widget.js");
-            (d.body || d.head).appendChild(s);
+            s.setAttribute('data-account', 'wYGtJlc9Nk')
+            s.setAttribute('src', 'https://cdn.userway.org/widget.js');
+            (d.body || d.head).appendChild(s)
         })(document)
     </script>
     <noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website
@@ -371,26 +374,20 @@
     a:focus {
         outline: none;
     }
-   
+
 </style>
 
 <body>
-    <div id="app">
-        <div class="col p-0 m-0">
-            <main class="">
-                @yield('content')
-            </main>
-        </div>
+<div id="app">
+    <div class="col p-0 m-0">
+        <main class="">
+            @yield('content')
+        </main>
     </div>
+</div>
 </body>
 @yield('js')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="{{ asset('js/axios.js') }}"></script>
-<script>
-    var cmaApiCredentials = JSON.parse(JSON.stringify(<?php echo json_encode($cmaApiCredentails) ?>));
-</script>
-<script
-        src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
-        defer></script>
 </html>

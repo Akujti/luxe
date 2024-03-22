@@ -13,8 +13,15 @@ class CmaReport extends Model
 
     protected $fillable = ['user_id', 'address', 'path'];
 
+    protected $appends = ['report_url'];
+
     public function listings()
     {
         return $this->hasMany(CmaReportListing::class, 'cma_report_id');
+    }
+
+    public function getReportUrlAttribute()
+    {
+        return asset('storage/' . $this->path);
     }
 }

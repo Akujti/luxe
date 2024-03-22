@@ -46,9 +46,9 @@ class CMAController extends Controller
         return view('cma.finish-page');
     }
 
-    public function showReport()
+    public function showReport(CmaReport $report)
     {
-        return view('cma.show-report');
+        return view('cma.show-report', compact('report'));
     }
 
     public function create(Request $req)
@@ -65,7 +65,9 @@ class CMAController extends Controller
             CmaReportListing::create(['cma_report_id' => $row->id, 'listing_id' => $listing, 'data' => ($res)]);
         }
 
-        return true;
+        $this->generatePdf($row->id);
+
+        return response()->json($row->id);
     }
 
     public function delete($id)
@@ -79,8 +81,8 @@ class CMAController extends Controller
     {
         $report = CmaReport::findOrFail($id);
 
-//        if ($report->path)
-//            return Storage::download($report->path, 'CMA Report.pdf');
+        if ($report->path)
+            return Storage::download('public/' . $report->path, 'CMA Report.pdf');
 
         $listings = $report->listings;
         $config = [
@@ -745,7 +747,7 @@ class CMAController extends Controller
         $pdf = PDF::loadView('cma.pdf.luxe-cma', $data);
         $pdfContent = $pdf->output();
         $filename = 'cma/reports/' . Str::random(12) . '.pdf';
-        Storage::put($filename, $pdfContent);
+        Storage::put('public/' . $filename, $pdfContent);
         $report->update(['path' => $filename]);
         return Storage::download($filename, 'CMA Report.pdf');
     }
