@@ -31,7 +31,7 @@ class ListingController extends Controller
             if ($filters['type']) {
                 $query->where('type', $filters['type']);
             }
-        })->with('user', 'user.profile')->paginate(20);
+        })->with('user', 'user.profile')->latest()->paginate(20);
         $listings_all = Listing::with('user', 'user.profile')->get();
         return view('listings.index', compact('listings', 'listings_all'));
     }
@@ -62,7 +62,7 @@ class ListingController extends Controller
             $main_image = null;
             if ($request->hasFile("main_image")) {
                 $file = $request->main_image;
-                $main_image =  $this->uploadImage($file);
+                $main_image = $this->uploadImage($file);
             }
             if ($request->hasFile("images")) {
                 foreach ($request->images as $file) {
@@ -140,7 +140,7 @@ class ListingController extends Controller
             $main_image = null;
             if ($request->hasFile("main_image")) {
                 $file = $request->main_image;
-                $main_image =  $this->uploadImage($file);
+                $main_image = $this->uploadImage($file);
             }
             if ($request->hasFile("images")) {
                 foreach ($request->images as $file) {

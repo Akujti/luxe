@@ -24,8 +24,8 @@ class TestController extends Controller
 {
     public function index()
     {
-        $a = Auth::loginUsingId(149);
-
+        $a = Auth::loginUsingId(4);
+        return $a;
         return CmaReportListing::where('cma_report_id', 32)->get();
         return ($report->data);
     }

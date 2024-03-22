@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\LuxeStore;
 
+use App\Mail\NotifyStatusNotCompleted;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Mail\OrderCompleted;
 use Illuminate\Http\Request;
@@ -95,7 +97,7 @@ class OrderController extends Controller
         ];
         $marketing_menu_category = LuxeStoreCategory::where('slug', 'marketing-menu')->firstOrFail();
         $products = LuxeStoreProduct::whereHas('categories', function ($q) use ($marketing_menu_category) {
-            $q->where('luxe_store_categories.id',  $marketing_menu_category->id);
+            $q->where('luxe_store_categories.id', $marketing_menu_category->id);
         })->orderBy('name')->get();
         $orders = LuxeStoreOrder::whereHas('products', function ($q) use ($marketing_menu_category) {
             $q->whereHas('product', function ($q) use ($marketing_menu_category) {
@@ -262,7 +264,7 @@ class OrderController extends Controller
                     $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
                     $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
                     if ($marketing_menu_category) {
-                        $is_marketing_menu_product  = $productDb->categories()->where('luxe_store_categories.id', $marketing_menu_category->id)->exists();
+                        $is_marketing_menu_product = $productDb->categories()->where('luxe_store_categories.id', $marketing_menu_category->id)->exists();
                         $is_marketing_menu_order = $is_marketing_menu_order || $is_marketing_menu_product;
                     }
                     if (isset($product['item_variant'])) {
@@ -278,7 +280,7 @@ class OrderController extends Controller
                     $productModels = [
                         'product_id' => $product['item_id'],
                         'price' => $product['item_price'] ? $product['item_price'] : 0,
-                        'quantity' => (int) $product['item_quantity'],
+                        'quantity' => (int)$product['item_quantity'],
                         'variant_name' => (isset($product['item_variant'])) ? $product['item_variant'][0]['variant_name'] : null,
                         'variant_value' => (isset($product['item_variant'])) ? $product['item_variant'][0]['choosed']['value'] : null
                     ];
@@ -353,14 +355,23 @@ class OrderController extends Controller
             else
                 array_push($emails, 'support@luxeknows.com');
 
-            Mail::to($emails)->cc($cc)->send(new OrderMailTemplate($details));
+            try {
+                Mail::to($emails)->cc($cc)->send(new OrderMailTemplate($details));
+            } catch (\Throwable $th) {
+                Log::error($th->getMessage());
+            }
 
             $details['type'] = 'agent';
             $details['data'] = $row;
             $details['products'] = $row->products()->get();
             $details['form_title'] = 'New Order';
-            if (auth()->user())
-                Mail::to(auth()->user()->email)->cc($cc)->send(new OrderMailTemplate($details));
+            try {
+                if (auth()->user())
+                    Mail::to(auth()->user()->email)->cc($cc)->send(new NotifyStatusNotCompleted($row, null, 'LUXE Properties - New Order - Marketplace'));
+                Mail::to($emails)->cc($cc)->send(new OrderMailTemplate($details));
+            } catch (\Throwable $th) {
+                Log::error($th->getMessage());
+            }
 
             DB::commit();
             return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');

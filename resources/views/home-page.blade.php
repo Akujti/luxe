@@ -205,27 +205,34 @@
                                 <a href="https://cal.com/luxeproperties/ana-g.-contract-specialist-1-on-1"
                                    class="btn btn-luxe mt-2" target="_blank">Get Contract Help</a>
                                 <a href="https://cal.com/luxeproperties" class="btn btn-luxe mt-2" target="_blank">Book
-                                    A
-                                    Marketing Appointment</a>
+                                    A Marketing Appointment</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-2 mt-3 agent-logs">
+                <div class="col-12 col-lg-3 mt-3 agent-logs">
                     <div class="w-100" style="cursor: pointer">
-                        <a href="{{ url('leaderboard/sales') }}" class="text-decoration-none-hover">
-                            <div class="text-center">
-                                <style>
-                                    .text-decoration-none-hover:hover {
-                                        text-decoration: none !important;
-                                    }
-                                </style>
-                                <p class="text-dark text-decoration-none-hover " style="font-family: 'gothicbold';">
-                                    Click here to view the Leaderboard</p>
-                                <div>
-                                    <img src="{{ asset('images/leaderboard.png') }}" alt="" class="w-50">
-                                </div>
-                            </div>
+                        <label for="">&nbsp;</label>
+                        <a href="/leaderboard/sales"
+                           class="btn btn-luxe d-flex align-items-center w-100"
+                           target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                 class="bi bi-trophy" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935M3.504 1q.01.775.056 1.469c.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.5.5 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667q.045-.694.056-1.469z"/>
+                            </svg>
+                            <span class="ml-3">View Leaderboard</span>
+                        </a>
+                        <a href="https://myluxehub.com/storage/files/171051148701rwFvMwnr.pdf"
+                           class="btn btn-luxe mt-2 d-flex align-items-center"
+                           target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                 class="bi bi-question-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                <path
+                                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+                            </svg>
+                            <span class="ml-3">LUXE FAQ</span>
                         </a>
                     </div>
                 </div>
@@ -816,6 +823,66 @@
                                                                                                                                                                                                                                                     </a>
                                                                                                                                                                                                                                                 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -830,6 +897,66 @@
                                                                                                                                                                                                                                                         </a>
                                                                                                                                                                                                                                                     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -837,6 +964,66 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             @endif
         @endforeach
@@ -972,6 +1159,13 @@
                 <div>
                     <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
                     <p>Get Your Referral Agreement Signed</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding"
+                 onclick="window.open('https://cal.com/luxeproperties/vulcan-7', '_blank');">
+                <div>
+                    <img src="/images/index-page/vulcan.png" class="icon" alt="">
+                    <p>Vulcan 7 Reservation</p>
                 </div>
             </div>
         </div>
@@ -1286,17 +1480,17 @@
                     <p>Showing Agents<br>&nbsp;</p>
                 </div>
             </div>
-            <!-- <div class="box-item box-item-padding"
-                                                                                                                                                                                                                                                                                            onclick="window.location = '{{ url('/general/form/other/request-your-agent-referral') }}'">
-                                                                                                                                                                                                                                                                                            <div>
-                                                                                                                                                                                                                                                                                                <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                                                                                                                                                                                                                                                                                                <p>Request Your<br> Agent Referral</p>
-                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                        </div> -->
             <div class="box-item box-item-padding" onclick="window.location = '{{ route('mls-directory') }}'">
                 <div>
                     <img src="/images/index-page/global-search.svg" class="icon" alt="">
                     <p>MLS Directory</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding"
+                 onclick="window.open('https://www.dropbox.com/scl/fo/1niqrz6qu1dt655i5djk5/h?rlkey=35vy56avcxm2vxtieb09wqpna&dl=0','_blank')">
+                <div>
+                    <img src="/images/index-page/events-gallery.png" class="icon p-1" alt="">
+                    <p>Events Gallery</p>
                 </div>
             </div>
         </div>

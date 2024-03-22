@@ -38,6 +38,7 @@
                 <p class="staff-name">Ana Gonzalez</p>
                 <p class="staff-role">Contract Specialist</p>
                 <p class="staff-email">ana.gonzalez@luxeknows.com</p>
+                <p class="staff-email">305.479.0254</p>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/bianca-p.jpg') }}" class="staff-image">
@@ -46,22 +47,37 @@
                 <p class="staff-email">operation@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/cheila.jpeg') }}" class="staff-image">
+                <p class="staff-name">Cheila Gonzalez</p>
+                <p class="staff-role">IDX & MLS Specialist</p>
+                <p class="staff-email">support@luxeknows.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/christian.jpg') }}" class="staff-image">
                 <p class="staff-name">Christian Benedico</p>
                 <p class="staff-role">Marketing Director</p>
                 <p class="staff-email">marketing@luxeknows.com</p>
+                <p class="staff-email">305.908.1116</p>
+            </div>
+            <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/daniela.jpeg') }}" class="staff-image">
+                <p class="staff-name">Daniela River</p>
+                <p class="staff-role">General Support Specialist</p>
+                <p class="staff-email">support@luxeknows.com</p>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/gabriela.jpeg') }}" class="staff-image">
                 <p class="staff-name">Gabriela Suarez</p>
-                <p class="staff-role">Lead Admin</p>
+                <p class="staff-role">Zillow Flex Team Leader</p>
                 <p class="staff-email">gabrielas@luxeknows.com</p>
+                <p class="staff-email">786.473.5119</p>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/jorge.jpg') }}" class="staff-image">
                 <p class="staff-name">Jorge Fernandez</p>
                 <p class="staff-role">Lead Director</p>
                 <p class="staff-email">jorgef@luxeknows.com</p>
+                <p class="staff-email">305.297.6958</p>
             </div>
             {{-- <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/monica.jpg') }}" class="staff-image">
@@ -70,10 +86,23 @@
                 <p class="staff-email">monica@luxeknows.com</p>
             </div> --}}
             <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/lucy.jpeg') }}" class="staff-image">
+                <p class="staff-name">Lucy Rodriguez</p>
+                <p class="staff-role">Zillow Team Flex Admin</p>
+                <p class="staff-email">zillowflex@luxeknows.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
+                <img src="{{ asset('images/staff/romina.jpg') }}" class="staff-image">
+                <p class="staff-name">Romina Arturi</p>
+                <p class="staff-role">Zillow Team Dade Admin</p>
+                <p class="staff-email">zillowdade@luxeknows.com</p>
+            </div>
+            <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/sabrina.jpg') }}" class="staff-image">
                 <p class="staff-name">Sabrina Mirabent</p>
-                <p class="staff-role">Support Partner</p>
-                <p class="staff-email">support@luxeknows.com</p>
+                <p class="staff-role">Escrow Specialist</p>
+                <p class="staff-email">escrow@luxeknows.com</p>
+                <p class="staff-email">305.998.6239</p>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/wesley.jpg') }}" class="staff-image">
@@ -86,6 +115,7 @@
                 <p class="staff-name">Fritz Moise</p>
                 <p class="staff-role">Marketing Coordinator</p>
                 <p class="staff-email">marketingcoordinator@luxeknows.com</p>
+                <p class="staff-email">305.908.1116</p>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/jennifer.jpg') }}" class="staff-image">
@@ -104,6 +134,7 @@
                 <p class="staff-name">Yesenia Ferro</p>
                 <p class="staff-role">Recruiting Specialist</p>
                 <p class="staff-email">yesenia@luxeknows.com</p>
+                <p class="staff-email">786.623.7531</p>
             </div>
             {{-- <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
