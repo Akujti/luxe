@@ -4,6 +4,7 @@ namespace App\Models\CMA;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Storage;
 
 class CmaReport extends Model
 {
@@ -22,6 +23,6 @@ class CmaReport extends Model
 
     public function getReportUrlAttribute()
     {
-        return asset('storage/' . $this->path);
+        return Storage::disk('public')->url($this->path);
     }
 }

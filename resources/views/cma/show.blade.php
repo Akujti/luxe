@@ -47,7 +47,6 @@
                                     <div class="">
                                         <h4 class="p-0 m-0 d-flex align-items-center h-title"><span
                                                 id="UnparsedAddress"></span>
-                                            {{--                                            <div class="edit-btn ml-2"><i class="fa-solid fa-pen"></i></div>--}}
                                         </h4>
                                         <p class="p-0 m-0 p-luxe text-uppercase"><span id="BuyerAgentFullName"></span>
                                         </p>
@@ -312,7 +311,6 @@
             $('#dropdownMenuButton').dropdown('toggle')
             $('#results-status').html(statusGl)
             loadingDiv(0)
-
         })
 
         function loadingDiv (status) {
@@ -398,12 +396,15 @@
             $('#drop-filter').removeClass('show')
         }
 
+        var coordinates = []
+
         async function mounted () {
             const urlParams = new URLSearchParams(window.location.search)
             const listingId = urlParams.get('listingId')
 
             var response = await axiosInc(`listings/${listingId}`, 'get', null)
             if (response.data) {
+                coordinates = response.data.bundle.Coordinates
                 var data = response.data.bundle
 
                 showByIdRow = data
@@ -472,12 +473,12 @@
             }
 
             mergeData['StandardStatus'] = statusGl
+            mergeData['near'] = $('#UnparsedAddress').text()
 
             mergeData['limit'] = limit
             var response = await axiosInc('listings', 'get', mergeData)
 
             if (response.data) {
-
                 if (response.data.total > limit) {
                     $('#view-more').removeClass('d-none')
                 } else {
@@ -654,10 +655,11 @@
         }
 
         function initMap () {
-
+            console.log('MAP')
+            console.log(coordinates)
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 10,
-                center: new google.maps.LatLng(25.751360, -80.255580),
+                zoom: 16,
+                center: new google.maps.LatLng(coordinates[1], coordinates[0]),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             })
 

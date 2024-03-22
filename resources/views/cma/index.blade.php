@@ -71,11 +71,13 @@
                                                                 <img src="{{ asset('images/files/delete-icon.svg') }}">
                                                             </button>
                                                         </form>
-                                                        <a target="_blank" class="theme"
-                                                           style="background:black;color:white;padding:3px 10px;border-radius:20px;margin-right:3px;font-family: 'Montserrat'"
-                                                           href="{{ route('cma.showReport',$row) }}">
-                                                            View
-                                                        </a>
+                                                        @if($row)
+                                                            <a target="_blank" class="theme"
+                                                               style="background:black;color:white;padding:3px 10px;border-radius:20px;margin-right:3px;font-family: 'Montserrat'"
+                                                               href="{{ route('cma.showReport',$row) }}">
+                                                                View
+                                                            </a>
+                                                        @endif
                                                         <a href="{{route('cma.pdf',$row->id)}}"
                                                            style="background:black;color:white;padding:3px 10px;border-radius:20px;font-family: 'Montserrat'"
                                                         >Download</a>
@@ -100,7 +102,6 @@
     <script src="{{ asset('js/moment.min.js') }}"></script>
     <script>
         $(document).ready(function () {
-            addTable()
         })
 
         function addTable () {

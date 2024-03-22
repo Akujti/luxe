@@ -17,7 +17,7 @@ class CMAController extends Controller
 {
     public function index()
     {
-        $rows = CmaReport::where('user_id', auth()->id())->get();
+        $rows = CmaReport::where('user_id', auth()->id())->latest()->get();
         return view('cma.index', compact('rows'));
     }
 
@@ -82,7 +82,7 @@ class CMAController extends Controller
         $report = CmaReport::findOrFail($id);
 
         if ($report->path)
-            return Storage::download('public/' . $report->path, 'CMA Report.pdf');
+            return Storage::disk('public')->download($report->path, 'CMA Report.pdf');
 
         $listings = $report->listings;
         $config = [
@@ -607,6 +607,10 @@ class CMAController extends Controller
                     $price_active += $data['ListPrice'];
                     $price_active_counter++;
                 }
+                if ($data['DaysOnMarket']) {
+                    $avg_days_on_market_active_counter++;
+                    $avg_days_on_market_active += $data['DaysOnMarket'];
+                }
             }
             if ($data['MlsStatus'] == 'Pending') {
                 $listing->status = 'P';
@@ -747,9 +751,9 @@ class CMAController extends Controller
         $pdf = PDF::loadView('cma.pdf.luxe-cma', $data);
         $pdfContent = $pdf->output();
         $filename = 'cma/reports/' . Str::random(12) . '.pdf';
-        Storage::put('public/' . $filename, $pdfContent);
+        Storage::disk('public')->put($filename, $pdfContent);
         $report->update(['path' => $filename]);
-        return Storage::download($filename, 'CMA Report.pdf');
+        return Storage::disk('public')->download($filename, 'CMA Report.pdf');
     }
 
     public function getListingData($id)

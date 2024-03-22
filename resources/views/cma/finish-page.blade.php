@@ -66,18 +66,10 @@
                 headers: {
                     'X-CSRF-Token': $('[name="_token"]').val()
                 },
-                success: function (output) {
-                    console.log(output)
-                    $('#view-report').removeClass('d-none')
-                    $('#view-report').attr('href', '/cma-report/show-report/' + output)
-                    $('#download-report').attr('href', '/user/cma-report/pdf/' + output)
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(xhr.status)
-                    console.log(thrownError)
-                }, finish: function () {
-                    $('#loading-report').removeClass('d-flex')
-                    $('#loading-report').addClass('d-none')
+                finish: function () {
+                    setTimeout(function () {
+
+                    }, 8000)
                 }
             })
         }
