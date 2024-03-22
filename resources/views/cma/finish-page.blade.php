@@ -66,10 +66,14 @@
                 headers: {
                     'X-CSRF-Token': $('[name="_token"]').val()
                 },
-                finish: function () {
-                    setTimeout(function () {
-
-                    }, 8000)
+                success: function (output) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                }, complete: function () {
+                    console.log('123')
+                    setTimeout(() => {
+                        window.location = '/user/cma-report'
+                    }, 6000)
                 }
             })
         }

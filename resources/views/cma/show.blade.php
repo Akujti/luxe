@@ -655,8 +655,6 @@
         }
 
         function initMap () {
-            console.log('MAP')
-            console.log(coordinates)
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 16,
                 center: new google.maps.LatLng(coordinates[1], coordinates[0]),
