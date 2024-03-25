@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\LuxeStore;
 
+use App\Mail\NewOrderCreated;
 use App\Mail\NotifyStatusNotCompleted;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
@@ -351,12 +352,12 @@ class OrderController extends Controller
                 }
             }
             if ($is_marketing_menu_order)
-                array_push($emails, 'designs@luxeknows.com');
+                $emails[] = 'designs@luxeknows.com';
             else
-                array_push($emails, 'support@luxeknows.com');
+                $emails[] = 'support@luxeknows.com';
 
             try {
-                Mail::to($emails)->cc($cc)->send(new OrderMailTemplate($details));
+                Mail::to($emails)->cc($cc)->send(new NewOrderCreated($row, null, 'LUXE Properties - New Order - Marketplace'));
             } catch (\Throwable $th) {
                 Log::error($th->getMessage());
             }
@@ -366,9 +367,8 @@ class OrderController extends Controller
             $details['products'] = $row->products()->get();
             $details['form_title'] = 'New Order';
             try {
-                if (auth()->user())
-                    Mail::to(auth()->user()->email)->cc($cc)->send(new NotifyStatusNotCompleted($row, null, 'LUXE Properties - New Order - Marketplace'));
-                Mail::to($emails)->cc($cc)->send(new OrderMailTemplate($details));
+                if ($req->billing['email'])
+                    Mail::to($req->billing['email'])->cc($cc)->send(new OrderMailTemplate($details));
             } catch (\Throwable $th) {
                 Log::error($th->getMessage());
             }
