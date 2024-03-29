@@ -1,8 +1,8 @@
 @extends('layouts.app', ['active' => 'CMA'])
-@section('css')
+@section('content')
     <link rel="stylesheet" href="{{ asset('/css/cma-report.css') }}">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <style>
+
         a {
             text-decoration: none;
             color: black;
@@ -16,14 +16,19 @@
             object-fit: cover;
         }
     </style>
-@endsection
-@section('content')
     <div class="container-fluid">
         <div class="row box-title p-0 m-0">
             <h3 class="text-center">Seller CMA</h3>
+            <p class="m-0">A Seller Comparative Market Analysis (CMA) is a tool used by real estate agents to help
+                homeowners
+                determine the optimal listing price for their property. The CMA provides data on recently sold homes in
+                the same area as the subject property as well as information on homes currently on the market. By
+                analyzing this data, agents can estimate the value of the seller's property and recommend a competitive
+                listing price. Please click on the button "Add Seller CMA" to begin using our easy-to-use, in-house CMA
+                builder. All CMAs prepared will be saved below.</p>
         </div>
         <div class="row mt-2 mb-5 justify-content-start p-0 m-0">
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-3">
                 <div class="box-charts row">
                     <div class="table-box w-100 px-2">
                         <div class="table-box-header d-flex align-items-center justify-content-between w-100">
