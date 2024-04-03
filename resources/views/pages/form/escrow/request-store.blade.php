@@ -82,7 +82,7 @@
             background-position: 50%;
         }
 
-        .ui-datepicker-header a>span {
+        .ui-datepicker-header a > span {
             display: none;
         }
 
@@ -128,12 +128,12 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                    value="{{ auth()->user()->profile->fullname }}" required>
+                                       value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                    value="{{ auth()->user()->email }}" required>
+                                       value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Property Address</label>
@@ -153,6 +153,10 @@
                                 <input type="text" name="client_name" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="name">Owner/Landlord Name</label>
+                                <input type="text" name="owner_landlord_name" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="name">Client Email</label>
                                 <input type="text" name="client_email" class="form-control" required>
                             </div>
@@ -169,16 +173,16 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Lease Start Date</label>
                                 <input type="text" name="lease_start_date" class="datepicker form-control date"
-                                    autocomplete="off" required>
+                                       autocomplete="off" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Walkthrough Date</label>
                                 <input type="text" name="walkthrough_date" class="datepicker form-control date"
-                                    autocomplete="off" required>
+                                       autocomplete="off" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">How were funds received?</label>
-                                <select name="how_were_fund_received" class="form-control" id="">
+                                <label for="how_were_funds_received">How were funds received?</label>
+                                <select name="how_were_funds_received" class="form-control" id="">
                                     <option value="-">-</option>
                                     <option value="Check Dropoff">Check Dropoff</option>
                                     <option value="Wire">Wire</option>
@@ -189,17 +193,17 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Amount Held In Escrow</label>
                                 <input type="number" name="amount_held_in_escrow" class="form-control" step="0.01"
-                                    required>
+                                       required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Amount Due To LUXE Agent (before split)</label>
                                 <input type="number" name="amount_due_to_LUXE_agent" class="form-control"
-                                    step="0.01" required>
+                                       step="0.01" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Amount Due To Co-op Agent</label>
                                 <input type="number" name="amount_due_to_co_op_agent" class="form-control"
-                                    step="0.01" required>
+                                       step="0.01" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Co-op Brokerage Name</label>
@@ -208,7 +212,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Amount Due To Landlord (if applicable)</label>
                                 <input type="number" name="amount_due_to_landlord" class="form-control" step="0.01"
-                                    required>
+                                       required>
                             </div>
 
                             {{-- <div class="form-group col-md-12">
@@ -264,31 +268,31 @@
         let afterTomorrow = new Date()
         tomorrow.setDate(today.getDate() + 1)
         afterTomorrow.setDate(today.getDate() + 2)
-        var dates = ['02/13/2023'];
-        $(".datepicker").datepicker({
-            duration: "fast",
+        var dates = ['02/13/2023']
+        $('.datepicker').datepicker({
+            duration: 'fast',
             dateFormat: 'yy-mm-dd',
             minDate: 0,
             firstDay: 0,
             // disableDates: dates,
-            beforeShowDay: function(date) {
-                var disabledDates = [];
+            beforeShowDay: function (date) {
+                var disabledDates = []
                 for (var i = 0; i < disabledDates.length; i++) {
                     if (
                         date.getFullYear() === disabledDates[i].getFullYear() &&
                         date.getMonth() === disabledDates[i].getMonth() &&
                         date.getDate() === disabledDates[i].getDate()
                     ) {
-                        return [false];
+                        return [false]
                     }
                 }
-                return [true];
+                return [true]
             }
-        });
+        })
 
-        function disableDates(date) {
-            var string = $.datepicker.formatDate('dd-mm-yy', date);
-            return [dates.indexOf(string) == -1];
+        function disableDates (date) {
+            var string = $.datepicker.formatDate('dd-mm-yy', date)
+            return [dates.indexOf(string) == -1]
         }
     </script>
 @endsection

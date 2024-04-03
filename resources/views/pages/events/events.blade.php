@@ -64,6 +64,11 @@
             color: white !important;
         }
 
+        .bootcamp {
+            background-color: #d5ff32;
+        }
+
+
         .tours {
             background-color: #F2F256;
         }
@@ -99,6 +104,7 @@
             margin-right: 10px;
         }
     </style>
+
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -116,34 +122,48 @@
                     <div class="color-picker career_fair "></div> Career Fair
                 </div> -->
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker holidays "></div> Holidays
+                    <div class="color-picker holidays "></div>
+                    Holidays
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker in_person_trainings"></div> In Person Trainings
+                    <div class="color-picker in_person_trainings"></div>
+                    In Person Trainings
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker luxe_coaching_program "></div> Luxe Coaching Program
+                    <div class="color-picker luxe_coaching_program "></div>
+                    Luxe Coaching Program
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker zoom_trainings"></div> Morning Calls
+                    <div class="color-picker zoom_trainings"></div>
+                    Morning Calls
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker team_office_meetings"></div> Team Office Meetings
+                    <div class="color-picker team_office_meetings"></div>
+                    Team Office Meetings
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker tours"></div> Tours
+                    <div class="color-picker tours"></div>
+                    Tours
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker volunteering "></div> Volunteering
+                    <div class="color-picker volunteering "></div>
+                    Volunteering
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker zoom_trainings_2"></div> Zoom Trainings
+                    <div class="color-picker zoom_trainings_2"></div>
+                    Zoom Trainings
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker events"></div> Events
+                    <div class="color-picker events"></div>
+                    Events
                 </div>
                 <div class="d-md-flex align-items-center">
-                    <div class="color-picker sales_meetings"></div> Sales Meetings
+                    <div class="color-picker sales_meetings"></div>
+                    Sales Meetings
+                </div>
+                <div class="d-md-flex align-items-center">
+                    <div class="color-picker bootcamp"></div>
+                    Bootcamp
                 </div>
             </div>
             <div id='calendar' style="width: 100%; display: inline-block;"></div>
@@ -165,20 +185,21 @@
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="title" name="title" class="w-100 form-control"
-                                            required>
+                                               required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="start">{{ __('Location') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="location" name="location" class="w-100 form-control"
-                                            required>
+                                               required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="start">{{ __('Description') }}</label>
                                     <div class='input-group date'>
-                                        <textarea name="description" id="description" class="w-100 form-control" style="font-family: gothicregular"></textarea>
+                                        <textarea name="description" id="description" class="w-100 form-control"
+                                                  style="font-family: gothicregular"></textarea>
                                     </div>
                                 </div>
                                 <div class="d-flex">
@@ -186,7 +207,7 @@
                                         <label for="start">{{ __('Start Time') }}</label>
                                         <div class='input-group date'>
                                             <input type="time" id="start_time" name="start_time"
-                                                class="w-100 form-control">
+                                                   class="w-100 form-control">
                                         </div>
                                     </div>
                                     <div class="form-group w-50 pl-1">
@@ -224,6 +245,7 @@
                                         <option value="zoom_trainings_2">Zoom Trainings</option>
                                         <option value="events">Events</option>
                                         <option value="sales_meetings">Sales Meetings</option>
+                                        <option value="bootcamp">Bootcamp</option>
                                     </select>
                                 </div>
                                 @if ($isAdmin)
@@ -239,7 +261,7 @@
                                     <label for="start">{{ __('Event Image') }}</label>
                                     <div class="custom-file">
                                         <input type="file" name="image" class="form-control" id="inputGroupFile01"
-                                            style="padding: 3px;">
+                                               style="padding: 3px;">
                                         {{-- <label class="custom-file-label" for="inputGroupFile01">Choose file</label> --}}
                                     </div>
                                 </div>
@@ -263,10 +285,10 @@
                     </div>
                     <div class="modal-body mb-0 pb-0">
                         <a href="#" class="text-dark" target="_blank" id="show-more-link"
-                            style="text-decoration: underline; font-size:17px;">Show event details.</a>
+                           style="text-decoration: underline; font-size:17px;">Show event details.</a>
                         <div id="event_attend_form_wrapper">
                             <form id="event_attend_form" action="{{ route('events.attend') }}" method="POST"
-                                class="m-0 p-0">
+                                  class="m-0 p-0">
                                 @csrf
                                 <input type="hidden" name="event_id" id="event_id_attend">
                                 <input type="hidden" name="status" id="event_attend_status">
@@ -290,20 +312,21 @@
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="title" name="title"
-                                            class="w-100 form-control update_field" disabled required>
+                                               class="w-100 form-control update_field" disabled required>
                                     </div>
                                 </div>
                                 <div class="mt-1">
                                     <label for="start">{{ __('Location') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="location" name="location"
-                                            class="w-100 form-control update_field" disabled required>
+                                               class="w-100 form-control update_field" disabled required>
                                     </div>
                                 </div>
                                 <div class="mt-1 form-group">
                                     <label for="start">{{ __('Description') }}</label>
                                     <div class='input-group date'>
-                                        <textarea name="description" id="description" class="w-100 form-control" style="font-family: gothicregular"></textarea>
+                                        <textarea name="description" id="description" class="w-100 form-control"
+                                                  style="font-family: gothicregular"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -313,14 +336,14 @@
                                     <label for="start">{{ __('Start Time') }}</label>
                                     <div class='input-group date'>
                                         <input type="time" id="start_time" name="start_time"
-                                            class="w-100 form-control update_field" disabled required>
+                                               class="w-100 form-control update_field" disabled required>
                                     </div>
                                 </div>
                                 <div class="w-50 pl-1">
                                     <label for="end">{{ __('End Time') }}</label>
                                     <div class='input-group date'>
                                         <input type="time" id="end_time" name="end_time"
-                                            class="w-100 form-control update_field" disabled>
+                                               class="w-100 form-control update_field" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -329,10 +352,10 @@
                                     @if ($isAdmin)
                                         <label for="rsvp1">{{ __('RSVP') }}</label>
                                         <input type="url" name="rsvp" id="rsvp1"
-                                            class="w-100 form-control update_field" disabled>
+                                               class="w-100 form-control update_field" disabled>
                                     @endif
                                     <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
-                                        class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
+                                       class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
                                     {{-- <a id="add_to_calendar" href="" target="_blank" rel="noopener noreferrer"
                                         class="btn btn-luxe w-100 mt-2 " style="color: white !important;">
                                         ADD TO CALENDAR</a> --}}
@@ -343,10 +366,10 @@
                                     @if ($isAdmin)
                                         <label for="zoom1">{{ __('ZOOM') }}</label>
                                         <input type="url" name="zoom" id="zoom1"
-                                            class="w-100 form-control update_field" disabled>
+                                               class="w-100 form-control update_field" disabled>
                                     @endif
                                     <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
-                                        class="btn btn-luxe w-100 mt-2" style="color: white !important;">
+                                       class="btn btn-luxe w-100 mt-2" style="color: white !important;">
                                         {{ __('OPEN ZOOM') }}</a>
                                 </div>
                             </div>
@@ -366,10 +389,11 @@
                                         <option value="zoom_trainings_2">Zoom Trainings</option>
                                         <option value="events">Events</option>
                                         <option value="sales_meetings">Sales Meetings</option>
+                                        <option value="bootcamp">Bootcamp</option>
                                     </select>
                                 @else
                                     <input type="text" id="event_type" class="w-100 form-control text-capitalize"
-                                        disabled>
+                                           disabled>
                                 @endif
                             </div>
                             @if ($isAdmin)
@@ -384,7 +408,7 @@
                             <div class="form-group image_group d-none">
                                 <label for="image">{{ __('Event Image') }}</label>
                                 <input type="file" name="image" class="form-control update_field" disabled
-                                    style="padding: 3px">
+                                       style="padding: 3px">
                             </div>
                             <div class="form-group event-image">
                                 <div class="img-wrapper">
@@ -393,21 +417,21 @@
                             </div>
                         </div>
                         <div class="modal-footer"
-                            style="flex-direction:row-reverse;display: flex;justify-content: flex-start;">
+                             style="flex-direction:row-reverse;display: flex;justify-content: flex-start;">
                             @if ($isAdmin)
                                 <button type="submit" class="btn btn-luxe" id="update_event">Update</button>
-                            @endif
+                        @endif
                     </form>
                     <form action="{{ route('events.destroy', 1) }}" method="POST" enctype="multipart/form-data"
-                        class="m-0 w-50">
+                          class="m-0 w-50">
                         @csrf
                         @method('delete')
                         <input type="hidden" name="event_id" id="event_id">
                         @if ($isAdmin)
                             <button type="submit" class="btn btn-danger mr-2 w-100" id="delete_event"
-                                onclick="return confirm('Are you sure you want to delete this event?');">Delete
+                                    onclick="return confirm('Are you sure you want to delete this event?');">Delete
                             </button>
-                        @endif
+                    @endif
                 </div>
                 </form>
             </div>
@@ -416,27 +440,28 @@
     </div>
 @endsection
 <script>
-    function attend_event(status) {
-        $('.single-event').find('#event_attend_status').val(status);
-        $('#event_attend_form').submit();
+    function attend_event (status) {
+        $('.single-event').find('#event_attend_status').val(status)
+        $('#event_attend_form').submit()
     }
-    document.addEventListener('DOMContentLoaded', function() {
+
+    document.addEventListener('DOMContentLoaded', function () {
         const data = @json($events);
-        console.log(data);
-        var calendarEl = document.getElementById('calendar');
+        console.log(data)
+        var calendarEl = document.getElementById('calendar')
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            select: function(start, end, allDay, jsEvent, view) {
-                $('.create-event').modal('show');
-                $('#date').val(start.startStr);
+            select: function (start, end, allDay, jsEvent, view) {
+                $('.create-event').modal('show')
+                $('#date').val(start.startStr)
             },
-            eventClick: function(event) {
-                console.log(event);
-                var event = event.event;
-                $('.single-event').modal('show');
-                $('.single-event').find('#event_id').val(event._def.publicId);
+            eventClick: function (event) {
+                console.log(event)
+                var event = event.event
+                $('.single-event').modal('show')
+                $('.single-event').find('#event_id').val(event._def.publicId)
                 $('.single-event').find('#show-more-link').attr('href', '/user/events/' + event._def
-                    .publicId);
-                $(".single-event").find('#event_stats_link').attr("href", '/user/events/' + event
+                    .publicId)
+                $('.single-event').find('#event_stats_link').attr('href', '/user/events/' + event
                     ._def.publicId + '/attendance')
                 var startdt = event.extendedProps.fullDate + 'T' + event.extendedProps.start_time
                 var enddt = event.extendedProps.fullDate + 'T' + event.extendedProps.end_time
@@ -446,49 +471,49 @@
                     body + '&enddt=' + enddt + '&location=' + location +
                     '&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=' + startdt +
                     '&subject=' + event.title
-                $(".single-event").find('#add_to_calendar').attr("href", calendar_link)
-                $('.single-event').find('#event_id_1').val(event._def.publicId);
-                $('.single-event').find('#event_id_attend').val(event._def.publicId);
-                $('.single-event').find('#title').val(event.title);
-                $('.single-event').find('#location').val(event.extendedProps.location);
-                $('.single-event').find('#description').val(event.extendedProps.description);
-                $('.single-event').find('#start_time').val(event.extendedProps.start_time);
-                $('.single-event').find('#end_time').val(event.extendedProps.end_time);
-                $('.single-event').find('#user_id').val(event.extendedProps.user_id);
-                $('.single-event').find('#rsvp1').val(event.extendedProps.rsvp);
-                $('.single-event').find('#zoom1').val(event.extendedProps.zoom);
-                $('.single-event').find('#event_type').val(event.extendedProps.fullType);
-                $('.single-event').find('#event_status').val(event.extendedProps.private);
+                $('.single-event').find('#add_to_calendar').attr('href', calendar_link)
+                $('.single-event').find('#event_id_1').val(event._def.publicId)
+                $('.single-event').find('#event_id_attend').val(event._def.publicId)
+                $('.single-event').find('#title').val(event.title)
+                $('.single-event').find('#location').val(event.extendedProps.location)
+                $('.single-event').find('#description').val(event.extendedProps.description)
+                $('.single-event').find('#start_time').val(event.extendedProps.start_time)
+                $('.single-event').find('#end_time').val(event.extendedProps.end_time)
+                $('.single-event').find('#user_id').val(event.extendedProps.user_id)
+                $('.single-event').find('#rsvp1').val(event.extendedProps.rsvp)
+                $('.single-event').find('#zoom1').val(event.extendedProps.zoom)
+                $('.single-event').find('#event_type').val(event.extendedProps.fullType)
+                $('.single-event').find('#event_status').val(event.extendedProps.private)
                 if (event.extendedProps.attending || event.extendedProps.private) {
-                    $('#event_attend_form_wrapper').css('display', 'none');
+                    $('#event_attend_form_wrapper').css('display', 'none')
                 } else {
-                    $('#event_attend_form_wrapper').css('display', 'block');
+                    $('#event_attend_form_wrapper').css('display', 'block')
                 }
                 if (event.extendedProps.rsvp != null || {{ $isAdmin }}) {
-                    $('.single-event').find('#rsvp').attr('href', event.extendedProps.rsvp);
-                    $('#rsvp_group').css('display', 'block');
+                    $('.single-event').find('#rsvp').attr('href', event.extendedProps.rsvp)
+                    $('#rsvp_group').css('display', 'block')
                 } else {
-                    $('#rsvp_group').css('display', 'none');
+                    $('#rsvp_group').css('display', 'none')
                 }
                 if (event.extendedProps.zoom != null || {{ $isAdmin }}) {
-                    $('.single-event').find('#zoom').attr('href', event.extendedProps.zoom);
-                    $('#zoom_group').css('display', 'block');
+                    $('.single-event').find('#zoom').attr('href', event.extendedProps.zoom)
+                    $('#zoom_group').css('display', 'block')
                 } else {
-                    $('#zoom_group').css('display', 'none');
+                    $('#zoom_group').css('display', 'none')
                 }
-                $('.single-event').find('.modal-footer').css('display', 'none');
+                $('.single-event').find('.modal-footer').css('display', 'none')
                 if (event.extendedProps.user_id == {{ Auth::id() }} || {{ $isAdmin }}) {
-                    $('.single-event').find('.modal-footer').css('display', 'flex');
-                    $('.single-event').find('.update_field').removeAttr('disabled');
-                    $('.single-event').find('.image_group').removeClass('d-none');
+                    $('.single-event').find('.modal-footer').css('display', 'flex')
+                    $('.single-event').find('.update_field').removeAttr('disabled')
+                    $('.single-event').find('.image_group').removeClass('d-none')
                 }
                 // $('.single-event').find('.update_field').attr('disabled', 'true');
                 if (event.extendedProps.image != null) {
-                    $('.single-event').find('.event-image').css('display', 'block');
+                    $('.single-event').find('.event-image').css('display', 'block')
                     $('.single-event').find('#image-id').attr('src', '/storage/' + event
-                        .extendedProps.image);
+                        .extendedProps.image)
                 } else {
-                    $('.single-event').find('.event-image').css('display', 'none');
+                    $('.single-event').find('.event-image').css('display', 'none')
                 }
             },
             initialView: 'dayGridMonth',
@@ -498,7 +523,7 @@
             headerToolbar: {
                 right: 'prev,next'
             }
-        });
-        calendar.render();
-    });
+        })
+        calendar.render()
+    })
 </script>

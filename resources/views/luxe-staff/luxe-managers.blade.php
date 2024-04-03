@@ -94,12 +94,12 @@
                 <p class="staff-role">Kendall Manager</p>
                 <p class="staff-email">steven@luxeknows.com</p>
             </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/tania2.jpg') }}" class="staff-image">
-                <p class="staff-name">Tania Roberts</p>
-                <p class="staff-role">Homestead Manager</p>
-                <p class="staff-email">tania@luxeknows.com</p>
-            </div>
+            {{--            <div class="col-md-3 staff-box">--}}
+            {{--                <img src="{{ asset('images/staff/tania2.jpg') }}" class="staff-image">--}}
+            {{--                <p class="staff-name">Tania Roberts</p>--}}
+            {{--                <p class="staff-role">Homestead Manager</p>--}}
+            {{--                <p class="staff-email">tania@luxeknows.com</p>--}}
+            {{--            </div>--}}
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/wesley.jpg') }}" class="staff-image">
                 <p class="staff-name">Wesley Ulloa</p>
