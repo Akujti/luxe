@@ -37,13 +37,12 @@
 @section('content')
     <div class="container-fluid">
         <div class="card-title text-center">
-            <h1>CINC - Select Form</h1>
+            <h1>LUXE Seller Team</h1>
         </div>
         <div class="grid grid-layout-one">
             <div class="box-item box-item-center">
                 <a href="{{ route('general.email.index', ['folder' => 'cinc', 'form' => 'join-cinc-seller-team']) }}">Join
-                    CINC Seller
-                    Team</a>
+                    LUXE Seller Team</a>
             </div>
         </div>
     </div>

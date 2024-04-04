@@ -8,9 +8,9 @@
                       enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
-                        <h1 class="text-center my-4">Join CINC Seller Team</h1>
+                        <h1 class="text-center my-4">Join LUXE Seller Team</h1>
                     </div>
-                    <input type="hidden" name="form_title" value="Join CINC Seller Team">
+                    <input type="hidden" name="form_title" value="Join LUXE Seller Team">
 
                     <div class="card-body">
                         <div class="row">
