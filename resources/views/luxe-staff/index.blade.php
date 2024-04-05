@@ -60,7 +60,7 @@
                 <p class="staff-email">305.908.1116</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/christian.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
                 <p class="staff-name">Crystal Elias</p>
                 <p class="staff-role">Zillow Team Flex Admin</p>
                 <p class="staff-email">zillowflex@luxeknows.com</p>
@@ -149,7 +149,7 @@
                 <p class="staff-email">305.306.8896</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/sabrina.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/stephaine.jpg') }}" class="staff-image">
                 <p class="staff-name">Stephanie Mora</p>
                 <p class="staff-role">Zillow Sellers Team Admin</p>
                 <p class="staff-email">zillowsellers@luxeknows.com</p>

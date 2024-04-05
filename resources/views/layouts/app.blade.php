@@ -536,6 +536,9 @@
                                 <li class="row m-0 @if (Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif">
                                     <a href="{{ url('/home') }}">Dashboard </a>
                                 </li>
+                                <li class="row m-0 {{ Request()->route()->getPrefix() == 'user/cma-report' ? 'active selected' : '' }}">
+                                    <a href="{{ route('cma.index') }}">Seller CMA </a>
+                                </li>
                                 @auth
                                     @if (auth()->user()->role == 'admin')
                                         <li class="row m-0">
