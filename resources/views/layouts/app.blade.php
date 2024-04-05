@@ -536,9 +536,6 @@
                                 <li class="row m-0 @if (Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif">
                                     <a href="{{ url('/home') }}">Dashboard </a>
                                 </li>
-                                <li class="row m-0 {{ Request()->route()->getPrefix() == 'user/cma-report' ? 'active selected' : '' }}">
-                                    <a href="{{ route('cma.index') }}">Seller CMA </a>
-                                </li>
                                 @auth
                                     @if (auth()->user()->role == 'admin')
                                         <li class="row m-0">
@@ -819,6 +816,9 @@
                                 <a href="{{ route('luxe-incentives') }}"
                                    class="{{ isset($active) && $active == 'luxe_incentives' ? 'active_submenu' : '' }}">LUXE
                                     Incentives</a>
+                            </li>
+                            <li class="row m-0 {{ Request()->route()->getPrefix() == 'user/cma-report' ? 'active selected' : '' }}">
+                                <a href="{{ route('cma.index') }}">Seller CMA </a>
                             </li>
                             </ul>
                         </div>
