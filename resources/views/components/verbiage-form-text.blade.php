@@ -1,5 +1,5 @@
 <div>
-    @if (session('formPost') && $formInfo->after_submit_verbiages_title && $formInfo->after_submit_verbiages_text)
+    @if (session('formPost') && $formInfo && $formInfo->after_submit_verbiages_title && $formInfo->after_submit_verbiages_text)
         <div class="modal modal-new fade" id="modalVerbiages">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content bg-white">
@@ -18,9 +18,9 @@
             </div>
         </div>
         <script>
-            $(window).on('load', function() {
-                $('#modalVerbiages').modal('show');
-            });
+            $(window).on('load', function () {
+                $('#modalVerbiages').modal('show')
+            })
         </script>
     @elseif($formInfo && $formInfo->verbiages_title && $formInfo->verbiages_text)
         <div class="modal modal-new fade" id="modalVerbiages">
@@ -41,9 +41,9 @@
             </div>
         </div>
         <script>
-            $(window).on('load', function() {
-                $('#modalVerbiages').modal('show');
-            });
+            $(window).on('load', function () {
+                $('#modalVerbiages').modal('show')
+            })
         </script>
     @endif
 </div>
