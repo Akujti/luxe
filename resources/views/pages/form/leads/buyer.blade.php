@@ -40,20 +40,26 @@
 @section('content')
     <div class="container-fluid">
         <div class="card-title text-center">
-            <h1>Buyer Team</h1>
+            <h1>Buyer Team1</h1>
         </div>
-        <div class="grid grid-layout-two">
+        <div class="grid grid-layout-three">
             <div class="box-item">
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'join-zillow']) }}"
-                        class="">Join Zillow Buyer Team</a>
+                       class="">Join Zillow Buyer Team</a>
                 </p>
             </div>
             <div class="box-item">
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-leads-weekly-update']) }}"
-                        class="">Zillow Leads
+                       class="">Zillow Leads
                         Weekly Update</a>
+                </p>
+            </div>
+            <div class="box-item">
+                <p>
+                    <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'submit-zillow-buyer-contract']) }}"
+                       class="">Submit A Zillow Buyer Contract</a>
                 </p>
             </div>
         </div>

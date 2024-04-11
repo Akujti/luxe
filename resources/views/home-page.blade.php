@@ -890,6 +890,7 @@
 
 
 
+
                 @endforeach
                 </div>
 
@@ -971,6 +972,7 @@
 
 
 
+
                     @endforeach
                 @endforeach
                 </div>
@@ -978,6 +980,7 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
 
 
 
@@ -1248,12 +1251,12 @@
                     <img src="/images/index-page/partner_3-removebg-preview.png" alt="">
                 </div>
             </div>
-            <div class="box-item box-item-center"
-                 onclick="window.location = '{{ url('general/form/leads/prime-street-leads') }}'">
-                <div>
-                    <img src="/images/index-page/partner_4-removebg-preview.png" alt="">
-                </div>
-            </div>
+            {{--            <div class="box-item box-item-center"--}}
+            {{--                 onclick="window.location = '{{ url('general/form/leads/prime-street-leads') }}'">--}}
+            {{--                <div>--}}
+            {{--                    <img src="/images/index-page/partner_4-removebg-preview.png" alt="">--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </div>
     @elseif($_GET['dir'] == 'training_knowledge_center')
         <style>
