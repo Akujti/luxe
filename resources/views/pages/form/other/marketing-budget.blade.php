@@ -7,7 +7,8 @@
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Top Producer Marketing Budget</h1>
-                        <h5 class="text-center">Congratulations on your success & thank you for all you do for LUXE!</h5>
+                        <h5 class="text-center">Congratulations on your success & thank you for all you do for
+                            LUXE!</h5>
                     </div>
                     <input type="hidden" name="form_title" value="Top Producer Marketing Budget">
                     <div class="card-body">
@@ -15,20 +16,21 @@
                             <div class="form-group col-md-4">
                                 <label for="name">Full name</label>
                                 <input type="text" name="agent_full_name" class="form-control" required
-                                    value="{{ auth()->user() ? auth()->user()->profile->fullname : '' }}">
+                                       value="{{ auth()->user() ? auth()->user()->profile->fullname : '' }}">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="name">Phone</label>
                                 <input type="text" name="phone" class="form-control"
-                                    value="{{ auth()->user() ? auth()->user()->profile->phone : '' }}" required>
+                                       value="{{ auth()->user() ? auth()->user()->profile->phone : '' }}" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="name">Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                    value="{{ auth()->user() ? auth()->user()->email : '' }}" required>
+                                       value="{{ auth()->user() ? auth()->user()->email : '' }}" required>
                             </div>
                             <div class="col-12">
-                                <p class="font-weight-bold">Please choose from the items below. You can select one or more
+                                <p class="font-weight-bold">Please choose from the items below. You can select one or
+                                    more
                                     items.</p>
                                 <div class="form-group">
                                     <div>
@@ -43,98 +45,102 @@
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="1 - Mailers/ Door Hangers/Flyers/Postcards from our approved vendor Planet Marketing(Print Marketing Store)"
-                                            id="opt1">
+                                               value="1 - Mailers/ Door Hangers/Flyers/Postcards from our approved vendor Planet Marketing(Print Marketing Store)"
+                                               id="opt1">
                                         <label for="opt1" class="font-weight-normal">1 - Mailers/ Door
                                             Hangers/Flyers/Postcards from our approved vendor Planet Marketing(Print
                                             Marketing Store)</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="2 - For Sale Signs, Open House Signs, Open House Flags, Car Magnets from our approved vendor Planet Marketing(Print Marketing Store)
+                                               value="2 - For Sale Signs, Open House Signs, Open House Flags, Car Magnets from our approved vendor Planet Marketing(Print Marketing Store)
 "
-                                            id="opt2">
+                                               id="opt2">
                                         <label for="opt2" class="font-weight-normal">2 - For Sale Signs, Open House
                                             Signs, Open House Flags, Car Magnets from our approved vendor Planet
                                             Marketing(Print Marketing Store)</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="3 - Business cards from our approved vendor Planet Marketing(Print Marketing Store)"
-                                            id="opt3">
+                                               value="3 - Business cards from our approved vendor Planet Marketing(Print Marketing Store)"
+                                               id="opt3">
                                         <label for="opt3" class="font-weight-normal">3 - Business cards from our
                                             approved vendor Planet Marketing(Print Marketing Store)</label>
                                     </div>
                                     <div>
                                         <p class="mt-2 mb-0"><b>MARKETING MENU</b></p>
-                                        <p>Marketing Menu items are completed by our in-house marketing team. Reminder you
+                                        <p>Marketing Menu items are completed by our in-house marketing team. Reminder
+                                            you
                                             can order directly <a
                                                 href="{{ route('general.email.index', ['other', 'marketing-menu']) }}">Here</a>
                                             with your Promo Code.</p>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="1 - Brand Package from Marketing Menu" id="opt4">
+                                               value="1 - Brand Package from Marketing Menu" id="opt4">
                                         <label for="opt4" class="font-weight-normal">1 - Brand Package from Marketing
                                             Menu</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="2 - Boosting Facebook Ads/Instagram Ads Set up from Marketing Menu"
-                                            id="opt5">
+                                               value="2 - Boosting Facebook Ads/Instagram Ads Set up from Marketing Menu"
+                                               id="opt5">
                                         <label for="opt5" class="font-weight-normal">2 - Boosting Facebook Ads/Instagram
                                             Ads Set up from Marketing Menu</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="3 - Google Ads Set Up - PPC from Marketing Menu" id="opt6">
+                                               value="3 - Google Ads Set Up - PPC from Marketing Menu" id="opt6">
                                         <label for="opt6" class="font-weight-normal">3 - Google Ads Set Up - PPC from
                                             Marketing Menu</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="4 - Pictures/Video For Your Listings with LUXE Approved Photographer"
-                                            id="opt7">
+                                               value="4 - Pictures/Video For Your Listings with LUXE Approved Photographer"
+                                               id="opt7">
                                         <label for="opt7" class="font-weight-normal">4 - Pictures/Video For Your
                                             Listings with LUXE Approved Photographer</label>
                                     </div>
                                     <div>
                                         <p class="mt-2 mb-0"><b>MARKETPLACE</b></p>
-                                        <p>Marketplace orders are grab and go items that we have in stock at one of our LUXE
+                                        <p>Marketplace orders are grab and go items that we have in stock at one of our
+                                            LUXE
                                             offices. Reminder you can order directly on <a
                                                 href="/home?dir=luxe_apparel">Here</a>
                                             with your Promo Code.</p>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="1 - Hard Cover Book For Listing Presentations from Marketplace"
-                                            id="opt8">
+                                               value="1 - Hard Cover Book For Listing Presentations from Marketplace"
+                                               id="opt8">
                                         <label for="opt8" class="font-weight-normal">1 - Hard Cover Book For Listing
                                             Presentations from Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="2 - Printed LUXE Guides from Marketplace" id="opt9">
+                                               value="2 - Printed LUXE Guides from Marketplace" id="opt9">
                                         <label for="opt9" class="font-weight-normal">2 - Printed LUXE Guides from
                                             Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="3 - Doorhanger w/ Business Card Slits from Marketplace" id="opt10">
+                                               value="3 - Doorhanger w/ Business Card Slits from Marketplace"
+                                               id="opt10">
                                         <label for="opt10" class="font-weight-normal">3 - Doorhanger w/ Business Card
                                             Slits from Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="4 - Skip Trace from Marketplace (A skip trace is getting owner phone numbers and emails for areas/neighborhoods! Great information to have for farming purposes)"
-                                            id="opt11">
+                                               value="4 - Skip Trace from Marketplace (A skip trace is getting owner phone numbers and emails for areas/neighborhoods! Great information to have for farming purposes)"
+                                               id="opt11">
                                         <label for="opt11" class="font-weight-normal">4 - Skip Trace from Marketplace
-                                            (A skip trace is getting owner phone numbers and emails for areas/neighborhoods!
+                                            (A skip trace is getting owner phone numbers and emails for
+                                            areas/neighborhoods!
                                             Great information to have for farming purposes)</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="5 - LUXE Holiday Cards from Marketplace" id="opt12">
+                                               value="5 - LUXE Holiday Cards from Marketplace" id="opt12">
                                         <label for="opt12" class="font-weight-normal">5 - LUXE Holiday Cards from
                                             Marketplace</label>
                                     </div>
@@ -143,13 +149,13 @@
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="1 - Private Office In Dadeland - $500" id="opt13">
+                                               value="1 - Private Office In Dadeland - $500" id="opt13">
                                         <label for="opt13" class="font-weight-normal">1 - Private Office In Dadeland -
                                             $500</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="2 - Private Office In Kendall - $250" id="opt14">
+                                               value="2 - Private Office In Kendall - $250" id="opt14">
                                         <label for="opt14" class="font-weight-normal">2 - Private Office In Kendall -
                                             $250</label>
                                     </div>
@@ -158,14 +164,14 @@
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]" value="1 - kvCORE Property Boosts"
-                                            id="opt15">
+                                               id="opt15">
                                         <label for="opt15" class="font-weight-normal">1 - kvCORE Property
                                             Boosts</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="2 - Loopnet Advertising for Listings on Company Account"
-                                            id="opt16">
+                                               value="2 - Loopnet Advertising for Listings on Company Account"
+                                               id="opt16">
                                         <label for="opt16" class="font-weight-normal">2 - Loopnet Advertising for
                                             Listings on Company Account</label>
                                     </div>
@@ -174,17 +180,24 @@
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="1 - Luxury Presence Agent Website - Set Up Fee" id="opt17">
+                                               value="1 - Luxury Presence Agent Website - Set Up Fee" id="opt17">
                                         <label for="opt17" class="font-weight-normal">1 - Luxury Presence Agent Website
                                             - Set Up Fee</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                            value="2 - Buzz Cube - Graphic Design & Web Development - https://www.buzzcube.io/"
-                                            id="opt18">
+                                               value="2 - Buzz Cube - Graphic Design & Web Development - https://www.buzzcube.io/"
+                                               id="opt18">
                                         <label for="opt18" class="font-weight-normal">2 - Buzz Cube - Graphic Design &
                                             Web Development - <a href="https://www.buzzcube.io/"
-                                                target="_blank">https://www.buzzcube.io</a></label>
+                                                                 target="_blank">https://www.buzzcube.io</a></label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]"
+                                               value="3 - Haute Living Agent Advertisement"
+                                               id="opt19">
+                                        <label for="opt19" class="font-weight-normal">3 - Haute Living Agent
+                                            Advertisement</label>
                                     </div>
                                     {{-- <div>
                                         <input type="checkbox" name="options[]"
@@ -258,9 +271,9 @@
         </div>
     </div>
     <script>
-        function displayTextarea() {
+        function displayTextarea () {
             var checkbox = $('#opt7')
-            if (checkbox.is(":checked")) {
+            if (checkbox.is(':checked')) {
                 $('#textarea').css('display', 'block')
             } else {
                 $('#textarea').css('display', 'none')

@@ -16,7 +16,7 @@ class BrokerSumoController extends Controller
     {
         // $this->updateAgentsTransactions();
         // $results = DB::select(DB::raw("SELECT * FROM agents_transactions
-        // INNER JOIN (SELECT agent_name, MAX(total_points) AS Maxtotal_points FROM agents_transactions GROUP BY agent_name) 
+        // INNER JOIN (SELECT agent_name, MAX(total_points) AS Maxtotal_points FROM agents_transactions GROUP BY agent_name)
         // toptotal_points ON agents_transactions.agent_name = toptotal_points.agent_name
         // AND agents_transactions.total_points = toptotal_points.maxtotal_points
         // ORDER BY total_points DESC"));
@@ -77,9 +77,9 @@ class BrokerSumoController extends Controller
         $separatorsCountToBeErased = strlen($cleanString) - strlen($onlyNumbersString) - 1;
 
         $stringWithCommaOrDot = preg_replace('/([,\.])/', '', $cleanString, $separatorsCountToBeErased);
-        $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
+        $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '', $stringWithCommaOrDot);
 
-        return (float) str_replace(',', '.', $removedThousandSeparator);
+        return (float)str_replace(',', '.', $removedThousandSeparator);
     }
 
     public function leaderboard_sales()
@@ -104,7 +104,7 @@ class BrokerSumoController extends Controller
     {
         try {
             $brokersumos = $this->zoho_get_brokersumo_data();
-            return  $brokersumos;
+            return $brokersumos;
             $startdate = date('Y-m-d', strtotime("1 Jan 2000"));
             $enddate = date('Y-m-d');
             if (!empty($brokersumos)) {
@@ -216,9 +216,9 @@ class BrokerSumoController extends Controller
             'grant_type' => 'refresh_token'
         );
         $content = $json_data_array;
-        $url     = 'https://accounts.zoho.com/oauth/v2/token';
+        $url = 'https://accounts.zoho.com/oauth/v2/token';
         $status1 = $this->post_api_data($url, $content);
-        $response      = json_decode($status1, true);
+        $response = json_decode($status1, true);
 
         return $response;
     }
@@ -242,7 +242,7 @@ class BrokerSumoController extends Controller
 
     function search_brokersumo_user_by_full_name($display_name, $current_gross, $status, $types, $total_amounts)
     {
-        $user_data = AgentTransaction::where('agent_name',  $display_name)->first();
+        $user_data = AgentTransaction::where('agent_name', $display_name)->first();
 
         if ($user_data) {
             $total_pointsa = $user_data['total_points'];
@@ -304,5 +304,11 @@ class BrokerSumoController extends Controller
         } else {
             return 'no';
         }
+    }
+
+    public function destroy()
+    {
+        BrokersumoAgent::query()->delete();
+        return redirect()->back()->with('message', 'Success');
     }
 }

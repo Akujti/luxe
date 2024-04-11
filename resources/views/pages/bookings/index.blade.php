@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                             <input name="room_id" id="room_id" class="form-control" type="hidden"
-                                value="{{ $room->id }}" required>
+                                   value="{{ $room->id }}" required>
                             <input type="hidden" id="start" name="start" class="form-control">
                             <input type="hidden" id="end" name="end" class="form-control">
                         </div>
@@ -130,28 +130,28 @@
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="title" name="title" class="w-100 form-control" required
-                                            disabled>
+                                               disabled>
                                     </div>
                                 </div>
                                 <div class="">
                                     <label for="start">{{ __('Name') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="name" name="name" class="w-100 form-control" required
-                                            disabled>
+                                               disabled>
                                     </div>
                                 </div>
                                 <div class="">
                                     <label for="start">{{ __('Email') }}</label>
                                     <div class='input-group date'>
                                         <input type="email" id="email" name="email" class="w-100 form-control" required
-                                            disabled>
+                                               disabled>
                                     </div>
                                 </div>
                                 <div class="mt-1">
                                     <label for="start">{{ __('Phone') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="phone" name="phone" class="w-100 form-control" required
-                                            disabled>
+                                               disabled>
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                             @if (Auth::user()->isAdmin)
                                 <div class="modal-footer d-flex">
                                     <button type="submit" class="btn btn-danger" id="delete_booking"
-                                        onclick="return confirm('Are you sure you want to delete this booking?');">
+                                            onclick="return confirm('Are you sure you want to delete this booking?');">
                                         Delete
                                     </button>
                                 </div>
@@ -174,33 +174,25 @@
 @endsection
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let auth = false;
+    document.addEventListener('DOMContentLoaded', function () {
+        let auth = false
         @auth()
-            auth = true;
+            auth = true
         @endauth
         const room_id = {{ $room->id }};
-        let hours = [];
+        let hours = []
         if (room_id === 1) {
             hours = [{
-                daysOfWeek: [2, 3, 4, 5],
+                daysOfWeek: [1, 2, 3, 4, 5],
                 startTime: '09:00',
                 endTime: '17:00'
-            }, {
-                daysOfWeek: [1],
-                startTime: '09:00',
-                endTime: '11:00'
-            }, {
-                daysOfWeek: [1],
-                startTime: '15:00',
-                endTime: '17:00'
-            }, ];
+            }]
         } else if (room_id === 2) {
             hours = [{
-                    daysOfWeek: [1, 2, 3, 5],
-                    startTime: '09:00',
-                    endTime: '17:00'
-                },
+                daysOfWeek: [1, 2, 3, 5],
+                startTime: '09:00',
+                endTime: '17:00'
+            },
                 {
                     daysOfWeek: [4],
                     startTime: '09:00',
@@ -211,13 +203,13 @@
                     startTime: '14:00',
                     endTime: '17:00'
                 }
-            ];
+            ]
         } else if (room_id === 3) {
             hours = [{
                 daysOfWeek: [1, 2, 3, 4, 5],
                 startTime: '09:00',
                 endTime: '17:00'
-            }];
+            }]
         } else if (room_id === 4) {
             hours = [{
                 daysOfWeek: [1, 3, 4, 5],
@@ -231,44 +223,44 @@
                 daysOfWeek: [2],
                 startTime: '14:00',
                 endTime: '17:00'
-            }];
+            }]
         } else {
             hours = [{
                 daysOfWeek: [1, 2, 3, 4, 5],
                 startTime: '09:00',
                 endTime: '17:00'
-            }];
+            }]
         }
         const data = @json($bookings);
-        var calendarEl = document.getElementById('calendar');
+        var calendarEl = document.getElementById('calendar')
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            select: function(start, end, allDay, jsEvent, view) {
-                $('.create-booking').modal('show');
-                $('#start').val(start.startStr);
-                $('#end').val(start.endStr);
+            select: function (start, end, allDay, jsEvent, view) {
+                $('.create-booking').modal('show')
+                $('#start').val(start.startStr)
+                $('#end').val(start.endStr)
             },
-            eventClick: function(event, element) {
+            eventClick: function (event, element) {
                 if (auth) {
-                    var booking = event.event;
+                    var booking = event.event
                     console.log(event)
-                    console.log(booking._def.publicId);
+                    console.log(booking._def.publicId)
                     // Display the modal and set the values to the booking values.
-                    $('.single-booking').modal('show');
-                    $('.single-booking').find('#booking_id').val(booking._def.publicId);
+                    $('.single-booking').modal('show')
+                    $('.single-booking').find('#booking_id').val(booking._def.publicId)
                     // $('.single-booking').find('#name').val(booking.name);
-                    $('.single-booking').find('#name').val(booking.extendedProps.name);
-                    $('.single-booking').find('#title').val(booking.title);
-                    $('.single-booking').find('#room_id').val(booking.extendedProps.room_id);
-                    $('.single-booking').find('#email').val(booking.extendedProps.email);
-                    $('.single-booking').find('#phone').val(booking.extendedProps.phone);
-                    $('.single-booking').find('.modal-footer').css('display', 'none');
+                    $('.single-booking').find('#name').val(booking.extendedProps.name)
+                    $('.single-booking').find('#title').val(booking.title)
+                    $('.single-booking').find('#room_id').val(booking.extendedProps.room_id)
+                    $('.single-booking').find('#email').val(booking.extendedProps.email)
+                    $('.single-booking').find('#phone').val(booking.extendedProps.phone)
+                    $('.single-booking').find('.modal-footer').css('display', 'none')
                 }
                 {{-- if (booking.extendedProps.user_id == {{Auth::id()}}) { --}}
                 {{-- $('.single-booking').find('.modal-footer').css('display', 'flex'); --}}
                 {{-- } --}}
             },
             businessHours: hours,
-            selectConstraint: "businessHours",
+            selectConstraint: 'businessHours',
             initialView: 'timeGridWeek',
             selectable: true,
             events: data,
@@ -276,17 +268,17 @@
             weekends: false,
             slotMinTime: '09:00:00',
             slotMaxTime: '17:00:00',
-            selectAllow: function(selectInfo) {
-                var duration = moment.duration(selectInfo.end - selectInfo.start);
-                return duration.asHours() <= 1;
+            selectAllow: function (selectInfo) {
+                var duration = moment.duration(selectInfo.end - selectInfo.start)
+                return duration.asHours() <= 1
             },
             // slotDuration: 60,
-            selectOverlap: function(event) {
-                return event.rendering === 'background';
+            selectOverlap: function (event) {
+                return event.rendering === 'background'
             },
             defaultTimedEventDuration: '01:00'
-        });
-        calendar.render();
+        })
+        calendar.render()
         // if (room_id === 1) {
         //     $('.fc-timegrid-event').addClass('bg-red');
         // } else if (room_id === 2) {
@@ -300,8 +292,8 @@
         //     $('.fc-event-main').css('color', 'black');
         // }
         @guest()
-            $('.fc-event-title').text("RESERVED");
+        $('.fc-event-title').text('RESERVED')
         @endguest
-        $('.fc-non-business').text("RESERVED");
-    });
+        $('.fc-non-business').text('RESERVED')
+    })
 </script>

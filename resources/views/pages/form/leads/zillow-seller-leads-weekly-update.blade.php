@@ -20,19 +20,20 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                    value="{{ auth()->user()->profile->fullname }}" required>
+                                       value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                    value="{{ auth()->user()->email }}" required>
+                                       value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Number of <b>Total</b> FULLY executed <b>Zillow</b> Listings. Sorry to
-                                    capitalize fully but we have had some confusion on agents as to what a fully executed
+                                    capitalize fully but we have had some confusion on agents as to what a fully
+                                    executed
                                     listing agreement is?</label>
                                 <select name="number_of_fully_executed_listings" class="form-control" required
-                                    id="">
+                                        id="">
                                     <option value>-</option>
                                     <option value="0">0</option>
                                     <option value="1">1</option>
@@ -70,13 +71,15 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Please list the addresses of the fully executed Zillow Listings along
                                     with the Seller Name as it appears on Zillow</label>
-                                <textarea name="list_the_addresses_of_fully_executed_zillows_listings_along_with_the_seller_name" class="form-control"
+                                <textarea
+                                    name="list_the_addresses_of_fully_executed_zillows_listings_along_with_the_seller_name"
+                                    class="form-control"
                                     required></textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Were any of the contracts above executed in the last 7 days?</label>
                                 <select name="were_any_of_the_contracts_above_executed_in_the_last_7_days"
-                                    class="form-control" required>
+                                        class="form-control" required>
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -85,7 +88,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Have you cancelled any Zillow listings in the past 7 days?</label>
                                 <select name="have_you_cancelled_any_zillow_listings_in_the_past_7_days"
-                                    class="form-control" required>
+                                        class="form-control" required>
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -101,7 +104,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Do you need to be paused and/or remain paused?</label>
-                                <select name="do_you_need_to_be_paused_and_or_remain_paused" class="form-control" required>
+                                <select name="do_you_need_to_be_paused_and_or_remain_paused" class="form-control"
+                                        required>
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -110,8 +114,9 @@
                             <div class="form-group col-md-6">
                                 <label for="name">In the past 7 days, have you met with any Zillow Sellers?</label>
                                 <br><br>
-                                <select id="showDivSelect" name="in_the_past_7_days_have_you_met_with_any_zillow_sellers"
-                                    class="form-control" required>
+                                <select id="showDivSelect"
+                                        name="in_the_past_7_days_have_you_met_with_any_zillow_sellers"
+                                        class="form-control" required>
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -119,14 +124,15 @@
                             </div>
                             <div id="zillowDiv" class="d-none form-group col-md-6">
                                 <label for="name">Please list names as shown on Zillow CRM</label>
-                                <textarea name="list_names_as_shown_on_zillow_crm" class="form-control" rows="4"></textarea>
+                                <textarea name="list_names_as_shown_on_zillow_crm" class="form-control"
+                                          rows="4"></textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Do you have any listing appointments with Zillow Sellers scheduled
                                     for the next 7 days?</label>
                                 <select id="listing_appointments_select"
-                                    name="do_you_have_any_listing_appointments_with_zillow_sellers_scheduled_for_the_next_7_days"
-                                    class="form-control" required>
+                                        name="do_you_have_any_listing_appointments_with_zillow_sellers_scheduled_for_the_next_7_days"
+                                        class="form-control" required>
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -135,7 +141,13 @@
                             <div id="listing_appointments_div" class="d-none form-group col-md-6">
                                 <label for="name">Please list names as shown on Zillow CRM and date of
                                     appointment</label>
-                                <textarea name="list_names_as_shown_on_zillow_crm_and_date_of_appointment" class="form-control" rows="4"></textarea>
+                                <textarea name="list_names_as_shown_on_zillow_crm_and_date_of_appointment"
+                                          class="form-control" rows="4"></textarea>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Current FUB points for last 30 days</label>
+                                <input type="number" class="form-control" required
+                                       name="current_FUB_points_for_last_30_days">
                             </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
@@ -156,39 +168,39 @@
         </div>
     </div>
     <script>
-        $(document).ready(function() {
-            $('#listing_appointments_select').on('change', function() {
-                console.log($(`input[name="list_names_as_shown_on_zillow_crm"]`));
-                var selectedValue = $(this).val();
+        $(document).ready(function () {
+            $('#listing_appointments_select').on('change', function () {
+                console.log($(`input[name="list_names_as_shown_on_zillow_crm"]`))
+                var selectedValue = $(this).val()
                 if (selectedValue === 'Yes') {
-                    $('#listing_appointments_div').removeClass('d-none');
+                    $('#listing_appointments_div').removeClass('d-none')
                     $(`textarea[name="list_names_as_shown_on_zillow_crm_and_date_of_appointment"]`).attr(
                         'required', true)
                 } else {
-                    $('#listing_appointments_div').addClass('d-none');
+                    $('#listing_appointments_div').addClass('d-none')
                     $('textarea[name="list_names_as_shown_on_zillow_crm_and_date_of_appointment"]').attr(
                         'required', false)
                 }
-            });
+            })
 
-            $('#showDivSelect').on('change', function() {
-                var selectedValue = $(this).val();
+            $('#showDivSelect').on('change', function () {
+                var selectedValue = $(this).val()
                 if (selectedValue === 'Yes') {
-                    $('#zillowDiv').removeClass('d-none');
+                    $('#zillowDiv').removeClass('d-none')
                     $(`textarea[name="list_names_as_shown_on_zillow_crm"]`).attr('required', true)
                 } else {
-                    $('#zillowDiv').addClass('d-none');
-                    $(`textarea[name="list_names_as_shown_on_zillow_crm"]`).attr('required', false);
+                    $('#zillowDiv').addClass('d-none')
+                    $(`textarea[name="list_names_as_shown_on_zillow_crm"]`).attr('required', false)
                 }
-            });
+            })
 
-        });
+        })
 
-        function createCsv() {
+        function createCsv () {
             $('#csv').submit()
         }
 
-        function deleteSubmissions() {
+        function deleteSubmissions () {
             if (confirm('Are you sure, you want to delete all submissions for this form?'))
                 $('#deleteSubmissions').submit()
         }

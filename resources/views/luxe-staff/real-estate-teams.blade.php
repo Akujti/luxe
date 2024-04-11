@@ -55,7 +55,8 @@
                 <p class="staff-email">E: <a href="mailto:nina@luxeknows.com">nina@luxeknows.com</a></p>
             </div> --}}
             <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/mcc.jpg') }}" class="staff-image" style="object-position: top;">
+                <img src="{{ asset('images/real-estate/mcc.jpg') }}"
+                     class="staff-image" style="object-fit:contain">
                 <p class="staff-name">Miami Casa Collective</p>
                 <p class="staff-role">Team Leader: Melissa Concepcion</p>
                 <p class="staff-email">D: <a href="tel:305.965.3727">305.965.3727</a></p>
@@ -88,7 +89,8 @@
                 <p class="staff-name">The Calderin Estates</p>
                 <p class="staff-role">Team Leader: Zuly Calderin</p>
                 <p class="staff-email">D: <a href="tel:786.717.4706">786.717.4706</a></p>
-                <p class="staff-email">E: <a href="mailto:zulycalderinrealtor@gmail.com">zulycalderinrealtor@gmail.com</a>
+                <p class="staff-email">E: <a
+                        href="mailto:zulycalderinrealtor@gmail.com">zulycalderinrealtor@gmail.com</a>
                 </p>
             </div>
             <div class="col-md-6 staff-box">
@@ -118,14 +120,14 @@
                 <img src="{{ asset('images/real-estate/premier.jpeg') }}" class="staff-image">
                 <p class="staff-name">Premier Luxe Group</p>
                 <p class="staff-role">Team Leader: Sergio Martins</p>
-                <p class="staff-email">D: <a href="tel:7864878527">786.487.8527</a> </p>
+                <p class="staff-email">D: <a href="tel:7864878527">786.487.8527</a></p>
                 <p class="staff-email">E: <a href="mailto:s.martins@luxeknows.com">s.martins@luxeknows.com</a></p>
             </div>
             <div class="col-md-6 staff-box">
                 <img src="{{ asset('images/real-estate/ssm.jpg') }}" class="staff-image">
                 <p class="staff-name">SamSellsMiami Group</p>
                 <p class="staff-role">Team Leader: Samuel Juarez</p>
-                <p class="staff-email">D: <a href="tel:7862224176">786.222.4176</a> </p>
+                <p class="staff-email">D: <a href="tel:7862224176">786.222.4176</a></p>
                 <p class="staff-email">E: <a href="mailto:sam@samsellsmiami.com">sam@samsellsmiami.com</a></p>
             </div>
         </div>

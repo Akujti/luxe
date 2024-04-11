@@ -42,17 +42,23 @@
         <div class="card-title text-center">
             <h1>Seller Team</h1>
         </div>
-        <div class="grid grid-layout-two">
+        <div class="grid grid-layout-three">
             <div class="box-item">
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'join-zillow-seller-team']) }}"
-                        class="">Join Zillow Seller Team</a>
+                       class="">Join Zillow Seller Team</a>
                 </p>
             </div>
             <div class="box-item">
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-seller-leads-weekly-update']) }}"
-                        class="">Zillow Seller Leads Weekly Update</a>
+                       class="">Zillow Seller Leads Weekly Update</a>
+                </p>
+            </div>
+            <div class="box-item">
+                <p>
+                    <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'submit-zillow-listing-agreement']) }}"
+                       class="">Submit A Zillow Listing Agreement</a>
                 </p>
             </div>
         </div>

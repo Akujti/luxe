@@ -10,7 +10,7 @@
                     </div>
                 @endif
 
-                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')" />
+                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')"/>
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
                     <div class="card-header">
@@ -29,17 +29,17 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                    value="{{ auth()->user()->profile->fullname }}" required>
+                                       value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                    value="{{ auth()->user()->email }}" required>
+                                       value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Which team do you belong to?</label>
                                 <select name="which_team_do_you_belong_to" class="form-control" required
-                                    onchange="setTeamEmail(this)">
+                                        onchange="setTeamEmail(this)">
                                     <option value>-</option>
                                     <option value="Team Flex">Team Flex</option>
                                     <option value="Team Dade">Team Dade</option>
@@ -48,10 +48,11 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Number of <b>Total</b> FULLY executed <b>Zillow</b> contracts. Sorry
                                     to
-                                    capitalize fully but we have had some confusion on agents as to what a fully executed
+                                    capitalize fully but we have had some confusion on agents as to what a fully
+                                    executed
                                     contract is?</label>
                                 <select name="number_of_fully_executed_contracts" class="form-control" required
-                                    id="">
+                                        id="">
                                     <option value>-</option>
                                     <option value="0">0</option>
                                     <option value="1">1</option>
@@ -91,7 +92,8 @@
                                     contracts
                                     along
                                     with the Buyer Name as it appears on Zillow</label>
-                                <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3" class="form-control" required>-</textarea>
+                                <textarea name="addresses_of_the_fully_executed_contracts" id="" rows="3"
+                                          class="form-control" required>-</textarea>
                             </div>
                             {{-- <div class="form-group col-md-6">
                             <label for="name">Number of offers outstanding awaiting a response from seller, listing
@@ -135,7 +137,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Were any of the contracts above executed in the last 7 days?</label>
                                 <select name="were_any_of_the_contracts_above_executed_in_the_last_7_days" required
-                                    class="form-control">
+                                        class="form-control">
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -144,27 +146,27 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Number of Signed Listing Agreements For Zillow Contacts</label>
                                 <input type="text" name="number_of_signed_listing_agreements_for_zillow_contacts"
-                                    required class="form-control" />
+                                       required class="form-control"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Address of Signed Listing Agreements For Zillow Contacts</label>
                                 <input type="text" name="address_of_signed_agreements_for_zillow_contacts" required
-                                    class="form-control" />
+                                       class="form-control"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Have you cancelled any Zillow contracts in the past 7 days?</label>
                                 <input type="text" name="have_you_cancalled_any_zillow_contract_in_the_past_7_days"
-                                    required class="form-control" />
+                                       required class="form-control"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Address of cancelled transaction</label>
                                 <input type="text" name="address_of_cancelled_transactions" required
-                                    class="form-control" />
+                                       class="form-control"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Were any of the listing agreements executed this week?</label>
                                 <select name="were_any_of_the_listing_agreements_executed_this_week" required
-                                    class="form-control">
+                                        class="form-control">
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -175,7 +177,7 @@
                                     to
                                     continue working with you?</label>
                                 <select name="number_of_active_buyers_you_have_shows_in_the_last_10_days"
-                                    class="form-control" required id="">
+                                        class="form-control" required id="">
                                     <option value>-</option>
                                     <option value="0">0</option>
                                     <option value="1">1</option>
@@ -255,7 +257,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Do you need to be paused and/or remain paused?</label>
                                 <select class="form-control" name="do_you_need_to_be_paused" required id="pausedToggle"
-                                    onchange="togglePausedSelect('pausedToggle')">
+                                        onchange="togglePausedSelect('pausedToggle')">
                                     <option value>-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -268,12 +270,17 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Clients referred to LUXE Lending for the week</label>
                                 <input type="text" class="form-control" required
-                                    name="clients_referred_to_LUXE_Lending_for_the_week">
+                                       name="clients_referred_to_LUXE_Lending_for_the_week">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Clients referred to Zillow Home Loans for the Week</label>
                                 <input type="text" class="form-control" required
-                                    name="clients_referred_to_zillow_home_loans_for_the_week">
+                                       name="clients_referred_to_zillow_home_loans_for_the_week">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Current FUB points for last 30 days</label>
+                                <input type="number" class="form-control" required
+                                       name="current_FUB_points_for_last_30_days">
                             </div>
 
 
@@ -297,7 +304,7 @@
     </div>
 
     <script>
-        function setTeamEmail(element) {
+        function setTeamEmail (element) {
             if (element.value == 'Team Flex') {
                 document.getElementById('team_email').value = 'ramee@luxeknows.com'
                 document.getElementById('team_email_2').value = 'asesoresmaster.op6@gmail.com'
@@ -307,22 +314,22 @@
             }
         }
 
-        function createCsv() {
+        function createCsv () {
             $('#csv').submit()
         }
 
-        function deleteSubmissions() {
+        function deleteSubmissions () {
             if (confirm('Are you sure, you want to delete all submissions for this form?'))
                 $('#deleteSubmissions').submit()
         }
 
-        function togglePausedSelect(select_id) {
-            var value = $('#' + select_id).val();
+        function togglePausedSelect (select_id) {
+            var value = $('#' + select_id).val()
             if (value == 'Yes') {
-                $('#reason_zillow_pause').attr('required', true);
+                $('#reason_zillow_pause').attr('required', true)
                 $('#paused_reason').removeClass('d-none')
             } else {
-                $('#reason_zillow_pause').attr('required', false);
+                $('#reason_zillow_pause').attr('required', false)
                 $('#paused_reason').addClass('d-none')
             }
         }
