@@ -40,7 +40,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="card-title text-center">
-            <h1>Buyer Team1</h1>
+            <h1>Buyer Team</h1>
         </div>
         <div class="grid grid-layout-three">
             <div class="box-item">
