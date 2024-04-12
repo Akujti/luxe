@@ -8,5 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class AppointmentAddress extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'email'];
+
+    protected $fillable = [
+        'title',
+        'email',
+        'price',
+        'beds',
+        'baths',
+        'agent_name',
+        'image',
+    ];
+
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute()
+    {
+        if ($this->image)
+            return asset('storage/' . $this->image);
+        return asset('images/image-coming-soon-placeholder.png');
+    }
 }

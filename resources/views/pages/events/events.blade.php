@@ -116,6 +116,22 @@
                     <h1>LUXE Events</h1>
                     <a class="btn btn-luxe" href="{{ route('my.events') }}">My Events</a>
                 </div>
+                {{--                <div class="grid grid-layout-two">--}}
+                {{--                    <div class="box-item box-grid-item box-item-end"--}}
+                {{--                         style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset('storage/' ) }})"--}}
+                {{--                         onclick="window.location = 'google.com'">--}}
+                {{--                        <div>--}}
+                {{--                            <p class="text-white">Next Event</p>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                    <div class="box-item box-grid-item box-item-end"--}}
+                {{--                         style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset('storage/' ) }})"--}}
+                {{--                         onclick="window.location = 'google.com'">--}}
+                {{--                        <div>--}}
+                {{--                            <p class="text-white">Next Event</p>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
             <div class="col-md-3">
                 <!-- <div class="d-md-flex align-items-center">

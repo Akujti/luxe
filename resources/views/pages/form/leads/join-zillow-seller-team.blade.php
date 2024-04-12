@@ -192,6 +192,13 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Please provide a sample listing agreement for 415 Aledo Ave, Coral
+                                    Gables, FL 33134</label>
+                                <input type="file"
+                                       name="sample_listing_agreement_for_415_Aledo_Ave_Coral_Gables"
+                                       class="form-control p-1" required>
+                            </div>
                             <div class="col-12">
                                 <label for="name">Please list the addresses of the listings you listed and have closed
                                     in the past 12 months.</label>

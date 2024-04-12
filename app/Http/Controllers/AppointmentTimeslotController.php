@@ -22,7 +22,7 @@ class AppointmentTimeslotController extends Controller
 
     public function all(Request $request)
     {
-        $ids = Appointment::where('date', $request->date)->get()->pluck('appointment_timeslot_id');
+        $ids = Appointment::where('date', $request->date)->orWhere('date', $request->date)->get()->pluck('appointment_timeslot_id');
         return response()->json(['time_slots' => AppointmentTimeslot::whereNotIn('id', $ids)->get()]);
     }
 
@@ -40,7 +40,7 @@ class AppointmentTimeslotController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -51,7 +51,7 @@ class AppointmentTimeslotController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AppointmentTimeslot  $appointmentTimeslot
+     * @param \App\Models\AppointmentTimeslot $appointmentTimeslot
      * @return \Illuminate\Http\Response
      */
     public function show(AppointmentTimeslot $appointmentTimeslot)
@@ -62,7 +62,7 @@ class AppointmentTimeslotController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AppointmentTimeslot  $appointmentTimeslot
+     * @param \App\Models\AppointmentTimeslot $appointmentTimeslot
      * @return \Illuminate\Http\Response
      */
     public function edit(AppointmentTimeslot $appointmentTimeslot)
@@ -73,8 +73,8 @@ class AppointmentTimeslotController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AppointmentTimeslot  $appointmentTimeslot
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\AppointmentTimeslot $appointmentTimeslot
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, AppointmentTimeslot $appointmentTimeslot)
@@ -85,7 +85,7 @@ class AppointmentTimeslotController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AppointmentTimeslot  $appointmentTimeslot
+     * @param \App\Models\AppointmentTimeslot $appointmentTimeslot
      * @return \Illuminate\Http\Response
      */
     public function destroy(AppointmentTimeslot $appointmentTimeslot)

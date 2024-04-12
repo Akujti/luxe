@@ -148,6 +148,7 @@ return array(
     'App\\Mail\\FormMail' => $baseDir . '/app/Mail/FormMail.php',
     'App\\Mail\\GeneralMailTemplate' => $baseDir . '/app/Mail/GeneralMailTemplate.php',
     'App\\Mail\\MarketingRequestMail' => $baseDir . '/app/Mail/MarketingRequestMail.php',
+    'App\\Mail\\NewOrderCreated' => $baseDir . '/app/Mail/NewOrderCreated.php',
     'App\\Mail\\NotifyStatusNotCompleted' => $baseDir . '/app/Mail/NotifyStatusNotCompleted.php',
     'App\\Mail\\NotifyStatusTest' => $baseDir . '/app/Mail/NotifyStatusTest.php',
     'App\\Mail\\OrderCompleted' => $baseDir . '/app/Mail/OrderCompleted.php',

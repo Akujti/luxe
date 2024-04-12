@@ -66,22 +66,28 @@ class BookingController extends Controller
 
             switch ($request->room_id) {
                 case 1:
-                    $mails = ['support@luxeknows.com', 'email@luxeknows.com', 'operations@luxeknows.com', 'ctginfo@ceperolaw.com', 'dcepero@ceperolaw.com'];
+                    $mails = ['accounting@luxeknows.com', 'email@luxeknows.com', 'jorgef@luxeknows.com', 'ctginfo@ceperolaw.com', 'dcepero@ceperolaw.com'];
                     break;
                 case 2:
-                    $mails = ['denisse@luxeknows.com', 'email@luxeknows.com', 'support@luxeknows.com'];
+                    $mails = ['denisse@luxeknows.com', 'email@luxeknows.com', 'steven@luxeknows.com'];
                     break;
                 case 3:
                     $mails = ['bianca@luxeknows.com', 'designs@luxeknows.com', 'email@luxeknows.com'];
                     break;
                 case 4:
-                    $mails = ['yesenia@luxeknows.com', 'monica@luxeknows.com', 'email@luxeknows.com'];
+                    $mails = ['onboarding@luxeknows.com', 'trainings@luxeknows.com', 'jennifer@luxeknows.com', 'email@luxeknows.com'];
                     break;
                 case 5:
-                    $mails = ['email@luxeknows.com', 'carolina@luxeknows.com', 'operations@luxeknows.com'];
+                    $mails = ['email@luxeknows.com', 'carolina@luxeknows.com', 'gabrielas@luxeknows.com', 'zillowflex@luxeknows.com'];
                     break;
                 case 6:
-                    $mails = ['email@luxeknows.com', 'support@luxeknows.com'];
+                    $mails = ['email@luxeknows.com', 'dkp@luxeknows.com'];
+                    break;
+                case 7:
+                    $mails = ['justink@luxeknows.com', 'email@luxeknows.com'];
+                    break;
+                case 8:
+                    $mails = ['katherine@investinsouthfl.com', 'email@luxeknows.com'];
                     break;
                 default:
                     $mails = ['support@luxeknows.com'];

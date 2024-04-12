@@ -4,14 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\AppointmentAddress;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class AppointmentAddressController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $addresses = AppointmentAddress::get();
@@ -23,28 +21,37 @@ class AppointmentAddressController extends Controller
         return response()->json(AppointmentAddress::get());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required|string',
             'email' => 'required|email',
+            'beds' => 'nullable|string',
+            'baths' => 'nullable|string',
+            'agent_name' => 'nullable|string',
+            'image' => 'nullable|image',
         ]);
-        AppointmentAddress::create(['title' => $request->title, 'email' => $request->email]);
+        $path = null;
+        if ($request->image) {
+            $img = Image::make($request->image)->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode('jpg', 80);
+            $name = time() . Str::random(10) . '.jpg';
+            $path = 'open-house/' . $name;
+            Storage::disk('public')->put($path, (string)$img->encode());
+        }
+        AppointmentAddress::create([
+            'title' => $request->title,
+            'email' => $request->email,
+            'price' => $request->price,
+            'beds' => $request->beds,
+            'baths' => $request->baths,
+            'agent_name' => $request->agent_name,
+            'image' => $path
+        ]);
         return back()->with('message', 'Address Created');
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AppointmentAddress  $appointmentAddress
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, AppointmentAddress $appointmentAddress)
     {
         $request->validate([
@@ -55,12 +62,6 @@ class AppointmentAddressController extends Controller
         return back()->with('message', 'Address Updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\AppointmentAddress  $appointmentAddress
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(AppointmentAddress $appointmentAddress)
     {
         $appointmentAddress->delete();

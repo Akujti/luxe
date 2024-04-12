@@ -14,6 +14,7 @@ use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -24,7 +25,8 @@ class TestController extends Controller
 {
     public function index()
     {
-        return $a = Auth::loginUsingId(149);
+        if (App::environment('local'))
+            return $a = Auth::loginUsingId(149);
     }
 
     public function update_vimeo()

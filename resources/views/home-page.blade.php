@@ -175,166 +175,165 @@
 @endsection
 @section('content')
     <div class="container-fluid">
-        @if (auth()->user()->role == 'agent' && !isset($_GET['dir']))
-            <div class="col-12 title mb-3">
-                <h1>WELCOME TO MYLUXEHUB</h1>
-            </div>
+        <div class="col-12 title mb-3">
+            <h1>WELCOME TO MYLUXEHUB</h1>
+        </div>
 
-            <div class="row p-0 m-0 mb-6 mt-4">
-                <div class="col-12 col-lg-5 mt-3 agent-logs">
-                    <x-brokersumo-tiers :user="auth()->user()" :row="true"/>
-                </div>
-                <div class="col-12 col-lg-4 mt-3 agent-logs">
-                    <div class="w-100">
-                        <div class="form-group">
-                            <label for="">Branch Manager</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control p-2"
-                                       value="{{ auth()->user()->profile->support_specialist_name }}" readonly>
-                            </div>
+        <div class="row p-0 m-0 mb-6 mt-4">
+            <div class="col-12 col-lg-5 mt-3 agent-logs">
+                <x-brokersumo-tiers :user="auth()->user()" :row="true"/>
+            </div>
+            <div class="col-12 col-lg-4 mt-3 agent-logs">
+                <div class="w-100">
+                    <div class="form-group">
+                        <label for="">Branch Manager</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control p-2"
+                                   value="{{ auth()->user()->profile->support_specialist_name }}" readonly>
                         </div>
                     </div>
-                    <div class="w-100">
-                        <div class="form-group">
-                            <label for="">Loan Officer</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control p-2"
-                                       value="{{ auth()->user()->profile->loan_officer_name }}" readonly>
-                            </div>
+                </div>
+                <div class="w-100">
+                    <div class="form-group">
+                        <label for="">Loan Officer</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control p-2"
+                                   value="{{ auth()->user()->profile->loan_officer_name }}" readonly>
+                        </div>
+                        <div>
+                            <a href="https://cal.com/luxeproperties/ana-g.-contract-specialist-1-on-1"
+                               class="btn btn-luxe mt-2" target="_blank">Get Contract Help</a>
+                            <a href="https://cal.com/luxeproperties" class="btn btn-luxe mt-2" target="_blank">Book
+                                A Marketing Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 mt-3 agent-logs">
+                <div class="w-100" style="cursor: pointer">
+                    <label for="">&nbsp;</label>
+                    <a href="/leaderboard/sales"
+                       class="btn btn-luxe d-flex align-items-center w-100"
+                       target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                             class="bi bi-trophy" viewBox="0 0 16 16">
+                            <path
+                                d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935M3.504 1q.01.775.056 1.469c.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.5.5 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667q.045-.694.056-1.469z"/>
+                        </svg>
+                        <span class="ml-3">View Leaderboard</span>
+                    </a>
+                    <a href="https://myluxehub.com/storage/files/171051148701rwFvMwnr.pdf"
+                       class="btn btn-luxe mt-2 d-flex align-items-center"
+                       target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                             class="bi bi-question-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path
+                                d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+                        </svg>
+                        <span class="ml-3">LUXE FAQ</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="mb-2 log-title">
+                    News Feed
+                </div>
+                <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
+                    <div class="border rounded p-2 w-100" style="border-color: #F7F7F7;">
+                        @php
+                            $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
+                        @endphp
+                        @if ($news_feed)
+                            {!! $news_feed->text !!}
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="mb-2 log-title">
+                    Office Requests
+                </div>
+                <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                    <div class="row m-0 logs w-100">
+                        @forelse(auth()->user()->load(['form_submits'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->form_submits->take(3) as $form_submit)
                             <div>
-                                <a href="https://cal.com/luxeproperties/ana-g.-contract-specialist-1-on-1"
-                                   class="btn btn-luxe mt-2" target="_blank">Get Contract Help</a>
-                                <a href="https://cal.com/luxeproperties" class="btn btn-luxe mt-2" target="_blank">Book
-                                    A Marketing Appointment</a>
+                                <span>{{ $form_submit->form_title }}&nbsp;</span>-
+                                {{ $form_submit->created_at->diffForHumans() }}
+                                - {{ $form_submit->status ? 'Completed' : 'Pending' }}
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-3 mt-3 agent-logs">
-                    <div class="w-100" style="cursor: pointer">
-                        <label for="">&nbsp;</label>
-                        <a href="/leaderboard/sales"
-                           class="btn btn-luxe d-flex align-items-center w-100"
-                           target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                 class="bi bi-trophy" viewBox="0 0 16 16">
-                                <path
-                                    d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935M3.504 1q.01.775.056 1.469c.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.5.5 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667q.045-.694.056-1.469z"/>
-                            </svg>
-                            <span class="ml-3">View Leaderboard</span>
-                        </a>
-                        <a href="https://myluxehub.com/storage/files/171051148701rwFvMwnr.pdf"
-                           class="btn btn-luxe mt-2 d-flex align-items-center"
-                           target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                 class="bi bi-question-circle" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                                <path
-                                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
-                            </svg>
-                            <span class="ml-3">LUXE FAQ</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12 mb-3">
-                    <div class="mb-2 log-title">
-                        News Feed
-                    </div>
-                    <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
-                        <div class="border rounded p-2 w-100" style="border-color: #F7F7F7;">
-                            @php
-                                $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
-                            @endphp
-                            @if ($news_feed)
-                                {!! $news_feed->text !!}
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="mb-2 log-title">
-                        Office Requests
-                    </div>
-                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
-                        <div class="row m-0 logs w-100">
-                            @forelse(auth()->user()->load(['form_submits'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->form_submits->take(3) as $form_submit)
-                                <div>
-                                    <span>{{ $form_submit->form_title }}&nbsp;</span>-
-                                    {{ $form_submit->created_at->diffForHumans() }}
-                                    - {{ $form_submit->status ? 'Completed' : 'Pending' }}
-                                </div>
-                            @empty
-                                <div class="w-100">
-                                    No form submissions found.
-                                </div>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="log-title mb-2">
-                        Marketing Requests
-                    </div>
-                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
-                        <div class="row m-0 logs">
-
-                            @forelse(auth()->user()->load(['template_submits'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->template_submits->take(3) as $template_submit)
-                                <div>
-                                    <span>{{ json_decode($template_submit->details, true)['template'] }}&nbsp;</span>-
-                                    {{ $template_submit->created_at->diffForHumans() }} -
-                                    {{ $template_submit->status ? 'Completed' : 'Pending' }}
-                                </div>
-                            @empty
-                                <div>
-                                    No marketing request submissions found.
-                                </div>
-                            @endforelse
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 mt-2">
-                    <div class="mb-2 log-title">
-                        Orders
-                    </div>
-                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
-                        <div class="row m-0 logs">
-                            @forelse(auth()->user()->load(['orders'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->orders->take(3) as $order)
-                                <div>
-                                    <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
-                                    - {{ $order->status }}
-                                </div>
-                            @empty
-                                <div>
-                                    No orders found.
-                                </div>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 mt-2">
-                    <div class="log-title mb-2">
-                        Attending Events
-                    </div>
-                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
-                        <div class="row m-0 logs">
-
-                            @forelse(auth()->user()->load(['attending_events'=>function($q){$q->where('events.date','>=',now());}])->attending_events->take(3) as $attend_event)
-                                <div>
-                                    <span>{{ $attend_event->title }}&nbsp;</span>-
-                                    {{ \Carbon\Carbon::parse($attend_event->date)->diffForHumans() }}
-                                </div>
-                            @empty
-                                <div>
-                                    No attending events found.
-                                </div>
-                            @endforelse
-                        </div>
-
+                        @empty
+                            <div class="w-100">
+                                No form submissions found.
+                            </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
-        @endif
+            <div class="col-12 col-lg-6">
+                <div class="log-title mb-2">
+                    Marketing Requests
+                </div>
+                <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                    <div class="row m-0 logs">
+
+                        @forelse(auth()->user()->load(['template_submits'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->template_submits->take(3) as $template_submit)
+                            <div>
+                                <span>{{ json_decode($template_submit->details, true)['template'] }}&nbsp;</span>-
+                                {{ $template_submit->created_at->diffForHumans() }} -
+                                {{ $template_submit->status ? 'Completed' : 'Pending' }}
+                            </div>
+                        @empty
+                            <div>
+                                No marketing request submissions found.
+                            </div>
+                        @endforelse
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mt-2">
+                <div class="mb-2 log-title">
+                    Orders
+                </div>
+                <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                    <div class="row m-0 logs">
+                        @forelse(auth()->user()->load(['orders'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->orders->take(3) as $order)
+                            <div>
+                                <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
+                                - {{ $order->status }}
+                            </div>
+                        @empty
+                            <div>
+                                No orders found.
+                            </div>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mt-2">
+                <div class="log-title mb-2">
+                    Attending Events
+                </div>
+                <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                    <div class="row m-0 logs">
+
+                        @forelse(auth()->user()->load(['attending_events'=>function($q){$q->where('events.date','>=',now());}])->attending_events->take(3) as $attend_event)
+                            <div>
+                                <span>{{ $attend_event->title }}&nbsp;</span>-
+                                {{ \Carbon\Carbon::parse($attend_event->date)->diffForHumans() }}
+                            </div>
+                        @empty
+                            <div>
+                                No attending events found.
+                            </div>
+                        @endforelse
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         @if (!isset($_GET['dir']))
             <div class="col-12 title my-3">
                 <h1>LUXE Services</h1>
@@ -891,6 +890,7 @@
 
 
 
+
                 @endforeach
                 </div>
 
@@ -973,6 +973,7 @@
 
 
 
+
                     @endforeach
                 @endforeach
                 </div>
@@ -980,6 +981,7 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
 
 
 

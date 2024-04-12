@@ -21,17 +21,15 @@
     </style>
 @endsection
 @section('content')
-    <style>
-    </style>
     <div class="container-fluid mb-5">
         <div class="col-12 title mb-3 text-center">
             <h1 class="font-weight-bold">Referral Partners</h1>
         </div>
         <div class="grid grid-layout">
             @foreach ($categories as $item)
-                <div class="box-item box-grid-item box-item-end "
-                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset('storage/' . $item->icon) }})"
-                    onclick="window.location = '{{ route('referral-partner-category.show', $item) }}'">
+                <div class="box-item box-grid-item box-item-end"
+                     style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset('storage/' . $item->icon) }})"
+                     onclick="window.location = '{{ route('referral-partner-category.show', $item) }}'">
                     <div>
                         <p>{{ $item->title }}</p>
                     </div>

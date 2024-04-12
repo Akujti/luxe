@@ -188,11 +188,12 @@
                 endTime: '17:00'
             }]
         } else if (room_id === 2) {
-            hours = [{
-                daysOfWeek: [1, 2, 3, 5],
-                startTime: '09:00',
-                endTime: '17:00'
-            },
+            hours = [
+                {
+                    daysOfWeek: [1, 2, 3, 5],
+                    startTime: '09:00',
+                    endTime: '17:00'
+                },
                 {
                     daysOfWeek: [4],
                     startTime: '09:00',
