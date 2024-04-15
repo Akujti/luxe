@@ -37,16 +37,18 @@
                             <td>{{++$loop->index}}</td>
                             <td>{{$address->title}}</td>
                             <td>{{$address->email}}</td>
-                            <td class="d-flex">
-                                <button class="btn btn-luxe mr-2" data-toggle="modal"
-                                        data-target="#editModal{{$address->id}}">Edit
-                                </button>
-                                <form action="{{route('appointment-addresses.destroy',$address)}}" method="POST"
-                                      onSubmit="return confirm('Are you sure you want to delete this address?');">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
+                            <td>
+                                <div class="d-flex">
+                                    <button class="btn btn-luxe mr-2" data-toggle="modal"
+                                            data-target="#editModal{{$address->id}}">Edit
+                                    </button>
+                                    <form action="{{route('appointment-addresses.destroy',$address)}}" method="POST"
+                                          onSubmit="return confirm('Are you sure you want to delete this address?');">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         <div id="editModal{{$address->id}}" class="modal fade modal-new" tabindex="-1" role="dialog">

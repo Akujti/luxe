@@ -30,10 +30,10 @@
                     @csrf
 
                     <div class="card-header">
-                        <h1 class="text-center my-4">Join Zillow</h1>
+                        <h1 class="text-center my-4">Join Zillow Buyer Team</h1>
                     </div>
 
-                    <input type="hidden" name="form_title" value="Join Zillow">
+                    <input type="hidden" name="form_title" value="Join Zillow Buyer Team">
                     <input type="hidden" name="form_verbiages_text" value="{{ $formInfo->email_verbiages_text }}">
                     <div class="card-body">
                         <div class="row">

@@ -232,14 +232,18 @@
                 <h5>Open House Sign-Up Policy </h5>
             </div>
             <div class="card-body">
-                <p>You will receive an email confirmation once you book an open house on the following page. The
-                    email confirmation only
-                    serves as a notification to you, listing agent, & staff that you have requested to host an
-                    open house.
+                <p>The LUXE Open House Sign-Up is composed of office listings, which your fellow agents have offered
+                    access for you to host. Open houses are a great way to get business and generate leads!
+                    <a href="https://myluxehub.com/user/videos/85">CLICK HERE</a> for our tutorial on how to
+                    successfully host an open house.
                 </p>
+                <p>If you’re on the fence about hosting an open house, give one a chance. You may be pleasantly
+                    surprised about what you find!🤩<br>
+                    You will receive an email confirmation once you book an open house on the following page. The email
+                    confirmation only serves as a notification to you, listing agent, & staff that you have requested to
+                    host an open house.</p>
                 <b>
-                    Your open house is not confirmed until you reach out to the listing agent for final
-                    approval.
+                    Your open house is not confirmed until you reach out to the listing agent for final approval.
                 </b>
                 <p>Listing agent will be the one to provide access instructions for the property.</p>
             </div>
@@ -248,7 +252,7 @@
             </div>
         </div>
         <form id="regForm" action="{{ route('appointments.store') }}" method="POST" class="d-none p-0">
-            <h1 class="h1-luxe position-relative">Appointments
+            <h1 class="h1-luxe position-relative">Select A Listing To Host
                 @if (Auth::user() && Auth::user()->isAdmin)
                     <a href="{{ route('appointment-addresses.index') }}"
                        class="btn btn-dark position-absolute text-white" style="right: 15px;top:15px">Addresses</a>
@@ -257,7 +261,9 @@
             @csrf
             <input type="hidden" class="form-control" name="phone">
             <div class="tab">
-                <h4 class="my-4 h4-luxe">1. Choose an address</h4>
+                <h4 class="my-4 h4-luxe">1. Select a listing from below that you are interested in hosting an open house
+                    for. Once selected, click Next at the bottom left of the page to continue to select a date and time
+                    for your open house.</h4>
                 <hr>
                 <div class="row">
                     @foreach ($addresses as $item)

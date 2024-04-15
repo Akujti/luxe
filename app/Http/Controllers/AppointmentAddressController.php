@@ -28,6 +28,7 @@ class AppointmentAddressController extends Controller
             'email' => 'required|email',
             'beds' => 'nullable|string',
             'baths' => 'nullable|string',
+            'price' => 'nullable',
             'agent_name' => 'nullable|string',
             'image' => 'nullable|image',
         ]);
@@ -57,8 +58,32 @@ class AppointmentAddressController extends Controller
         $request->validate([
             'title' => 'required|string',
             'email' => 'required|email',
+            'beds' => 'nullable|string',
+            'baths' => 'nullable|string',
+            'price' => 'nullable',
+            'agent_name' => 'nullable|string',
+            'image' => 'nullable|image',
         ]);
-        $appointmentAddress->update(['title' => $request->title, 'email' => $request->email]);
+
+        $path = null;
+        if ($request->image) {
+            $img = Image::make($request->image)->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode('jpg', 80);
+            $name = time() . Str::random(10) . '.jpg';
+            $path = 'open-house/' . $name;
+            Storage::disk('public')->put($path, (string)$img->encode());
+        }
+
+        $appointmentAddress->update([
+            'title' => $request->title,
+            'email' => $request->email,
+            'price' => $request->price,
+            'beds' => $request->beds,
+            'baths' => $request->baths,
+            'agent_name' => $request->agent_name,
+            'image' => $path ?? $appointmentAddress->image
+        ]);
         return back()->with('message', 'Address Updated');
     }
 
