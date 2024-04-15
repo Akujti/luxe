@@ -52,7 +52,8 @@
                             </td>
                         </tr>
                         <div id="editModal{{$address->id}}" class="modal fade modal-new" tabindex="-1" role="dialog">
-                            <form action="{{route('appointment-addresses.update',$address)}}" method="POST">
+                            <form action="{{route('appointment-addresses.update',$address)}}" method="POST"
+                                  enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
                                 <div class="modal-dialog" role="document">
