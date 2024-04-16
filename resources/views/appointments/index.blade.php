@@ -274,7 +274,7 @@
                                     <img src="{{ $item->image_url }}" alt="" class="w-100" height="400"
                                          style="object-fit: contain">
                                     <p class="price mb-1">
-                                        <b>${{ $item->price ? number_format($item->price) :' -' }}</b>
+                                        <b>${{ $item->price ??' -' }}</b>
                                     </p>
                                     <p class="title mb-1">{{ $item->title }}</p>
                                     <p class="info mb-1">
