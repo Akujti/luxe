@@ -276,7 +276,7 @@
         @if (isset($_GET['id']) && !empty($_GET['id']))
             <div>
                 <a href="{{ route('files.index') . (isset($_GET['view']) ? '?view=' . $_GET['view'] : '') }}"
-                    id="back"><img src="/images/files/left-icon.svg" alt=""> Back</a>
+                   id="back"><img src="/images/files/left-icon.svg" alt=""> Back</a>
             </div>
         @endif
         <div class="row m-0 box-title mb-4">
@@ -293,8 +293,10 @@
                     <div class="nav-body__view">
                         <p class="m-0 p-0">View:</p>
                         <select name="" id="change_view" onchange="change_view()">
-                            <option value="badge" {{ request('view') == 'badge' || !request('view') ? 'selected' : '' }}>
-                                Badge</option>
+                            <option
+                                value="badge" {{ request('view') == 'badge' || !request('view') ? 'selected' : '' }}>
+                                Badge
+                            </option>
                             <option value="table" {{ request('view') == 'table' ? 'selected' : '' }}>Table</option>
                         </select>
                     </div>
@@ -311,7 +313,7 @@
                         <div class="nav-body__upload">
                             <button type="button" onclick="show_modal()">
                                 <img src="/images/files/upload.png" alt="">
-                                <p class="m-0 p-0">Upload a File</p>
+                                <p class="m-0 p-0">Upload Files</p>
                             </button>
                         </div>
                     @endif
@@ -325,7 +327,7 @@
                         <a
                             href="{{ route('files.index') . '?id=' . $folder->id . (isset($_GET['view']) ? '&view=' . $_GET['view'] : '') }}">
                             <img src="/images/files/folder.png" alt="" id="folder-img" width="80px"
-                                style="margin-bottom: 10px;">
+                                 style="margin-bottom: 10px;">
                             <p id="title">{{ $folder->title }}</p>
                         </a>
 
@@ -335,16 +337,16 @@
                                     @csrf
                                     @method('delete')
                                     <button class="delete-button" type="submit"
-                                        onclick="return confirm('Are you sure you want to delete this directory?');">
+                                            onclick="return confirm('Are you sure you want to delete this directory?');">
                                         <img src="{{ asset('images/files/delete-icon.svg') }}" alt="" width="34px"
-                                            height="34px">
+                                             height="34px">
                                     </button>
                                 </form>
                             </div>
                             <div class="edit-form">
                                 <button class="edit-button" type="submit" onclick="show_edit_modal({{ $folder }})">
                                     <img src="{{ asset('images/files/pencil-icon.svg') }}" alt="" width="34px"
-                                        height="34px">
+                                         height="34px">
                                 </button>
                             </div>
                         @endif
@@ -353,12 +355,12 @@
                 @foreach ($files as $file)
                     <div class="box-item box-item-padding">
                         <a href="{{ '/storage/' . $file->file }}" download="{{ $file->title }}.{{ $file->type_file }}"
-                            target="_blank">
+                           target="_blank">
                             <div class="m-0 p-0 w-100 justify-content-between align-items-center">
                                 <div>
                                     @if ($file->thumbnail)
                                         <img class="preview-img" src="{{ '/storage/' . $file->thumbnail }}"
-                                            style="width:80px !important; height: 80px !important;object-fit: cover;">
+                                             style="width:80px !important; height: 80px !important;object-fit: cover;">
                                     @elseif ($file->type == 'img')
                                         <img class="preview-img" src="{{ '/storage/' . $file->file }}" id="folder-img">
                                     @elseif($file->type == 'doc')
@@ -375,7 +377,7 @@
                         <div class="edit-form">
                             <button class="edit-button" type="submit" onclick="show_edit_file_modal({{ $file }})">
                                 <img src="{{ asset('images/files/pencil-icon.svg') }}" alt="" width="34px"
-                                    height="34px">
+                                     height="34px">
                             </button>
                         </div>
                         <div class="delete-form">
@@ -383,7 +385,7 @@
                                 @csrf
                                 @method('delete')
                                 <button class="delete-button" type="submit"
-                                    onclick="return confirm('Are you sure you want to delete this file?');">
+                                        onclick="return confirm('Are you sure you want to delete this file?');">
                                     <img src="{{ asset('images/files/delete-icon.svg') }}" alt="">
                                 </button>
                             </form>
@@ -400,11 +402,11 @@
                     <div class="box-file col-md-12 mb-4" style="height: 84px !important;">
                         <div class="folder" style="min-height: 84px !important;">
                             <div class="row p-0 m-0 w-100 d-flex align-items-center"
-                                onclick="window.location = '{{ route('files.index') . '?id=' . $folder->id . (isset($_GET['view']) ? '&view=' . $_GET['view'] : '') }}'">
+                                 onclick="window.location = '{{ route('files.index') . '?id=' . $folder->id . (isset($_GET['view']) ? '&view=' . $_GET['view'] : '') }}'">
                                 <div class="col d-flex align-items-center">
                                     <div class="mr-4">
                                         <img src="/images/files/folder.png" alt="" width="45px"
-                                            height="35px">
+                                             height="35px">
                                     </div>
                                     <p id="title" class="m-0 p-0">{{ $folder->title }}</p>
                                 </div>
@@ -423,9 +425,9 @@
                                         @csrf
                                         @method('delete')
                                         <button class="delete-button" type="submit"
-                                            onclick="return confirm('Are you sure you want to delete this directory?');">
+                                                onclick="return confirm('Are you sure you want to delete this directory?');">
                                             <img src="{{ asset('images/files/delete-icon.svg') }}" alt=""
-                                                width="34px" height="34px">
+                                                 width="34px" height="34px">
                                         </button>
                                     </form>
                                 </div>
@@ -438,22 +440,22 @@
                         <div class="folder" style="min-height: 84px !important;">
                             <div class="row p-0 m-0 w-100 d-flex align-items-center">
                                 <a href="{{ '/storage/' . $file->file }}"
-                                    download="{{ $file->title }}.{{ $file->type_file }}" target="_blank"
-                                    class="row m-0 p-0 w-100">
+                                   download="{{ $file->title }}.{{ $file->type_file }}" target="_blank"
+                                   class="row m-0 p-0 w-100">
                                     <div class="col d-flex align-items-center">
                                         <div class="mr-4">
                                             @if ($file->thumbnail)
                                                 <img class="preview-img" src="{{ '/storage/' . $file->thumbnail }}"
-                                                    style="width:60px !important; height: 60px !important">
+                                                     style="width:60px !important; height: 60px !important">
                                             @elseif ($file->type == 'img')
                                                 <img class="preview-img" src="{{ '/storage/' . $file->file }}"
-                                                    style="width:60px !important; height: 60px !important">
+                                                     style="width:60px !important; height: 60px !important">
                                             @elseif($file->type == 'doc')
                                                 <img src="{{ '/images/files/' . $file->type . '.png' }}" width="45px"
-                                                    height="55px">
+                                                     height="55px">
                                             @else
                                                 <img src="{{ '/images/files/' . $file->type . '.png' }}" width="45px"
-                                                    height="55px">
+                                                     height="55px">
                                             @endif
                                         </div>
                                         <p id="title" class="p-0 m-0">
@@ -472,16 +474,16 @@
                                         @csrf
                                         @method('delete')
                                         <button class="delete-button" type="submit"
-                                            onclick="return confirm('Are you sure you want to delete this file?');">
+                                                onclick="return confirm('Are you sure you want to delete this file?');">
                                             <img src="{{ asset('images/files/delete-icon.svg') }}" alt="">
                                         </button>
                                     </form>
                                 </div>
                                 <div class="edit-form">
                                     <button class="edit-button" type="submit"
-                                        onclick="show_edit_file_modal({{ $file }})">
+                                            onclick="show_edit_file_modal({{ $file }})">
                                         <img src="{{ asset('images/files/pencil-icon.svg') }}" alt=""
-                                            width="34px" height="34px">
+                                             width="34px" height="34px">
                                     </button>
                                 </div>
                             </div>
@@ -493,59 +495,41 @@
     </div>
     <!-- Create File  -->
     <div class="create-event modal fade modal-new" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="min-width: 1200px">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Upload a File</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
-                <div class="modal-body">
-                    <form action="{{ route('files.store') }}" method="POST" enctype="multipart/form-data">
+                <div class="modal-body pb-0">
+                    <form id="uploadForm" action="{{ route('files.store') }}" method="POST"
+                          enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="folder_id" value="{{ $folder_id }}">
                         <div class="row m-0 p-0">
-                            <div class="form-group">
-                                <label for="start">{{ __('File Name') }}</label>
-                                <div class='input-group'>
-                                    <input type="text" class="w-100 form-control" name="title" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class='input-group'>
-                                    <div class="form-group w-100">
-                                        <label for="">File Type</label>
-                                        <select class="form-control " name="file_type" id="">
-                                            <option value="doc">Document</option>
-                                            <option value="pdf">PDF</option>
-                                            <option value="img">Image</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="start">{{ __('Select File') }}</label>
+                            <div class="form-group mb-4">
+                                <label for="start">{{ __('Select Files') }}</label>
                                 <div class="custom-file">
-                                    <input type="file" name="file" class="form-control" id="inputGroupFile01"
-                                        style="padding: 3px;" required>
+                                    <input id="files" type="file" name="uploadedFiles[]" class="form-control p-1"
+                                           required multiple>
                                 </div>
                             </div>
-
-                            <div class="form-group pt-3">
-                                <label for="start">Thumbnail</label>
-                                <div class="custom-file">
-                                    <input type="file" name="thumbnail" class="form-control" id="inputGroupFile01"
-                                        style="padding: 3px;" onchange="onFileChanged(this)">
-                                </div>
-                            </div>
-                            <div class="w-100">
-                                <img src="" alt="" id="preview-image" class="mt-3 d-none w-100">
-                            </div>
+                            <table id="file-list" class="table">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Thumbnail</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer pt-0">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-luxe" id="save-event">Submit</button>
                 </div>
@@ -553,7 +537,6 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
-
     <!-- Create Folder  -->
     <div class="create-folder modal fade modal-new" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -583,7 +566,6 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
-
     <!-- Edit Folder  -->
     <div class="edit-folder modal fade modal-new" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -624,7 +606,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('file.update') }}" method="POST" class="m-0"
-                        enctype="multipart/form-data">
+                          enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <input id="file_id" type="hidden" name="file_id">
@@ -638,7 +620,7 @@
                             <label for="start">Thumbnail</label>
                             <div class="custom-file">
                                 <input type="file" name="thumbnail" class="form-control" id="inputGroupFile01"
-                                    style="padding: 3px;" onchange="onFileChanged(this)">
+                                       style="padding: 3px;" onchange="onFileChanged(this)">
                             </div>
                         </div>
                 </div>
@@ -650,55 +632,76 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#files').change(function () {
+                var files = $('#files')[0].files
+                $.each(files, function (index, file) {
+                    var row = '<tr>' +
+                        '<td><input class="form-control" type="text" name="file_names[]" value="' + file.name + '"></td>' +
+                        '<td><select class="form-control" name="file_types[]" id=""><option value="doc">Document</option><option value="pdf">PDF</option><option value="img">Image</option> <option value="other">Other</option></select></td>' +
+                        '<td><input class="form-control p-1" type="file" name="thumbnails[]"></td>' +
+                        '<td style="vertical-align: middle;"><button type="button" onclick="deleteRow(this)" class="btn btn-danger h-100">x</button></td>' +
+                        '</tr>'
+                    $('#file-list tbody').append(row)
+                })
+            })
+        })
+
+        function deleteRow (button) {
+            $(button).closest('tr').remove()
+        }
+    </script>
 @endsection
 <script>
-    function show_modal() {
-        $('.create-event').modal('show');
-    };
-
-    function show_edit_modal(folder) {
-        $('.edit-folder').modal('show');
-        $('.edit-folder').find('#folder_id').val(folder.id);
-        $('.edit-folder').find('#folder_title').val(folder.title);
-    };
-
-    function show_edit_file_modal(file) {
-        $('.edit-file').modal('show');
-        $('.edit-file').find('#file_id').val(file.id);
-        $('.edit-file').find('#file_title').val(file.title);
-    };
-
-    function create_folder() {
-        $('.create-folder').modal('show');
+    function show_modal () {
+        $('.create-event').modal('show')
     }
 
-    function change_view() {
-        var value = document.getElementById('change_view').value;
+    function show_edit_modal (folder) {
+        $('.edit-folder').modal('show')
+        $('.edit-folder').find('#folder_id').val(folder.id)
+        $('.edit-folder').find('#folder_title').val(folder.title)
+    }
+
+    function show_edit_file_modal (file) {
+        $('.edit-file').modal('show')
+        $('.edit-file').find('#file_id').val(file.id)
+        $('.edit-file').find('#file_title').val(file.title)
+    }
+
+    function create_folder () {
+        $('.create-folder').modal('show')
+    }
+
+    function change_view () {
+        var value = document.getElementById('change_view').value
 
         window.location.href = '{{ route('files.index') }}?view=' + value + '<?php if (isset($_GET['sort'])) {
-            echo '&sort=' . $_GET['sort'];
-        } ?>' +
+                echo '&sort=' . $_GET['sort'];
+            } ?>' +
             '<?php if (isset($_GET['id'])) {
                 echo '&id=' . $_GET['id'];
             } ?>'
     }
 
-    function change_sort() {
-        var value = document.getElementById('change_sort').value;
+    function change_sort () {
+        var value = document.getElementById('change_sort').value
 
         window.location.href = '{{ route('files.index') }}?sort=' + value + '<?php if (isset($_GET['view'])) {
-            echo '&view=' . $_GET['view'];
-        } ?>' +
+                echo '&view=' . $_GET['view'];
+            } ?>' +
             '<?php if (isset($_GET['id'])) {
                 echo '&id=' . $_GET['id'];
             } ?>'
     }
 
-    function onFileChanged(e) {
+    function onFileChanged (e) {
         const [file] = e.files
         console.log(URL.createObjectURL(file))
         if (file) {
-            $('#preview-image').attr("src", URL.createObjectURL(file));
+            $('#preview-image').attr('src', URL.createObjectURL(file))
             $('#preview-image').toggleClass('d-none')
         }
     }

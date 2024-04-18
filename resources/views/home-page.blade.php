@@ -176,7 +176,7 @@
 @section('content')
     <div class="container-fluid">
         @if (!isset($_GET['dir']))
-        
+
             <div class="col-12 title mb-3">
                 <h1>WELCOME TO MYLUXEHUB</h1>
             </div>
@@ -893,6 +893,9 @@
 
 
 
+
+
+
                 @endforeach
                 </div>
 
@@ -977,6 +980,9 @@
 
 
 
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -984,6 +990,9 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
 
 
 
@@ -1236,12 +1245,14 @@
                     <img src="/images/index-page/seller-team.png" alt="">
                 </div>
             </div>
-            <div class="box-item box-item-center" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
+            <div class="box-item box-item-center"
+                 onclick="window.location = '{{ url('general/form/luxe/join-luxe-buyers') }}'">
                 <div>
                     <img src="/images/index-page/buyer-team.png" alt="">
                 </div>
             </div>
-            <div class="box-item box-item-center" onclick="window.location = '{{ url('home?dir=coming_soon') }}'">
+            <div class="box-item box-item-center"
+                 onclick="window.location = '{{ url('general/form/luxe/join-luxe-rentals') }}'">
                 <div>
                     <img src="/images/index-page/rental-team.png" alt="">
                 </div>

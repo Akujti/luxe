@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\File;
 use App\Models\Folder;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 use Symfony\Component\Console\Input\Input;
 
 class FolderController extends Controller
@@ -45,7 +47,6 @@ class FolderController extends Controller
         }
 
 
-
         if (request()->wantsJson()) {
             $files = $files->get();
             return response()->json(['folders' => $folders, 'files' => $files]);
@@ -54,11 +55,6 @@ class FolderController extends Controller
         return view('pages.files.index', compact('folders', 'files', 'folder_id'));
     }
 
-    /**
-     * Show the form for creating a open-house resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
         $folder_id = $request->folder_id;
@@ -66,40 +62,57 @@ class FolderController extends Controller
         return view('pages.files.upload', compact('folder_id', 'current_folder'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $type = $request->file_type;
-        $title = $request->title;
         $request->validate([
-            'file' => 'required|max:204800',
+            'file_names' => 'required',
+            'file_names.*' => 'required|string',
+            'file_types' => 'required',
+            'file_types.*' => 'required|string',
+            'uploadedFiles' => 'required',
+            'uploadedFiles.*' => 'required|file|max:204800',
+            'thumbnails' => 'nullable',
+            'thumbnails.*' => 'required|file|image',
         ]);
-        $file = File::create(
+
+        $files = $request->uploadedFiles;
+        $thumbnails = $request->thumbnails;
+        for ($i = 0; $i < count($files); $i++)
+            $this->uploadFile($request->file_names[$i], $request->file_types[$i], $request->folder_id, $files[$i], $thumbnails[$i] ?? null);
+
+        return redirect()->route('files.index', ['id' => $request->folder_id])->with('message', 'File has been uploaded');
+    }
+
+    private function uploadFile($title, $type, $folder_id, $file, $thumbnail)
+    {
+        $name = time() . Str::random(10) . '.' . $file->getClientOriginalExtension();
+        $path = $file->storeAs('/files', $name, 'public');
+
+        $thumbnail_path = null;
+        if ($thumbnail) {
+            $thumbnail_name = time() . Str::random(10) . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail_path = $thumbnail->storeAs('/files', $thumbnail_name, 'public');
+        } else {
+            if ($type == 'img') {
+                try {
+                    $img = Image::make('storage/' . $path);
+                    $img->fit(200);
+                    $thumbnail_path = 'thumb_' . $name;
+                    Storage::disk('public')->put('thumb_' . $name, (string)$img->encode());
+                } catch (\Exception $e) {
+                    $thumbnail_path = null;
+                }
+            }
+        }
+        return File::create(
             [
-                'title' => $request->title,
-                'file' => $request->file_type,
-                'type' => $request->file_type,
-                'folder_id' => $request->folder_id ?? null,
+                'title' => $title,
+                'file' => $path,
+                'thumbnail' => $thumbnail_path,
+                'type' => $type,
+                'folder_id' => $folder_id,
             ]
         );
-        if (isset($request->file)) {
-            $name = time() . Str::random(10) . '.' . $request->file->getClientOriginalExtension();
-            $path = $request->file->storeAs('/files', $name, 'public');;
-            $file->file = $path;
-            $file->save();
-        }
-        if (isset($request->thumbnail)) {
-            $name = time() . Str::random(10) . '.' . $request->thumbnail->getClientOriginalExtension();
-            $path = $request->thumbnail->storeAs('/files', $name, 'public');
-            $file->thumbnail = $path;
-            $file->save();
-        }
-        return redirect()->route('files.index', ['id' => $request->folder_id])->with('message', 'File has been uploaded');
     }
 
     public function folder_update(Request $request)
