@@ -896,6 +896,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -983,6 +993,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -990,6 +1010,16 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1205,6 +1235,20 @@
                 <div>
                     <img src="/images/index-page/vulcan.png" class="icon" alt="">
                     <p>Vulcan 7 Reservation</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding"
+                 onclick="window.open('https://cal.com/luxeproperties/reonomy-reservation', '_blank');">
+                <div>
+                    <img src="/images/index-page/open_house_signup.svg" class="icon" alt="">
+                    <p>Reonomy Reservation</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding"
+                 onclick="window.location = '{{ url('general/form/other/invoice-request') }}'">
+                <div>
+                    <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
+                    <p>Invoice Request</p>
                 </div>
             </div>
         </div>

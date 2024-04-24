@@ -670,12 +670,21 @@
                                                 Request</a></li>
                                         <li>
                                             <a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/home?dir=calculators') }}">Real Estate
-                                                Worksheets</a>
+                                               href="{{ url('/home?dir=calculators') }}">Real Estate Worksheets</a>
                                         </li>
                                         <li>
                                             <a target="_blank"
                                                href="https://cal.com/luxeproperties/vulcan-7">Vulcan 7 Reservation</a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank"
+                                               href="https://cal.com/luxeproperties/reonomy-reservation">
+                                                Reonomy Reservation</a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'invoice_request' ? 'active_submenu' : '' }}"
+                                               href="{{  url('general/form/other/invoice-request')  }}">Invoice
+                                                Request</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -802,6 +811,7 @@
                                         <a target="_blank"
                                            href="https://www.dropbox.com/scl/fo/1niqrz6qu1dt655i5djk5/h?rlkey=35vy56avcxm2vxtieb09wqpna&dl=0">Events
                                             Gallery</a></li>
+
                                 </ul>
                             </li>
                             <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">

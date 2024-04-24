@@ -47,7 +47,8 @@
                 <p>MLS Name: MiamiMLS</p>
                 <p>Phone: <a href="tel:305.468.7005">305.468.7005</a></p>
                 <p>Website To Join: <a href="https://join.miamirealtors.com/ver4">Click Here</a></p>
-                <p>Secondary Membership: <a href="https://join.miamirealtors.com/ver6/join.cfm?type=RS">Click Here</a></p>
+                <p>Secondary Membership: <a href="https://join.miamirealtors.com/ver6/join.cfm?type=RS">Click Here</a>
+                </p>
                 <p>Primary Membership Cost: $1,043.00</p>
                 <p>Secondary Membership Cost: $424</p>
                 <ul>
@@ -205,7 +206,8 @@
                 <p>Phone: <a href="tel:(407)- 846-0117">(407)- 846-0117</a></p>
                 <p>Website To Join: <a href="https://www.osceolarealtors.org/become-a-member/">Click Here</a></p>
                 <p>Secondary Membership: <a
-                        href="https://www.osceolarealtors.org/index.php?src=pages&ref=membership-forms">Click Here</a></p>
+                        href="https://www.osceolarealtors.org/index.php?src=pages&ref=membership-forms">Click Here</a>
+                </p>
                 <p>Primary Membership Cost: $1138.75</p>
                 <p>Secondary Membership Cost: $922.92</p>
                 <p>Reciprocal Listings: Yes $125.00 per listing</p>
@@ -231,6 +233,45 @@
             </div>
             <div class="col-md-6">
                 <img src="/images/mls/map8.png" alt="" class="map-image">
+            </div>
+        </div>
+        <hr>
+        <div class="row my-5">
+            <div class="col-md-6">
+                <h2>Heartland Association of REALTORS</h2>
+                <p>MLS Name: MATRIX MLS</p>
+                <p>Phone: <a href="tel:8633856014">863-385-6014</a></p>
+                <p>Website To Join: <a href="https://www.heartlandrealtors.org/Become-A-Member-6-16804.html">Click
+                        Here</a></p>
+                <p>Primary Membership Cost: $502 plus $100 app fee</p>
+                <p>Secondary Membership Cost: Annually $125 plus $100 app fee</p>
+                <p>Reciprocal Listings: No</p>
+            </div>
+            <div class="col-md-6">
+                <img src="/images/mls/map.png" alt="" class="map-image">
+            </div>
+        </div>
+        <hr>
+        <div class="row my-5">
+            <div class="col-md-6">
+                <h2>Royal Palm Coast Realtor Association</h2>
+                <p>MLS Name: MATRIX MLS / FGCMLS</p>
+                <p>Phone: <a href="tel:2399363537">239-936-3537</a></p>
+                <p>Website To Join: <a href="https://rpcra.org/index.php/en/membership/join">Click Here</a></p>
+                <p>Primary Membership Cost: <a href="https://swflrealtors.formstack.com/forms/membership_app__agent">Click
+                        Here</a></p>
+                <p>Secondary Membership Cost: <a href="https://swflrealtors.formstack.com/forms/membership_app__agent">Click
+                        Here</a>
+                </p>
+                <p>Reciprocal Listings: No</p>
+                <ul>
+                    <li>Lee County</li>
+                    <li>Hendry County</li>
+                    <li>Collier County</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <img src="/images/mls/map10.png" alt="" class="map-image">
             </div>
         </div>
     </div>

@@ -108,21 +108,14 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
                     <div class="card-header">
-                        <h1 class="text-center my-4 text-uppercase">Request Store - Rental Escrow Disbursement</h1>
-                        <h6 id="agent-text" class="text-center " style="font-size: 21px;"><b>ESCROW DISBURSEMENTS TAKE
-                                24-48
-                                HOURS TO BE PROCESSED.</b></h6>
+                        <h1 class="text-center my-4">Request Store - Rental Escrow Disbursement</h1>
+                        <h6 id="agent-text" class="text-center" style="font-size: 21px;"><b>ESCROW DISBURSEMENTS TAKE
+                                24-48 HOURS TO BE PROCESSED.</b></h6>
                     </div>
                     <input type="hidden" name="form_title" value="Request Store - Rental Escrow Disbursement">
-                    <!-- <input type="hidden" name="to_email[]" value="email@luxeknows.com">
-                                                                        <input type="hidden" name="to_email[]" value="support@luxeknows.com">
-                                                                        <input type="hidden" name="to_email[]" value="marketing@luxeknows.com">
-                                                                        <input type="hidden" name="to_email[]" value="operations@luxeknows.com">
-                                                                        <input type="hidden" name="to_email[]" value="receptionist@luxeknows.com"> -->
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -214,45 +207,10 @@
                                 <input type="number" name="amount_due_to_landlord" class="form-control" step="0.01"
                                        required>
                             </div>
-
-                            {{-- <div class="form-group col-md-12">
-                                <b>Other Required Documents Along With This Form - Must Be Uploaded To Broker
-                                    Sumo</b>
-                            </div> --}}
-                            {{-- <div class="form-group col-md-6">
-                                <label for="name">Fully Executed Contract to Lease (if one was used)</label>
-                                <select name="fully_executed_contract" class="form-control" id="">
-                                    <option value="-">-</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                </select>
-                            </div> --}}
-                            {{-- <div class="form-group col-md-6">
-                                <label for="name">Fully Executed Lease PG's 1-18</label>
-                                <select name="fully_executed_lease" class="form-control" id="">
-                                    <option value="-">-</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                </select>
-                            </div> --}}
-                            {{-- <div class="form-group col-md-6">
-                                <label for="name">HOA Approval Letter Or Email Proof</label>
-                                <select name="hoa_approval_letter" class="form-control" id="">
-                                    <option value="-">-</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                    <option value="N/A">N/A - No HOA for property</option>
-                                </select>
-                            </div> --}}
-                            {{-- <div class="form-group col-md-6">
-                                <label for="name">Landlord W9 (if applicable)</label>
-                                <select name="landlord_w9" class="form-control" id="">
-                                    <option value="-">-</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                    <option value="N/A">N/A</option>
-                                </select>
-                            </div> --}}
+                            <div class="form-group col-md-6">
+                                <label for="name">Landlord Name</label>
+                                <input type="text" name="landlord_name" class="form-control" required>
+                            </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                             </div>

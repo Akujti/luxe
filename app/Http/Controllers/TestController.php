@@ -28,11 +28,6 @@ class TestController extends Controller
 {
     public function index()
     {
-        $file = File::latest()->first();
-        $img = Image::make('storage/' . $file->file);
-        $img->fit(200);
-        Storage::disk('public')->put('test.jpg', (string)$img->encode());
-        return $img;
         if (App::environment('local'))
             return $a = Auth::loginUsingId(149);
     }
