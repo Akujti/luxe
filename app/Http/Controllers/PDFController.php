@@ -183,6 +183,7 @@ class PDFController extends Controller
             'img_1_input' => $request['img_1_input'],
             'text_name_1' => $request['text_name_1'],
             'text_name_2' => $request['text_name_2'],
+            'text_location' => $request['text_location'],
             'text_1' => $request['text_1'],
             'text_2' => $request['text_2'],
             'text_3' => $request['text_3'],
