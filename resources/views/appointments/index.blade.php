@@ -271,8 +271,8 @@
                             <div class="shadow-box address">
                                 <label for="html-{{ $item->id }}"
                                        class="label p-0 m-0 w-100">
-                                    <img src="{{ $item->image_url }}" alt="" class="w-100" height="400"
-                                         style="object-fit: contain">
+                                    <img src="{{ $item->image_url }}" alt="" class="w-100" height="240"
+                                         style="object-fit: cover;object-position: center;">
                                     <p class="price mb-1">
                                         <b>${{ $item->price ??' -' }}</b>
                                     </p>

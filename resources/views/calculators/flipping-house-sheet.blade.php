@@ -54,7 +54,7 @@
                 <div class="w-100 p-1" id="el">
                     <div class="mb-3 row justify-content-between">
                         <div class="col-10">
-                            <h1>AVR HOME INVESTMENT CALCULATOR</h1>
+                            <h1>Fix & Flip Calculator</h1>
                         </div>
                         <div class="col-2 d-flex justify-content-end">
                             <img src="/images/favicon.png" alt="" width="55px" height="55px">
@@ -252,7 +252,7 @@
 
             function submitPDF () {
                 calculate()
-                generatePDF(166, 220, '', 'AVR Home Investment Calculator')
+                generatePDF(166, 220, '', 'Fix & Flip Calculator')
             }
         </script>
     @endsection

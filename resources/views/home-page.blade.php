@@ -185,7 +185,7 @@
                 <div class="col-12 col-lg-5 mt-3 agent-logs">
                     <x-brokersumo-tiers :user="auth()->user()" :row="true"/>
                 </div>
-                <div class="col-12 col-lg-4 mt-3 agent-logs">
+                <div class="col-12 col-lg-3 mt-3 agent-logs">
                     <div class="w-100">
                         <div class="form-group">
                             <label for="">Branch Manager</label>
@@ -202,18 +202,12 @@
                                 <input type="text" class="form-control p-2"
                                        value="{{ auth()->user()->profile->loan_officer_name }}" readonly>
                             </div>
-                            <div>
-                                <a href="https://cal.com/luxeproperties/ana-g.-contract-specialist-1-on-1"
-                                   class="btn btn-luxe mt-2" target="_blank">Get Contract Help</a>
-                                <a href="https://cal.com/luxeproperties" class="btn btn-luxe mt-2" target="_blank">Book
-                                    A Marketing Appointment</a>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-3 mt-3 agent-logs">
+                <div class="col-12 col-lg-4 mt-3 agent-logs">
                     <div class="w-100" style="cursor: pointer">
-                        <label for="">&nbsp;</label>
+                        <label for=""></label>
                         <a href="/leaderboard/sales"
                            class="btn btn-luxe d-flex align-items-center w-100"
                            target="_blank">
@@ -235,6 +229,10 @@
                             </svg>
                             <span class="ml-3">LUXE FAQ</span>
                         </a>
+                        <a href="https://cal.com/luxeproperties/ana-g.-contract-specialist-1-on-1"
+                           class="btn btn-luxe mt-2 w-100 text-left" target="_blank">Get Contract Help</a>
+                        <a href="https://cal.com/luxeproperties" class="btn btn-luxe mt-2 w-100 text-left"
+                           target="_blank">Book A Marketing Appointment</a>
                     </div>
                 </div>
                 <div class="col-12 mb-3">
@@ -906,6 +904,61 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1003,6 +1056,61 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1010,6 +1118,61 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1428,65 +1591,68 @@
             <h2 class="title-video">More ways to keep expanding your knowledge</h2>
         </div>
         <div class="row">
-            <div class="grid grid-left grid-layout-three col-md-9">
-                <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/videos') }}'">
-                    <div class="inside-box">
-                        <img src="/images/index-page/training_videos.svg" class="icon" alt="">
-                        <p>LUXE Online Video University</p>
-                    </div>
-                </div>
-
-                <div class="box-item box-item-padding" onclick="window.location='{{ url('/user/events') }}'">
-                    <div class="inside-box">
-                        <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
-                        <p>Training & Events <br>Calendar</p>
-                    </div>
-                </div>
-
-                <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/files') }}'">
-                    <div class="inside-box">
-                        <img src="/images/index-page/office_documents.svg" class="icon" alt="">
-                        <p>Downloadable Docs, Guides & Excels</p>
-                    </div>
-                </div>
-
-                <div class="box-item box-item-padding"
-                     onclick="window.location = '{{ url('/home?dir=email_addendum_verbiage_builder') }}'">
-                    <div class="inside-box">
-                        <img src="/images/index-page/email_templates.svg" class="icon" alt="">
-                        <p>Email & Addendum Verbiage Builder</p>
-                    </div>
-                </div>
-                <div class="box-item box-item-padding" onclick="window.location = '{{ url('/home?dir=calculators') }}'">
-                    <div class="inside-box">
-                        <img src="/images/index-page/calculator.svg" class="icon" alt="">
-                        <p>Real Estate Worksheets</p>
-                    </div>
-                </div>
-                <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/coaching') }}'">
-                    <div class="inside-box">
-                        <img src="/images/index-page/mentors.svg" class="icon" alt="">
-                        <p>LUXE Coaching</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-3">
-                <div class="box-item align-items-start box-guides row p-0 m-0" style="height:auto !important">
-                    <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
-                        <span>Upcoming Events</span>
-                    </h3>
-
-                    @forelse($upcoming_events as $event)
-                        <div class="box-guide col-12">
-                            <a href="{{ route('events.index') }}" class="text-dark">
-                                <p>{{ $event->title }} - {{ $event->date }}</p>
-                            </a>
+            <div class="col-12">
+                <div class="grid grid-left grid-layout">
+                    <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/videos') }}'">
+                        <div class="inside-box">
+                            <img src="/images/index-page/training_videos.svg" class="icon" alt="">
+                            <p>LUXE Online Video University</p>
                         </div>
-                    @empty
-                        <div class="box-guide justify-content-start pl-4">
-                            <p>No results found.</p>
+                    </div>
+
+                    <div class="box-item box-item-padding" onclick="window.location='{{ url('/user/events') }}'">
+                        <div class="inside-box">
+                            <img class="icon" src="/images/index-page/training_events-icon.svg" alt="">
+                            <p>Training & Events <br>Calendar</p>
                         </div>
-                    @endforelse
+                    </div>
+
+                    <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/files') }}'">
+                        <div class="inside-box">
+                            <img src="/images/index-page/office_documents.svg" class="icon" alt="">
+                            <p>Downloadable Docs, Guides & Excels</p>
+                        </div>
+                    </div>
+
+                    <div class="box-item align-items-start box-guides row p-0 m-0"
+                         style="width: max-content;height:auto !important">
+                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
+                            <span>Upcoming Events</span>
+                        </h3>
+
+                        @forelse($upcoming_events as $event)
+                            <div class="box-guide col-12">
+                                <a href="{{ route('events.index') }}" class="text-dark">
+                                    <p>{{ $event->title }} - {{ $event->date }}</p>
+                                </a>
+                            </div>
+                        @empty
+                            <div class="box-guide justify-content-start pl-4">
+                                <p>No results found.</p>
+                            </div>
+                        @endforelse
+                    </div>
+
+                    <div class="box-item box-item-padding"
+                         onclick="window.location = '{{ url('/home?dir=email_addendum_verbiage_builder') }}'">
+                        <div class="inside-box">
+                            <img src="/images/index-page/email_templates.svg" class="icon" alt="">
+                            <p>Email & Addendum Verbiage Builder</p>
+                        </div>
+                    </div>
+                    <div class="box-item box-item-padding"
+                         onclick="window.location = '{{ url('/home?dir=calculators') }}'">
+                        <div class="inside-box">
+                            <img src="/images/index-page/calculator.svg" class="icon" alt="">
+                            <p>Real Estate Worksheets</p>
+                        </div>
+                    </div>
+                    <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/coaching') }}'">
+                        <div class="inside-box">
+                            <img src="/images/index-page/mentors.svg" class="icon" alt="">
+                            <p>LUXE Coaching</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1502,14 +1668,14 @@
             <div class="box-item box-item-padding"
                  onclick="window.location = '{{ url('user/written-email-templates') }}'">
                 <div>
-                    <img src="/images/index-page/email_templates.svg" class="icon" alt="">
+                    <img src="/images/index-page/email-icon.svg" class="icon" alt="">
                     <p>Email Templates</p>
                 </div>
             </div>
             <div class="box-item box-item-padding"
                  onclick="window.location = ('{{ route('addendum-templates.index') }}')">
                 <div>
-                    <img src="/images/index-page/email_templates.svg" class="icon" alt="">
+                    <img src="/images/index-page/addendum-icon.svg" class="icon" alt="">
                     <p>Addendum Templates</p>
                 </div>
             </div>
@@ -1614,12 +1780,12 @@
                     <p>Sign Posts</p>
                 </div>
             </div>
-            <div class="box-item box-item-padding" onclick="window.location='{{ url('store/client-screening') }}'">
-                <div>
-                    <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
-                    <p>Client Screening</p>
-                </div>
-            </div>
+            {{--            <div class="box-item box-item-padding" onclick="window.location='{{ url('store/client-screening') }}'">--}}
+            {{--                <div>--}}
+            {{--                    <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">--}}
+            {{--                    <p>Client Screening</p>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
             {{-- <div class="box-item box-item-padding" onclick="window.location='{{ url('store/product/background-check') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
@@ -2240,20 +2406,24 @@
             <h1>Real Estate Worksheets</h1>
         </div>
         <div class="grid grid-layout-three">
-            <div class="box-item box-item-center" onclick="window.location= '{{ route('calculators.cap_rate') }}'">
+            <div class="box-item box-item-padding"
+                 onclick="window.location= '{{ route('calculators.cap_rate') }}'">
                 <div>
+                    <img src="/images/index-page/calculator.svg" class="icon" alt="">
                     <p>Cap Rate Calculator</p>
                 </div>
             </div>
-            <div class="box-item box-item-center"
+            <div class="box-item box-item-padding"
                  onclick="window.location= '{{ route('calculators.flipping_house') }}'">
                 <div>
-                    <p>AVR Home Investment Calculator</p>
+                    <img src="/images/index-page/open_house_signup.svg" class="icon" alt="">
+                    <p>Fix & Flip Calculator</p>
                 </div>
             </div>
-            <div class="box-item box-item-center"
+            <div class="box-item box-item-padding"
                  onclick="window.location= '{{ route('calculators.seller_net_sheet') }}'">
                 <div>
+                    <img src="/images/index-page/luxe_lending-icon.svg" class="icon" alt="">
                     <p>Seller Net Calculator</p>
                 </div>
             </div>

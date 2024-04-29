@@ -108,78 +108,68 @@
 @endsection
 @section('content')
     <div class="container-fluid">
-        <div class="row w-100 m-0 mb-5">
-            <div class="col-md-3">
-            </div>
-            <div class="col-md-6 title mb-3 text-center md:flex">
+        <div class="w-100 m-0 mb-5">
+            <div class=" title mb-3 text-center md:flex">
                 <div>
                     <h1>LUXE Events</h1>
                     <a class="btn btn-luxe" href="{{ route('my.events') }}">My Events</a>
                 </div>
-                {{--                <div class="grid grid-layout-two">--}}
-                {{--                    <div class="box-item box-grid-item box-item-end"--}}
-                {{--                         style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset('storage/' ) }})"--}}
-                {{--                         onclick="window.location = 'google.com'">--}}
-                {{--                        <div>--}}
-                {{--                            <p class="text-white">Next Event</p>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                    <div class="box-item box-grid-item box-item-end"--}}
-                {{--                         style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset('storage/' ) }})"--}}
-                {{--                         onclick="window.location = 'google.com'">--}}
-                {{--                        <div>--}}
-                {{--                            <p class="text-white">Next Event</p>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
             </div>
-            <div class="col-md-3">
+            <div class="row mb-4">
                 <!-- <div class="d-md-flex align-items-center">
                     <div class="color-picker career_fair "></div> Career Fair
                 </div> -->
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker holidays "></div>
-                    Holidays
+                <div class="col-md-3">
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker holidays "></div>
+                        Holidays
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker in_person_trainings"></div>
+                        In Person Trainings
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker bootcamp"></div>
+                        Bootcamp
+                    </div>
                 </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker in_person_trainings"></div>
-                    In Person Trainings
+                <div class="col-md-3">
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker luxe_coaching_program "></div>
+                        Luxe Coaching Program
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker zoom_trainings"></div>
+                        Morning Calls
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker events"></div>
+                        Events
+                    </div>
                 </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker luxe_coaching_program "></div>
-                    Luxe Coaching Program
+                <div class="col-md-3">
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker team_office_meetings"></div>
+                        Team Office Meetings
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker tours"></div>
+                        Tours
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker sales_meetings"></div>
+                        Sales Meetings
+                    </div>
                 </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker zoom_trainings"></div>
-                    Morning Calls
-                </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker team_office_meetings"></div>
-                    Team Office Meetings
-                </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker tours"></div>
-                    Tours
-                </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker volunteering "></div>
-                    Volunteering
-                </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker zoom_trainings_2"></div>
-                    Zoom Trainings
-                </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker events"></div>
-                    Events
-                </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker sales_meetings"></div>
-                    Sales Meetings
-                </div>
-                <div class="d-md-flex align-items-center">
-                    <div class="color-picker bootcamp"></div>
-                    Bootcamp
+                <div class="col-md-3">
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker volunteering "></div>
+                        Volunteering
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <div class="color-picker zoom_trainings_2"></div>
+                        Zoom Trainings
+                    </div>
                 </div>
             </div>
             <div id='calendar' style="width: 100%; display: inline-block;"></div>

@@ -82,11 +82,11 @@
         <form action="" method="get" class="row">
             <div class="col-md-3 form-group">
                 <input type="number" name="zip" class="form-control" placeholder="ZIP Code"
-                    value="{{ isset($_GET['zip']) ? $_GET['zip'] : '' }}">
+                       value="{{ isset($_GET['zip']) ? $_GET['zip'] : '' }}">
             </div>
             <div class="col-md-3 form-group">
                 <input type="text" name="price" class="form-control" placeholder="Price"
-                    value="{{ isset($_GET['price']) ? $_GET['price'] : '' }}">
+                       value="{{ isset($_GET['price']) ? $_GET['price'] : '' }}">
             </div>
             <div class="col-md-3 form-group">
                 <select name="type" class="form-control">
@@ -102,15 +102,12 @@
                 <button class="btn btn-luxe w-100 form-control" type="submit">Search</button>
             </div>
         </form>
-        <div class="row justify-content-end">
-            <div class="col-md-3">
-                <a href="{{ route('listings.create') }}" class="btn btn-luxe mb-3 w-100">Create A New Listing</a>
-            </div>
-        </div>
         <hr class="mt-0">
         <div class="row">
             <div class="col-md-5 mb-3">
                 <div id="map"></div>
+                <a href="{{ route('listings.create') }}" class="btn btn-luxe mt-3 w-100">Create A New
+                    Listing</a>
             </div>
             <div class="col-md-7 row listings">
                 @forelse ($listings as $item)
@@ -135,6 +132,9 @@
                                         <p><b>{{ $item->type }}</b> for sale</p>
                                     @endif
                                     <p class="address">{{ $item->address }}</p>
+                                    <p class="address">{{ $item->user->profile->fullname }}</p>
+                                    <p class="address">{{ $item->user->profile->phone }}</p>
+                                    <p class="address">{{ $item->user->email }}</p>
                                 </div>
                             </div>
                         </a>
@@ -151,35 +151,35 @@
         src="https://maps.googleapis.com/maps/api/js?v=3&key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&v=weekly"
         defer></script>
     <script>
-        function initMap() {
+        function initMap () {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
                 center: new google.maps.LatLng(25.8617, -80.4018),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
+            })
 
-            var infowindow = new google.maps.InfoWindow();
+            var infowindow = new google.maps.InfoWindow()
 
-            var marker, i;
-            var AllLatLng = [];
+            var marker, i
+            var AllLatLng = []
             var listings = JSON.parse(JSON.stringify(<?php echo json_encode($listings_all); ?>))
             listings.forEach((el) => {
                 if (el.lng && el.lat) {
-                    console.log(el);
-                    codeAddress(el, function(coords) {
+                    console.log(el)
+                    codeAddress(el, function (coords) {
                         AllLatLng.push({
                             lat: coords[0],
                             lng: coords[1]
                         })
                         const svgMarker = {
-                            path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-                            fillColor: "black",
+                            path: 'M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z',
+                            fillColor: 'black',
                             fillOpacity: 0.72,
                             strokeWeight: 0,
                             rotation: 0,
                             scale: 2,
                             anchor: new google.maps.Point(15, 30),
-                        };
+                        }
                         if (AllLatLng.filter(x => x.lat == coords[0]).length > 1) {
                             AllLatLng.filter(x => x.lat == coords[0]).forEach((el, i) => {
                                 svgMarker.anchor = new google.maps.Point(15 + (i * 10), 30)
@@ -189,31 +189,31 @@
                             position: new google.maps.LatLng(coords[0], coords[1], true),
                             icon: svgMarker,
                             map: map
-                        });
-                        let nf = new Intl.NumberFormat('en-US');
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
+                        })
+                        let nf = new Intl.NumberFormat('en-US')
+                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                            return function () {
                                 infowindow.setContent(
-                                    "<div class='d-flex align-items-center mb-3 gap-3' data-id='" +
-                                    el.id + "'>" +
-                                    "<img style='width:58px;height:58px;border-radius:50%;' src='" +
-                                    el.main_image + "'>" +
-                                    "<h5>" + el.address + "</h5><br>" +
-                                    "</div>" +
-                                    "Type: " + el.type +
-                                    "<br>Price: $" + nf.format(el.price) +
-                                    "<br>Agent Name: " + el.user.profile.fullname
-                                );
-                                infowindow.open(map, marker);
+                                    '<div class=\'d-flex align-items-center mb-3 gap-3\' data-id=\'' +
+                                    el.id + '\'>' +
+                                    '<img style=\'width:58px;height:58px;border-radius:50%;\' src=\'' +
+                                    el.main_image + '\'>' +
+                                    '<h5>' + el.address + '</h5><br>' +
+                                    '</div>' +
+                                    'Type: ' + el.type +
+                                    '<br>Price: $' + nf.format(el.price) +
+                                    '<br>Agent Name: ' + el.user.profile.fullname
+                                )
+                                infowindow.open(map, marker)
                             }
-                        })(marker, i));
-                    });
+                        })(marker, i))
+                    })
                 }
-            });
+            })
         }
 
-        function codeAddress(el, callback) {
-            var locations = [el.lat, el.lng];
+        function codeAddress (el, callback) {
+            var locations = [el.lat, el.lng]
             callback(locations)
         }
     </script>
