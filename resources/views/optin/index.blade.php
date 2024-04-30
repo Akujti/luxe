@@ -55,6 +55,8 @@
             height: 600px;
             position: sticky !important;
             top: 150px;
+            box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+            border-radius: 15px;
         }
     </style>
     <div class="container-fluid">
@@ -111,43 +113,44 @@
         </div>
         {{ $agents->links() }}
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3&key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&v=weekly"
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3&key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&v=weekly"
         defer></script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
     <script>
         var counter = 0
 
-        function initMap() {
-            console.log('agents_list');
-            console.log(<?php echo count($agents_list); ?>);
+        function initMap () {
+            console.log('agents_list')
+            console.log(<?php echo count($agents_list); ?>)
             var agents = JSON.parse(JSON.stringify(<?php echo json_encode($agents_list); ?>))
 
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
                 center: new google.maps.LatLng(25.751360, -80.255580),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
-            var infowindow = new google.maps.InfoWindow();
+            })
+            var infowindow = new google.maps.InfoWindow()
 
-            var marker, i;
-            var AllLatLng = [];
+            var marker, i
+            var AllLatLng = []
 
             agents.forEach((el) => {
                 if (el.profile.lng && el.profile.lat) {
-                    codeAddress(el.profile, function(coords) {
+                    codeAddress(el.profile, function (coords) {
                         AllLatLng.push({
                             lat: coords[0],
                             lng: coords[1]
                         })
                         const svgMarker = {
-                            path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-                            fillColor: "black",
+                            path: 'M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z',
+                            fillColor: 'black',
                             fillOpacity: 0.72,
                             strokeWeight: 0,
                             rotation: 0,
                             scale: 2,
                             anchor: new google.maps.Point(15, 30),
-                        };
+                        }
                         if (AllLatLng.filter(x => x.lat == coords[0]).length > 1) {
                             AllLatLng.filter(x => x.lat == coords[0]).forEach((el, i) => {
                                 svgMarker.anchor = new google.maps.Point(15 + (i * 10), 30)
@@ -157,31 +160,31 @@
                             position: new google.maps.LatLng(coords[0], coords[1], true),
                             icon: svgMarker,
                             map: map
-                        });
+                        })
 
-                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                            return function() {
+                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                            return function () {
                                 infowindow.setContent(
-                                    "<div class='d-flex align-items-center' style='gap:10px;margin-bottom:6px'>" +
-                                    "<img style='width:58px;height:58px;border-radius:50%;' src='" +
-                                    el.avatar + "'>" +
-                                    "<h5>" + el.profile.fullname + "</h5><br>" +
-                                    "</div>" +
-                                    "Phone: " + el.profile.phone +
-                                    "<br>Languages: " + el.profile.languages
-                                    .toString() +
-                                    "<br>Address: " + el.profile.address
-                                );
-                                infowindow.open(map, marker);
+                                    '<div class=\'d-flex align-items-center\' style=\'gap:10px;margin-bottom:6px\'>' +
+                                    '<img style=\'width:58px;height:58px;border-radius:50%;\' src=\'' +
+                                    el.avatar + '\'>' +
+                                    '<h5>' + el.profile.fullname + '</h5><br>' +
+                                    '</div>' +
+                                    'Phone: ' + el.profile.phone +
+                                    '<br>Languages: ' + el.profile.languages
+                                        .toString() +
+                                    '<br>Address: ' + el.profile.address
+                                )
+                                infowindow.open(map, marker)
                             }
-                        })(marker, i));
-                    });
+                        })(marker, i))
+                    })
                 }
-            });
+            })
         }
 
-        function codeAddress(profile, callback) {
-            var locations = [profile.lat, profile.lng];
+        function codeAddress (profile, callback) {
+            var locations = [profile.lat, profile.lng]
             callback(locations)
         }
     </script>

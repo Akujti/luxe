@@ -79,27 +79,30 @@
     <div class="container-fluid mb-5">
         {{-- <h1 class="text-center h1-luxe mb-4">COMING SOON LISTINGS</h1> --}}
 
-        <form action="" method="get" class="row">
-            <div class="col-md-3 form-group">
-                <input type="number" name="zip" class="form-control" placeholder="ZIP Code"
-                       value="{{ isset($_GET['zip']) ? $_GET['zip'] : '' }}">
-            </div>
-            <div class="col-md-3 form-group">
-                <input type="text" name="price" class="form-control" placeholder="Price"
-                       value="{{ isset($_GET['price']) ? $_GET['price'] : '' }}">
-            </div>
-            <div class="col-md-3 form-group">
-                <select name="type" class="form-control">
-                    <option value>Property Type</option>
-                    <option value="Single Family">Single Family</option>
-                    <option value="Condo/Townhouse">Condo/Townhouse</option>
-                    <option value="Rental">Rental</option>
-                    <option value="Land">Land</option>
-                    <option value="Commercial">Commercial</option>
-                </select>
-            </div>
-            <div class="col-md-3  form-group">
-                <button class="btn btn-luxe w-100 form-control" type="submit">Search</button>
+        <form action="" method="get">
+            <label for="">Search LUXE Properties Coming Soon Listings</label>
+            <div class="row">
+                <div class="col-md-3 form-group">
+                    <input type="number" name="zip" class="form-control" placeholder="ZIP Code"
+                           value="{{ isset($_GET['zip']) ? $_GET['zip'] : '' }}">
+                </div>
+                <div class="col-md-3 form-group">
+                    <input type="text" name="price" class="form-control" placeholder="Price"
+                           value="{{ isset($_GET['price']) ? $_GET['price'] : '' }}">
+                </div>
+                <div class="col-md-3 form-group">
+                    <select name="type" class="form-control">
+                        <option value>Property Type</option>
+                        <option value="Single Family">Single Family</option>
+                        <option value="Condo/Townhouse">Condo/Townhouse</option>
+                        <option value="Rental">Rental</option>
+                        <option value="Land">Land</option>
+                        <option value="Commercial">Commercial</option>
+                    </select>
+                </div>
+                <div class="col-md-3  form-group">
+                    <button class="btn btn-luxe w-100 form-control" type="submit">Search</button>
+                </div>
             </div>
         </form>
         <hr class="mt-0">
@@ -107,7 +110,19 @@
             <div class="col-md-5 mb-3">
                 <div id="map"></div>
                 <a href="{{ route('listings.create') }}" class="btn btn-luxe mt-3 w-100">Create A New
-                    Listing</a>
+                    Listing To Add</a>
+                <form action="{{route('listings.subscribe')}}" method="POST">
+                    @csrf
+                    @if(!auth()->user()->coming_soon_notifications)
+                        <button class="btn btn-luxe mt-3 w-100">Sign Up For
+                            Email Alerts For New Coming Soon Listings
+                        </button>
+                    @else
+                        <button class="btn btn-luxe mt-3 w-100">Sign Out For
+                            Email Alerts For New Coming Soon Listings
+                        </button>
+                    @endif
+                </form>
             </div>
             <div class="col-md-7 row listings">
                 @forelse ($listings as $item)
@@ -116,7 +131,8 @@
                         <a href="{{ route('listings.show', $item) }}">
                             <div class="listing">
                                 <div class="position-relative">
-                                    <img src="{{ asset($item->main_image) }}" alt="" class="w-100">
+                                    <img src="{{ asset($item->main_image) }}" alt="" class="w-100" height="240"
+                                         style="object-fit: cover;object-position: center;">
                                     <p class="position-absolute created-at">Coming Soon</p>
                                 </div>
                                 <div class="listing-meta">

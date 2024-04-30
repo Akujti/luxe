@@ -194,4 +194,12 @@ class ListingController extends Controller
         $val = 'new-storage/images/marketing/' . $name;
         return $val;
     }
+
+    public function subscribe()
+    {
+        auth()->user()->update(
+            ['coming_soon_notifications' => !auth()->user()->coming_soon_notifications]
+        );
+        return back()->with('message', 'You have been signed ' . (auth()->user()->coming_soon_notifications ? 'up' : 'out') . ' for email alerts');
+    }
 }

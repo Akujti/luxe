@@ -8,12 +8,6 @@ use App\Models\LuxeStore\Order\LuxeStoreOrder;
 
 class OrderObserver
 {
-    /**
-     * Handle the LuxeStoreOrder "created" event.
-     *
-     * @param  \App\Models\LuxeStoreOrder  $luxeStoreOrder
-     * @return void
-     */
     public function created(LuxeStoreOrder $luxeStoreOrder)
     {
         $delay = Carbon::now()->addWeekdays(3);
@@ -30,7 +24,7 @@ class OrderObserver
     /**
      * Handle the LuxeStoreOrder "updated" event.
      *
-     * @param  \App\Models\LuxeStoreOrder  $luxeStoreOrder
+     * @param \App\Models\LuxeStoreOrder $luxeStoreOrder
      * @return void
      */
     public function updated(LuxeStoreOrder $luxeStoreOrder)
@@ -41,7 +35,7 @@ class OrderObserver
     /**
      * Handle the LuxeStoreOrder "deleted" event.
      *
-     * @param  \App\Models\LuxeStoreOrder  $luxeStoreOrder
+     * @param \App\Models\LuxeStoreOrder $luxeStoreOrder
      * @return void
      */
     public function deleted(LuxeStoreOrder $luxeStoreOrder)
@@ -52,7 +46,7 @@ class OrderObserver
     /**
      * Handle the LuxeStoreOrder "restored" event.
      *
-     * @param  \App\Models\LuxeStoreOrder  $luxeStoreOrder
+     * @param \App\Models\LuxeStoreOrder $luxeStoreOrder
      * @return void
      */
     public function restored(LuxeStoreOrder $luxeStoreOrder)
@@ -63,7 +57,7 @@ class OrderObserver
     /**
      * Handle the LuxeStoreOrder "force deleted" event.
      *
-     * @param  \App\Models\LuxeStoreOrder  $luxeStoreOrder
+     * @param \App\Models\LuxeStoreOrder $luxeStoreOrder
      * @return void
      */
     public function forceDeleted(LuxeStoreOrder $luxeStoreOrder)

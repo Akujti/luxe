@@ -50,16 +50,16 @@
         <div class="grid grid-layout">
             <div></div>
             <div class="box-item box-item-padding"
-                onclick="window.location='{{ url('general/form/commercial-help/purchase') }}'">
+                 onclick="window.location='{{ url('general/form/commercial-help/purchase') }}'">
                 <div>
-                    <img class="icon" src="/images/index-page/closing_coordinators.svg" alt="">
+                    <img class="icon" src="/images/index-page/building.svg" alt="">
                     <p>Commercial Purchase</p>
                 </div>
             </div>
             <div class="box-item box-item-padding"
-                onclick="window.location='{{ url('general/form/commercial-help/lease') }}'">
+                 onclick="window.location='{{ url('general/form/commercial-help/lease') }}'">
                 <div>
-                    <img class="icon" src="/images/index-page/closing_coordinators.svg" alt="">
+                    <img class="icon" src="/images/index-page/paper.svg" alt="">
                     <p>Commercial Lease</p>
                 </div>
             </div>

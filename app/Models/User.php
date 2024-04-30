@@ -13,13 +13,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use  Notifiable, HasApiTokens, SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'wp_id', 'role', 'optin', 'showing_agent', 'app_link'
+        'email', 'password', 'wp_id', 'role', 'optin', 'showing_agent', 'app_link', 'coming_soon_notifications'
     ];
 
     protected $appends = ['avatar'];

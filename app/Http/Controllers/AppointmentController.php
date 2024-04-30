@@ -25,7 +25,7 @@ class AppointmentController extends Controller
 
     public function create()
     {
-        $addresses = AppointmentAddress::get();
+        $addresses = AppointmentAddress::with('user')->get();
         return view('appointments.index', compact('addresses'));
     }
 

@@ -27,4 +27,9 @@ class AppointmentAddress extends Model
             return asset('storage/' . $this->image);
         return asset('images/image-coming-soon-placeholder.png');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'email', 'email')->withTrashed()->withDefault();
+    }
 }

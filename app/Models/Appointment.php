@@ -29,4 +29,5 @@ class Appointment extends Model
     {
         return $this->hasOne(AppointmentTimeslot::class, 'id', 'appointment_timeslot_id');
     }
+
 }

@@ -71,11 +71,6 @@
                                                        value="{{$address->title}}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="">Agent's Name</label>
-                                                <input type="text" class="form-control" name="agent_name"
-                                                       value="{{$address->agent_name}}">
-                                            </div>
-                                            <div class="form-group">
                                                 <label for="">Agent's Email</label>
                                                 <input type="email" class="form-control" name="email"
                                                        value="{{$address->email}}"
@@ -133,10 +128,6 @@
                         <div class="form-group">
                             <label for="">Title</label>
                             <input type="text" class="form-control" name="title">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Agent's Name</label>
-                            <input type="text" class="form-control" name="agent_name">
                         </div>
                         <div class="form-group">
                             <label for="">Agent's Email</label>
