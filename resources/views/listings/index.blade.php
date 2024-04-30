@@ -22,7 +22,7 @@
 
         .listing img {
             width: 100%;
-            height: 200px;
+            /*height: 200px;*/
             object-fit: cover;
         }
 
@@ -48,19 +48,19 @@
 
         @media screen and (min-width: 1280px) {
             .listing img {
-                height: 250px;
+                /*height: 250px;*/
             }
         }
 
         @media screen and (min-width: 1500px) {
             .listing img {
-                height: 290px;
+                /*height: 290px;*/
             }
         }
 
         @media screen and (min-width: 1700px) {
             .listing img {
-                height: 400px;
+                /*height: 400px;*/
             }
         }
 

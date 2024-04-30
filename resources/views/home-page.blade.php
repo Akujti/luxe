@@ -959,6 +959,13 @@
 
 
 
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1111,6 +1118,13 @@
 
 
 
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1118,6 +1132,13 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
 
 
 
@@ -1591,8 +1612,8 @@
             <h2 class="title-video">More ways to keep expanding your knowledge</h2>
         </div>
         <div class="row">
-            <div class="col-12">
-                <div class="grid grid-left grid-layout">
+            <div class="d-md-flex" style="gap:10px;">
+                <div class="grid grid-left grid-layout-three">
                     <div class="box-item box-item-padding" onclick="window.location = '{{ url('user/videos') }}'">
                         <div class="inside-box">
                             <img src="/images/index-page/training_videos.svg" class="icon" alt="">
@@ -1612,25 +1633,6 @@
                             <img src="/images/index-page/office_documents.svg" class="icon" alt="">
                             <p>Downloadable Docs, Guides & Excels</p>
                         </div>
-                    </div>
-
-                    <div class="box-item align-items-start box-guides row p-0 m-0"
-                         style="width: max-content;height:auto !important">
-                        <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
-                            <span>Upcoming Events</span>
-                        </h3>
-
-                        @forelse($upcoming_events as $event)
-                            <div class="box-guide col-12">
-                                <a href="{{ route('events.index') }}" class="text-dark">
-                                    <p>{{ $event->title }} - {{ $event->date }}</p>
-                                </a>
-                            </div>
-                        @empty
-                            <div class="box-guide justify-content-start pl-4">
-                                <p>No results found.</p>
-                            </div>
-                        @endforelse
                     </div>
 
                     <div class="box-item box-item-padding"
@@ -1653,6 +1655,24 @@
                             <p>LUXE Coaching</p>
                         </div>
                     </div>
+                </div>
+                <div class="box-item align-items-start box-guides row p-0 m-0 w-100"
+                     style="height:auto !important;width:100%">
+                    <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4">
+                        <span>Upcoming Events</span>
+                    </h3>
+
+                    @forelse($upcoming_events as $event)
+                        <div class="box-guide col-12">
+                            <a href="{{ route('events.index') }}" class="text-dark">
+                                <p>{{ $event->title }} - {{ $event->date }}</p>
+                            </a>
+                        </div>
+                    @empty
+                        <div class="box-guide justify-content-start pl-4">
+                            <p>No results found.</p>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>

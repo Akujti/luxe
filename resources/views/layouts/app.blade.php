@@ -660,10 +660,6 @@
                                                 Commercial Help</a>
                                         </li>
                                         <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'design_requests' ? 'active_submenu' : '' }}"
-                                               href="{{ route('marketing.requests') }}">Design Requests</a>
-                                        </li>
-                                        <li>
                                             <a class="{{ isset($subactive) && $subactive == 'wire_instructions_requests' ? 'active_submenu' : '' }}"
                                                href="{{ url('general/form/other/wire-instructions-request') }}">Wire
                                                 Instructions
