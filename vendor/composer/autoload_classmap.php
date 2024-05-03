@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\SendDailyComingSoonListings' => $baseDir . '/app/Console/Commands/SendDailyComingSoonListings.php',
     'App\\Console\\Commands\\SendDailyStoreReport' => $baseDir . '/app/Console/Commands/SendDailyStoreReport.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -54,6 +55,8 @@ return array(
     'App\\Http\\Controllers\\OptinController' => $baseDir . '/app/Http/Controllers/OptinController.php',
     'App\\Http\\Controllers\\PDFController' => $baseDir . '/app/Http/Controllers/PDFController.php',
     'App\\Http\\Controllers\\PageController' => $baseDir . '/app/Http/Controllers/PageController.php',
+    'App\\Http\\Controllers\\PhotographerController' => $baseDir . '/app/Http/Controllers/PhotographerController.php',
+    'App\\Http\\Controllers\\PhotographerImageController' => $baseDir . '/app/Http/Controllers/PhotographerImageController.php',
     'App\\Http\\Controllers\\ReferralPartnerCategoryController' => $baseDir . '/app/Http/Controllers/ReferralPartnerCategoryController.php',
     'App\\Http\\Controllers\\ReferralPartnerController' => $baseDir . '/app/Http/Controllers/ReferralPartnerController.php',
     'App\\Http\\Controllers\\ReferralPartnerMetaController' => $baseDir . '/app/Http/Controllers/ReferralPartnerMetaController.php',
@@ -144,6 +147,7 @@ return array(
     'App\\Mail\\BrokersumoMail' => $baseDir . '/app/Mail/BrokersumoMail.php',
     'App\\Mail\\BrokersumoYearlyMail' => $baseDir . '/app/Mail/BrokersumoYearlyMail.php',
     'App\\Mail\\CouponUsedMailTemplate' => $baseDir . '/app/Mail/CouponUsedMailTemplate.php',
+    'App\\Mail\\DailyComingSoonListingsMail' => $baseDir . '/app/Mail/DailyComingSoonListingsMail.php',
     'App\\Mail\\DailyStoreReport' => $baseDir . '/app/Mail/DailyStoreReport.php',
     'App\\Mail\\FormMail' => $baseDir . '/app/Mail/FormMail.php',
     'App\\Mail\\GeneralMailTemplate' => $baseDir . '/app/Mail/GeneralMailTemplate.php',
@@ -197,6 +201,9 @@ return array(
     'App\\Models\\MarketingCanvaTemplate' => $baseDir . '/app/Models/MarketingCanvaTemplate.php',
     'App\\Models\\MarketingCategory' => $baseDir . '/app/Models/MarketingCategory.php',
     'App\\Models\\MarketingMenu' => $baseDir . '/app/Models/MarketingMenu.php',
+    'App\\Models\\Photographer' => $baseDir . '/app/Models/Photographer.php',
+    'App\\Models\\PhotographerImage' => $baseDir . '/app/Models/PhotographerImage.php',
+    'App\\Models\\PhotographerProperty' => $baseDir . '/app/Models/PhotographerProperty.php',
     'App\\Models\\ReferralPartner' => $baseDir . '/app/Models/ReferralPartner.php',
     'App\\Models\\ReferralPartnerCategory' => $baseDir . '/app/Models/ReferralPartnerCategory.php',
     'App\\Models\\ReferralPartnerMeta' => $baseDir . '/app/Models/ReferralPartnerMeta.php',
@@ -219,6 +226,7 @@ return array(
     'App\\Models\\WrittenEmailTemplateItem' => $baseDir . '/app/Models/WrittenEmailTemplateItem.php',
     'App\\Notifications\\BrokersumoLevelup' => $baseDir . '/app/Notifications/BrokersumoLevelup.php',
     'App\\Notifications\\BrokersumoLevelupYearly' => $baseDir . '/app/Notifications/BrokersumoLevelupYearly.php',
+    'App\\Notifications\\DailyComingSoonListingsNotification' => $baseDir . '/app/Notifications/DailyComingSoonListingsNotification.php',
     'App\\Observers\\OrderObserver' => $baseDir . '/app/Observers/OrderObserver.php',
     'App\\Policies\\AgentEmailPolicy' => $baseDir . '/app/Policies/AgentEmailPolicy.php',
     'App\\Policies\\AppointmentAddressPolicy' => $baseDir . '/app/Policies/AppointmentAddressPolicy.php',

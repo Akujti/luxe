@@ -653,6 +653,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\SendDailyComingSoonListings' => __DIR__ . '/../..' . '/app/Console/Commands/SendDailyComingSoonListings.php',
         'App\\Console\\Commands\\SendDailyStoreReport' => __DIR__ . '/../..' . '/app/Console/Commands/SendDailyStoreReport.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -701,6 +702,8 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Http\\Controllers\\OptinController' => __DIR__ . '/../..' . '/app/Http/Controllers/OptinController.php',
         'App\\Http\\Controllers\\PDFController' => __DIR__ . '/../..' . '/app/Http/Controllers/PDFController.php',
         'App\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PageController.php',
+        'App\\Http\\Controllers\\PhotographerController' => __DIR__ . '/../..' . '/app/Http/Controllers/PhotographerController.php',
+        'App\\Http\\Controllers\\PhotographerImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PhotographerImageController.php',
         'App\\Http\\Controllers\\ReferralPartnerCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReferralPartnerCategoryController.php',
         'App\\Http\\Controllers\\ReferralPartnerController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReferralPartnerController.php',
         'App\\Http\\Controllers\\ReferralPartnerMetaController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReferralPartnerMetaController.php',
@@ -791,6 +794,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Mail\\BrokersumoMail' => __DIR__ . '/../..' . '/app/Mail/BrokersumoMail.php',
         'App\\Mail\\BrokersumoYearlyMail' => __DIR__ . '/../..' . '/app/Mail/BrokersumoYearlyMail.php',
         'App\\Mail\\CouponUsedMailTemplate' => __DIR__ . '/../..' . '/app/Mail/CouponUsedMailTemplate.php',
+        'App\\Mail\\DailyComingSoonListingsMail' => __DIR__ . '/../..' . '/app/Mail/DailyComingSoonListingsMail.php',
         'App\\Mail\\DailyStoreReport' => __DIR__ . '/../..' . '/app/Mail/DailyStoreReport.php',
         'App\\Mail\\FormMail' => __DIR__ . '/../..' . '/app/Mail/FormMail.php',
         'App\\Mail\\GeneralMailTemplate' => __DIR__ . '/../..' . '/app/Mail/GeneralMailTemplate.php',
@@ -844,6 +848,9 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Models\\MarketingCanvaTemplate' => __DIR__ . '/../..' . '/app/Models/MarketingCanvaTemplate.php',
         'App\\Models\\MarketingCategory' => __DIR__ . '/../..' . '/app/Models/MarketingCategory.php',
         'App\\Models\\MarketingMenu' => __DIR__ . '/../..' . '/app/Models/MarketingMenu.php',
+        'App\\Models\\Photographer' => __DIR__ . '/../..' . '/app/Models/Photographer.php',
+        'App\\Models\\PhotographerImage' => __DIR__ . '/../..' . '/app/Models/PhotographerImage.php',
+        'App\\Models\\PhotographerProperty' => __DIR__ . '/../..' . '/app/Models/PhotographerProperty.php',
         'App\\Models\\ReferralPartner' => __DIR__ . '/../..' . '/app/Models/ReferralPartner.php',
         'App\\Models\\ReferralPartnerCategory' => __DIR__ . '/../..' . '/app/Models/ReferralPartnerCategory.php',
         'App\\Models\\ReferralPartnerMeta' => __DIR__ . '/../..' . '/app/Models/ReferralPartnerMeta.php',
@@ -866,6 +873,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Models\\WrittenEmailTemplateItem' => __DIR__ . '/../..' . '/app/Models/WrittenEmailTemplateItem.php',
         'App\\Notifications\\BrokersumoLevelup' => __DIR__ . '/../..' . '/app/Notifications/BrokersumoLevelup.php',
         'App\\Notifications\\BrokersumoLevelupYearly' => __DIR__ . '/../..' . '/app/Notifications/BrokersumoLevelupYearly.php',
+        'App\\Notifications\\DailyComingSoonListingsNotification' => __DIR__ . '/../..' . '/app/Notifications/DailyComingSoonListingsNotification.php',
         'App\\Observers\\OrderObserver' => __DIR__ . '/../..' . '/app/Observers/OrderObserver.php',
         'App\\Policies\\AgentEmailPolicy' => __DIR__ . '/../..' . '/app/Policies/AgentEmailPolicy.php',
         'App\\Policies\\AppointmentAddressPolicy' => __DIR__ . '/../..' . '/app/Policies/AppointmentAddressPolicy.php',

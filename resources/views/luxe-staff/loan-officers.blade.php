@@ -48,7 +48,7 @@
                 <p class="staff-email"><a href="mailto:alex@luxehomeloan.com">alex@luxehomeloan.com</a></p>
 
                 <a target="_blank" href="https://2086660.my1003app.com/1743529/register"
-                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
+                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/ana-arias.jpg') }}" class="staff-image">
@@ -58,7 +58,7 @@
                 <p class="staff-email"><a href="mailto:ana@luxehomeloan.com">ana@luxehomeloan.com</a></p>
 
                 <a target="_blank" href="https://2086660.my1003app.com/2093307/register"
-                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
+                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/anais.jpg') }}" class="staff-image">
@@ -68,17 +68,17 @@
                 <p class="staff-email"><a href="mailto:anais@luxehomeloan.com">anais@luxehomeloan.com</a></p>
 
                 <a target="_blank" href="https://2086660.my1003app.com/2142886/register"
-                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
+                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/brandon.png') }}" class="staff-image">
+                <img src="{{ asset('images/staff/brandon.jpg') }}" class="staff-image">
                 <p class="staff-name">Brandon Beyrle</p>
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:3057533264">305.753.3264</a></p>
                 <p class="staff-email"><a href="mailto:brandon@luxehomeloan.com">brandon@luxehomeloan.com</a></p>
 
                 <a target="_blank" href="https://2086660.my1003app.com/1266291/register"
-                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
+                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
 
             <div class="col-md-3 staff-box">
@@ -89,7 +89,7 @@
                 <p class="staff-email"><a href="mailto:Christian@luxehomeloan.com">Christian@luxehomeloan.com</a></p>
 
                 <a target="_blank" href="https://2086660.my1003app.com/2054824/register"
-                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
+                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/ducene.jpg') }}" class="staff-image">
@@ -99,17 +99,17 @@
                 <p class="staff-email"><a href="mailto:ducene@luxehomeloan.com">ducene@luxehomeloan.com</a></p>
 
                 <a target="_blank" href="https://2086660.my1003app.com/1895607/register"
-                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
+                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/eddie.jpeg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/eddie.jpg') }}" class="staff-image">
                 <p class="staff-name">Eddie Peña</p>
                 <p class="staff-role">Mortgage Loan Officer</p>
                 <p class="staff-email"><a href="tel:7863551488">786.355.1488</a></p>
                 <p class="staff-email"><a href="mailto:eddie@luxehomeloan.com">eddie@luxehomeloan.com</a></p>
 
                 <a target="_blank" href="https://2086660.my1003app.com/498845/register"
-                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
+                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/elda.jpg') }}" class="staff-image">
@@ -127,7 +127,7 @@
                 <p class="staff-email"><a href="tel:7862539088">786.253.9088</a></p>
                 <p class="staff-email"><a href="mailto:lissette@luxehomeloan.com">lissette@luxehomeloan.com</a></p>
                 <a target="_blank" href="https://2086660.my1003app.com/2144327/register"
-                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
+                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
             <!-- <div class="col-md-3 staff-box">
                     <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
