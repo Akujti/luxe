@@ -29,6 +29,7 @@ use App\Http\Controllers\BrokerSumoController;
 use App\Http\Controllers\FormSubmitController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DiyTemplateController;
+use App\Http\Controllers\PhotographerController;
 use App\Http\Controllers\Video\VideoController;
 use App\Http\Controllers\CustomSectionController;
 use App\Http\Controllers\DesignRequestController;
@@ -480,6 +481,8 @@ Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => [
 // End Canva Marketing
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
+    Route::resource('photographers', PhotographerController::class);
+
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('marketing-requests', TemplateSubmitController::class);
     Route::resource('form-submit', FormSubmitController::class);

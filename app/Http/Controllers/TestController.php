@@ -18,13 +18,13 @@ class TestController extends Controller
 {
     public function index()
     {
-        $listings = Listing::take(10)->get();
-        User::where('coming_soon_notifications', true)
-            ->select('email')
-            ->chunk(500, function ($users) use ($listings) {
-                $emails = $users->pluck('email')->toArray();
-                Mail::to($emails)->send(new DailyComingSoonListingsMail($listings));
-            });
+//        $listings = Listing::take(10)->get();
+//        User::where('coming_soon_notifications', true)
+//            ->select('email')
+//            ->chunk(500, function ($users) use ($listings) {
+//                $emails = $users->pluck('email')->toArray();
+//                Mail::to($emails)->send(new DailyComingSoonListingsMail($listings));
+//            });
         if (App::environment('local'))
             return $a = Auth::loginUsingId(149);
     }
