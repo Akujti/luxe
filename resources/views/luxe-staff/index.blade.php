@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/daniela.jpg') }}" class="staff-image">
-                <p class="staff-name">Daniela River</p>
+                <p class="staff-name">Daniela Rivera</p>
                 <p class="staff-role">General Support Specialist</p>
                 <p class="staff-email">support@luxeknows.com</p>
             </div>

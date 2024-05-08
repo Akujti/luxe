@@ -116,13 +116,13 @@
                         href="tel:786.202.5484">786.202.5484</a></p>
                 <p class="staff-email">E: <a href="mailto:aya@luxeknows.com">aya@luxeknows.com</a></p>
             </div>
-            <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/premier.jpeg') }}" class="staff-image">
-                <p class="staff-name">Premier Luxe Group</p>
-                <p class="staff-role">Team Leader: Sergio Martins</p>
-                <p class="staff-email">D: <a href="tel:7864878527">786.487.8527</a></p>
-                <p class="staff-email">E: <a href="mailto:s.martins@luxeknows.com">s.martins@luxeknows.com</a></p>
-            </div>
+            {{--            <div class="col-md-6 staff-box">--}}
+            {{--                <img src="{{ asset('images/real-estate/premier.jpeg') }}" class="staff-image">--}}
+            {{--                <p class="staff-name">Premier Luxe Group</p>--}}
+            {{--                <p class="staff-role">Team Leader: Sergio Martins</p>--}}
+            {{--                <p class="staff-email">D: <a href="tel:7864878527">786.487.8527</a></p>--}}
+            {{--                <p class="staff-email">E: <a href="mailto:s.martins@luxeknows.com">s.martins@luxeknows.com</a></p>--}}
+            {{--            </div>--}}
             <div class="col-md-6 staff-box">
                 <img src="{{ asset('images/real-estate/ssm.jpg') }}" class="staff-image">
                 <p class="staff-name">SamSellsMiami Group</p>
