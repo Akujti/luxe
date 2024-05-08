@@ -12,12 +12,14 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use PDF;
 
 class TestController extends Controller
 {
     public function index()
     {
+//        return Storage::disk('public')->url('images/1714759493.jpg');
 //        $listings = Listing::take(10)->get();
 //        User::where('coming_soon_notifications', true)
 //            ->select('email')

@@ -70,7 +70,7 @@
                                 <p class="location">Kendall</p>
                                 <p class="address">12464 SW 127 Avenue, Miami, FL 33186</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Kendall','Lockbox 1986','Alarm 2019','Wi-Fi name- luxekendall2.5 / luxekendall5','Password- Luxe12345','Parking Options:','Open parking in shopping center')">
+                                        onclick="toggleModal('Kendall','Lockbox 1983','Alarm 2019','Wi-Fi name- luxekendall2.5 / luxekendall5','Password- Luxe12345','Parking Options:','Open parking in shopping center')">
                                     Access, Parking, & Wifi Information
                                 </button>
                             </div>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="form-group ">
                                 <p class="location">Orlando</p>
-                                <p class="address">301 N Tubb Street #104, Oakland, FL 34760</p>
+                                <p class="address">301 N Tubb Street #114, Oakland, FL 34760</p>
                                 <button class="btn"
                                         onclick="toggleModal('','Parking Options:','Open parking around building')">
                                     Access, Parking, & Wifi Information

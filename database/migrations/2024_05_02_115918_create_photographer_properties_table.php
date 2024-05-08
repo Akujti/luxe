@@ -15,6 +15,7 @@ class CreatePhotographerPropertiesTable extends Migration
     {
         Schema::create('photographer_properties', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('photographer_id')->constrained('photographers')->cascadeOnDelete();
             $table->string('address');
             $table->timestamps();
         });

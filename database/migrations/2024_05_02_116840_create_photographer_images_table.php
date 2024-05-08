@@ -30,6 +30,6 @@ class CreatePhotographerImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photographer_images');
+        Schema::dropIfExists('photographer_property_images');
     }
 }

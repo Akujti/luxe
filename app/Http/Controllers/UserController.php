@@ -30,6 +30,7 @@ class UserController extends Controller
         $user = User::find($user_id);
         return $user;
     }
+
     public function update_form($id)
     {
         $user = User::findOrFail($id);
@@ -346,6 +347,7 @@ class UserController extends Controller
 
         return back()->with('message', 'Successfully Added!');
     }
+
     public function delete_note(Request $req)
     {
         $id = $req->input('id', null);
@@ -395,11 +397,11 @@ class UserController extends Controller
         $details = [];
         $details['agent'] = request()->user();
         $details['showing_agent'] = $user;
-        $details['service'] =  request()->service;
-        $details['address'] =  request()->address;
-        $details['date'] =  request()->date;
+        $details['service'] = request()->service;
+        $details['address'] = request()->address;
+        $details['date'] = request()->date;
 
-        $to = ['email@luxeknows.com', 'operations@luxeknows.com', $user->email, request()->user()->email];
+        $to = ['operations@luxeknows.com', $user->email, request()->user()->email];
         try {
             Mail::to($to)->send(new ShowingAgentRequestMailTemplate($details));
         } catch (\Exception $exception) {
@@ -416,7 +418,7 @@ class UserController extends Controller
         })->get();
         $counter = 0;
         foreach ($users as $user) {
-            echo ($user->id . ' - ' . $user->profile->address);
+            echo($user->id . ' - ' . $user->profile->address);
 
             if ($user->profile->lat == null) {
                 $response = Http::get('https://maps.googleapis.com/maps/api/geocode/json?address=' . $user->profile->address . '&key=' . env('GOOGLE_MAPS_API_KEY'));
@@ -430,7 +432,7 @@ class UserController extends Controller
                     $user->profile->lat = $res['lat'];
                     $user->profile->lng = $res['lng'];
                     $user->profile->save();
-                    echo  $res['lat'] . ' * ' . $res['lng'];
+                    echo $res['lat'] . ' * ' . $res['lng'];
                     sleep(1);
                     $counter++;
                 }
