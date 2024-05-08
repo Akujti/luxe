@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST"
-                    onsubmit="addAgentEmail()" enctype="multipart/form-data">
+                      onsubmit="addAgentEmail()" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">CLOSING COORDINATORS - {{ $coordinator->name }}</h1>
@@ -24,22 +24,22 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                    value="{{ auth()->user()->profile->fullname }}" required>
+                                       value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Phone Number</label>
                                 <input type="text" name="agent_number" class="form-control"
-                                    value="{{ auth()->user()->profile->phone }}" required>
+                                       value="{{ auth()->user()->profile->phone }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                    value="{{ auth()->user()->email }}" required>
+                                       value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Property Address</label>
                                 <input type="text" name="property_address" class="form-control map-search" required
-                                    placeholder="">
+                                       placeholder="">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Effective Date</label>
@@ -96,7 +96,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Is this a LUXE Zillow lead?</label>
                                 <select id="zillow_lead" name="is_this_luxe_zillow_lead" class="form-control"
-                                    onchange="toggleHiddenInput(this)" required>
+                                        onchange="toggleHiddenInput(this)" required>
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -124,7 +124,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Upload Fully Executed Contract and Addendums</label>
-                                <input type="file" name="contract" class="form-control p-1" required>
+                                <input type="file" name="contracts[]" class="form-control p-1" required multiple>
+                                <small><i>* You can select multiple files to upload</i></small>
                             </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
@@ -136,22 +137,22 @@
         </div>
     </div>
     <script>
-        function toggleHiddenInput(selectElement) {
-            var form = document.getElementById('myForm');
-            var hiddenInput = document.getElementById('hiddenInput');
+        function toggleHiddenInput (selectElement) {
+            var form = document.getElementById('myForm')
+            var hiddenInput = document.getElementById('hiddenInput')
 
             if (selectElement.value === 'Yes') {
                 // If "Yes" is selected, create and add the hidden input
-                hiddenInput = document.createElement('input');
-                hiddenInput.type = 'hidden';
-                hiddenInput.name = 'to_email[]';
-                hiddenInput.value = 'zillow@luxeknows.com';
-                hiddenInput.id = 'hiddenInput';
-                form.appendChild(hiddenInput);
+                hiddenInput = document.createElement('input')
+                hiddenInput.type = 'hidden'
+                hiddenInput.name = 'to_email[]'
+                hiddenInput.value = 'zillow@luxeknows.com'
+                hiddenInput.id = 'hiddenInput'
+                form.appendChild(hiddenInput)
             } else {
                 // If any other option is selected, remove the hidden input if it exists
                 if (hiddenInput) {
-                    hiddenInput.parentNode.removeChild(hiddenInput);
+                    hiddenInput.parentNode.removeChild(hiddenInput)
                 }
             }
         }

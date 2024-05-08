@@ -111,32 +111,36 @@ class FormController extends Controller
                 $details['form_agent_full_name'] = $request->agent_full_name;
             else
                 $details['form_agent_full_name'] = auth()->user()->profile->fullname;
-
             if (isset($request->agent_email))
                 $details['form_agent_email'] = $request->agent_email;
             else
                 $details['form_agent_email'] = auth()->user()->email;
-
             foreach ($request->except('_token', 'to_email', 'form') as $key => $val) {
                 if ($request->hasFile($key)) {
-                    $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
-                    $request->file($key)->move(public_path('/new-storage/images/marketing'), $name);
-                    // $path = Storage::put('public/images/marketing', $val, 'public');
-                    $val = 'new-storage/images/marketing/' . $name;
-                }
-                if ($request->form_title == 'LUXE Coaching') {
-                    $details['agreement'] = env('APP_URL') . "/user/coaching/form/pdf?full_name=$request->full_name&date_signed=$request->date_signed";
-                }
-                if ($request->form_title == 'Get Contract Help') {
-                    if (strtolower($key) != 'agent_full_name' && strtolower($key) != 'agent_email') {
-                        $details[strtolower($key)] = $val;
+                    if (is_array($request->file($key))) {
+                        $counter = 1;
+                        foreach ($request->file($key) as $file) {
+                            $name = time() . Str::random(10) . '.' . $file->getClientOriginalExtension();
+                            $file->move(public_path('/new-storage/images/marketing'), $name);
+                            $details[$key . ' - ' . $counter++] = 'new-storage/images/marketing/' . $name;
+                        }
+                    } else {
+                        $name = time() . Str::random(10) . '.' . $val->getClientOriginalExtension();
+                        $request->file($key)->move(public_path('/new-storage/images/marketing'), $name);
+                        $val = 'new-storage/images/marketing/' . $name;
                     }
-                } else {
-                    if (is_array($val))
-                        $details[strtolower($key)] = implode(", ", $val);
-                    else
-                        $details[strtolower($key)] = $val;
                 }
+                if ($request->form_title == 'LUXE Coaching')
+                    $details['agreement'] = env('APP_URL') . "/user/coaching/form/pdf?full_name=$request->full_name&date_signed=$request->date_signed";
+                if ($request->form_title == 'Get Contract Help') {
+                    if (strtolower($key) != 'agent_full_name' && strtolower($key) != 'agent_email')
+                        $details[strtolower($key)] = $val;
+                } else
+                    if (is_array($val)) {
+                        if (!$request->hasFile($key))
+                            $details[strtolower($key)] = implode(", ", $val);
+                    } else
+                        $details[strtolower($key)] = $val;
             }
         } catch (Exception $e) {
             if ($request->wantsJson()) {

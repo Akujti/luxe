@@ -115,9 +115,9 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Upload Fully Executed Contract and Addendums</label>
-                                <input type="file" name="upload_fully_executed_contract_and_addendums"
-                                       class="form-control p-1"
-                                       required>
+                                <input type="file" name="contracts[]"
+                                       class="form-control p-1" required multiple>
+                                <small><i>* You can select multiple files to upload</i></small>
                             </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
