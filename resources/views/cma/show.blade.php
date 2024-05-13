@@ -286,9 +286,6 @@
                                                                                 <option value="Commercial Sale">
                                                                                     Commercial Sale
                                                                                 </option>
-                                                                                <option value>
-                                                                                    Other
-                                                                                </option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
