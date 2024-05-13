@@ -277,6 +277,9 @@
                                                                                 <option value="Residential">
                                                                                     Residential
                                                                                 </option>
+                                                                                <option value="Residential Lease">
+                                                                                    Residential Lease
+                                                                                </option>
                                                                                 <option value="Lease">Lease</option>
                                                                                 <option value="Land">Land</option>
                                                                                 <option value="Mobile">Mobile</option>
