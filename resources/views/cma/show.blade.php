@@ -64,15 +64,23 @@
                                             <h5 class="h-title"><span id="YearBuilt"></span> <br> Built</h5>
                                         </div>
                                         <div>
-                                            <h5 class="h-title"><span id="MIAMIRE_MaximumLeasableSqft"></span> <br> SqFt
+                                            <h5 class="h-title"><span id="LivingArea"></span> <br> SqFt
                                             </h5>
                                         </div>
                                         <div>
-                                            <h5 class="h-title"><span id="MIAMIRE_LPAmtSqFt"></span> <br> T.SqFt</h5>
+                                            <h5 class="h-title"><span id="GarageYN"></span> <br> Garage
+                                            </h5>
                                         </div>
-                                        <div class="border-none">
-                                            <h5 class="h-title"><span id="LotSizeDimensions"></span> <br> Size</h5>
+                                        <div>
+                                            <h5 class="h-title"><span id="MIAMIRE_PoolYN"></span> <br> Pool
+                                            </h5>
                                         </div>
+                                        {{--                                        <div>--}}
+                                        {{--                                            <h5 class="h-title"><span id="MIAMIRE_LPAmtSqFt"></span> <br> T.SqFt</h5>--}}
+                                        {{--                                        </div>--}}
+                                        {{--                                        <div class="border-none">--}}
+                                        {{--                                            <h5 class="h-title"><span id="PropertyType"></span> <br> Type</h5>--}}
+                                        {{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>
@@ -256,6 +264,33 @@
                                                                     </div>
                                                                 </div>
 
+                                                                <div class="col-12 col-xl-6">
+                                                                    <div class="form-group mb-1">
+                                                                        <label for="">Property Type</label>
+                                                                        <div class="">
+                                                                            <select id="property-type"
+                                                                                    class="form-control"
+                                                                                    name="property_type" id="">
+                                                                                <option value>
+                                                                                    Select Property Type
+                                                                                </option>
+                                                                                <option value="Residential">
+                                                                                    Residential
+                                                                                </option>
+                                                                                <option value="Lease">Lease</option>
+                                                                                <option value="Land">Land</option>
+                                                                                <option value="Mobile">Mobile</option>
+                                                                                <option value="Commercial Sale">
+                                                                                    Commercial Sale
+                                                                                </option>
+                                                                                <option value>
+                                                                                    Other
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
                                                                 <div class="col-12 text-center pt-4">
                                                                     <a class="btn-luxe" style="cursor:pointer;"
                                                                        onclick="filterSearch()">
@@ -339,6 +374,8 @@
         }
 
         async function filterSearch (limit) {
+            const urlParams = new URLSearchParams(window.location.search)
+            const dateSearch = urlParams.get('dateSearch')
             loadingDiv(1)
             var pool = $('#pool').val()
             var mls = $('#mls').val()
@@ -352,31 +389,32 @@
             var halfbathMax = $('#half-bath-max').val()
             var yearbuiltMin = $('#year-built-min').val()
             var yearbuiltMax = $('#year-built-max').val()
+            var propertyType = $('#property-type').val()
 
             var data = []
             if (yearbuiltMax && yearbuiltMin) {
-                data['YearBuilt.gt'] = yearbuiltMin
-                data['YearBuilt.lt'] = yearbuiltMax
+                data['YearBuilt.gte'] = yearbuiltMin
+                data['YearBuilt.lte'] = yearbuiltMax
             }
 
             if (lotsizeMin && lotsizeMax) {
-                data['LotSizeAcres.gt'] = lotsizeMin
-                data['LotSizeAcres.lt'] = lotsizeMax
+                data['LotSizeAcres.gte'] = lotsizeMin
+                data['LotSizeAcres.lte'] = lotsizeMax
             }
 
             if (bedroomsMin && bedroomsMax) {
-                data['BedroomsTotal.gt'] = bedroomsMin
-                data['BedroomsTotal.lt'] = bedroomsMax
+                data['BedroomsTotal.gte'] = bedroomsMin
+                data['BedroomsTotal.lte'] = bedroomsMax
             }
 
             if (fullbathMin && fullbathMax) {
-                data['BathroomsFull.gt'] = fullbathMin
-                data['BathroomsFull.lt'] = fullbathMax
+                data['BathroomsFull.gte'] = fullbathMin
+                data['BathroomsFull.lte'] = fullbathMax
             }
 
             if (halfbathMin && halfbathMax) {
-                data['BathroomsHalf.gt'] = halfbathMin
-                data['BathroomsHalf.lt'] = halfbathMax
+                data['BathroomsHalf.gte'] = halfbathMin
+                data['BathroomsHalf.lte'] = halfbathMax
             }
 
             if (pool) {
@@ -386,6 +424,12 @@
             if (mls) {
                 data['MlsStatus'] = mls
             }
+
+            if (propertyType)
+                data['PropertyType.eq'] = propertyType
+
+            if (dateSearch)
+                data['CloseDate.gte'] = dateSearch
 
             await getMatchedListings(data)
 
@@ -412,7 +456,10 @@
 
                 Object.keys(data).forEach((el) => {
                     let row = data[el]
-                    $('#' + el).html(validate(data[el]))
+                    if (typeof row === 'boolean')
+                        $('#' + el).html(row ? 'Yes' : 'No')
+                    else
+                        $('#' + el).html(validate(row))
                 })
 
             }
@@ -501,7 +548,7 @@
                             <div class="image-overlay-div">
                                 <div>
                                     <p class="sqft-price">
-                                        <i class="fa-solid fa-star"></i>
+<!--                                        <i class="fa-solid fa-star"></i>-->
                                         <b>$${validateString(item.ListPrice)} | $${validateString(item.MIAMIRE_RATIO_CurrentPrice_By_SQFT)} Sq.Ft</b>
                                     </p>
                                     <p class="sqft-price">
@@ -518,7 +565,7 @@
                                     </div>
 
                                     <div class="border-none">
-                                        <h6>${validateString(item.MIAMIRE_MaximumLeasableSqft)} <br> SqFt</h6>
+                                        <h6>${item.LotSizeSquareFeet ? validateString(item.LotSizeSquareFeet) : '-'} <br> SqFt</h6>
                                     </div>
                                 </div>
                             </div>
@@ -555,7 +602,7 @@
                                     <td>
                                         <div class="flex">
                                             <p>Lot Size</p>
-                                            <p>${validateString(item.LotSizeDimensions)}</p>
+                                            <p>${item.LotSizeDimensions ? validateString(item.LotSizeDimensions) : '-'}</p>
                                         </div>
                                     </td>
                                 </tr>

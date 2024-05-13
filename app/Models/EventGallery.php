@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PhotographerProperty extends Model
+class EventGallery extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['photographer_id', 'address'];
+    protected $fillable = ['title', 'link'];
 
     public function images()
     {
-        return $this->hasMany(PhotographerPropertyImage::class);
+        return $this->hasMany(EventGalleryImage::class);
     }
 }

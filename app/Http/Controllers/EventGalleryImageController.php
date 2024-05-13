@@ -2,26 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Photographer;
-use App\Models\PhotographerProperty;
-use App\Models\PhotographerPropertyImage;
+use App\Models\EventGallery;
+use App\Models\EventGalleryImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class PhotographerImageController extends Controller
+class EventGalleryImageController extends Controller
 {
-    public function index(Photographer $photographer, PhotographerProperty $property)
-    {
-        $property->load('images');
-        return view('admin.photographers.properties.images.index', compact('property'));
-    }
-
-    public function store(Request $request, Photographer $photographer, PhotographerProperty $property)
+    public function store(Request $request, EventGallery $event_gallery)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:10240'
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:102400'
         ]);
         $file = $request->image;
 
@@ -43,10 +36,10 @@ class PhotographerImageController extends Controller
             $constraint->aspectRatio();
         })->encode('jpg', 80);
         $name = 'large_' . time() . Str::random(10) . '.jpg';
-        $path_large = 'photographers/' . $name;
+        $path_large = 'event-gallery/' . $name;
         Storage::disk('public')->put($path_large, (string)$img->encode());
 
-        $property->images()->create([
+        $event_gallery->images()->create([
             'small' => $path_small,
             'medium' => $path_medium,
             'large' => $path_large
@@ -54,7 +47,7 @@ class PhotographerImageController extends Controller
         return back()->with('message', 'Image Uploaded');
     }
 
-    public function destroy(Request $request, Photographer $photographer, PhotographerProperty $property, PhotographerPropertyImage $image)
+    public function destroy(EventGallery $event_gallery, EventGalleryImage $image)
     {
         $image->delete();
         return back()->with('message', 'Image Deleted');

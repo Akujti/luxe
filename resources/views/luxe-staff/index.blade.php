@@ -128,14 +128,14 @@
             {{--                <p class="staff-email">786.388.0971</p>--}}
             {{--            </div>--}}
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/lila.jpg') }}" class="staff-image">
                 <p class="staff-name">Lila Garcia </p>
                 <p class="staff-role">Escrow & Billing Specialist</p>
                 <p class="staff-email">escrow@luxeknows.com</p>
                 <p class="staff-email">305.998.6239</p>
             </div>
             <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/user.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/staff/nicole.jpg') }}" class="staff-image">
                 <p class="staff-name">Nicole De La Cruz</p>
                 <p class="staff-role">Event Coordinator</p>
                 <p class="staff-email">events@luxeknows.com</p>

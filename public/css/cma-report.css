@@ -8,6 +8,7 @@
     font-size: 25px !important;
     font-family: "gothicbold";
 }
+
 .small-charts .chart p {
     font-size: 14px;
     font-family: "gothicbold";
@@ -31,6 +32,7 @@
     color: white;
     font-size: 30px;
 }
+
 .small-charts .blue .circle {
     background-color: #0c4975;
 }
@@ -38,12 +40,15 @@
 .small-charts .yellow .circle {
     background-color: #f7c00c;
 }
+
 .small-charts .green .circle {
     background-color: #75b241;
 }
+
 .small-charts .orange .circle {
     background-color: #f5771f;
 }
+
 .small-charts .chart.orange {
     border-color: #f48c43 !important;
 }
@@ -124,7 +129,7 @@
 .subject-property-details {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     justify-content: flex-end;
 }
 
@@ -505,13 +510,16 @@
 .table-cma th {
     padding: 0.3rem;
 }
+
 #UnparsedAddress {
     width: 312px;
 }
+
 @media (max-width: 992px) {
     #UnparsedAddress {
         width: 90%;
     }
+
     .market-analysis-rows .market-analysis-row {
         width: 100%;
         display: grid;
@@ -638,9 +646,11 @@
     border-color: #66afe9; /* Add a border color */
     box-shadow: 0 0 5px rgba(102, 175, 233, 0.6); /* Add a box shadow */
 }
+
 .select2-container {
     width: 300px !important;
 }
+
 .select2-dropdown {
     background-color: #f9f9f9;
     border: 1px solid #ccc;
@@ -648,11 +658,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 300px !important;
 }
-  body {
+
+body {
     min-height: 100vh;
-  }
-  
-  .paytm-loader {
+}
+
+.paytm-loader {
     color: #002e6e;
     width: 3px;
     aspect-ratio: 1;
@@ -663,29 +674,30 @@
     -webkit-box-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;
     -webkit-transform: translateX(-38px);
     -webkit-animation: loader 0.5s infinite alternate linear;
-  }
-  
-  @keyframes loader {
+}
+
+@keyframes loader {
     50% {
-      box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px;
+        box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px;
     }
     100% {
-      box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px;
+        box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px;
     }
-  }
-  
-  @-webkit-keyframes loader {
+}
+
+@-webkit-keyframes loader {
     50% {
-      box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px;
+        box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px;
     }
     100% {
-      box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px;
+        box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px;
     }
-  }
-  #loading {
+}
+
+#loading {
     top: 0px;
     position: sticky;
     width: 100%;
     height: 100vh;
     left: 0px;
-  }
+}

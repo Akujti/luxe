@@ -114,6 +114,21 @@
                                        required>
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="name">Client Name</label>
+                                <input type="text" name="client_name" class="form-control"
+                                       required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Client Email</label>
+                                <input type="text" name="client_email" class="form-control"
+                                       required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Client Phone Number</label>
+                                <input type="text" name="client_phone_number" class="form-control"
+                                       required>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="name">Upload Fully Executed Contract and Addendums</label>
                                 <input type="file" name="contracts[]"
                                        class="form-control p-1" required multiple>

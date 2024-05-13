@@ -68,7 +68,7 @@
     <div class="container-fluid">
         <div class="m-0">
             <div class="w-100 d-flex justify-content-between align-items-center mb-5">
-                <h5 class="h5-luxe">Photographers</h5>
+                <h5 class="h5-luxe">Event Galleries</h5>
                 <div>
                     <button class="btn btn-luxe px-5 py-2" onclick="create()">Create</button>
                 </div>
@@ -77,43 +77,36 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Properties</th>
+                        <th>Title</th>
+                        <th>Link</th>
+                        <th>Images</th>
                         <th>Created at</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    @foreach ($photographers as $photographer)
+                    @foreach ($event_galleries as $gallery)
                         <tr id="tr-row">
-                            <td id="td-row">
-                                <div>
-                                    <img src="{{$photographer->avatar_url}}" alt="" class="rounded-circle me-3"
-                                         width="50">
-                                    {{ $photographer->name}}
-                                </div>
-                            </td>
-                            <td id="td-row">{{ $photographer->email}} </td>
-                            <td id="td-row">{{ $photographer->properties()->count() }} </td>
-                            <td id="td-row">{{ $photographer->created_at->setTimezone('America/New_York') }}</td>
+                            <td id="td-row">{{ $gallery->title}}</td>
+                            <td id="td-row"><a href="{{ $gallery->link}}" target="_blank">Click Here</a></td>
+                            <td id="td-row">{{ $gallery->images()->count() }} </td>
+                            <td id="td-row">{{ $gallery->created_at->setTimezone('America/New_York') }}</td>
                             <td id="td-row">
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{route('admin.photographers.properties.index',$photographer)}}"
+                                    <a href="{{route('admin.event-galleries.show',$gallery)}}"
                                        class="btn btn-luxe px-4 py-2 mr-2">
-                                        Properties
+                                        Images
                                     </a>
-                                    <button class="btn btn-luxe px-4 py-2 mr-2"
-                                            onclick="update_event({{ $photographer }})">
+                                    <button class="btn btn-luxe px-4 py-2 mr-2" onclick="update_event({{ $gallery }})">
                                         Edit
                                     </button>
-                                    <form action="{{route('admin.photographers.destroy',$photographer->id)}}"
+                                    <form action="{{route('admin.event-galleries.destroy',$gallery->id)}}"
                                           method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger py-2"
-                                                onclick="confirm('Are you sure you want to delete this photographer?')">
+                                                onclick="confirm('Are you sure you want to delete this gallery?')">
                                             Delete
                                         </button>
                                     </form>
@@ -125,32 +118,21 @@
                 </table>
             </div>
         </div>
-        <div class="d-flex w-100 justify-content-center">
-            {{ $photographers->links() }}
-        </div>
     </div>
-    @include('admin.photographers.modals.create')
-    @include('admin.photographers.modals.update')
-    {{--    @include('admin.photographers.modals.delete')--}}
+    @include('admin.event-galleries.modals.create')
+    @include('admin.event-galleries.modals.update')
 
     @section('js')
         <script>
             function create () {
-                $('.create-photographer').modal('show')
-            }
-
-            function delete_event (item) {
-                $('.delete-photographer').modal('show')
-                $('.delete-category').find('#id').val(item.id)
+                $('.create-gallery').modal('show')
             }
 
             function update_event (item) {
-                console.log(item)
-                console.log($('.update-photographer').find('#name'))
-                $('.update-photographer').modal('show')
-                $('.update-photographer').find('#photographer_id').val(item.id)
-                $('.update-photographer').find('#name').val(item.name)
-                $('.update-photographer').find('#email').val(item.email)
+                $('.update-gallery').modal('show')
+                $('.update-gallery').find('#gallery_id').val(item.id)
+                $('.update-gallery').find('#title').val(item.title)
+                $('.update-gallery').find('#link').val(item.link)
             }
         </script>
     @endsection

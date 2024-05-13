@@ -288,30 +288,42 @@
                                 Requests</a> --}}
                             <a href="{{ route('admin.canva.marketing.index_admin') }}"
                                class="{{ isset($active) && $active == 'Marketing_canva' ? 'active selected' : '' }}">Canva</a>
-                            <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                               role="button" aria-haspopup="true" aria-expanded="false"
-                               style="color:#a8a8a8 !important;cursor: pointer;">
-                                Store
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a href="{{ route('admin.orders.index') }}"
-                                   class="{{ isset($active) }}">Orders</a>
-                                <a href="{{ route('admin.orders.marketing.menu.index') }}"
-                                   class="{{ isset($active) }}">Marketing Orders</a>
-                                <a href="{{ route('admin.luxe_store.index') }}"
-                                   class="{{ isset($active) && $active == 'Categories' ? 'active selected' : '' }}">Categories</a>
-                                <a href="{{ route('admin.luxe_store.products.index') }}"
-                                   class="{{ isset($active) && $active == 'Products' ? 'active selected' : '' }}">Products</a>
-                                <a href="{{ route('admin.luxe_store.coupons.index') }}"
-                                   class="{{ isset($active) && $active == 'Coupons' ? 'active selected' : '' }}">Coupons</a>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false"
+                                   style="color:#a8a8a8 !important;cursor: pointer;">
+                                    Store
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                     style="min-width: 300px">
+                                    <a href="{{ route('admin.orders.index') }}"
+                                       class="{{ isset($active) }}">Orders</a>
+                                    <a href="{{ route('admin.orders.marketing.menu.index') }}"
+                                       class="{{ isset($active) }}">Marketing Orders</a>
+                                    <a href="{{ route('admin.luxe_store.index') }}"
+                                       class="{{ isset($active) && $active == 'Categories' ? 'active selected' : '' }}">Categories</a>
+                                    <a href="{{ route('admin.luxe_store.products.index') }}"
+                                       class="{{ isset($active) && $active == 'Products' ? 'active selected' : '' }}">Products</a>
+                                    <a href="{{ route('admin.luxe_store.coupons.index') }}"
+                                       class="{{ isset($active) && $active == 'Coupons' ? 'active selected' : '' }}">Coupons</a>
+                                </div>
                             </div>
                             <a href="{{ route('admin.users.index') }}"
                                class="{{ isset($active) && $active == 'Users' ? 'active selected' : '' }}">Users</a>
                             <a href="{{ route('admin.videos.index') }}"
                                class="{{ isset($active) && $active == 'Videos' ? 'active selected' : '' }}">Videos</a>
-                            <a href="{{ route('admin.email_blasts.index') }}"
-                               class="{{ isset($active) && $active == 'Email-blasts' ? 'active selected' : '' }}">Email
-                                Blasts</a>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" type="button" id="dropdown-other" data-toggle="dropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false"
+                                   style="color:#a8a8a8 !important;cursor: pointer;">
+                                    Other
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown-other">
+                                    <a href="{{ route('admin.event-galleries.index') }}">Event Galleries</a>
+                                    <a href="{{ route('admin.email_blasts.index') }}">Email Blasts</a>
+                                    <a href="{{ route('admin.photographers.index') }}">Photographers</a>
+                                </div>
+                            </div>
                         </nav>
                     </div>
                 </div>

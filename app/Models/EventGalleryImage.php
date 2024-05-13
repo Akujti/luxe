@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PhotographerPropertyImage extends Model
+class EventGalleryImage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['photographer_property_id', 'small', 'medium', 'large'];
+    protected $fillable = ['event_gallery_id', 'small', 'medium', 'large'];
     protected $appends = ['url_small', 'url_medium', 'url_large'];
-
-    public function property()
-    {
-        return $this->belongsTo(PhotographerProperty::class);
-    }
 
     public function getUrlSmallAttribute()
     {

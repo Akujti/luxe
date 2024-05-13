@@ -34,16 +34,25 @@
                             <a href="{{ route('cma.index') }}" class="btn-luxe">Back</a>
                         </div>
 
+                        <div class="filter-select">
+                            <select class="form-control d-none" id="filter-search">
+                                <option value="UnparsedAddress" selected>Address</option>
+                            </select>
+                        </div>
                         <div class="table-box-body">
-                            <div class="table-action d-flex align-items-center justify-content-center my-3"
+                            <div class="table-action d-flex justify-content-center my-3"
                                  style="column-gap: 15px;">
-                                <div class="filter-select">
-                                    <select class="form-control" id="filter-search">
-                                        <option value="UnparsedAddress" selected>Address</option>
-                                    </select>
+                                <div class="form-group mb-0">
+                                    <label for="">Closing Date</label>
+                                    <input type="date" class="form-control" id="date-search">
+                                    <small><i>Includes All Dates Up To Today</i></small>
                                 </div>
-                                <div class="filter-search">
-                                    <input id="search-input1" class="form-control" type="text">
+                                <div class="form-group filter-search position-relative mb-0">
+                                    <label for="">Address</label>
+                                    <input id="search-input1" class="form-control" type="text"
+                                           placeholder="Search by address">
+                                    <div id="search-spinner" class="d-none spinner position-absolute"
+                                         style="top: 41px;right: 30px;"></div>
                                 </div>
                             </div>
                         </div>
@@ -66,43 +75,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
-        $('#search-input1').on('keyup', async function () {
-            let search_input = $('#search-input1').val()
-            var filterSearch = $('#filter-search').val()
-            var data = {}
-            data[filterSearch + '.in'] = search_input
-            var response = await axiosInc('listings', 'get', data)
-
-            if (response.data) {
-                const options = response.data.bundle.map(item => {
-                    return {
-                        label: item.UnparsedAddress,
-                        value: item.ListingId
-                    }
-                })
-                console.log('-----------------')
-                console.log(options)
-                await searchFunc(options)
-            }
-        })
-
-        function searchFunc (options) {
+        $(document).ready(function () {
             $('#search-input1').autocomplete({
+                minLength: 0,
                 source: function (request, response) {
-                    var filteredOptions = options.filter(function (option) {
-                        return option.value.toLowerCase().search(request.term.toLowerCase())
-                    })
-                    response(filteredOptions)
+                    var options = $(this.element).data('autocomplete-options')
+                    response(options || [])
                 },
                 select: function (event, ui) {
                     event.preventDefault()
                     $(this).val(ui.item.label)
                     var nextBtn = $('#next-btn')
+                    var dateSearch = $('#date-search').val()
                     var nextBtnHref = "{{ route('cma.show') }}"
-                    nextBtn.attr('href', nextBtnHref + '?listingId=' + ui.item.value)
+                    nextBtn.attr('href', nextBtnHref + '?listingId=' + ui.item.value + '&dateSearch=' + dateSearch)
                     nextBtn.removeClass('d-none')
                 },
+                focus: function (event, ui) {
+                    event.preventDefault()
+                    $(this).val(ui.item.label)
+                },
             })
-        }
+
+            $('#search-input1').on('input', debounce(async function () {
+                $('#search-spinner').toggleClass('d-none')
+                let search_input = $('#search-input1').val()
+                var filterSearch = $('#filter-search').val()
+                var dateSearch = $('#date-search').val()
+                var data = {}
+                data[filterSearch + '.in'] = search_input
+                if (dateSearch)
+                    data['CloseDate.gte'] = dateSearch
+                var response = await axiosInc('listings', 'get', data)
+
+                if (response.data) {
+                    const options = response.data.bundle.map(item => {
+                        return { label: item.UnparsedAddress, value: item.ListingId }
+                    })
+                    $('#search-input1').data('autocomplete-options', options)
+                    $('#search-input1').autocomplete('search', $('#search-input1').val())
+                }
+                $('#search-spinner').toggleClass('d-none')
+            }, 500))
+
+            function debounce (func, wait) {
+                let timeout
+                return function () {
+                    const context = this, args = arguments
+                    clearTimeout(timeout)
+                    timeout = setTimeout(function () {
+                        func.apply(context, args)
+                    }, wait)
+                }
+            }
+        })
     </script>
 @endsection

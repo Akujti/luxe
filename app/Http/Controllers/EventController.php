@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\AddToEmailCalendar;
 use App\Models\Event;
+use App\Models\EventGallery;
 use App\Models\EventUser;
 use App\Models\User;
 use Carbon\Carbon;
@@ -29,7 +30,8 @@ class EventController extends Controller
             return response()->json(['events' => $events]);
         }
         $isAdmin = Auth::user()->isAdmin;
-        return view('pages.events.events', compact('events', 'isAdmin'));
+        $galleries = EventGallery::with('images')->get();
+        return view('pages.events.events', compact('events', 'isAdmin', 'galleries'));
     }
 
     public function show(Event $event)

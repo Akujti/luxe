@@ -2,7 +2,6 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('/css/cma-report.css') }}">
     <style>
-
         a {
             text-decoration: none;
             color: black;

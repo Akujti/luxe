@@ -57,6 +57,10 @@ use App\Http\Controllers\WrittenEmailTemplateController;
 use App\Http\Controllers\ReferralPartnerCategoryController;
 use App\Http\Controllers\WrittenEmailTemplateItemController;
 use App\Http\Controllers\ListingCoordinatorPackageController;
+use App\Http\Controllers\PhotographerPropertyController;
+use App\Http\Controllers\PhotographerImageController;
+use App\Http\Controllers\EventGalleryController;
+use App\Http\Controllers\EventGalleryImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -410,6 +414,7 @@ Route::group(
 Route::group(
     ['middleware' => ['auth']],
     function () {
+        Route::get('photographers', [PhotographerController::class, 'indexUser'])->name('photographers.index');
         Route::get('optin-agents', [OptinController::class, 'index'])->name('optin.agents.index');
         Route::get('showing-agents', [UserController::class, 'showing_agents'])->name('showing.agents.index');
         Route::post('showing-agents/{user}', [UserController::class, 'request_showing_agents'])->name('request.showing.agents');
@@ -481,7 +486,19 @@ Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => [
 // End Canva Marketing
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('photographers/{photographer}/properties', [PhotographerPropertyController::class, 'index'])->name('photographers.properties.index');
+    Route::post('photographers/properties', [PhotographerPropertyController::class, 'store'])->name('photographers.properties.store');
+    Route::put('photographers/properties', [PhotographerPropertyController::class, 'update'])->name('photographers.properties.update');
+    Route::delete('photographers/properties/{property}', [PhotographerPropertyController::class, 'destroy'])->name('photographers.properties.destroy');
+
+    Route::get('photographers/{photographer}/properties/{property}/images', [PhotographerImageController::class, 'index'])->name('photographers.properties.images.index');
+    Route::post('photographers/{photographer}/properties/{property}/images', [PhotographerImageController::class, 'store'])->name('photographers.properties.images.store');
+    Route::delete('photographers/{photographer}/properties/{property}/images/{image}', [PhotographerImageController::class, 'destroy'])->name('photographers.properties.images.destroy');
+
     Route::resource('photographers', PhotographerController::class);
+    Route::resource('event-galleries', EventGalleryController::class);
+    Route::post('event-galleries/{event_gallery}/image', [EventGalleryImageController::class, 'store'])->name('event-galleries.images.store');
+    Route::delete('event-galleries/{event_gallery}/image/{image}', [EventGalleryImageController::class, 'destroy'])->name('event-galleries.images.destroy');
 
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('marketing-requests', TemplateSubmitController::class);

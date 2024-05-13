@@ -58,62 +58,49 @@
                 width: 473px !important;
             }
         }
-
-        .btn {
-            border-radius: 10px !important;
-        }
     </style>
 @endsection
 @section('content')
     <div class="container-fluid">
         <div class="m-0">
             <div class="w-100 d-flex justify-content-between align-items-center mb-5">
-                <h5 class="h5-luxe">Photographers</h5>
+                <h5 class="h5-luxe">{{$photographer->name}} - Properties</h5>
                 <div>
-                    <button class="btn btn-luxe px-5 py-2" onclick="create()">Create</button>
+                    <button class="btn btn-luxe px-5 py-2" onclick="create({{$photographer}})">Create</button>
                 </div>
             </div>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Properties</th>
+                        <th>Address</th>
+                        <th>Images</th>
                         <th>Created at</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    @foreach ($photographers as $photographer)
+                    @foreach ($photographer->properties as $property)
                         <tr id="tr-row">
-                            <td id="td-row">
-                                <div>
-                                    <img src="{{$photographer->avatar_url}}" alt="" class="rounded-circle me-3"
-                                         width="50">
-                                    {{ $photographer->name}}
-                                </div>
-                            </td>
-                            <td id="td-row">{{ $photographer->email}} </td>
-                            <td id="td-row">{{ $photographer->properties()->count() }} </td>
-                            <td id="td-row">{{ $photographer->created_at->setTimezone('America/New_York') }}</td>
+                            <td id="td-row">{{ $property->address}} </td>
+                            <td id="td-row">{{ $property->images()->count() }} </td>
+                            <td id="td-row">{{ $property->created_at->setTimezone('America/New_York') }}</td>
                             <td id="td-row">
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{route('admin.photographers.properties.index',$photographer)}}"
+                                    <a href="{{route('admin.photographers.properties.images.index',[$property->photographer_id,$property->id])}}"
                                        class="btn btn-luxe px-4 py-2 mr-2">
-                                        Properties
+                                        Images
                                     </a>
-                                    <button class="btn btn-luxe px-4 py-2 mr-2"
-                                            onclick="update_event({{ $photographer }})">
+                                    <button class="btn btn-luxe px-4 py-2 mr-2" onclick="update_event({{ $property }})">
                                         Edit
                                     </button>
-                                    <form action="{{route('admin.photographers.destroy',$photographer->id)}}"
+                                    <form action="{{route('admin.photographers.properties.destroy',$property->id)}}"
                                           method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger py-2"
-                                                onclick="confirm('Are you sure you want to delete this photographer?')">
+                                                onclick="confirm('Are you sure you want to delete this property?')">
                                             Delete
                                         </button>
                                     </form>
@@ -125,32 +112,27 @@
                 </table>
             </div>
         </div>
-        <div class="d-flex w-100 justify-content-center">
-            {{ $photographers->links() }}
-        </div>
     </div>
-    @include('admin.photographers.modals.create')
-    @include('admin.photographers.modals.update')
-    {{--    @include('admin.photographers.modals.delete')--}}
+    @include('admin.photographers.properties.modals.create')
+    @include('admin.photographers.properties.modals.update')
+    @include('admin.photographers.properties.modals.delete')
 
     @section('js')
         <script>
-            function create () {
-                $('.create-photographer').modal('show')
+            function create (item) {
+                $('.create-property').modal('show')
+                $('.create-property').find('#photographer_id').val(item.id)
             }
 
             function delete_event (item) {
-                $('.delete-photographer').modal('show')
-                $('.delete-category').find('#id').val(item.id)
+                $('.delete-property').modal('show')
+                $('.delete-property').find('#property_id').val(item.id)
             }
 
             function update_event (item) {
-                console.log(item)
-                console.log($('.update-photographer').find('#name'))
-                $('.update-photographer').modal('show')
-                $('.update-photographer').find('#photographer_id').val(item.id)
-                $('.update-photographer').find('#name').val(item.name)
-                $('.update-photographer').find('#email').val(item.email)
+                $('.update-property').modal('show')
+                $('.update-property').find('#property_id').val(item.id)
+                $('.update-property').find('#address').val(item.address)
             }
         </script>
     @endsection
