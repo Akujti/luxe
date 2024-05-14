@@ -682,6 +682,11 @@
                                                href="{{  url('general/form/other/invoice-request')  }}">Invoice
                                                 Request</a>
                                         </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'get_your_property_listed' ? 'active_submenu' : '' }}"
+                                               href="{{  url('general/form/other/invoice-request')  }}">Get Your
+                                                Property Listed on Costar/Loopnet</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li
