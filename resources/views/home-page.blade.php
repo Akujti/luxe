@@ -966,6 +966,10 @@
 
 
 
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1125,6 +1129,10 @@
 
 
 
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1132,6 +1140,10 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
 
 
 
@@ -1433,6 +1445,13 @@
                 <div>
                     <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
                     <p>Invoice Request</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding"
+                 onclick="window.location = '{{ url('general/form/leads/get-your-property-listed-on-costar-loopnet') }}'">
+                <div>
+                    <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
+                    <p>Get Your Property Listed on Costar/Loopnet</p>
                 </div>
             </div>
         </div>
