@@ -805,6 +805,11 @@
                                 <li class="row m-0 {{ Request()->route()->getPrefix() == 'user/cma-report' ? 'active selected' : '' }}">
                                     <a href="{{ route('cma.index') }}">Seller CMA </a>
                                 </li>
+                                <li class="row m-0">
+                                    <a href="{{ route('thegroundup') }}"
+                                       class="{{ isset($active) && $active == 'thegroundup' ? 'active_submenu' : '' }}">The
+                                        Ground Up</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="sidebar-details">

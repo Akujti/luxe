@@ -69,4 +69,9 @@ class PageController extends Controller
     {
         return view('pages.mls.mls-directory');
     }
+
+    public function thegroundup()
+    {
+        return view('pages.thegroundup');
+    }
 }

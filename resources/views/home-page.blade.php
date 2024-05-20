@@ -970,6 +970,7 @@
 
 
 
+
                 @endforeach
                 </div>
 
@@ -1133,6 +1134,7 @@
 
 
 
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1140,6 +1142,7 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
 
 
 
@@ -1832,7 +1835,7 @@
                 </div>
             </div> --}}
             <div class="box-item box-item-padding"
-                 onclick="window.location='{{ url('store/product/special-offer-5-part-payment-plan-fiu-course') }}'">
+                 onclick="window.location='{{ url('store/product/fiu-course-real-estate-investment-decision-making-advising-high-net-worth-clients') }}'">
                 <div>
                     <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
                     <p>Real Estate Course</p>
