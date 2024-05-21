@@ -690,7 +690,7 @@
                                         </li>
                                         <li class="row m-0">
                                             <a href="{{ route('newconstructionsearch') }}"
-                                               class="{{ isset($active) && $subactive == 'newconstructionsearch' ? 'active_submenu' : '' }}">New
+                                               class="{{ isset($subactive) && $subactive == 'newconstructionsearch' ? 'active_submenu' : '' }}">New
                                                 Construction Search</a>
                                         </li>
                                     </ul>
