@@ -688,12 +688,12 @@
                                                href="{{  url('general/form/other/invoice-request')  }}">Get Your
                                                 Property Listed on Costar/Loopnet</a>
                                         </li>
-                                        <li class="row m-0">
-                                            <a href="{{ route('newconstructionsearch') }}"
-                                               class="{{ isset($subactive) && $subactive == 'newconstructionsearch' ? 'active_submenu' : '' }}">New
-                                                Construction Search</a>
-                                        </li>
                                     </ul>
+                                </li>
+                                <li class="row m-0">
+                                    <a href="{{ route('newconstructionsearch') }}"
+                                       class="{{ isset($subactive) && $subactive == 'newconstructionsearch' ? 'active_submenu' : '' }}">New
+                                        Construction Search</a>
                                 </li>
                                 <li
                                     class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">

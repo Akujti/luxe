@@ -979,6 +979,7 @@
 
 
 
+
                 @endforeach
                 </div>
 
@@ -1151,6 +1152,7 @@
 
 
 
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1158,6 +1160,7 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
 
 
 
@@ -1488,13 +1491,13 @@
                     <p>Get Your Property Listed on Costar/Loopnet</p>
                 </div>
             </div>
-            <div class="box-item box-item-padding"
-                 onclick="window.location = '{{ route('newconstructionsearch') }}'">
-                <div>
-                    <img src="/images/index-page/construction.svg" class="icon" alt="">
-                    <p>New Construction Search</p>
-                </div>
-            </div>
+            {{--            <div class="box-item box-item-padding"--}}
+            {{--                 onclick="window.location = '{{ route('newconstructionsearch') }}'">--}}
+            {{--                <div>--}}
+            {{--                    <img src="/images/index-page/construction.svg" class="icon" alt="">--}}
+            {{--                    <p>New Construction Search</p>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </div>
     @elseif($_GET['dir'] == 'request_listing_closing_coordinators')
             <?php
