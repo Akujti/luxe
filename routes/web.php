@@ -438,7 +438,7 @@ Route::group(
         Route::resource('listings', ListingController::class);
 
         Route::get('mls/mls-directory', [PageController::class, 'mls_directory'])->name('mls-directory');
-        Route::get('thegroundup', [PageController::class, 'thegroundup'])->name('thegroundup');
+        Route::get('new-construction-search', [PageController::class, 'newconstructionsearch'])->name('newconstructionsearch');
     }
 );
 

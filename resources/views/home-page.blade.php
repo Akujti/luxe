@@ -971,6 +971,14 @@
 
 
 
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -984,6 +992,14 @@
                                                                                                                                                                                                                                                             <p class="ml-2 mt-2">{{ $item->title }}</p>
                                                                                                                                                                                                                                                         </a>
                                                                                                                                                                                                                                                     </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -1293,6 +1309,14 @@
 
 
 
+
+
+
+
+
+
+
+
             @endif
         @endforeach
         </div> -->
@@ -1356,6 +1380,13 @@
                 <div>
                     <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
                     <p>Custom Design Requests</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding"
+                 onclick="window.location = '{{ url('/store/product/zillow-listing-showcase-shoot') }}'">
+                <div>
+                    <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
+                    <p>Zillow Listing Showcase</p>
                 </div>
             </div>
         </div>
@@ -1455,6 +1486,13 @@
                 <div>
                     <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
                     <p>Get Your Property Listed on Costar/Loopnet</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding"
+                 onclick="window.location = '{{ route('newconstructionsearch') }}'">
+                <div>
+                    <img src="/images/index-page/construction.svg" class="icon" alt="">
+                    <p>New Construction Search</p>
                 </div>
             </div>
         </div>

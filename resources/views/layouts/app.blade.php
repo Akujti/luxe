@@ -227,6 +227,7 @@
     }
 
     #search-input:focus {
+        ph
         outline: none;
     }
 
@@ -687,25 +688,12 @@
                                                href="{{  url('general/form/other/invoice-request')  }}">Get Your
                                                 Property Listed on Costar/Loopnet</a>
                                         </li>
+                                        <li class="row m-0">
+                                            <a href="{{ route('newconstructionsearch') }}"
+                                               class="{{ isset($active) && $subactive == 'newconstructionsearch' ? 'active_submenu' : '' }}">New
+                                                Construction Search</a>
+                                        </li>
                                     </ul>
-                                </li>
-                                <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
-                                    <a href="{{ route('referral-partner-category.index') }}">Referral Partners</a>
-                                    {{--                                    <em id="li-plus"><img src="/images/plus.png"></em>--}}
-                                    {{--                                    <em id="li-minus"><img src="/images/minus.png"></em>--}}
-
-                                    {{--                                    <ul class="w-100">--}}
-                                    {{--                                        @php--}}
-                                    {{--                                            $referral_categories = App\Models\ReferralPartnerCategory::whereNull('parent_id')->get();--}}
-                                    {{--                                        @endphp--}}
-                                    {{--                                        @foreach ($referral_categories as $item)--}}
-                                    {{--                                            <li>--}}
-                                    {{--                                                <a class="{{ isset($subactive) && $subactive == $item->title ? 'active_submenu' : '' }}"--}}
-                                    {{--                                                   href="{{ route('referral-partner-category.show', $item) }}">{{ $item->title }}</a>--}}
-                                    {{--                                            </li>--}}
-                                    {{--                                        @endforeach--}}
-                                    {{--                                    </ul>--}}
                                 </li>
                                 <li
                                     class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">
@@ -797,6 +785,24 @@
                                 <li class="row m-0 @if (Request::path() == 'listings') active selected @endif">
                                     <a href="{{ route('listings.index') }}">Coming Soon & Off Market</a>
                                 </li>
+                                <li
+                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
+                                    <a href="{{ route('referral-partner-category.index') }}">Referral Partners</a>
+                                    {{--                                    <em id="li-plus"><img src="/images/plus.png"></em>--}}
+                                    {{--                                    <em id="li-minus"><img src="/images/minus.png"></em>--}}
+
+                                    {{--                                    <ul class="w-100">--}}
+                                    {{--                                        @php--}}
+                                    {{--                                            $referral_categories = App\Models\ReferralPartnerCategory::whereNull('parent_id')->get();--}}
+                                    {{--                                        @endphp--}}
+                                    {{--                                        @foreach ($referral_categories as $item)--}}
+                                    {{--                                            <li>--}}
+                                    {{--                                                <a class="{{ isset($subactive) && $subactive == $item->title ? 'active_submenu' : '' }}"--}}
+                                    {{--                                                   href="{{ route('referral-partner-category.show', $item) }}">{{ $item->title }}</a>--}}
+                                    {{--                                            </li>--}}
+                                    {{--                                        @endforeach--}}
+                                    {{--                                    </ul>--}}
+                                </li>
                                 <li class="row m-0">
                                     <a href="{{ route('luxe-incentives') }}"
                                        class="{{ isset($active) && $active == 'luxe_incentives' ? 'active_submenu' : '' }}">LUXE
@@ -804,11 +810,6 @@
                                 </li>
                                 <li class="row m-0 {{ Request()->route()->getPrefix() == 'user/cma-report' ? 'active selected' : '' }}">
                                     <a href="{{ route('cma.index') }}">Seller CMA </a>
-                                </li>
-                                <li class="row m-0">
-                                    <a href="{{ route('thegroundup') }}"
-                                       class="{{ isset($active) && $active == 'thegroundup' ? 'active_submenu' : '' }}">The
-                                        Ground Up</a>
                                 </li>
                             </ul>
                         </div>

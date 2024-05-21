@@ -70,8 +70,8 @@ class PageController extends Controller
         return view('pages.mls.mls-directory');
     }
 
-    public function thegroundup()
+    public function newconstructionsearch()
     {
-        return view('pages.thegroundup');
+        return view('pages.newconstructionsearch');
     }
 }
