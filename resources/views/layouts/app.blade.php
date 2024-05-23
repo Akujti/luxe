@@ -347,7 +347,6 @@
 
 
     @media (max-width: 600px) {
-
         .grid-layout,
         .grid-layout-three {
             grid-template-columns: 100%;
@@ -412,7 +411,6 @@
                     <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
                         <div class="contact-details">
                             <div class="right-contactsd">
-                                {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
                                 <a href="{{ route('luxe_store.cart') }}" data-toggle="tooltip" data-placement="top"
                                    title="Cart"><img src="/images/cart.svg" alt=""></a>
                                 <a href="{{ route('profile.my_profile') }}" data-toggle="tooltip"
@@ -440,6 +438,154 @@
                                         </a>
                                     </div>
 
+                                    <a href="#" data-toggle="modal" data-target="#suggestionModal"><img
+                                            src="/images/suggestion.svg" alt=""></a>
+                                    <div class="modal fade modal-new" id="suggestionModal" tabindex="-1" role="dialog"
+                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Submit A
+                                                        Suggestion</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form action="{{ route('general.email.post') }}" method="POST"
+                                                      enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="form_title"
+                                                               value="Submit A Suggestion">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="form-group">
+                                                                <label for="start">Agent Name</label>
+                                                                <div class='input-group'>
+                                                                    <input type="text" class="w-100 form-control"
+                                                                           name="agent_name" required
+                                                                           value="{{ auth()->user()->profile->fullname }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="start">Agent Email</label>
+                                                                <div class='input-group'>
+                                                                    <input type="email" class="w-100 form-control"
+                                                                           name="agent_email"
+                                                                           required value="{{ auth()->user()->email }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="start">Please write your suggestion
+                                                                    below</label>
+                                                                <div class='input-group'>
+                                                            <textarea class="w-100 form-control" required rows="4"
+                                                                      name="suggestion"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer pt-0">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                            Cancel
+                                                        </button>
+                                                        <button type="submit" class="btn btn-luxe" id="save-event">
+                                                            Create
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" data-toggle="modal" data-target="#reportModal"><img
+                                            src="/images/report.svg" alt="" width="32"></a>
+                                    <div class="modal fade modal-new" id="reportModal" tabindex="-1" role="dialog"
+                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Report An Error</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form action="{{ route('general.email.post') }}" method="POST"
+                                                      enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="form_title"
+                                                               value="Report An Error">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="form-group">
+                                                                <label for="start">Agent Name</label>
+                                                                <div class='input-group'>
+                                                                    <input type="text" class="w-100 form-control"
+                                                                           name="agent_name" required
+                                                                           value="{{ auth()->user()->profile->fullname }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="start">Agent Email</label>
+                                                                <div class='input-group'>
+                                                                    <input type="email" class="w-100 form-control"
+                                                                           name="agent_email"
+                                                                           required value="{{ auth()->user()->email }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="start">Please select type of error</label>
+                                                                <div class='input-group'>
+                                                                    <select name="error_type" required
+                                                                            class="w-100 form-control">
+                                                                        <option value>-</option>
+                                                                        <option
+                                                                            value="Error on submission form">
+                                                                            Error on submission form
+                                                                        </option>
+                                                                        <option
+                                                                            value="Download not working">
+                                                                            Download not working
+                                                                        </option>
+                                                                        <option
+                                                                            value="Video not working">Video not working
+                                                                        </option>
+                                                                        <option
+                                                                            value="Issue checking out/paying">
+                                                                            Issue checking out/paying
+                                                                        </option>
+                                                                        <option
+                                                                            value="Incorrect sales volume">
+                                                                            Incorrect sales volume
+                                                                        </option>
+                                                                        <option value="Other">Other</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="start">Please provide details on the error
+                                                                    you are experiencing</label>
+                                                                <div class='input-group'>
+                                                            <textarea class="w-100 form-control" required rows="4"
+                                                                      name="suggestion"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer pt-0">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                            Cancel
+                                                        </button>
+                                                        <button type="submit" class="btn btn-luxe" id="save-event">
+                                                            Create
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endauth
                                 <div class="sidebar__item-menu d-flex">
                                     <div>
@@ -476,6 +622,7 @@
                 </div>
             </div>
         </div>
+
     </header>
     <div class="row d-flex w-100 m-0">
         @if (auth()->user())
@@ -840,6 +987,7 @@
             </main>
         </div>
     </div>
+
 </div>
 @if ($errors->any())
     @foreach ($errors->all() as $error)

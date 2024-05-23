@@ -194,15 +194,8 @@ class MarketingTemplateController extends Controller
         return back()->with('message', 'Created successfully');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
     }
 
     public function fields(MarketingCategory $marketingCategory, Template $template)
@@ -210,12 +203,6 @@ class MarketingTemplateController extends Controller
         return view('pages.marketing_templates.fields', compact('template'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\MarketingCategory $marketingCategory
-     * @return \Illuminate\Http\Response
-     */
     public function show(MarketingCanva $marketingCanva)
     {
         $category = $marketingCanva->load('categories', 'templates');
@@ -230,7 +217,6 @@ class MarketingTemplateController extends Controller
 
     public function edit(MarketingCategory $marketingCategory)
     {
-        //
     }
 
     public function destroy(DeleteRequest $req)
