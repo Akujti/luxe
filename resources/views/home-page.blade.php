@@ -980,6 +980,7 @@
 
 
 
+
                 @endforeach
                 </div>
 
@@ -1153,6 +1154,7 @@
 
 
 
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1160,6 +1162,7 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
 
 
 
@@ -1855,7 +1858,6 @@
                     <p>LUXE Apparel</p>
                 </div>
             </div>
-
             <div class="box-item box-item-padding"
                  onclick="window.location = '{{ url('store/product/sign-post-login-realpost') }}'">
                 <div>
@@ -1899,6 +1901,12 @@
                 <div>
                     <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
                     <p>Open House Signs & Kit</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding" onclick="window.location='{{ url('store/luxe-merch') }}'">
+                <div>
+                    <img class="icon" src="/images/index-page/luxe_product_store-icon.svg" alt="">
+                    <p>LUXE Merch</p>
                 </div>
             </div>
         </div>
