@@ -123,37 +123,37 @@
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                               value="1 - Hard Cover Book For Listing Presentations from Marketplace"
+                                               value="4 - Hard Cover Book For Listing Presentations from Marketplace"
                                                id="opt8">
-                                        <label for="opt8" class="font-weight-normal">1 - Hard Cover Book For Listing
+                                        <label for="opt8" class="font-weight-normal">4 - Hard Cover Book For Listing
                                             Presentations from Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                               value="2 - Printed LUXE Guides from Marketplace" id="opt9">
-                                        <label for="opt9" class="font-weight-normal">2 - Printed LUXE Guides from
+                                               value="5 - Printed LUXE Guides from Marketplace" id="opt9">
+                                        <label for="opt9" class="font-weight-normal">5 - Printed LUXE Guides from
                                             Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                               value="3 - Doorhanger w/ Business Card Slits from Marketplace"
+                                               value="6 - Doorhanger w/ Business Card Slits from Marketplace"
                                                id="opt10">
-                                        <label for="opt10" class="font-weight-normal">3 - Doorhanger w/ Business Card
+                                        <label for="opt10" class="font-weight-normal">6 - Doorhanger w/ Business Card
                                             Slits from Marketplace</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                               value="4 - Skip Trace from Marketplace (A skip trace is getting owner phone numbers and emails for areas/neighborhoods! Great information to have for farming purposes)"
+                                               value="7 - Skip Trace from Marketplace (A skip trace is getting owner phone numbers and emails for areas/neighborhoods! Great information to have for farming purposes)"
                                                id="opt11">
-                                        <label for="opt11" class="font-weight-normal">4 - Skip Trace from Marketplace
+                                        <label for="opt11" class="font-weight-normal">7 - Skip Trace from Marketplace
                                             (A skip trace is getting owner phone numbers and emails for
                                             areas/neighborhoods!
                                             Great information to have for farming purposes)</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                               value="5 - LUXE Holiday Cards from Marketplace" id="opt12">
-                                        <label for="opt12" class="font-weight-normal">5 - LUXE Holiday Cards from
+                                               value="8 - LUXE Holiday Cards from Marketplace" id="opt12">
+                                        <label for="opt12" class="font-weight-normal">8 - LUXE Holiday Cards from
                                             Marketplace</label>
                                     </div>
                                     <div>
@@ -193,8 +193,8 @@
                                     <div>
                                         <input type="checkbox" name="options[]"
                                                value="1 - TREM Website - Set Up Fee" id="opt20">
-                                        <label for="opt20" class="font-weight-normal">1 - Luxury Presence Agent Website
-                                            - Set Up Fee</label>
+                                        <label for="opt20" class="font-weight-normal">1 - TREM Website - Set Up
+                                            Fee</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
