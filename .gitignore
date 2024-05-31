@@ -6,6 +6,7 @@
 /public/zip
 /public/marketing-old
 /public/marketing/*
+/public/storage
 /storage
 /storage/*.key
 /public/pdfConvert
@@ -17,13 +18,9 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 config/app.php
-config/app.php
 composer.lock
 composer.json
 *.xml
-composer.json
-config/app.php
-composer.lock
 public/Generated.zip
 *.ttf
 *.ufm
