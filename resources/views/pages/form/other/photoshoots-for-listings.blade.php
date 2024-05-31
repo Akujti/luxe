@@ -452,7 +452,6 @@
             var elements = $('input[id^="option-"]:checked').toArray()
             elements.forEach(element => {
                 if (element.getAttribute('data-price')) {
-                    console.log(Number(element.getAttribute('data-price')))
                     total += Number(element.getAttribute('data-price'))
                 }
             })
@@ -491,7 +490,7 @@
             },
             onInit: function (data, actions) {
                 actions.disable()
-                document.querySelectorAll('input').forEach(item => {
+                document.querySelectorAll('input select').forEach(item => {
                     item.addEventListener('input', () => {
                         if (document.getElementById('photo-form').checkValidity()) {
                             actions.enable()

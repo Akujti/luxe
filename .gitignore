@@ -6,6 +6,7 @@
 /public/zip
 /public/marketing-old
 /public/marketing/*
+/storage
 /storage/*.key
 /public/pdfConvert
 /public/imageConvert

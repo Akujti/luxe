@@ -110,6 +110,18 @@
                                             with your Promo Code.</p>
                                     </div>
                                     <div>
+                                        <input type="checkbox" name="options[]" value="1 - Presentation Box" id="opt22">
+                                        <label for="opt22" class="font-weight-normal">1 - Presentation Box</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]" value="2 - Video Brochure" id="opt23">
+                                        <label for="opt23" class="font-weight-normal">2 - Video Brochure</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]" value="3 - Paddleball kit" id="opt24">
+                                        <label for="opt24" class="font-weight-normal">3 - Paddleball kit </label>
+                                    </div>
+                                    <div>
                                         <input type="checkbox" name="options[]"
                                                value="1 - Hard Cover Book For Listing Presentations from Marketplace"
                                                id="opt8">
@@ -180,23 +192,35 @@
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                               value="1 - Luxury Presence Agent Website - Set Up Fee" id="opt17">
-                                        <label for="opt17" class="font-weight-normal">1 - Luxury Presence Agent Website
+                                               value="1 - TREM Website - Set Up Fee" id="opt20">
+                                        <label for="opt20" class="font-weight-normal">1 - Luxury Presence Agent Website
                                             - Set Up Fee</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                               value="2 - Buzz Cube - Graphic Design & Web Development - https://www.buzzcube.io/"
+                                               value="2 - Zillow Listing Showcase" id="opt21">
+                                        <label for="opt21" class="font-weight-normal">2 - Zillow Listing
+                                            Showcase</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]"
+                                               value="3 - Luxury Presence Agent Website - Set Up Fee" id="opt17">
+                                        <label for="opt17" class="font-weight-normal">3 - Luxury Presence Agent Website
+                                            - Set Up Fee</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="options[]"
+                                               value="4 - Buzz Cube - Graphic Design & Web Development - https://www.buzzcube.io/"
                                                id="opt18">
-                                        <label for="opt18" class="font-weight-normal">2 - Buzz Cube - Graphic Design &
+                                        <label for="opt18" class="font-weight-normal">4 - Buzz Cube - Graphic Design &
                                             Web Development - <a href="https://www.buzzcube.io/"
                                                                  target="_blank">https://www.buzzcube.io</a></label>
                                     </div>
                                     <div>
                                         <input type="checkbox" name="options[]"
-                                               value="3 - Haute Living Agent Advertisement"
+                                               value="5 - Haute Living Agent Advertisement"
                                                id="opt19">
-                                        <label for="opt19" class="font-weight-normal">3 - Haute Living Agent
+                                        <label for="opt19" class="font-weight-normal">5 - Haute Living Agent
                                             Advertisement</label>
                                     </div>
                                     {{-- <div>
