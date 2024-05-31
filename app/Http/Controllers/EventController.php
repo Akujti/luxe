@@ -18,11 +18,6 @@ use Illuminate\Support\Str;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $events = Event::where('date', '>=', Carbon::now()->startOfMonth())->get();
@@ -30,7 +25,7 @@ class EventController extends Controller
             return response()->json(['events' => $events]);
         }
         $isAdmin = Auth::user()->isAdmin;
-        $galleries = EventGallery::with('images')->get();
+        $galleries = EventGallery::with('images')->latest()->take(3)->get();
         return view('pages.events.events', compact('events', 'isAdmin', 'galleries'));
     }
 

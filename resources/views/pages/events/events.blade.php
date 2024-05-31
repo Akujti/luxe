@@ -202,7 +202,7 @@
             <div class="row mb-4">
                 @foreach($galleries as $gallery)
                     <div class="col-md-4">
-                        <a href="{{$gallery->link}}" target="_blank">
+                        <a href="{{route('events.galleries.show',$gallery->id)}}" target="_blank">
                             <div class="gallery">
                                 {{--                                <div class="overlay"></div>--}}
                                 <div id="carouselExampleControls-{{$gallery->id}}" class="carousel slide"
@@ -236,6 +236,10 @@
                         </a>
                     </div>
                 @endforeach
+                @if($galleries)
+                    <a href="{{route('events.galleries.index')}}" class="btn btn-luxe text-center d-block mt-3 mx-auto">View
+                        All Events</a>
+                @endif
             </div>
             <div id='calendar' style="width: 100%; display: inline-block;"></div>
         </div>

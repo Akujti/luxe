@@ -331,6 +331,8 @@ Route::group(
         Route::post('/videos/review/comment', [VideoFolderController::class, 'create_comment'])->name('video.create_comment');
         Route::post('/videos/review/view', [VideoViewController::class, 'create'])->name('video.view.create');
         Route::get('/videos/{name}', [PageController::class, 'video_folder'])->name('video.folder');
+        Route::get('/events/galleries', [EventGalleryController::class, 'user_index'])->name('events.galleries.index');
+        Route::get('/events/galleries/{gallery}', [EventGalleryController::class, 'user_show'])->name('events.galleries.show');
         Route::get('/events/my', [EventController::class, 'my_events'])->name('my.events');
         Route::post('events/attend', [EventController::class, 'attend'])->name('events.attend');
         Route::resource('events', EventController::class);

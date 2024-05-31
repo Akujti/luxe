@@ -9,14 +9,26 @@ class EventGalleryController extends Controller
 {
     public function index()
     {
-        $event_galleries = EventGallery::orderBy('title')->get();
+        $event_galleries = EventGallery::latest()->get();
         return view('admin.event-galleries.index', compact('event_galleries'));
+    }
+
+    public function user_index()
+    {
+        $galleries = EventGallery::latest()->get();
+        return view('pages.events.galleries.index', compact('galleries'));
     }
 
     public function show(EventGallery $event_gallery)
     {
         $event_gallery = $event_gallery->load('images');
         return view('admin.event-galleries.images.index', compact('event_gallery'));
+    }
+
+    public function user_show(EventGallery $gallery)
+    {
+        $gallery->load('images');
+        return view('pages.events.galleries.show', compact('gallery'));
     }
 
     public function store(Request $request)
