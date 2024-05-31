@@ -42,9 +42,8 @@
             <div class="row">
                 @foreach($galleries as $gallery)
                     <div class="col-md-4 mb-4">
-                        <a href="{{$gallery->link}}" target="_blank">
+                        <a href="{{route('events.galleries.show',$gallery->id)}}" target="_blank">
                             <div class="gallery">
-                                {{--                                <div class="overlay"></div>--}}
                                 <div id="carouselExampleControls-{{$gallery->id}}" class="carousel slide"
                                      data-ride="carousel">
                                     <div class="carousel-inner">
