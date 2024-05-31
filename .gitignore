@@ -7,7 +7,6 @@
 /public/marketing-old
 /public/marketing/*
 /public/storage
-/storage
 /storage/*.key
 /public/pdfConvert
 /public/imageConvert
