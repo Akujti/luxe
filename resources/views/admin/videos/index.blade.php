@@ -98,7 +98,7 @@
                             Update Thumbnails
                         </button>
                         <form id="update_thumbnails_form" action="{{ route('admin.videos.video.update.thumbnails') }}"
-                            method="post" class="d-none">
+                              method="post" class="d-none">
                             @csrf</form>
                     @endif
                 </div>
@@ -107,31 +107,33 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th class="col-4">Name</th>
-                                <th class="col-4">Created at</th>
-                                <th class="col-4">Actions</th>
-                            </tr>
+                        <tr>
+                            <th class="col-4">Name</th>
+                            <th class="col-4">Created at</th>
+                            <th class="col-4">Actions</th>
+                        </tr>
                         </thead>
 
                         <tbody>
-                            @forelse($folders as $folder)
-                                <tr>
-                                    <td class="col-4">{{ $folder->title }}</td>
-                                    <td class="col-4">{{ $folder->created_at->diffForHumans() }}</td>
-                                    <td class="col-4">
-                                        <button class="btn btn-luxe px-4 py-2"
-                                            onclick="update_event({{ $folder }})">Edit</button>
-                                        <button class="btn btn-danger py-2"
-                                            onclick="delete_event({{ $folder }})">Delete</button>
-                                        <button class="btn btn-primary py-2"><a
-                                                href="{{ route('admin.videos.index') }}?id={{ $folder->id }}"
-                                                class="text-light">View</a></button>
-                                    </td>
-                                </tr>
-                            @empty
-                                <td colspan="3">No Folder Found.</td>
-                            @endforelse
+                        @forelse($folders as $folder)
+                            <tr>
+                                <td class="col-4">{{ $folder->title }}</td>
+                                <td class="col-4">{{ $folder->created_at->diffForHumans() }}</td>
+                                <td class="col-4">
+                                    <button class="btn btn-luxe px-4 py-2"
+                                            onclick="update_event({{ $folder }})">Edit
+                                    </button>
+                                    <button class="btn btn-danger py-2"
+                                            onclick="delete_event({{ $folder }})">Delete
+                                    </button>
+                                    <button class="btn btn-primary py-2"><a
+                                            href="{{ route('admin.videos.index') }}?id={{ $folder->id }}"
+                                            class="text-light">View</a></button>
+                                </td>
+                            </tr>
+                        @empty
+                            <td colspan="3">No Folder Found.</td>
+                        @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -141,33 +143,40 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th>Preview Image</th>
-                                <th>Vimeo Id</th>
-                                <th>Created at</th>
-                                <th>Actions</th>
-                            </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Preview Image</th>
+                            <th>Title</th>
+                            <th>Vimeo Id</th>
+                            <th>Created at</th>
+                            <th>Actions</th>
+                        </tr>
                         </thead>
 
                         <tbody>
-                            @forelse($videos as $video)
-                                <tr>
-                                    <td><img src="{{ $video->vimeo_details['thumbnail'] }}" id="img" width="75px"
-                                            height="75px"></td>
-                                    <td>{{ $video->video_id }}</td>
-                                    <td>{{ $video->created_at->diffForHumans() }}</td>
-                                    <td>
-                                        <button class="btn btn-luxe px-4 py-2"
-                                            onclick="update_video({{ $video }})">Edit</button>
-                                        <button class="btn btn-danger py-2"
-                                            onclick="delete_video({{ $video }})">Delete</button>
-                                        <button class="btn btn-primary py-2"><a class="text-light"
-                                                href="{{ route('admin.videos.index') }}?video_id={{ $video->id }}&prev_id={{ request('id') }}">Files</a></button>
-                                    </td>
-                                </tr>
-                            @empty
-                                <td colspan="4">No Video Found.</td>
-                            @endforelse
+                        @forelse($videos as $video)
+                            <tr>
+                                <td>{{$video->id}}</td>
+                                <td><img src="{{ $video->vimeo_details['thumbnail'] }}" id="img" width="75px"
+                                         height="75px"></td>
+                                <td>{{$video->title}}</td>
+                                <td>{{ $video->video_id }}</td>
+                                <td>{{ $video->created_at->diffForHumans() }}</td>
+                                <td>
+                                    <button class="btn btn-luxe px-4 py-2"
+                                            onclick="update_video({{ $video }})">Edit
+                                    </button>
+                                    <button class="btn btn-danger py-2"
+                                            onclick="delete_video({{ $video }})">Delete
+                                    </button>
+                                    <button class="btn btn-primary py-2"><a class="text-light"
+                                                                            href="{{ route('admin.videos.index') }}?video_id={{ $video->id }}&prev_id={{ request('id') }}">Files</a>
+                                    </button>
+                                </td>
+                            </tr>
+                        @empty
+                            <td colspan="4">No Video Found.</td>
+                        @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -177,30 +186,32 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Type</th>
-                                <th>Created at</th>
-                                <th>Actions</th>
-                            </tr>
+                        <tr>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Created at</th>
+                            <th>Actions</th>
+                        </tr>
                         </thead>
 
                         <tbody>
-                            @forelse($single_video->files as $file)
-                                <tr>
-                                    <td>{{ $file->title }}</td>
-                                    <td>{{ $file->type }}</td>
-                                    <td>{{ $file->created_at->diffForHumans() }}</td>
-                                    <td>
-                                        <button class="btn btn-luxe px-4 py-2"
-                                            onclick="update_file({{ $file }})">Edit</button>
-                                        <button class="btn btn-danger py-2"
-                                            onclick="delete_file({{ $file }})">Delete</button>
-                                    </td>
-                                </tr>
-                            @empty
-                                <td colspan="4">No File Found.</td>
-                            @endforelse
+                        @forelse($single_video->files as $file)
+                            <tr>
+                                <td>{{ $file->title }}</td>
+                                <td>{{ $file->type }}</td>
+                                <td>{{ $file->created_at->diffForHumans() }}</td>
+                                <td>
+                                    <button class="btn btn-luxe px-4 py-2"
+                                            onclick="update_file({{ $file }})">Edit
+                                    </button>
+                                    <button class="btn btn-danger py-2"
+                                            onclick="delete_file({{ $file }})">Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        @empty
+                            <td colspan="4">No File Found.</td>
+                        @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -221,56 +232,56 @@
     @include('admin.videos.modals.file.delete')
     @section('js')
         <script>
-            function create() {
-                $('.create-event').modal('show');
-            };
+            function create () {
+                $('.create-event').modal('show')
+            }
 
-            function delete_event(row) {
-                $('.delete-event').modal('show');
-                $('.delete-event').find('#video_id').val(row.id);
-            };
+            function delete_event (row) {
+                $('.delete-event').modal('show')
+                $('.delete-event').find('#video_id').val(row.id)
+            }
 
-            function update_event(row) {
-                $('.update-event').modal('show');
-                $('.update-event').find('#video_id').val(row.id);
-                $('.update-event').find('#title').val(row.title);
-            };
+            function update_event (row) {
+                $('.update-event').modal('show')
+                $('.update-event').find('#video_id').val(row.id)
+                $('.update-event').find('#title').val(row.title)
+            }
 
-            function create_video() {
-                $('.create-event-video').modal('show');
-            };
+            function create_video () {
+                $('.create-event-video').modal('show')
+            }
 
-            function delete_video(row) {
-                $('.delete-event-video').modal('show');
-                $('.delete-event-video').find('#id').val(row.id);
-            };
+            function delete_video (row) {
+                $('.delete-event-video').modal('show')
+                $('.delete-event-video').find('#id').val(row.id)
+            }
 
-            function update_video(row) {
-                $('.update-event-video').modal('show');
-                $('.update-event-video').find('#id').val(row.id);
-                $('.update-event-video').find('#video_id').val(row.video_id);
-                $('.update-event-video').find('#presenter_name').val(row.presenter_name);
-                $('.update-event-video').find('#date').val(row.date);
-            };
+            function update_video (row) {
+                $('.update-event-video').modal('show')
+                $('.update-event-video').find('#id').val(row.id)
+                $('.update-event-video').find('#video_id').val(row.video_id)
+                $('.update-event-video').find('#presenter_name').val(row.presenter_name)
+                $('.update-event-video').find('#date').val(row.date)
+            }
 
-            function update_thumbnails() {
-                $('#update_thumbnails_form').submit();
-            };
+            function update_thumbnails () {
+                $('#update_thumbnails_form').submit()
+            }
 
-            function create_file() {
-                $('.create-file').modal('show');
-            };
+            function create_file () {
+                $('.create-file').modal('show')
+            }
 
-            function delete_file(row) {
-                $('.delete-file').modal('show');
-                $('.delete-file').find('#file_id').val(row.id);
-            };
+            function delete_file (row) {
+                $('.delete-file').modal('show')
+                $('.delete-file').find('#file_id').val(row.id)
+            }
 
-            function update_file(row) {
-                $('.update-file').modal('show');
-                $('.update-file').find('#file_id').val(row.id);
-                $('.update-file').find('#title').val(row.title);
-            };
+            function update_file (row) {
+                $('.update-file').modal('show')
+                $('.update-file').find('#file_id').val(row.id)
+                $('.update-file').find('#title').val(row.title)
+            }
         </script>
     @endsection
 @endsection
