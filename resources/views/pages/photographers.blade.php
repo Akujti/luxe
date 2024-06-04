@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'office_locations'])
+@extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'photographers'])
 @section('content')
     <style>
         .wrapper h1 {

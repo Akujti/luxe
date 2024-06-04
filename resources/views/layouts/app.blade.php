@@ -926,7 +926,9 @@
                                             <a target="_blank"
                                                href="https://www.dropbox.com/scl/fo/1niqrz6qu1dt655i5djk5/h?rlkey=35vy56avcxm2vxtieb09wqpna&dl=0">Events
                                                 Gallery</a></li>
-
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'photographers' ? 'active_submenu' : '' }}"
+                                               href="{{ route('photographers.index') }}">Photographers</a></li>
                                     </ul>
                                 </li>
                                 <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
