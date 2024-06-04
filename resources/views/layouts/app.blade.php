@@ -398,14 +398,14 @@
             <div class="container-flud">
                 <div class="row m-0">
                     <div
-                        class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
+                            class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
                         <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
                             <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px"
                                  alt="">
                         </button>
                     </div>
                     <div
-                        class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
+                            class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
                         <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="73px"></a>
                     </div>
                     <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
@@ -433,13 +433,13 @@
                                             <form action="{{ route('logout') }}" method="post" class="m-0">
                                                 @csrf
                                                 <button class="btn btn-link text-white p-0"><img
-                                                        src="/images/logout.svg" alt=""></button>
+                                                            src="/images/logout.svg" alt=""></button>
                                             </form>
                                         </a>
                                     </div>
 
                                     <a href="#" data-toggle="modal" data-target="#suggestionModal"><img
-                                            src="/images/suggestion.svg" alt=""></a>
+                                                src="/images/suggestion.svg" alt=""></a>
                                     <div class="modal fade modal-new" id="suggestionModal" tabindex="-1" role="dialog"
                                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -499,7 +499,7 @@
                                         </div>
                                     </div>
                                     <a href="#" data-toggle="modal" data-target="#reportModal"><img
-                                            src="/images/report.svg" alt="" width="32"></a>
+                                                src="/images/report.svg" alt="" width="32"></a>
                                     <div class="modal fade modal-new" id="reportModal" tabindex="-1" role="dialog"
                                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -519,6 +519,8 @@
                                                                value="Report An Error">
                                                         <div class="row m-0 p-0">
                                                             <div class="form-group">
+                                                                <input type="hidden" name="link"
+                                                                       value="{{Request::fullUrl()}}">
                                                                 <label for="start">Agent Name</label>
                                                                 <div class='input-group'>
                                                                     <input type="text" class="w-100 form-control"
@@ -541,22 +543,23 @@
                                                                             class="w-100 form-control">
                                                                         <option value>-</option>
                                                                         <option
-                                                                            value="Error on submission form">
+                                                                                value="Error on submission form">
                                                                             Error on submission form
                                                                         </option>
                                                                         <option
-                                                                            value="Download not working">
+                                                                                value="Download not working">
                                                                             Download not working
                                                                         </option>
                                                                         <option
-                                                                            value="Video not working">Video not working
+                                                                                value="Video not working">Video not
+                                                                            working
                                                                         </option>
                                                                         <option
-                                                                            value="Issue checking out/paying">
+                                                                                value="Issue checking out/paying">
                                                                             Issue checking out/paying
                                                                         </option>
                                                                         <option
-                                                                            value="Incorrect sales volume">
+                                                                                value="Incorrect sales volume">
                                                                             Incorrect sales volume
                                                                         </option>
                                                                         <option value="Other">Other</option>
@@ -642,14 +645,14 @@
                                 <div class="d-flex justify-content-start align-items-center">
                                     {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
                                     <a class="mr-4" href="{{ route('profile.my_profile') }}"><img
-                                            src="/images/account-icon.svg" alt=""></a>
+                                                src="/images/account-icon.svg" alt=""></a>
                                     {{-- <a href="#"><img src="/images/search-icon.svg" alt=""></a> --}}
                                     @auth
                                         <a href="#">
                                             <form action="{{ route('logout') }}" method="post" class="m-0">
                                                 @csrf
                                                 <button class="btn btn-link text-white p-0 "><img
-                                                        src="/images/logout.svg" alt=""></button>
+                                                            src="/images/logout.svg" alt=""></button>
                                             </form>
                                         </a>
 
@@ -690,13 +693,13 @@
                                     @endif
                                     @if (auth()->user()->role == 'other')
                                         <li
-                                            class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
+                                                class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
                                             <a href="{{ route('agent_list') }}">Agents</a>
                                         </li>
                                     @endif
                                 @endauth
                                 <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if (isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ isset($active) && $active == 'marketing_branding' ? 'active selected' : '' }}">
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if (isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ isset($active) && $active == 'marketing_branding' ? 'active selected' : '' }}">
                                     <a href="{{ url('/home?dir=marketing_branding') }}">Marketing & Branding
                                     </a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
@@ -732,7 +735,7 @@
                                     </ul>
                                 </li>
                                 <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'training_knowledge_center') active selected @endif {{ isset($active) && ($active == 'Tools&TrainingVideos' || $active == 'training_knowledge_center') ? 'active selected' : '' }}">
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'training_knowledge_center') active selected @endif {{ isset($active) && ($active == 'Tools&TrainingVideos' || $active == 'training_knowledge_center') ? 'active selected' : '' }}">
                                     <a href="{{ url('/home?dir=training_knowledge_center') }}">Training &
                                         Knowledge
                                         Center</a>
@@ -773,7 +776,7 @@
                                     </ul>
                                 </li>
                                 <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'leads_services_support') active selected @endif {{ isset($active) && $active == 'leads_services_support' ? 'active selected' : '' }}">
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'leads_services_support') active selected @endif {{ isset($active) && $active == 'leads_services_support' ? 'active selected' : '' }}">
                                     <a href="{{ url('/home?dir=leads_services_support') }}">Leads, Services &
                                         Support</a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
@@ -843,7 +846,7 @@
                                         Construction Search</a>
                                 </li>
                                 <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">
                                     <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Marketplace</a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
                                     <em id="li-minus"><img src="/images/minus.png"></em>
@@ -871,7 +874,7 @@
                                     </ul>
                                 </li>
                                 <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'office_staff_directory') active selected @endif {{ isset($active) && $active == 'office_staff_directory' ? 'active selected' : '' }}">
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'office_staff_directory') active selected @endif {{ isset($active) && $active == 'office_staff_directory' ? 'active selected' : '' }}">
                                     <a href="{{ url('/home?dir=office_staff_directory') }}">Office & Staff
                                         Directory</a>
                                     <em id="li-plus"><img src="/images/plus.png"></em>
@@ -933,7 +936,7 @@
                                     <a href="{{ route('listings.index') }}">Coming Soon & Off Market</a>
                                 </li>
                                 <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
                                     <a href="{{ route('referral-partner-category.index') }}">Referral Partners</a>
                                     {{--                                    <em id="li-plus"><img src="/images/plus.png"></em>--}}
                                     {{--                                    <em id="li-minus"><img src="/images/minus.png"></em>--}}
@@ -1013,8 +1016,8 @@
         Route::currentRouteName() != 'mls-directory' &&
         Route::currentRouteName() != 'listings.show')
     <script
-        src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
-        defer></script>
+            src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
+            defer></script>
 @endif
 <script type="text/javascript">
     toastr.options = {
@@ -1035,40 +1038,40 @@
 </script>
 <script>
     @if ($errors->any())
-        @foreach ($errors->all() as $error)
-        toastr.options = {
+            @foreach ($errors->all() as $error)
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }
     toastr.error("{{ $error }}")
     @endforeach
-        @endif
-        @if (Session::has('message'))
-        toastr.options = {
+            @endif
+            @if (Session::has('message'))
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }
     toastr.success("{{ session('message') }}")
     @endif
 
-        @if (Session::has('error'))
-        toastr.options = {
+            @if (Session::has('error'))
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }
     toastr.error("{{ session('error') }}")
     @endif
 
-        @if (Session::has('info'))
-        toastr.options = {
+            @if (Session::has('info'))
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }
     toastr.info("{{ session('info') }}")
     @endif
 
-        @if (Session::has('warning'))
-        toastr.options = {
+            @if (Session::has('warning'))
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }

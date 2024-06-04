@@ -1,15 +1,17 @@
 <div>
     <style>
-        .modal-target {
+        .preview-modal .modal-target {
             width: 300px;
             border-radius: 5px;
             cursor: pointer;
             transition: 0.3s;
         }
-        .modal-target:hover {
+
+        .preview-modal .modal-target:hover {
             opacity: 0.7;
         }
-        .modal {
+
+        .preview-modal {
             display: none;
             position: fixed;
             padding-top: 0px;
@@ -22,7 +24,8 @@
             background-color: rgba(0, 0, 0, 0.8);
             z-index: 999;
         }
-        .modal-content {
+
+        .preview-modal .modal-content {
             margin: auto;
             display: block;
             width: 100% !important;
@@ -32,12 +35,14 @@
             object-fit: contain !important;
             background-color: #21252914;
         }
-        .modal-content {
+
+        .preview-modal .modal-content {
             -webkit-animation-name: zoom;
             -webkit-animation-duration: 0.6s;
             animation-name: zoom;
             animation-duration: 0.6s;
         }
+
         @-webkit-keyframes zoom {
             from {
                 -webkit-atransform: scale(0)
@@ -46,6 +51,7 @@
                 -webkit-transform: scale(1)
             }
         }
+
         @keyframes zoom {
             from {
                 transform: scale(0)
@@ -54,7 +60,8 @@
                 transform: scale(1)
             }
         }
-        .modal-close {
+
+        .preview-modal .modal-close {
             position: absolute;
             top: 15px;
             right: 35px;
@@ -64,8 +71,9 @@
             z-index: 1;
             transition: 0.3s;
         }
-        .modal-close:hover,
-        .modal-close:focus {
+
+        .preview-modal .modal-close:hover,
+        .preview-modal .modal-close:focus {
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
@@ -75,28 +83,28 @@
         {{ $slot }}
     </div>
 
-    <div id="modal" class="modal">
+    <div id="modal" class="modal preview-modal">
         <span id="modal-close" class="modal-close">&times;</span>
         <img id="modal-content" class="modal-content">
     </div>
 
     <script>
-        var modal = document.getElementById('modal');
+        var modal = document.getElementById('modal')
 
-        var modalClose = document.getElementById('modal-close');
-        modalClose.addEventListener('click', function() {
-            modal.style.display = "none";
-        });
+        var modalClose = document.getElementById('modal-close')
+        modalClose.addEventListener('click', function () {
+            modal.style.display = 'none'
+        })
 
-        $(document).ready(function() {
-            document.addEventListener('click', function (e) { 
+        $(document).ready(function () {
+            document.addEventListener('click', function (e) {
                 if (e.target.className.indexOf('modal-target') !== -1) {
-                    var img = e.target;
-                    var modalImg = document.getElementById("modal-content");
-                    modal.style.display = "block";
-                    modalImg.src = img.src;
+                    var img = e.target
+                    var modalImg = document.getElementById('modal-content')
+                    modal.style.display = 'block'
+                    modalImg.src = img.src
                 }
-            });
+            })
         })
     </script>
 </div>
