@@ -70,17 +70,16 @@
                 <a target="_blank" href="https://2086660.my1003app.com/2142886/register"
                    class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
             </div>
-            <div class="col-md-3 staff-box">
-                <img src="{{ asset('images/staff/brandon.jpg') }}" class="staff-image">
-                <p class="staff-name">Brandon Beyrle</p>
-                <p class="staff-role">Mortgage Loan Officer</p>
-                <p class="staff-email"><a href="tel:3057533264">305.753.3264</a></p>
-                <p class="staff-email"><a href="mailto:brandon@luxehomeloan.com">brandon@luxehomeloan.com</a></p>
+            {{--            <div class="col-md-3 staff-box">--}}
+            {{--                <img src="{{ asset('images/staff/brandon.jpg') }}" class="staff-image">--}}
+            {{--                <p class="staff-name">Brandon Beyrle</p>--}}
+            {{--                <p class="staff-role">Mortgage Loan Officer</p>--}}
+            {{--                <p class="staff-email"><a href="tel:3057533264">305.753.3264</a></p>--}}
+            {{--                <p class="staff-email"><a href="mailto:brandon@luxehomeloan.com">brandon@luxehomeloan.com</a></p>--}}
 
-                <a target="_blank" href="https://2086660.my1003app.com/1266291/register"
-                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>
-            </div>
-
+            {{--                <a target="_blank" href="https://2086660.my1003app.com/1266291/register"--}}
+            {{--                   class="btn-luxe d-block text-center mt-2">APPLY NOW</a>--}}
+            {{--            </div>--}}
             <div class="col-md-3 staff-box">
                 <img src="{{ asset('images/staff/christian.jpg') }}" class="staff-image">
                 <p class="staff-name">Christian Benedico</p>
@@ -117,7 +116,7 @@
                 <p class="staff-role">Loan Processor</p>
                 <p class="staff-email"><a href="tel:7866180515">786.618.0515</a></p>
                 <p class="staff-email"><a
-                        href="mailto:elda.processor@luxehomeloan.com">elda.processor@luxehomeloan.com</a>
+                            href="mailto:elda.processor@luxehomeloan.com">elda.processor@luxehomeloan.com</a>
                 </p>
             </div>
             <div class="col-md-3 staff-box">

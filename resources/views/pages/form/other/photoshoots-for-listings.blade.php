@@ -316,7 +316,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Upload Listing Agreement</label>
-                                <input type="file" name="upload_listing_agreement" class="form-control p-1" required>
+                                <input type="file" name="upload_listing_agreement"
+                                       class="form-control p-1" {{auth()->user()->status != 1?'required':''}}>
                             </div>
                             <div class="form-group col-12 text-center">
                                 <h6>**Marketing will send you an email with final confirmed date & photographer you have
@@ -427,7 +428,7 @@
         </div>
     </div>
     <script
-        src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
+            src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
     </script>
     <script>
         $('#other-lead-source-select').change(function () {
@@ -536,9 +537,9 @@
                 ]
                 for (var i = 0; i < disabledDates.length; i++) {
                     if (
-                        date.getFullYear() === disabledDates[i].getFullYear() &&
-                        date.getMonth() === disabledDates[i].getMonth() &&
-                        date.getDate() === disabledDates[i].getDate()
+                      date.getFullYear() === disabledDates[i].getFullYear() &&
+                      date.getMonth() === disabledDates[i].getMonth() &&
+                      date.getDate() === disabledDates[i].getDate()
                     ) {
                         return [false]
                     }
