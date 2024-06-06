@@ -69,20 +69,20 @@
                 <p class="staff-email">D: <a href="tel:786.487.4651">786.487.4651</a></p>
                 <p class="staff-email">E: <a href="mailto:julioblandon@luxeknows.com">julioblandon@luxeknows.com</a></p>
             </div>
-            <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/people.jpg') }}" class="staff-image">
-                <p class="staff-name">The Akers Group</p>
-                <p class="staff-role">Team Leader: Zach Akers</p>
-                <p class="staff-email">D: <a href="tel:305.343.5371">305.343.5371</a></p>
-                <p class="staff-email">E: <a href="mailto:zdakers@outlook.com">zdakers@outlook.com</a></p>
-            </div>
+            {{--            <div class="col-md-6 staff-box">--}}
+            {{--                <img src="{{ asset('images/real-estate/people.jpg') }}" class="staff-image">--}}
+            {{--                <p class="staff-name">The Akers Group</p>--}}
+            {{--                <p class="staff-role">Team Leader: Zach Akers</p>--}}
+            {{--                <p class="staff-email">D: <a href="tel:305.343.5371">305.343.5371</a></p>--}}
+            {{--                <p class="staff-email">E: <a href="mailto:zdakers@outlook.com">zdakers@outlook.com</a></p>--}}
+            {{--            </div>--}}
             <div class="col-md-6 staff-box">
                 <img src="{{ asset('images/real-estate/people.jpg') }}" class="staff-image">
                 <p class="staff-name">The Bocanegra Group</p>
                 <p class="staff-role">Team Leader:</p>
                 <p class="staff-email">D: <a href="tel:786.205.6319">786.205.6319</a></p>
                 <p class="staff-email">E: <a
-                        href="mailto:bocanegramiamirealestate@gmail.com">bocanegramiamirealestate@gmail.com</a></p>
+                            href="mailto:bocanegramiamirealestate@gmail.com">bocanegramiamirealestate@gmail.com</a></p>
             </div>
             <div class="col-md-6 staff-box">
                 <img src="{{ asset('images/real-estate/tce.jpeg') }}" class="staff-image">
@@ -90,11 +90,11 @@
                 <p class="staff-role">Team Leader: Zuly Calderin</p>
                 <p class="staff-email">D: <a href="tel:786.717.4706">786.717.4706</a></p>
                 <p class="staff-email">E: <a
-                        href="mailto:zulycalderinrealtor@gmail.com">zulycalderinrealtor@gmail.com</a>
+                            href="mailto:zulycalderinrealtor@gmail.com">zulycalderinrealtor@gmail.com</a>
                 </p>
             </div>
             <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/people.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/real-estate/calimano.jpg') }}" class="staff-image">
                 <p class="staff-name">The Calimano Team</p>
                 <p class="staff-role">Team Leader: Giovanna Calimano</p>
                 <p class="staff-email">D: <a href="tel:786.797.0012">786.797.0012</a></p>
@@ -105,7 +105,7 @@
                 <p class="staff-name">The RLD Team</p>
                 <p class="staff-role">Team Leaders: Lysandra Wu & Devona Wu</p>
                 <p class="staff-email">D: <a href="tel:786.325.2566">786.325.2566</a> or <a
-                        href="tel:786.202.5484">786.202.5484</a></p>
+                            href="tel:786.202.5484">786.202.5484</a></p>
                 <p class="staff-email">E: <a href="mailto:info@therldteam.com">info@therldteam.com</a></p>
             </div>
             <div class="col-md-6 staff-box">
@@ -113,7 +113,7 @@
                 <p class="staff-name">Olmedillo Group</p>
                 <p class="staff-role">Team Leader: Aya Olmedillo</p>
                 <p class="staff-email">D: <a href="tel:3053219861">305.321.9861</a> or <a
-                        href="tel:786.202.5484">786.202.5484</a></p>
+                            href="tel:786.202.5484">786.202.5484</a></p>
                 <p class="staff-email">E: <a href="mailto:aya@luxeknows.com">aya@luxeknows.com</a></p>
             </div>
             {{--            <div class="col-md-6 staff-box">--}}
