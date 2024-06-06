@@ -94,7 +94,8 @@
                 </p>
             </div>
             <div class="col-md-6 staff-box">
-                <img src="{{ asset('images/real-estate/calimano.jpg') }}" class="staff-image">
+                <img src="{{ asset('images/real-estate/calimano.jpg') }}" class="staff-image"
+                     style="object-fit: contain;">
                 <p class="staff-name">The Calimano Team</p>
                 <p class="staff-role">Team Leader: Giovanna Calimano</p>
                 <p class="staff-email">D: <a href="tel:786.797.0012">786.797.0012</a></p>
