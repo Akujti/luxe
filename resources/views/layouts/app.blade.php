@@ -89,7 +89,7 @@
         left: 0;
         width: 100%;
         height: 114px;
-        z-index: 100000;
+        z-index: 100;
         background: #262626 !important;
         padding-top: 20px;
         padding-bottom: 20px;
