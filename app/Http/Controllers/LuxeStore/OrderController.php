@@ -209,7 +209,7 @@ class OrderController extends Controller
 
         $details['order'] = $row;
 
-        $notification = Notification::where('title', 'New Order')->first();
+        $notification = Notification::where('title', 'Order Status Update')->first();
         $emails = $notification->getEmails();
         $bcc = $notification->getBccEmails();
 
