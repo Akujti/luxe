@@ -216,18 +216,18 @@
             <div class="container-fluid">
                 <div class="row m-0">
                     <div
-                        class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none d-md-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
+                            class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none d-md-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
                         <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
                             <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px"
                                  alt="">
                         </button>
                     </div>
                     <div
-                        class="col-9 col-md-6 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
+                            class="col-9 col-md-6 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
                         <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="74px"></a>
                     </div>
                     <div
-                        class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-md-flex d-lg-flex d-xl-flex justify-content-end">
+                            class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-md-flex d-lg-flex d-xl-flex justify-content-end">
                         <div class="contact-details">
                             <div class="right-contactsd">
                                 {{-- <a href="#"><img src="/images/admin/flash-icon.svg" alt=""></a>
@@ -252,7 +252,7 @@
                                                 <form action="{{ route('logout') }}" method="post" class="m-0">
                                                     @csrf
                                                     <button class="btn btn-logout"><span
-                                                            class="item-box">Logout</span></button>
+                                                                class="item-box">Logout</span></button>
                                                 </form>
                                             </div>
                                         </a>
@@ -306,6 +306,8 @@
                                        class="{{ isset($active) && $active == 'Products' ? 'active selected' : '' }}">Products</a>
                                     <a href="{{ route('admin.luxe_store.coupons.index') }}"
                                        class="{{ isset($active) && $active == 'Coupons' ? 'active selected' : '' }}">Coupons</a>
+                                    <a href="{{ route('admin.notifications.index') }}"
+                                       class="{{ isset($active) && $active == 'Notifciations' ? 'active selected' : '' }}">Notifications</a>
                                 </div>
                             </div>
                             <a href="{{ route('admin.users.index') }}"
@@ -364,7 +366,7 @@
                                                               class="p-0 m-0">
                                                             @csrf
                                                             <button class="btn btn-logout"><span
-                                                                    class="item-box">Logout</span></button>
+                                                                        class="item-box">Logout</span></button>
                                                         </form>
                                                     </div>
                                                 </a>
@@ -387,12 +389,12 @@
                                 <a href="{{ route('admin.form-submit.index') }}">Form Submissions</a>
                             </li>
                             <li
-                                class="{{ isset($active) && $active == 'Marketing_requests' ? 'active selected' : '' }}">
+                                    class="{{ isset($active) && $active == 'Marketing_requests' ? 'active selected' : '' }}">
                                 <a href="{{ route('admin.marketing-requests.index') }}">Marketing
                                     Requests</a>
                             </li>
                             <li
-                                class="{{ isset($active) && $active == 'Marketing_canva' ? 'active selected' : '' }}">
+                                    class="{{ isset($active) && $active == 'Marketing_canva' ? 'active selected' : '' }}">
                                 <a href="{{ route('admin.canva.marketing.index_admin') }}">Canva</a>
                             </li>
                             <li class="{{ isset($active) && $active == 'Orders' ? 'active selected' : '' }}">
@@ -414,7 +416,7 @@
                                 <a href="{{ route('admin.videos.index') }}">Videos</a>
                             </li>
                             <li
-                                class="{{ isset($active) && $active == 'Email-blasts' ? 'active selected' : '' }}">
+                                    class="{{ isset($active) && $active == 'Email-blasts' ? 'active selected' : '' }}">
                                 <a href="{{ route('admin.email_blasts.index') }}">Email Blasts</a>
                             </li>
                         </ul>
@@ -461,40 +463,40 @@
 </script>
 <script>
     @if ($errors->any())
-        @foreach ($errors->all() as $error)
-        toastr.options = {
+            @foreach ($errors->all() as $error)
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }
     toastr.error("{{ $error }}")
     @endforeach
-        @endif
-        @if (Session::has('message'))
-        toastr.options = {
+            @endif
+            @if (Session::has('message'))
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }
     toastr.success("{{ session('message') }}")
     @endif
 
-        @if (Session::has('error'))
-        toastr.options = {
+            @if (Session::has('error'))
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }
     toastr.error("{{ session('error') }}")
     @endif
 
-        @if (Session::has('info'))
-        toastr.options = {
+            @if (Session::has('info'))
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }
     toastr.info("{{ session('info') }}")
     @endif
 
-        @if (Session::has('warning'))
-        toastr.options = {
+            @if (Session::has('warning'))
+      toastr.options = {
         'closeButton': true,
         'progressBar': true
     }

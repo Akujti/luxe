@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['active' => 'Orders'])
+@extends('admin.layouts.app', ['active' => 'Notifciations'])
 @section('content')
     <style>
         th,
