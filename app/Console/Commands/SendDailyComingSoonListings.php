@@ -15,12 +15,7 @@ class SendDailyComingSoonListings extends Command
     protected $signature = 'notify:daily';
 
     protected $description = 'Send daily notifications to users';
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
+    
     public function __construct()
     {
         parent::__construct();

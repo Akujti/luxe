@@ -4,6 +4,7 @@ namespace App\Http\Controllers\LuxeStore;
 
 use App\Mail\NewOrderCreated;
 use App\Mail\NotifyStatusNotCompleted;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -163,59 +164,58 @@ class OrderController extends Controller
     public function update_request_info(Request $req, $row)
     {
         // DB::beginTransaction();
-        try {
+        $row = LuxeStoreOrder::find($row);
 
-            $row = LuxeStoreOrder::find($row);
+        if ($row->status == 'Request Info') {
+            $row->request_info_response = $req->request_info_response;
+            $row->status = 'Updated Info';
+        }
 
-            if ($row->status == 'Request Info') {
-                $row->request_info_response = $req->request_info_response;
-                $row->status = 'Updated Info';
-            }
+        $row->save();
 
-            $row->save();
-
-            if ($req->has('custom')) {
-                foreach ($req->custom as $custom) {
-                    $rowEl = LuxeStoreOrderFormInputs::find($custom['id']);
-                    if ($rowEl) {
-                        $rowEl->input_name = $custom['input_name'];
-                        $rowEl->input_value = $custom['input_value'];
-                        $rowEl->save();
-                    }
+        if ($req->has('custom')) {
+            foreach ($req->custom as $custom) {
+                $rowEl = LuxeStoreOrderFormInputs::find($custom['id']);
+                if ($rowEl) {
+                    $rowEl->input_name = $custom['input_name'];
+                    $rowEl->input_value = $custom['input_value'];
+                    $rowEl->save();
                 }
             }
-
-            $billing = [
-                'agent_name' => $req->billing_first_name,
-                'agent_surname' => $req->billing_last_name,
-                'street_address' => $req->billing_street_address,
-                'city' => $req->billing_city,
-                'zip_code' => $req->billing_zip_code,
-                'email' => $req->billing_email,
-                'phone' => $req->billing_phone,
-            ];
-            $row->billing_details()->update($billing);
-
-            $shipping = [
-                'agent_name' => $req->shipping_first_name,
-                'agent_surname' => $req->shipping_last_name,
-                'street_address' => $req->shipping_street_address,
-                'city' => $req->shipping_city,
-                'zip_code' => $req->shipping_zip_code,
-                'email' => $req->shipping_email,
-                'phone' => $req->shipping_phone,
-            ];
-
-            $row->shipping_details()->update($shipping);
-
-            $details['order'] = $row;
-
-            Mail::to(['marketing@luxeknows.com', 'support@luxeknows.com'])->send(new OrderCompleted($details));
-
-            return redirect()->route('my_orders.show', $row->id)->with('message', 'Successfully Updated!');
-        } catch (\Throwable $th) {
-            throw $th;
         }
+
+        $billing = [
+            'agent_name' => $req->billing_first_name,
+            'agent_surname' => $req->billing_last_name,
+            'street_address' => $req->billing_street_address,
+            'city' => $req->billing_city,
+            'zip_code' => $req->billing_zip_code,
+            'email' => $req->billing_email,
+            'phone' => $req->billing_phone,
+        ];
+        $row->billing_details()->update($billing);
+
+        $shipping = [
+            'agent_name' => $req->shipping_first_name,
+            'agent_surname' => $req->shipping_last_name,
+            'street_address' => $req->shipping_street_address,
+            'city' => $req->shipping_city,
+            'zip_code' => $req->shipping_zip_code,
+            'email' => $req->shipping_email,
+            'phone' => $req->shipping_phone,
+        ];
+
+        $row->shipping_details()->update($shipping);
+
+        $details['order'] = $row;
+
+        $notification = Notification::where('title', 'New Order')->first();
+        $emails = $notification->getEmails();
+        $bcc = $notification->getBccEmails();
+
+        Mail::to($emails)->bcc($bcc)->send(new OrderCompleted($details));
+
+        return redirect()->route('my_orders.show', $row->id)->with('message', 'Successfully Updated!');
     }
 
     public function create(AddOrderRequest $req)
@@ -341,23 +341,31 @@ class OrderController extends Controller
             $details['is_marketing_menu_order'] = $is_marketing_menu_order;
             $details['products'] = $row->products()->get();
 
-            $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
+//            $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
+            $notification = Notification::where('title', 'Coupon Used')->first();
+            $emails = $notification->getEmails();
+            $bcc = $notification->getBccEmails();
             if ($couponDb) {
                 try {
                     $details['coupon'] = $couponDb;
                     $details['email'] = $req->billing['email'];
                     $details['order'] = $row;
-                    Mail::to($emails)->send(new CouponUsedMailTemplate($details));
+                    Mail::to($emails)->bcc($bcc)->send(new CouponUsedMailTemplate($details));
                 } catch (\Throwable $th) {
                 }
             }
-            if ($is_marketing_menu_order)
-                $emails[] = 'designs@luxeknows.com';
-            else
-                $emails[] = 'support@luxeknows.com';
 
             try {
-                Mail::to($emails)->cc($cc)->send(new NewOrderCreated($row, null, 'LUXE Properties - New Order - Marketplace'));
+                $notification = Notification::where('title', 'Order Created')->first();
+                $emails = $notification->getEmails();
+                $bcc = $notification->getBccEmails();
+
+                if ($is_marketing_menu_order)
+                    $emails[] = 'designs@luxeknows.com';
+                else
+                    $emails[] = 'support@luxeknows.com';
+
+                Mail::to($emails)->bcc($bcc)->send(new NewOrderCreated($row, null, 'LUXE Properties - New Order - Marketplace'));
             } catch (\Throwable $th) {
                 Log::error($th->getMessage());
             }

@@ -61,6 +61,7 @@ use App\Http\Controllers\PhotographerPropertyController;
 use App\Http\Controllers\PhotographerImageController;
 use App\Http\Controllers\EventGalleryController;
 use App\Http\Controllers\EventGalleryImageController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -574,6 +575,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
         Route::get('/{id}', [OrderController::class, 'show'])->name('show');
         Route::put('/{order}', [OrderController::class, 'complete'])->name('complete');
         Route::put('/{order}', [OrderController::class, 'update_status'])->name('status');
+    });
+
+    Route::group(['prefix' => 'notifications', 'as' => 'notifications.'], function () {
+        Route::get('/', [NotificationController::class, 'index'])->name('index');
+        Route::put('/emails', [NotificationController::class, 'update'])->name('update');
     });
 
     Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
