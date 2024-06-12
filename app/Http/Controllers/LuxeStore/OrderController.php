@@ -356,14 +356,17 @@ class OrderController extends Controller
             }
 
             try {
-                $notification = Notification::where('title', 'Order Created')->first();
-                $emails = $notification->getEmails();
-                $bcc = $notification->getBccEmails();
-
-                if ($is_marketing_menu_order)
-                    $emails[] = 'designs@luxeknows.com';
-                else
-                    $emails[] = 'support@luxeknows.com';
+                if ($is_marketing_menu_order) {
+                    $notification = Notification::where('title', 'Order Created Marketing')->first();
+                    $emails = $notification->getEmails();
+                    $bcc = $notification->getBccEmails();
+//                    $emails[] = 'designs@luxeknows.com';
+                } else {
+                    $notification = Notification::where('title', 'Order Created')->first();
+                    $emails = $notification->getEmails();
+                    $bcc = $notification->getBccEmails();
+//                    $emails[] = 'support@luxeknows.com';
+                }
 
                 Mail::to($emails)->bcc($bcc)->send(new NewOrderCreated($row, null, 'LUXE Properties - New Order - Marketplace'));
             } catch (\Throwable $th) {

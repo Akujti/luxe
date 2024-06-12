@@ -20,7 +20,6 @@ class TestController extends Controller
 {
     public function index()
     {
-        return Notification::where('title', 'Order Created')->first()->getBccEmails();
 //        return Storage::disk('public')->url('images/1714759493.jpg');
 //        $listings = Listing::take(10)->get();
 //        User::where('coming_soon_notifications', true)
@@ -29,8 +28,10 @@ class TestController extends Controller
 //                $emails = $users->pluck('email')->toArray();
 //                Mail::to($emails)->send(new DailyComingSoonListingsMail($listings));
 //            });
-        if (App::environment('local'))
-            return $a = Auth::loginUsingId(149);
+        if (App::environment('local')) {
+            $a = Auth::loginUsingId(149);
+            return redirect()->route('home');
+        }
     }
 
     public function update_vimeo()

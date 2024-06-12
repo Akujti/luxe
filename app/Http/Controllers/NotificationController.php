@@ -9,7 +9,7 @@ class NotificationController extends Controller
 {
     public function index()
     {
-        $notifications = Notification::with('emails')->paginate(20);
+        $notifications = Notification::with('emails')->latest()->paginate(20);
         return view('admin.notifications.index', compact('notifications'));
     }
 
