@@ -15,7 +15,7 @@ class SendDailyComingSoonListings extends Command
     protected $signature = 'notify:daily';
 
     protected $description = 'Send daily notifications to users';
-    
+
     public function __construct()
     {
         parent::__construct();
@@ -23,7 +23,7 @@ class SendDailyComingSoonListings extends Command
 
     public function handle()
     {
-        $listings = Listing::whereDate('created_at', Carbon::yesterday());
+        $listings = Listing::whereDate('created_at', Carbon::yesterday())->get();
         if (count($listings)) {
             User::where('coming_soon_notifications', true)
                 ->select('email')
