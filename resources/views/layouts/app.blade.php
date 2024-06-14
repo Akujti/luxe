@@ -428,16 +428,6 @@
                                    data-placement="top" title="Search"><img src="/images/search-icon.svg"
                                                                             alt=""></a>
                                 @auth
-                                    <div class="sidebar__item-menu">
-                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Logout">
-                                            <form action="{{ route('logout') }}" method="post" class="m-0">
-                                                @csrf
-                                                <button class="btn btn-link text-white p-0"><img
-                                                            src="/images/logout.svg" alt=""></button>
-                                            </form>
-                                        </a>
-                                    </div>
-
                                     <a href="#" data-toggle="modal" data-target="#suggestionModal"><img
                                                 src="/images/suggestion.svg" alt=""></a>
                                     <div class="modal fade modal-new" id="suggestionModal" tabindex="-1" role="dialog"
@@ -588,6 +578,15 @@
                                                 </form>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="sidebar__item-menu">
+                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Logout">
+                                            <form action="{{ route('logout') }}" method="post" class="m-0">
+                                                @csrf
+                                                <button class="btn btn-link text-white p-0"><img
+                                                            src="/images/logout.svg" alt=""></button>
+                                            </form>
+                                        </a>
                                     </div>
                                 @endauth
                                 <div class="sidebar__item-menu d-flex">

@@ -28,19 +28,19 @@ class BrokersumoAgent extends Model
                 if ($user) {
                     $badge = ['title' => 'None', 'level' => 0];
                     if ($value >= 10000000 && $value < 25000000) {
-                        $badge['title'] = '10 Million Dollar Club';
+                        $badge['title'] = '10 M';
                         $badge['level'] = 1;
                     } else if ($value >= 25000000 && $value < 50000000) {
-                        $badge['title'] = '25 Million Dollar Club';
+                        $badge['title'] = '25 M';
                         $badge['level'] = 2;
                     } else if ($value >= 50000000 && $value < 75000000) {
-                        $badge['title'] = '50 Million Dollar Club';
+                        $badge['title'] = '50 M';
                         $badge['level'] = 3;
                     } else if ($value >= 75000000 && $value < 100000000) {
-                        $badge['title'] = '75 Million Dollar Club';
+                        $badge['title'] = '75 M';
                         $badge['level'] = 4;
                     } else if ($value >= 100000000) {
-                        $badge['title'] = '100 Million Dollar Club';
+                        $badge['title'] = '100 M';
                         $badge['level'] = 5;
                     }
                     try {

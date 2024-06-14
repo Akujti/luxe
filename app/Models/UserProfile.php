@@ -66,23 +66,23 @@ class UserProfile extends Model
             }
 
             if ($agent->sales_volumes >= 10000000 && $agent->sales_volumes < 25000000) {
-                $badge['title'] = '10 Million Dollar Club';
+                $badge['title'] = '10 M';
                 $badge['level'] = 1;
                 $badge['next_sales_level'] = 25000000 - $agent->sales_volumes;
             } else if ($agent->sales_volumes >= 25000000 && $agent->sales_volumes < 50000000) {
-                $badge['title'] = '25 Million Dollar Club';
+                $badge['title'] = '25 M';
                 $badge['level'] = 2;
                 $badge['next_sales_level'] = 50000000 - $agent->sales_volumes;
             } else if ($agent->sales_volumes >= 50000000 && $agent->sales_volumes < 75000000) {
-                $badge['title'] = '50 Million Dollar Club';
+                $badge['title'] = '50 M';
                 $badge['level'] = 3;
                 $badge['next_sales_level'] = 75000000 - $agent->sales_volumes;
             } else if ($agent->sales_volumes >= 75000000 && $agent->sales_volumes < 100000000) {
-                $badge['title'] = '75 Million Dollar Club';
+                $badge['title'] = '75 M';
                 $badge['level'] = 4;
                 $badge['next_sales_level'] = 100000000 - $agent->sales_volumes;
             } else if ($agent->sales_volumes >= 100000000) {
-                $badge['title'] = '100 Million Dollar Club';
+                $badge['title'] = '100 M';
                 $badge['level'] = 5;
                 $badge['next_sales_level'] = 0;
             }

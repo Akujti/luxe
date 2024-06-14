@@ -36,7 +36,7 @@
                 </div>
             @endif
             <p class="text-center">
-                <b>Million Dollar Club:</b><br> {{ $user->profile->badge['title'] }}
+                <b>Million Dollar Club:</b> {{ $user->profile->badge['title'] }}
             </p>
             <div class="d-flex justify-content-center">
                 <div class="w-50 d-flex justify-content-between">

@@ -230,9 +230,78 @@
                             <span class="ml-3">LUXE FAQ</span>
                         </a>
                         <a href="https://cal.com/luxeproperties/ana-g.-contract-specialist-1-on-1"
-                           class="btn btn-luxe mt-2 w-100 text-left" target="_blank">Get Contract Help</a>
-                        <a href="https://cal.com/luxeproperties" class="btn btn-luxe mt-2 w-100 text-left"
-                           target="_blank">Book A Marketing Appointment</a>
+                           class="btn btn-luxe mt-2 w-100 text-left d-flex align-items-center" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <g id="vuesax_linear_save-add" data-name="vuesax/linear/save-add"
+                                   transform="translate(-620 -188)">
+                                    <g id="save-add">
+                                        <path id="Vector"
+                                              d="M14,3.11V14.47c0,1.45-1.04,2.06-2.31,1.36L7.76,13.64a1.76,1.76,0,0,0-1.52,0L2.31,15.83c-1.27.7-2.31.09-2.31-1.36V3.11A3.12,3.12,0,0,1,3.11,0h7.78A3.12,3.12,0,0,1,14,3.11Z"
+                                              transform="translate(622 193.88)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                                        <path id="Vector-2" data-name="Vector"
+                                              d="M14,3.11V14.47c0,1.45-1.04,2.06-2.31,1.36L8,13.77V6.99A3.12,3.12,0,0,0,4.89,3.88H0V3.11A3.12,3.12,0,0,1,3.11,0h7.78A3.12,3.12,0,0,1,14,3.11Z"
+                                              transform="translate(628 190)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                                        <path id="Vector-3" data-name="Vector" d="M0,0H4" transform="translate(627 200)"
+                                              fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-width="1.5"/>
+                                        <path id="Vector-4" data-name="Vector" d="M0,4V0" transform="translate(629 198)"
+                                              fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-width="1.5"/>
+                                        <path id="Vector-5" data-name="Vector" d="M0,0H24V24H0Z"
+                                              transform="translate(620 188)" fill="none" opacity="0"/>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span class="ml-3">Get Contract Help</span>
+                        </a>
+                        <a href="https://cal.com/luxeproperties"
+                           class="btn btn-luxe mt-2 w-100 text-left d-flex align-items-center"
+                           target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                                <g id="vuesax_linear_calendar" data-name="vuesax/linear/calendar"
+                                   transform="translate(-492 -188)">
+                                    <g id="calendar">
+                                        <path id="Vector" d="M0,0V3" transform="translate(500 190)" fill="none"
+                                              stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-width="1.5"/>
+                                        <path id="Vector-2" data-name="Vector" d="M0,0V3" transform="translate(508 190)"
+                                              fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-width="1.5"/>
+                                        <path id="Vector-3" data-name="Vector" d="M0,0H17"
+                                              transform="translate(495.5 197.09)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                                        <path id="Vector-4" data-name="Vector"
+                                              d="M18,5v8.5c0,3-1.5,5-5,5H5c-3.5,0-5-2-5-5V5C0,2,1.5,0,5,0h8C16.5,0,18,2,18,5Z"
+                                              transform="translate(495 191.5)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                                        <path id="Vector-5" data-name="Vector" d="M0,0H24V24H0Z"
+                                              transform="translate(492 188)" fill="none" opacity="0"/>
+                                        <path id="Vector-6" data-name="Vector" d="M.495.5H.5"
+                                              transform="translate(507.2 201.2)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <path id="Vector-7" data-name="Vector" d="M.495.5H.5"
+                                              transform="translate(507.2 204.2)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <path id="Vector-8" data-name="Vector" d="M.495.5H.5"
+                                              transform="translate(503.501 201.2)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <path id="Vector-9" data-name="Vector" d="M.495.5H.5"
+                                              transform="translate(503.501 204.2)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <path id="Vector-10" data-name="Vector" d="M.495.5H.5"
+                                              transform="translate(499.8 201.2)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                        <path id="Vector-11" data-name="Vector" d="M.495.5H.5"
+                                              transform="translate(499.8 204.2)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                    </g>
+                                </g>
+                            </svg>
+
+                            <span class="ml-3">Book A Marketing Appointment</span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 mb-3">
@@ -276,12 +345,10 @@
                     </div>
                     <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
                         <div class="row m-0 logs">
-
-                            @forelse(auth()->user()->load(['template_submits'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->template_submits->take(3) as $template_submit)
+                            @forelse($marketing_orders as $order)
                                 <div>
-                                    <span>{{ json_decode($template_submit->details, true)['template'] }}&nbsp;</span>-
-                                    {{ $template_submit->created_at->diffForHumans() }} -
-                                    {{ $template_submit->status ? 'Completed' : 'Pending' }}
+                                    <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
+                                    - {{ $order->status }}
                                 </div>
                             @empty
                                 <div>
@@ -298,7 +365,7 @@
                     </div>
                     <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
                         <div class="row m-0 logs">
-                            @forelse(auth()->user()->load(['orders'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->orders->take(3) as $order)
+                            @forelse($orders as $order)
                                 <div>
                                     <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
                                     - {{ $order->status }}
@@ -984,6 +1051,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1161,6 +1239,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1168,6 +1257,17 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

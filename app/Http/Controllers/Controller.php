@@ -8,6 +8,7 @@ use App\Models\EmailBlastHomePage;
 use App\Models\Event;
 use App\Models\File;
 use App\Models\Folder;
+use App\Models\LuxeStore\LuxeStoreCategory;
 use App\Models\MarketingCanva;
 use App\Models\MarketingCategory;
 use App\Models\Video\Video;
@@ -40,6 +41,32 @@ class Controller extends BaseController
         $upcoming_events = Event::whereDate('date', '>', $today)->orderBy('date')->take(5)->get();
 
         $email_blasts = EmailBlastHomePage::orderBy('order', 'asc')->take(3)->get();
+
+        $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
+
+        $orders = auth()->user()->load(['orders' => function ($q) use ($marketing_menu_category) {
+            $q->where('created_at', '>=', now()->subDays(31))->whereHas('products', function ($q) use ($marketing_menu_category) {
+                $q->whereHas('product', function ($q) use ($marketing_menu_category) {
+                    $q->whereHas('categories', function ($q) use ($marketing_menu_category) {
+                        $q->where('luxe_store_categories.id', '!=', $marketing_menu_category->id);
+                    });
+                });
+            });
+        }])->orders->take(3);
+
+        $marketing_orders = auth()->user()->load(['orders' => function ($q) use ($marketing_menu_category) {
+            $q->where('created_at', '>=', now()->subDays(31))->whereHas('products', function ($q) use ($marketing_menu_category) {
+                $q->whereHas('product', function ($q) use ($marketing_menu_category) {
+                    $q->whereHas('categories', function ($q) use ($marketing_menu_category) {
+                        $q->where('luxe_store_categories.id', $marketing_menu_category->id);
+                    });
+                });
+            });
+        }])->orders->take(3);
+
+        $orders = auth()->user()->load(['orders' => function ($q) {
+            $q->where('created_at', '>=', now()->subDays(31));
+        }])->orders->take(3);
         return view(
             'home-page',
             compact(
@@ -51,7 +78,9 @@ class Controller extends BaseController
                 'unbranded_media_posts_folder_id',
                 'videos',
                 'upcoming_events',
-                'email_blasts'
+                'email_blasts',
+                'orders',
+                'marketing_orders',
             )
         );
     }

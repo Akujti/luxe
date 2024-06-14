@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Mail\DailyComingSoonListingsMail;
 use App\Models\Listing;
 use App\Models\Notification;
+use App\Models\ReferralPartnerCategory;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class TestController extends Controller
 {
     public function index()
     {
+//        return ReferralPartnerCategory::first()->icon_url;
 //        return Storage::disk('public')->url('images/1714759493.jpg');
 //        $listings = Listing::take(10)->get();
 //        User::where('coming_soon_notifications', true)

@@ -314,7 +314,7 @@
                                class="{{ isset($active) && $active == 'Users' ? 'active selected' : '' }}">Users</a>
                             <a href="{{ route('admin.videos.index') }}"
                                class="{{ isset($active) && $active == 'Videos' ? 'active selected' : '' }}">Videos</a>
-                            <div class="dropdown">
+                            <div class="dropdown" style="width:400px">
                                 <a class="dropdown-toggle" type="button" id="dropdown-other" data-toggle="dropdown"
                                    role="button" aria-haspopup="true" aria-expanded="false"
                                    style="color:#a8a8a8 !important;cursor: pointer;">
@@ -324,6 +324,8 @@
                                     <a href="{{ route('admin.event-galleries.index') }}">Event Galleries</a>
                                     <a href="{{ route('admin.email_blasts.index') }}">Email Blasts</a>
                                     <a href="{{ route('admin.photographers.index') }}">Photographers</a>
+                                    <a href="{{ route('admin.referral-partners.categories.index') }}">Referral
+                                        Partners</a>
                                 </div>
                             </div>
                         </nav>

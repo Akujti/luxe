@@ -20,4 +20,9 @@ class ReferralPartnerCategory extends Model
     {
         return $this->hasMany(ReferralPartnerCategory::class, 'parent_id');
     }
+
+    public function getIconUrlAttribute()
+    {
+        return asset($this->icon);
+    }
 }

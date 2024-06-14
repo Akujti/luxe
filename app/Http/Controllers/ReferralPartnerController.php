@@ -8,48 +8,40 @@ use App\Http\Requests\StoreReferralPartnerRequest;
 use App\Http\Requests\UpdateReferralPartnerRequest;
 use App\Mail\GeneralMailTemplate;
 use App\Models\FormSubmit;
+use App\Models\ReferralPartnerCategory;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class ReferralPartnerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(ReferralPartnerCategory $category)
     {
+        $referralPartners = ReferralPartner::get();
+        $categories = ReferralPartnerCategory::where('parent_id', $category->id)->get();
+        return view('admin.referral-partners.index', compact('referralPartners', 'categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreReferralPartnerRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreReferralPartnerRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'referral_partner_category_id' => 'required|exists:referral_partner_categories,id',
+        ]);
+
+        ReferralPartner::create([
+            'title' => $request->title,
+            'referral_partner_category_id' => $request->referral_partner_category_id
+        ]);
+
+        return back()->with('message', 'Referral Partner Created Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ReferralPartner  $referralPartner
-     * @return \Illuminate\Http\Response
-     */
     public function show(ReferralPartner $referralPartner)
     {
         if (request()->wantsJson()) {
@@ -57,6 +49,12 @@ class ReferralPartnerController extends Controller
         }
         $meta_items = $referralPartner->meta_items()->orderBy('created_at', 'ASC')->get();
         return view('pages.referral-partners.show', compact('referralPartner', 'meta_items'));
+    }
+
+    public function showAdmin(ReferralPartner $referralPartner)
+    {
+        $referralPartner->load('meta_items');
+        return view('admin.referral-partners.show', compact('referralPartner'));
     }
 
     public function submit_inquiry(ReferralPartner $referralPartner)
@@ -96,44 +94,31 @@ class ReferralPartnerController extends Controller
         return redirect()->back()->with('message', 'Inquiry has been submitted!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ReferralPartner  $referralPartner
-     * @return \Illuminate\Http\Response
-     */
     public function edit(ReferralPartner $referralPartner)
     {
         return view('pages.referral-partners.edit', compact('referralPartner'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateReferralPartnerRequest  $request
-     * @param  \App\Models\ReferralPartner  $referralPartner
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateReferralPartnerRequest $request, ReferralPartner $referralPartner)
+    public function update(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $name = time() .  '.' . $request->image->getClientOriginalExtension();
-            $path = $request->image->storeAs('/referral', $name, 'public');
-            $referralPartner->meta_items()->create(
-                ['name' => 'Logo', 'type' => 'img', 'path' => $path]
-            );
-        }
-        return back()->with('message', 'Success');
+        $request->validate([
+            'title' => 'required',
+            'referral_partner_id' => 'required|exists:referral_partners,id',
+        ]);
+
+        ReferralPartner::find($request->referral_partner_id)->update([
+            'title' => $request->title,
+        ]);
+
+        return back()->with('message', 'Referral Partner Updated Successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ReferralPartner  $referralPartner
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ReferralPartner $referralPartner)
+    public function destroy(Request $request)
     {
-        //
+        $request->validate([
+            'referral_partner_id' => 'required|exists:referral_partners,id',
+        ]);
+        ReferralPartner::find($request->referral_partner_id)->delete();
+        return back()->with('message', 'Referral Partner Deleted Successfully');
     }
 }

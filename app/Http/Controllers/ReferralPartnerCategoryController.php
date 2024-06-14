@@ -2,54 +2,63 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ReferralPartner;
 use App\Models\ReferralPartnerCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreReferralPartnerCategoryRequest;
 use App\Http\Requests\UpdateReferralPartnerCategoryRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ReferralPartnerCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = ReferralPartnerCategory::whereNull('parent_id')->get();
+        $categories = ReferralPartnerCategory::where('parent_id', $request->parent_id)->get();
         if (request()->wantsJson()) {
             return response()->json(['categories' => $categories]);
         }
         return view('pages.referral-partners.category.index', compact('categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function indexAdmin(Request $request)
+    {
+        $rows = ReferralPartnerCategory::where('parent_id', $request->parent_id)->orderBy('title')->get();
+        $referralPartners = ReferralPartner::where('referral_partner_category_id', $request->parent_id)->get();
+        return view('admin.referral-partner-categories.index', compact('rows', 'referralPartners'));
+    }
+
     public function create()
     {
-        //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreReferralPartnerCategoryRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreReferralPartnerCategoryRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+        $path = null;
+        if ($request->image) {
+            $file = $request->image;
+            $img = Image::make($file)->resize(350, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode('jpg');
+            $name = 'referral_partners_' . time() . Str::random(10) . '.jpg';
+            $path = 'referral-partners/' . $name;
+            Storage::disk('public')->put($path, (string)$img->encode());
+        }
+
+        ReferralPartnerCategory::create([
+            'title' => $request->title,
+            'icon' => 'storage/' . $path
+        ]);
+
+        return back()->with('message', 'Category created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ReferralPartnerCategory  $referralPartnerCategory
-     * @return \Illuminate\Http\Response
-     */
     public function show(ReferralPartnerCategory $referralPartnerCategory)
     {
         $referralPartnerCategory->load('children', 'referral_partners');
@@ -59,44 +68,46 @@ class ReferralPartnerCategoryController extends Controller
         return view('pages.referral-partners.category.show', compact('referralPartnerCategory'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ReferralPartnerCategory  $referralPartnerCategory
-     * @return \Illuminate\Http\Response
-     */
     public function edit(ReferralPartnerCategory $referralPartnerCategory)
     {
         return view('pages.referral-partner-category.edit', compact('referralPartnerCategory'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateReferralPartnerCategoryRequest  $request
-     * @param  \App\Models\ReferralPartnerCategory  $referralPartnerCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateReferralPartnerCategoryRequest $request, ReferralPartnerCategory $referralPartnerCategory)
+
+    public function update(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $name = time() .  '.' . $request->image->getClientOriginalExtension();
-            $path = $request->image->storeAs('/referral', $name, 'public');
-            $referralPartnerCategory->update(
-                ['icon' =>  $path]
-            );
+        $request->validate([
+            'id' => 'required|exists:referral_partner_categories,id',
+            'title' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        $path = null;
+        if ($request->image) {
+            $file = $request->image;
+            $img = Image::make($file)->resize(350, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode('jpg');
+            $name = 'referral_partners_' . time() . Str::random(10) . '.jpg';
+            $path = 'referral-partners/' . $name;
+            Storage::disk('public')->put($path, (string)$img->encode());
         }
-        return back()->with('message', 'Success');
+
+        ReferralPartnerCategory::find($request->id)->update([
+            'title' => $request->title,
+            'icon' => 'storage/' . $path
+        ]);
+
+        return back()->with('message', 'Category updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ReferralPartnerCategory  $referralPartnerCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ReferralPartnerCategory $referralPartnerCategory)
+    public function destroy(Request $request)
     {
-        //
+        $request->validate([
+            'id' => 'required|exists:referral_partner_categories,id',
+        ]);
+
+        ReferralPartnerCategory::find($request->id)->delete();
+        return back()->with('message', 'Category deleted');
     }
 }

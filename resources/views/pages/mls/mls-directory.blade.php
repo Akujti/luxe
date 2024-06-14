@@ -114,10 +114,12 @@
                 <h2>The Florida Keys Board of REALTORS </h2>
                 <p>MLS Name: FlexMLS</p>
                 <p>Phone: <a href="tel:305-852-9294">305-852-9294</a></p>
-                <p>Application: <a
-                        href="https://www.flkeysboardofrealtors.com/wp-content/uploads/2018/02/FKBR_Realtor_Membership_Application-2018.pdf">Click
+                <p>Application: <a target="_blank"
+                                   href="https://www.flkeysboardofrealtors.com/wp-content/uploads/2018/02/FKBR_Realtor_Membership_Application-2018.pdf">Click
                         Here</a>
                 </p>
+                <p>Property Search Link: <a target="_blank" href="https://link.flexmls.com/182cg2fqjz8u,6">Click
+                        Here</a></p>
                 <p>Cost To Join: $200 one-time fee plus $45/month</p>
             </div>
             <div class="col-md-6">
@@ -131,7 +133,7 @@
                 <p>MLS Name: FlexMLS</p>
                 <p>Phone: <a href="tel:321.242.2211">321.242.2211</a></p>
                 <p>Website To Join: <a
-                        href="https://www.spacecoastmls.com/membership/association-member-application/mls-only-membership">Click
+                            href="https://www.spacecoastmls.com/membership/association-member-application/mls-only-membership">Click
                         Here</a>
                 </p>
                 <p>Cost: $150 one-time fee plus $92 per quarter, prorated</p>
@@ -147,7 +149,7 @@
                 <p>MLS Name: Paragon 5 MLS</p>
                 <p>Phone: <a href="tel:850.224.7713">850.224.7713</a></p>
                 <p>Application: <a
-                        href="https://www.tbrnet.org/transaction-forms-forms-menu/tbr-document-uploads/realtor-applications/205-realtor-application-3/file.html">Click
+                            href="https://www.tbrnet.org/transaction-forms-forms-menu/tbr-document-uploads/realtor-applications/205-realtor-application-3/file.html">Click
                         Here</a>
                 </p>
                 <p>Primary Mambership Cost: $372.83</p>
@@ -206,7 +208,8 @@
                 <p>Phone: <a href="tel:(407)- 846-0117">(407)- 846-0117</a></p>
                 <p>Website To Join: <a href="https://www.osceolarealtors.org/become-a-member/">Click Here</a></p>
                 <p>Secondary Membership: <a
-                        href="https://www.osceolarealtors.org/index.php?src=pages&ref=membership-forms">Click Here</a>
+                            href="https://www.osceolarealtors.org/index.php?src=pages&ref=membership-forms">Click
+                        Here</a>
                 </p>
                 <p>Primary Membership Cost: $1138.75</p>
                 <p>Secondary Membership Cost: $922.92</p>

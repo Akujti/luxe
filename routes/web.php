@@ -62,6 +62,7 @@ use App\Http\Controllers\PhotographerImageController;
 use App\Http\Controllers\EventGalleryController;
 use App\Http\Controllers\EventGalleryImageController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ReferralPartnerMetaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -509,8 +510,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     Route::resource('form-submit', FormSubmitController::class);
     Route::resource('w-9', W9Controller::class);
 
-    Route::resource('referral-partners', ReferralPartnerController::class);
-    Route::resource('referral-partner-category', ReferralPartnerCategoryController::class);
+    Route::get('referral-partner-categories', [ReferralPartnerCategoryController::class, 'indexAdmin'])->name('referral-partners.categories.index');
+    Route::post('referral-partner-categories', [ReferralPartnerCategoryController::class, 'store'])->name('referral-partners.categories.store');
+    Route::put('referral-partner-categories', [ReferralPartnerCategoryController::class, 'update'])->name('referral-partners.categories.update');
+    Route::delete('referral-partner-categories', [ReferralPartnerCategoryController::class, 'destroy'])->name('referral-partners.categories.delete');
+
+    Route::get('referral-partners/{referral_partner}', [ReferralPartnerController::class, 'showAdmin'])->name('referral-partners.show');
+    Route::post('referral-partners', [ReferralPartnerController::class, 'store'])->name('referral-partners.store');
+    Route::put('referral-partners', [ReferralPartnerController::class, 'update'])->name('referral-partners.update');
+    Route::delete('referral-partners', [ReferralPartnerController::class, 'destroy'])->name('referral-partners.delete');
+
+    Route::post('referral-partners/{referral_partner}/metas', [ReferralPartnerMetaController::class, 'store'])->name('referral-partners.metas.store');
+    Route::put('referral-partners/{referral_partner}/metas/{meta}', [ReferralPartnerMetaController::class, 'update'])->name('referral-partners.metas.update');
+    Route::delete('referral-partners/{referral_partner}/metas/{meta}', [ReferralPartnerMetaController::class, 'destroy'])->name('referral-partners.metas.delete');
 
     Route::get('broker-sumo/updateAgents', [BrokerSumoController::class, 'updateAgentsTransactions']);
     Route::resource('broker-sumo', BrokerSumoController::class);
