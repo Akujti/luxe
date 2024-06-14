@@ -28,7 +28,7 @@
         <div class="grid grid-layout">
             @foreach ($categories as $item)
                 <div class="box-item box-grid-item box-item-end"
-                     style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset('storage/' . $item->icon) }})"
+                     style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ ( $item->icon_url) }})"
                      onclick="window.location = '{{ route('referral-partner-category.show', $item) }}'">
                     <div>
                         <p>{{ $item->title }}</p>

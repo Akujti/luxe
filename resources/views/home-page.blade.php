@@ -305,11 +305,11 @@
                     </div>
                 </div>
                 <div class="col-12 mb-3">
-                    <div class="mb-2 log-title">
-                        News Feed
-                    </div>
                     <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
-                        <div class="border rounded p-2 w-100" style="border-color: #F7F7F7;">
+                        <div class="col-md-6">
+                            <div class="mb-2 log-title">
+                                News Feed
+                            </div>
                             @php
                                 $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
                             @endphp
@@ -317,86 +317,88 @@
                                 {!! $news_feed->text !!}
                             @endif
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="mb-2 log-title">
-                        Office Requests
-                    </div>
-                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
-                        <div class="row m-0 logs w-100">
-                            @forelse(auth()->user()->load(['form_submits'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->form_submits->take(3) as $form_submit)
-                                <div>
-                                    <span>{{ $form_submit->form_title }}&nbsp;</span>-
-                                    {{ $form_submit->created_at->diffForHumans() }}
-                                    - {{ $form_submit->status ? 'Completed' : 'Pending' }}
+                        <div class="col-md-6">
+                            <div class="col-12 mb-4">
+                                <div class="mb-2 log-title">
+                                    Office Requests
                                 </div>
-                            @empty
-                                <div class="w-100">
-                                    No form submissions found.
+                                <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                                    <div class="row m-0 logs w-100">
+                                        @forelse(auth()->user()->load(['form_submits'=>function($q){$q->where('created_at','>=',now()->subDays(31));}])->form_submits->take(3) as $form_submit)
+                                            <div>
+                                                <span>{{ $form_submit->form_title }}&nbsp;</span>-
+                                                {{ $form_submit->created_at->diffForHumans() }}
+                                                - {{ $form_submit->status ? 'Completed' : 'Pending' }}
+                                            </div>
+                                        @empty
+                                            <div class="w-100">
+                                                No form submissions found.
+                                            </div>
+                                        @endforelse
+                                    </div>
                                 </div>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="log-title mb-2">
-                        Marketing Requests
-                    </div>
-                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
-                        <div class="row m-0 logs">
-                            @forelse($marketing_orders as $order)
-                                <div>
-                                    <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
-                                    - {{ $order->status }}
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="log-title mb-2">
+                                    Marketing Requests
                                 </div>
-                            @empty
-                                <div>
-                                    No marketing request submissions found.
-                                </div>
-                            @endforelse
-                        </div>
+                                <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                                    <div class="row m-0 logs">
+                                        @forelse($marketing_orders as $order)
+                                            <div>
+                                                <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
+                                                - {{ $order->status }}
+                                            </div>
+                                        @empty
+                                            <div>
+                                                No marketing request submissions found.
+                                            </div>
+                                        @endforelse
+                                    </div>
 
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 mt-2">
-                    <div class="mb-2 log-title">
-                        Orders
-                    </div>
-                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
-                        <div class="row m-0 logs">
-                            @forelse($orders as $order)
-                                <div>
-                                    <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
-                                    - {{ $order->status }}
                                 </div>
-                            @empty
-                                <div>
-                                    No orders found.
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="mb-2 log-title">
+                                    Orders
                                 </div>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 mt-2">
-                    <div class="log-title mb-2">
-                        Attending Events
-                    </div>
-                    <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
-                        <div class="row m-0 logs">
+                                <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                                    <div class="row m-0 logs">
+                                        @forelse($orders as $order)
+                                            <div>
+                                                <span>#{{ $order->id }}&nbsp;</span>- {{ $order->created_at->diffForHumans() }}
+                                                - {{ $order->status }}
+                                            </div>
+                                        @empty
+                                            <div>
+                                                No orders found.
+                                            </div>
+                                        @endforelse
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="log-title mb-2">
+                                    Attending Events
+                                </div>
+                                <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                                    <div class="row m-0 logs">
 
-                            @forelse(auth()->user()->load(['attending_events'=>function($q){$q->where('events.date','>=',now());}])->attending_events->take(3) as $attend_event)
-                                <div>
-                                    <span>{{ $attend_event->title }}&nbsp;</span>-
-                                    {{ \Carbon\Carbon::parse($attend_event->date)->diffForHumans() }}
-                                </div>
-                            @empty
-                                <div>
-                                    No attending events found.
-                                </div>
-                            @endforelse
-                        </div>
+                                        @forelse(auth()->user()->load(['attending_events'=>function($q){$q->where('events.date','>=',now());}])->attending_events->take(3) as $attend_event)
+                                            <div>
+                                                <span>{{ $attend_event->title }}&nbsp;</span>-
+                                                {{ \Carbon\Carbon::parse($attend_event->date)->diffForHumans() }}
+                                            </div>
+                                        @empty
+                                            <div>
+                                                No attending events found.
+                                            </div>
+                                        @endforelse
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1062,6 +1064,12 @@
 
 
 
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1250,6 +1258,12 @@
 
 
 
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1257,6 +1271,12 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
 
 
 
