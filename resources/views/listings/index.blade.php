@@ -8,9 +8,9 @@
         }
 
         .listing {
+            height: 100%;
             border: 1px solid #ececec;
             border-radius: 10px;
-            margin-bottom: 20px;
             overflow: hidden;
             box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
             color: black;
@@ -127,7 +127,7 @@
             <div class="col-md-7 row listings">
                 @forelse ($listings as $item)
                     {{-- @if (now() <= \Carbon\Carbon::parse($item->list_date)->addDays(7)) --}}
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <a href="{{ route('listings.show', $item) }}">
                             <div class="listing">
                                 <div class="position-relative">
