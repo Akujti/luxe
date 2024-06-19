@@ -26,6 +26,12 @@
                                 <input id="link" type="text" class="w-100 form-control" name="link" required>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="start">Date</label>
+                            <div class='input-group'>
+                                <input id="date" type="date" class="w-100 form-control" name="date">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer p-0 mt-3">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

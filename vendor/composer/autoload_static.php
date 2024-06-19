@@ -702,6 +702,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Http\\Controllers\\MarketingPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/MarketingPostController.php',
         'App\\Http\\Controllers\\MarketingTemplateController' => __DIR__ . '/../..' . '/app/Http/Controllers/MarketingTemplateController.php',
         'App\\Http\\Controllers\\NotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/NotificationController.php',
+        'App\\Http\\Controllers\\NotificationEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/NotificationEmailController.php',
         'App\\Http\\Controllers\\OptinController' => __DIR__ . '/../..' . '/app/Http/Controllers/OptinController.php',
         'App\\Http\\Controllers\\PDFController' => __DIR__ . '/../..' . '/app/Http/Controllers/PDFController.php',
         'App\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PageController.php',

@@ -9,13 +9,13 @@ class EventGalleryController extends Controller
 {
     public function index()
     {
-        $event_galleries = EventGallery::latest()->get();
+        $event_galleries = EventGallery::orderBy('date', 'desc')->get();
         return view('admin.event-galleries.index', compact('event_galleries'));
     }
 
     public function user_index()
     {
-        $galleries = EventGallery::latest()->get();
+        $galleries = EventGallery::orderBy('date', 'desc')->get();
         return view('pages.events.galleries.index', compact('galleries'));
     }
 
@@ -36,10 +36,12 @@ class EventGalleryController extends Controller
         $request->validate([
             'title' => 'required',
             'link' => 'required',
+            'date' => 'nullable|date',
         ]);
         EventGallery::create([
             'title' => $request->title,
             'link' => $request->link,
+            'date' => $request->date,
         ]);
         return back()->with('message', 'Gallery Created');
     }
@@ -50,11 +52,13 @@ class EventGalleryController extends Controller
             'gallery_id' => 'required|exists:event_galleries,id',
             'title' => 'required',
             'link' => 'required',
+            'date' => 'nullable|date',
         ]);
         $gallery = EventGallery::find($request->gallery_id);
         $gallery->update([
             'title' => $request->title,
             'link' => $request->link,
+            'date' => $request->date,
         ]);
         return back()->with('message', 'Gallery Updated');
     }

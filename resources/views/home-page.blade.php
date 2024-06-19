@@ -304,7 +304,9 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="col-12 mb-3">
+                    <hr class="mb-4">
                     <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
                         <div class="col-md-6">
                             <div class="mb-2 log-title">
@@ -319,7 +321,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="col-12 mb-4">
-                                <div class="mb-2 log-title">
+                                <div class="mb-4 log-title">
                                     Office Requests
                                 </div>
                                 <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
@@ -339,7 +341,7 @@
                                 </div>
                             </div>
                             <div class="col-12 mb-4">
-                                <div class="log-title mb-2">
+                                <div class="log-title mb-4">
                                     Marketing Requests
                                 </div>
                                 <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
@@ -359,7 +361,7 @@
                                 </div>
                             </div>
                             <div class="col-12 mb-4">
-                                <div class="mb-2 log-title">
+                                <div class="mb-4 log-title">
                                     Orders
                                 </div>
                                 <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
@@ -378,7 +380,7 @@
                                 </div>
                             </div>
                             <div class="col-12 mb-4">
-                                <div class="log-title mb-2">
+                                <div class="log-title mb-4">
                                     Attending Events
                                 </div>
                                 <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
@@ -1070,6 +1072,14 @@
 
 
 
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1264,6 +1274,14 @@
 
 
 
+
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1271,6 +1289,14 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
+
 
 
 

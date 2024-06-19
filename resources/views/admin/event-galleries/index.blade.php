@@ -129,10 +129,12 @@
             }
 
             function update_event (item) {
+                console.log(item)
                 $('.update-gallery').modal('show')
                 $('.update-gallery').find('#gallery_id').val(item.id)
                 $('.update-gallery').find('#title').val(item.title)
                 $('.update-gallery').find('#link').val(item.link)
+                $('.update-gallery').find('#date').val(item.date)
             }
         </script>
     @endsection

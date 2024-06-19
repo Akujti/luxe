@@ -55,6 +55,7 @@ return array(
     'App\\Http\\Controllers\\MarketingPostController' => $baseDir . '/app/Http/Controllers/MarketingPostController.php',
     'App\\Http\\Controllers\\MarketingTemplateController' => $baseDir . '/app/Http/Controllers/MarketingTemplateController.php',
     'App\\Http\\Controllers\\NotificationController' => $baseDir . '/app/Http/Controllers/NotificationController.php',
+    'App\\Http\\Controllers\\NotificationEmailController' => $baseDir . '/app/Http/Controllers/NotificationEmailController.php',
     'App\\Http\\Controllers\\OptinController' => $baseDir . '/app/Http/Controllers/OptinController.php',
     'App\\Http\\Controllers\\PDFController' => $baseDir . '/app/Http/Controllers/PDFController.php',
     'App\\Http\\Controllers\\PageController' => $baseDir . '/app/Http/Controllers/PageController.php',

@@ -26,6 +26,13 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="start">Link</label>
+                            <div class='input-group'>
+                                <input id="link" type="text" class="w-100 form-control" name="link">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="start">Image</label>
                             <div class="custom-file">
                                 <input type="file" name="avatar" class="form-control p-1">

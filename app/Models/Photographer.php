@@ -10,7 +10,7 @@ class Photographer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email', 'avatar'];
+    protected $fillable = ['name', 'email', 'avatar', 'link'];
     protected $appends = ['avatar_url'];
 
     public function properties()

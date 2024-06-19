@@ -32,37 +32,6 @@
         <div class="profile-level {{ $row ? 'col-md-6' : '' }}">
             @if (Route::current()->uri() == 'home')
                 <div class="text-center">
-                    <img src="{{ asset('images/ribbon1.png') }}" alt="" style="max-width: 50px">
-                </div>
-            @endif
-            <p class="text-center">
-                <b>Million Dollar Club:</b> {{ $user->profile->badge['title'] }}
-            </p>
-            <div class="d-flex justify-content-center">
-                <div class="w-50 d-flex justify-content-between">
-                    @if ($user->profile)
-                        @for ($i = 0; $i < $user->profile->badge['level']; $i++)
-                            <span class="filled"></span>
-                        @endfor
-                        @for ($i = 0; $i < 5 - $user->profile->badge['level']; $i++)
-                            <span></span>
-                        @endfor
-                    @endif
-                </div>
-            </div>
-            <p class="text-center my-2 mb-0">
-                Current lifetime sales: {{ '$' . number_format($user->profile->badge['sales_volumes']) }}
-                {{-- <br>
-                For the next level you need: {{ '$' . number_format($user->profile->badge['next_sales_level']) }} --}}
-            </p>
-            {{-- <div class="level-title mt-2">
-                <p id="bold">Level {{ $user->profile->badge['level'] }}</p>
-                <p id="regular">&nbsp;/ 5</p>
-            </div> --}}
-        </div>
-        <div class="profile-level {{ $row ? 'col-md-6' : '' }}">
-            @if (Route::current()->uri() == 'home')
-                <div class="text-center">
                     <img src="{{ asset('images/ribbon2.png') }}" alt="" style="max-width: 50px">
                 </div>
             @endif
@@ -90,6 +59,37 @@
             {{-- <div class="level-title mt-2">
                 <p id="bold">Level {{ $user->profile->badge['yearly_level'] }}</p>
                 <p id="regular">&nbsp;/ 3</p>
+            </div> --}}
+        </div>
+        <div class="profile-level {{ $row ? 'col-md-6' : '' }}">
+            @if (Route::current()->uri() == 'home')
+                <div class="text-center">
+                    <img src="{{ asset('images/ribbon1.png') }}" alt="" style="max-width: 50px">
+                </div>
+            @endif
+            <p class="text-center">
+                <b>Million Dollar Club:</b> {{ $user->profile->badge['title'] }}
+            </p>
+            <div class="d-flex justify-content-center">
+                <div class="w-50 d-flex justify-content-between">
+                    @if ($user->profile)
+                        @for ($i = 0; $i < $user->profile->badge['level']; $i++)
+                            <span class="filled"></span>
+                        @endfor
+                        @for ($i = 0; $i < 5 - $user->profile->badge['level']; $i++)
+                            <span></span>
+                        @endfor
+                    @endif
+                </div>
+            </div>
+            <p class="text-center my-2 mb-0">
+                Current lifetime sales: {{ '$' . number_format($user->profile->badge['sales_volumes']) }}
+                {{-- <br>
+                For the next level you need: {{ '$' . number_format($user->profile->badge['next_sales_level']) }} --}}
+            </p>
+            {{-- <div class="level-title mt-2">
+                <p id="bold">Level {{ $user->profile->badge['level'] }}</p>
+                <p id="regular">&nbsp;/ 5</p>
             </div> --}}
         </div>
     </div>

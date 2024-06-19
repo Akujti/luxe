@@ -9,7 +9,9 @@ class EventGallery extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'link'];
+    protected $fillable = ['title', 'link', 'date'];
+
+//    protected $dates = ['date'];
 
     public function images()
     {

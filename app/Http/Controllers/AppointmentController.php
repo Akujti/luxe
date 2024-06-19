@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\GeneralMailTemplate;
-use App\Models\AgentEmail;
 use App\Models\Appointment;
 use App\Models\AppointmentAddress;
 use App\Models\AppointmentTimeslot;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -31,21 +29,16 @@ class AppointmentController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request->all());
         $request->validate(
             [
                 "appointment_address" => "required|exists:appointment_addresses,id",
                 "date" => "required|date",
                 "date_second" => "nullable|date",
                 "time_slot" => "required|exists:appointment_timeslots,id",
-                "time_slot_second" => "required|exists:appointment_timeslots,id",
+                "time_slot_second" => "nullable|exists:appointment_timeslots,id",
                 "name" => "required|string",
                 "phone" => "required|string",
                 "email" => "required|email",
-//                "address" => "nullable|string",
-//                "city" => "nullable|string",
-//                "state" => "nullable|string",
-//                "zip" => "nullable|string",
                 "comments" => "nullable|string",
             ]
         );
@@ -70,12 +63,12 @@ class AppointmentController extends Controller
         $details['form_title'] = 'Open House Sign-Up';
         $address = AppointmentAddress::findOrFail($request->appointment_address);
         $time_slot = AppointmentTimeslot::findOrFail($request->time_slot);
-        $time_slot_second = AppointmentTimeslot::findOrFail($request->time_slot_second);
+        $time_slot_second = AppointmentTimeslot::find($request->time_slot_second);
         $details['appointment_address'] = $address->title;
         $details['date'] = $request->date;
         $details['time_slot'] = $time_slot->title;
         $details['second_date'] = $request->date_second;
-        $details['second_time_slot'] = $time_slot_second->title;
+        $details['second_time_slot'] = $time_slot_second ? $time_slot_second->title : null;
 
         foreach ($request->except('_token', 'to_email', 'appointment_address', 'date', 'date_second', 'time_slot', 'time_slot_second') as $key => $val)
             $details[strtolower($key)] = $val;
@@ -94,29 +87,19 @@ class AppointmentController extends Controller
         return back()->with('message', 'Appointment Created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Appointment $appointment
-     * @return \Illuminate\Http\Response
-     */
     public function show(Appointment $appointment)
     {
-        //
     }
 
     public function edit(Appointment $appointment)
     {
-        //
     }
 
     public function update(Request $request, Appointment $appointment)
     {
-        //
     }
 
     public function destroy(Appointment $appointment)
     {
-        //
     }
 }

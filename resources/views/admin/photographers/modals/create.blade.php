@@ -23,7 +23,12 @@
                                 <input type="email" class="w-100 form-control" name="email" required>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label for="start">Link</label>
+                            <div class='input-group'>
+                                <input type="text" class="w-100 form-control" name="link">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="start">Image</label>
                             <div class="custom-file">

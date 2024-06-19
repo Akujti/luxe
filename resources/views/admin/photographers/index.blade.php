@@ -145,12 +145,11 @@
             }
 
             function update_event (item) {
-                console.log(item)
-                console.log($('.update-photographer').find('#name'))
                 $('.update-photographer').modal('show')
                 $('.update-photographer').find('#photographer_id').val(item.id)
                 $('.update-photographer').find('#name').val(item.name)
                 $('.update-photographer').find('#email').val(item.email)
+                $('.update-photographer').find('#link').val(item.link)
             }
         </script>
     @endsection

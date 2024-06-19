@@ -25,7 +25,7 @@ class EventController extends Controller
             return response()->json(['events' => $events]);
         }
         $isAdmin = Auth::user()->isAdmin;
-        $galleries = EventGallery::with('images')->latest()->take(3)->get();
+        $galleries = EventGallery::with('images')->orderBy('date', 'desc')->take(3)->get();
         return view('pages.events.events', compact('events', 'isAdmin', 'galleries'));
     }
 

@@ -20,8 +20,8 @@
         font-family: 'Montserrat' !important;
     }
 
-    input.invalid {
-        background-color: #ffdddd;
+    input.invalid, select.invalid {
+        outline: 1px solid red;
     }
 
     .tab {
@@ -267,11 +267,11 @@
                 <hr>
                 <div class="row">
                     @foreach ($addresses as $item)
-                        <div class="col-md-4">
-                            <div class="shadow-box address">
+                        <div class="col-md-4 mb-4">
+                            <div class="shadow-box address h-100">
                                 <label for="html-{{ $item->id }}"
                                        class="label p-0 m-0 w-100">
-                                    <img src="{{ $item->image_url }}" alt="" class="w-100" height="240"
+                                    <img src="{{ $item->image_url }}" alt="" class="w-100 rounded mb-2" height="240"
                                          style="object-fit: cover;object-position: center;">
                                     <p class="price mb-1">
                                         <b>${{ $item->price ??' -' }}</b>
@@ -308,7 +308,7 @@
                 <hr>
                 <div class="form-group">
                     <label for="name">Would you like to host a second open house?</label>
-                    <select class="form-control" onchange="showSecondDateInput(this);">
+                    <select class="form-control" onchange="showSecondDateInput(this);" required>
                         <option value>-</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -318,7 +318,7 @@
                     <div class="form-group">
                         <label for="" class="label">Select Date</label>
                         <input type="text" id="datepicker-second" name="date_second" class="form-control date-second"
-                               autocomplete="off" required>
+                               autocomplete="off">
                         <i class="label">Available days are Saturday and Sunday</i>
                     </div>
                     <p id="time-slot-available-second" class="d-none">No available time slots</p>
@@ -459,52 +459,62 @@
         }
 
         function validateForm () {
-            // This function deals with validation of the form fields
-            var x, y, i, valid = true
+            var x, y, z, i, valid = true
             x = document.getElementsByClassName('tab')
             y = x[currentTab].getElementsByTagName('input')
-            // A loop that checks every input field in the current tab:
+            z = x[currentTab].getElementsByTagName('select')
+
+            // Validate input elements
             for (i = 0; i < y.length; i++) {
-                // If a field is empty...
                 if (y[i].value == '' && y[i].hasAttribute('required')) {
-                    // add an "invalid" class to the field:
                     y[i].className += ' invalid'
-                    // and set the current valid status to false
-                    valid = false
-                }
-                if ($('input[type=radio]:checked').length == 0) {
                     valid = false
                 }
             }
+
+            // Validate select elements
+            for (i = 0; i < z.length; i++) {
+                if (z[i].value == '' && z[i].hasAttribute('required')) {
+                    z[i].className += ' invalid'
+                    valid = false
+                }
+            }
+
+            // Additional validation for radio inputs
+            if ($('input[type=radio]:checked').length == 0) {
+                valid = false
+            }
+
+            // Additional validation for specific tab (e.g., time_slot on currentTab == 1)
             if (currentTab == 1) {
                 if ($('input[name=time_slot]:checked').length == 0) {
                     valid = false
                 }
             }
 
-            // If the valid status is true, mark the step as finished and valid:
             if (valid) {
                 document.getElementsByClassName('step')[currentTab].className += ' finish'
             }
-            return valid // return the valid status
+            return valid
         }
 
         function fixStepIndicator (n) {
-            // This function removes the "active" class of all steps...
             var i, x = document.getElementsByClassName('step')
             for (i = 0; i < x.length; i++) {
                 x[i].className = x[i].className.replace(' active', '')
             }
-            //... and adds the "active" class on the current step:
             x[n].className += ' active'
         }
 
         function showSecondDateInput (element) {
             const input = $(element).val()
-            if (input == 'Yes')
+            if (input == 'Yes') {
                 $('#secondDate').removeClass('d-none')
-            else
+                $('#secondDate input').attr('required', true)
+            } else {
                 $('#secondDate').addClass('d-none')
+                $('#secondDate input').attr('required', false)
+            }
         }
 
         $(document).ready(() => {
@@ -533,16 +543,16 @@
                             data = data.time_slots
                             if (data.length) {
                                 document.getElementById('time-slot-available').classList.add(
-                                    'd-none')
+                                  'd-none')
                             } else {
                                 document.getElementById('time-slot-available').classList.remove(
-                                    'd-none')
+                                  'd-none')
                             }
                             data.forEach(element => {
                                 $('.time-group').append(
-                                    '<div class="shadow-box d-flex"> <label for="timeslot-' + element.id + '" class="mb-0">' +
-                                    element.title + '</label><input id="timeslot-' + element.id + '" type="radio" name="time_slot" value="' +
-                                    element.id + '"></div>')
+                                  '<div class="shadow-box d-flex"> <label for="timeslot-' + element.id + '" class="mb-0">' +
+                                  element.title + '</label><input id="timeslot-' + element.id + '" type="radio" name="time_slot" value="' +
+                                  element.id + '"></div>')
                             })
                         }
                     })
@@ -566,9 +576,9 @@
                                 document.getElementById('time-slot-available-second').classList.remove('d-none')
                             data.forEach(element => {
                                 $('.time-group-second').append(
-                                    '<div class="shadow-box d-flex"> <label for="timeslot-second-' + element.id + '" class="mb-0">' +
-                                    element.title + '</label><input id="timeslot-second-' + element.id + '" type="radio" name="time_slot_second" value="' +
-                                    element.id + '"></div>')
+                                  '<div class="shadow-box d-flex"> <label for="timeslot-second-' + element.id + '" class="mb-0">' +
+                                  element.title + '</label><input id="timeslot-second-' + element.id + '" type="radio" name="time_slot_second" value="' +
+                                  element.id + '"></div>')
                             })
                         }
                     })

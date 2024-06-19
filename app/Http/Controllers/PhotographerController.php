@@ -31,6 +31,7 @@ class PhotographerController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'link' => 'nullable',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
         ]);
 
@@ -48,6 +49,7 @@ class PhotographerController extends Controller
         Photographer::create([
             'name' => $request->name,
             'email' => $request->email,
+            'link' => $request->link,
             'avatar' => $path,
         ]);
 
@@ -60,6 +62,7 @@ class PhotographerController extends Controller
             'photographer_id' => 'required|exists:photographers,id',
             'name' => 'required',
             'email' => 'required|email',
+            'link' => 'nullable',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
         ]);
         $photographer = Photographer::find($request->photographer_id);
@@ -77,6 +80,7 @@ class PhotographerController extends Controller
         $photographer->update([
             'name' => $request->name,
             'email' => $request->email,
+            'link' => $request->link,
             'avatar' => $path,
         ]);
 
