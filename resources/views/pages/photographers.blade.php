@@ -65,6 +65,11 @@
                                         <p class="photographer-email">{{ $photographer->email}}</p>
                                         <p class="photographer-properties">{{ $photographer->properties()->count()}}
                                             {{$photographer->properties()->count() ==1 ? 'property':'properties'}}</p>
+                                        @if($photographer->link)
+                                            <p class="photographer-link"><a target="_blank"
+                                                                            href="{{$photographer->link}}">Visit
+                                                    Link</a></p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
