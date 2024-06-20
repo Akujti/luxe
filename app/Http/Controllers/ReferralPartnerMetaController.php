@@ -33,7 +33,7 @@ class ReferralPartnerMetaController extends Controller
         ]);
 
         $path = $request->value;
-        if ($request->name = 'Logo') {
+        if ($request->name == 'Logo') {
             if (is_file($request->value)) {
                 $file = $request->value;
                 $img = Image::make($file)->resize(350, null, function ($constraint) {
