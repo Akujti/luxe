@@ -12,7 +12,7 @@ class Folder extends Model
     protected $fillable = [
         'title',
         'parent_id',
-        'show_title'
+        'show_titles'
     ];
 
     public function parent()

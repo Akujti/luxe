@@ -14,14 +14,14 @@ class AddShowTitleColumnToFoldersTable extends Migration
     public function up()
     {
         Schema::table('folders', function (Blueprint $table) {
-            $table->boolean('show_title')->default(true);
+            $table->boolean('show_titles')->default(true);
         });
     }
 
     public function down()
     {
         Schema::table('folders', function (Blueprint $table) {
-            $table->dropColumn('show_title');
+            $table->dropColumn('show_titles');
         });
     }
 }

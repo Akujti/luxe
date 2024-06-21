@@ -369,7 +369,7 @@
                                         <img src="{{ '/images/files/' . $file->type . '.png' }}" height="80px">
                                     @endif
                                 </div>
-                                @if($file->folder->show_title)
+                                @if($file->folder->show_titles)
                                     <p id="title">
                                         {{ $file->title }}
                                     </p>
@@ -552,13 +552,21 @@
                     <form action="{{ route('files.open-house.directory') }}" method="post" class="m-0">
                         @csrf
                         <input type="hidden" name="current_directory" value="{{ $folder_id }}">
-                        <div class="form-group m-0">
+                        <div class="form-group m-0 mb-3">
                             <label for="">Folder Name</label>
                             <div class='input-group'>
                                 <input type="text" class="form-control" name="title" required>
                             </div>
                         </div>
-
+                        <div class="form-group m-0">
+                            <label for="">Show Titles</label>
+                            <div class='input-group'>
+                                <select name="show_titles" required class="form-control">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -582,10 +590,19 @@
                         @csrf
                         @method('PUT')
                         <input id="folder_id" type="hidden" name="folder_id">
-                        <div class="form-group m-0">
+                        <div class="form-group m-0 mb-3">
                             <label for="start">{{ __('Directory Name') }}</label>
                             <div class='input-group'>
                                 <input id="folder_title" type="text" class="w-100 form-control" name="title">
+                            </div>
+                        </div>
+                        <div class="form-group m-0">
+                            <label for="">Show Titles</label>
+                            <div class='input-group'>
+                                <select id="show_titles" name="show_titles" required class="form-control">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
                             </div>
                         </div>
                 </div>
@@ -665,6 +682,7 @@
         $('.edit-folder').modal('show')
         $('.edit-folder').find('#folder_id').val(folder.id)
         $('.edit-folder').find('#folder_title').val(folder.title)
+        $('.edit-folder').find('#show_titles').val(folder.show_titles ? '1' : '0')
     }
 
     function show_edit_file_modal (file) {

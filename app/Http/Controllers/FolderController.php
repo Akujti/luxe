@@ -122,6 +122,7 @@ class FolderController extends Controller
         ]);
         $folder = Folder::findOrFail($request->folder_id);
         $folder->title = $request->title;
+        $folder->show_titles = $request->show_titles;
         $folder->save();
         return back()->with('message', 'Directory has been updated!');
     }
@@ -160,6 +161,7 @@ class FolderController extends Controller
     {
         $folder = new Folder();
         $folder->title = $request->title;
+        $folder->show_titles = $request->show_titles;
         if ($request->current_directory) {
             $folder->parent_id = $request->current_directory;
         }

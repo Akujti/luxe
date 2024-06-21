@@ -23,7 +23,7 @@ class File extends Model
 
     public function folder()
     {
-        return $this->hasOne(Folder::class);
+        return $this->belongsTo(Folder::class, 'folder_id')->withDefault(['show_titles' => true]);
     }
 
     public function getFileUrlAttribute()
