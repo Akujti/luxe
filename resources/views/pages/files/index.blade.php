@@ -294,7 +294,7 @@
                         <p class="m-0 p-0">View:</p>
                         <select name="" id="change_view" onchange="change_view()">
                             <option
-                                value="badge" {{ request('view') == 'badge' || !request('view') ? 'selected' : '' }}>
+                                    value="badge" {{ request('view') == 'badge' || !request('view') ? 'selected' : '' }}>
                                 Badge
                             </option>
                             <option value="table" {{ request('view') == 'table' ? 'selected' : '' }}>Table</option>
@@ -302,7 +302,7 @@
                     </div>
                 </div>
                 <div
-                    class="col-12 col-md-6 col-lg-6 nav-body__create-upload mt-2 mt-md-0 mt-lg-0 justify-content-center justify-content-lg-end mr-0 pr-0 pd-l">
+                        class="col-12 col-md-6 col-lg-6 nav-body__create-upload mt-2 mt-md-0 mt-lg-0 justify-content-center justify-content-lg-end mr-0 pr-0 pd-l">
                     @if (Auth::user()->isAdmin)
                         <div class="nav-body__create">
                             <button type="button" onclick="create_folder()">
@@ -325,7 +325,7 @@
                 @foreach ($folders as $folder)
                     <div class="box-item box-item-padding">
                         <a
-                            href="{{ route('files.index') . '?id=' . $folder->id . (isset($_GET['view']) ? '&view=' . $_GET['view'] : '') }}">
+                                href="{{ route('files.index') . '?id=' . $folder->id . (isset($_GET['view']) ? '&view=' . $_GET['view'] : '') }}">
                             <img src="/images/files/folder.png" alt="" id="folder-img" width="80px"
                                  style="margin-bottom: 10px;">
                             <p id="title">{{ $folder->title }}</p>
@@ -369,9 +369,11 @@
                                         <img src="{{ '/images/files/' . $file->type . '.png' }}" height="80px">
                                     @endif
                                 </div>
-                                <p id="title">
-                                    {{ $file->title }}
-                                </p>
+                                @if($file->folder->show_title)
+                                    <p id="title">
+                                        {{ $file->title }}
+                                    </p>
+                                @endif
                             </div>
                         </a>
                         <div class="edit-form">
@@ -500,7 +502,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Upload a File</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                                aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body pb-0">
                     <form id="uploadForm" action="{{ route('files.store') }}" method="POST"
@@ -544,7 +546,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Create a Folder</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                                aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('files.open-house.directory') }}" method="post" class="m-0">
@@ -573,7 +575,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Directory</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                                aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('folder.update') }}" method="POST" class="m-0">
@@ -602,7 +604,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Edit File</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                                aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('file.update') }}" method="POST" class="m-0"
@@ -639,11 +641,11 @@
                 var files = $('#files')[0].files
                 $.each(files, function (index, file) {
                     var row = '<tr>' +
-                        '<td><input class="form-control" type="text" name="file_names[]" value="' + file.name + '"></td>' +
-                        '<td><select class="form-control" name="file_types[]" id=""><option value="doc">Document</option><option value="pdf">PDF</option><option value="img">Image</option> <option value="other">Other</option></select></td>' +
-                        '<td><input class="form-control p-1" type="file" name="thumbnails[]"></td>' +
-                        '<td style="vertical-align: middle;"><button type="button" onclick="deleteRow(this)" class="btn btn-danger h-100">x</button></td>' +
-                        '</tr>'
+                      '<td><input class="form-control" type="text" name="file_names[]" value="' + file.name + '"></td>' +
+                      '<td><select class="form-control" name="file_types[]" id=""><option value="doc">Document</option><option value="pdf">PDF</option><option value="img">Image</option> <option value="other">Other</option></select></td>' +
+                      '<td><input class="form-control p-1" type="file" name="thumbnails[]"></td>' +
+                      '<td style="vertical-align: middle;"><button type="button" onclick="deleteRow(this)" class="btn btn-danger h-100">x</button></td>' +
+                      '</tr>'
                     $('#file-list tbody').append(row)
                 })
             })
@@ -681,9 +683,9 @@
         window.location.href = '{{ route('files.index') }}?view=' + value + '<?php if (isset($_GET['sort'])) {
                 echo '&sort=' . $_GET['sort'];
             } ?>' +
-            '<?php if (isset($_GET['id'])) {
-                echo '&id=' . $_GET['id'];
-            } ?>'
+          '<?php if (isset($_GET['id'])) {
+              echo '&id=' . $_GET['id'];
+          } ?>'
     }
 
     function change_sort () {
@@ -692,9 +694,9 @@
         window.location.href = '{{ route('files.index') }}?sort=' + value + '<?php if (isset($_GET['view'])) {
                 echo '&view=' . $_GET['view'];
             } ?>' +
-            '<?php if (isset($_GET['id'])) {
-                echo '&id=' . $_GET['id'];
-            } ?>'
+          '<?php if (isset($_GET['id'])) {
+              echo '&id=' . $_GET['id'];
+          } ?>'
     }
 
     function onFileChanged (e) {
