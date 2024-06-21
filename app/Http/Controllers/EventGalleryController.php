@@ -28,7 +28,8 @@ class EventGalleryController extends Controller
     public function user_show(EventGallery $gallery)
     {
         $gallery->load('images');
-        return view('pages.events.galleries.show', compact('gallery'));
+        $images = $gallery->images()->paginate(9);
+        return view('pages.events.galleries.show', compact('gallery', 'images'));
     }
 
     public function store(Request $request)

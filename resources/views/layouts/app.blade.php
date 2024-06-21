@@ -922,9 +922,8 @@
                                             <a class="{{ isset($subactive) && $subactive == 'MLS Directory' ? 'active_submenu' : '' }}"
                                                href="{{ route('mls-directory') }}">MLS Directory</a></li>
                                         <li>
-                                            <a target="_blank"
-                                               href="https://www.dropbox.com/scl/fo/1niqrz6qu1dt655i5djk5/h?rlkey=35vy56avcxm2vxtieb09wqpna&dl=0">Events
-                                                Gallery</a></li>
+                                            <a class="{{ isset($subactive) && $subactive == 'event-galleries' ? 'active_submenu' : '' }}"
+                                               href="{{route('events.galleries.index')}}">Events Gallery</a></li>
                                         <li>
                                             <a class="{{ isset($subactive) && $subactive == 'photographers' ? 'active_submenu' : '' }}"
                                                href="{{ route('photographers.index') }}">Photographers</a></li>

@@ -30,19 +30,8 @@
     </style>
     <div class="container-fluid">
         <div class="w-100 m-0 mb-5">
-            <div class="title mb-3 text-center row justify-content-between">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <h1>{{$gallery->title}}</h1>
-                </div>
-                <div class="col-md-4">
-                    @if($gallery->link)
-                        <a href="{{$gallery->link}}" target="_blank"
-                           class="btn btn-luxe text-center d-block mr-md-0 ml-md-auto mx-auto"
-                           style="width:fit-content;">
-                            View More</a>
-                    @endif
-                </div>
+            <div class="title mb-3 text-center">
+                <h1>{{$property->address}}</h1>
             </div>
             <div class="row">
                 @foreach($images as $image)
@@ -59,6 +48,9 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="d-flex justify-content-center">
+                {{$images->links()}}
             </div>
         </div>
     </div>

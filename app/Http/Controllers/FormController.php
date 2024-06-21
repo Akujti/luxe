@@ -218,12 +218,12 @@ class FormController extends Controller
         if (in_array($request->form_title, $formItemsVerbiageModal))
             session()->flash('modal', 'Success');
         try {
-            if ($request->form_title == "Photoshoots For Listings") {
+            if ($request->form_title == "Photoshoots For Listings" || $request->form_title == "Submit A Zillow Listing Agreement") {
                 Listing::create(
                     [
                         'user_id' => auth()->id(),
                         'address' => $request->property_address,
-                        'list_date' => now()->addDays(14),
+                        'list_date' => $request->listing_date ?? now()->addDays(14),
                         'main_image' => 'images/image-coming-soon-placeholder.png',
                         'images' => json_encode([])
                     ]

@@ -419,6 +419,8 @@ Route::group(
     ['middleware' => ['auth']],
     function () {
         Route::get('photographers', [PhotographerController::class, 'indexUser'])->name('photographers.index');
+        Route::get('photographers/{photographer}', [PhotographerController::class, 'showUser'])->name('photographers.show');
+        Route::get('photographers/{photographer}/images/{property}', [PhotographerController::class, 'imagesUser'])->name('photographers.show.images');
         Route::get('optin-agents', [OptinController::class, 'index'])->name('optin.agents.index');
         Route::get('showing-agents', [UserController::class, 'showing_agents'])->name('showing.agents.index');
         Route::post('showing-agents/{user}', [UserController::class, 'request_showing_agents'])->name('request.showing.agents');

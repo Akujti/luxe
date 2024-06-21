@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Photographer;
+use App\Models\PhotographerProperty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -17,8 +18,19 @@ class PhotographerController extends Controller
 
     public function indexUser()
     {
-        $photographers = Photographer::with('properties', 'properties.images')->orderby('name')->get();
-        return view('pages.photographers', compact('photographers'));
+        $photographers = Photographer::orderby('name')->get();
+        return view('pages.photographers.index', compact('photographers'));
+    }
+
+    public function showUser(Photographer $photographer)
+    {
+        return view('pages.photographers.show', compact('photographer'));
+    }
+
+    public function imagesUser(Photographer $photographer, PhotographerProperty $property)
+    {
+        $images = $property->images()->paginate(9);
+        return view('pages.photographers.images', compact('property', 'images'));
     }
 
     public function create()

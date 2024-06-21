@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['active'=>'office_staff_directory','subactive' => 'event-galleries'])
 @section('content')
     <style>
         .title h1 {

@@ -304,9 +304,8 @@
                         </a>
                     </div>
                 </div>
-
                 <div class="col-12 mb-3">
-                    <hr class="mb-4">
+                    <hr class="mb-4" style="border-bottom: 2px solid #00000014;">
                     <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
                         <div class="col-md-6">
                             <div class="mb-2 log-title">
@@ -1080,6 +1079,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1093,6 +1106,20 @@
                                                                                                                                                                                                                                                             <p class="ml-2 mt-2">{{ $item->title }}</p>
                                                                                                                                                                                                                                                         </a>
                                                                                                                                                                                                                                                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1478,6 +1505,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             @endif
         @endforeach
         </div> -->
@@ -1548,6 +1589,12 @@
                 <div>
                     <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
                     <p>Zillow Listing Showcase</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding" onclick="window.open('https://mlsblast.com/', '_blank') ">
+                <div>
+                    <img src="/images/index-page/blast.svg" class="icon" alt="">
+                    <p>MLS Blast</p>
                 </div>
             </div>
         </div>
@@ -1989,7 +2036,7 @@
                 </div>
             </div>
             <div class="box-item box-item-padding"
-                 onclick="window.open('https://www.dropbox.com/scl/fo/1niqrz6qu1dt655i5djk5/h?rlkey=35vy56avcxm2vxtieb09wqpna&dl=0','_blank')">
+                 onclick="window.location = '{{route('events.galleries.index')}}'">
                 <div>
                     <img src="/images/index-page/events-gallery.png" class="icon p-1" alt="">
                     <p>Events Gallery</p>
