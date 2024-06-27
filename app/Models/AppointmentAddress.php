@@ -30,6 +30,6 @@ class AppointmentAddress extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'email', 'email')->withTrashed()->withDefault();
+        return $this->belongsTo(User::class, 'email', 'email')->withTrashed(['email' => $this->email])->withDefault();
     }
 }
