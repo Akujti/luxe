@@ -280,7 +280,6 @@
                                     <p class="info mb-1">
                                         <b>{{ $item->beds ?? '-' }}</b> bd | <b>{{ $item->baths ?? '-'}}</b> ba
                                     </p>
-                                    {{$item->user}}
                                     @if($item->user)
                                         <p class="mb-1">{{$item->user->profile->fullname}}</p>
                                         <p class="mb-1">{{ $item->user->profile->phone}}</p>
