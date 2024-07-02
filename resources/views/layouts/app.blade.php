@@ -386,6 +386,26 @@
         background-color: white;
         z-index: 9999999;
     }
+
+
+    .bg-box {
+        border-radius: 10px;
+        text-align: center;
+        background: #f7f7f7;
+        padding: 20px 10px 20px 10px;
+        cursor: pointer;
+    }
+
+    .bg-box img {
+        width: 80px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .bg-box p {
+        font-family: 'Montserrat';
+        margin: 0;
+    }
 </style>
 
 <body>
