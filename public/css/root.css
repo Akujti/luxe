@@ -588,6 +588,7 @@ button {
     text-align: center;
     background: #f7f7f7;
     padding: 20px 10px 20px 10px;
+    cursor: pointer;
 }
 
 .bg-box img {
@@ -597,5 +598,6 @@ button {
 }
 
 .bg-box p {
+    font-family: 'Montserrat';
     margin: 0;
 }

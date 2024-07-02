@@ -129,7 +129,8 @@
                                 <div class="d-flex">
                                     <input type="text" class="form-control" id="language-new">
                                     <button type="button" class="btn btn-luxe px-3 ml-2"
-                                        onclick="add_language_new()">+</button>
+                                            onclick="add_language_new()">+
+                                    </button>
                                 </div>
 
                                 <div class="language-section-new mt-2">
@@ -148,7 +149,8 @@
                                     <select name="status" class="form-control">
                                         <option value="1">Silver</option>
                                         <option value="2">Gold</option>
-                                        <option value="3">Platinum</option>
+                                        <option value="3">Platinum Plus</option>
+                                        <option value="4">Platinum Lite</option>
                                     </select>
                                 </div>
                             </div>
@@ -160,9 +162,9 @@
                                 <label for="start">Branch Manager</label>
                                 <div class='input-group'>
                                     <input type="hidden" class="w-100 form-control" name="profile[support_specialists]"
-                                        id="support-specialist-back">
+                                           id="support-specialist-back">
                                     <select class="support-specialists" class="w-100"
-                                        id="support-specialist-input"></select>
+                                            id="support-specialist-input"></select>
                                 </div>
                             </div>
                             <div class="form-group col-12 col-md-6 pr-0">
@@ -170,12 +172,10 @@
                                 <div class='input-group'>
                                     <select class="loan-officer" class="w-100" id="loan-officer-input"></select>
                                     <input type="hidden" class="w-100 form-control" name="profile[loan_officer]"
-                                        id="loan-officer-back">
+                                           id="loan-officer-back">
                                 </div>
-
                             </div>
                         </div>
-
                         <div class="col-12 d-flex justify-content-end">
                             <button type="submit" class="btn btn-luxe">Submit</button>
                         </div>
@@ -185,84 +185,85 @@
         </div>
     </div>
 
-@section('js')
-    <script>
-        function add_language_new() {
-            let input = $('#language-new').val()
-            let html =
-                '<div class="language-item-new"> <input type="text" class="form-control" name="languages[]" value="' +
-                input +
-                '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language_new(this)">&times;</button></div>'
-            $('.language-section-new').append(html)
-            $('#language-new').val("")
-        }
+    @section('js')
+        <script>
+            function add_language_new () {
+                let input = $('#language-new').val()
+                let html =
+                  '<div class="language-item-new"> <input type="text" class="form-control" name="languages[]" value="' +
+                  input +
+                  '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language_new(this)">&times;</button></div>'
+                $('.language-section-new').append(html)
+                $('#language-new').val('')
+            }
 
-        function remove_language_new(e) {
-            $(e).parents('.language-item-new').remove()
-        }
-        $(document).ready(function() {
-            $('.support-specialists').select2({
-                dropdownCssClass: "support-specialist-dropdown"
-            });
-            $('.loan-officer').select2({
-                dropdownCssClass: "loan-officer-dropdown"
-            });
+            function remove_language_new (e) {
+                $(e).parents('.language-item-new').remove()
+            }
 
-            $(document.body).on("change", ".loan-officer", function() {
-                $('#loan-officer-back').val($('#loan-officer-input').val())
-            });
-            $(document.body).on("change", ".support-specialists", function() {
-                $('#support-specialist-back').val($('#support-specialist-input').val())
-            });
-        });
+            $(document).ready(function () {
+                $('.support-specialists').select2({
+                    dropdownCssClass: 'support-specialist-dropdown'
+                })
+                $('.loan-officer').select2({
+                    dropdownCssClass: 'loan-officer-dropdown'
+                })
 
-        $(document).on('keyup', '.support-specialist-dropdown .select2-search__field', function(e) {
-            $.ajax({
-                url: '{{ route('admin.users.search') }}',
-                data: {
-                    search: e.target.value
-                },
-                type: 'get',
-                headers: {
-                    'X-CSRF-Token': $('[name="_token"]').val()
-                },
-                success: function(output) {
-                    $('.support-specialists').empty().trigger('change');
-                    for (let i = 0; i < output.users.length; i++) {
-                        var data = {
-                            id: output.users[i].user_id,
-                            text: output.users[i].fullname
-                        };
-                        var newOption = new Option(data.text, data.id, false, false);
-                        $('.support-specialists').append(newOption).trigger('change');
+                $(document.body).on('change', '.loan-officer', function () {
+                    $('#loan-officer-back').val($('#loan-officer-input').val())
+                })
+                $(document.body).on('change', '.support-specialists', function () {
+                    $('#support-specialist-back').val($('#support-specialist-input').val())
+                })
+            })
+
+            $(document).on('keyup', '.support-specialist-dropdown .select2-search__field', function (e) {
+                $.ajax({
+                    url: '{{ route('admin.users.search') }}',
+                    data: {
+                        search: e.target.value
+                    },
+                    type: 'get',
+                    headers: {
+                        'X-CSRF-Token': $('[name="_token"]').val()
+                    },
+                    success: function (output) {
+                        $('.support-specialists').empty().trigger('change')
+                        for (let i = 0; i < output.users.length; i++) {
+                            var data = {
+                                id: output.users[i].user_id,
+                                text: output.users[i].fullname
+                            }
+                            var newOption = new Option(data.text, data.id, false, false)
+                            $('.support-specialists').append(newOption).trigger('change')
+                        }
                     }
-                }
-            });
-        });
+                })
+            })
 
-        $(document).on('keyup', '.loan-officer-dropdown .select2-search__field', function(e) {
-            $.ajax({
-                url: '{{ route('admin.users.search') }}',
-                data: {
-                    search: e.target.value
-                },
-                type: 'get',
-                headers: {
-                    'X-CSRF-Token': $('[name="_token"]').val()
-                },
-                success: function(output) {
-                    $('.loan-officer').empty().trigger('change');
-                    for (let i = 0; i < output.users.length; i++) {
-                        var data = {
-                            id: output.users[i].user_id,
-                            text: output.users[i].fullname
-                        };
-                        var newOption = new Option(data.text, data.id, false, false);
-                        $('.loan-officer').append(newOption).trigger('change');
+            $(document).on('keyup', '.loan-officer-dropdown .select2-search__field', function (e) {
+                $.ajax({
+                    url: '{{ route('admin.users.search') }}',
+                    data: {
+                        search: e.target.value
+                    },
+                    type: 'get',
+                    headers: {
+                        'X-CSRF-Token': $('[name="_token"]').val()
+                    },
+                    success: function (output) {
+                        $('.loan-officer').empty().trigger('change')
+                        for (let i = 0; i < output.users.length; i++) {
+                            var data = {
+                                id: output.users[i].user_id,
+                                text: output.users[i].fullname
+                            }
+                            var newOption = new Option(data.text, data.id, false, false)
+                            $('.loan-officer').append(newOption).trigger('change')
+                        }
                     }
-                }
-            });
-        });
-    </script>
-@endsection
+                })
+            })
+        </script>
+    @endsection
 @endsection

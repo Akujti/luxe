@@ -94,7 +94,7 @@
                                 <label for="start">Fullname*</label>
                                 <div class='input-group'>
                                     <input type="text" class="w-100 form-control" name="profile[fullname]"
-                                        value="{{ $user->profile->fullname }}" required>
+                                           value="{{ $user->profile->fullname }}" required>
                                 </div>
                             </div>
                             <div class="form-group col-12 col-md-6 pr-0">
@@ -111,7 +111,7 @@
                                 <label for="start">Email*</label>
                                 <div class='input-group'>
                                     <input type="email" class="w-100 form-control" name="email"
-                                        value="{{ $user->email }}" required>
+                                           value="{{ $user->email }}" required>
                                 </div>
                             </div>
                             <div class="form-group col-6 pr-0">
@@ -124,7 +124,7 @@
                                 <label for="start">App Store Link</label>
                                 <div class='input-group'>
                                     <input type="url" class="w-100 form-control" name="app_link"
-                                        value="{{ $user->app_link }}">
+                                           value="{{ $user->app_link }}">
                                 </div>
                             </div>
                             <div class="form-group col-12 col-md-6 pr-0">
@@ -137,14 +137,14 @@
                                 <label for="start">Phone</label>
                                 <div class='input-group'>
                                     <input type="text" class="w-100 form-control" name="profile[phone]"
-                                        value="{{ $user->profile->phone }}">
+                                           value="{{ $user->profile->phone }}">
                                 </div>
                             </div>
                             <div class="form-group col-6 pr-0">
                                 <label for="start">Address</label>
                                 <div class='input-group'>
                                     <input type="text" class="w-100 form-control" name="profile[address]"
-                                        value="{{ $user->profile->address }}">
+                                           value="{{ $user->profile->address }}">
                                 </div>
                             </div>
                             <div class="form-group col-12 col-md-6 pl-0">
@@ -152,7 +152,8 @@
                                 <div class="d-flex">
                                     <input type="text" class="form-control" id="language">
                                     <button type="button" class="btn btn-luxe px-3 ml-2"
-                                        onclick="add_language()">+</button>
+                                            onclick="add_language()">+
+                                    </button>
                                 </div>
 
                                 <div class="language-section mt-2">
@@ -160,9 +161,10 @@
                                         @foreach ($user->profile->languages as $language)
                                             <div class="language-item">
                                                 <input type="text" class="form-control" name="languages[]"
-                                                    value="{{ $language }}">
+                                                       value="{{ $language }}">
                                                 <button type="button" class="btn btn-danger ml-3"
-                                                    onclick="remove_language(this)">&times;</button>
+                                                        onclick="remove_language(this)">&times;
+                                                </button>
                                             </div>
                                         @endforeach
                                     @endif
@@ -174,7 +176,10 @@
                                     <select name="status" class="form-control">
                                         <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Silver</option>
                                         <option value="2" {{ $user->status == 2 ? 'selected' : '' }}>Gold</option>
-                                        <option value="3" {{ $user->status == 3 ? 'selected' : '' }}>Platinum</option>
+                                        <option value="3" {{ $user->status == 3 ? 'selected' : '' }}>Platinum Plus
+                                        </option>
+                                        <option value="4" {{ $user->status == 4 ? 'selected' : '' }}>Platinum Lite
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -186,9 +191,9 @@
                                 <label for="start">Branch Manager</label>
                                 <div class='input-group'>
                                     <input type="hidden" class="w-100 form-control" name="profile[support_specialists]"
-                                        id="support-specialist-back">
+                                           id="support-specialist-back">
                                     <select class="support-specialists" class="w-100"
-                                        id="support-specialist-input"></select>
+                                            id="support-specialist-input"></select>
                                     <p class="bold">{{ $user->profile->support_specialist_name }}</p>
                                 </div>
                             </div>
@@ -197,7 +202,7 @@
                                 <label for="start">Loan Officer</label>
                                 <div class='input-group'>
                                     <input type="hidden" class="w-100 form-control" name="profile[loan_officer]"
-                                        id="loan-officer-back">
+                                           id="loan-officer-back">
                                     <select class="loan-officer" class="w-100" id="loan-officer-input"></select>
                                     <p class="bold">{{ $user->profile->loan_officer_name }}</p>
                                 </div>
@@ -218,7 +223,7 @@
                                 <label for="start">Service Areas</label>
                                 <div class='input-group'>
                                     <input type="text" class="w-100 form-control" name="profile[service_areas]"
-                                        value="{{ $user->profile->service_areas }}">
+                                           value="{{ $user->profile->service_areas }}">
                                 </div>
                             </div>
                             <div class="form-group col-12 col-md-6 pl-0">
@@ -243,86 +248,86 @@
         </div>
     </div>
 
-@section('js')
-    <script>
-        function add_language() {
-            let input = $('#language').val()
-            let html = '<div class="language-item"> <input type="text" class="form-control" name="languages[]" value="' +
-                input +
-                '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language(this)">&times;</button></div>'
-            $('.language-section').append(html)
-            $('#language').val("")
-        }
+    @section('js')
+        <script>
+            function add_language () {
+                let input = $('#language').val()
+                let html = '<div class="language-item"> <input type="text" class="form-control" name="languages[]" value="' +
+                  input +
+                  '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language(this)">&times;</button></div>'
+                $('.language-section').append(html)
+                $('#language').val('')
+            }
 
-        function remove_language(e) {
-            $(e).parents('.language-item').remove()
-        }
-        $(document).ready(function() {
-            $('#role').val('{{ $user->role }}').change();
+            function remove_language (e) {
+                $(e).parents('.language-item').remove()
+            }
 
+            $(document).ready(function () {
+                $('#role').val('{{ $user->role }}').change()
 
-            $('.support-specialists').select2({
-                dropdownCssClass: "support-specialist-dropdown"
-            });
-            $('.loan-officer').select2({
-                dropdownCssClass: "loan-officer-dropdown"
-            });
+                $('.support-specialists').select2({
+                    dropdownCssClass: 'support-specialist-dropdown'
+                })
+                $('.loan-officer').select2({
+                    dropdownCssClass: 'loan-officer-dropdown'
+                })
 
-            $(document.body).on("change", ".loan-officer", function() {
-                $('#loan-officer-back').val($('#loan-officer-input').val())
-            });
-            $(document.body).on("change", ".support-specialists", function() {
-                $('#support-specialist-back').val($('#support-specialist-input').val())
-            });
-        });
+                $(document.body).on('change', '.loan-officer', function () {
+                    $('#loan-officer-back').val($('#loan-officer-input').val())
+                })
+                $(document.body).on('change', '.support-specialists', function () {
+                    $('#support-specialist-back').val($('#support-specialist-input').val())
+                })
+            })
 
-        $(document).on('keyup', '.support-specialist-dropdown .select2-search__field', function(e) {
-            $.ajax({
-                url: '{{ route('admin.users.search') }}',
-                data: {
-                    search: e.target.value
-                },
-                type: 'get',
-                headers: {
-                    'X-CSRF-Token': $('[name="_token"]').val()
-                },
-                success: function(output) {
-                    $('.support-specialists').empty().trigger('change');
-                    for (let i = 0; i < output.users.length; i++) {
-                        var data = {
-                            id: output.users[i].user_id,
-                            text: output.users[i].fullname
-                        };
-                        var newOption = new Option(data.text, data.id, false, false);
-                        $('.support-specialists').append(newOption).trigger('change');
+            $(document).on('keyup', '.support-specialist-dropdown .select2-search__field', function (e) {
+                $.ajax({
+                    url: '{{ route('admin.users.search') }}',
+                    data: {
+                        search: e.target.value
+                    },
+                    type: 'get',
+                    headers: {
+                        'X-CSRF-Token': $('[name="_token"]').val()
+                    },
+                    success: function (output) {
+                        $('.support-specialists').empty().trigger('change')
+                        for (let i = 0; i < output.users.length; i++) {
+                            var data = {
+                                id: output.users[i].user_id,
+                                text: output.users[i].fullname
+                            }
+                            var newOption = new Option(data.text, data.id, false, false)
+                            $('.support-specialists').append(newOption).trigger('change')
+                        }
                     }
-                }
-            });
-        });
+                })
+            })
 
-        $(document).on('keyup', '.loan-officer-dropdown .select2-search__field', function(e) {
-            $.ajax({
-                url: '{{ route('admin.users.search') }}',
-                data: {
-                    search: e.target.value
-                },
-                type: 'get',
-                headers: {
-                    'X-CSRF-Token': $('[name="_token"]').val()
-                },
-                success: function(output) {
-                    $('.loan-officer').empty().trigger('change');
-                    for (let i = 0; i < output.users.length; i++) {
-                        var data = {
-                            id: output.users[i].user_id,
-                            text: output.users[i].fullname
-                        };
-                        var newOption = new Option(data.text, data.id, false, false);
-                        $('.loan-officer').append(newOption).trigger('change');
+            $(document).on('keyup', '.loan-officer-dropdown .select2-search__field', function (e) {
+                $.ajax({
+                    url: '{{ route('admin.users.search') }}',
+                    data: {
+                        search: e.target.value
+                    },
+                    type: 'get',
+                    headers: {
+                        'X-CSRF-Token': $('[name="_token"]').val()
+                    },
+                    success: function (output) {
+                        $('.loan-officer').empty().trigger('change')
+                        for (let i = 0; i < output.users.length; i++) {
+                            var data = {
+                                id: output.users[i].user_id,
+                                text: output.users[i].fullname
+                            }
+                            var newOption = new Option(data.text, data.id, false, false)
+                            $('.loan-officer').append(newOption).trigger('change')
+                        }
                     }
-                }
-            });
-        });
-    </script>
-@endsection
+                })
+            })
+        </script>
+    @endsection
 @endsection

@@ -99,4 +99,29 @@ class User extends Authenticatable
     {
         return ($value || $this->role == 'admin') ? 1 : 0;
     }
+
+    public function getIsSilverTierAttribute()
+    {
+        return $this->status == 1;
+    }
+
+    public function getIsGoldTierAttribute()
+    {
+        return $this->status == 2;
+    }
+
+    public function getIsPlatinumTierAttribute()
+    {
+        return $this->status == 3 || $this->status == 4;
+    }
+
+    public function getIsPlatinumPlusTierAttribute()
+    {
+        return $this->status == 3;
+    }
+
+    public function getIsPlatinumLiteTierAttribute()
+    {
+        return $this->status == 4;
+    }
 }

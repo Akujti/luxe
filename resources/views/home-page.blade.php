@@ -327,7 +327,7 @@
                                 </div>
                                 <div class="grid grid-left" style=" grid-template-columns:33% 33% 33%">
                                     @foreach($sso_icons as $sso)
-                                        <div class="bg-box" onclick="window.open({{ $sso['url'] }},'_blank')">
+                                        <div class="bg-box" onclick="window.open('{{ $sso['url'] }}','_blank')">
                                             <div>
                                                 <img src="/images/index-page/sso/{{$sso['icon']}}" class="icon" alt="">
                                                 <p>{{$sso['name']}}</p>
@@ -1158,6 +1158,7 @@
 
 
 
+
                 @endforeach
                 </div>
 
@@ -1422,6 +1423,7 @@
 
 
 
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1429,6 +1431,7 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
 
 
 
