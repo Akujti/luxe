@@ -314,12 +314,29 @@
                             @php
                                 $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
                             @endphp
-                            @if ($news_feed)
-                                {!! $news_feed->text !!}
-                            @endif
+                            <div style="overflow: scroll">
+                                @if ($news_feed)
+                                    {!! $news_feed->text !!}
+                                @endif
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="col-12 mb-4">
+                            <div class="mb-4">
+                                <div class="mb-4 log-title">
+                                    Single Sign On
+                                </div>
+                                <div class="grid grid-left" style=" grid-template-columns:33% 33% 33%">
+                                    @foreach($sso_icons as $sso)
+                                        <div class="bg-box" onclick="window.open({{ $sso['url'] }},'_blank')">
+                                            <div>
+                                                <img src="/images/index-page/sso/{{$sso['icon']}}" class="icon" alt="">
+                                                <p>{{$sso['name']}}</p>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="mb-4">
                                 <div class="mb-4 log-title">
                                     Office Requests
                                 </div>
@@ -339,7 +356,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 mb-4">
+                            <div class="mb-4">
                                 <div class="log-title mb-4">
                                     Marketing Requests
                                 </div>
@@ -359,7 +376,7 @@
 
                                 </div>
                             </div>
-                            <div class="col-12 mb-4">
+                            <div class="mb-4">
                                 <div class="mb-4 log-title">
                                     Orders
                                 </div>
@@ -378,7 +395,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 mb-4">
+                            <div class="mb-4">
                                 <div class="log-title mb-4">
                                     Attending Events
                                 </div>
@@ -1093,6 +1110,54 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1309,6 +1374,54 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1316,6 +1429,54 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -138,7 +138,7 @@
         font-weight: normal;
         font-family: Montserrat;
         width: auto;
-        margin-left: 40px;
+        margin-left: 25px;
     }
 
     .right-contactsd {

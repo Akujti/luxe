@@ -44,15 +44,15 @@ class Controller extends BaseController
 
         $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
 
-        $orders = auth()->user()->load(['orders' => function ($q) use ($marketing_menu_category) {
-            $q->where('created_at', '>=', now()->subDays(31))->whereHas('products', function ($q) use ($marketing_menu_category) {
-                $q->whereHas('product', function ($q) use ($marketing_menu_category) {
-                    $q->whereHas('categories', function ($q) use ($marketing_menu_category) {
-                        $q->where('luxe_store_categories.id', '!=', $marketing_menu_category->id);
-                    });
-                });
-            });
-        }])->orders->take(3);
+//        $orders = auth()->user()->load(['orders' => function ($q) use ($marketing_menu_category) {
+//            $q->where('created_at', '>=', now()->subDays(31))->whereHas('products', function ($q) use ($marketing_menu_category) {
+//                $q->whereHas('product', function ($q) use ($marketing_menu_category) {
+//                    $q->whereHas('categories', function ($q) use ($marketing_menu_category) {
+//                        $q->where('luxe_store_categories.id', '!=', $marketing_menu_category->id);
+//                    });
+//                });
+//            });
+//        }])->orders->take(3);
 
         $marketing_orders = auth()->user()->load(['orders' => function ($q) use ($marketing_menu_category) {
             $q->where('created_at', '>=', now()->subDays(31))->whereHas('products', function ($q) use ($marketing_menu_category) {
@@ -67,6 +67,64 @@ class Controller extends BaseController
         $orders = auth()->user()->load(['orders' => function ($q) {
             $q->where('created_at', '>=', now()->subDays(31));
         }])->orders->take(3);
+
+        $sso_icons = [
+            [
+                'name' => 'Outlook',
+                'icon' => 'outlook.png',
+                'url' => 'https://portal.office.com/',
+            ],
+            [
+                'name' => 'Broker Sumo',
+                'icon' => 'brokersumo.png',
+                'url' => 'https://www.brokersumo.com',
+            ],
+            [
+                'name' => 'DotLoop',
+                'icon' => 'dotloop.png',
+                'url' => 'https://dotloop.com/',
+            ],
+            [
+                'name' => 'Deposit Link',
+                'icon' => 'depositlink.png',
+                'url' => 'https://app.depositlink.com/login',
+            ],
+            [
+                'name' => 'kvCORE',
+                'icon' => 'kvcore.png',
+                'url' => 'https://kvcore.com/',
+            ],
+            [
+                'name' => 'FollowUpBoss',
+                'icon' => 'fub.png',
+                'url' => 'https://followupboss.com/',
+            ],
+            [
+                'name' => 'Miami Realtors',
+                'icon' => 'miamirealtors.png',
+                'url' => 'https://sef.clareityiam.net/idp/login',
+            ],
+            [
+                'name' => 'Rela',
+                'icon' => 'rela.png',
+                'url' => 'https://www.relahq.com/',
+            ],
+            [
+                'name' => 'Giftagram',
+                'icon' => 'giftagram.png',
+                'url' => 'https://luxeproperties.giftcenter.giftagram.com/',
+            ],
+            [
+                'name' => 'HiFello',
+                'icon' => 'fello.png',
+                'url' => 'https://connect.hifello.com/auth/login',
+            ],
+            [
+                'name' => 'LUXVT',
+                'icon' => 'luxvt.png',
+                'url' => 'https://luxvt.com/register?registration_code=luxe',
+            ],
+        ];
         return view(
             'home-page',
             compact(
@@ -81,6 +139,7 @@ class Controller extends BaseController
                 'email_blasts',
                 'orders',
                 'marketing_orders',
+                'sso_icons'
             )
         );
     }
