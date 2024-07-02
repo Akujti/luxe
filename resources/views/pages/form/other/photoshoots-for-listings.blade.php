@@ -544,8 +544,7 @@
                 })
             },
             onInit: function (data, actions) {
-
-                actions.disable()
+                // actions.disable()
                 document.querySelectorAll('input select').forEach(item => {
                     item.addEventListener('input', () => {
                         if (document.getElementById('photo-form').checkValidity()) {
@@ -581,6 +580,7 @@
                 event.preventDefault()
             }
         })
+
         const today = new Date()
         let tomorrow = new Date()
         let afterTomorrow = new Date()
