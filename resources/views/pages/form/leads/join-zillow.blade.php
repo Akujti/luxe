@@ -140,6 +140,15 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Have you worked online leads before?</label>
+                                <select name="have_you_worked_online_leads_before" class="form-control"
+                                        required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
                             <div class="form-group col-md-12">
                                 <label for="name">Please provide list of your 10 closed sales **If you do not have 10
                                     sales, you will be considered for our Zillow Inbox Leads</label>
@@ -151,21 +160,11 @@
                                        class="form-control mb-3">
                                 <input type="text" name="closed_sale_3" placeholder="Address 3"
                                        class="form-control mb-3">
+                            </div>
+                            <div class="form-group col-md-6">
                                 <input type="text" name="closed_sale_4" placeholder="Address 4"
                                        class="form-control mb-3">
                                 <input type="text" name="closed_sale_5" placeholder="Address 5"
-                                       class="form-control mb-3">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="text" name="closed_sale_6" placeholder="Address 6"
-                                       class="form-control mb-3">
-                                <input type="text" name="closed_sale_7" placeholder="Address 7"
-                                       class="form-control mb-3">
-                                <input type="text" name="closed_sale_8" placeholder="Address 8"
-                                       class="form-control mb-3">
-                                <input type="text" name="closed_sale_9" placeholder="Address 9"
-                                       class="form-control mb-3">
-                                <input type="text" name="closed_sale_10" placeholder="Address 10"
                                        class="form-control mb-3">
                             </div>
                             <div class="form-group col-md-6">

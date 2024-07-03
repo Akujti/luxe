@@ -73,6 +73,11 @@
             vertical-align: top;
             border-top: 1px solid #dee2e6;
         }
+
+        .listings-table .image {
+            object-fit: cover;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
@@ -87,27 +92,35 @@
             <table class="listings-table">
                 <thead>
                 <tr>
+                    <th></th>
                     <th>Address</th>
                     <th>Price</th>
-                    <th>Agent</th>
-                    <th></th>
+                    <th>Beds</th>
+                    <th>Baths</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($listings as $listing)
                     <tr>
-                        <td>{{$listing->address}}</td>
+                        <td>
+                            <a href="{{route('listings.show',$listing->id)}}">
+                                <img src="{{ asset($listing->main_image) }}" alt="" class="image" width="100"
+                                     height="100">
+                            </a>
+                        </td>
+                        <td><a href="{{route('listings.show',$listing->id)}}">{{$listing->address}}</a></td>
                         <td>$ {{$listing->price ? number_format($listing->price):'-'}}</td>
-                        <td>{{$listing->user->profile->fullname}}</td>
-                        <td><a href="{{route('listings.show',$listing->id)}}">View Listing</a></td>
+                        <td>{{$listing->beds}}</td>
+                        <td>{{$listing->baths}}</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
             <div class="">
                 <h5>
-                    <a href="{{route('listings.index')}}" class="mt-3 text-center d-block">View All Coming Soon
-                        Listings</a>
+                    <a href="{{route('listings.index')}}" class="mt-3 text-center d-block">
+                        View All Coming Soon Listings
+                    </a>
                 </h5>
             </div>
         </div>

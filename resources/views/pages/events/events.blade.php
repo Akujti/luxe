@@ -202,7 +202,7 @@
             <div class="row mb-4">
                 @foreach($galleries as $gallery)
                     <div class="col-md-4">
-                        <a href="{{route('events.galleries.show',$gallery->id)}}" target="_blank">
+                        <a href="{{route('events.galleries.show',$gallery->id)}}">
                             <div class="gallery">
                                 {{--                                <div class="overlay"></div>--}}
                                 <div id="carouselExampleControls-{{$gallery->id}}" class="carousel slide"
@@ -250,7 +250,7 @@
                         <div class="modal-header">
                             <h4 class="modal-title">Create New Event</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
+                                        aria-hidden="true">&times;</span></button>
                         </div>
                         <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -356,7 +356,7 @@
                     <div class="modal-header">
                         <h4 class="modal-title">Event</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
+                                    aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body mb-0 pb-0">
                         <a href="#" class="text-dark" target="_blank" id="show-more-link"
@@ -535,17 +535,17 @@
                 $('.single-event').modal('show')
                 $('.single-event').find('#event_id').val(event._def.publicId)
                 $('.single-event').find('#show-more-link').attr('href', '/user/events/' + event._def
-                    .publicId)
+                  .publicId)
                 $('.single-event').find('#event_stats_link').attr('href', '/user/events/' + event
-                    ._def.publicId + '/attendance')
+                  ._def.publicId + '/attendance')
                 var startdt = event.extendedProps.fullDate + 'T' + event.extendedProps.start_time
                 var enddt = event.extendedProps.fullDate + 'T' + event.extendedProps.end_time
                 var location = event.extendedProps.location
                 var body = event.extendedProps.fullType
                 var calendar_link = 'https://outlook.office.com/calendar/0/deeplink/compose?body=' +
-                    body + '&enddt=' + enddt + '&location=' + location +
-                    '&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=' + startdt +
-                    '&subject=' + event.title
+                  body + '&enddt=' + enddt + '&location=' + location +
+                  '&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=' + startdt +
+                  '&subject=' + event.title
                 $('.single-event').find('#add_to_calendar').attr('href', calendar_link)
                 $('.single-event').find('#event_id_1').val(event._def.publicId)
                 $('.single-event').find('#event_id_attend').val(event._def.publicId)
@@ -586,7 +586,7 @@
                 if (event.extendedProps.image != null) {
                     $('.single-event').find('.event-image').css('display', 'block')
                     $('.single-event').find('#image-id').attr('src', '/storage/' + event
-                        .extendedProps.image)
+                      .extendedProps.image)
                 } else {
                     $('.single-event').find('.event-image').css('display', 'none')
                 }

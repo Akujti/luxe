@@ -265,11 +265,11 @@
                                     <option value="Equal to or less than 2,100" data-price="0">Equal to or less than
                                         2,100
                                     </option>
-                                    <option value="2,101-3,100" data-price="100">2,101-3,100</option>
-                                    <option value="3,101-4,100" data-price="200">3,101-4,100</option>
-                                    <option value="4,101-5,100" data-price="300">4,101-5,100</option>
-                                    <option value="5,101-6,100" data-price="400">5,101-6,100</option>
-                                    <option value="6,101-7,100" data-price="500">6,101-7,100</option>
+                                    <option value="2,101-3,100">2,101-3,100</option>
+                                    <option value="3,101-4,100">3,101-4,100</option>
+                                    <option value="4,101-5,100">4,101-5,100</option>
+                                    <option value="5,101-6,100">5,101-6,100</option>
+                                    <option value="6,101-7,100">6,101-7,100</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -450,17 +450,11 @@
                                 <h4 class="mb-3">{{$product->name}}</h4>
                                 <img src="{{ asset('storage/' . $product->preview_image) }}" alt=""
                                      width="300" class="rounded shadow mb-3">
-                                <ul>
-                                    <li> Exclusive LUXE Opportunity through Zillow Partnership!
-                                        Only 5 Shoots A Month!
-                                    </li>
-                                    <li>Zillow Listing Showcase is a premium and exclusive listing
-                                        experience.
-                                    </li>
-                                    <li> Exclusive LUXE Opportunity through Zillow Partnership!
-                                        Only 5 Shoots A Month!
-                                    </li>
-                                </ul>
+                                <p class="mb-3">
+                                    Exclusive <b>LUXE Opportunity</b> through our Zillow Partnership. Zillow Listing
+                                    Showcase is a premium and exclusive listing experience that increases your listing’s
+                                    visibility.
+                                </p>
                                 <button class="btn btn-luxe mb-3"
                                         onclick="addToCart()">Add To Cart
                                 </button>
@@ -544,10 +538,10 @@
                 })
             },
             onInit: function (data, actions) {
-                // actions.disable()
-                document.querySelectorAll('input select').forEach(item => {
+                actions.disable()
+                document.querySelectorAll('input, select').forEach(item => {
                     item.addEventListener('input', () => {
-                        if (document.getElementById('photo-form').checkValidity()) {
+                        if (document.getElementById('photo-form').checkValidity() && !should_show_marketing_popup) {
                             actions.enable()
                         } else {
                             actions.disable()
@@ -555,9 +549,15 @@
                     })
                 })
             },
-            onClick: function () {
-                toggleModal()
-                document.getElementById('photo-form').reportValidity()
+            onClick: function (data, actions) {
+                if (!document.getElementById('photo-form').checkValidity()) {
+                    document.getElementById('photo-form').reportValidity()
+                    return actions.disable()
+                }
+                if (should_show_marketing_popup) {
+                    toggleModal()
+                    return actions.disable()
+                }
             },
             onApprove: function (data, actions) {
                 return actions.order.capture().then(function (details) {

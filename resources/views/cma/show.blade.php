@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="">
                                         <h4 class="p-0 m-0 d-flex align-items-center h-title"><span
-                                                id="UnparsedAddress"></span>
+                                                    id="UnparsedAddress"></span>
                                         </h4>
                                         <p class="p-0 m-0 p-luxe text-uppercase"><span id="BuyerAgentFullName"></span>
                                         </p>
@@ -103,8 +103,21 @@
                                         #map {
                                             height: 100%;
                                         }
+
+                                        #search-map-btn {
+                                            left: 10px;
+                                            bottom: 0;
+                                            position: absolute;
+                                            cursor: pointer;
+                                        }
                                     </style>
                                     <div id="map"></div>
+                                    <a id="search-map-btn" class="btn-luxe" onclick="filterSearch()">
+                                       <span>
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                       </span>
+                                        Click To Update Map Area
+                                    </a>
                                 </div>
                                 <div class="col-12 col-xl-6">
                                     <div class="market-anysis-rows-header">
@@ -310,7 +323,7 @@
                                     <div class="market-analysis-rows">
                                         <div></div>
                                         <button class="mt-2 w-100 btn-luxe d-none" id="view-more"
-                                                onclick="filterSearch(limit = limit + 20)">View more
+                                                onclick="filterSearch(limit = limit + 50)">View more
                                         </button>
                                     </div>
 
@@ -321,9 +334,9 @@
                     <div class="table-box-footer w-100">
                         <div class="d-flex align-items-center justify-content-between">
                             <a href="{{ route('cma.search') }}" class="btn-action"><i
-                                    class="fa-solid fa-chevron-left"></i> Previous</a>
+                                        class="fa-solid fa-chevron-left"></i> Previous</a>
                             <a href="#0" id="next-btn" onclick="nextPage()" class="btn-action">Next<i
-                                    class="fa-solid fa-angle-right"></i></a>
+                                        class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -338,14 +351,15 @@
     <script>
         var statusGl = 'Closed'
         var showByIdRow = null,
-            showRows = null,
-            checkedIds = []
+          showRows = null,
+          checkedIds = []
         $(document).ready(async function () {
             loadingDiv(1)
             await mounted()
             $('#dropdownMenuButton').dropdown('toggle')
             $('#results-status').html(statusGl)
             loadingDiv(0)
+            initMap()
         })
 
         function loadingDiv (status) {
@@ -358,10 +372,10 @@
             }
         }
 
-        var limit = 20
+        var limit = 50
 
         async function nextPage () {
-            limit = 20
+            limit = 50
             if (statusGl == 'Closed')
                 statusGl = 'Active'
             else if (statusGl == 'Active')
@@ -441,6 +455,8 @@
         }
 
         var coordinates = []
+        var box = ''
+        var first_search = true
 
         async function mounted () {
             const urlParams = new URLSearchParams(window.location.search)
@@ -520,9 +536,10 @@
             }
 
             mergeData['StandardStatus'] = statusGl
-            mergeData['near'] = coordinates[0] + ',' + coordinates[1]
+            // mergeData['near'] = coordinates[0] + ',' + coordinates[1]
 
             mergeData['limit'] = limit
+            mergeData['box'] = box
             var response = await axiosInc('listings', 'get', mergeData)
 
             if (response.data) {
@@ -532,6 +549,7 @@
                     $('#view-more').addClass('d-none')
                 }
                 $('#results-scan').html('0/' + response.data.bundle.length)
+                locations = []
                 const resForHtml = response.data.bundle.map(item => {
                     locations.push([item.BuyerAgentFullName, item.Latitude, item.Longitude])
                     let html = `<div class="market-analysis-row">
@@ -693,7 +711,8 @@
                 var innerDiv = marketDiv.find('div')
 
                 marketDiv.scrollTop(innerDiv.offset().top - marketDiv.offset().top)
-                initMap()
+
+                addMarkersToMap()
             }
         }
 
@@ -701,13 +720,30 @@
             return string ?? (isNumber ? 0 : 'N/A')
         }
 
+        var map
+        var should_search = false
+
         function initMap () {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 16,
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 20,
                 center: new google.maps.LatLng(coordinates[1], coordinates[0]),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             })
 
+            google.maps.event.addListener(map, 'idle', async function (e) {
+                var bounds = map.getBounds()
+                var southWest = bounds.getSouthWest()
+                var northEast = bounds.getNorthEast()
+                box = southWest.lng() + ',' + southWest.lat() + ',' + northEast.lng() + ',' + northEast.lat()
+            })
+        }
+
+        var markers = []
+
+        function addMarkersToMap () {
+            for (let i = 0; i < markers.length; i++) {
+                markers[i].setMap(null)
+            }
             var infowindow = new google.maps.InfoWindow()
 
             var marker, i
@@ -720,12 +756,14 @@
                 scale: 2,
                 anchor: new google.maps.Point(15, 30),
             }
+
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
                     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                     icon: svgMarker,
                     map: map
                 })
+                markers.push(marker)
 
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {

@@ -39,7 +39,7 @@
         <div class="row mb-3">
             @foreach($photographer->properties as $property)
                 <div class="col-md-4 mb-4">
-                    <a href="{{route('photographers.show.images',[$photographer,$property])}}" target="_blank">
+                    <a href="{{route('photographers.show.images',[$photographer,$property])}}">
                         <div class="gallery">
                             <div id="carouselExampleControls-{{$property->id}}" class="carousel slide"
                                  data-ride="carousel">

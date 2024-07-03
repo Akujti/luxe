@@ -271,6 +271,18 @@
             justify-content: center;
             position: relative;
         }
+
+        .normal-preview-image {
+            width: 80px !important;
+            height: 80px !important;
+            object-fit: cover;
+        }
+
+        .large-preview-image {
+            width: 100px !important;
+            height: 120px !important;
+            object-fit: cover;
+        }
     </style>
     <div class="container-fluid">
         @if (isset($_GET['id']) && !empty($_GET['id']))
@@ -359,8 +371,8 @@
                             <div class="m-0 p-0 w-100 justify-content-between align-items-center">
                                 <div>
                                     @if ($file->thumbnail)
-                                        <img class="preview-img" src="{{ '/storage/' . $file->thumbnail }}"
-                                             style="width:80px !important; height: 80px !important;object-fit: cover;">
+                                        <img class="preview-img {{$file->folder->show_titles ? 'normal-preview-image':'large-preview-image'}}"
+                                             src="{{ '/storage/' . $file->thumbnail }}">
                                     @elseif ($file->type == 'img')
                                         <img class="preview-img" src="{{ '/storage/' . $file->file }}" id="folder-img">
                                     @elseif($file->type == 'doc')

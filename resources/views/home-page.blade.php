@@ -323,7 +323,7 @@
                         <div class="col-md-6">
                             <div class="mb-4">
                                 <div class="mb-4 log-title">
-                                    Single Sign On
+                                    LUXE Platforms & Tech
                                 </div>
                                 <div class="grid grid-left" style=" grid-template-columns:33% 33% 33%">
                                     @foreach($sso_icons as $sso)
@@ -510,7 +510,7 @@
                              onclick="window.location = '{{ url('/home?dir=signs_photo_design_requests') }}'">
                             <div>
                                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
-                                <p>Photo, & Design Requests</p>
+                                <p>Photo & Design Requests</p>
                             </div>
                         </div>
                         <div class="box-item box-item-padding" onclick="window.location = '{{ url('resume') }}'">
@@ -1159,6 +1159,10 @@
 
 
 
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1172,6 +1176,10 @@
                                                                                                                                                                                                                                                             <p class="ml-2 mt-2">{{ $item->title }}</p>
                                                                                                                                                                                                                                                         </a>
                                                                                                                                                                                                                                                     </div>
+
+
+
+
 
 
 
@@ -1683,6 +1691,10 @@
 
 
 
+
+
+
+
             @endif
         @endforeach
         </div> -->
@@ -1712,7 +1724,7 @@
     </div>
     @elseif($_GET['dir'] == 'signs_photo_design_requests')
         <div class="col-12 title mb-3">
-            <h1>Photo, & Design Requests</h1>
+            <h1>Photo & Design Requests</h1>
         </div>
         <div class="grid grid-layout">
             <div class="box-item box-item-padding"
@@ -1751,7 +1763,7 @@
             <div class="box-item box-item-padding"
                  onclick="window.location = '{{ url('/store/product/zillow-listing-showcase-shoot') }}'">
                 <div>
-                    <img src="/images/index-page/luxe_product_store-icon.svg" class="icon" alt="">
+                    <img src="/images/index-page/zillow-icon.png" class="icon" alt="">
                     <p>Zillow Listing Showcase</p>
                 </div>
             </div>
