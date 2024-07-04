@@ -21,9 +21,6 @@ class TestController extends Controller
 {
     public function index()
     {
-        $listings = Listing::get();
-        Mail::to('art@ajroni.com')->send(new DailyComingSoonListingsMail($listings));
-        
         if (App::environment('local')) {
             $a = Auth::loginUsingId(149);
             return redirect()->route('home');

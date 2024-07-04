@@ -397,10 +397,17 @@
     }
 
     .bg-box img {
-        width: 80px;
+        width: 120px;
         border-radius: 5px;
         margin-bottom: 10px;
     }
+
+    @media (max-width: 1280px) {
+        .bg-box img {
+            width: 100px;
+        }
+    }
+
 
     .bg-box p {
         font-family: 'Montserrat';
