@@ -84,7 +84,7 @@
 <body>
 <div class="wrap">
     <div style="text-align: center">
-        <img src="{{url('/images/logo-black.png')}}" alt="">
+        <img src="{{url('/images/logo-black.png')}}" alt="" width="300px">
     </div>
     <hr>
     <div class="" style="width: 100%">
