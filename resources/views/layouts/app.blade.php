@@ -386,8 +386,7 @@
         background-color: white;
         z-index: 9999999;
     }
-
-
+    
     .bg-box {
         border-radius: 10px;
         text-align: center;
@@ -406,12 +405,6 @@
         .bg-box img {
             width: 100px;
         }
-    }
-
-
-    .bg-box p {
-        font-family: 'Montserrat';
-        margin: 0;
     }
 </style>
 

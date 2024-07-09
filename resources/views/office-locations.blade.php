@@ -76,9 +76,9 @@
                             </div>
                             <div class="form-group ">
                                 <p class="location">Miami Lakes</p>
-                                <p class="address">17670 NW 78th Avenue #206, Hialeah, FL 33015</p>
+                                <p class="address">17650 NW 78th Ave #101, Hialeah, FL 33015</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Miami Lakes','Lockbox 5557 (Located at the top of the stairwell with a LUXE sticker)','Wi-Fi name- Luxeproperties','Password- abcde123','Parking Options:','Open parking in shopping center')">
+                                        onclick="toggleModal('Miami Lakes','Lockbox is on the front door - code: 5557','Wi-Fi name- Luxeproperties','Password- abcde123','Parking Options:','Open parking in shopping center')">
                                     View
                                     Access & Wifi Instructions
                                 </button>
