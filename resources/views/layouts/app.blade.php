@@ -386,7 +386,7 @@
         background-color: white;
         z-index: 9999999;
     }
-    
+
     .bg-box {
         border-radius: 10px;
         text-align: center;
@@ -856,6 +856,11 @@
                                             <a class="{{ isset($subactive) && $subactive == 'get_your_property_listed' ? 'active_submenu' : '' }}"
                                                href="{{  url('general/form/other/invoice-request')  }}">Get Your
                                                 Property Listed on Costar/Loopnet</a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'get_legal_help' ? 'active_submenu' : '' }}"
+                                               href="{{  url('general/form/leads/get-legal-help')  }}">Get Legal
+                                                Help</a>
                                         </li>
                                     </ul>
                                 </li>
