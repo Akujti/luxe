@@ -552,11 +552,11 @@
             onClick: function (data, actions) {
                 if (!document.getElementById('photo-form').checkValidity()) {
                     document.getElementById('photo-form').reportValidity()
-                    return actions.disable()
+                    // return actions.disable()
                 }
                 if (should_show_marketing_popup) {
                     toggleModal()
-                    return actions.disable()
+                    // return actions.disable()
                 }
             },
             onApprove: function (data, actions) {
