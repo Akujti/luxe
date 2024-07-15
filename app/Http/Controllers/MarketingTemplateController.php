@@ -237,6 +237,15 @@ class MarketingTemplateController extends Controller
         return back()->with('message', 'Deleted successfully');
     }
 
+    public function restore(Request $req)
+    {
+        $row = MarketingCanva::withTrashed()->find($req->id);
+        if ($row) {
+            $row->restore();
+        }
+        return back()->with('message', 'Restored successfully');
+    }
+
     public function destroy_template(DeleteTemplateRequest $req)
     {
         $row = MarketingCanvaTemplate::find($req->id);

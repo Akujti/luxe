@@ -134,6 +134,25 @@
                                        class="form-control p-1" required multiple>
                                 <small><i>* You can select multiple files to upload</i></small>
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Is the purchase price less than $275K or gross commission less than
+                                    $3,400?</label>
+                                <select class="form-control" onchange="showQuestion(this)"
+                                        name="is_the_purchase_price_less_than_$275K" required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div id="show-question" class="form-group col-md-6 d-none">
+                                <label for="name">Will you be using a closing coordinator? **This is only optional if
+                                    purchase price is less than $275K or gross commission less than $3,400**</label>
+                                <select class="form-control" name="will_you_be_using_a_closing_coordinator" required>
+                                    <option value>-</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                             </div>
@@ -152,5 +171,16 @@
             else if (num_input.value < 0)
                 num_input.value = 0
         })
+
+        function showQuestion (elem) {
+            var option = $(elem).val()
+            if (option == 'Yes') {
+                $('#show-question').removeClass('d-none')
+                $('#show-question select').prop('required', true)
+            } else {
+                $('#show-question').addClass('d-none')
+                $('#show-question select').prop('required', false)
+            }
+        }
     </script>
 @endsection

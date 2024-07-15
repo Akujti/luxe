@@ -559,6 +559,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
         Route::post('/', [MarketingTemplateController::class, 'create'])->name('marketing.create');
         Route::put('/', [MarketingTemplateController::class, 'update'])->name('marketing.update');
         Route::delete('/', [MarketingTemplateController::class, 'destroy'])->name('marketing.delete');
+        Route::post('/category/restore', [MarketingTemplateController::class, 'restore'])->name('marketing.restore');
     });
 
     Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function () {
