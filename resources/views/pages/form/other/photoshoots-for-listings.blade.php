@@ -499,6 +499,14 @@
             $('#option-9').click()
         }
 
+        $(document).ready(function () {
+            $('#option-9').change(function () {
+                if (this.checked) {
+                    should_show_marketing_popup = false
+                }
+            })
+        })
+
         function calculate () {
             var total = 0
             var status = {{ auth()->user()->status }};
