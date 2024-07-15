@@ -9,7 +9,7 @@ class ReferralPartnerCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'icon'];
+    protected $fillable = ['title', 'icon', 'parent_id'];
 
     public function referral_partners()
     {

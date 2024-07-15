@@ -38,6 +38,7 @@ class ReferralPartnerCategoryController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'parent_id' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $path = null;
@@ -53,6 +54,7 @@ class ReferralPartnerCategoryController extends Controller
 
         ReferralPartnerCategory::create([
             'title' => $request->title,
+            'parent_id' => $request->parent_id,
             'icon' => 'storage/' . $path
         ]);
 

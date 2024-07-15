@@ -11,6 +11,7 @@
                 <form action="{{ route('admin.referral-partners.categories.store') }}" class="row p-0 m-0" method="POST"
                       enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" id="parent_id" name="parent_id">
                     <div class="form-group">
                         <label for="">Title</label>
                         <div class="input-group">

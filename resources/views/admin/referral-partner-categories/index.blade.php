@@ -165,7 +165,10 @@
             }
 
             function create_event () {
+                const urlParams = new URLSearchParams(window.location.search)
+                const parentId = urlParams.get('parent_id')
                 $('.create-event').modal('show')
+                $('.create-event').find('#parent_id').val(parentId)
             }
 
             function create_referral_partner () {
