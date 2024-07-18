@@ -418,6 +418,11 @@
                                            name="add-ons[]" value="Zillow Showcase">
                                     <label class="form-check-label font-weight-normal" for="option-9">
                                         Zillow Showcase - $325
+                                        <br>
+                                        <small>By choosing Zillow Showcase the 3D Zillow
+                                            Tour and Floorplan will be automatically select because these are required
+                                            to be displayed as a zillow
+                                            showcase</small>
                                     </label>
                                 </div>
                             </div>
@@ -502,7 +507,15 @@
         $(document).ready(function () {
             $('#option-9').change(function () {
                 if (this.checked) {
+                    $('#option-7').prop('checked', true)
+                    $('#option-8').prop('checked', true)
+
+                    $('#option-7').attr('disabled', true)
+                    $('#option-8').attr('disabled', true)
                     should_show_marketing_popup = false
+                } else {
+                    $('#option-7').attr('disabled', false)
+                    $('#option-8').attr('disabled', false)
                 }
             })
         })
@@ -518,7 +531,6 @@
 
             amount = total
 
-            document.getElementById('total').value = '$' + amount
             if (amount == 0) {
                 $('#submit-btn').removeClass('d-none')
                 $('#paypal-button-container').addClass('d-none')
@@ -537,6 +549,7 @@
                 tagline: 'false'
             },
             createOrder: function (data, actions) {
+                calculate()
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
@@ -560,11 +573,9 @@
             onClick: function (data, actions) {
                 if (!document.getElementById('photo-form').checkValidity()) {
                     document.getElementById('photo-form').reportValidity()
-                    // return actions.disable()
                 }
                 if (should_show_marketing_popup) {
                     toggleModal()
-                    // return actions.disable()
                 }
             },
             onApprove: function (data, actions) {
