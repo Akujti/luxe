@@ -29,7 +29,7 @@ class SendDailyComingSoonListings extends Command
                 ->select('email')
                 ->chunk(500, function ($users) use ($listings) {
                     $emails = $users->pluck('email')->toArray();
-                    Mail::to($emails)->send(new DailyComingSoonListingsMail($listings));
+                    Mail::to('sales@luxeknows.com')->bcc($emails)->send(new DailyComingSoonListingsMail($listings));
                 });
             $this->info('Daily notifications have been sent.');
         } else
