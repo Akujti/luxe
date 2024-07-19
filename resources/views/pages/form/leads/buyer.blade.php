@@ -42,7 +42,7 @@
         <div class="card-title text-center">
             <h1>Buyer Team</h1>
         </div>
-        <div class="grid grid-layout-three">
+        <div class="grid grid-layout">
             <div class="box-item">
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'join-zillow']) }}"
@@ -60,6 +60,12 @@
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'submit-zillow-buyer-contract']) }}"
                        class="">Submit A Zillow Buyer Contract</a>
+                </p>
+            </div>
+            <div class="box-item">
+                <p>
+                    <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'submit-zillow-buyer-brokerage-agreement']) }}"
+                       class="">Submit A Zillow Buyer Brokerage Agreement</a>
                 </p>
             </div>
         </div>
