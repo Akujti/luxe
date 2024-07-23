@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'get_legal_help'])
+@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'get_help_my_listing_isnt_moving'])
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
