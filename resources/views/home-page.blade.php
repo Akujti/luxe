@@ -1166,6 +1166,10 @@
 
 
 
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1179,6 +1183,10 @@
                                                                                                                                                                                                                                                             <p class="ml-2 mt-2">{{ $item->title }}</p>
                                                                                                                                                                                                                                                         </a>
                                                                                                                                                                                                                                                     </div>
+
+
+
+
 
 
 
@@ -1704,6 +1712,10 @@
 
 
 
+
+
+
+
             @endif
         @endforeach
         </div> -->
@@ -1886,6 +1898,13 @@
                 <div>
                     <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
                     <p>Get Legal Help</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding"
+                 onclick="window.location = '{{ url('general/form/leads/get-help-on-why-my-listing-isnt-moving') }}'">
+                <div>
+                    <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
+                    <p>Get Help On Why My Listing Isn't Moving</p>
                 </div>
             </div>
             {{--            <div class="box-item box-item-padding"--}}
