@@ -251,7 +251,7 @@
                                 <select id="option-rental-listing" type="text" name="is_this_a_rental_listing"
                                         class="form-control" required>
                                     <option value>-</option>
-                                    <option value="Yes" data-price="{{ auth()->user()->is_silver_tier ? '150':'125' }}">
+                                    <option value="Yes" data-price="{{ auth()->user()->is_silver_tier ? '0':'125' }}">
                                         Yes
                                     </option>
                                     <option value="No">No</option>

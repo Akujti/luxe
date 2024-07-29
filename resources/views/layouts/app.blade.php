@@ -865,8 +865,7 @@
                                         <li>
                                             <a class="{{ isset($subactive) && $subactive == 'get_help_my_listing_isnt_moving' ? 'active_submenu' : '' }}"
                                                href="{{  url('general/form/leads/get-help-on-why-my-listing-isnt-moving')  }}">Get
-                                                Help on Why
-                                                My Listing Isn't Moving</a>
+                                                Help on Why My Listing Isn't Moving</a>
                                         </li>
                                     </ul>
                                 </li>
