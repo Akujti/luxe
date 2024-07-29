@@ -23,7 +23,7 @@ class SendDailyComingSoonListings extends Command
 
     public function handle()
     {
-        $listings = Listing::whereDate('created_at', Carbon::yesterday())->get();
+        $listings = Listing::get();
         if (count($listings)) {
             User::where('coming_soon_notifications', true)
                 ->select('email')

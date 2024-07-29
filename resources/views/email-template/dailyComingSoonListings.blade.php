@@ -33,17 +33,6 @@
             width: 100%;
         }
 
-        .col {
-            width: 100%;
-            background-color: white;
-            padding: 10px;
-            margin-top: 20px;
-        }
-
-        .bold-text {
-            font-weight: 600;
-        }
-
         .link {
             text-align: center;
             margin-top: 20px;
@@ -57,10 +46,6 @@
         h5 {
             text-align: center;
             font-size: 16px;
-        }
-
-        .listings-table {
-            width: 100%;
         }
 
         .listings-table th {
@@ -78,6 +63,50 @@
             object-fit: cover;
             border-radius: 5px;
         }
+
+        .listing {
+            height: 100%;
+            border: 1px solid #ececec;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+            color: black;
+        }
+
+        .listing img {
+            width: 100%;
+            /*height: 200px;*/
+            object-fit: cover;
+        }
+
+        .listing p {
+            margin: 0;
+        }
+
+        .listing .created-at {
+            top: 5px;
+            left: 5px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, .4);
+            color: white;
+            padding: 2px 5px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+
+        .listing .listing-meta {
+            padding: 10px;
+            min-height: 140px;
+        }
+
+        @media (min-width: 768px) {
+            .col-md-4 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 33.333333%;
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+        }
     </style>
 </head>
 
@@ -89,33 +118,38 @@
     <hr>
     <div class="" style="width: 100%">
         <div class="box">
-            <table class="listings-table">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>Address</th>
-                    <th>Price</th>
-                    <th>Beds</th>
-                    <th>Baths</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($listings as $listing)
-                    <tr>
-                        <td>
-                            <a href="{{route('listings.show',$listing->id)}}">
-                                <img src="{{ asset($listing->main_image) }}" alt="" class="image" width="100"
-                                     height="100">
-                            </a>
-                        </td>
-                        <td><a href="{{route('listings.show',$listing->id)}}">{{$listing->address}}</a></td>
-                        <td>$ {{$listing->price ? number_format($listing->price):'-'}}</td>
-                        <td>{{$listing->beds}}</td>
-                        <td>{{$listing->baths}}</td>
-                    </tr>
+            <div class="row">
+                @foreach($listings as $item)
+                    <div class="col-md-4 mb-3">
+                        <a href="{{ route('listings.show', $item) }}">
+                            <div class="listing">
+                                <div class="position-relative">
+                                    <img src="{{ asset($item->main_image) }}" alt="" class="w-100" height="240"
+                                         style="object-fit: cover;object-position: center;">
+                                    <p class="position-absolute created-at">Coming Soon</p>
+                                </div>
+                                <div class="listing-meta">
+                                    <p class="price">
+                                        <b>${{ number_format($item->price) }}{{ $item->rental ? '/mo' : '' }}</b>
+                                    </p>
+                                    <p class="info"><b>{{ $item->beds }}</b> bd | <b>{{ $item->baths }}</b> ba |
+                                        <b>{{ $item->living_area }}</b> sqft
+                                    </p>
+                                    @if ($item->type == 'Rental')
+                                        <p><b>{{ $item->type }}</b></p>
+                                    @else
+                                        <p><b>{{ $item->type }}</b> for sale</p>
+                                    @endif
+                                    <p class="address">{{ $item->address }}</p>
+                                    <p class="address">{{ $item->user->profile->fullname }}</p>
+                                    <p class="address">{{ $item->user->profile->phone }}</p>
+                                    <p class="address">{{ $item->user->email }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
-                </tbody>
-            </table>
+            </div>
             <div class="">
                 <h5>
                     <a href="{{route('listings.index')}}" class="mt-3 text-center d-block">

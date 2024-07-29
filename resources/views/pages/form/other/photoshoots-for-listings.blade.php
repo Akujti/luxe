@@ -347,9 +347,8 @@
                             </div>
                             <div class="form-group col-md-12">
                                 <input id="option-0" class="form-check-input ml-0 d-none" type="checkbox"
-                                       value="Photos Only (12-15 images)"
-                                       data-price="{{ auth()->user()->status == 1 ? 150 : 0 }}" name="add-ons[]"
-                                       checked>
+                                       value="Photos Only (12-15 images)" checked
+                                       data-price="{{ auth()->user()->status == 1 ? 150 : 0 }}" name="add-ons[]">
                                 <input class="form-check-input ml-0" type="checkbox" value="Photos Only (12-15 images)"
                                        data-price="{{ auth()->user()->status == 1 ? 150 : 0 }}" name="add-ons[]" checked
                                        disabled>
