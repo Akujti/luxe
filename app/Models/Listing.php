@@ -30,4 +30,12 @@ class Listing extends Model
     {
         return $this->belongsTo(User::class)->withTrashed();
     }
+
+    public function getMainImageAttribute($value): string
+    {
+        if ($value === 'images/image-coming-soon-placeholder.png' || $value === null) {
+            return 'https://maps.googleapis.com/maps/api/streetview?size=800x400&location=' . $this->address . '&fov=90&key=AIzaSyCbvYCR-b_MzBtqFgpY_OJU5oCxrQWwrSI';
+        }
+        return $value;
+    }
 }

@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Video;
 
-use App\Models\Video\Video;
-use Illuminate\Http\Request;
-use App\Models\Video\VideoReview;
-use App\Models\Video\VideoComment;
-use App\Models\Video\VideoFolders;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Video\Video\AddReviewCommentRequest;
 use App\Http\Requests\Video\Video\AddReviewRequest;
 use App\Http\Requests\Video\VideoFolder\AddRequest;
 use App\Http\Requests\Video\VideoFolder\DeleteRequest;
 use App\Http\Requests\Video\VideoFolder\UpdateRequest;
-use App\Http\Requests\Video\Video\AddReviewCommentRequest;
+use App\Models\Video\Video;
+use App\Models\Video\VideoComment;
+use App\Models\Video\VideoFolders;
+use App\Models\Video\VideoReview;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -34,7 +34,7 @@ class VideoFolderController extends Controller
             } else {
                 $q->whereNull('folder_id');
             }
-        })->latest()->get();
+        })->latest()->paginate(6);
 
         if (request()->wantsJson()) {
             return response()->json(['videoFolders' => $videoFolders, 'videos' => $videos]);
@@ -42,7 +42,17 @@ class VideoFolderController extends Controller
         return view('pages.videos', compact('videoFolders', 'videos'));
     }
 
-    public function show($video_id)
+    public function favoriteVideos(Request $req)
+    {
+        $videos = $req->user()->favoriteVideos()->latest()->paginate(6);
+
+        if ($req->wantsJson()) {
+            return response()->json(['videos' => $videos]);
+        }
+        return view('pages.favorite-videos', compact('videos'));
+    }
+
+    public function show(Request $request, $video_id)
     {
         $video = Video::with('list_views')->findOrFail($video_id);
 
@@ -53,8 +63,12 @@ class VideoFolderController extends Controller
             return response()->json(['video' => $video, 'reviews' => $reviews, 'comments' => $comments]);
         }
 
+        $video->is_favorite = $request->user()->favoriteVideos()->where('favorite_videos.video_id', $video_id)->exists();
+
+
         return view('pages.videos.single-video', compact('video', 'reviews', 'comments'));
     }
+
     public function admin_index(Request $req)
     {
         $folder_id = $req->input('id', null);
@@ -103,7 +117,7 @@ class VideoFolderController extends Controller
             });
             $img->save(public_path('/new-storage/images/marketing/' . $name));
             $val = 'new-storage/images/marketing/' . $name;
-            $row->image =  $val;
+            $row->image = $val;
         }
         $row->fill($req->only('title', 'parent_id'));
         $row->save();
@@ -147,5 +161,14 @@ class VideoFolderController extends Controller
             return response()->json(['comment' => $row]);
         }
         return back()->with('message', 'Successfully added!');
+    }
+
+    public function toggleFavorite(Request $request, Video $video)
+    {
+        $user = $request->user();
+
+        $user->favoriteVideos()->toggle($video);
+
+        return redirect()->back();
     }
 }

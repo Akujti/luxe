@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use App\Mail\DailyComingSoonListingsMail;
 use App\Models\Listing;
 use App\Models\User;
-use App\Notifications\DailyComingSoonListingsNotification;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
@@ -23,7 +22,7 @@ class SendDailyComingSoonListings extends Command
 
     public function handle()
     {
-        $listings = Listing::get();
+        $listings = Listing::whereDate('created_at', Carbon::yesterday())->get();
         if (count($listings)) {
             User::where('coming_soon_notifications', true)
                 ->select('email')

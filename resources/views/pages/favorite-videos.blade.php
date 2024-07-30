@@ -85,19 +85,6 @@
         <div class="col-12 title mb-3 text-center">
             <h1 class="font-weight-bold">LUXE Online Video University</h1>
         </div>
-        <div class="grid grid-layout mb-3">
-            @foreach ($videoFolders as $folder)
-                <div class="folder box-item"
-                     style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%), url({{ asset($folder->image) }})">
-                    <a href="{{ route('videos') }}?id={{ $folder->id }}">
-                        {{-- <img src="/images/files/video-folder.svg" alt="" class="img" width="200px" height="160px"> --}}
-                        <p class="title">
-                            {{ $folder->title }}
-                        </p>
-                    </a>
-                </div>
-            @endforeach
-        </div>
         <div class="row">
             @foreach ($videos as $video)
                 <div class="col-12 col-lg-6 mb-4">

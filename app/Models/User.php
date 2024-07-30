@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\FormSubmit;
-use App\Models\TemplateSubmit;
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
 use App\Models\LuxeStore\Order\LuxeStoreOrder;
+use App\Models\Video\Video;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -123,5 +123,10 @@ class User extends Authenticatable
     public function getIsPlatinumLiteTierAttribute()
     {
         return $this->status == 4;
+    }
+
+    public function favoriteVideos(): BelongsToMany
+    {
+        return $this->belongsToMany(Video::class, 'favorite_videos');
     }
 }

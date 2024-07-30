@@ -5,10 +5,31 @@
     <title></title>
     <!-- CSS only -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        @media only screen and (min-width: 600px) {
+            .listing-table {
+                padding: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .listing-table, .listing-table td {
+                display: block;
+                width: 100% !important;
+            }
+
+            .listing-table {
+                padding: 10px 0;
+            }
+
+            .content-box {
+                max-width: 200px;
+            }
+        }
 
         * {
-            font-family: Lato;
+            font-family: 'Roboto';
             font-weight: 400;
         }
 
@@ -118,38 +139,69 @@
     <hr>
     <div class="" style="width: 100%">
         <div class="box">
-            <div class="row">
-                @foreach($listings as $item)
-                    <div class="col-md-4 mb-3">
-                        <a href="{{ route('listings.show', $item) }}">
-                            <div class="listing">
-                                <div class="position-relative">
-                                    <img src="{{ asset($item->main_image) }}" alt="" class="w-100" height="240"
-                                         style="object-fit: cover;object-position: center;">
-                                    <p class="position-absolute created-at">Coming Soon</p>
-                                </div>
-                                <div class="listing-meta">
-                                    <p class="price">
-                                        <b>${{ number_format($item->price) }}{{ $item->rental ? '/mo' : '' }}</b>
-                                    </p>
-                                    <p class="info"><b>{{ $item->beds }}</b> bd | <b>{{ $item->baths }}</b> ba |
-                                        <b>{{ $item->living_area }}</b> sqft
-                                    </p>
-                                    @if ($item->type == 'Rental')
-                                        <p><b>{{ $item->type }}</b></p>
-                                    @else
-                                        <p><b>{{ $item->type }}</b> for sale</p>
-                                    @endif
-                                    <p class="address">{{ $item->address }}</p>
-                                    <p class="address">{{ $item->user->profile->fullname }}</p>
-                                    <p class="address">{{ $item->user->profile->phone }}</p>
-                                    <p class="address">{{ $item->user->email }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                @foreach($listings->chunk(2) as $chunk)
+                    <tr>
+                        @foreach($chunk as $item)
+                            <td style="width: 50%; vertical-align: top;" class="listing-table">
+                                <a href="{{ route('listings.show', $item) }}"
+                                   style="text-decoration: none; color: inherit;">
+                                    <table width="100%" cellspacing="0" cellpadding="0" border="0"
+                                           style="border: 1px solid #ddd; border-radius: 4px; overflow: hidden;">
+                                        <tr>
+                                            <td style="padding: 0;">
+                                                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                    <tr>
+                                                        <td>
+                                                            <img src="{{ asset($item->main_image) }}" alt=""
+                                                                 width="100%" height="240"
+                                                                 style="object-fit: cover; object-position: center;">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding: 0; margin: 0;">
+                                                            <table width="100%" cellspacing="0" cellpadding="0"
+                                                                   border="0">
+                                                                <tr>
+                                                                    <td style="padding: 5px;">
+                                                                        <span
+                                                                            style="border-radius: 5px; color: white; background: rgba(0, 0, 0, .4); margin: 0; padding: 2px 5px; font-size: 12px; font-weight: bold;">
+                                                                            Coming Soon
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px;">
+                                                <div class="content-box">
+                                                    <p style="margin: 0; font-weight: bold; font-size: 18px;">
+                                                        ${{ number_format($item->price) }}{{ $item->rental ? '/mo' : '' }}</p>
+                                                    <p style="margin: 0;">{{ $item->beds }} bd | {{ $item->baths }} ba
+                                                        | {{ $item->living_area }} sqft</p>
+                                                    <p style="margin: 0; font-weight: bold;">{{ $item->type }}{{ $item->type != 'Rental' ? ' for sale' : '' }}</p>
+                                                    <p style="margin: 0;">{{ $item->address }}</p>
+                                                    <p style="margin: 0;">{{ $item->user->profile->fullname }}</p>
+                                                    <p style="margin: 0;">{{ $item->user->profile->phone }}</p>
+                                                    <p style="margin: 0;">{{ $item->user->email }}</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </a>
+                            </td>
+                        @endforeach
+                        @if($chunk->count() < 2)
+                            <td style="width: 50%;" class="listing-table"></td>
+                        @endif
+                    </tr>
                 @endforeach
-            </div>
+            </table>
             <div class="">
                 <h5>
                     <a href="{{route('listings.index')}}" class="mt-3 text-center d-block">
@@ -160,7 +212,7 @@
         </div>
 
         <div class="link">
-            <a href="https://myluxehub.com">https://myluxehub.com/</a>
+            <a href="https://myluxehub.com">https://myluxehub.com</a>
         </div>
     </div>
 </div>
