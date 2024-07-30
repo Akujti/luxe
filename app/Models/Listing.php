@@ -34,7 +34,7 @@ class Listing extends Model
     public function getMainImageAttribute($value): string
     {
         if ($value === 'images/image-coming-soon-placeholder.png' || $value === null) {
-            return 'https://maps.googleapis.com/maps/api/streetview?size=800x400&location=' . $this->address . '&fov=90&key=AIzaSyCbvYCR-b_MzBtqFgpY_OJU5oCxrQWwrSI';
+            return 'https://maps.googleapis.com/maps/api/streetview?size=800x400&location=' . $this->address . '&fov=90&key=' . env('GOOGLE_MAPS_API_KEY');
         }
         return $value;
     }
