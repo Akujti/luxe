@@ -83,31 +83,38 @@
     </style>
     <div class="container-fluid">
         <div class="col-12 title mb-3 text-center">
-            <h1 class="font-weight-bold">LUXE Online Video University</h1>
+            <h1 class="font-weight-bold">My Favorite Videos</h1>
         </div>
-        <div class="row">
-            @foreach ($videos as $video)
-                <div class="col-12 col-lg-6 mb-4">
-                    <div class="video mb-2">
-                        <a href="{{ route('video.single_video', $video->id) }}">
-                            <!-- /images/files/video-folder.svg -->
-                            <img src="{{ $video->vimeo_details['thumbnail'] }}" alt="" class="img">
-                            <div class="p-4">
-                                <p class="title">
-                                    {{ $video->vimeo_details['name'] }}
-                                </p>
-                                <div class="d-flex justify-content-between">
-                                    <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}</p>
-                                    <p class="time p-0 m-0">By <span class="title">LUXE Properties</span></p>
+        @if($videos->count())
+            <div class="row">
+                @foreach ($videos as $video)
+                    <div class="col-12 col-lg-6 mb-4">
+                        <div class="video mb-2">
+                            <a href="{{ route('video.single_video', $video->id) }}">
+                                <!-- /images/files/video-folder.svg -->
+                                <img src="{{ $video->vimeo_details['thumbnail'] }}" alt="" class="img">
+                                <div class="p-4">
+                                    <p class="title">
+                                        {{ $video->vimeo_details['name'] }}
+                                    </p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}</p>
+                                        <p class="time p-0 m-0">By <span class="title">LUXE Properties</span></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
-        <div class="d-flex w-100 justify-content-center">
-            {{ $videos->links() }}
-        </div>
+                @endforeach
+            </div>
+            <div class="d-flex w-100 justify-content-center">
+                {{ $videos->links() }}
+            </div>
+        @else
+            <p class="text-center ">You don't have any favorite videos yet. You can go to the <a
+                    href="{{route('videos') }}" style="color: black; text-decoration: underline">"LUXE Online Video
+                    University"</a>
+                and mark your favorite videos.</p>
+        @endif
     </div>
 @endsection
