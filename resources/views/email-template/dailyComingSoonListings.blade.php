@@ -5,8 +5,6 @@
     <title></title>
     <!-- CSS only -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
         @media only screen and (min-width: 600px) {
             .listing-table {
                 padding: 10px;
@@ -29,7 +27,7 @@
         }
 
         * {
-            font-family: 'Roboto';
+            font-family: 'Nunito', Helvetica, Arial, sans-serif;;
             font-weight: 400;
         }
 
