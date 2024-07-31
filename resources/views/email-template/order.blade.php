@@ -82,7 +82,9 @@
             </div>
         @else
             <div class="box">
-                <h3>The order has been successfully created - #{{ $details['data']->id }}</h3>
+                <h3>The order has been successfully created - <a href="{{route('my_orders.show',$details['id'])}}">
+                        #{{ $details['data']->id}}</a>
+                </h3>
                 @if ($details['is_marketing_menu_order'])
                     <p class="text-center bold-text ">Templated requests:</p>
                     <p class="text-center">1-2 business days turnaround</p>
@@ -93,13 +95,86 @@
                         Project turnaround time TBD based on request.</p>
                     <p class="text-center">Examples: Brand package, custom designs, logos</p>
                 @endif
-                @if ($details['products'])
-                    @foreach ($details['products'] as $rowProduct)
-                        @if ($rowProduct->product->verbiages_text)
-                            <p class="border-bottom pb-3 text-center">{{ $rowProduct->product->verbiages_text }}</p>
+                <div>
+                    <p>Order Status: <b class="bold-text">{{ $details->status }}</b></p>
+                    <hr>
+                    <p>Created Time: <b class="bold-text">{{ $details->created_at }}</b></p>
+                    <hr>
+                    <p>Order By: <b
+                            class="bold-text">{{ App\Models\User::withTrashed()->find($details->user_id)->profile->fullname }}</b>
+                    </p>
+                    <hr>
+                    <p>Request Info Note: <b class="bold-text">{{ $details->request_info ?? 'N/A' }}</b></p>
+                    <hr>
+                    <p>Request Info Response: <b class="bold-text">{{ $details->request_info_response ?? 'N/A' }}</b>
+                    </p>
+                    <br>
+                    <hr>
+
+                    <p>Billing Agent Name: <b class="bold-text">{{ $details->billing_details->agent_name }}
+                            {{ $details->billing_details->agent_surname }}</b></p>
+                    <p>Billing Address: <b class="bold-text">{{ $details->billing_details->street_address }},
+                            {{ $details->billing_details->city }}, {{ $details->billing_details->zip_code }}</b></p>
+                    <p>Email Address: <b class="bold-text">{{ $details->billing_details->email }}</b></p>
+                    <p>Phone: <b class="bold-text">{{ $details->billing_details->phone }}</b></p>
+                    <br>
+                    <hr>
+
+                    <p>Shipping Agent Name: <b class="bold-text">{{ $details->shipping_details->agent_name }}
+                            {{ $details->shipping_details->agent_surname }}</b></p>
+                    <p>Shipping Address: <b class="bold-text">{{ $details->shipping_details->street_address }},
+                            {{ $details->shipping_details->city }}, {{ $details->shipping_details->zip_code }}</b></p>
+                    <p>Email Address: <b class="bold-text">{{ $details->shipping_details->email }}</b></p>
+                    <p>Phone: <b class="bold-text">{{ $details->shipping_details->phone }}</b></p>
+                    <hr>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th id="th-row" style="text-align: left;">Item</th>
+                            <th id="th-row">Cost</th>
+                            <th id="th-row">Qty</th>
+                            <th id="th-row">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($details->products as $order_product)
+                            <tr>
+                                <td>
+                                    <div style="display:flex;align-items:center;gap: 5px">
+                                        <img width="75px"
+                                             src="{{ asset('storage/' . $order_product->product->preview_image) }}"
+                                             alt=""> {{ $order_product->product->name }}
+                                        {{ $order_product->variant_name ? ' - ' . $order_product->variant_value : '' }}
+                                    </div>
+                                </td>
+                                <td width="1%" style="padding:14px">${{ $order_product->price }}</td>
+                                <td width="1%" style="padding:14px">{{ $order_product->quantity }}</td>
+                                <td width="1%" style="padding:14px">
+                                    ${{ $order_product->price * $order_product->quantity }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4">No Products Found.</td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+
+                    <hr>
+                    <div style="width:100%;text-align: right;">
+                        <p class="text-right">Items Subtotal: <b
+                                class="bold-text">${{ $details->payment->sub_total }}</b>
+                        </p>
+                        @if ($details->payment->coupon_code)
+                            <p class="text-right">Coupon Discount: <b
+                                    class="bold-text">${{ $details->payment->coupon_code }}</b></p>
                         @endif
-                    @endforeach
-                @endif
+                        <p class="text-right">Order Total: <b
+                                class="bold-text">${{ $details->payment->total_price }}</b>
+                        </p>
+                    </div>
+                </div>
                 <h5 class="bold-text">Thank you.</h5>
             </div>
         @endif

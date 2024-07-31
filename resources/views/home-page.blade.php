@@ -214,7 +214,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                  class="bi bi-trophy" viewBox="0 0 16 16">
                                 <path
-                                        d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935M3.504 1q.01.775.056 1.469c.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.5.5 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667q.045-.694.056-1.469z"/>
+                                    d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935M3.504 1q.01.775.056 1.469c.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.5.5 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667q.045-.694.056-1.469z"/>
                             </svg>
                             <span class="ml-3">View Leaderboard</span>
                         </a>
@@ -225,7 +225,7 @@
                                  class="bi bi-question-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                                 <path
-                                        d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+                                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
                             </svg>
                             <span class="ml-3">LUXE FAQ</span>
                         </a>
@@ -307,19 +307,6 @@
                 <div class="col-12 mb-3">
                     <hr class="mb-4" style="border-bottom: 2px solid #00000014;">
                     <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
-                        <div class="col-md-6">
-                            <div class="mb-2 log-title">
-                                News Feed
-                            </div>
-                            @php
-                                $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
-                            @endphp
-                            <div style="overflow: scroll">
-                                @if ($news_feed)
-                                    {!! $news_feed->text !!}
-                                @endif
-                            </div>
-                        </div>
                         <div class="col-md-6">
                             <div class="mb-4">
                                 <div class="mb-4 log-title">
@@ -416,6 +403,39 @@
 
                                 </div>
                             </div>
+                            <div class="mb-4">
+                                <div class="log-title mb-4">
+                                    Favorite Videos
+                                </div>
+                                <div class="box-item log-item row m-0 align-items-start justify-content-start m-0 p-0">
+                                    <div class="row m-0 logs">
+                                        @forelse(auth()->user()->favoriteVideos as $video)
+                                            <div>
+                                                <a href="{{route('video.single_video',$video)}}">{{$video->title}}</a>
+                                            </div>
+                                        @empty
+                                            <div>
+                                                No favorite videos found.
+                                            </div>
+                                        @endforelse
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-2 log-title">
+                                News Feed
+                            </div>
+                            @php
+                                $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
+                            @endphp
+                            <div style="overflow: scroll">
+                                @if ($news_feed)
+                                    {!! $news_feed->text !!}
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -487,9 +507,9 @@
                 <div class="col-12 title mb-3">
                     <h1>Marketing & Branding</h1>
                 </div>
-                <div class="d-md-flex" style="gap:14px;">
-                    <div class="grid grid-layout-three p-0 mb-auto">
-                        <div class="box-item box-item-padding"
+                <div class="d-md-flex justify-content-center" style="gap:14px;">
+                    <div class="grid grid-layout p-0 mb-auto">
+                        <div class="box-item box-item-small-padding"
                              onclick="window.location='{{ route('canva.marketing.requests') }}'">
                             <div>
                                 <img class="icon p-1" src="/images/index-page/online-marketing-designer.svg"
@@ -498,7 +518,7 @@
                             </div>
                         </div>
 
-                        <div class="box-item box-item-padding"
+                        <div class="box-item box-item-small-padding"
                              onclick="window.open('https://realtorprint.com/pages/luxe')">
                             <div>
                                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
@@ -506,31 +526,45 @@
                             </div>
                         </div>
 
-                        <div class="box-item box-item-padding"
+                        <div class="box-item box-item-small-padding"
                              onclick="window.location = '{{ url('/home?dir=signs_photo_design_requests') }}'">
                             <div>
                                 <img src="/images/index-page/print_marketing.svg" class="icon" alt="">
                                 <p>Photo & Design Requests</p>
                             </div>
                         </div>
-                        <div class="box-item box-item-padding" onclick="window.location = '{{ url('resume') }}'">
+                        <div class="box-item box-item-small-padding"
+                             onclick="window.location = '{{ url('/store/product/zillow-listing-showcase-shoot') }}'">
+                            <div>
+                                <img src="/images/index-page/zillow-icon.png" class="icon" alt="">
+                                <p>Zillow Listing Showcase</p>
+                            </div>
+                        </div>
+                        <div class="box-item box-item-small-padding" onclick="window.location = '{{ url('resume') }}'">
                             <div>
                                 <img src="/images/index-page/resume_builder.svg" class="icon" alt="">
                                 <p>Resume Builder</p>
                             </div>
                         </div>
-                        <div class="box-item box-item-padding" onclick="window.location='/user/files?id=22'">
+                        <div class="box-item box-item-small-padding" onclick="window.location='/user/files?id=22'">
                             <div>
                                 <img class="icon" src="/images/favicon.png" alt="">
                                 <p>Logos</p>
                             </div>
                         </div>
 
-                        <div class="box-item box-item-padding"
+                        <div class="box-item box-item-small-padding"
                              onclick="window.location='/general/form/other/marketing-menu'">
                             <div>
                                 <img class="icon" src="/images/index-page/logo_creation_request.svg" alt="">
                                 <p>Marketing Menu & Services</p>
+                            </div>
+                        </div>
+                        <div class="box-item box-item-small-padding"
+                             onclick="window.location='/coming-soon'">
+                            <div>
+                                <img class="icon" src="/images/index-page/training_videos.svg" alt="">
+                                <p>Video Content</p>
                             </div>
                         </div>
                     </div>
@@ -553,39 +587,44 @@
                             }
                         }
                     </style>
-                    <div>
-                        <div id="marketing-template-requests"
-                             class="box-item align-items-start box-guides row p-0 m-0 mt-md-0 mt-3 h-md-100">
-                            <div class="w-100 p-0 m-0">
-                                <h3 class="text-center px-4 my-4">
-                                    Submit Marketing Template Requests
-                                </h3>
-                                @forelse($marketing_requests as $marketing_request)
-                                    @if ($marketing_request->title != 'Presentation Booklet')
-                                        <div class="box-guide">
-                                            <a href="{{ route('marketing.requests') }}?type={{ $marketing_request->title }}"
-                                               class="text-luxe" style="flex-direction:column;">
-                                                <img src="{{ $marketing_request->image }}" alt=""
-                                                     style="object-fit:contain">
-                                                <p>{{ $marketing_request->title }}</p>
-                                            </a>
+                </div>
+                <div id="marketing-template-requests"
+                     class="align-items-start box-guides row text-center">
+                    <div class="w-100 p-0 m-0">
+                        <h3 class="text-center px-4 my-4">
+                            Submit Marketing Template Requests
+                        </h3>
+                        <div class="row px-4">
+                            <div class="col-md-6 col-12">
+                                <div class="row">
+                                    @forelse($marketing_requests as $marketing_request)
+                                        @if ($marketing_request->title != 'Presentation Booklet')
+                                            <div class="box-guide col-3">
+                                                <a href="{{ route('marketing.requests') }}?type={{ $marketing_request->title }}"
+                                                   class="text-luxe" style="flex-direction:column;">
+                                                    <img src="{{ $marketing_request->image }}" alt=""
+                                                         style="object-fit:contain">
+                                                    <p>{{ $marketing_request->title }}</p>
+                                                </a>
+                                            </div>
+                                        @endif
+                                    @empty
+                                        <div class="box-guide justify-content-start pl-4">
+                                            <p>No results found.</p>
                                         </div>
-                                    @endif
-                                @empty
-                                    <div class="box-guide justify-content-start pl-4">
-                                        <p>No results found.</p>
-                                    </div>
-                                @endforelse
+                                    @endforelse
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12 d-flex justify-content-center align-items-center">
+                                <a href="https://cal.com/luxeproperties" class="btn btn-luxe mb-3 px-5"
+                                   style="text-wrap:wrap"
+                                   target="_blank">
+                                    Schedule 1-ON-1 with Marketing Coordinator
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-        </div>
-        <div class="d-md-flex justify-content-center">
-            <a href="https://cal.com/luxeproperties" class="btn btn-luxe mb-3 px-5" style="text-wrap:wrap"
-               target="_blank">
-                Schedule 1-ON-1 with Marketing Coordinator
-            </a>
         </div>
         <div class="row p-0 m-0 w-100 mb-3" style="border-bottom: 3px solid #00000014;"></div>
         <style>
@@ -1170,6 +1209,71 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1446,6 +1550,71 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1453,6 +1622,71 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2063,13 +2297,13 @@
                                             </div>
                                             <div class="p-2">
                                                 <p class="title"><a
-                                                            href="{{ route('video.single_video', $video->id) }}">{{ Str::limit($video->vimeo_details['name'], 60) }}</a>
+                                                        href="{{ route('video.single_video', $video->id) }}">{{ Str::limit($video->vimeo_details['name'], 60) }}</a>
                                                 </p>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}
                                                     </p>
                                                     <p class="time p-0 m-0">By <span
-                                                                class="title">LUXE Properties</span>
+                                                            class="title">LUXE Properties</span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -2083,6 +2317,7 @@
             </section>
             <div class="w-100 text-center my-3">
                 <a href="{{ route('videos') }}" class="btn btn-luxe">View all training videos</a>
+                <a href="{{ route('favorite.videos') }}" class="btn btn-luxe">View all favorite videos</a>
             </div>
         </div>
         <div class="row p-0 m-0 w-100 mb-3 mx-2" style="border-bottom: 3px solid #00000014;"></div>
@@ -2732,14 +2967,14 @@
                 <li><a href="#" class="text-luxe"><img src="/images/index-page/luxe_lending.svg" alt=""> KLG
                         Insurance Group</a></li>
                 <li><a href="mailto:kelly@klginsurancegroup.com" class="text-luxe"><img
-                                src="/images/index-page/link_web.svg"
-                                alt=""> kelly@klginsurancegroup.com</a></li>
+                            src="/images/index-page/link_web.svg"
+                            alt=""> kelly@klginsurancegroup.com</a></li>
                 <li><a href="#" class="text-luxe"><img src="/images/index-page/location-1.svg" alt=""> 7154
                         Pembroke Rd, Miramar, FL 33023</a>
                 </li>
                 <li><a href="http://www.klginsurancegroup.com" class="text-luxe"><img
-                                src="/images/index-page/website.svg"
-                                alt=""> www.klginsurancegroup.com</a>
+                            src="/images/index-page/website.svg"
+                            alt=""> www.klginsurancegroup.com</a>
                 </li>
                 <li><a href="tel: (305) 984 4352" class="text-luxe"><img src="/images/index-page/phone-black-1.svg"
                                                                          alt=""> C: 305.984.4352</a></li>
@@ -2975,7 +3210,7 @@
         @endsection
 
         <script>
-            function toggleModal (id) {
+            function toggleModal(id) {
                 $('#' + id).modal('show')
             }
         </script>

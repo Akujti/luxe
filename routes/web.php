@@ -169,9 +169,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Route::post('create-theme-just-listed-story', [PDFController::class, 'theme_just_listed_story'])->name('theme-just-listed-story');
 
-    // Route::get('/coming-soon', function () {
-    //     return view('themes.coming-soon.coming-soon-web');
-    // });
+    Route::get('/coming-soon', function () {
+        return view('coming-soon-page');
+    })->name('coming.soon');
     // Route::post('create-theme-coming-soon', [PDFController::class, 'theme_coming_soon'])->name('theme-coming-soon');
 
     // Route::get('/just-closed-story', function () {

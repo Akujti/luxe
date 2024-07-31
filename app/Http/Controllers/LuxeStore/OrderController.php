@@ -2,35 +2,32 @@
 
 namespace App\Http\Controllers\LuxeStore;
 
-use App\Mail\NewOrderCreated;
-use App\Mail\NotifyStatusNotCompleted;
-use App\Models\Notification;
-use App\Models\User;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
-use App\Mail\OrderCompleted;
-use Illuminate\Http\Request;
-use App\Models\MarketingMenu;
-use App\Mail\OrderMailTemplate;
-use App\Mail\GeneralMailTemplate;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Mail\CouponUsedMailTemplate;
-use Illuminate\Support\Facades\Mail;
-use App\Models\UserCheckoutInformation;
-use Illuminate\Support\Facades\Session;
-use App\Models\LuxeStore\LuxeStoreProduct;
-use App\Models\LuxeStore\LuxeStoreCategory;
-use App\Models\LuxeStore\LuxeStoreCouponCode;
-use App\Models\LuxeStore\LuxeStoreProductForm;
-use App\Models\LuxeStore\Order\LuxeStoreOrder;
-use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
 use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
+use App\Mail\CouponUsedMailTemplate;
+use App\Mail\NewOrderCreated;
+use App\Mail\OrderCompleted;
+use App\Mail\OrderMailTemplate;
+use App\Models\LuxeStore\LuxeStoreCategory;
+use App\Models\LuxeStore\LuxeStoreCouponCode;
+use App\Models\LuxeStore\LuxeStoreProduct;
+use App\Models\LuxeStore\LuxeStoreProductForm;
 use App\Models\LuxeStore\LuxeStoreProductVariantValues;
+use App\Models\LuxeStore\Order\LuxeStoreOrder;
 use App\Models\LuxeStore\Order\LuxeStoreOrderFormInputs;
-use App\Models\LuxeStore\Order\LuxeStoreOrderBillingDetails;
+use App\Models\LuxeStore\Order\LuxeStoreOrderProduct;
+use App\Models\MarketingMenu;
+use App\Models\Notification;
+use App\Models\User;
+use App\Models\UserCheckoutInformation;
+use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
@@ -336,6 +333,7 @@ class OrderController extends Controller
             Session::save();
 
             $cc = [];
+            $details = $row;
             $details['type'] = 'admin';
             $details['data'] = $row;
             $details['is_marketing_menu_order'] = $is_marketing_menu_order;
