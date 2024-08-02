@@ -38,4 +38,10 @@ class Listing extends Model
         }
         return $value;
     }
+
+    public function getAddressAttribute($value)
+    {
+        // Remove ", USA" if it's present at the end of the address
+        return preg_replace('/,\s*USA$/', '', $value);
+    }
 }

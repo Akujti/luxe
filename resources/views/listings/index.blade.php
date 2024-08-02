@@ -149,7 +149,11 @@
                                     @endif
                                     <p class="address">{{ $item->address }}</p>
                                     <p class="address">{{ $item->user->profile->fullname }}</p>
-                                    <p class="address">{{ $item->user->profile->phone }}</p>
+                                    @if($item->user->profile->phone)
+                                        <p class="address">{{ $item->user->profile->phone  }}</p>
+                                    @else
+                                        <p class="address">&nbsp;</p>
+                                    @endif
                                     <p class="address">{{ $item->user->email }}</p>
                                 </div>
                             </div>
@@ -164,10 +168,10 @@
         </div>
     </div>
     <script
-            src="https://maps.googleapis.com/maps/api/js?v=3&key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&v=weekly"
-            defer></script>
+        src="https://maps.googleapis.com/maps/api/js?v=3&key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&v=weekly"
+        defer></script>
     <script>
-        function initMap () {
+        function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
                 center: new google.maps.LatLng(25.8617, -80.4018),
@@ -210,15 +214,15 @@
                         google.maps.event.addListener(marker, 'click', (function (marker, i) {
                             return function () {
                                 infowindow.setContent(
-                                  '<div class=\'d-flex align-items-center mb-3 gap-3\' data-id=\'' +
-                                  el.id + '\'>' +
-                                  '<img style=\'width:58px;height:58px;border-radius:50%;\' src=\'' +
-                                  el.main_image + '\'>' +
-                                  '<h5>' + el.address + '</h5><br>' +
-                                  '</div>' +
-                                  'Type: ' + el.type +
-                                  '<br>Price: $' + nf.format(el.price) +
-                                  '<br>Agent Name: ' + el.user.profile.fullname
+                                    '<div class=\'d-flex align-items-center mb-3 gap-3\' data-id=\'' +
+                                    el.id + '\'>' +
+                                    '<img style=\'width:58px;height:58px;border-radius:50%;\' src=\'' +
+                                    el.main_image + '\'>' +
+                                    '<h5>' + el.address + '</h5><br>' +
+                                    '</div>' +
+                                    'Type: ' + el.type +
+                                    '<br>Price: $' + nf.format(el.price) +
+                                    '<br>Agent Name: ' + el.user.profile.fullname
                                 )
                                 infowindow.open(map, marker)
                             }
@@ -228,7 +232,7 @@
             })
         }
 
-        function codeAddress (el, callback) {
+        function codeAddress(el, callback) {
             var locations = [el.lat, el.lng]
             callback(locations)
         }

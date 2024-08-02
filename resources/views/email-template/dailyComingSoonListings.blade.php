@@ -135,7 +135,7 @@
         <img src="{{url('/images/logo-black.png')}}" alt="" width="300px">
     </div>
     <hr>
-    <div class="" style="width: 100%">
+    <div class="" style="width: 100%; max-width: 800px; margin: 0 auto;">
         <div class="box">
             <table width="100%" cellspacing="0" cellpadding="0" border="0">
                 @foreach($listings->chunk(2) as $chunk)
@@ -185,7 +185,11 @@
                                                     <p style="margin: 0; font-weight: bold;">{{ $item->type }}{{ $item->type != 'Rental' ? ' for sale' : '' }}</p>
                                                     <p style="margin: 0;">{{ $item->address }}</p>
                                                     <p style="margin: 0;">{{ $item->user->profile->fullname }}</p>
-                                                    <p style="margin: 0;">{{ $item->user->profile->phone }}</p>
+                                                    @if($item->user->profile->phone)
+                                                        <p style="margin: 0;">{{ $item->user->profile->phone }}</p>
+                                                    @else
+                                                        <p style="margin: 0;">&nbsp;</p>
+                                                    @endif
                                                     <p style="margin: 0;">{{ $item->user->email }}</p>
                                                 </div>
                                             </td>
