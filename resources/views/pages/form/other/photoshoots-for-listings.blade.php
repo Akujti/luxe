@@ -311,6 +311,12 @@
                                 <input id="other-lead-source-input" class="form-control mt-3 d-none"
                                        name="other_lead_source" placeholder="Write the other lead source here">
                             </div>
+                            <div class="form-group col-md-6">
+                                <label for="property_details_instructions">Additional property details/access
+                                    instructions to note:</label>
+                                <input type="text" id="property_details_instructions"
+                                       name="property_details_instructions" class="form-control">
+                            </div>
                             <div class="form-group col-12 text-center">
                                 <h6>**Photoshoots can only be scheduled between 8AM-3PM**</h6>
                             </div>
@@ -470,7 +476,7 @@
         </div>
     </div>
     <script
-            src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
+        src="https://www.paypal.com/sdk/js?client-id={{ config('app.paypal_client_id') }}&disable-funding=credit&components=buttons">
     </script>
     <script>
         var should_show_marketing_popup = true
@@ -492,12 +498,12 @@
         var amount = 0
         calculate()
 
-        function toggleModal () {
+        function toggleModal() {
             if (should_show_marketing_popup && !$('#option-9').is(':checked'))
                 $('#modal').modal('show')
         }
 
-        function addToCart () {
+        function addToCart() {
             should_show_marketing_popup = false
             $('#modal').modal('hide')
             $('#option-9').click()
@@ -519,7 +525,7 @@
             })
         })
 
-        function calculate () {
+        function calculate() {
             var total = 0
             var status = {{ auth()->user()->status }};
             var elements = $('input[id^="option-"]:checked, select[id^="option-"] option:selected').toArray()
@@ -586,7 +592,7 @@
             }
         }).render('#paypal-button-container')
 
-        function showForm () {
+        function showForm() {
             $('#popup').addClass('d-none')
             $('form').removeClass('d-none')
             window.scrollTo(0, 0)
@@ -617,9 +623,9 @@
                 ]
                 for (var i = 0; i < disabledDates.length; i++) {
                     if (
-                      date.getFullYear() === disabledDates[i].getFullYear() &&
-                      date.getMonth() === disabledDates[i].getMonth() &&
-                      date.getDate() === disabledDates[i].getDate()
+                        date.getFullYear() === disabledDates[i].getFullYear() &&
+                        date.getMonth() === disabledDates[i].getMonth() &&
+                        date.getDate() === disabledDates[i].getDate()
                     ) {
                         return [false]
                     }
@@ -628,7 +634,7 @@
             }
         })
 
-        function disableDates (date) {
+        function disableDates(date) {
             var string = $.datepicker.formatDate('dd-mm-yy', date)
             return [dates.indexOf(string) == -1]
         }
