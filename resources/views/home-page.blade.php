@@ -307,7 +307,7 @@
                 <div class="col-12 mb-3">
                     <hr class="mb-4" style="border-bottom: 2px solid #00000014;">
                     <div class=" row m-0 align-items-start justify-content-start m-0 p-0" style="">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="mb-4">
                                 <div class="mb-4 log-title">
                                     LUXE Platforms & Tech
@@ -424,14 +424,14 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <div class="mb-2 log-title">
                                 News Feed
                             </div>
                             @php
                                 $news_feed = App\Models\CustomSection::whereTitle('News Feed')->first();
                             @endphp
-                            <div style="overflow: scroll">
+                            <div style="overflow: auto">
                                 @if ($news_feed)
                                     {!! $news_feed->text !!}
                                 @endif
@@ -500,6 +500,13 @@
                         <div>
                             <img class="icon" src="/images/index-page/services_staff_requests-icon.svg" alt="">
                             <p>Coming Soon & Off Market Properties</p>
+                        </div>
+                    </div>
+                    <div class="box-item box-item-padding"
+                         onclick="window.location = '{{ url('/store/product/zillow-listing-showcase-shoot') }}'">
+                        <div>
+                            <img src="/images/index-page/zillow-icon.png" class="icon" alt="">
+                            <p>Zillow Listing Showcase</p>
                         </div>
                     </div>
                 </div>
@@ -589,9 +596,9 @@
                     </style>
                 </div>
                 <div id="marketing-template-requests"
-                     class="align-items-start box-guides row text-center">
+                     class="box-guides row px-4">
                     <div class="w-100 p-0 m-0">
-                        <h3 class="text-center px-4 my-4">
+                        <h3 class="px-4 my-4">
                             Submit Marketing Template Requests
                         </h3>
                         <div class="row px-4">
@@ -599,7 +606,7 @@
                                 <div class="row">
                                     @forelse($marketing_requests as $marketing_request)
                                         @if ($marketing_request->title != 'Presentation Booklet')
-                                            <div class="box-guide col-3">
+                                            <div class="box-guide col-3 text-center">
                                                 <a href="{{ route('marketing.requests') }}?type={{ $marketing_request->title }}"
                                                    class="text-luxe" style="flex-direction:column;">
                                                     <img src="{{ $marketing_request->image }}" alt=""
@@ -1274,6 +1281,14 @@
 
 
 
+
+
+
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1615,6 +1630,14 @@
 
 
 
+
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1622,6 +1645,14 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
+
 
 
 
