@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Notes</label>
-                                <input type="text" name="amount_for_invoice" class="form-control" required>
+                                <input type="text" name="notes" class="form-control" required>
                             </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">

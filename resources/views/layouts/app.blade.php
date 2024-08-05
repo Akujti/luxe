@@ -417,7 +417,8 @@
     }
 
     .bg-box img {
-        width: 120px;
+        max-width: 120px;
+        width: 100%;
         border-radius: 5px;
         margin-bottom: 10px;
     }

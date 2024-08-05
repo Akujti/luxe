@@ -424,7 +424,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-7">
+                        <div class="col-md-7 pl-md-4">
                             <div class="mb-2 log-title">
                                 News Feed
                             </div>
@@ -1289,6 +1289,11 @@
 
 
 
+
+
+
+
+
                 @endforeach
                 </div>
 
@@ -1638,6 +1643,11 @@
 
 
 
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1645,6 +1655,11 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
 
 
 
