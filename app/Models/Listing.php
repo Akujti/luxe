@@ -41,7 +41,7 @@ class Listing extends Model
 
     public function getAddressAttribute($value)
     {
-        // Remove ", USA" if it's present at the end of the address
-        return preg_replace('/,\s*USA$/', '', $value);
+        // Remove ", USA" or ", EE. UU." if present at the end of the address
+        return preg_replace('/,\s*(USA|EE\. UU\.)$/', '', $value);
     }
 }
