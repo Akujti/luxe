@@ -94,7 +94,7 @@
             background-position: 50%;
         }
 
-        .ui-datepicker-header a > span {
+        .ui-datepicker-header a>span {
             display: none;
         }
 
@@ -131,11 +131,11 @@
             font-size: 18px !important;
         }
 
-        input[type="checkbox"]:disabled + label::before {
+        input[type="checkbox"]:disabled+label::before {
             background: gray;
         }
 
-        input[type="checkbox"]:disabled + label:hover::before {
+        input[type="checkbox"]:disabled+label:hover::before {
             background: gray;
             border: 1px solid #d4d4d5;
         }
@@ -193,17 +193,17 @@
                 </div>
 
                 <form id="photo-form" action="{{ route('general.email.post') }}" class="card form mb-4 p-3 d-none"
-                      method="POST" enctype="multipart/form-data">
+                    method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center mt-4">Photoshoots For Listings</h1>
-                        @if(auth()->user()->status == 3)
+                        @if (auth()->user()->status == 3)
                             <p class="text-center">**Sale Listing Agreement must have minimum list price of $250K and
                                 minimum 5% gross commission (2.5% listing side). Listings between $250K - $500K have a
                                 $250 photo credit. Listings over $500K have a $400 photo credit. Agent is responsible
                                 for any overage fees that surpass assigned photo credit tier**</p>
                         @endif
-                        @if(auth()->user()->status == 4)
+                        @if (auth()->user()->status == 4)
                             <p class="text-center">**Sale Listing Agreement must have minimum list price of $250K and
                                 minimum 5% gross commission (2.5% listing side) for $250 photo credit to apply**</p>
                         @endif
@@ -215,22 +215,22 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                       value="{{ auth()->user()->profile->fullname }}" required>
+                                    value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Property Address For Shoot</label>
                                 <input type="text" name="property_address" class="form-control map-search" required
-                                       placeholder="">
+                                    placeholder="">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Phone</label>
                                 <input type="text" name="agent_number" class="form-control"
-                                       value="{{ auth()->user()->profile->phone }}" required>
+                                    value="{{ auth()->user()->profile->phone }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Property Type</label>
                                 <select id="option-property-type" type="text" name="property_type" class="form-control"
-                                        required>
+                                    required>
                                     <option value>-</option>
                                     <option value="Single Family">Single Family</option>
                                     <option value="Condo/Apartment">Condo/Apartment</option>
@@ -244,14 +244,14 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                       value="{{ auth()->user()->email }}" required>
+                                    value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Is this a rental listing?</label>
                                 <select id="option-rental-listing" type="text" name="is_this_a_rental_listing"
-                                        class="form-control" required>
+                                    class="form-control" required>
                                     <option value>-</option>
-                                    <option value="Yes" data-price="{{ auth()->user()->is_silver_tier ? '0':'125' }}">
+                                    <option value="Yes" data-price="{{ auth()->user()->is_silver_tier ? '0' : '125' }}">
                                         Yes
                                     </option>
                                     <option value="No">No</option>
@@ -260,7 +260,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Property Living Area Square Footage</label>
                                 <select id="option-living-area" type="text" name="property_living_area_square_footage"
-                                        class="form-control" required>
+                                    class="form-control" required>
                                     <option value>-</option>
                                     <option value="Equal to or less than 2,100" data-price="0">Equal to or less than
                                         2,100
@@ -275,12 +275,16 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Total Commission For Listing</label>
                                 <input type="number" name="total_commision_for_listing" class="form-control" required
-                                       step="0.01">
+                                    step="0.01">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">% to LUXE - Listing Side Commission</label>
                                 <input type="number" name="listing_side_commission" class="form-control" required
-                                       step="0.01">
+                                    step="0.01">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Listing Sales Price</label>
+                                <input type="text" name="listing_sales_price" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Preferred Photographer (availability varies)</label>
@@ -300,7 +304,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">What is the lead source for this listing?</label>
                                 <select id="other-lead-source-select" name="what_is_the_lead_source_for_this_listing"
-                                        class="form-control" required>
+                                    class="form-control" required>
                                     <option value>-</option>
                                     <option value="Personal">Personal</option>
                                     <option value="Zillow Seller Team">Zillow Seller Team</option>
@@ -309,13 +313,13 @@
                                     <option value="Other">Other</option>
                                 </select>
                                 <input id="other-lead-source-input" class="form-control mt-3 d-none"
-                                       name="other_lead_source" placeholder="Write the other lead source here">
+                                    name="other_lead_source" placeholder="Write the other lead source here">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="property_details_instructions">Additional property details/access
                                     instructions to note:</label>
                                 <input type="text" id="property_details_instructions"
-                                       name="property_details_instructions" class="form-control">
+                                    name="property_details_instructions" class="form-control">
                             </div>
                             <div class="form-group col-12 text-center">
                                 <h6>**Photoshoots can only be scheduled between 8AM-3PM**</h6>
@@ -323,28 +327,28 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Date & Time Option #1</label>
                                 <input type="text" name="date_option_1" class="datepicker form-control date mb-2"
-                                       autocomplete="off" required>
+                                    autocomplete="off" required>
                                 {{-- <input type="date" name="date_option_1" class="form-control mb-2" required> --}}
                                 <input type="time" name="time_option_1" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Date & Time Option #2</label>
                                 <input type="text" name="date_option_2" class="datepicker form-control date mb-2"
-                                       autocomplete="off" required>
+                                    autocomplete="off" required>
                                 {{-- <input type="date" name="date_option_2" class="form-control mb-2" required> --}}
                                 <input type="time" name="time_option_2" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Date & Time Option #3</label>
                                 <input type="text" name="date_option_3" class="datepicker form-control date mb-2"
-                                       autocomplete="off" required>
+                                    autocomplete="off" required>
                                 {{-- <input type="date" name="date_option_3" class="form-control mb-2" required> --}}
                                 <input type="time" name="time_option_3" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Upload Listing Agreement</label>
-                                <input type="file" name="upload_listing_agreement"
-                                       class="form-control p-1" {{auth()->user()->status != 1?'required':''}}>
+                                <input type="file" name="upload_listing_agreement" class="form-control p-1"
+                                    {{ auth()->user()->status != 1 ? 'required' : '' }}>
                             </div>
                             <div class="form-group col-12 text-center">
                                 <h6>**Marketing will send you an email with final confirmed date & photographer you have
@@ -353,11 +357,11 @@
                             </div>
                             <div class="form-group col-md-12">
                                 <input id="option-0" class="form-check-input ml-0 d-none" type="checkbox"
-                                       value="Photos Only (12-15 images)" checked
-                                       data-price="{{ auth()->user()->status == 1 ? 150 : 0 }}" name="add-ons[]">
+                                    value="Photos Only (12-15 images)" checked
+                                    data-price="{{ auth()->user()->status == 1 ? 150 : 0 }}" name="add-ons[]">
                                 <input class="form-check-input ml-0" type="checkbox" value="Photos Only (12-15 images)"
-                                       data-price="{{ auth()->user()->status == 1 ? 150 : 0 }}" name="add-ons[]" checked
-                                       disabled>
+                                    data-price="{{ auth()->user()->status == 1 ? 150 : 0 }}" name="add-ons[]" checked
+                                    disabled>
                                 <label class="ml-4">
                                     Photos Only (12-15 images)
                                     {{ auth()->user()->status == 1 ? '- $150' : '- Included ($125 VALUE)' }}
@@ -371,56 +375,56 @@
                                 <label for="name">Add Ons</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox"
-                                           data-price="{{auth()->user()->is_platinum_tier? 0:100}}" id="option-1"
-                                           name="add-ons[]" value="Additional 25-30 Photos">
+                                        data-price="{{ auth()->user()->is_platinum_tier ? 0 : 100 }}" id="option-1"
+                                        name="add-ons[]" value="Additional 25-30 Photos">
                                     <label class="form-check-label font-weight-normal" for="option-1">
                                         Additional 25-30 Photos - $100
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox"
-                                           data-price="{{auth()->user()->is_platinum_tier? 0:50}}" id="option-2"
-                                           name="add-ons[]" value="Drone">
+                                        data-price="{{ auth()->user()->is_platinum_tier ? 0 : 50 }}" id="option-2"
+                                        name="add-ons[]" value="Drone">
                                     <label class="form-check-label font-weight-normal" for="option-2">
                                         Drone - $50
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox"
-                                           data-price="{{auth()->user()->is_platinum_tier? 0:150}}" id="option-4"
-                                           name="add-ons[]" value="Vertical Walkthrough Video">
+                                        data-price="{{ auth()->user()->is_platinum_tier ? 0 : 150 }}" id="option-4"
+                                        name="add-ons[]" value="Vertical Walkthrough Video">
                                     <label class="form-check-label font-weight-normal" for="option-4">
                                         Vertical Walkthrough Video - $150
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox"
-                                           data-price="{{auth()->user()->is_platinum_tier? 0:400}}" id="option-5"
-                                           name="add-ons[]" value="Full Walkthrough Video Up to 3,000 sqft">
+                                        data-price="{{ auth()->user()->is_platinum_tier ? 0 : 400 }}" id="option-5"
+                                        name="add-ons[]" value="Full Walkthrough Video Up to 3,000 sqft">
                                     <label class="form-check-label font-weight-normal" for="option-5">
                                         Full Walkthrough Video Up to 3,000 sqft - $400
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox"
-                                           data-price="{{auth()->user()->is_platinum_tier? 0:160}}" id="option-7"
-                                           name="add-ons[]" value="3D Zillow Tour">
+                                        data-price="{{ auth()->user()->is_platinum_tier ? 0 : 160 }}" id="option-7"
+                                        name="add-ons[]" value="3D Zillow Tour">
                                     <label class="form-check-label font-weight-normal" for="option-7">
                                         3D Zillow Tour - $160
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox"
-                                           data-price="{{auth()->user()->is_platinum_tier? 0:60}}" id="option-8"
-                                           name="add-ons[]" value="Floorplan">
+                                        data-price="{{ auth()->user()->is_platinum_tier ? 0 : 60 }}" id="option-8"
+                                        name="add-ons[]" value="Floorplan">
                                     <label class="form-check-label font-weight-normal" for="option-8">
                                         Floorplan - $60
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox"
-                                           data-price="{{auth()->user()->is_platinum_tier? 0:325}}" id="option-9"
-                                           name="add-ons[]" value="Zillow Showcase">
+                                        data-price="{{ auth()->user()->is_platinum_tier ? 0 : 325 }}" id="option-9"
+                                        name="add-ons[]" value="Zillow Showcase">
                                     <label class="form-check-label font-weight-normal" for="option-9">
                                         Zillow Showcase - $325
                                         <br>
@@ -432,7 +436,7 @@
                                 </div>
                             </div>
 
-                            {{--                            <button type="button" onclick="toggleModal()">Modal</button>--}}
+                            {{--                            <button type="button" onclick="toggleModal()">Modal</button> --}}
 
                             <div class="form-group form-footer col-12">
                                 <input id="total" type="hidden" name="total" value="$0">
@@ -447,26 +451,27 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content bg-white">
                             <div class="modal-header pt-2 pb-0 border-0">
-                                {{--                                            <h5 class="modal-title" id="exampleModalLongTitle">Access Instructions</h5>--}}
+                                {{--                                            <h5 class="modal-title" id="exampleModalLongTitle">Access Instructions</h5> --}}
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                                        onclick="should_show_marketing_popup = false">
+                                    onclick="should_show_marketing_popup = false">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body py-0 text-center">
                                 @php
-                                    $product =\App\Models\LuxeStore\LuxeStoreProduct::whereSlug('zillow-listing-showcase-shoot')->first();
+                                    $product = \App\Models\LuxeStore\LuxeStoreProduct::whereSlug(
+                                        'zillow-listing-showcase-shoot',
+                                    )->first();
                                 @endphp
-                                <h4 class="mb-3">{{$product->name}}</h4>
+                                <h4 class="mb-3">{{ $product->name }}</h4>
                                 <img src="{{ asset('storage/' . $product->preview_image) }}" alt=""
-                                     width="300" class="rounded shadow mb-3">
+                                    width="300" class="rounded shadow mb-3">
                                 <p class="mb-3">
                                     Exclusive <b>LUXE Opportunity</b> through our Zillow Partnership. Zillow Listing
                                     Showcase is a premium and exclusive listing experience that increases your listing’s
                                     visibility.
                                 </p>
-                                <button class="btn btn-luxe mb-3"
-                                        onclick="addToCart()">Add To Cart
+                                <button class="btn btn-luxe mb-3" onclick="addToCart()">Add To Cart
                                 </button>
                             </div>
                         </div>
@@ -480,7 +485,7 @@
     </script>
     <script>
         var should_show_marketing_popup = true
-        $('#other-lead-source-select').change(function () {
+        $('#other-lead-source-select').change(function() {
             var option = $(this).val()
             if (option == 'Other') {
                 $('#other-lead-source-input').removeClass('d-none')
@@ -491,7 +496,7 @@
             }
         })
 
-        $('[id^="option-"]').change(function () {
+        $('[id^="option-"]').change(function() {
             calculate()
         })
 
@@ -509,8 +514,8 @@
             $('#option-9').click()
         }
 
-        $(document).ready(function () {
-            $('#option-9').change(function () {
+        $(document).ready(function() {
+            $('#option-9').change(function() {
                 if (this.checked) {
                     $('#option-7').prop('checked', true)
                     $('#option-8').prop('checked', true)
@@ -553,7 +558,7 @@
                 height: 40,
                 tagline: 'false'
             },
-            createOrder: function (data, actions) {
+            createOrder: function(data, actions) {
                 calculate()
                 return actions.order.create({
                     purchase_units: [{
@@ -563,11 +568,12 @@
                     }]
                 })
             },
-            onInit: function (data, actions) {
+            onInit: function(data, actions) {
                 actions.disable()
                 document.querySelectorAll('input, select').forEach(item => {
                     item.addEventListener('input', () => {
-                        if (document.getElementById('photo-form').checkValidity() && !should_show_marketing_popup) {
+                        if (document.getElementById('photo-form').checkValidity() && !
+                            should_show_marketing_popup) {
                             actions.enable()
                         } else {
                             actions.disable()
@@ -575,7 +581,7 @@
                     })
                 })
             },
-            onClick: function (data, actions) {
+            onClick: function(data, actions) {
                 if (!document.getElementById('photo-form').checkValidity()) {
                     document.getElementById('photo-form').reportValidity()
                 }
@@ -583,8 +589,8 @@
                     toggleModal()
                 }
             },
-            onApprove: function (data, actions) {
-                return actions.order.capture().then(function (details) {
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
                     var transactionId = details.id
                     document.getElementById('transaction_id').value = transactionId
                     document.getElementById('photo-form').submit()
@@ -598,7 +604,7 @@
             window.scrollTo(0, 0)
         }
 
-        $('#photo-form').submit(function (event) {
+        $('#photo-form').submit(function(event) {
             if (should_show_marketing_popup) {
                 toggleModal()
                 event.preventDefault()
@@ -617,7 +623,7 @@
             minDate: 0,
             firstDay: 0,
             // disableDates: dates,
-            beforeShowDay: function (date) {
+            beforeShowDay: function(date) {
                 var disabledDates = [
                     today, tomorrow, afterTomorrow
                 ]
