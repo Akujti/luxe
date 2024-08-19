@@ -651,5 +651,5 @@ Route::get('testjob', [AdminController::class, 'testjob']);
 
 Route::get('/cma-report/show-report/{report}', [CMAController::class, 'showReport'])->name('cma.showReport');
 
-Route::post('/paypal-webhook', [\App\Http\Controllers\PayPalController::class, 'handleWebhook'])->name('paypal.webhook');
+
 

@@ -4,19 +4,19 @@ use App\Http\Controllers\AddendumTemplateController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AppointmentTimeslotController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\DesignRequestController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FolderController;
-use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\ListingCoordinatorController;
 use App\Http\Controllers\MarketingTemplateController;
 use App\Http\Controllers\OptinController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\ReferralPartnerController;
 use App\Http\Controllers\ReferralPartnerCategoryController;
+use App\Http\Controllers\ReferralPartnerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Video\VideoController;
 use App\Http\Controllers\Video\VideoFolderController;
@@ -83,3 +83,4 @@ Route::group(
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/paypal-webhook', [\App\Http\Controllers\PayPalController::class, 'handleWebhook'])->name('paypal.webhook');
