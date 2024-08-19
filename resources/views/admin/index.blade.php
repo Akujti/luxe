@@ -23,6 +23,12 @@
                         Logo Creation Requests
                     </p>
                 </div>
+                <div class="col-12 box py-3">
+                    <p class="p-count">{{ $coming_soon_email_subscribed }}</p>
+                    <p class="p-text-regular">
+                        Coming Soon Email Subscribers
+                    </p>
+                </div>
                 {{-- <div class="col-12 box py-4">
                 <p class="p-count">{{ $stats[2] }}</p>
                 <p class="p-text-regular">TEAM DADE <br> ZILLOW LEADS WEEKLY UPDATE</p>
