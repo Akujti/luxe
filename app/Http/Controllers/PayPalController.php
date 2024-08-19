@@ -14,6 +14,10 @@ class PayPalController extends Controller
 
         Log::info('paypal webhook received');
 
+        return response()->json([
+            'message' => 'This is paypal webhook'
+        ]);
+
 
         // Verify PayPal webhook signature here (optional but recommended)
 
