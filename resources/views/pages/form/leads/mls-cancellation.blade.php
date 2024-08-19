@@ -1,4 +1,4 @@
-@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'get_contract_help'])
+@extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'mls_listing_cancellation'])
 @section('content')
     <div class="{{ auth()->check() ? 'container-fluid' : 'container mt-4' }}">
         <div class="row justify-content-center">

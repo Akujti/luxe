@@ -732,12 +732,10 @@
                                             <a href="{{ route('admin.index') }}">Admin Dashboard</a>
                                         </li>
                                     @endif
-                                    @if (auth()->user()->role == 'other')
-                                        <li
-                                            class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
-                                            <a href="{{ route('agent_list') }}">Agents</a>
-                                        </li>
-                                    @endif
+                                    <li
+                                        class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
+                                        <a href="{{ route('agent_list') }}">Agents</a>
+                                    </li>
                                 @endauth
                                 <li
                                     class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if (isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ isset($active) && $active == 'marketing_branding' ? 'active selected' : '' }}">
@@ -888,6 +886,12 @@
                                             <a class="{{ isset($subactive) && $subactive == 'get_help_my_listing_isnt_moving' ? 'active_submenu' : '' }}"
                                                href="{{  url('general/form/leads/get-help-on-why-my-listing-isnt-moving')  }}">Get
                                                 Help on Why My Listing Isn't Moving</a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'mls_listing_cancellation' ? 'active_submenu' : '' }}"
+                                               href="{{  url('general/form/leads/mls-cancellation')  }}">Request
+                                                MLS Listing Cancellation
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>

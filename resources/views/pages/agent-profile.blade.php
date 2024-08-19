@@ -140,10 +140,12 @@
             padding: 10px;
             border-radius: 5px;
         }
+
         button:focus {
             outline: none;
             box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 0%) !important;
         }
+
         button {
             cursor: pointer;
         }
@@ -158,21 +160,21 @@
                         <div class="col-12 d-flex justify-content-between align-items-center">
                             <div id="email-box">
                                 <img src="/images/index-page/email-icon.svg"
-                                    onclick="window.location = 'mailto:{{ $user->email }}'" alt="">
+                                     onclick="window.location = 'mailto:{{ $user->email }}'" alt="">
                             </div>
                             <div id="profile-image">
                                 <img src="{{ $user->avatar }}" alt="">
                             </div>
                             <div id="phone-box">
                                 <img src="/images/index-page/phone-black.svg"
-                                    onclick="window.location = 'tel:{{ $user->profile->phone }}'" alt="">
+                                     onclick="window.location = 'tel:{{ $user->profile->phone }}'" alt="">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="profile-title">
                                 <h4>{{ $user->profile->fullname }}</h4>
                             </div>
-                            <x-brokersumo-tiers :user="$user" />
+                            <x-brokersumo-tiers :user="$user"/>
                             <div class="profile-details row p-0 m-0">
                                 <div class="col-12 col-md-7">
                                     <p>Phone</p>
@@ -204,14 +206,14 @@
                             <label for="">Branch Manager</label>
                             <div class="input-group">
                                 <input type="text" class="form-control"
-                                    value="{{ $user->profile->support_specialist_name }}" readonly>
+                                       value="{{ $user->profile->support_specialist_name }}" readonly>
                             </div>
                         </div>
                         <div class="form-group col-12 col-md-6 p-0">
                             <label for="">Loan Officer</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" value="{{ $user->profile->loan_officer_name }}"
-                                    readonly>
+                                       readonly>
                             </div>
                         </div>
                         {{-- <div class="box-title mt-5 mb-4">
@@ -244,64 +246,65 @@
                             </div>
                         </div>
                     </div> --}}
+                        @if (auth()->user()->role == 'other' || auth()->user()->role == 'admin')
+                            <div class="box-title mt-5 mb-4">
+                                <h3>Orders</h3>
+                            </div>
 
-                        <div class="box-title mt-5 mb-4">
-                            <h3>Orders</h3>
-                        </div>
-
-                        <div class="col-12 p-0">
-                            @forelse($orders as $order)
-                                <div class="row-col">
-                                    <div class="row-details">
-                                        <!-- <img src="/images/agents/ana.jpg" alt=""> -->
-                                        <div>
-                                            <h4>#{{ $order->id }}</h4>
-                                            <p>Total: ${{ $order->payment->total_price }}</p>
+                            <div class="col-12 p-0">
+                                @forelse($orders as $order)
+                                    <div class="row-col">
+                                        <div class="row-details">
+                                            <!-- <img src="/images/agents/ana.jpg" alt=""> -->
+                                            <div>
+                                                <h4>#{{ $order->id }}</h4>
+                                                <p>Total: ${{ $order->payment->total_price }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row-date">
+                                            <p>Date Registered: <b>{{ $order->created_at->toDateString() }}</b></p>
                                         </div>
                                     </div>
-                                    <div class="row-date">
-                                        <p>Date Registered: <b>{{ $order->created_at->toDateString() }}</b></p>
+                                @empty
+                                    <div>
+                                        <p>No orders found</p>
                                     </div>
-                                </div>
-                            @empty
-                                <div>
-                                    <p>No orders found</p>
-                                </div>
-                            @endforelse
-                        </div>
+                                @endforelse
+                            </div>
 
-                        <div class="col-12 border-bottom mt-3"></div>
-                        <div class="box-title mt-3 mb-3 d-flex justify-content-between w-100">
-                            <h3>Add Staff Notes</h3>
-                            <a href="{{ route('notes', $user->id) }}?staff=true" class="btn btn-luxe">View All
-                                Notes</a>
-                        </div>
-                        <div class="col-12 p-0 mb-4">
-                            @forelse($notes as $note)
-                                <x-staff-notes :note="$note" />
-                            @empty
-                                <div>
-                                    <p>No Notes Found.</p>
-                                </div>
-                            @endforelse
-                        </div>
-                        <div class="col-12 p-0 mb-4">
-                            <form action="{{ route('create_note') }}" method="POST" class="row p-0 m-0">
-                                @csrf
-                                <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                <div class="form-group col-12 p-0 ">
-                                    <label for="">Text</label>
-                                    <div class="input-group">
-                                        <textarea name="body" class="form-control"></textarea>
+                            <div class="col-12 border-bottom mt-3"></div>
+                            <div class="box-title mt-3 mb-3 d-flex justify-content-between w-100">
+                                <h3>Add Staff Notes</h3>
+                                <a href="{{ route('notes', $user->id) }}?staff=true" class="btn btn-luxe">View All
+                                    Notes</a>
+                            </div>
+                            <div class="col-12 p-0 mb-4">
+                                @forelse($notes as $note)
+                                    <x-staff-notes :note="$note"/>
+                                @empty
+                                    <div>
+                                        <p>No Notes Found.</p>
                                     </div>
-                                </div>
+                                @endforelse
+                            </div>
+                            <div class="col-12 p-0 mb-4">
+                                <form action="{{ route('create_note') }}" method="POST" class="row p-0 m-0">
+                                    @csrf
+                                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                    <div class="form-group col-12 p-0 ">
+                                        <label for="">Text</label>
+                                        <div class="input-group">
+                                            <textarea name="body" class="form-control"></textarea>
+                                        </div>
+                                    </div>
 
-                                <div class="col-12 p-0">
-                                    <button type="submit" class="btn btn-luxe">Submit</button>
-                                </div>
+                                    <div class="col-12 p-0">
+                                        <button type="submit" class="btn btn-luxe">Submit</button>
+                                    </div>
 
-                            </form>
-                        </div>
+                                </form>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
