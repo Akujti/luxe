@@ -14,10 +14,7 @@ class PayPalController extends Controller
 
         Log::info('paypal webhook received');
 
-        return response()->json([
-            'message' => 'This is paypal webhook'
-        ]);
-
+        Log::info(json_encode($data));
 
         // Verify PayPal webhook signature here (optional but recommended)
 
@@ -34,6 +31,8 @@ class PayPalController extends Controller
 
                 // Perform the same actions as in the create method (save order, update stock, send emails)
                 $this->processOrder($billingInfo, $orderId, $payerEmail);
+
+                Log::info($billingInfo);
 
                 DB::commit();
             } catch (\Throwable $th) {
