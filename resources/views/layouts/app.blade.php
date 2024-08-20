@@ -893,6 +893,12 @@
                                                 MLS Listing Cancellation
                                             </a>
                                         </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'request_credit_letter_for_transaction' ? 'active_submenu' : '' }}"
+                                               href="{{  url('general/form/leads/request-credit-letter-for-transaction')  }}">Request
+                                                Credit Letter For A Transaction
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="row m-0">

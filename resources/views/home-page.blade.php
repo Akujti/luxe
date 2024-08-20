@@ -1299,6 +1299,9 @@
 
 
 
+
+
+
                 @endforeach
                 </div>
 
@@ -1312,6 +1315,9 @@
                                                                                                                                                                                                                                                             <p class="ml-2 mt-2">{{ $item->title }}</p>
                                                                                                                                                                                                                                                         </a>
                                                                                                                                                                                                                                                     </div>
+
+
+
 
 
 
@@ -2011,6 +2017,9 @@
 
 
 
+
+
+
             @endif
         @endforeach
         </div> -->
@@ -2207,6 +2216,13 @@
                 <div>
                     <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
                     <p>Request MLS Listing Cancellation</p>
+                </div>
+            </div>
+            <div class="box-item box-item-padding"
+                 onclick="window.location = '{{ url('general/form/leads/request-credit-letter-for-transaction') }}'">
+                <div>
+                    <img src="/images/index-page/wire_instructions_request.svg" class="icon" alt="">
+                    <p>Request Credit Letter For A Transaction</p>
                 </div>
             </div>
             {{--            <div class="box-item box-item-padding"--}}
