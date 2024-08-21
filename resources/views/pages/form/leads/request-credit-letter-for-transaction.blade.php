@@ -77,12 +77,11 @@
                                 </select>
                             </div>
                             <div class="col-md-12">
-                                <p class="d-none" id="broker_sumo_text">Although you can proceed with submitting
-                                    this request
-                                    below. Credit letters cannot be reviewed or processed by Accounting Department
-                                    unless
-                                    are corresponding paperwork is on Broker Sumo. Please add the transaction as soon as
-                                    possible. Thank you</p>
+                                <p class="d-none" id="broker_sumo_text">Although you can proceed with submitting this
+                                    request below. Credit letters cannot be reviewed or processed by Accounting
+                                    Department unless all corresponding paperwork is on Broker Sumo. Please add the
+                                    transaction as soon as possible. Thank you
+                                </p>
                             </div>
 
                             <div class="form-group form-footer col-12">
