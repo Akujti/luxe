@@ -69,8 +69,8 @@
     <hr>
     <div class="" style="width: 100%">
         <div class="box">
-            <h3>The <a href="{{ route('admin.orders.show', $details->id) }}">order</a> has been
-                completed -
+            <h3>The <a href="{{ route('admin.orders.show', $details->id) }}">order</a> status is set
+                to {{$details->status}}
                 <a href="{{ route('admin.orders.show', $details->id) }}">#{{ $details->id }}</a>
             </h3>
             <div>

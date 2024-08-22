@@ -405,14 +405,12 @@ class OrderController extends Controller
         $details['order'] = $order;
         Mail::to($order->user->email)->send(new OrderCompleted($details));
 
-        if ($req->status === 'Completed') {
-            $notification = Notification::where('title', 'Order Completed')->first();
-            if ($notification) {
-                $emails = $notification->getEmails();
-                $bcc = $notification->getBccEmails();
+        $notification = Notification::where('title', 'Order Status Update')->first();
+        if ($notification) {
+            $emails = $notification->getEmails();
+            $bcc = $notification->getBccEmails();
 
-                Mail::to($emails)->bcc($bcc)->send(new AdminOrderCompletedMail($order));
-            }
+            Mail::to($emails)->bcc($bcc)->send(new AdminOrderCompletedMail($order));
         }
         return back()->with('message', 'Order Status Changed');
     }
