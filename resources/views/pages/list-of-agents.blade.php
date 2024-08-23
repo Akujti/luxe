@@ -78,7 +78,6 @@
                         <th>Image</th>
                         <th>Full Name</th>
                         <th>Email</th>
-                        <th>Type</th>
                         <th>Created at</th>
                         <th>Actions</th>
                     </tr>
@@ -90,7 +89,6 @@
                             <td><img src="{{ $user->avatar }}" id="img" height="75px"></td>
                             <td>{{ $user->profile ? $user->profile->fullname : '' }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->role }}</td>
                             <td>{{ $user->created_at->diffForHumans() }}</td>
                             <td>
                                 <a class="btn btn-link py-2" href="{{ url('agent-profile/'. $user->id) }}">View</a>
