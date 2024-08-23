@@ -109,11 +109,17 @@ class UserController extends Controller
 
     public function agent_list(Request $request)
     {
-        $users = User::where('role', 'agent')->when($request->query('name'), function ($q, $r) {
-            $q->whereRelation('profile', 'fullname', 'like', $r . '%');
-        })->when($request->query('email'), function ($q, $r) {
-            $q->where('email', 'like', $r . '%');
-        })->latest()->paginate(20);
+        $users = User::select('users.*') // Select all columns from users
+        ->join('user_profile', 'users.id', '=', 'user_profile.user_id') // Join with user_profile
+        ->where('users.role', 'agent') // Filter by role
+        ->when($request->query('name'), function ($q, $r) {
+            $q->where('user_profile.fullname', 'like', $r . '%'); // Filter by fullname
+        })
+            ->when($request->query('email'), function ($q, $r) {
+                $q->where('users.email', 'like', $r . '%'); // Filter by email
+            })
+            ->orderBy('user_profile.fullname') // Order by fullname
+            ->paginate(20);
 
         return view('pages.list-of-agents', compact('users'));
     }
