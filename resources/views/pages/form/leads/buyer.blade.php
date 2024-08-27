@@ -52,7 +52,7 @@
             <div class="box-item">
                 <p>
                     <a href="{{ route('general.email.index', ['folder' => 'leads', 'form' => 'zillow-leads-weekly-update']) }}"
-                       class="">Zillow Leads
+                       class="">Zillow Buyer Leads
                         Weekly Update</a>
                 </p>
             </div>
