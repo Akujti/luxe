@@ -292,12 +292,12 @@
                 </form>
                 <form action="{{ route('getCsv') }}" method="post" id="csv">
                     @csrf
-                    <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="title" value="ZILLOW BUYER LEADS WEEKLY UPDATE">
                 </form>
                 <form action="{{ route('deleteSubmissions') }}" method="POST" id="deleteSubmissions">
                     @csrf
                     @method('delete')
-                    <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="title" value="ZILLOW BUYER LEADS WEEKLY UPDATE">
                 </form>
             </div>
         </div>

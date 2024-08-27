@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Form;
 use App\Mail\FormMail;
-use App\Models\FormSubmit;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Mail\GeneralMailTemplate;
+use App\Models\Form;
+use App\Models\FormSubmit;
 use App\Models\Listing;
 use App\Models\MarketingMenu;
-use Carbon\Carbon;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class FormController extends Controller
 {
@@ -66,7 +65,7 @@ class FormController extends Controller
         $formInfo = null;
 
         if ($form == 'zillow-leads-weekly-update') {
-            $formSql = Form::where('title', 'LIKE', 'ZILLOW LEADS WEEKLY UPDATE')->first();
+            $formSql = Form::where('title', 'LIKE', 'ZILLOW BUYER LEADS WEEKLY UPDATE')->first();
         } else {
             $formSql = Form::where('title', 'LIKE', "%" . Str::title(str_replace('-', ' ', $form)) . "%")->first();
         }
@@ -213,7 +212,7 @@ class FormController extends Controller
             return response()->json('success');
         }
 
-        $formItemsVerbiageModal = ["Join Zillow Seller Team", "Join Zillow", "CINC LEADS WEEKLY UPDATE", "Request Zillow Nurtures", "ZILLOW LEADS WEEKLY UPDATE", "Join CINC Buyer Team", "CINC LEADS WEEKLY UPDATE", "Request Your Agent Referral", "LUXE Coaching"];
+        $formItemsVerbiageModal = ["Join Zillow Seller Team", "Join Zillow", "CINC LEADS WEEKLY UPDATE", "Request Zillow Nurtures", "ZILLOW BUYER LEADS WEEKLY UPDATE", "Join CINC Buyer Team", "CINC LEADS WEEKLY UPDATE", "Request Your Agent Referral", "LUXE Coaching"];
 
         if (in_array($request->form_title, $formItemsVerbiageModal))
             session()->flash('modal', 'Success');
