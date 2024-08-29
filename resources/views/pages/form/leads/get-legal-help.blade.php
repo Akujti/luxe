@@ -28,6 +28,12 @@
                                        value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="branch_manager">Branch Manager:</label>
+                                <input type="text" name="branch_manager" class="form-control" id="branch_manager"
+                                       value="{{ auth()->user()->profile ? auth()->user()->profile->support_specialist_name : '' }}"
+                                       required>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="">Issue Being Experiencing</label>
                                 <select type="text" name="issue_being_experiencing" class="form-control" required
                                         onchange="showInput(this)">
@@ -86,7 +92,7 @@
     </div>
 
     <script>
-        function showInput (param) {
+        function showInput(param) {
             const val = $(param).val()
             if (val == 'Other') {
                 $('#provide-type-div').removeClass('d-none')
