@@ -339,10 +339,16 @@ class OrderController extends Controller
             $details['is_marketing_menu_order'] = $is_marketing_menu_order;
             $details['products'] = $row->products()->get();
 
+            $emails = [];
+            $bcc = [];
+
 //            $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
             $notification = Notification::where('title', 'Coupon Used')->first();
-            $emails = $notification->getEmails();
-            $bcc = $notification->getBccEmails();
+            if ($notification) {
+                $emails = $notification->getEmails();
+                $bcc = $notification->getBccEmails();
+            }
+
             if ($couponDb) {
                 try {
                     $details['coupon'] = $couponDb;
@@ -356,13 +362,18 @@ class OrderController extends Controller
             try {
                 if ($is_marketing_menu_order) {
                     $notification = Notification::where('title', 'Order Created Marketing')->first();
-                    $emails = $notification->getEmails();
-                    $bcc = $notification->getBccEmails();
+                    if ($notification) {
+                        $emails = $notification->getEmails();
+                        $bcc = $notification->getBccEmails();
+                    }
+
 //                    $emails[] = 'designs@luxeknows.com';
                 } else {
                     $notification = Notification::where('title', 'Order Created')->first();
-                    $emails = $notification->getEmails();
-                    $bcc = $notification->getBccEmails();
+                    if ($notification) {
+                        $emails = $notification->getEmails();
+                        $bcc = $notification->getBccEmails();
+                    }
 //                    $emails[] = 'support@luxeknows.com';
                 }
 
