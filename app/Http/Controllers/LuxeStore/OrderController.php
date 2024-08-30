@@ -217,181 +217,184 @@ class OrderController extends Controller
 
     public function create(AddOrderRequest $req)
     {
+        return response()->json([
+            'reference_id' => 5555
+        ]);
         DB::beginTransaction();
-//        try {
-        $row = new LuxeStoreOrder;
+        try {
+            $row = new LuxeStoreOrder;
 
-        $user_email = User::whereEmail($req->billing['email'])->first();
-        $row->user_id = auth()->id() ? auth()->id() : ($user_email ? $user_email->id : null);
-        $row->status = 'Paid';
+            $user_email = User::whereEmail($req->billing['email'])->first();
+            $row->user_id = auth()->id() ? auth()->id() : ($user_email ? $user_email->id : null);
+            $row->status = 'Paid';
 
-        $row->save();
+            $row->save();
 
-        if (auth()->id())
-            UserCheckoutInformation::updateOrCreate([
-                'user_id' => auth()->id()
-            ], [
-                "agent_name" => $req->billing['agent_name'],
-                "agent_surname" => $req->billing['agent_surname'],
-                "street_address" => $req->billing['street_address'],
-                "city" => $req->billing['city'],
-                "state" => $req->billing['state'],
-                "zip" => $req->billing['zip_code'],
-                "phone" => $req->billing['phone'],
-                "email" => $req->billing['email'],
-                "shipping_agent_name" => $req->shipping['agent_name'],
-                "shipping_agent_surname" => $req->shipping['agent_surname'],
-                "shipping_street_address" => $req->shipping['street_address'],
-                "shipping_city" => $req->shipping['city'],
-                "shipping_state" => $req->shipping['state'],
-                "shipping_zip" => $req->shipping['zip_code'],
-                "shipping_phone" => $req->shipping['phone'],
-                "shipping_email" => $req->shipping['email']
-            ]);
+            if (auth()->id())
+                UserCheckoutInformation::updateOrCreate([
+                    'user_id' => auth()->id()
+                ], [
+                    "agent_name" => $req->billing['agent_name'],
+                    "agent_surname" => $req->billing['agent_surname'],
+                    "street_address" => $req->billing['street_address'],
+                    "city" => $req->billing['city'],
+                    "state" => $req->billing['state'],
+                    "zip" => $req->billing['zip_code'],
+                    "phone" => $req->billing['phone'],
+                    "email" => $req->billing['email'],
+                    "shipping_agent_name" => $req->shipping['agent_name'],
+                    "shipping_agent_surname" => $req->shipping['agent_surname'],
+                    "shipping_street_address" => $req->shipping['street_address'],
+                    "shipping_city" => $req->shipping['city'],
+                    "shipping_state" => $req->shipping['state'],
+                    "shipping_zip" => $req->shipping['zip_code'],
+                    "shipping_phone" => $req->shipping['phone'],
+                    "shipping_email" => $req->shipping['email']
+                ]);
 
-        $sub_total = 0;
-        $total_price = 0;
-        $is_marketing_menu_order = false;
-        if (Session::get('shopping_cart')) {
-            $cart_data = Session::get('shopping_cart')[0];
-            if (count($cart_data) == 0) {
+            $sub_total = 0;
+            $total_price = 0;
+            $is_marketing_menu_order = false;
+            if (Session::get('shopping_cart')) {
+                $cart_data = Session::get('shopping_cart')[0];
+                if (count($cart_data) == 0) {
+                    return redirect()->back()->with('error', 'Something went  wrong! Please try again.');
+                }
+
+                foreach ($cart_data as $product) {
+                    $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
+                    $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
+                    if ($marketing_menu_category) {
+                        $is_marketing_menu_product = $productDb->categories()->where('luxe_store_categories.id', $marketing_menu_category->id)->exists();
+                        $is_marketing_menu_order = $is_marketing_menu_order || $is_marketing_menu_product;
+                    }
+                    if (isset($product['item_variant'])) {
+                        $orderProductVariant = LuxeStoreProductVariantValues::find($product['item_variant'][0]['choosed_id']);
+                        $orderProductVariant->stock = $orderProductVariant->stock - $product['item_quantity'];
+                        $orderProductVariant->save();
+                    } else {
+                        $productDb->stock = $productDb->stock - $product['item_quantity'];
+                        $productDb->save();
+                    }
+                    $sub_total += $product['item_price'] * $product['item_quantity'];
+
+                    $productModels = [
+                        'product_id' => $product['item_id'],
+                        'price' => $product['item_price'] ? $product['item_price'] : 0,
+                        'quantity' => (int)$product['item_quantity'],
+                        'variant_name' => (isset($product['item_variant'])) ? $product['item_variant'][0]['variant_name'] : null,
+                        'variant_value' => (isset($product['item_variant'])) ? $product['item_variant'][0]['choosed']['value'] : null
+                    ];
+
+                    $order_product = $row->products()->createMany([$productModels]);
+
+                    $orderProduct = LuxeStoreOrderProduct::find($order_product[0]->id);
+                    $formInputsModels = [];
+                    if ($product['item_form']) {
+                        foreach ($product['item_form'] as $input) {
+                            $formInputsModels[] = [
+                                'product_id' => $orderProduct->id,
+                                'input_name' => $input['input']['input_name'],
+                                'input_value' => $input['value'],
+                                'is_file' => $input['is_file'] ?? 0
+                            ];
+                        }
+                        $row->inputs()->createMany($formInputsModels);
+                    }
+                }
+            } else {
                 return redirect()->back()->with('error', 'Something went  wrong! Please try again.');
             }
 
-            foreach ($cart_data as $product) {
-                $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
-                $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
-                if ($marketing_menu_category) {
-                    $is_marketing_menu_product = $productDb->categories()->where('luxe_store_categories.id', $marketing_menu_category->id)->exists();
-                    $is_marketing_menu_order = $is_marketing_menu_order || $is_marketing_menu_product;
-                }
-                if (isset($product['item_variant'])) {
-                    $orderProductVariant = LuxeStoreProductVariantValues::find($product['item_variant'][0]['choosed_id']);
-                    $orderProductVariant->stock = $orderProductVariant->stock - $product['item_quantity'];
-                    $orderProductVariant->save();
-                } else {
-                    $productDb->stock = $productDb->stock - $product['item_quantity'];
-                    $productDb->save();
-                }
-                $sub_total += $product['item_price'] * $product['item_quantity'];
-
-                $productModels = [
-                    'product_id' => $product['item_id'],
-                    'price' => $product['item_price'] ? $product['item_price'] : 0,
-                    'quantity' => (int)$product['item_quantity'],
-                    'variant_name' => (isset($product['item_variant'])) ? $product['item_variant'][0]['variant_name'] : null,
-                    'variant_value' => (isset($product['item_variant'])) ? $product['item_variant'][0]['choosed']['value'] : null
-                ];
-
-                $order_product = $row->products()->createMany([$productModels]);
-
-                $orderProduct = LuxeStoreOrderProduct::find($order_product[0]->id);
-                $formInputsModels = [];
-                if ($product['item_form']) {
-                    foreach ($product['item_form'] as $input) {
-                        $formInputsModels[] = [
-                            'product_id' => $orderProduct->id,
-                            'input_name' => $input['input']['input_name'],
-                            'input_value' => $input['value'],
-                            'is_file' => $input['is_file'] ?? 0
-                        ];
-                    }
-                    $row->inputs()->createMany($formInputsModels);
-                }
+            $coupon_code = null;
+            $total_price = $sub_total;
+            $couponDb = null;
+            if (Session::get('coupon_code')) {
+                $coupon_code = Session::get('coupon_code');
+                $total_price -= $coupon_code['price'];
+                $couponDb = LuxeStoreCouponCode::where('code', $coupon_code['code'])->firstOrFail();
+                $couponDb->expired = 1;
+                $couponDb->save();
             }
-        } else {
-            return redirect()->back()->with('error', 'Something went  wrong! Please try again.');
-        }
 
-        $coupon_code = null;
-        $total_price = $sub_total;
-        $couponDb = null;
-        if (Session::get('coupon_code')) {
-            $coupon_code = Session::get('coupon_code');
-            $total_price -= $coupon_code['price'];
-            $couponDb = LuxeStoreCouponCode::where('code', $coupon_code['code'])->firstOrFail();
-            $couponDb->expired = 1;
-            $couponDb->save();
-        }
+            $row->payment()->create([
+                'sub_total' => $sub_total,
+                'coupon_code' => $coupon_code ? $coupon_code['price'] : 0,
+                'total_price' => $total_price
+            ]);
 
-        $row->payment()->create([
-            'sub_total' => $sub_total,
-            'coupon_code' => $coupon_code ? $coupon_code['price'] : 0,
-            'total_price' => $total_price
-        ]);
+            $row->billing_details()->create($req->billing);
 
-        $row->billing_details()->create($req->billing);
+            if ($req->same_as_billing) {
+                $row->shipping_details()->create($req->billing);
+            } else {
+                $row->shipping_details()->create($req->shipping);
+            }
 
-        if ($req->same_as_billing) {
-            $row->shipping_details()->create($req->billing);
-        } else {
-            $row->shipping_details()->create($req->shipping);
-        }
+            Session::forget('shopping_cart');
+            Session::forget('coupon_code');
+            Session::save();
 
-        Session::forget('shopping_cart');
-        Session::forget('coupon_code');
-        Session::save();
-
-        $cc = [];
-        $details = $row;
-        $details['type'] = 'admin';
-        $details['data'] = $row;
-        $details['is_marketing_menu_order'] = $is_marketing_menu_order;
-        $details['products'] = $row->products()->get();
+            $cc = [];
+            $details = $row;
+            $details['type'] = 'admin';
+            $details['data'] = $row;
+            $details['is_marketing_menu_order'] = $is_marketing_menu_order;
+            $details['products'] = $row->products()->get();
 
 //            $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
-        $notification = Notification::where('title', 'Coupon Used')->first();
-        $emails = $notification->getEmails();
-        $bcc = $notification->getBccEmails();
-        if ($couponDb) {
+            $notification = Notification::where('title', 'Coupon Used')->first();
+            $emails = $notification->getEmails();
+            $bcc = $notification->getBccEmails();
+            if ($couponDb) {
+                try {
+                    $details['coupon'] = $couponDb;
+                    $details['email'] = $req->billing['email'];
+                    $details['order'] = $row;
+                    Mail::to($emails)->bcc($bcc)->send(new CouponUsedMailTemplate($details));
+                } catch (\Throwable $th) {
+                }
+            }
+
             try {
-                $details['coupon'] = $couponDb;
-                $details['email'] = $req->billing['email'];
-                $details['order'] = $row;
-                Mail::to($emails)->bcc($bcc)->send(new CouponUsedMailTemplate($details));
-            } catch (\Throwable $th) {
-            }
-        }
-
-        try {
-            if ($is_marketing_menu_order) {
-                $notification = Notification::where('title', 'Order Created Marketing')->first();
-                $emails = $notification->getEmails();
-                $bcc = $notification->getBccEmails();
+                if ($is_marketing_menu_order) {
+                    $notification = Notification::where('title', 'Order Created Marketing')->first();
+                    $emails = $notification->getEmails();
+                    $bcc = $notification->getBccEmails();
 //                    $emails[] = 'designs@luxeknows.com';
-            } else {
-                $notification = Notification::where('title', 'Order Created')->first();
-                $emails = $notification->getEmails();
-                $bcc = $notification->getBccEmails();
+                } else {
+                    $notification = Notification::where('title', 'Order Created')->first();
+                    $emails = $notification->getEmails();
+                    $bcc = $notification->getBccEmails();
 //                    $emails[] = 'support@luxeknows.com';
+                }
+
+                Mail::to($emails)->bcc($bcc)->send(new NewOrderCreated($row, null, 'LUXE Properties - New Order - Marketplace'));
+            } catch (\Throwable $th) {
+                Log::error($th->getMessage());
             }
 
-            Mail::to($emails)->bcc($bcc)->send(new NewOrderCreated($row, null, 'LUXE Properties - New Order - Marketplace'));
+            $details['type'] = 'agent';
+            $details['data'] = $row;
+            $details['products'] = $row->products()->get();
+            $details['form_title'] = 'New Order';
+            try {
+                if ($req->billing['email'])
+                    Mail::to($req->billing['email'])->cc($cc)->send(new OrderMailTemplate($details));
+            } catch (\Throwable $th) {
+                Log::error($th->getMessage());
+            }
+
+            DB::commit();
+
+            return response()->json([
+                'reference_id' => $row->id
+            ]);
+            return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');
         } catch (\Throwable $th) {
-            Log::error($th->getMessage());
+            DB::rollBack();
+            throw $th;
         }
-
-        $details['type'] = 'agent';
-        $details['data'] = $row;
-        $details['products'] = $row->products()->get();
-        $details['form_title'] = 'New Order';
-        try {
-            if ($req->billing['email'])
-                Mail::to($req->billing['email'])->cc($cc)->send(new OrderMailTemplate($details));
-        } catch (\Throwable $th) {
-            Log::error($th->getMessage());
-        }
-
-        DB::commit();
-
-        return response()->json([
-            'reference_id' => $row->id
-        ]);
-        return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');
-//        } catch (\Throwable $th) {
-//            DB::rollBack();
-//            throw $th;
-//        }
     }
 
     public function complete(LuxeStoreOrder $order)

@@ -758,7 +758,7 @@
                         });
                     })
                     .catch(function (error) {
-                        console.log(error.response)
+                        console.log(error.response.data)
                         $('#btn-luxe-checkout').prop('disabled', false);
                         throw new Error('Order creation failed.'); // Ensure PayPal knows the order creation failed
                     });
