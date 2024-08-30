@@ -754,7 +754,8 @@
                                 amount: {
                                     value: '<?php echo json_decode($total_price); ?>'
                                 }
-                            }]
+                            }],
+                            reference_id: reference_id,
                         });
                     })
                     .catch(function (error) {
