@@ -16,6 +16,8 @@ class PayPalController extends Controller
 
         Log::info(json_encode($data));
 
+        return;
+
         // Verify PayPal webhook signature here (optional but recommended)
 
         // Check if payment is completed
