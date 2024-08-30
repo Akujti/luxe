@@ -32,6 +32,7 @@ class UpdateRequest extends FormRequest
             'price' => 'nullable|numeric',
             'sale_price' => 'nullable|numeric',
             'stock' => 'required',
+            'notify_email' => 'nullable|email',
             'preview_image' => 'nullable|image',
             'categories' => 'nullable|array',
             'variant_name' => 'nullable',

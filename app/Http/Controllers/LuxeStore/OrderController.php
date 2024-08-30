@@ -226,6 +226,8 @@ class OrderController extends Controller
             $row->user_id = auth()->id() ? auth()->id() : ($user_email ? $user_email->id : null);
             $row->status = 'Paid';
 
+            $notify_emails = [];
+
             $row->save();
 
             if (auth()->id())
@@ -261,6 +263,9 @@ class OrderController extends Controller
 
                 foreach ($cart_data as $product) {
                     $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
+                    if ($productDb->notify_email) {
+                        $notify_emails[] = $productDb->notify_email;
+                    }
                     $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
                     if ($marketing_menu_category) {
                         $is_marketing_menu_product = $productDb->categories()->where('luxe_store_categories.id', $marketing_menu_category->id)->exists();
@@ -362,8 +367,11 @@ class OrderController extends Controller
 //                    $emails[] = 'designs@luxeknows.com';
                 } else {
                     $notification = Notification::where('title', 'Order Created')->first();
-                    $emails = $notification->getEmails();
+                    $notification_emails = $notification->getEmails();
                     $bcc = $notification->getBccEmails();
+
+                    $emails = array_merge($notification_emails, $notify_emails);
+
 //                    $emails[] = 'support@luxeknows.com';
                 }
 

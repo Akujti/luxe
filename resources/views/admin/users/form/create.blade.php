@@ -71,7 +71,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid mb-4">
         <div class="row m-0">
             <div class="w-100 d-flex justify-content-between align-items-center mb-5">
                 <h5 class="h5-luxe">Create User</h5>
@@ -154,6 +154,24 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="start">Facebook</label>
+                                <div class='input-group'>
+                                    <input type="url" class="w-100 form-control" name="profile[facebook]">
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-6 pl-0">
+                                <label for="start">Instagram</label>
+                                <div class='input-group'>
+                                    <input type="url" class="w-100 form-control" name="profile[instagram]">
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="start">Linkedin</label>
+                                <div class='input-group'>
+                                    <input type="url" class="w-100 form-control" name="profile[linkedin]">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-6">
@@ -187,17 +205,17 @@
 
     @section('js')
         <script>
-            function add_language_new () {
+            function add_language_new() {
                 let input = $('#language-new').val()
                 let html =
-                  '<div class="language-item-new"> <input type="text" class="form-control" name="languages[]" value="' +
-                  input +
-                  '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language_new(this)">&times;</button></div>'
+                    '<div class="language-item-new"> <input type="text" class="form-control" name="languages[]" value="' +
+                    input +
+                    '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language_new(this)">&times;</button></div>'
                 $('.language-section-new').append(html)
                 $('#language-new').val('')
             }
 
-            function remove_language_new (e) {
+            function remove_language_new(e) {
                 $(e).parents('.language-item-new').remove()
             }
 

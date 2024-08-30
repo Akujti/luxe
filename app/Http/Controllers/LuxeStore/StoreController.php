@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\LuxeStore;
 
-use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
-use App\Models\LuxeStore\LuxeStoreProduct;
-use App\Models\LuxeStore\LuxeStoreCategory;
-use App\Models\LuxeStore\LuxeStoreProductVariants;
 use App\Http\Requests\LuxeStore\Product\AddRequest;
+use App\Http\Requests\LuxeStore\Product\DeleteImageRequest;
 use App\Http\Requests\LuxeStore\Product\DeleteRequest;
 use App\Http\Requests\LuxeStore\Product\UpdateRequest;
-use App\Http\Requests\LuxeStore\Product\DeleteImageRequest;
+use App\Models\LuxeStore\LuxeStoreCategory;
+use App\Models\LuxeStore\LuxeStoreProduct;
 use App\Models\LuxeStore\LuxeStoreProductImage;
+use App\Models\LuxeStore\LuxeStoreProductVariants;
+use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class StoreController extends Controller
@@ -42,6 +42,7 @@ class StoreController extends Controller
         if ($id) {
             $product = LuxeStoreProduct::with('inputs')->where('id', $id)->firstOrFail();
         }
+
         $categories = LuxeStoreCategory::latest()->get();
         return view('admin.store.add-edit-product', compact('categories', 'product'));
     }
@@ -63,6 +64,7 @@ class StoreController extends Controller
         $row->price = $req->price;
         $row->sale_price = $req->sale_price;
         $row->stock = $req->stock;
+        $row->notify_email = $req->notify_email;
 
         if ($req->preview_image) {
             $name = time() . Str::random(10) . '.' . $req->preview_image->getClientOriginalExtension();
@@ -147,6 +149,7 @@ class StoreController extends Controller
         $row->price = $req->price;
         $row->sale_price = $req->sale_price;
         $row->stock = $req->stock;
+        $row->notify_email = $req->notify_email;
 
 
         if ($req->preview_image) {

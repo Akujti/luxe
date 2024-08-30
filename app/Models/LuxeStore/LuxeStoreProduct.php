@@ -2,10 +2,9 @@
 
 namespace App\Models\LuxeStore;
 
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class LuxeStoreProduct extends Model
 {
@@ -21,7 +20,8 @@ class LuxeStoreProduct extends Model
         'stock',
         'preview_image',
         'second_thumbnail',
-        'verbiages_text'
+        'verbiages_text',
+        'notify_email'
     ];
 
     protected $with = ['images', 'variants'];

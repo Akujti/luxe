@@ -237,6 +237,27 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="start">Facebook</label>
+                                <div class='input-group'>
+                                    <input type="url" class="w-100 form-control" name="profile[facebook]"
+                                           value="{{ $user->profile->facebook }}">
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-6 pl-0">
+                                <label for="start">Instagram</label>
+                                <div class='input-group'>
+                                    <input type="url" class="w-100 form-control" name="profile[instagram]"
+                                           value="{{ $user->profile->instagram }}">
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="start">Linkedin</label>
+                                <div class='input-group'>
+                                    <input type="url" class="w-100 form-control" name="profile[linkedin]"
+                                           value="{{ $user->profile->linkedin }}">
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-12 d-flex justify-content-end">
@@ -250,16 +271,16 @@
 
     @section('js')
         <script>
-            function add_language () {
+            function add_language() {
                 let input = $('#language').val()
                 let html = '<div class="language-item"> <input type="text" class="form-control" name="languages[]" value="' +
-                  input +
-                  '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language(this)">&times;</button></div>'
+                    input +
+                    '"> <button type="button" class="btn btn-danger ml-3" onclick="remove_language(this)">&times;</button></div>'
                 $('.language-section').append(html)
                 $('#language').val('')
             }
 
-            function remove_language (e) {
+            function remove_language(e) {
                 $(e).parents('.language-item').remove()
             }
 

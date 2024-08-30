@@ -2,10 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Model;
 
 class UserProfile extends Model
 {
@@ -14,7 +12,7 @@ class UserProfile extends Model
     protected $table = 'user_profile';
 
     protected $fillable = [
-        'fullname', 'address', 'phone', 'languages', 'avatar', 'support_specialists', 'loan_officer', 'service_areas'
+        'fullname', 'address', 'phone', 'languages', 'avatar', 'support_specialists', 'loan_officer', 'service_areas', 'facebook', 'instagram', 'linkedin'
     ];
 
     protected static function boot()

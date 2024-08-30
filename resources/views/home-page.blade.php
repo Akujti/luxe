@@ -639,6 +639,132 @@
                 text-align: center;
             }
         </style>
+        <div id="email-blasts" class="row w-100 my-4 p-0 email-blasts-box m-0">
+            <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4"
+                style="font-family: gothicbold;font-size:20px">Click to view our recent email blasts</h3>
+            @forelse($email_blasts as $email_blast)
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-auto">
+                    <div class="box-item align-items-start bg-transparent row p-0 m-0">
+                        <p class="pt-2" style="font-size:22px">{{ $email_blast->title }}</p>
+                        <div class="w-100">
+                            <x-preview-image>
+                                <img src="{{ $email_blast->image_url }}" class="rounded modal-target"
+                                     style="object-position: top" alt="">
+                            </x-preview-image>
+
+                            <p class="text-center mt-1" style="font-family: gothicregular;font-size:15px">
+                                Click here to view full design</p>
+                            @if ($email_blast->title == 'Monthly Properties')
+                                <div class="modal modal-new" id="monthly_properties">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content bg-white" style="height: 300px !important;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Inquiry</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body pb-0">
+                                                <form action="{{ route('general.email.post') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="form_title"
+                                                           value="Email Blast Design Request">
+                                                    <input type="hidden" name="agent_name"
+                                                           value="{{ auth()->user()->profile->fullname }}">
+                                                    <input type="hidden" name="agent_email"
+                                                           value="{{ auth()->user()->email }}">
+                                                    <input type="hidden" name="email_blast"
+                                                           value="{{ $email_blast->title }}">
+                                                    <p>Please select one or more from below</p>
+                                                    <div class="mb-3">
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                       value="Miami-Dade"
+                                                                       style="height: auto !important"
+                                                                       name="locations[]">Miami-Dade
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                       value="Broward" style="height: auto !important"
+                                                                       name="locations[]">Broward
+                                                            </label>
+                                                        </div>
+                                                        {{-- <div class="form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                    value="Luxury" style="height: auto !important"
+                                                                    name="locations[]">Luxury
+                                                            </label>
+                                                        </div> --}}
+                                                    </div>
+                                                    <button class="btn-luxe btn-block mb-0">Submit your request</button>
+                                                </form>
+                                            </div>
+                                            {{-- <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn-luxe btn-block mb-3" onclick="toggleModal('monthly_properties')">
+                                    Submit
+                                    your request
+                                </button>
+                            @else
+                                <div class="modal modal-new" id="email-blast-modal-{{ $email_blast->id }}">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content bg-white" style="height: 255px !important;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body pb-0">
+                                                <form action="{{ route('general.email.post') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="form_title"
+                                                           value="Email Blast Design Request">
+                                                    <input type="hidden" name="agent_name"
+                                                           value="{{ auth()->user()->profile->fullname }}">
+                                                    <input type="hidden" name="agent_email"
+                                                           value="{{ auth()->user()->email }}">
+                                                    <input type="hidden" name="email_blast"
+                                                           value="{{ $email_blast->title }}">
+                                                    <p>Are you sure you want to submit your request for this email
+                                                        blast?
+                                                    </p>
+                                                    <button class="btn-luxe btn-block mb-0">Submit your request</button>
+                                                </form>
+                                            </div>
+                                            {{-- <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-luxe btn-block mb-3"
+                                        onclick="toggleModal('email-blast-modal-{{ $email_blast->id }}')">Submit
+                                    your request
+                                </button>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="box-guide justify-content-start pl-4">
+                    <p>No results found.</p>
+                </div>
+            @endforelse
+        </div>
         <div class="row w-100 p-0 m-0">
             <div class="col-12 col-md-4">
                 <div class="box-item align-items-start box-guides row p-0 m-0"
@@ -798,132 +924,7 @@
             </div>
         </div>
         <div class="row p-0 m-0 w-100 mb-3 mt-4" style="border-bottom: 3px solid #00000014;"></div>
-        <div id="email-blasts" class="row w-100 mt-4 p-0 email-blasts-box m-0">
-            <h3 class="row m-0 p-0 w-100 justify-content-start mt-4 mb-4 pl-4"
-                style="font-family: gothicbold;font-size:20px">Click to view our recent email blasts</h3>
-            @forelse($email_blasts as $email_blast)
-                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-auto">
-                    <div class="box-item align-items-start bg-transparent row p-0 m-0">
-                        <p class="pt-2" style="font-size:22px">{{ $email_blast->title }}</p>
-                        <div class="w-100">
-                            <x-preview-image>
-                                <img src="{{ $email_blast->image_url }}" class="rounded modal-target"
-                                     style="object-position: top" alt="">
-                            </x-preview-image>
 
-                            <p class="text-center mt-1" style="font-family: gothicregular;font-size:15px">
-                                Click here to view full design</p>
-                            @if ($email_blast->title == 'Monthly Properties')
-                                <div class="modal modal-new" id="monthly_properties">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content bg-white" style="height: 300px !important;">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Inquiry</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body pb-0">
-                                                <form action="{{ route('general.email.post') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="form_title"
-                                                           value="Email Blast Design Request">
-                                                    <input type="hidden" name="agent_name"
-                                                           value="{{ auth()->user()->profile->fullname }}">
-                                                    <input type="hidden" name="agent_email"
-                                                           value="{{ auth()->user()->email }}">
-                                                    <input type="hidden" name="email_blast"
-                                                           value="{{ $email_blast->title }}">
-                                                    <p>Please select one or more from below</p>
-                                                    <div class="mb-3">
-                                                        <div class="form-check-inline">
-                                                            <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                       value="Miami-Dade"
-                                                                       style="height: auto !important"
-                                                                       name="locations[]">Miami-Dade
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check-inline">
-                                                            <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                       value="Broward" style="height: auto !important"
-                                                                       name="locations[]">Broward
-                                                            </label>
-                                                        </div>
-                                                        {{-- <div class="form-check-inline">
-                                                            <label class="form-check-label">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    value="Luxury" style="height: auto !important"
-                                                                    name="locations[]">Luxury
-                                                            </label>
-                                                        </div> --}}
-                                                    </div>
-                                                    <button class="btn-luxe btn-block mb-0">Submit your request</button>
-                                                </form>
-                                            </div>
-                                            {{-- <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <button class="btn-luxe btn-block mb-3" onclick="toggleModal('monthly_properties')">
-                                    Submit
-                                    your request
-                                </button>
-                            @else
-                                <div class="modal modal-new" id="email-blast-modal-{{ $email_blast->id }}">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content bg-white" style="height: 255px !important;">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body pb-0">
-                                                <form action="{{ route('general.email.post') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="form_title"
-                                                           value="Email Blast Design Request">
-                                                    <input type="hidden" name="agent_name"
-                                                           value="{{ auth()->user()->profile->fullname }}">
-                                                    <input type="hidden" name="agent_email"
-                                                           value="{{ auth()->user()->email }}">
-                                                    <input type="hidden" name="email_blast"
-                                                           value="{{ $email_blast->title }}">
-                                                    <p>Are you sure you want to submit your request for this email
-                                                        blast?
-                                                    </p>
-                                                    <button class="btn-luxe btn-block mb-0">Submit your request</button>
-                                                </form>
-                                            </div>
-                                            {{-- <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="btn-luxe btn-block mb-3"
-                                        onclick="toggleModal('email-blast-modal-{{ $email_blast->id }}')">Submit
-                                    your request
-                                </button>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            @empty
-                <div class="box-guide justify-content-start pl-4">
-                    <p>No results found.</p>
-                </div>
-            @endforelse
-        </div>
         <div class="row p-0 m-0 w-100 mb-3 mt-4" style="border-bottom: 3px solid #00000014;"></div>
         <!-- <div class="box-guides">
                                                                                                                                                                                                                             <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4 ">
@@ -953,6 +954,26 @@
                                                                                                                                                                                                                                                         <p class="ml-2 mt-2">{{ $item->title }}</p>
                                                                                                                                                                                                                                                     </a>
                                                                                                                                                                                                                                                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1664,6 +1685,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1671,6 +1712,26 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2376,32 +2437,32 @@
                                 @foreach ($videos as $key => $video)
                                     <div>
                                         <div class="slide video m-1">
-                                            <div class="slide-img img-{{ $key + 1 }}"
-                                                 style="background-image: url({{ $video->vimeo_details['thumbnail'] }})">
-                                            </div>
-                                            <div class="p-2">
-                                                <p class="title"><a
-                                                        href="{{ route('video.single_video', $video->id) }}">{{ Str::limit($video->vimeo_details['name'], 60) }}</a>
-                                                </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}
-                                                    </p>
-                                                    <p class="time p-0 m-0">By <span
-                                                            class="title">LUXE Properties</span>
-                                                    </p>
+                                            <a href="{{ route('video.single_video', $video->id) }}" class="d-block"
+                                               style="text-decoration: none">
+                                                <div class="slide-img img-{{ $key + 1 }}"
+                                                     style="background-image: url({{ $video->vimeo_details['thumbnail'] }})">
                                                 </div>
-                                            </div>
+                                                <div class="p-2">
+                                                    <p class="title">
+                                                        {{ Str::limit($video->vimeo_details['name'], 60) }}
+                                                    </p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="time p-0 m-0">{{ $video->vimeo_details['created_at'] }}</p>
+                                                        <p class="time p-0 m-0">By <span
+                                                                class="title">LUXE Properties</span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
-            <div class="w-100 text-center my-3">
-                <a href="{{ route('videos') }}" class="btn btn-luxe">View all training videos</a>
-                <a href="{{ route('favorite.videos') }}" class="btn btn-luxe">View all favorite videos</a>
+            <div class="w-100 text-center my-5">
+                <a href="{{ route('videos') }}" class="btn btn-luxe py-3 px-4 mr-3">View all training videos</a>
+                <a href="{{ route('favorite.videos') }}" class="btn btn-luxe py-3 px-4">View all favorite videos</a>
             </div>
         </div>
         <div class="row p-0 m-0 w-100 mb-3 mx-2" style="border-bottom: 3px solid #00000014;"></div>
