@@ -217,9 +217,6 @@ class OrderController extends Controller
 
     public function create(AddOrderRequest $req)
     {
-        return response()->json([
-            'reference_id' => 5555
-        ]);
         DB::beginTransaction();
         try {
             $row = new LuxeStoreOrder;
