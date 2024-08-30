@@ -383,6 +383,10 @@ class OrderController extends Controller
             }
 
             DB::commit();
+
+            return response()->json([
+                'reference_id' => $row->id
+            ]);
             return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');
         } catch (\Throwable $th) {
             DB::rollBack();
