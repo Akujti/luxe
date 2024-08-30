@@ -745,6 +745,7 @@
 
                 return axios.post('{{ route('luxe_store.order.create') }}', formData)
                     .then(function (response) {
+                        console.log(response.data)
                         let reference_id = response.data.reference_id;
                         // Return the PayPal order creation with the reference_id
                         return actions.order.create({
