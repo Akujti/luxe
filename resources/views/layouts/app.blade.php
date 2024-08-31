@@ -1109,11 +1109,14 @@
         const content = document.getElementById('content');
         const toggleBtn = document.getElementById('toggle-btn');
 
-        // Check localStorage for user preference
-        const sidebarOpen = localStorage.getItem('sidebarOpen') === 'true';
+        let sidebarOpen = localStorage.getItem('sidebarOpen');
+        if (sidebarOpen === null) {
+            sidebarOpen = 'true';
+            localStorage.setItem('sidebarOpen', sidebarOpen);
+        }
 
         // Initialize sidebar and button text based on the stored preference
-        if (sidebarOpen) {
+        if (sidebarOpen === 'true') {
             sidebar.classList.remove('d-none');
             sidebar.classList.add('d-lg-flex');
             content.classList.remove('col-lg-12');
