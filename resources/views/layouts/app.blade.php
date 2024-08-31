@@ -85,7 +85,7 @@
 
     @media (min-width: 992px) {
         .toggle-btn {
-            display: inline-block;
+            display: flex;
         }
     }
 
