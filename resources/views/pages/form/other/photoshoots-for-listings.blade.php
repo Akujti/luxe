@@ -426,7 +426,7 @@
                                            data-price="{{ auth()->user()->is_platinum_tier ? 0 : 325 }}" id="option-9"
                                            name="add-ons[]" value="Zillow Showcase">
                                     <label class="form-check-label font-weight-normal" for="option-9">
-                                        Zillow Showcase - $<span id="option-price">325</span>
+                                        Zillow Showcase - <span id="option-price">325</span>
                                         <br>
                                         <small>By choosing Zillow Showcase the 3D Zillow
                                             Tour and Floorplan will be automatically selected because these are required
@@ -546,7 +546,7 @@
 
             // Function to update price
             function updatePrice(price) {
-                $priceSpan.text(price);
+                $priceSpan.text(price === 0 ? 'Free' : ('$' + price));
                 // Update checkbox data-price attribute
                 $('#option-9').attr('data-price', price);
             }
