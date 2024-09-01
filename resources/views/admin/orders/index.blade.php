@@ -70,15 +70,15 @@
             <form action="" method="get" class="row">
                 <div class="col-md-2 form-group">
                     <input type="text" name="name" class="form-control" placeholder="Agent Name"
-                        value="{{ isset($_GET['name']) ? $_GET['name'] : '' }}">
+                           value="{{ isset($_GET['name']) ? $_GET['name'] : '' }}">
                 </div>
                 <div class="col-md-2 form-group">
                     <input type="text" name="price" class="form-control" placeholder="Price"
-                        value="{{ isset($_GET['price']) ? $_GET['price'] : '' }}">
+                           value="{{ isset($_GET['price']) ? $_GET['price'] : '' }}">
                 </div>
                 <div class="col-md-2 form-group">
                     <input type="date" name="date" class="form-control" placeholder="Date"
-                        value="{{ isset($_GET['date']) ? $_GET['date'] : '' }}">
+                           value="{{ isset($_GET['date']) ? $_GET['date'] : '' }}">
                 </div>
                 <div class="col-md-2 form-group">
                     <select name="product" class="form-control">
@@ -91,6 +91,7 @@
                 <div class="col-md-2 form-group">
                     <select name="status" class="form-control">
                         <option value>Status</option>
+                        <option value="Not Paid">Not Paid</option>
                         <option value="Pending">Pending</option>
                         <option value="Paid">Paid</option>
                         <option value="Request Info">Request Info</option>
@@ -110,31 +111,31 @@
             <div class="table-responsive">
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Agent</th>
-                            <th>No. Items</th>
-                            <th>Amount</th>
-                            <th>Created at</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Agent</th>
+                        <th>No. Items</th>
+                        <th>Amount</th>
+                        <th>Created at</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
                     </thead>
 
                     <tbody>
-                        @foreach ($orders as $order)
-                            <tr id="tr-row">
-                                <td id="td-row">#{{ $order->id }}</td>
-                                <td id="td-row">{{ @$order->user->profile ? @$order->user->profile->fullname : '' }}
-                                </td>
-                                <td id="td-row">{{ $order->products->count() }} </td>
-                                <td id="td-row">${{ $order->payment->total_price }}</td>
-                                <td id="td-row">{{ $order->created_at->setTimezone('America/New_York') }}</td>
-                                <td id="td-row">{{ $order->status }}</td>
-                                <td id="td-row"><a class="btn btn-link"
-                                        href="{{ route('admin.orders.show', $order->id) }}">View</a></td>
-                            </tr>
-                        @endforeach
+                    @foreach ($orders as $order)
+                        <tr id="tr-row">
+                            <td id="td-row">#{{ $order->id }}</td>
+                            <td id="td-row">{{ @$order->user->profile ? @$order->user->profile->fullname : '' }}
+                            </td>
+                            <td id="td-row">{{ $order->products->count() }} </td>
+                            <td id="td-row">${{ $order->payment->total_price }}</td>
+                            <td id="td-row">{{ $order->created_at->setTimezone('America/New_York') }}</td>
+                            <td id="td-row">{{ $order->status }}</td>
+                            <td id="td-row"><a class="btn btn-link"
+                                               href="{{ route('admin.orders.show', $order->id) }}">View</a></td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

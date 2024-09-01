@@ -746,7 +746,7 @@
                 return axios.post('{{ route('luxe_store.order.create') }}', formData)
                     .then(function (response) {
                         console.log(response.data)
-                        let reference_id = response.data.reference_id;
+                        let reference_id = response.data.order_id;
                         // Return the PayPal order creation with the reference_id
                         return actions.order.create({
                             purchase_units: [{
@@ -760,6 +760,7 @@
                     })
                     .catch(function (error) {
                         console.log(error.response.data)
+                        return false
                         $('#btn-luxe-checkout').prop('disabled', false);
                         throw new Error('Order creation failed.'); // Ensure PayPal knows the order creation failed
                     });
@@ -781,7 +782,6 @@
             },
             onApprove: function (data, actions) {
                 return actions.order.capture().then(function (details) {
-                    // document.getElementById("form").submit();
                     window.location.href = "{{ route('luxe_store.thank_you') }}";
                 });
             }

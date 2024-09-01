@@ -215,6 +215,9 @@ class OrderController extends Controller
         return redirect()->route('my_orders.show', $row->id)->with('message', 'Successfully Updated!');
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function create(AddOrderRequest $req)
     {
         DB::beginTransaction();
@@ -223,11 +226,13 @@ class OrderController extends Controller
 
             $user_email = User::whereEmail($req->billing['email'])->first();
             $row->user_id = auth()->id() ? auth()->id() : ($user_email ? $user_email->id : null);
-            $row->status = 'Paid';
+            $row->status = 'Not Paid';
+
+            $notify_emails = [];
 
             $row->save();
 
-            if (auth()->id())
+            if (auth()->id()) {
                 UserCheckoutInformation::updateOrCreate([
                     'user_id' => auth()->id()
                 ], [
@@ -248,6 +253,7 @@ class OrderController extends Controller
                     "shipping_phone" => $req->shipping['phone'],
                     "shipping_email" => $req->shipping['email']
                 ]);
+            }
 
             $sub_total = 0;
             $total_price = 0;
@@ -255,11 +261,19 @@ class OrderController extends Controller
             if (Session::get('shopping_cart')) {
                 $cart_data = Session::get('shopping_cart')[0];
                 if (count($cart_data) == 0) {
+                    if ($req->wantsJson()) {
+                        return response()->json([
+                            'error' => 'Something went  wrong! Please try again.'
+                        ], 500);
+                    }
                     return redirect()->back()->with('error', 'Something went  wrong! Please try again.');
                 }
 
                 foreach ($cart_data as $product) {
                     $productDb = LuxeStoreProduct::findOrFail($product['item_id']);
+                    if ($productDb->notify_email) {
+                        $notify_emails[] = $productDb->notify_email;
+                    }
                     $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
                     if ($marketing_menu_category) {
                         $is_marketing_menu_product = $productDb->categories()->where('luxe_store_categories.id', $marketing_menu_category->id)->exists();
@@ -300,6 +314,11 @@ class OrderController extends Controller
                     }
                 }
             } else {
+                if ($req->wantsJson()) {
+                    return response()->json([
+                        'error' => 'Something went  wrong! Please try again.'
+                    ], 500);
+                }
                 return redirect()->back()->with('error', 'Something went  wrong! Please try again.');
             }
 
@@ -348,7 +367,6 @@ class OrderController extends Controller
                 $emails = $notification->getEmails();
                 $bcc = $notification->getBccEmails();
             }
-
             if ($couponDb) {
                 try {
                     $details['coupon'] = $couponDb;
@@ -359,6 +377,10 @@ class OrderController extends Controller
                 }
             }
 
+            $emails = [];
+            $bcc = [];
+            $notification_emails = [];
+
             try {
                 if ($is_marketing_menu_order) {
                     $notification = Notification::where('title', 'Order Created Marketing')->first();
@@ -366,14 +388,16 @@ class OrderController extends Controller
                         $emails = $notification->getEmails();
                         $bcc = $notification->getBccEmails();
                     }
-
 //                    $emails[] = 'designs@luxeknows.com';
                 } else {
                     $notification = Notification::where('title', 'Order Created')->first();
                     if ($notification) {
-                        $emails = $notification->getEmails();
+                        $notification_emails = $notification->getEmails();
                         $bcc = $notification->getBccEmails();
                     }
+
+                    $emails = array_merge($notification_emails, $notify_emails);
+
 //                    $emails[] = 'support@luxeknows.com';
                 }
 
@@ -386,21 +410,38 @@ class OrderController extends Controller
             $details['data'] = $row;
             $details['products'] = $row->products()->get();
             $details['form_title'] = 'New Order';
+
             try {
-                if ($req->billing['email'])
+                if ($req->billing['email']) {
                     Mail::to($req->billing['email'])->cc($cc)->send(new OrderMailTemplate($details));
+                }
             } catch (\Throwable $th) {
                 Log::error($th->getMessage());
             }
 
             DB::commit();
 
-            return response()->json([
-                'reference_id' => $row->id
-            ]);
+            $order = LuxeStoreOrder::find($row->id);
+
+            if (!$total_price && $order) {
+                $order->updateQuietly([
+                    'status' => 'Paid'
+                ]);
+            }
+
+            if ($req->wantsJson()) {
+                return response()->json([
+                    'order_id' => $row->id,
+                ]);
+            }
             return redirect()->route('luxe_store.thank_you')->with('message', 'Successfully ordered!');
         } catch (\Throwable $th) {
             DB::rollBack();
+            if ($req->wantsJson()) {
+                return response()->json([
+                    'error' => 'Something went wrong!'
+                ], 500);
+            }
             throw $th;
         }
     }
