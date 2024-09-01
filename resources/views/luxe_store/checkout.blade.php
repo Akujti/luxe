@@ -750,7 +750,7 @@
                         // Return the PayPal order creation with the reference_id
                         return actions.order.create({
                             purchase_units: [{
-                                reference_id: reference_id,
+                                order_id: reference_id,
                                 amount: {
                                     value: '<?php echo json_decode($total_price); ?>'
                                 }
