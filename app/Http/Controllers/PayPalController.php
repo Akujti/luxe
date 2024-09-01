@@ -19,7 +19,7 @@ class PayPalController extends Controller
         // Check if payment is completed
         if ($data['event_type'] === 'CHECKOUT.ORDER.APPROVED') {
             Log::info(json_encode($data, JSON_THROW_ON_ERROR));
-            $orderId = $data['resource']['purchase_units'][0]['order_id'];
+            $orderId = $data['resource']['purchase_units'][0]['reference_id'];
 
             $order = LuxeStoreOrder::find($orderId);
             if ($order) {
