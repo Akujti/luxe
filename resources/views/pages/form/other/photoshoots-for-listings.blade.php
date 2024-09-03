@@ -426,11 +426,12 @@
                                            data-price="{{ auth()->user()->is_platinum_tier ? 0 : 325 }}" id="option-9"
                                            name="add-ons[]" value="Zillow Showcase">
                                     <label class="form-check-label font-weight-normal" for="option-9">
-                                        Zillow Showcase - <span id="option-price">325</span>
+                                        Zillow Showcase - $325
                                         <br>
                                         <small>By choosing Zillow Showcase the 3D Zillow
-                                            Tour and Floorplan will be automatically selected because these are required
-                                            to be displayed as a Zillow showcase</small>
+                                            Tour and Floorplan will be automatically select because these are required
+                                            to be displayed as a zillow
+                                            showcase</small>
                                     </label>
                                 </div>
                             </div>
@@ -539,30 +540,6 @@
                     $('#option-8').attr('disabled', false)
                 }
             })
-
-
-            const $selectElement = $('#other-lead-source-select');
-            const $priceSpan = $('#option-price');
-
-            // Function to update price
-            function updatePrice(price) {
-                $priceSpan.text(price === 0 ? 'Free' : ('$' + price));
-                // Update checkbox data-price attribute
-                $('#option-9').attr('data-price', price);
-            }
-
-            // Initial price based on user tier
-            const defaultPrice = {{ auth()->user()->is_platinum_tier ? 0 : 325 }};
-            updatePrice(defaultPrice);
-
-            // Change event on select element
-            $selectElement.change(function () {
-                if ($(this).val() === 'Zillow Seller Team') {
-                    updatePrice(0);
-                } else {
-                    updatePrice(defaultPrice);
-                }
-            });
         })
 
         function calculate() {
