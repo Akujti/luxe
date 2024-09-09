@@ -1108,10 +1108,19 @@
         const content = document.getElementById('content');
         const toggleBtn = document.getElementById('toggle-btn');
 
-        let sidebarOpen = localStorage.getItem('sidebarOpen');
-        if (sidebarOpen === null) {
-            sidebarOpen = 'true';
-            localStorage.setItem('sidebarOpen', sidebarOpen);
+        const isDesktop = window.innerWidth > 768; // 768px is the typical breakpoint for mobile
+
+        let sidebarOpen;
+
+        if (isDesktop) {
+            sidebarOpen = localStorage.getItem('sidebarOpen');
+            if (sidebarOpen === null) {
+                sidebarOpen = 'true'; // Default open on desktop if no value found
+                localStorage.setItem('sidebarOpen', sidebarOpen);
+            }
+        } else {
+            // On mobile, set the sidebar to be closed initially
+            sidebarOpen = 'false';
         }
 
         // Initialize sidebar and button text based on the stored preference
