@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers\Video;
 
-use Exception;
-use App\Models\Video\Video;
-use Illuminate\Http\Request;
-use Vimeo\Laravel\Facades\Vimeo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Video\Video\AddRequest;
 use App\Http\Requests\Video\Video\DeleteRequest;
@@ -14,7 +10,11 @@ use App\Models\File;
 use App\Models\Folder;
 use App\Models\Form;
 use App\Models\LuxeStore\LuxeStoreProduct;
+use App\Models\Video\Video;
 use Carbon\Carbon;
+use Exception;
+use Illuminate\Http\Request;
+use Vimeo\Laravel\Facades\Vimeo;
 
 class VideoController extends Controller
 {
@@ -26,7 +26,7 @@ class VideoController extends Controller
         $files = File::where('folder_id', '!=', $folder_id)->where('title', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'files');
         $guides = File::where('folder_id', $folder_id)->where('title', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'guides');
         $videos = Video::where('title', 'like', '%' . $req->search . '%')->latest()->paginate(4, ['*'], 'videos');
-        $products = LuxeStoreProduct::where('name', 'like', '%' . $req->search . '%')->paginate(8, ['*'], 'products');
+        $products = LuxeStoreProduct::where('name', 'like', '%' . $req->search . '%')->whereRelation('categories', 'name', '!=', 'Uncategorized')->paginate(8, ['*'], 'products');
 
         if ($req->wantsJson()) {
             return response()->json(['forms' => $forms, 'videos' => $videos, 'files' => $files, 'folders' => $folders, 'products' => $products, 'guides' => $guides]);

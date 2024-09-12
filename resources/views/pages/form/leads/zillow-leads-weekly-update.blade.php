@@ -14,10 +14,10 @@
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST">
                     @csrf
                     <div class="card-header">
-                        <h1 class="text-center my-4">ZILLOW LEADS WEEKLY UPDATE</h1>
+                        <h1 class="text-center my-4">ZILLOW BUYER LEADS WEEKLY UPDATE</h1>
 
                     </div>
-                    <input type="hidden" name="form_title" value="ZILLOW LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="form_title" value="ZILLOW BUYER LEADS WEEKLY UPDATE">
                     <input type="hidden" name="form_verbiages_text" value="{{ $formInfo->email_verbiages_text }}">
                     <input type="hidden" name="to_email[]" id="team_email" value="">
                     <input type="hidden" name="to_email[]" id="team_email_2" value="">
@@ -292,19 +292,19 @@
                 </form>
                 <form action="{{ route('getCsv') }}" method="post" id="csv">
                     @csrf
-                    <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="title" value="ZILLOW BUYER LEADS WEEKLY UPDATE">
                 </form>
                 <form action="{{ route('deleteSubmissions') }}" method="POST" id="deleteSubmissions">
                     @csrf
                     @method('delete')
-                    <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="title" value="ZILLOW BUYER LEADS WEEKLY UPDATE">
                 </form>
             </div>
         </div>
     </div>
 
     <script>
-        function setTeamEmail (element) {
+        function setTeamEmail(element) {
             if (element.value == 'Team Flex') {
                 document.getElementById('team_email').value = 'ramee@luxeknows.com'
                 document.getElementById('team_email_2').value = 'asesoresmaster.op6@gmail.com'
@@ -314,16 +314,16 @@
             }
         }
 
-        function createCsv () {
+        function createCsv() {
             $('#csv').submit()
         }
 
-        function deleteSubmissions () {
+        function deleteSubmissions() {
             if (confirm('Are you sure, you want to delete all submissions for this form?'))
                 $('#deleteSubmissions').submit()
         }
 
-        function togglePausedSelect (select_id) {
+        function togglePausedSelect(select_id) {
             var value = $('#' + select_id).val()
             if (value == 'Yes') {
                 $('#reason_zillow_pause').attr('required', true)

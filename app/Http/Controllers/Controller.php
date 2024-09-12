@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DiyTemplate;
-use App\Models\DiyTemplateCategory;
 use App\Models\EmailBlastHomePage;
 use App\Models\Event;
 use App\Models\File;
@@ -13,11 +11,10 @@ use App\Models\MarketingCanva;
 use App\Models\MarketingCategory;
 use App\Models\Video\Video;
 use Carbon\Carbon;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use function PHPUnit\Framework\throwException;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
@@ -123,6 +120,10 @@ class Controller extends BaseController
                 'name' => 'LUXVT',
                 'icon' => 'luxvt.png',
                 'url' => 'https://luxvt.com/register?registration_code=luxe',
+            ], [
+                'name' => 'Zillow Showcase',
+                'icon' => 'zillow.png',
+                'url' => 'https://app.showingtimeplus.com',
             ],
         ];
         return view(

@@ -229,24 +229,24 @@
                 </form>
                 <form action="{{ route('getCsv') }}" method="post" id="csv">
                     @csrf
-                    <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="title" value="ZILLOW BUYER LEADS WEEKLY UPDATE">
                 </form>
                 <form action="{{ route('deleteSubmissions') }}" method="POST" id="deleteSubmissions">
                     @csrf
                     @method('delete')
-                    <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="title" value="ZILLOW BUYER LEADS WEEKLY UPDATE">
                 </form>
             </div>
         </div>
     </div>
 
     <script>
-        function showForm () {
+        function showForm() {
             $('#popup').addClass('d-none')
             $('#regForm').removeClass('d-none')
         }
 
-        function setTeamEmail (element) {
+        function setTeamEmail(element) {
             if (element.value == 'Team Flex') {
                 document.getElementById('team_email').value = 'ramee@luxeknows.com'
                 document.getElementById('team_email_2').value = 'asesoresmaster.op6@gmail.com'
@@ -256,16 +256,16 @@
             }
         }
 
-        function createCsv () {
+        function createCsv() {
             $('#csv').submit()
         }
 
-        function deleteSubmissions () {
+        function deleteSubmissions() {
             if (confirm('Are you sure, you want to delete all submissions for this form?'))
                 $('#deleteSubmissions').submit()
         }
 
-        function togglePausedSelect (select_id) {
+        function togglePausedSelect(select_id) {
             var value = $('#' + select_id).val()
             if (value == 'Yes') {
                 $('#reason_zillow_pause').attr('required', true)
@@ -276,7 +276,7 @@
             }
         }
 
-        function canSubmitForm (select) {
+        function canSubmitForm(select) {
             const input = $(select).val()
             if (input == 'Part Time') {
                 $('#submit-button').addClass('d-none')

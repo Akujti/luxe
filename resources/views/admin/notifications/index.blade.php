@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['active' => 'Notifciations'])
+@extends('admin.layouts.app', ['active' => 'Notifications'])
 @section('content')
     <style>
         th,
@@ -100,7 +100,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-title">Emails</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
+                            aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('admin.notifications.update') }}" method="POST" class="d-block"
@@ -164,13 +164,13 @@
                     })
             })
 
-            function addToList (item) {
+            function addToList(item) {
                 $('#emailList').append(
-                  '<tr class="text-left">' +
-                  '<td class="text-left"><input name=emails[] type="hidden" value="' + item.email + '">' + item.email + '</td>' +
-                  '<td><input type="checkbox" ' + (item.bcc ? 'checked' : '') + ' name="bcc[' + item.email + ']""></td>' +
-                  '<td><button type="button" class="remove-email btn btn-danger">x</button></td>' +
-                  '</tr>'
+                    '<tr class="text-left">' +
+                    '<td class="text-left"><input name=emails[] type="hidden" value="' + item.email + '">' + item.email + '</td>' +
+                    '<td><input type="checkbox" ' + (item.bcc ? 'checked' : '') + ' name="bcc[' + item.email + ']""></td>' +
+                    '<td><button type="button" class="remove-email btn btn-danger">x</button></td>' +
+                    '</tr>'
                 )
             }
         })

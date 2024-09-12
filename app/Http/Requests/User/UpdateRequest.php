@@ -33,6 +33,11 @@ class UpdateRequest extends FormRequest
             'profile.fullname' => 'required|string',
             'profile.address' => 'nullable|string',
             'profile.phone' => 'nullable|string',
+
+            'profile.facebook' => 'nullable|url',
+            'profile.instagram' => 'nullable|url',
+            'profile.linkedin' => 'nullable|url',
+
             'languages' => 'nullable|array',
             'showing_agent' => 'nullable|boolean',
             'profile.avatar' => 'nullable|image',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LuxeStore;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LuxeStore\Order\AddOrderRequest;
 use App\Http\Requests\LuxeStore\Order\AddToCartRequest;
+use App\Mail\AdminOrderCompletedMail;
 use App\Mail\CouponUsedMailTemplate;
 use App\Mail\NewOrderCreated;
 use App\Mail\OrderCompleted;
@@ -230,6 +231,8 @@ class OrderController extends Controller
 
             $notify_emails = [];
 
+            $notify_emails = [];
+
             $row->save();
 
             if (auth()->id()) {
@@ -396,6 +399,7 @@ class OrderController extends Controller
                         $bcc = $notification->getBccEmails();
                     }
 
+
                     $emails = array_merge($notification_emails, $notify_emails);
 
 //                    $emails[] = 'support@luxeknows.com';
@@ -459,6 +463,14 @@ class OrderController extends Controller
         $order->update(['status' => $req->status, 'request_info' => $req->request_info]);
         $details['order'] = $order;
         Mail::to($order->user->email)->send(new OrderCompleted($details));
+
+        $notification = Notification::where('title', 'Order Status Update')->first();
+        if ($notification) {
+            $emails = $notification->getEmails();
+            $bcc = $notification->getBccEmails();
+
+            Mail::to($emails)->bcc($bcc)->send(new AdminOrderCompletedMail($order));
+        }
         return back()->with('message', 'Order Status Changed');
     }
 

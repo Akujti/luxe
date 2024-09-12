@@ -63,6 +63,32 @@
             accessibility</a></noscript>
 </head>
 <style>
+    .toggle-btn {
+        position: fixed;
+        top: 120px;
+        border: none;
+        background-color: #262626; /* Green */
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        z-index: 1000; /* Ensure it's on top */
+        border-radius: 0 20px 20px 0;
+        display: none;
+    }
+
+    .toggle-btn:focus {
+        outline: none;
+    }
+
+    @media (min-width: 992px) {
+        .toggle-btn {
+            display: flex;
+        }
+    }
+
     @font-face {
         font-family: "gothicbold";
         src: local("gothicbold"),
@@ -668,9 +694,16 @@
         </div>
 
     </header>
-    <div class="row d-flex w-100 m-0">
+    <div id="app" class="row d-flex w-100 m-0 position-relative">
         @if (auth()->user())
-            <div class="sidebar d-none d-lg-flex">
+            <button id="toggle-btn" class="toggle-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+                </svg>
+            </button>
+            <div id="sidebar" class="sidebar d-none d-lg-flex">
                 <div class="sidebar-main">
                     <div class="row p-0 m-0 justify-content-center">
                         <div class="sidebar-logo-details row p-0 d-flex d-lg-none d-xl-none m-0 my-3">
@@ -732,12 +765,10 @@
                                             <a href="{{ route('admin.index') }}">Admin Dashboard</a>
                                         </li>
                                     @endif
-                                    @if (auth()->user()->role == 'other')
-                                        <li
-                                            class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
-                                            <a href="{{ route('agent_list') }}">Agents</a>
-                                        </li>
-                                    @endif
+                                    <li
+                                        class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
+                                        <a href="{{ route('agent_list') }}">Agents</a>
+                                    </li>
                                 @endauth
                                 <li
                                     class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if (isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ isset($active) && $active == 'marketing_branding' ? 'active selected' : '' }}">
@@ -889,6 +920,18 @@
                                                href="{{  url('general/form/leads/get-help-on-why-my-listing-isnt-moving')  }}">Get
                                                 Help on Why My Listing Isn't Moving</a>
                                         </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'mls_listing_cancellation' ? 'active_submenu' : '' }}"
+                                               href="{{  url('general/form/leads/mls-cancellation')  }}">Request
+                                                MLS Listing Cancellation
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'request_credit_letter_for_transaction' ? 'active_submenu' : '' }}"
+                                               href="{{  url('general/form/leads/request-credit-letter-for-transaction')  }}">Request
+                                                Credit Letter For A Transaction
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="row m-0">
@@ -1033,11 +1076,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         @endif
-        <div class="col p-0 m-0">
-            <main class="">
+        <div id="content" class="col p-0 m-0 position-relative">
+            <main>
                 @yield('content')
             </main>
         </div>
@@ -1060,7 +1102,75 @@
 <script src="{{ asset('js/axios.js') }}"></script>
 <script>
     var cmaApiCredentials = JSON.parse(JSON.stringify(<?php echo json_encode($cmaApiCredentails); ?>))
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('content');
+        const toggleBtn = document.getElementById('toggle-btn');
+
+        const isDesktop = window.innerWidth > 768; // 768px is the typical breakpoint for mobile
+
+        let sidebarOpen;
+
+        if (isDesktop) {
+            sidebarOpen = localStorage.getItem('sidebarOpen');
+            if (sidebarOpen === null) {
+                sidebarOpen = 'true'; // Default open on desktop if no value found
+                localStorage.setItem('sidebarOpen', sidebarOpen);
+            }
+        } else {
+            // On mobile, set the sidebar to be closed initially
+            sidebarOpen = 'false';
+        }
+
+        // Initialize sidebar and button text based on the stored preference
+        if (sidebarOpen === 'true') {
+            sidebar.classList.remove('d-none');
+            sidebar.classList.add('d-lg-flex');
+            content.classList.remove('col-lg-12');
+            content.classList.add('col-lg-9');
+            toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg>`;
+            toggleBtn.style.left = '347px'
+        } else {
+            sidebar.classList.add('d-none');
+            sidebar.classList.remove('d-lg-flex');
+            content.classList.remove('col-lg-9');
+            content.classList.add('col-lg-12');
+            toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+</svg>`;
+            toggleBtn.style.left = '0'
+        }
+
+        // Add event listener for the toggle button
+        toggleBtn.addEventListener('click', function () {
+            if (sidebar.classList.contains('d-none')) {
+                sidebar.classList.remove('d-none');
+                sidebar.classList.add('d-lg-flex');
+                content.classList.remove('col-lg-12');
+                content.classList.add('col-lg-9');
+                toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg>`;
+                localStorage.setItem('sidebarOpen', 'true');
+                toggleBtn.style.left = '347px'
+            } else {
+                sidebar.classList.add('d-none');
+                sidebar.classList.remove('d-lg-flex');
+                content.classList.remove('col-lg-9');
+                content.classList.add('col-lg-12');
+                toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+</svg>`;
+                localStorage.setItem('sidebarOpen', 'false');
+                toggleBtn.style.left = '0'
+            }
+        });
+    });
 </script>
+
 @if (Route::currentRouteName() != 'optin.agents.index' &&
         Route::currentRouteName() != 'office.locations' &&
         Route::currentRouteName() != 'showing.agents.index' &&

@@ -30,6 +30,7 @@ class AddRequest extends FormRequest
             'verbiages_text' => 'nullable',
             'price' => 'nullable|numeric',
             'sale_price' => 'nullable|numeric',
+            'notify_email' => 'nullable|email',
             'stock' => 'required',
             'preview_image' => 'nullable|image',
             'categories' => 'required|array',

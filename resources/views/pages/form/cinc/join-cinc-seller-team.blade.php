@@ -134,19 +134,19 @@
                 </form>
                 <form action="{{ route('getCsv') }}" method="post" id="csv">
                     @csrf
-                    <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="title" value="ZILLOW BUYER LEADS WEEKLY UPDATE">
                 </form>
                 <form action="{{ route('deleteSubmissions') }}" method="POST" id="deleteSubmissions">
                     @csrf
                     @method('delete')
-                    <input type="hidden" name="title" value="ZILLOW LEADS WEEKLY UPDATE">
+                    <input type="hidden" name="title" value="ZILLOW BUYER LEADS WEEKLY UPDATE">
                 </form>
             </div>
         </div>
     </div>
 
     <script>
-        function canSubmitForm (select) {
+        function canSubmitForm(select) {
             const input = $(select).val()
             if (input == 'Part Time') {
                 $('#submit-button').addClass('d-none')

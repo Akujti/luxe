@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
+use App\Http\Requests\User\AddRequest;
+use App\Http\Requests\User\DeleteRequest;
+use App\Http\Requests\User\NoteRequest;
+use App\Http\Requests\User\UpdateProfileRequest;
+use App\Http\Requests\User\UpdateRequest;
+use App\Mail\ShowingAgentRequestMailTemplate;
+use App\Models\CustomSection;
 use App\Models\User;
 use App\Models\UserNote;
 use App\Models\UserProfile;
-use Illuminate\Support\Str;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\User\AddRequest;
-use App\Http\Requests\User\NoteRequest;
-use App\Http\Requests\User\DeleteRequest;
-use App\Http\Requests\User\UpdateRequest;
-use App\Http\Requests\User\UpdateProfileRequest;
-use App\Mail\ShowingAgentRequestMailTemplate;
-use App\Models\CustomSection;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller
@@ -107,9 +107,19 @@ class UserController extends Controller
         return view('pages.agent-profile', compact('user', 'orders', 'notes'));
     }
 
-    public function agent_list()
+    public function agent_list(Request $request)
     {
-        $users = User::where('role', 'agent')->latest()->paginate(20);
+        $users = User::select('users.*') // Select all columns from users
+        ->join('user_profile', 'users.id', '=', 'user_profile.user_id') // Join with user_profile
+        ->where('users.role', 'agent') // Filter by role
+        ->when($request->query('name'), function ($q, $r) {
+            $q->where('user_profile.fullname', 'like', $r . '%'); // Filter by fullname
+        })
+            ->when($request->query('email'), function ($q, $r) {
+                $q->where('users.email', 'like', $r . '%'); // Filter by email
+            })
+            ->orderBy('user_profile.fullname') // Order by fullname
+            ->paginate(20);
 
         return view('pages.list-of-agents', compact('users'));
     }
@@ -149,6 +159,9 @@ class UserController extends Controller
                 'fullname' => $req->profile['fullname'],
                 'address' => $req->profile['address'],
                 'phone' => $req->profile['phone'],
+                'facebook' => $req->profile['facebook'],
+                'instagram' => $req->profile['instagram'],
+                'linkedin' => $req->profile['linkedin'],
                 'languages' => json_encode($languageJson),
                 'avatar' => $image,
                 'support_specialists' => $req->profile['support_specialists'],
@@ -207,6 +220,9 @@ class UserController extends Controller
                     'address' => $req->profile['address'],
                     'service_areas' => $req->profile['service_areas'],
                     'phone' => $req->profile['phone'],
+                    'facebook' => $req->profile['facebook'],
+                    'instagram' => $req->profile['instagram'],
+                    'linkedin' => $req->profile['linkedin'],
                     'languages' => json_encode($languageJson),
                     'avatar' => $image,
                     'support_specialists' => $req->profile['support_specialists'] ? $req->profile['support_specialists'] : $row->profile->support_specialists,

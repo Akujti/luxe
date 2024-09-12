@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Form\UpdateFormRequest;
+use App\Http\Requests\Form\UpdateRequest;
+use App\Models\AgentTransaction;
 use App\Models\CMA\CmaReport;
 use App\Models\CMA\CmaReportListing;
-use Carbon\Carbon;
-use App\Models\Form;
-use App\Models\EmailsForm;
-use App\Models\FormSubmit;
-use Illuminate\Http\Request;
 use App\Models\CustomSection;
-use App\Models\AgentTransaction;
-use App\Jobs\OrderStatusNotCompleted;
-use App\Http\Requests\Form\UpdateRequest;
-use App\Http\Requests\Form\UpdateFormRequest;
-use App\Jobs\OrderStatusTest;
-use App\Models\LuxeStore\Order\LuxeStoreOrder;
+use App\Models\Form;
+use App\Models\FormSubmit;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class AdminController extends Controller
@@ -25,7 +21,8 @@ class AdminController extends Controller
         $stats = $this->stats();
         $news_feed = CustomSection::whereTitle('News Feed')->first();
         $showing_agents = CustomSection::whereTitle('Showing Agents')->first();
-        return view('admin.index', compact('stats', 'news_feed', 'showing_agents'));
+        $coming_soon_email_subscribed = User::where('coming_soon_notifications', true)->count();
+        return view('admin.index', compact('stats', 'news_feed', 'showing_agents', 'coming_soon_email_subscribed'));
     }
 
     public function forms()
