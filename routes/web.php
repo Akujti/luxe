@@ -650,3 +650,6 @@ Route::group(['prefix' => 'themes', 'middleware' => ['auth']], function () {
 Route::get('testjob', [AdminController::class, 'testjob']);
 
 Route::get('/cma-report/show-report/{report}', [CMAController::class, 'showReport'])->name('cma.showReport');
+
+
+

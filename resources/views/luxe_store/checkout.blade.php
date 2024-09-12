@@ -54,17 +54,17 @@
                             <div class="col-6 form-group">
                                 <label for="">Agent name*</label>
                                 <input type="text" name="billing[agent_name]" class="form-control" required
-                                    value="{{ $info->agent_name }}">
+                                       value="{{ $info->agent_name }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Agent surname*</label>
                                 <input type="text" name="billing[agent_surname]" class="form-control" required
-                                    value="{{ $info->agent_surname }}">
+                                       value="{{ $info->agent_surname }}">
                             </div>
                             <div class="col-6 form-group d-none">
                                 <label for="">Company name*</label>
                                 <input type="text" name="billing[company_name]" class="form-control" required
-                                    value="LUXE">
+                                       value="LUXE">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Country*</label>
@@ -324,32 +324,32 @@
                             <div class="col-6 form-group">
                                 <label for="">Street Address*</label>
                                 <input type="text" name="billing[street_address]" class="form-control" required
-                                    value="{{ $info->street_address }}">
+                                       value="{{ $info->street_address }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">City*</label>
                                 <input type="text" name="billing[city]" class="form-control" required
-                                    value="{{ $info->city }}">
+                                       value="{{ $info->city }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">State</label>
                                 <input type="text" name="billing[state]" class="form-control" required
-                                    value="{{ $info->state }}">
+                                       value="{{ $info->state }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Zip code*</label>
                                 <input type="text" name="billing[zip_code]" class="form-control" required
-                                    value="{{ $info->zip }}">
+                                       value="{{ $info->zip }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Phone*</label>
                                 <input type="text" name="billing[phone]" class="form-control" required
-                                    value="{{ $info->phone }}">
+                                       value="{{ $info->phone }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Email*</label>
                                 <input type="text" name="billing[email]" class="form-control" required
-                                    value="{{ $info->email }}">
+                                       value="{{ $info->email }}">
                             </div>
                             <h5 class="pl-3 w-100">Additional information</h5>
                             <div class="col-12 form-group">
@@ -360,7 +360,7 @@
 
                         <div>
                             <input type="checkbox" name="same_as_billing" id="same_as_billing" checked=""
-                                onchange="address()">&nbsp;Shipping details same as billing details
+                                   onchange="address()">&nbsp;Shipping details same as billing details
                         </div>
                         <div class="mt-5"></div>
 
@@ -369,22 +369,22 @@
                             <div class="col-6 form-group">
                                 <label for="">Agent name*</label>
                                 <input type="text" name="shipping[agent_name]" class="form-control" required
-                                    value="{{ $info->shipping_agent_name ? $info->shipping_agent_name : '-' }}">
+                                       value="{{ $info->shipping_agent_name ? $info->shipping_agent_name : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Agent surname*</label>
                                 <input type="text" name="shipping[agent_surname]" class="form-control" required
-                                    value="{{ $info->shipping_agent_surname ? $info->shipping_agent_surname : '-' }}">
+                                       value="{{ $info->shipping_agent_surname ? $info->shipping_agent_surname : '-' }}">
                             </div>
                             <div class="col-6 form-group d-none">
                                 <label for="">Company name*</label>
                                 <input type="text" name="shipping[company_name]" class="form-control" required
-                                    value="LUXE">
+                                       value="LUXE">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Country*</label>
                                 <select name="shipping[country]" id="billing_country" class="form-control"
-                                    value="US" required>
+                                        value="US" required>
                                     <option value="">Select a country / region…</option>
                                     <option value="AF">Afghanistan</option>
                                     <option value="AX">Åland Islands</option>
@@ -640,32 +640,32 @@
                             <div class="col-6 form-group">
                                 <label for="">Street Address*</label>
                                 <input type="text" name="shipping[street_address]" class="form-control" required
-                                    value="{{ $info->shipping_street_address ? $info->shipping_street_address : '-' }}">
+                                       value="{{ $info->shipping_street_address ? $info->shipping_street_address : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">City*</label>
                                 <input type="text" name="shipping[city]" class="form-control" required
-                                    value="{{ $info->shipping_city ? $info->shipping_city : '-' }}">
+                                       value="{{ $info->shipping_city ? $info->shipping_city : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">State</label>
                                 <input type="text" name="shipping[state]" class="form-control" required
-                                    value="{{ $info->shipping_state ? $info->shipping_state : '-' }}">
+                                       value="{{ $info->shipping_state ? $info->shipping_state : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Zip code*</label>
                                 <input type="text" name="shipping[zip_code]" class="form-control" required
-                                    value="{{ $info->shipping_zip ? $info->shipping_zip : '-' }}">
+                                       value="{{ $info->shipping_zip ? $info->shipping_zip : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Phone*</label>
                                 <input type="text" name="shipping[phone]" class="form-control" required
-                                    value="{{ $info->shipping_phone ? $info->shipping_phone : '-' }}">
+                                       value="{{ $info->shipping_phone ? $info->shipping_phone : '-' }}">
                             </div>
                             <div class="col-6 form-group">
                                 <label for="">Email*</label>
                                 <input type="text" name="shipping[email]" class="form-control" required
-                                    value="{{ $info->shipping_email ? $info->shipping_email : '-' }}">
+                                       value="{{ $info->shipping_email ? $info->shipping_email : '-' }}">
                             </div>
                             <h5 class="pl-3">Additional information</h5>
                             <div class="col-12 form-group">
@@ -683,7 +683,7 @@
                             @foreach ($cart_data as $key => $product)
                                 <div class="w-100 d-flex align-items-center mb-2">
                                     <img src="{{ asset('storage/' . $product['item']['preview_image']) }}" height="80px"
-                                        alt="">
+                                         alt="">
                                     <div class="ml-3">
                                         <p>{{ $product['item_name'] }}</p>
                                         <p>${{ $product['item_price'] }} x {{ $product['item_quantity'] }}</p>
@@ -717,7 +717,8 @@
                         @else
                             <div class="d-flex justify-content-center">
                                 <button type="button" onclick="submit_form()" id="btn-luxe-checkout"
-                                    class="btn-luxe w-100">Finish Order</button>
+                                        class="btn-luxe w-100">Finish Order
+                                </button>
                             </div>
                         @endif
                     </div>
@@ -738,22 +739,36 @@
                 height: 40,
                 tagline: 'false'
             },
-            createOrder: function(data, actions) {
+            createOrder: function (data, actions) {
+                var form = $('#form');
+                var formData = form.serialize(); // Serialize form data
 
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '<?php echo json_decode($total_price); ?>'
-                        }
-                    }]
-                });
+                return axios.post('{{ route('luxe_store.order.create') }}', formData)
+                    .then(function (response) {
+                        console.log(response.data)
+                        let reference_id = response.data.order_id;
+                        // Return the PayPal order creation with the reference_id
+                        return actions.order.create({
+                            purchase_units: [{
+                                reference_id: reference_id,
+                                amount: {
+                                    value: '<?php echo json_decode($total_price); ?>'
+                                }
+                            }],
+                            reference_id: reference_id,
+                        });
+                    })
+                    .catch(function (error) {
+                        console.log(error.response.data)
+                        return false
+                        $('#btn-luxe-checkout').prop('disabled', false);
+                        throw new Error('Order creation failed.'); // Ensure PayPal knows the order creation failed
+                    });
             },
-            onInit: function(data, actions) {
+            onInit: function (data, actions) {
                 // actions.disable();
                 document.querySelectorAll('input').forEach(item => {
                     item.addEventListener('input', () => {
-                        console.log('validity', document.getElementById("form")
-                            .checkValidity());
                         if (document.getElementById("form").checkValidity()) {
                             actions.enable();
                         } else {
@@ -762,12 +777,12 @@
                     });
                 });
             },
-            onClick: function() {
+            onClick: function () {
                 document.getElementById("form").reportValidity()
             },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    document.getElementById("form").submit();
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    window.location.href = "{{ route('luxe_store.thank_you') }}";
                 });
             }
         }).render('#paypal-button-container');

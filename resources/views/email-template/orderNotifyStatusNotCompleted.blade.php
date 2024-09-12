@@ -81,10 +81,12 @@
         </div>
 
         <div>
-            <p>Order Status: <b class="bold-text">{{ $details->status }}</b></p>
-            <hr>
-            <p>Order Last Updated At: <b class="bold-text">{{ $details->updated_at }}</b></p>
-            <hr>
+            @if($details->status !== 'Not Paid')
+                <p>Order Status: <b class="bold-text">{{ $details->status }}</b></p>
+                <hr>
+                  <p>Order Last Updated At: <b class="bold-text">{{ $details->updated_at }}</b></p>
+            @endif
+
             <p>Created Time: <b class="bold-text">{{ $details->created_at }}</b></p>
             <hr>
             <p>Order By: <b

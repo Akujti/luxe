@@ -96,8 +96,10 @@
                     <p class="text-center">Examples: Brand package, custom designs, logos</p>
                 @endif
                 <div>
-                    <p>Order Status: <b class="bold-text">{{ $details->status }}</b></p>
-                    <hr>
+                    @if($details->status !== 'Not Paid')
+                        <p>Order Status: <b class="bold-text">{{ $details->status }}</b></p>
+                        <hr>
+                    @endif
                     <p>Created Time: <b class="bold-text">{{ $details->created_at }}</b></p>
                     <hr>
                     <p>Order By: <b

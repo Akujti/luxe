@@ -78,33 +78,45 @@
                         @method('PUT')
                         <div>
                             <select class="form-control" name="status" id="select-status"
-                                onchange="toggleBtnSave('save-btn')">
-                                <option value="Pending" {{ $order->status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                    onchange="toggleBtnSave('save-btn')">
+                                <option value="Not Paid" {{ $order->status == 'Not Paid' ? 'selected' : '' }}>Not Paid
+                                </option>
+                                <option value="Pending" {{ $order->status == 'Pending' ? 'selected' : '' }}>Pending
+                                </option>
                                 <option value="Paid" {{ $order->status == 'Paid' ? 'selected' : '' }}>Paid</option>
                                 <option value="Request Info" {{ $order->status == 'Request Info' ? 'selected' : '' }}>
-                                    Request Info</option>
-                                <option value="Updated Info" {{ $order->status == 'Updated Info' ? 'selected' : '' }}>
-                                    Updated Info</option>
-                                <option value="Shipped" {{ $order->status == 'Shipped' ? 'selected' : '' }}>Shipped</option>
-                                <option value="Delivered" {{ $order->status == 'Delivered' ? 'selected' : '' }}>Delivered
+                                    Request Info
                                 </option>
-                                <option value="Completed" {{ $order->status == 'Completed' ? 'selected' : '' }}>Completed
+                                <option value="Updated Info" {{ $order->status == 'Updated Info' ? 'selected' : '' }}>
+                                    Updated Info
+                                </option>
+                                <option value="Shipped" {{ $order->status == 'Shipped' ? 'selected' : '' }}>Shipped
+                                </option>
+                                <option value="Delivered" {{ $order->status == 'Delivered' ? 'selected' : '' }}>
+                                    Delivered
+                                </option>
+                                <option value="Completed" {{ $order->status == 'Completed' ? 'selected' : '' }}>
+                                    Completed
                                 </option>
                                 <option value="New" {{ $order->status == 'New' ? 'selected' : '' }}>New
                                 </option>
-                                <option value="In Production" {{ $order->status == 'In Production' ? 'selected' : '' }}>In
+                                <option value="In Production" {{ $order->status == 'In Production' ? 'selected' : '' }}>
+                                    In
                                     Production
                                 </option>
                                 <option value="Proof Sent" {{ $order->status == 'Proof Sent' ? 'selected' : '' }}>Proof
                                     Sent
                                 </option>
                             </select>
-                            <textarea class="form-control mt-2 {{ $order->status != 'Request Info' ? 'd-none' : '' }}" name="request_info"
-                                id="textarea-request-info" placeholder="Enter Request Info text">{{ $order->request_info }}</textarea>
+                            <textarea class="form-control mt-2 {{ $order->status != 'Request Info' ? 'd-none' : '' }}"
+                                      name="request_info"
+                                      id="textarea-request-info"
+                                      placeholder="Enter Request Info text">{{ $order->request_info }}</textarea>
                             <!-- <button class="btn btn-luxe px-5 py-2" type="submit">Set as completed</button> -->
                             <button
                                 class="btn btn-luxe px-5 py-2 mt-2 {{ $order->status != 'Request Info' ? 'd-none' : '' }}"
-                                id="save-btn" type="submit">Save</button>
+                                id="save-btn" type="submit">Save
+                            </button>
                         </div>
                     </form>
                 @endif
@@ -155,7 +167,8 @@
                             </p>
 
                             <label>Phone:</label>
-                            <p><a href="tel:{{ $order->billing_details->phone }}">{{ $order->billing_details->phone }}</a>
+                            <p>
+                                <a href="tel:{{ $order->billing_details->phone }}">{{ $order->billing_details->phone }}</a>
                             </p>
                         </div>
                     </div>
@@ -192,30 +205,30 @@
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th id="th-row">Item</th>
-                                    <th id="th-row" width="1%">Cost</th>
-                                    <th id="th-row" width="1%">Qty</th>
-                                    <th id="th-row" width="1%">Total</th>
-                                </tr>
+                            <tr>
+                                <th id="th-row">Item</th>
+                                <th id="th-row" width="1%">Cost</th>
+                                <th id="th-row" width="1%">Qty</th>
+                                <th id="th-row" width="1%">Total</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                @forelse($order->products as $order_product)
-                                    <tr>
-                                        <td><img width="75px"
-                                                src="{{ asset('storage/' . $order_product->product->preview_image) }}"
-                                                alt=""> {{ $order_product->product->name }}
-                                            {{ $order_product->variant_name ? ' - ' . $order_product->variant_value : '' }}
-                                        </td>
-                                        <td width="1%">${{ $order_product->price }}</td>
-                                        <td width="1%">{{ $order_product->quantity }}</td>
-                                        <td width="1%">${{ $order_product->price * $order_product->quantity }}</td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="4">No Products Found.</td>
-                                    </tr>
-                                @endforelse
+                            @forelse($order->products as $order_product)
+                                <tr>
+                                    <td><img width="75px"
+                                             src="{{ asset('storage/' . $order_product->product->preview_image) }}"
+                                             alt=""> {{ $order_product->product->name }}
+                                        {{ $order_product->variant_name ? ' - ' . $order_product->variant_value : '' }}
+                                    </td>
+                                    <td width="1%">${{ $order_product->price }}</td>
+                                    <td width="1%">{{ $order_product->quantity }}</td>
+                                    <td width="1%">${{ $order_product->price * $order_product->quantity }}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4">No Products Found.</td>
+                                </tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -240,29 +253,29 @@
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th id="th-row">Name</th>
-                                    <th id="th-row">Value</th>
-                                </tr>
+                            <tr>
+                                <th id="th-row">Name</th>
+                                <th id="th-row">Value</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                @forelse($order->inputs as $field)
-                                    <tr>
-                                        <td>{{ $field->input_name }}</td>
-                                        <td>
-                                            @if ($field->is_file)
-                                                <a href="{{ asset('storage/' . $field->input_value) }}" download="">Click
-                                                    here to download</a>
-                                            @else
-                                                {{ $field->input_value }}
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="2">No Fields Found.</td>
-                                    </tr>
-                                @endforelse
+                            @forelse($order->inputs as $field)
+                                <tr>
+                                    <td>{{ $field->input_name }}</td>
+                                    <td>
+                                        @if ($field->is_file)
+                                            <a href="{{ asset('storage/' . $field->input_value) }}" download="">Click
+                                                here to download</a>
+                                        @else
+                                            {{ $field->input_value }}
+                                        @endif
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="2">No Fields Found.</td>
+                                </tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
