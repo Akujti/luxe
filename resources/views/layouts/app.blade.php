@@ -804,6 +804,10 @@
                                                href="{{ url('/general/form/other/marketing-menu') }}">Marketing
                                                 Menu &
                                                 Services</a></li>
+                                        <li>
+                                            <a class="{{ isset($subactive) && $subactive == 'luxe_listing_incentives' ? 'active_submenu' : '' }}"
+                                               href="{{ route('luxe-listing-incentives') }}">Luxury Listing
+                                                Incentives</a></li>
                                     </ul>
                                 </li>
                                 <li

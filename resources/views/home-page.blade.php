@@ -317,7 +317,7 @@
                                         <div class="bg-box" onclick="window.open('{{ $sso['url'] }}','_blank')">
                                             <div>
                                                 <img src="/images/index-page/sso/{{$sso['icon']}}" class="icon" alt="">
-                                                {{--                                                <p>{{$sso['name']}}</p>--}}
+                                                <p>{{$sso['name']}}</p>
                                             </div>
                                         </div>
                                     @endforeach
@@ -1323,6 +1323,7 @@
 
 
 
+
                 @endforeach
                 </div>
 
@@ -1705,6 +1706,7 @@
 
 
 
+
                     @endforeach
                 @endforeach
                 </div>
@@ -1712,6 +1714,7 @@
                                     <img src="{{ asset('storage/' . $diy->image) }}" alt="">
                                 </p> --}}
                 </div>
+
 
 
 
