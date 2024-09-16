@@ -49,6 +49,20 @@
                                     <textarea name="what_is_your_feedback_from_showings" class="form-control"
                                               required></textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="how_many_days_on_the_market">How many days on the market?</label>
+                                    <input type="number" id="how_many_days_on_the_market"
+                                           name="how_many_days_on_the_market"
+                                           class="form-control mb-3" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="what_is_the_average_days_on_market_for_this_area">What is average days
+                                        on market for this area/building?</label>
+                                    <input type="number" id="what_is_the_average_days_on_market_for_this_area"
+                                           name="what_is_the_average_days_on_market_for_this_area"
+                                           class="form-control mb-3" required>
+                                </div>
+
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">What Marketing Have You Done? Select All That Apply</label>
@@ -112,7 +126,18 @@
                                                name="marketing[]">Other
                                     </label>
                                 </div>
+
+                                <div class="form-group mt-2">
+                                    <label for="have_you_received_any_offers">Have you received any offers?</label>
+                                    <select type="text" id="have_you_received_any_offers"
+                                            name="have_you_received_any_offers" class="form-control" required>
+                                        <option value>-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
                             </div>
+
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                             </div>
@@ -124,7 +149,7 @@
     </div>
 
     <script>
-        function showInput (param) {
+        function showInput(param) {
             const val = $(param).val()
             if (val == 'Other') {
                 $('#provide-type-div').removeClass('d-none')

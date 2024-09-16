@@ -694,7 +694,7 @@
         </div>
 
     </header>
-    <div id="app" class="row d-flex w-100 m-0 position-relative">
+    <div id="app" class="row d-flex flex-nowrap w-100 m-0 position-relative">
         @if (auth()->user())
             <button id="toggle-btn" class="toggle-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"

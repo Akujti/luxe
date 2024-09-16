@@ -423,20 +423,32 @@
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox"
-                                           data-price="{{ auth()->user()->is_platinum_tier ? 0 : 325 }}" id="option-9"
-                                           name="add-ons[]" value="Zillow Showcase">
+                                           data-price="{{ auth()->user()->is_platinum_tier ? 0 : 325 }}"
+                                           id="option-9" name="add-ons[]" value="Zillow Showcase">
                                     <label class="form-check-label font-weight-normal" for="option-9">
                                         Zillow Showcase - $325
                                         <br>
-                                        <small>By choosing Zillow Showcase the 3D Zillow
-                                            Tour and Floorplan will be automatically select because these are required
-                                            to be displayed as a zillow
-                                            showcase</small>
+                                        <small>By choosing Zillow Showcase, the 3D Zillow Tour and Floorplan will be
+                                            automatically selected because they are required to be displayed as a Zillow
+                                            showcase.</small>
                                     </label>
                                 </div>
                             </div>
-
-                            {{--                            <button type="button" onclick="toggleModal()">Modal</button> --}}
+                            @if(!auth()->user()->is_platinum_tier)
+                                <div class="form-group col-md-6 d-none"
+                                     id="would_you_like_to_pay_the_showcase_credit_upfront_container">
+                                    <label for="would_you_like_to_pay_the_showcase_credit_upfront">Would you like to pay
+                                        the
+                                        showcase credit upfront?</label>
+                                    <select id="would_you_like_to_pay_the_showcase_credit_upfront" required
+                                            name="would_you_like_to_pay_the_showcase_credit_upfront"
+                                            class="form-control">
+                                        <option value>-</option>
+                                        <option value="Pay Now">Pay Now</option>
+                                        <option value="Pay at Closing">Pay at Closing</option>
+                                    </select>
+                                </div>
+                            @endif
 
                             <div class="form-group form-footer col-12">
                                 <input id="total" type="hidden" name="total" value="$0">
@@ -529,37 +541,69 @@
         $(document).ready(function () {
             $('#option-9').change(function () {
                 if (this.checked) {
-                    $('#option-7').prop('checked', true)
-                    $('#option-8').prop('checked', true)
+                    // Show the "Would you like to pay upfront?" dropdown
+                    $('#payment-options-container').show();
 
-                    $('#option-7').attr('disabled', true)
-                    $('#option-8').attr('disabled', true)
-                    proxy.value = false; // Update using proxy
+                    // Automatically select the dependent checkboxes and disable them
+                    $('#option-7').prop('checked', true).attr('disabled', true);
+                    $('#option-8').prop('checked', true).attr('disabled', true);
+
+                    $('#would_you_like_to_pay_the_showcase_credit_upfront_container').removeClass('d-none')
+                    $('#would_you_like_to_pay_the_showcase_credit_upfront').prop('required', true)
+                    proxy.value = false
+
                 } else {
-                    $('#option-7').attr('disabled', false)
-                    $('#option-8').attr('disabled', false)
+                    // Hide the payment options and reset the dropdown
+                    $('#payment-options-container').hide();
+                    $('#would_you_like_to_pay_the_showcase_credit_upfront').val();
+                    $('#would_you_like_to_pay_the_showcase_credit_upfront_container').addClass('d-none')
+                    $('#would_you_like_to_pay_the_showcase_credit_upfront').prop('required', false)
+
+                    // Enable dependent checkboxes
+                    $('#option-7').attr('disabled', false);
+                    $('#option-8').attr('disabled', false);
                 }
+
+                // Recalculate the total price
+                calculate();
             })
-        })
+        });
+
+        $('#would_you_like_to_pay_the_showcase_credit_upfront').change(function () {
+            // Recalculate when the dropdown value changes
+            calculate();
+        });
 
         function calculate() {
-            var total = 0
-            var status = {{ auth()->user()->status }};
-            var elements = $('input[id^="option-"]:checked, select[id^="option-"] option:selected').toArray()
+            var total = 0;
+            var elements = $('input[id^="option-"]:checked').toArray();
+            var payLater = $('#would_you_like_to_pay_the_showcase_credit_upfront').val() === 'Pay at Closing';
+
             elements.forEach(element => {
-                if (element.getAttribute('data-price'))
-                    total += Number(element.getAttribute('data-price'))
-            })
+                var price = Number($(element).attr('data-price'));
 
-            amount = total
+                // If Zillow Showcase is selected but the user chose "Pay at Closing," don't add its price
+                if ($(element).attr('id') === 'option-9' && payLater) {
+                    return; // Skip adding $325 if "Pay at Closing" is selected
+                }
 
-            if (amount == 0) {
-                $('#submit-btn').removeClass('d-none')
-                $('#paypal-button-container').addClass('d-none')
+                if (!isNaN(price)) {
+                    total += price;
+                }
+            });
+
+            // Update the total amount displayed
+            $('#total').val(`$${total}`);
+
+            // Handle submission buttons visibility
+            if (total === 0) {
+                $('#submit-btn').removeClass('d-none');
+                $('#paypal-button-container').addClass('d-none');
             } else {
-                $('#paypal-button-container').removeClass('d-none')
-                $('#submit-btn').addClass('d-none')
+                $('#paypal-button-container').removeClass('d-none');
+                $('#submit-btn').addClass('d-none');
             }
+            amount = total
         }
 
         paypal.Buttons({
@@ -599,7 +643,6 @@
             },
             onClick: function (data, actions) {
                 if (!document.getElementById('photo-form').checkValidity()) {
-                    console.log('here')
                     document.getElementById('photo-form').reportValidity()
                 }
                 if (proxy.value) {
@@ -608,8 +651,7 @@
             },
             onApprove: function (data, actions) {
                 return actions.order.capture().then(function (details) {
-                    var transactionId = details.id
-                    document.getElementById('transaction_id').value = transactionId
+                    document.getElementById('transaction_id').value = details.id
                     document.getElementById('photo-form').submit()
                 })
             }
