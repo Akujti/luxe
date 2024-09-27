@@ -1,21 +1,7 @@
 @extends('layouts.app', ['active' => 'leads_services_support', 'subactive' => 'request_listing_closing_coordinators'])
 @section('css')
     <style>
-        body {
-            height: 100vh;
-        }
-
-        main,
-        #app {
-            height: 100%;
-        }
-
-        main {
-            display: flex;
-            align-items: center;
-        }
-
-        .card-header {
+        .card-header-luxe {
             font-size: 18px;
             color: #ffffff;
             line-height: 22px;
@@ -70,7 +56,7 @@
                     @if ($coordinator->status)
                         <div class="bg-transparent">
                             <a href="{{ route('closing-coordinator', $coordinator->id) }}">
-                                <div class="card-header">
+                                <div class="card-header-luxe">
                                     <img src="{{ asset($coordinator->image) }}" alt="" class="w-100">
                                     <p class="agent-name">{{ $coordinator->name }}</p>
                                 </div>
@@ -78,7 +64,7 @@
                         </div>
                     @else
                         <div class="bg-transparent">
-                            <div class="card-header">
+                            <div class="card-header-luxe">
                                 <img src="{{ asset($coordinator->image) }}" alt="" class="w-100">
                                 <p class="agent-name">Sorry this closing coordinator is not taking any files at the moment
                                 </p>
