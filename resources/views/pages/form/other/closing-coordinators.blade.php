@@ -124,7 +124,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Who are you representing? </label>
-                                <select name="who_are_you_representing" class="form-select" required>
+                                <select name="who_are_you_representing" class="form-control" required>
                                     <option value>-</option>
                                     <option value="Buyer">Buyer</option>
                                     <option value="Seller">Seller</option>
