@@ -1,23 +1,23 @@
 @extends('layouts.app')
+@section('css')
+    <style>
+        .container {
+            height: 88vh;
+        }
 
-<style>
-    .container {
-        height: 88vh;
-    }
+        .container * {
+            font-family: "gothicregular";
+        }
 
-    .container * {
-        font-family: "gothicregular";
-    }
+        h1 {
+            font-size: 4rem !important
+        }
 
-    h1 {
-        font-size: 4rem !important
-    }
-
-    p {
-        font-size: 2rem
-    }
-
-</style>
+        p {
+            font-size: 2rem
+        }
+    </style>
+@endsection
 @section('content')
     <div class="container">
         <div class="row align-items-center h-100">

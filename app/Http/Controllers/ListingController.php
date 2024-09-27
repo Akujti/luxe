@@ -17,22 +17,32 @@ class ListingController extends Controller
     public function index(Request $request)
     {
         $filters = [
+            'price_min' => $request->get('price_min'),
+            'price_max' => $request->get('price_max'),
             'price' => $request->get('price'),
+            'street' => $request->get('street'),
             'zip' => $request->get('zip'),
             'type' => $request->get('type'),
         ];
+
         $listings = Listing::where(function ($query) use ($filters) {
-            if ($filters['price']) {
+            if ($filters['price_min'])
+                $query->where('price', '>=', $filters['price_min']);
+            if ($filters['price_max'])
+                $query->where('price', '<=', $filters['price_max']);
+
+            if ($filters['price'])
                 $query->where('price', $filters['price']);
-            }
-            if ($filters['zip']) {
+            if ($filters['street'])
+                $query->where('address', 'like', '%' . $filters['street'] . '%');
+            if ($filters['zip'])
                 $query->where('address', 'like', '%' . $filters['zip'] . '%');
-            }
-            if ($filters['type']) {
+            if ($filters['type'])
                 $query->where('type', $filters['type']);
-            }
         })->with('user', 'user.profile')->latest()->paginate(20);
         $listings_all = Listing::with('user', 'user.profile')->get();
+        if ($request->expectsJson())
+            return response()->json($listings);
         return view('listings.index', compact('listings', 'listings_all'));
     }
 

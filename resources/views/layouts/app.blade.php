@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @yield('css')
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
@@ -15,12 +16,13 @@
     <!-- Tidio live chat script -->
 
     <script src="//code.tidio.co/frrxptsvozhi8x0bfw3gg5xbrc3leqdo.js" async></script>
+
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- Fonts -->
@@ -30,13 +32,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     {{-- @toastr_css --}}
-    @yield('css')
     <script>
-        (function (d) {
+        (function(d) {
             var s = d.createElement('script')
             /* uncomment the following line to override default position*/
             s.setAttribute('data-position', 2)
@@ -67,14 +68,16 @@
         position: fixed;
         top: 120px;
         border: none;
-        background-color: #262626; /* Green */
+        background-color: #262626;
+        /* Green */
         color: white;
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
         font-size: 16px;
         cursor: pointer;
-        z-index: 1000; /* Ensure it's on top */
+        z-index: 1000;
+        /* Ensure it's on top */
         border-radius: 0 20px 20px 0;
         display: none;
     }
@@ -92,13 +95,13 @@
     @font-face {
         font-family: "gothicbold";
         src: local("gothicbold"),
-        url("{{ asset('fonts/index-page/gothicbold.ttf') }}") format("truetype");
+            url("{{ asset('fonts/index-page/gothicbold.ttf') }}") format("truetype");
     }
 
     @font-face {
         font-family: "gothicregular";
         src: local("gothicregular"),
-        url("{{ asset('fonts/index-page/gothicregular.ttf') }}") format("truetype");
+            url("{{ asset('fonts/index-page/gothicregular.ttf') }}") format("truetype");
     }
 
     footer {
@@ -253,8 +256,7 @@
     }
 
     #search-input:focus {
-        ph
-        outline: none;
+        ph outline: none;
     }
 
     .search-box-mobile input {
@@ -388,6 +390,7 @@
 
 
     @media (max-width: 600px) {
+
         .grid-layout,
         .grid-layout-three {
             grid-template-columns: 100%;
@@ -421,7 +424,7 @@
         outline: none;
     }
 
-    #toast-container > div {
+    #toast-container>div {
         opacity: 1;
     }
 
@@ -457,233 +460,230 @@
 </style>
 
 <body>
-<div id="app">
-    <div id="loading" class="d-none">
-        <section class="paytm-loader"></section>
-    </div>
-    <header>
-        <div class="header">
-            <div class="container-flud">
-                <div class="row m-0">
-                    <div
-                        class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
-                        <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
-                            <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px"
-                                 alt="">
-                        </button>
-                    </div>
-                    <div
-                        class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
-                        <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="73px"></a>
-                    </div>
-                    <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
-                        <div class="contact-details">
-                            <div class="right-contactsd">
-                                <a href="{{ route('luxe_store.cart') }}" data-toggle="tooltip" data-placement="top"
-                                   title="Cart"><img src="/images/cart.svg" alt=""></a>
-                                <a href="{{ route('profile.my_profile') }}" data-toggle="tooltip"
-                                   data-placement="top" title="My Profile"><img src="/images/account-icon.svg"
-                                                                                alt=""></a>
-                                <div class="sidebar__item-menu search-box d-none">
-                                    <a href="#">
-                                        <form action="{{ route('user.search') }}" method="get" class="">
-                                            <input type="search" id="search-input" name="search"
-                                                   placeholder="Search and press Enter.">
-                                        </form>
-                                    </a>
-                                </div>
-                                <a href="#" onclick="toggleSearch()" data-toggle="tooltip"
-                                   data-placement="top" title="Search"><img src="/images/search-icon.svg"
-                                                                            alt=""></a>
-                                @auth
-                                    <a href="#" data-toggle="modal" data-target="#suggestionModal"><img
-                                            src="/images/suggestion.svg" alt=""></a>
-                                    <div class="modal fade modal-new" id="suggestionModal" tabindex="-1" role="dialog"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Submit A
-                                                        Suggestion</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <form action="{{ route('general.email.post') }}" method="POST"
-                                                      enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="modal-body">
-                                                        <input type="hidden" name="form_title"
-                                                               value="Submit A Suggestion">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="form-group">
-                                                                <label for="start">Agent Name</label>
-                                                                <div class='input-group'>
-                                                                    <input type="text" class="w-100 form-control"
-                                                                           name="agent_name" required
-                                                                           value="{{ auth()->user()->profile->fullname }}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="start">Agent Email</label>
-                                                                <div class='input-group'>
-                                                                    <input type="email" class="w-100 form-control"
-                                                                           name="agent_email"
-                                                                           required value="{{ auth()->user()->email }}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="start">Please write your suggestion
-                                                                    below</label>
-                                                                <div class='input-group'>
-                                                            <textarea class="w-100 form-control" required rows="4"
-                                                                      name="suggestion"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer pt-0">
-                                                        <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal">
-                                                            Cancel
-                                                        </button>
-                                                        <button type="submit" class="btn btn-luxe" id="save-event">
-                                                            Create
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#" data-toggle="modal" data-target="#reportModal"><img
-                                            src="/images/report.svg" alt="" width="32"></a>
-                                    <div class="modal fade modal-new" id="reportModal" tabindex="-1" role="dialog"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Report An Error</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <form action="{{ route('general.email.post') }}" method="POST"
-                                                      enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="modal-body">
-                                                        <input type="hidden" name="form_title"
-                                                               value="Report An Error">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="form-group">
-                                                                <input type="hidden" name="link"
-                                                                       value="{{Request::fullUrl()}}">
-                                                                <label for="start">Agent Name</label>
-                                                                <div class='input-group'>
-                                                                    <input type="text" class="w-100 form-control"
-                                                                           name="agent_name" required
-                                                                           value="{{ auth()->user()->profile->fullname }}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="start">Agent Email</label>
-                                                                <div class='input-group'>
-                                                                    <input type="email" class="w-100 form-control"
-                                                                           name="agent_email"
-                                                                           required value="{{ auth()->user()->email }}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="start">Please select type of error</label>
-                                                                <div class='input-group'>
-                                                                    <select name="error_type" required
-                                                                            class="w-100 form-control">
-                                                                        <option value>-</option>
-                                                                        <option
-                                                                            value="Error on submission form">
-                                                                            Error on submission form
-                                                                        </option>
-                                                                        <option
-                                                                            value="Download not working">
-                                                                            Download not working
-                                                                        </option>
-                                                                        <option
-                                                                            value="Video not working">Video not
-                                                                            working
-                                                                        </option>
-                                                                        <option
-                                                                            value="Issue checking out/paying">
-                                                                            Issue checking out/paying
-                                                                        </option>
-                                                                        <option
-                                                                            value="Incorrect sales volume">
-                                                                            Incorrect sales volume
-                                                                        </option>
-                                                                        <option value="Other">Other</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="start">Please provide details on the error
-                                                                    you are experiencing</label>
-                                                                <div class='input-group'>
-                                                            <textarea class="w-100 form-control" required rows="4"
-                                                                      name="suggestion"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer pt-0">
-                                                        <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal">
-                                                            Cancel
-                                                        </button>
-                                                        <button type="submit" class="btn btn-luxe" id="save-event">
-                                                            Create
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sidebar__item-menu">
-                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Logout">
-                                            <form action="{{ route('logout') }}" method="post" class="m-0">
-                                                @csrf
-                                                <button class="btn btn-link text-white p-0"><img
-                                                        src="/images/logout.svg" alt=""></button>
+    <div id="app">
+        <div id="loading" class="d-none">
+            <section class="paytm-loader"></section>
+        </div>
+        <header>
+            <div class="header">
+                <div class="container-flud">
+                    <div class="row m-0">
+                        <div
+                            class="col-3 col-md-3 align-items-center d-flex d-lg-none d-xl-none justify-content-center justify-content-md-end order-12 mr-0 pr-0">
+                            <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
+                                <img src="/images/index-page/hamburger-menu-icon.svg" width="40px" height="40px"
+                                    alt="">
+                            </button>
+                        </div>
+                        <div
+                            class="col-9 col-md-9 col-lg-2 text-center text-md-left text-lg-left text-xl-left ml-0 pl-0 py-2 py-md-0 py-lg-0">
+                            <a href="{{ url('/home') }}"><img src="/images/logo.png" alt="" height="73px"></a>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
+                            <div class="contact-details">
+                                <div class="right-contactsd">
+                                    <a href="{{ route('luxe_store.cart') }}" data-toggle="tooltip" data-placement="top"
+                                        title="Cart"><img src="/images/cart.svg" alt=""></a>
+                                    <a href="{{ route('profile.my_profile') }}" data-toggle="tooltip"
+                                        data-placement="top" title="My Profile"><img src="/images/account-icon.svg"
+                                            alt=""></a>
+                                    <div class="sidebar__item-menu search-box d-none">
+                                        <a href="#">
+                                            <form action="{{ route('user.search') }}" method="get" class="">
+                                                <input type="search" id="search-input" name="search"
+                                                    placeholder="Search and press Enter.">
                                             </form>
                                         </a>
                                     </div>
-                                @endauth
-                                <div class="sidebar__item-menu d-flex">
-                                    <div>
-                                        <a class="btm-phn justify-content-start" href="tel:(305) 438 7764">
+                                    <a href="#" onclick="toggleSearch()" data-toggle="tooltip"
+                                        data-placement="top" title="Search"><img src="/images/search-icon.svg"
+                                            alt=""></a>
+                                    @auth
+                                        <a href="#" data-toggle="modal" data-target="#suggestionModal"><img
+                                                src="/images/suggestion.svg" alt=""></a>
+                                        <div class="modal fade modal-new" id="suggestionModal" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Submit A
+                                                            Suggestion</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="{{ route('general.email.post') }}" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="form_title"
+                                                                value="Submit A Suggestion">
+                                                            <div class="row m-0 p-0">
+                                                                <div class="form-group">
+                                                                    <label for="start">Agent Name</label>
+                                                                    <div class='input-group'>
+                                                                        <input type="text" class="w-100 form-control"
+                                                                            name="agent_name" required
+                                                                            value="{{ auth()->user()->profile->fullname }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="start">Agent Email</label>
+                                                                    <div class='input-group'>
+                                                                        <input type="email" class="w-100 form-control"
+                                                                            name="agent_email" required
+                                                                            value="{{ auth()->user()->email }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="start">Please write your suggestion
+                                                                        below</label>
+                                                                    <div class='input-group'>
+                                                                        <textarea class="w-100 form-control" required rows="4" name="suggestion"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer pt-0">
+                                                            <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                                Cancel
+                                                            </button>
+                                                            <button type="submit" class="btn btn-luxe" id="save-event">
+                                                                Create
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="#" data-toggle="modal" data-target="#reportModal"><img
+                                                src="/images/report.svg" alt="" width="32"></a>
+                                        <div class="modal fade modal-new" id="reportModal" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Report An Error
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="{{ route('general.email.post') }}" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="form_title"
+                                                                value="Report An Error">
+                                                            <div class="row m-0 p-0">
+                                                                <div class="form-group">
+                                                                    <input type="hidden" name="link"
+                                                                        value="{{ Request::fullUrl() }}">
+                                                                    <label for="start">Agent Name</label>
+                                                                    <div class='input-group'>
+                                                                        <input type="text" class="w-100 form-control"
+                                                                            name="agent_name" required
+                                                                            value="{{ auth()->user()->profile->fullname }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="start">Agent Email</label>
+                                                                    <div class='input-group'>
+                                                                        <input type="email" class="w-100 form-control"
+                                                                            name="agent_email" required
+                                                                            value="{{ auth()->user()->email }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="start">Please select type of
+                                                                        error</label>
+                                                                    <div class='input-group'>
+                                                                        <select name="error_type" required
+                                                                            class="w-100 form-control">
+                                                                            <option value>-</option>
+                                                                            <option value="Error on submission form">
+                                                                                Error on submission form
+                                                                            </option>
+                                                                            <option value="Download not working">
+                                                                                Download not working
+                                                                            </option>
+                                                                            <option value="Video not working">Video not
+                                                                                working
+                                                                            </option>
+                                                                            <option value="Issue checking out/paying">
+                                                                                Issue checking out/paying
+                                                                            </option>
+                                                                            <option value="Incorrect sales volume">
+                                                                                Incorrect sales volume
+                                                                            </option>
+                                                                            <option value="Other">Other</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="start">Please provide details on the
+                                                                        error
+                                                                        you are experiencing</label>
+                                                                    <div class='input-group'>
+                                                                        <textarea class="w-100 form-control" required rows="4" name="suggestion"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer pt-0">
+                                                            <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                                Cancel
+                                                            </button>
+                                                            <button type="submit" class="btn btn-luxe" id="save-event">
+                                                                Create
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sidebar__item-menu">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Logout">
+                                                <form action="{{ route('logout') }}" method="post" class="m-0">
+                                                    @csrf
+                                                    <button class="btn btn-link text-white p-0"><img
+                                                            src="/images/logout.svg" alt=""></button>
+                                                </form>
+                                            </a>
+                                        </div>
+                                    @endauth
+                                    <div class="sidebar__item-menu d-flex">
+                                        <div>
+                                            <a class="btm-phn justify-content-start" href="tel:(305) 438 7764">
                                                 <span style="font-size: 14px"><b>SUPPORT LINE
                                                         (305)-438-7764</b></span></a>
-                                        <a class="btm-phn justify-content-start" href="tel:(305) 908 1116">
+                                            <a class="btm-phn justify-content-start" href="tel:(305) 908 1116">
                                                 <span style="font-size: 14px"><b>MARKETING LINE
                                                         (305)-908-1116</b></span></a>
 
-                                        <a class="btm-phn justify-content-start" href="tel:7863103141">
+                                            <a class="btm-phn justify-content-start" href="tel:7863103141">
                                                 <span style="font-size: 14px"><b>EDUCATION LINE
                                                         (786)-310-3141</b></span></a>
-                                        {{--                                        <a class="btm-phn justify-content-start" href="tel:7862798225">--}}
-                                        {{--                                                <span style="font-size: 14px"><b>ONBOARDING LINE--}}
-                                        {{--                                                        (786)-279-8225</b></span></a>--}}
-                                    </div>
-                                    <div>
-                                        <a class="btm-phn justify-content-start" href="tel:(305) 306 8896">
+                                            {{--                                        <a class="btm-phn justify-content-start" href="tel:7862798225"> --}}
+                                            {{--                                                <span style="font-size: 14px"><b>ONBOARDING LINE --}}
+                                            {{--                                                        (786)-279-8225</b></span></a> --}}
+                                        </div>
+                                        <div>
+                                            <a class="btm-phn justify-content-start" href="tel:(305) 306 8896">
                                                 <span style="font-size: 14px"><b>ACCOUNTING LINE
                                                         (305)-306-8896</b></span></a>
-                                        <a class="btm-phn justify-content-start" href="tel:(305) 998-6239">
+                                            <a class="btm-phn justify-content-start" href="tel:(305) 998-6239">
                                                 <span style="font-size: 14px"><b>ESCROW LINE
                                                         (305) 998-6239</b></span></a>
 
-                                        <a class="btm-phn justify-content-start" href="tel:7863880971">
+                                            <a class="btm-phn justify-content-start" href="tel:7863880971">
                                                 <span style="font-size: 14px"><b>LEADS LINE
                                                         (786)-388-0971</b></span></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -691,412 +691,443 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-    </header>
-    <div id="app" class="row d-flex flex-nowrap w-100 m-0 position-relative">
-        @if (auth()->user())
-            <button id="toggle-btn" class="toggle-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                     class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                          d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
-                </svg>
-            </button>
-            <div id="sidebar" class="sidebar d-none d-lg-flex">
-                <div class="sidebar-main">
-                    <div class="row p-0 m-0 justify-content-center">
-                        <div class="sidebar-logo-details row p-0 d-flex d-lg-none d-xl-none m-0 my-3">
-                            <div class="w-100 d-flex align-items-center justify-content-between d-md-none">
-                                <img src="/images/logo.png" height="50px" alt=""
-                                     onclick="window.location.href = '{{ url('/home') }}'">
-                                <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
-                                    <img src="/images/index-page/close-icon.svg" width="40px" height="40px"
-                                         alt="">
-                                </button>
-                            </div>
-                            <div class="w-100 sidebar-logo-details-details row p-0 m-0 align-items-center mt-4">
-                                <div class="d-flex justify-content-start align-items-center">
-                                    {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
-                                    <a class="mr-4" href="{{ route('profile.my_profile') }}"><img
-                                            src="/images/account-icon.svg" alt=""></a>
-                                    {{-- <a href="#"><img src="/images/search-icon.svg" alt=""></a> --}}
-                                    @auth
-                                        <a href="#">
-                                            <form action="{{ route('logout') }}" method="post" class="m-0">
-                                                @csrf
-                                                <button class="btn btn-link text-white p-0 "><img
-                                                        src="/images/logout.svg" alt=""></button>
-                                            </form>
-                                        </a>
-
-                                    @endauth
+        </header>
+        <div class="row d-flex flex-nowrap w-100 m-0 position-relative">
+            @if (auth()->user())
+                <button id="toggle-btn" class="toggle-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                </button>
+                <div id="sidebar" class="sidebar d-none d-lg-flex">
+                    <div class="sidebar-main">
+                        <div class="row p-0 m-0 justify-content-center">
+                            <div class="sidebar-logo-details row p-0 d-flex d-lg-none d-xl-none m-0 my-3">
+                                <div class="w-100 d-flex align-items-center justify-content-between d-md-none">
+                                    <img src="/images/logo.png" height="50px" alt=""
+                                        onclick="window.location.href = '{{ url('/home') }}'">
+                                    <button class="toggleSidebar btn text-white bg-transparent p-0 m-0">
+                                        <img src="/images/index-page/close-icon.svg" width="40px" height="40px"
+                                            alt="">
+                                    </button>
                                 </div>
-                                <a class="btm-phn text-white pt-3" href="tel:(305) 438 7764">
+                                <div class="w-100 sidebar-logo-details-details row p-0 m-0 align-items-center mt-4">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        {{-- <a href="#"><img src="/images/feedback-icon.svg" alt=""></a> --}}
+                                        <a class="mr-4" href="{{ route('profile.my_profile') }}"><img
+                                                src="/images/account-icon.svg" alt=""></a>
+                                        {{-- <a href="#"><img src="/images/search-icon.svg" alt=""></a> --}}
+                                        @auth
+                                            <a href="#">
+                                                <form action="{{ route('logout') }}" method="post" class="m-0">
+                                                    @csrf
+                                                    <button class="btn btn-link text-white p-0 "><img
+                                                            src="/images/logout.svg" alt=""></button>
+                                                </form>
+                                            </a>
+
+                                        @endauth
+                                    </div>
+                                    <a class="btm-phn text-white pt-3" href="tel:(305) 438 7764">
                                         <span>
                                             NEED HELP?<br>
                                             <b>SUPPORT LINE (305) 438 7764</b>
                                         </span>
-                                </a>
-                                <div class="w-100 search-box-mobile">
-                                    <form action="{{ route('user.search') }}" method="get"
-                                          class="w-100 pl-5 mt-3 d-flex justify-content-center">
-                                        <input type="text" name="search" id="search-input"
-                                               placeholder="Search and press Enter.">
-                                    </form>
+                                    </a>
+                                    <div class="w-100 search-box-mobile">
+                                        <form action="{{ route('user.search') }}" method="get"
+                                            class="w-100 pl-5 mt-3 d-flex justify-content-center">
+                                            <input type="text" name="search" id="search-input"
+                                                placeholder="Search and press Enter.">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="sidebar__item sidebar-navigation">
-                            <ul>
-                                <li class="row m-0 border-bottom">
-                                    <a href="{{ url('user/app-links') }}"
-                                       style="font-weight: 700;color:white">Click Here To
-                                        Download
-                                        Hub App</a>
-                                </li>
-                                <li class="row m-0 @if (Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif">
-                                    <a href="{{ url('/home') }}">Dashboard </a>
-                                </li>
-                                @auth
-                                    @if (auth()->user()->role == 'admin')
-                                        <li class="row m-0">
-                                            <a href="{{ route('admin.index') }}">Admin Dashboard</a>
-                                        </li>
-                                    @endif
-                                    <li
-                                        class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
-                                        <a href="{{ route('agent_list') }}">Agents</a>
+                            <div class="sidebar__item sidebar-navigation">
+                                <ul>
+                                    <li class="row m-0 border-bottom">
+                                        <a href="{{ url('user/app-links') }}"
+                                            style="font-weight: 700;color:white">Click Here To
+                                            Download
+                                            Hub App</a>
                                     </li>
-                                @endauth
-                                <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if (isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ isset($active) && $active == 'marketing_branding' ? 'active selected' : '' }}">
-                                    <a href="{{ url('/home?dir=marketing_branding') }}">Marketing & Branding
-                                    </a>
-                                    <em id="li-plus"><img src="/images/plus.png"></em>
-                                    <em id="li-minus"><img src="/images/minus.png"></em>
+                                    <li class="row m-0 @if (Request::path() == 'home' && !isset($_GET['dir'])) active selected @endif">
+                                        <a href="{{ url('/home') }}">Dashboard </a>
+                                    </li>
+                                    @auth
+                                        @if (auth()->user()->role == 'admin')
+                                            <li class="row m-0">
+                                                <a href="{{ route('admin.index') }}">Admin Dashboard</a>
+                                            </li>
+                                        @endif
+                                        <li
+                                            class="row m-0 {{ isset($active) && $active == 'Agents' ? 'active selected' : '' }}">
+                                            <a href="{{ route('agent_list') }}">Agents</a>
+                                        </li>
+                                    @endauth
+                                    <li
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active selected @endif @if (isset($_GET['dir']) && $_GET['dir'] == 'marketing_branding') active selected @endif {{ isset($active) && $active == 'marketing_branding' ? 'active selected' : '' }}">
+                                        <a href="{{ url('/home?dir=marketing_branding') }}">Marketing & Branding
+                                        </a>
+                                        <em id="li-plus"><img src="/images/plus.png"></em>
+                                        <em id="li-minus"><img src="/images/minus.png"></em>
 
-                                    <ul class="w-100">
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'canva_marketing_designer' ? 'active_submenu' : '' }}"
-                                               href="{{ route('canva.marketing.requests') }}">Marketing
-                                                Designer</a></li>
-                                        <li><a href="{{ url('https://realtorprint.com/collections/luxe') }}"
-                                               target="_blank">Print
-                                                Marketing</a></li>
-                                        {{-- <li><a class="{{ isset($subactive) && $subactive == 'downloadable_presentations' ? 'active_submenu' : '' }}"
+                                        <ul class="w-100">
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'canva_marketing_designer' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('canva.marketing.requests') }}">Marketing
+                                                    Designer</a>
+                                            </li>
+                                            <li><a href="{{ url('https://realtorprint.com/collections/luxe') }}"
+                                                    target="_blank">Print
+                                                    Marketing</a></li>
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'downloadable_presentations' ? 'active_submenu' : '' }}"
                                                 href="{{ url('user/guides') }}">Downloadable
                                                 Presentations</a></li> --}}
-                                        <li>
-                                            <a class="@if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active_submenu @endif {{ isset($subactive) && $subactive == 'signs_photo_design_requests' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/home?dir=signs_photo_design_requests') }}">Photo
-                                                & Design Requests</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'resume_builder' ? 'active_submenu' : '' }}"
-                                               href="{{ route('resume') }}">Resume Builder</a></li>
-                                        {{-- <li><a class="{{ isset($subactive) && $subactive == 'online_marketing_designer' ? 'active_submenu' : '' }}"
+                                            <li>
+                                                <a class="@if (isset($_GET['dir']) && $_GET['dir'] == 'signs_photo_design_requests') active_submenu @endif {{ isset($subactive) && $subactive == 'signs_photo_design_requests' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=signs_photo_design_requests') }}">Photo
+                                                    & Design Requests</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'resume_builder' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('resume') }}">Resume Builder</a>
+                                            </li>
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'online_marketing_designer' ? 'active_submenu' : '' }}"
                                                 href="{{ route('user.diy-templates') }}">Online Marketing
                                                 Designer</a></li> --}}
-                                        <li><a href="{{ url('user/files?id=22') }}">Logos</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'marketing_menu' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/general/form/other/marketing-menu') }}">Marketing
-                                                Menu &
-                                                Services</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'luxe_listing_incentives' ? 'active_submenu' : '' }}"
-                                               href="{{ route('luxe-listing-incentives') }}">Luxury Listing
-                                                Incentives</a></li>
-                                    </ul>
-                                </li>
-                                <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'training_knowledge_center') active selected @endif {{ isset($active) && ($active == 'Tools&TrainingVideos' || $active == 'training_knowledge_center') ? 'active selected' : '' }}">
-                                    <a href="{{ url('/home?dir=training_knowledge_center') }}">Training &
-                                        Knowledge
-                                        Center</a>
-                                    <em id="li-plus"><img src="/images/plus.png"></em>
-                                    <em id="li-minus"><img src="/images/minus.png"></em>
+                                            <li><a href="{{ url('user/files?id=22') }}">Logos</a></li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'marketing_menu' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/general/form/other/marketing-menu') }}">Marketing
+                                                    Menu &
+                                                    Services</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'luxe_listing_incentives' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('luxe-listing-incentives') }}">Luxury Listing
+                                                    Incentives</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'training_knowledge_center') active selected @endif {{ isset($active) && ($active == 'Tools&TrainingVideos' || $active == 'training_knowledge_center') ? 'active selected' : '' }}">
+                                        <a href="{{ url('/home?dir=training_knowledge_center') }}">Training &
+                                            Knowledge
+                                            Center</a>
+                                        <em id="li-plus"><img src="/images/plus.png"></em>
+                                        <em id="li-minus"><img src="/images/minus.png"></em>
 
-                                    <ul class="w-100">
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'training_videos' ? 'active_submenu' : '' }}"
-                                               href="{{ url('user/videos') }}">LUXE Online Video University</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'events' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/user/events') }}">Training & Events Calendar</a>
-                                        </li>
-                                        <!-- <li><a href="{{ url('user/links') }}">Link to other services</a></li> -->
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'downloadable_guides' ? 'active_submenu' : '' }}"
-                                               href="{{ url('user/files') }}">Downloadable
-                                                Docs, Guides & Excels</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
-                                               href="{{ route('coaching.index') }}">LUXE Coaching</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'email_addendum_verbiage_builder' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/home?dir=email_addendum_verbiage_builder') }}">Email
-                                                &
-                                                Addendum Verbiage Builder</a>
-                                        </li>
-                                        {{-- <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
+                                        <ul class="w-100">
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'training_videos' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('user/videos') }}">LUXE Online Video University</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'events' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/user/events') }}">Training & Events Calendar</a>
+                                            </li>
+                                            <!-- <li><a href="{{ url('user/links') }}">Link to other services</a></li> -->
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'downloadable_guides' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('user/files') }}">Downloadable
+                                                    Docs, Guides & Excels</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'coaching' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('coaching.index') }}">LUXE Coaching</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'email_addendum_verbiage_builder' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=email_addendum_verbiage_builder') }}">Email
+                                                    &
+                                                    Addendum Verbiage Builder</a>
+                                            </li>
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'mentors' ? 'active_submenu' : '' }}"
                                                 href="{{ url('agreement-agents') }}">LUXE Mentors</a></li> --}}
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/home?dir=calculators') }}">Real Estate
-                                                Worksheets</a>
-                                        </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=calculators') }}">Real Estate
+                                                    Worksheets</a>
+                                            </li>
 
-                                    </ul>
-                                </li>
-                                <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'leads_services_support') active selected @endif {{ isset($active) && $active == 'leads_services_support' ? 'active selected' : '' }}">
-                                    <a href="{{ url('/home?dir=leads_services_support') }}">Leads, Services &
-                                        Support</a>
-                                    <em id="li-plus"><img src="/images/plus.png"></em>
-                                    <em id="li-minus"><img src="/images/minus.png"></em>
+                                        </ul>
+                                    </li>
+                                    <li
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'leads_services_support') active selected @endif {{ isset($active) && $active == 'leads_services_support' ? 'active selected' : '' }}">
+                                        <a href="{{ url('/home?dir=leads_services_support') }}">Leads, Services &
+                                            Support</a>
+                                        <em id="li-plus"><img src="/images/plus.png"></em>
+                                        <em id="li-minus"><img src="/images/minus.png"></em>
 
-                                    <ul class="w-100">
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'get_leads' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/home?dir=leads') }}">Get Leads</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'request_listing_closing_coordinators' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/home?dir=request_listing_closing_coordinators') }}">Request
-                                                Listing/Closing
-                                                Coordinators</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'rental_escrow_disbursement' ? 'active_submenu' : '' }}"
-                                               href="{{ url('general/form/escrow/index') }}">Rental Escrow
-                                                Disbursement</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'open_house_signup' ? 'active_submenu' : '' }}"
-                                               href="{{ url('appointments/create') }}">Open House Signup</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'get_contract_help' ? 'active_submenu' : '' }}"
-                                               href="{{ url('general/form/contract-help/index') }}">Get
-                                                Contract Help</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'get_commercial_help' ? 'active_submenu' : '' }}"
-                                               href="{{ url('general/form/commercial-help/index') }}">Get
-                                                Commercial Help</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'wire_instructions_requests' ? 'active_submenu' : '' }}"
-                                               href="{{ url('general/form/other/wire-instructions-request') }}">Wire
-                                                Instructions
-                                                Request</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/home?dir=calculators') }}">Real Estate Worksheets</a>
-                                        </li>
-                                        <li>
-                                            <a target="_blank"
-                                               href="https://cal.com/luxeproperties/vulcan-7">Vulcan 7 Reservation</a>
-                                        </li>
-                                        <li>
-                                            <a target="_blank"
-                                               href="https://cal.com/luxeproperties/reonomy-reservation">
-                                                Reonomy Reservation</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'invoice_request' ? 'active_submenu' : '' }}"
-                                               href="{{  url('general/form/other/invoice-request')  }}">Invoice
-                                                Request</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'get_your_property_listed' ? 'active_submenu' : '' }}"
-                                               href="{{  url('general/form/other/invoice-request')  }}">Get Your
-                                                Property Listed on Costar/Loopnet</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'get_legal_help' ? 'active_submenu' : '' }}"
-                                               href="{{  url('general/form/leads/get-legal-help')  }}">Get Legal
-                                                Help</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'get_help_my_listing_isnt_moving' ? 'active_submenu' : '' }}"
-                                               href="{{  url('general/form/leads/get-help-on-why-my-listing-isnt-moving')  }}">Get
-                                                Help on Why My Listing Isn't Moving</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'mls_listing_cancellation' ? 'active_submenu' : '' }}"
-                                               href="{{  url('general/form/leads/mls-cancellation')  }}">Request
-                                                MLS Listing Cancellation
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'request_credit_letter_for_transaction' ? 'active_submenu' : '' }}"
-                                               href="{{  url('general/form/leads/request-credit-letter-for-transaction')  }}">Request
-                                                Credit Letter For A Transaction
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="row m-0">
-                                    <a href="{{ route('newconstructionsearch') }}"
-                                       class="{{ isset($subactive) && $subactive == 'newconstructionsearch' ? 'active_submenu' : '' }}">New
-                                        Construction Search</a>
-                                </li>
-                                <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">
-                                    <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Marketplace</a>
-                                    <em id="li-plus"><img src="/images/plus.png"></em>
-                                    <em id="li-minus"><img src="/images/minus.png"></em>
+                                        <ul class="w-100">
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'get_leads' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=leads') }}">Get Leads</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'request_listing_closing_coordinators' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=request_listing_closing_coordinators') }}">Request
+                                                    Listing/Closing
+                                                    Coordinators</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'rental_escrow_disbursement' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/escrow/index') }}">Rental Escrow
+                                                    Disbursement</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'open_house_signup' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('appointments/create') }}">Open House Signup</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'get_contract_help' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/contract-help/index') }}">Get
+                                                    Contract Help</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'get_commercial_help' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/commercial-help/index') }}">Get
+                                                    Commercial Help</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'wire_instructions_requests' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/other/wire-instructions-request') }}">Wire
+                                                    Instructions
+                                                    Request</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'calculators' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/home?dir=calculators') }}">Real Estate
+                                                    Worksheets</a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank"
+                                                    href="https://cal.com/luxeproperties/vulcan-7">Vulcan 7
+                                                    Reservation</a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank"
+                                                    href="https://cal.com/luxeproperties/reonomy-reservation">
+                                                    Reonomy Reservation</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'invoice_request' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/other/invoice-request') }}">Invoice
+                                                    Request</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'get_your_property_listed' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/other/invoice-request') }}">Get Your
+                                                    Property Listed on Costar/Loopnet</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'get_legal_help' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/leads/get-legal-help') }}">Get Legal
+                                                    Help</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'get_help_my_listing_isnt_moving' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/leads/get-help-on-why-my-listing-isnt-moving') }}">Get
+                                                    Help on Why My Listing Isn't Moving</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'mls_listing_cancellation' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/leads/mls-cancellation') }}">Request
+                                                    MLS Listing Cancellation
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'request_credit_letter_for_transaction' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/leads/request-credit-letter-for-transaction') }}">Request
+                                                    Credit Letter For A Transaction
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="row m-0">
+                                        <a href="{{ route('newconstructionsearch') }}"
+                                            class="{{ isset($subactive) && $subactive == 'newconstructionsearch' ? 'active_submenu' : '' }}">New
+                                            Construction Search</a>
+                                    </li>
+                                    <li
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'luxe_apparel') active selected @endif {{ isset($active) && $active == 'luxe_apparel' ? 'active selected' : '' }}">
+                                        <a href="{{ url('/home?dir=luxe_apparel') }}">LUXE Marketplace</a>
+                                        <em id="li-plus"><img src="/images/plus.png"></em>
+                                        <em id="li-minus"><img src="/images/minus.png"></em>
 
-                                    <ul class="w-100">
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'rental_escrow' ? 'active_submenu' : '' }}"
-                                               href="{{ url('store/grab-go-merchandise') }}">Printed Guides</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'listing_coordinators' ? 'active_submenu' : '' }}"
-                                               href="{{ url('store/luxe-apparel') }}">LUXE Apparel</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                               href="{{ url('store/signs-posts') }}">Signs &
-                                                Posts</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                               href="{{ url('store/product/background-check') }}">Client
-                                                Screening</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
-                                               href="{{ url('store/product/special-offer-5-part-payment-plan-fiu-course') }}">Real
-                                                Estate Course</a></li>
-                                    </ul>
-                                </li>
-                                <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'office_staff_directory') active selected @endif {{ isset($active) && $active == 'office_staff_directory' ? 'active selected' : '' }}">
-                                    <a href="{{ url('/home?dir=office_staff_directory') }}">Office & Staff
-                                        Directory</a>
-                                    <em id="li-plus"><img src="/images/plus.png"></em>
-                                    <em id="li-minus"><img src="/images/minus.png"></em>
+                                        <ul class="w-100">
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'rental_escrow' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('store/grab-go-merchandise') }}">Printed Guides</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'listing_coordinators' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('store/luxe-apparel') }}">LUXE Apparel</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('store/signs-posts') }}">Signs &
+                                                    Posts</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('store/product/background-check') }}">Client
+                                                    Screening</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == '' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('store/product/special-offer-5-part-payment-plan-fiu-course') }}">Real
+                                                    Estate Course</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'office_staff_directory') active selected @endif {{ isset($active) && $active == 'office_staff_directory' ? 'active selected' : '' }}">
+                                        <a href="{{ url('/home?dir=office_staff_directory') }}">Office & Staff
+                                            Directory</a>
+                                        <em id="li-plus"><img src="/images/plus.png"></em>
+                                        <em id="li-minus"><img src="/images/minus.png"></em>
 
-                                    <ul class="w-100">
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'office_locations' ? 'active_submenu' : '' }}"
-                                               href="{{ url('/office-locations') }}">Office Locations</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'conference_room_reservations' ? 'active_submenu' : '' }}"
-                                               href="{{ url('bookings') }}">Conference Room Reservations</a>
-                                        </li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'your_luxe_staff' ? 'active_submenu' : '' }}"
-                                               href="{{ route('luxe.staff.index') }}">Your LUXE
-                                                Staff</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'luxe_managers' ? 'active_submenu' : '' }}"
-                                               href="{{ route('luxe.managers.index') }}">Your LUXE
-                                                Managers</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'real_estate_teams' ? 'active_submenu' : '' }}"
-                                               href="{{ route('real.estate.teams') }}">Real Estate Teams</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'luxe_loan_officers' ? 'active_submenu' : '' }}"
-                                               href="{{ route('luxe.loan.officers.index') }}">Your LUXE Loan
-                                                Officers</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
-                                               href="{{ url('general/form/agent_referrals/index') }}">New Agents To
-                                                Join LUXE</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'optin_agents' ? 'active_submenu' : '' }}"
-                                               href="{{ route('optin.agents.index') }}">Referral Agents
-                                                With LUXE</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'showing_agents' ? 'active_submenu' : '' }}"
-                                               href="{{ route('showing.agents.index') }}">Showing Agents</a></li>
-                                        {{-- <li><a class="{{ isset($subactive) && $subactive == 'request_your_agent' ? 'active_submenu' : '' }}"
+                                        <ul class="w-100">
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'office_locations' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('/office-locations') }}">Office Locations</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'conference_room_reservations' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('bookings') }}">Conference Room Reservations</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'your_luxe_staff' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('luxe.staff.index') }}">Your LUXE
+                                                    Staff</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'luxe_managers' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('luxe.managers.index') }}">Your LUXE
+                                                    Managers</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'real_estate_teams' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('real.estate.teams') }}">Real Estate Teams</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'luxe_loan_officers' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('luxe.loan.officers.index') }}">Your LUXE Loan
+                                                    Officers</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'new_agents_referrals' ? 'active_submenu' : '' }}"
+                                                    href="{{ url('general/form/agent_referrals/index') }}">New Agents
+                                                    To
+                                                    Join LUXE</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'optin_agents' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('optin.agents.index') }}">Referral Agents
+                                                    With LUXE</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'showing_agents' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('showing.agents.index') }}">Showing Agents</a>
+                                            </li>
+                                            {{-- <li><a class="{{ isset($subactive) && $subactive == 'request_your_agent' ? 'active_submenu' : '' }}"
                                                 href="{{ url('/general/form/other/request-your-agent-referral') }}">Request
                                                 Your Agent
                                                 Referral</a></li> --}}
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'MLS Directory' ? 'active_submenu' : '' }}"
-                                               href="{{ route('mls-directory') }}">MLS Directory</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'event-galleries' ? 'active_submenu' : '' }}"
-                                               href="{{route('events.galleries.index')}}">Events Gallery</a></li>
-                                        <li>
-                                            <a class="{{ isset($subactive) && $subactive == 'photographers' ? 'active_submenu' : '' }}"
-                                               href="{{ route('photographers.index') }}">Photographers</a></li>
-                                    </ul>
-                                </li>
-                                <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
-                                    <a href="{{ url('/user/events') }}">Live Classes & Events</a>
-                                </li>
-                                <li class="row m-0 @if (Request::path() == 'listings') active selected @endif">
-                                    <a href="{{ route('listings.index') }}">Coming Soon & Off Market</a>
-                                </li>
-                                <li
-                                    class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
-                                    <a href="{{ route('referral-partner-category.index') }}">Referral Partners</a>
-                                    {{--                                    <em id="li-plus"><img src="/images/plus.png"></em>--}}
-                                    {{--                                    <em id="li-minus"><img src="/images/minus.png"></em>--}}
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'MLS Directory' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('mls-directory') }}">MLS Directory</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'event-galleries' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('events.galleries.index') }}">Events Gallery</a>
+                                            </li>
+                                            <li>
+                                                <a class="{{ isset($subactive) && $subactive == 'photographers' ? 'active_submenu' : '' }}"
+                                                    href="{{ route('photographers.index') }}">Photographers</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="row m-0 @if (Request::path() == 'user/events') active selected @endif">
+                                        <a href="{{ url('/user/events') }}">Live Classes & Events</a>
+                                    </li>
+                                    <li class="row m-0 @if (Request::path() == 'listings') active selected @endif">
+                                        <a href="{{ route('listings.index') }}">Coming Soon & Off Market</a>
+                                    </li>
+                                    <li
+                                        class="row m-0 @if (isset($_GET['dir']) && $_GET['dir'] == 'referral_partners') active selected @endif @if (Request::path() == 'form') active selected @endif {{ isset($active) && $active == 'referral_partners' ? 'active selected' : '' }}">
+                                        <a href="{{ route('referral-partner-category.index') }}">Referral
+                                            Partners</a>
+                                        {{--                                    <em id="li-plus"><img src="/images/plus.png"></em> --}}
+                                        {{--                                    <em id="li-minus"><img src="/images/minus.png"></em> --}}
 
-                                    {{--                                    <ul class="w-100">--}}
-                                    {{--                                        @php--}}
-                                    {{--                                            $referral_categories = App\Models\ReferralPartnerCategory::whereNull('parent_id')->get();--}}
-                                    {{--                                        @endphp--}}
-                                    {{--                                        @foreach ($referral_categories as $item)--}}
-                                    {{--                                            <li>--}}
-                                    {{--                                                <a class="{{ isset($subactive) && $subactive == $item->title ? 'active_submenu' : '' }}"--}}
-                                    {{--                                                   href="{{ route('referral-partner-category.show', $item) }}">{{ $item->title }}</a>--}}
-                                    {{--                                            </li>--}}
-                                    {{--                                        @endforeach--}}
-                                    {{--                                    </ul>--}}
-                                </li>
-                                <li class="row m-0">
-                                    <a href="{{ route('luxe-incentives') }}"
-                                       class="{{ isset($active) && $active == 'luxe_incentives' ? 'active_submenu' : '' }}">LUXE
-                                        Incentives</a>
-                                </li>
-                                <li class="row m-0 {{ Request()->route()->getPrefix() == 'user/cma-report' ? 'active selected' : '' }}">
-                                    <a href="{{ route('cma.index') }}">Seller CMA </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-details">
-                            <p class="d-flex align-items-center"
-                               onclick="window.location = 'https://goo.gl/maps/UxezmFmdTJE8SmJL6'">
-                                <span><img src="/images/index-page/location-icon.svg" alt=""></span>
-                                <span class="text">55 Merrick Way #402 <br> Coral Gables, FL 33134</span>
-                            </p>
-                            <p class="d-flex align-items-center"
-                               onclick="window.location = 'http://www.luxeknows.com/'">
-                                <span><img src="/images/index-page/web-icon.svg" alt=""></span>
-                                <span class="text">www.luxeknows.com</span>
-                            </p>
-                            <p class="d-flex align-items-center" onclick="window.location = 'tel:(305) 438 7764'">
-                                <span><img src="/images/index-page/phone-icon-white.svg" alt=""></span>
-                                <span class="text">(305) 438 7764</span>
-                            </p>
+                                        {{--                                    <ul class="w-100"> --}}
+                                        {{--                                        @php --}}
+                                        {{--                                            $referral_categories = App\Models\ReferralPartnerCategory::whereNull('parent_id')->get(); --}}
+                                        {{--                                        @endphp --}}
+                                        {{--                                        @foreach ($referral_categories as $item) --}}
+                                        {{--                                            <li> --}}
+                                        {{--                                                <a class="{{ isset($subactive) && $subactive == $item->title ? 'active_submenu' : '' }}" --}}
+                                        {{--                                                   href="{{ route('referral-partner-category.show', $item) }}">{{ $item->title }}</a> --}}
+                                        {{--                                            </li> --}}
+                                        {{--                                        @endforeach --}}
+                                        {{--                                    </ul> --}}
+                                    </li>
+                                    <li class="row m-0">
+                                        <a href="{{ route('luxe-incentives') }}"
+                                            class="{{ isset($active) && $active == 'luxe_incentives' ? 'active_submenu' : '' }}">LUXE
+                                            Incentives</a>
+                                    </li>
+                                    <li
+                                        class="row m-0 {{ Request()->route()->getPrefix() == 'user/cma-report' ? 'active selected' : '' }}">
+                                        <a href="{{ route('cma.index') }}">Seller CMA </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sidebar-details">
+                                <p class="d-flex align-items-center"
+                                    onclick="window.location = 'https://goo.gl/maps/UxezmFmdTJE8SmJL6'">
+                                    <span><img src="/images/index-page/location-icon.svg" alt=""></span>
+                                    <span class="text">55 Merrick Way #402 <br> Coral Gables, FL 33134</span>
+                                </p>
+                                <p class="d-flex align-items-center"
+                                    onclick="window.location = 'http://www.luxeknows.com/'">
+                                    <span><img src="/images/index-page/web-icon.svg" alt=""></span>
+                                    <span class="text">www.luxeknows.com</span>
+                                </p>
+                                <p class="d-flex align-items-center" onclick="window.location = 'tel:(305) 438 7764'">
+                                    <span><img src="/images/index-page/phone-icon-white.svg" alt=""></span>
+                                    <span class="text">(305) 438 7764</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            @endif
+            <div id="content" class="col p-0 m-0 position-relative">
+                <main>
+                    @yield('content')
+                </main>
+                <main id="vue">
+                    @yield('vue')
+                </main>
             </div>
-        @endif
-        <div id="content" class="col p-0 m-0 position-relative">
-            <main>
-                @yield('content')
-            </main>
         </div>
-    </div>
 
-</div>
-@if ($errors->any())
-    @foreach ($errors->all() as $error)
-        @php
-            toastr()->error($error);
-        @endphp
-    @endforeach
-@endif
+    </div>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            @php
+                toastr()->error($error);
+            @endphp
+        @endforeach
+    @endif
 
 </body>
 @yield('js')
@@ -1107,7 +1138,7 @@
 <script>
     var cmaApiCredentials = JSON.parse(JSON.stringify(<?php echo json_encode($cmaApiCredentails); ?>))
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const sidebar = document.getElementById('sidebar');
         const content = document.getElementById('content');
         const toggleBtn = document.getElementById('toggle-btn');
@@ -1149,7 +1180,7 @@
         }
 
         // Add event listener for the toggle button
-        toggleBtn.addEventListener('click', function () {
+        toggleBtn.addEventListener('click', function() {
             if (sidebar.classList.contains('d-none')) {
                 sidebar.classList.remove('d-none');
                 sidebar.classList.add('d-lg-flex');
@@ -1205,58 +1236,58 @@
 <script>
     @if ($errors->any())
         @foreach ($errors->all() as $error)
+            toastr.options = {
+                'closeButton': true,
+                'progressBar': true
+            }
+            toastr.error("{{ $error }}")
+        @endforeach
+    @endif
+    @if (Session::has('message'))
         toastr.options = {
-        'closeButton': true,
-        'progressBar': true
-    }
-    toastr.error("{{ $error }}")
-    @endforeach
-        @endif
-        @if (Session::has('message'))
-        toastr.options = {
-        'closeButton': true,
-        'progressBar': true
-    }
-    toastr.success("{{ session('message') }}")
+            'closeButton': true,
+            'progressBar': true
+        }
+        toastr.success("{{ session('message') }}")
     @endif
 
-        @if (Session::has('error'))
+    @if (Session::has('error'))
         toastr.options = {
-        'closeButton': true,
-        'progressBar': true
-    }
-    toastr.error("{{ session('error') }}")
+            'closeButton': true,
+            'progressBar': true
+        }
+        toastr.error("{{ session('error') }}")
     @endif
 
-        @if (Session::has('info'))
+    @if (Session::has('info'))
         toastr.options = {
-        'closeButton': true,
-        'progressBar': true
-    }
-    toastr.info("{{ session('info') }}")
+            'closeButton': true,
+            'progressBar': true
+        }
+        toastr.info("{{ session('info') }}")
     @endif
 
-        @if (Session::has('warning'))
+    @if (Session::has('warning'))
         toastr.options = {
-        'closeButton': true,
-        'progressBar': true
-    }
-    toastr.warning("{{ session('warning') }}")
+            'closeButton': true,
+            'progressBar': true
+        }
+        toastr.warning("{{ session('warning') }}")
     @endif
 </script>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip()
     })
-    $('.toggleSidebar').click(function () {
+    $('.toggleSidebar').click(function() {
         $('.sidebar').toggleClass('active')
     })
 
-    $(function () {
+    $(function() {
         var $ul = $('.sidebar-navigation > ul')
 
-        $ul.find('li em').click(function (e) {
+        $ul.find('li em').click(function(e) {
             var $li = $(this).parent()
 
             if ($li.find('ul').length > 0) {
@@ -1287,7 +1318,7 @@
             }
         })
 
-        $('.sidebar-navigation > ul ul').each(function (i) {
+        $('.sidebar-navigation > ul ul').each(function(i) {
             if ($(this).find('>li>ul').length > 0) {
                 var paddingLeft = $(this).parent().parent().find('>li>a').css('padding-left')
                 var pIntPLeft = parseInt(paddingLeft)

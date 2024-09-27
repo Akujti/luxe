@@ -1,5 +1,5 @@
 @extends('admin.layouts.app', ['active' => 'Notifications'])
-@section('content')
+@section('css')
     <style>
         th,
         td {
@@ -59,7 +59,8 @@
             }
         }
     </style>
-
+@endsection
+@section('content')
     <div class="container-fluid">
         <div class="m-0">
             <div class="w-100 d-flex justify-content-between align-items-center mb-5">
@@ -68,24 +69,24 @@
             <div class="table-responsive">
                 <table class="table">
                     <thead>
-                    <tr>
-                        <th>Notification</th>
-                        <th>Actions</th>
-                    </tr>
+                        <tr>
+                            <th>Notification</th>
+                            <th>Actions</th>
+                        </tr>
                     </thead>
 
                     <tbody>
-                    @foreach($notifications as $notification)
-                        <tr id="tr-row">
-                            <td id="td-row">{{$notification->title}}</td>
-                            <td id="td-row">
-                                <button class="btn btn-luxe show-emails"
-                                        data-notification="{{json_encode($notification)}}">
-                                    Emails
-                                </button>
-                            </td>
-                        </tr>
-                    @endforeach
+                        @foreach ($notifications as $notification)
+                            <tr id="tr-row">
+                                <td id="td-row">{{ $notification->title }}</td>
+                                <td id="td-row">
+                                    <button class="btn btn-luxe show-emails"
+                                        data-notification="{{ json_encode($notification) }}">
+                                        Emails
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -104,7 +105,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('admin.notifications.update') }}" method="POST" class="d-block"
-                          enctype="multipart/form-data">
+                        enctype="multipart/form-data">
                         @method('put')
                         @csrf
                         <input type="hidden" name="notification_id" id="notification_id" value="">
@@ -118,11 +119,11 @@
                         <div class="row m-0 mt-3 p-0">
                             <table class="table text-left">
                                 <thead>
-                                <tr class="text-left">
-                                    <th class="text-left">Email</th>
-                                    <th>BCC</th>
-                                    <th>Actions</th>
-                                </tr>
+                                    <tr class="text-left">
+                                        <th class="text-left">Email</th>
+                                        <th>BCC</th>
+                                        <th>Actions</th>
+                                    </tr>
                                 </thead>
                                 <tbody id="emailList" class="text-left">
                                 </tbody>
@@ -139,23 +140,23 @@
     </div>
 
     <script>
-        $(document).ready(function () {
-            $('.show-emails').on('click', function () {
+        $(document).ready(function() {
+            $('.show-emails').on('click', function() {
                 var notification = $(this).data('notification')
                 $('#emailList').empty()
 
-                notification.emails.forEach(function (email) {
+                notification.emails.forEach(function(email) {
                     addToList(email)
                 })
                 $('.update-emails #notification_id').val(notification.id)
                 $('.update-emails').modal('show')
             })
 
-            $('#emailList').on('click', '.remove-email', function () {
+            $('#emailList').on('click', '.remove-email', function() {
                 $(this).closest('tr').remove()
             })
 
-            $('.update-emails').on('click', '#add-new-button', function () {
+            $('.update-emails').on('click', '#add-new-button', function() {
                 var email = $('#add-new').val()
                 $('#add-new').val('')
                 if (email)
@@ -167,8 +168,10 @@
             function addToList(item) {
                 $('#emailList').append(
                     '<tr class="text-left">' +
-                    '<td class="text-left"><input name=emails[] type="hidden" value="' + item.email + '">' + item.email + '</td>' +
-                    '<td><input type="checkbox" ' + (item.bcc ? 'checked' : '') + ' name="bcc[' + item.email + ']""></td>' +
+                    '<td class="text-left"><input name=emails[] type="hidden" value="' + item.email + '">' +
+                    item.email + '</td>' +
+                    '<td><input type="checkbox" ' + (item.bcc ? 'checked' : '') + ' name="bcc[' + item.email +
+                    ']""></td>' +
                     '<td><button type="button" class="remove-email btn btn-danger">x</button></td>' +
                     '</tr>'
                 )

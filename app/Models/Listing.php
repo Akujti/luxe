@@ -26,6 +26,8 @@ class Listing extends Model
         "rental"
     ];
 
+    protected $appends = ['main_image_url'];
+
     public function user()
     {
         return $this->belongsTo(User::class)->withTrashed();
@@ -37,6 +39,19 @@ class Listing extends Model
             return 'https://maps.googleapis.com/maps/api/streetview?size=800x400&location=' . $this->address . '&fov=90&key=' . env('GOOGLE_MAPS_API_KEY');
         }
         return $value;
+    }
+
+    public function getMainImageUrlAttribute()
+    {
+        $mainImage = $this->getMainImageAttribute($this->attributes['main_image'] ?? null);
+
+        // If it's already a full URL, return as is
+        if (filter_var($mainImage, FILTER_VALIDATE_URL)) {
+            return $mainImage;
+        }
+
+        // Otherwise, assume it's a relative path and prepend the app's URL
+        return asset($mainImage);
     }
 
     public function getAddressAttribute($value)

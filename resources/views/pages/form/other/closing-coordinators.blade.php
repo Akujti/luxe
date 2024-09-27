@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <form action="{{ route('general.email.post') }}" class="card form mb-5 p-3" method="POST"
-                      onsubmit="addAgentEmail()" enctype="multipart/form-data">
+                    onsubmit="addAgentEmail()" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">CLOSING COORDINATORS - {{ $coordinator->name }}</h1>
@@ -24,22 +24,22 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                       value="{{ auth()->user()->profile->fullname }}" required>
+                                    value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Phone Number</label>
                                 <input type="text" name="agent_number" class="form-control"
-                                       value="{{ auth()->user()->profile->phone }}" required>
+                                    value="{{ auth()->user()->profile->phone }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                       value="{{ auth()->user()->email }}" required>
+                                    value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Property Address</label>
                                 <input type="text" name="property_address" class="form-control map-search" required
-                                       placeholder="">
+                                    placeholder="">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Effective Date</label>
@@ -96,7 +96,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Is this a LUXE Zillow lead?</label>
                                 <select id="zillow_lead" name="is_this_luxe_zillow_lead" class="form-control"
-                                        onchange="toggleHiddenInput(this)" required>
+                                    onchange="toggleHiddenInput(this)" required>
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -123,6 +123,15 @@
                                 <input type="text" name="client_phone_number" class="form-control">
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="name">Who are you representing? </label>
+                                <select name="who_are_you_representing" class="form-select" required>
+                                    <option value>-</option>
+                                    <option value="Buyer">Buyer</option>
+                                    <option value="Seller">Seller</option>
+                                    <option value="Both">Both</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="name">Upload Fully Executed Contract and Addendums</label>
                                 <input type="file" name="contracts[]" class="form-control p-1" required multiple>
                                 <small><i>* You can select multiple files to upload</i></small>
@@ -137,7 +146,7 @@
         </div>
     </div>
     <script>
-        function toggleHiddenInput (selectElement) {
+        function toggleHiddenInput(selectElement) {
             var form = document.getElementById('myForm')
             var hiddenInput = document.getElementById('hiddenInput')
 

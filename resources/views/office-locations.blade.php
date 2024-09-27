@@ -1,5 +1,5 @@
 @extends('layouts.app', ['active' => 'office_staff_directory', 'subactive' => 'office_locations'])
-@section('content')
+@section('css')
     <style>
         .wrapper h1 {
             font-weight: 400;
@@ -34,6 +34,8 @@
             font-size: 22px;
         }
     </style>
+@endsection
+@section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -50,7 +52,7 @@
                                 <p class="location">Coral Gables</p>
                                 <p class="address">55 Merrick Way #402, Coral Gables, FL 33134</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Coral Gables','Keypad 555777#','Wi-Fi name- Luxe Guest','Password- Luxe1234$'
+                                    onclick="toggleModal('Coral Gables','Keypad 555777#','Wi-Fi name- Luxe Guest','Password- Luxe1234$'
                                         ,'Parking Options:'
                                         ,'Garage - entrance located on the north side of building in between Pincho Factory & Baptist Urgent Care - charged hourly'
                                         ,'Valet - $7 for the day','Street parking - meters')">
@@ -61,7 +63,7 @@
                                 <p class="location">Midtown</p>
                                 <p class="address">30 NW 34 Street #102, Miami, FL 33127</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Midtown','Supra','Alarm 1234','Wi-Fi name- Luxeproperties','Password- Luxeknows','Parking Options:'
+                                    onclick="toggleModal('Midtown','Supra','Alarm 1234','Wi-Fi name- Luxeproperties','Password- Luxeknows','Parking Options:'
                                         ,'Parking lot behind office','Street parking - meters','Garage down the street from office, next to the Target')">
                                     Access, Parking, & Wifi Information
                                 </button>
@@ -70,7 +72,7 @@
                                 <p class="location">Kendall</p>
                                 <p class="address">12464 SW 127 Avenue, Miami, FL 33186</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Kendall','Lockbox 1983','Alarm 2019','Wi-Fi name- luxekendall2.5 / luxekendall5','Password- Luxe12345','Parking Options:','Open parking in shopping center')">
+                                    onclick="toggleModal('Kendall','Lockbox 1983','Alarm 2019','Wi-Fi name- luxekendall2.5 / luxekendall5','Password- Luxe12345','Parking Options:','Open parking in shopping center')">
                                     Access, Parking, & Wifi Information
                                 </button>
                             </div>
@@ -78,7 +80,7 @@
                                 <p class="location">Miami Lakes</p>
                                 <p class="address">17650 NW 78th Ave #101, Hialeah, FL 33015</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Miami Lakes','Lockbox is on the front door - code: 5557','Wi-Fi name- Luxeproperties','Password- abcde123','Parking Options:','Open parking in shopping center')">
+                                    onclick="toggleModal('Miami Lakes','Lockbox is on the front door - code: 5557','Wi-Fi name- Luxeproperties','Password- abcde123','Parking Options:','Open parking in shopping center')">
                                     View
                                     Access & Wifi Instructions
                                 </button>
@@ -87,7 +89,7 @@
                                 <p class="location">Homestead</p>
                                 <p class="address">2016 NE 8 Street, Homestead, FL 33033</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Homestead','Lockbox 7400','Wi-Fi name- Luxe Prop 2.4','Password- Luxe1234$','Alarm 2016','Parking Options:','Open parking in shopping center')">
+                                    onclick="toggleModal('Homestead','Lockbox 7400','Wi-Fi name- Luxe Prop 2.4','Password- Luxe1234$','Alarm 2016','Parking Options:','Open parking in shopping center')">
                                     Access, Parking, & Wifi Information
                                 </button>
                             </div>
@@ -95,7 +97,7 @@
                                 <p class="location">Aventura</p>
                                 <p class="address">2875 NE 191 Street #PH5, Aventura, FL 33180</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Aventura','Lockbox 1976','Wi-Fi name- LUXE PROPERTIES','Password: Luxeknows123','Parking Options:','Garage in the building across -- Free parking on 3rd floor & up')">
+                                    onclick="toggleModal('Aventura','Lockbox 1976','Wi-Fi name- LUXE PROPERTIES','Password: Luxeknows123','Parking Options:','Garage in the building across -- Free parking on 3rd floor & up')">
                                     Access, Parking, & Wifi Information
                                 </button>
                             </div>
@@ -103,7 +105,7 @@
                                 <p class="location">Orlando</p>
                                 <p class="address">301 N Tubb Street #114, Oakland, FL 34760</p>
                                 <button class="btn"
-                                        onclick="toggleModal('','Parking Options:','Open parking around building')">
+                                    onclick="toggleModal('','Parking Options:','Open parking around building')">
                                     Access, Parking, & Wifi Information
                                 </button>
                             </div>
@@ -111,7 +113,7 @@
                                 <p class="location">Pembroke Pines</p>
                                 <p class="address">1911 NW 150 Avenue #202, Pembroke Pines FL 33028</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Office Lockbox 1025','After Hours Building Code 8372','Wi-Fi name- Luxepines','Password- Luxe1234$','Parking Options:','Open parking')">
+                                    onclick="toggleModal('Office Lockbox 1025','After Hours Building Code 8372','Wi-Fi name- Luxepines','Password- Luxe1234$','Parking Options:','Open parking')">
                                     Access, Parking, & Wifi Information
                                 </button>
                             </div>
@@ -119,7 +121,7 @@
                                 <p class="location">Dadeland</p>
                                 <p class="address">9200 S Dadeland Blvd #420, Miami, FL 33156</p>
                                 <button class="btn"
-                                        onclick="toggleModal('Lockbox 5557','Wi-Fi name - Luxe Properties Dadeland','Password - Luxeknows$123','Parking Options:','Open parking around building')">
+                                    onclick="toggleModal('Lockbox 5557','Wi-Fi name - Luxe Properties Dadeland','Password - Luxeknows$123','Parking Options:','Open parking around building')">
                                     Access, Parking, & Wifi Information
                                 </button>
                             </div>
@@ -169,7 +171,8 @@
         </div>
     </div>
     <script>
-        function toggleModal (location, text_1, text_2, text_3 = '', text_4 = '', text_5 = '', text_6 = '', text_7 = '', text_8 = '') {
+        function toggleModal(location, text_1, text_2, text_3 = '', text_4 = '', text_5 = '', text_6 = '', text_7 = '',
+            text_8 = '') {
             $('#modal-location').text(location)
             $('#modal-text-one').text(text_1)
             $('#modal-text-two').text(text_2)
@@ -183,11 +186,11 @@
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&v=weekly"
-            defer></script>
+        defer></script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 
     <script>
-        function initMap () {
+        function initMap() {
             var locations = [
                 ['Coral Gables', 25.751360, -80.255580],
                 ['Midtown', 25.800800, -80.195480],
@@ -225,8 +228,8 @@
                     map: map
                 })
 
-                google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                    return function () {
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
                         infowindow.setContent(locations[i][0])
                         infowindow.open(map, marker)
                     }

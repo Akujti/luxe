@@ -12,6 +12,7 @@ use App\Http\Controllers\BrokerSumoController;
 use App\Http\Controllers\ClosingCoordinatorController;
 use App\Http\Controllers\CMA\CMAController;
 use App\Http\Controllers\Coaching\CoachingController;
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CustomSectionController;
 use App\Http\Controllers\DesignRequestController;
@@ -320,6 +321,7 @@ Auth::routes(['register' => false]);
 Route::group(
     ['prefix' => 'user', 'middleware' => ['auth']],
     function () {
+        Route::resource('collections', CollectionController::class);
         Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/links', [PageController::class, 'links'])->name('links');
         // Route::get('/videos', [PageController::class, 'videos'])->name('videos');
@@ -409,8 +411,7 @@ Route::group(
 
 Route::group(
     ['middleware' => ['auth', 'staff', 'admin']],
-    function () {
-    }
+    function () {}
 );
 
 Route::group(
@@ -651,6 +652,3 @@ Route::group(['prefix' => 'themes', 'middleware' => ['auth']], function () {
 Route::get('testjob', [AdminController::class, 'testjob']);
 
 Route::get('/cma-report/show-report/{report}', [CMAController::class, 'showReport'])->name('cma.showReport');
-
-
-
