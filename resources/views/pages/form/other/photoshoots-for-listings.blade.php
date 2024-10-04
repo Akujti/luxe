@@ -246,6 +246,10 @@
                                 <input type="text" name="agent_email" class="form-control"
                                        value="{{ auth()->user()->email }}" required>
                             </div>
+                            <div class="form-group col-md-6 d-none" id="property-type-unit">
+                                <label for="unit_number">Unit Number</label>
+                                <input type="number" name="unit_number" class="form-control">
+                            </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Is this a rental listing?</label>
                                 <select id="option-rental-listing" type="text" name="is_this_a_rental_listing"
@@ -517,6 +521,17 @@
             } else {
                 $('#other-lead-source-input').addClass('d-none')
                 $('#other-lead-source-input').prop('required', false)
+            }
+        })
+
+        $('#option-property-type').change(function () {
+            var option = $(this).val()
+            if (option == 'Condo/Apartment') {
+                $('#property-type-unit').removeClass('d-none')
+                $('#property-type-unit input').attr('required', true)
+            } else {
+                $('#property-type-unit').addClass('d-none')
+                $('#property-type-unit input').attr('required', false)
             }
         })
 
