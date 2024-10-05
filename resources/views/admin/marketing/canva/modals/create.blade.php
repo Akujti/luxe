@@ -4,12 +4,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Create new Category</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('admin.canva.marketing.create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @if(isset($category))
+                    @if (isset($category))
                         <input type="hidden" name="parent_id" value="{{ $category->id }}">
                     @endif
                     <div class="row m-0 p-0">
@@ -23,20 +24,22 @@
                         <div class="form-group">
                             <label for="start">{{ __('Select File') }}</label>
                             <div class="custom-file">
-                                <input type="file" name="image" class="form-control" id="inputGroupFile01" style="padding: 3px;" required>
+                                <input type="file" name="image" class="form-control" id="inputGroupFile01"
+                                    style="padding: 3px;" required>
                             </div>
                         </div>
 
                         <div class="form-group mt-3">
                             <label for="start">Order</label>
                             <div class="custom-file">
-                                <input type="number" name="order" class="form-control" value="{{ $last_order }}" required>
+                                <input type="number" name="order" class="form-control" value="{{ $last_order }}"
+                                    required>
                             </div>
                         </div>
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-luxe" id="save-event">Create</button>
             </div>
             </form>

@@ -4,10 +4,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Email Blast</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.email_blasts.update') }}" class="row p-0 m-0" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.email_blasts.update') }}" class="row p-0 m-0" method="POST"
+                    enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <input type="hidden" class="form-control" name="id" id="blast_id" required>
@@ -31,7 +33,7 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-luxe" id="save-event">Update</button>
             </div>
             </form>

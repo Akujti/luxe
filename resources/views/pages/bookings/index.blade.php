@@ -55,7 +55,6 @@
         .fc-event-main {
             color: black !important;
         }
-
     </style>
 @endsection
 @section('content')
@@ -69,7 +68,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Create New Booking</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
                     <form action="{{ route('bookings.store') }}" method="POST">
@@ -100,12 +99,12 @@
                                 </div>
                             </div>
                             <input name="room_id" id="room_id" class="form-control" type="hidden"
-                                   value="{{ $room->id }}" required>
+                                value="{{ $room->id }}" required>
                             <input type="hidden" id="start" name="start" class="form-control">
                             <input type="hidden" id="end" name="end" class="form-control">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-luxe" id="save-booking">Save</button>
                         </div>
                     </form>
@@ -117,7 +116,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Booking</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
                     <form action="{{ route('bookings.destroy', 1) }}" method="POST" enctype="multipart/form-data">
@@ -129,29 +128,29 @@
                                 <div class="">
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="title" name="title" class="w-100 form-control" required
-                                               disabled>
+                                        <input type="text" id="title" name="title" class="w-100 form-control"
+                                            required disabled>
                                     </div>
                                 </div>
                                 <div class="">
                                     <label for="start">{{ __('Name') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="name" name="name" class="w-100 form-control" required
-                                               disabled>
+                                        <input type="text" id="name" name="name" class="w-100 form-control"
+                                            required disabled>
                                     </div>
                                 </div>
                                 <div class="">
                                     <label for="start">{{ __('Email') }}</label>
                                     <div class='input-group date'>
-                                        <input type="email" id="email" name="email" class="w-100 form-control" required
-                                               disabled>
+                                        <input type="email" id="email" name="email" class="w-100 form-control"
+                                            required disabled>
                                     </div>
                                 </div>
                                 <div class="mt-1">
                                     <label for="start">{{ __('Phone') }}</label>
                                     <div class='input-group date'>
-                                        <input type="text" id="phone" name="phone" class="w-100 form-control" required
-                                               disabled>
+                                        <input type="text" id="phone" name="phone" class="w-100 form-control"
+                                            required disabled>
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +159,7 @@
                             @if (Auth::user()->isAdmin)
                                 <div class="modal-footer d-flex">
                                     <button type="submit" class="btn btn-danger" id="delete_booking"
-                                            onclick="return confirm('Are you sure you want to delete this booking?');">
+                                        onclick="return confirm('Are you sure you want to delete this booking?');">
                                         Delete
                                     </button>
                                 </div>
@@ -174,7 +173,7 @@
 @endsection
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         let auth = false
         @auth()
             auth = true
@@ -188,8 +187,7 @@
                 endTime: '17:00'
             }]
         } else if (room_id === 2) {
-            hours = [
-                {
+            hours = [{
                     daysOfWeek: [1, 2, 3, 5],
                     startTime: '09:00',
                     endTime: '17:00'
@@ -235,12 +233,12 @@
         const data = @json($bookings);
         var calendarEl = document.getElementById('calendar')
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            select: function (start, end, allDay, jsEvent, view) {
+            select: function(start, end, allDay, jsEvent, view) {
                 $('.create-booking').modal('show')
                 $('#start').val(start.startStr)
                 $('#end').val(start.endStr)
             },
-            eventClick: function (event, element) {
+            eventClick: function(event, element) {
                 if (auth) {
                     var booking = event.event
                     console.log(event)
@@ -269,12 +267,12 @@
             weekends: false,
             slotMinTime: '09:00:00',
             slotMaxTime: '17:00:00',
-            selectAllow: function (selectInfo) {
+            selectAllow: function(selectInfo) {
                 var duration = moment.duration(selectInfo.end - selectInfo.start)
                 return duration.asHours() <= 1
             },
             // slotDuration: 60,
-            selectOverlap: function (event) {
+            selectOverlap: function(event) {
                 return event.rendering === 'background'
             },
             defaultTimedEventDuration: '01:00'
@@ -293,7 +291,7 @@
         //     $('.fc-event-main').css('color', 'black');
         // }
         @guest()
-        $('.fc-event-title').text('RESERVED')
+            $('.fc-event-title').text('RESERVED')
         @endguest
         $('.fc-non-business').text('RESERVED')
     })

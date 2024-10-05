@@ -4,13 +4,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Create new File</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('admin.videos.file.create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    @if(request('video_id'))
+                    @if (request('video_id'))
                         <input type="hidden" name="video_id" value="{{ request('video_id') }}">
                     @endif
                     <div class="row m-0 p-0">
@@ -29,7 +30,7 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-luxe" id="save-event">Create</button>
             </div>
             </form>

@@ -268,7 +268,7 @@
                                 </div> --}}
                             </div>
                             {{-- <div class="form-group form-footer col-12">
-                                <button type="button" class="btn-luxe w-100" data-toggle="modal"
+                                <button type="button" class="btn-luxe w-100" data-bs-toggle="modal"
                                     data-target="#exampleModal">Request</button>
                             </div> --}}
                         </div>
@@ -280,7 +280,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Marketing Menu</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -351,7 +351,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Image</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
@@ -368,7 +368,7 @@
                         </ul> --}}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                     </div>
                     </form>
                 </div><!-- /.modal-content -->

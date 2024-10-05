@@ -4,12 +4,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Create Gallery</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.event-galleries.store') }}" method="POST"
-                      enctype="multipart/form-data">
+                <form action="{{ route('admin.event-galleries.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row m-0 p-0">
                         <div class="form-group">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="modal-footer p-0 mt-3">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-luxe" id="save-event">Create</button>
                     </div>
                 </form>

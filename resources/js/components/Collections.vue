@@ -33,7 +33,9 @@
         </div>
         <div class="row">
             <div class="col-md-5">
-                <div id="map"></div>
+                <div class="sticky">
+                    <div id="map" class="mb-5"></div>
+                </div>
             </div>
             <div class="col-md-7">
                 <div>
@@ -45,6 +47,7 @@
                     <div class="d-flex justify-content-center" v-if="loading">
                         <div id="loading"></div>
                     </div>
+
                     <div class="row mb-3" v-if="step == 1">
                         <div v-for="item in listings" :key="item.ListingId" class="col-md-6 mb-3">
                             <div class="listing" :class="{ active: isSelected(item.ListingId) }"
@@ -108,7 +111,7 @@
                                 <div class="position-relative">
                                     <img :src="item.main_image_url" class="image">
                                     <div class="data p-2">
-                                        <!-- <p>${{ item.price?.toLocaleString() }} | {{
+                                        <p>${{ item.price?.toLocaleString() }} | {{
                                             item.address.split(',')[0] }}
                                         </p>
                                         <p>
@@ -117,7 +120,7 @@
                                             | {{ item.living_area ? (item.living_area).toLocaleString() :
                                                 '-'
                                             }} SqFt
-                                        </p> -->
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="p-2">
@@ -144,9 +147,28 @@
                             <p>No listings found</p>
                         </div>
                     </div>
+                    <div class="row mb-3" v-if="step == 3">
+                        <div class="w-100">
+                            <div class="form-group">
+                                <label for="">Collection Name</label>
+                                <input type="text" class="form-control" v-model="collection.name">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Recipient Email</label>
+                                <input type="email" class="form-control" v-model="collection.email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3" v-if="step == 4">
+                        <p> We have sent an email to <a href="mailto:email@email.com">{{ collection.email }}</a>. Here
+                            is the public link to share with your client <a
+                                href="http://localhost:8000/collections/1">Collection Link</a></p>
+                    </div>
                     <div class="row justify-content-between align-items-center mb-3">
                         <button class="step-btn" :disabled="step <= 1" @click="changeStep(-1)">Previous</button>
-                        <button class="step-btn" :disabled="step >= 3" @click="changeStep(1)">Next</button>
+                        <button class="step-btn" :disabled="step >= 3" @click="changeStep(1)"
+                            v-if="step < 3">Next</button>
+                        <button class="step-btn" @click="changeStep(1)" v-if="step == 3">Submit</button>
                     </div>
                 </div>
             </div>
@@ -166,6 +188,7 @@ export default {
             token: process.env.MIX_CMA_SERVER_TOKEN,
             listings: [],
             comingSoonListings: [],
+            collection: {},
             step: 1,
             search: {
                 zip: '',
@@ -199,10 +222,10 @@ export default {
             this.step += step
         },
         searchListings() {
-            if (this.step == 1)
-                this.getBridgeDataListings()
-            else if (this.step == 2)
-                this.getComingSoonListings()
+            // if (this.step == 1)
+            this.getBridgeDataListings()
+            // else if (this.step == 2)
+            this.getComingSoonListings()
         },
         getComingSoonListings() {
             axios.get('/listings')
@@ -212,8 +235,9 @@ export default {
         },
         getBridgeDataListings() {
             let query = 'https://api.bridgedataoutput.com/api/v2/miamire/listings?access_token=' + this.token +
-                '&StandardStatus=Active&limit=20'
-            console.log(this.search);
+                '&fields=ListingId,Media,ListPrice,UnparsedAddress,BedroomsTotal,BathroomsFull,LivingArea,LivingAreaUnits,PropertyType,LotSizeSquareFeet,DaysOnMarket,GarageSpaces,MIAMIRE_PoolYN,WaterfrontYN,Latitude,Longitude' +
+                '&StandardStatus=Active&limit=20' +
+                console.log(this.search);
             console.log((this.search.zip ?? '') + ' ' + (this.search.street ?? ''));
             if (this.search.zip || this.search.street)
                 query += '&UnparsedAddress.in=' + (this.search.zip ?? '') + ' ' + (this.search.street ?? '')
@@ -226,9 +250,10 @@ export default {
             if (this.search.baths)
                 query += '&BathroomsFull=' + this.search.baths
 
-            this.markers.forEach(marker => marker.setMap(null));
+            this.markers?.forEach(marker => marker.setMap(null));
             this.loading = true
             this.listings = []
+            this.bounds = new google.maps.LatLngBounds();
             axios.get(query)
                 .then(async response => {
                     this.listings = response.data.bundle
@@ -316,7 +341,11 @@ h1.title {
     height: 600px;
     border-radius: 10px;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+.sticky {
     position: sticky;
+    top: 150px;
 }
 
 .gap {

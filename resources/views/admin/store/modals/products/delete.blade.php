@@ -4,7 +4,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Delete Product</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('admin.luxe_store.products.delete') }}" method="POST">
@@ -16,7 +17,7 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-luxe" id="save-event">Delete</button>
             </div>
             </form>

@@ -3,11 +3,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Photographer</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.photographers.update',0) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.photographers.update', 0) }}" method="POST" enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     <input type="hidden" name="photographer_id" id="photographer_id" value="">
@@ -40,7 +41,7 @@
                         </div>
                     </div>
                     <div class="modal-footer p-0 mt-3">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-luxe" id="save-event">Update</button>
                     </div>
                 </form>

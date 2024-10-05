@@ -4,13 +4,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Create a new template</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('admin.diy-templates.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="category_id" value="{{ isset($category) ? $category->id:null }}">
+                    <input type="hidden" name="category_id" value="{{ isset($category) ? $category->id : null }}">
                     <div class="row m-0 p-0">
                         <div class="form-group">
                             <label for="start">Title</label>
@@ -46,7 +46,7 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-luxe" id="save-event">Create</button>
             </div>
             </form>

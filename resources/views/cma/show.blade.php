@@ -134,7 +134,7 @@
                                                 <div class="d-inline-block">
                                                     <div class="dropdown" id="search-dropdown">
                                                         <button type="button" id="dropdownMenuButton"
-                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
                                                             aria-expanded="false">
                                                             <i class="fa-solid fa-bars"></i>
                                                         </button>

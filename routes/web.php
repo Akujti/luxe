@@ -97,6 +97,7 @@ Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function () {
 Route::get('general/form/agent_referrals/agent-form', [FormController::class, 'agent_form']);
 Route::post('general/form/send', [FormController::class, 'general_form_post'])->name('general.email.post');
 Route::get('form/other/marketing-budget', [FormController::class, 'marketing_budget_form']);
+Route::get('collections/{collection}', [CollectionController::class, 'show']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::view('luxe-incentives', 'pages.luxe_incentives')->name('luxe-incentives');

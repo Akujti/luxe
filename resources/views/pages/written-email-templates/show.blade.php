@@ -61,7 +61,7 @@
         <div class="row my-4">
             @if ($isAdmin)
                 <div class="col-lg-4">
-                    <a href="" data-toggle="modal" data-target="#createModal"
+                    <a href="" data-bs-toggle="modal" data-target="#createModal"
                         class="btn btn-luxe w-100 show-btn m-2 d-flex align-items-center justify-content-center"
                         style="height: 70px">New Item</a>
                 </div>
@@ -69,7 +69,7 @@
             @if ($items->count())
                 @foreach ($items as $item)
                     <div class="col-lg-4">
-                        <a href="" data-toggle="modal" data-target="#exampleModalCenter"
+                        <a href="" data-bs-toggle="modal" data-target="#exampleModalCenter"
                             data-id="{{ $item->id }}" data-title="{{ $item->title }}"
                             data-content="{{ $item->content }}" onclick="populateModal(this)"
                             class="btn btn-luxe w-100 show-btn m-2 d-flex align-items-center justify-content-center"
@@ -94,7 +94,7 @@
                     <input type="hidden" name="content" id="update-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Email Template</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -122,7 +122,7 @@
                     <div class="modal-footer1 justify-content-center">
                         <div class="row w-100">
                             <div class="{{ $isAdmin ? 'col-lg-6' : 'col-12' }} align-self-center text-center">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-luxe" onclick="selectText('sampleeditor2')">Select
                                     Text
                                 </button>
@@ -153,7 +153,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle1">Add a new Item</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -183,7 +183,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn" data-dismiss="modal">Close</button>
+                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-luxe">Save</button>
             </div>
             </form>

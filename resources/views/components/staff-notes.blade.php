@@ -8,20 +8,17 @@
                 <div class="row justify-content-end p-0 m-0">
                     @if ($note->author == auth()->id())
                         <div class="btn-group">
-                            <button type="button" class="btn bg-transparent p-0 pl-3"
-                                data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                            <button type="button" class="btn bg-transparent p-0 pl-3" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 <span><i class="fa-solid fa-ellipsis"></i></span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <form method="POST" action="{{ route('delete_note') }}"
-                                    class="m-0 p-0">
+                                <form method="POST" action="{{ route('delete_note') }}" class="m-0 p-0">
                                     @method('delete')
                                     @csrf
-                                    <input type="hidden" name="id"
-                                        value="{{ $note->id }}">
-                                    <button class="dropdown-item text-danger"
-                                        type="submit"><i class="fa-solid fa-trash"></i>
+                                    <input type="hidden" name="id" value="{{ $note->id }}">
+                                    <button class="dropdown-item text-danger" type="submit"><i
+                                            class="fa-solid fa-trash"></i>
                                         Delete</button>
                                 </form>
                             </div>

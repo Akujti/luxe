@@ -20,6 +20,11 @@ window.Vue = require("vue").default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component("Collections", require("./components/Collections.vue").default);
+Vue.component("Show", require("./components/collections/Show.vue").default);
+Vue.component(
+    "Listing",
+    require("./components/collections/Listing.vue").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

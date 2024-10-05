@@ -92,7 +92,7 @@
                                                 <span>{{ $language }} @if (!$loop->last)
                                                         ,
                                                     @endif
-                                            </span>
+                                                </span>
                                             @endforeach
                                         @endif
                                         &nbsp;
@@ -101,8 +101,8 @@
                                     <p>Service Areas: {{ $agent->service_areas }}</p>
                                 </div>
                             </div>
-                            <button class="btn btn-luxe" data-toggle="modal"
-                                    data-target="#modal-{{ $agent->user->id }}">Request
+                            <button class="btn btn-luxe" data-bs-toggle="modal"
+                                data-target="#modal-{{ $agent->user->id }}">Request
                             </button>
                             <div class="modal modal-new fade" id="modal-{{ $agent->user->id }}">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -110,14 +110,15 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLongTitle">Request Agent
                                             </h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
 
                                         <div class="modal-body">
                                             <form action="{{ route('request.showing.agents', $agent->user) }}"
-                                                  method="post">
+                                                method="post">
                                                 @csrf
                                                 <div class="form-group">
                                                     <label for="exampleFormControlSelect1">Select Service</label>
@@ -136,7 +137,7 @@
                                                 <div class="form-group">
                                                     <label for="" class="label">Select Date</label>
                                                     <input type="text" id="datepicker" name="date"
-                                                           class="form-control date" autocomplete="off" required>
+                                                        class="form-control date" autocomplete="off" required>
                                                 </div>
                                                 <button class="btn btn-luxe" type="submit">Request</button>
                                             </form>
@@ -160,7 +161,7 @@
     <script>
         var counter = 0
 
-        function initMap () {
+        function initMap() {
             var agents = JSON.parse(JSON.stringify(<?php echo json_encode($agents_list); ?>))
 
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -175,7 +176,7 @@
 
             agents.forEach((el) => {
                 if (el.profile.lng && el.profile.lat) {
-                    codeAddress(el.profile, function (coords) {
+                    codeAddress(el.profile, function(coords) {
                         AllLatLng.push({
                             lat: coords[0],
                             lng: coords[1]
@@ -201,8 +202,8 @@
                             map: map
                         })
 
-                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                            return function () {
+                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                            return function() {
 
                                 infowindow.setContent(
                                     '<div class=\'d-flex align-items-center\' style=\'gap:10px;margin-bottom:6px\'>' +
@@ -212,7 +213,7 @@
                                     '</div>' +
                                     'Phone: ' + el.profile.phone +
                                     '<br>Languages: ' + el.profile.languages
-                                        .toString() +
+                                    .toString() +
                                     '<br>Address: ' + el.profile.address
                                 )
                                 infowindow.open(map, marker)
@@ -223,7 +224,7 @@
             })
         }
 
-        function codeAddress (profile, callback) {
+        function codeAddress(profile, callback) {
             // let geocoder = new google.maps.Geocoder();
             var locations = [profile.lat, profile.lng]
             callback(locations)
@@ -311,7 +312,7 @@
             background-position: 50%;
         }
 
-        .ui-datepicker-header a > span {
+        .ui-datepicker-header a>span {
             display: none;
         }
 

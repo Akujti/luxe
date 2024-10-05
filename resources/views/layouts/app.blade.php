@@ -482,9 +482,10 @@
                         <div class="col-6 col-md-6 col-lg-10 mr-0 pr-0 d-none d-lg-flex d-xl-flex justify-content-end">
                             <div class="contact-details">
                                 <div class="right-contactsd">
-                                    <a href="{{ route('luxe_store.cart') }}" data-toggle="tooltip" data-placement="top"
-                                        title="Cart"><img src="/images/cart.svg" alt=""></a>
-                                    <a href="{{ route('profile.my_profile') }}" data-toggle="tooltip"
+                                    <a href="{{ route('luxe_store.cart') }}" data-bs-toggle="tooltip"
+                                        data-placement="top" title="Cart"><img src="/images/cart.svg"
+                                            alt=""></a>
+                                    <a href="{{ route('profile.my_profile') }}" data-bs-toggle="tooltip"
                                         data-placement="top" title="My Profile"><img src="/images/account-icon.svg"
                                             alt=""></a>
                                     <div class="sidebar__item-menu search-box d-none">
@@ -495,11 +496,11 @@
                                             </form>
                                         </a>
                                     </div>
-                                    <a href="#" onclick="toggleSearch()" data-toggle="tooltip"
+                                    <a href="#" onclick="toggleSearch()" data-bs-toggle="tooltip"
                                         data-placement="top" title="Search"><img src="/images/search-icon.svg"
                                             alt=""></a>
                                     @auth
-                                        <a href="#" data-toggle="modal" data-target="#suggestionModal"><img
+                                        <a href="#" data-bs-toggle="modal" data-target="#suggestionModal"><img
                                                 src="/images/suggestion.svg" alt=""></a>
                                         <div class="modal fade modal-new" id="suggestionModal" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -508,7 +509,7 @@
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Submit A
                                                             Suggestion</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -547,7 +548,7 @@
                                                         </div>
                                                         <div class="modal-footer pt-0">
                                                             <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal">
+                                                                data-bs-dismiss="modal">
                                                                 Cancel
                                                             </button>
                                                             <button type="submit" class="btn btn-luxe" id="save-event">
@@ -558,7 +559,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="#" data-toggle="modal" data-target="#reportModal"><img
+                                        <a href="#" data-bs-toggle="modal" data-target="#reportModal"><img
                                                 src="/images/report.svg" alt="" width="32"></a>
                                         <div class="modal fade modal-new" id="reportModal" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -567,7 +568,7 @@
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Report An Error
                                                         </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -635,7 +636,7 @@
                                                         </div>
                                                         <div class="modal-footer pt-0">
                                                             <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal">
+                                                                data-bs-dismiss="modal">
                                                                 Cancel
                                                             </button>
                                                             <button type="submit" class="btn btn-luxe" id="save-event">
@@ -647,7 +648,8 @@
                                             </div>
                                         </div>
                                         <div class="sidebar__item-menu">
-                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Logout">
+                                            <a href="#" data-bs-toggle="tooltip" data-placement="top"
+                                                title="Logout">
                                                 <form action="{{ route('logout') }}" method="post" class="m-0">
                                                     @csrf
                                                     <button class="btn btn-link text-white p-0"><img
@@ -1278,7 +1280,7 @@
 
 <script>
     $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-bs-toggle="tooltip"]').tooltip()
     })
     $('.toggleSidebar').click(function() {
         $('.sidebar').toggleClass('active')

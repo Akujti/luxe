@@ -131,7 +131,6 @@
             object-fit: cover;
         }
     </style>
-
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -144,8 +143,8 @@
             </div>
             <div class="row mb-4">
                 <!-- <div class="d-md-flex align-items-center">
-                    <div class="color-picker career_fair "></div> Career Fair
-                </div> -->
+                        <div class="color-picker career_fair "></div> Career Fair
+                    </div> -->
                 <div class="col-md-3">
                     <div class="d-md-flex align-items-center">
                         <div class="color-picker holidays "></div>
@@ -200,44 +199,40 @@
                 </div>
             </div>
             <div class="row mb-4">
-                @foreach($galleries as $gallery)
+                @foreach ($galleries as $gallery)
                     <div class="col-md-4">
-                        <a href="{{route('events.galleries.show',$gallery->id)}}">
+                        <a href="{{ route('events.galleries.show', $gallery->id) }}">
                             <div class="gallery">
-                                {{--                                <div class="overlay"></div>--}}
-                                <div id="carouselExampleControls-{{$gallery->id}}" class="carousel slide"
-                                     data-ride="carousel">
+                                {{--                                <div class="overlay"></div> --}}
+                                <div id="carouselExampleControls-{{ $gallery->id }}" class="carousel slide"
+                                    data-ride="carousel">
                                     <div class="carousel-inner">
-                                        @foreach($gallery->images as $image)
-                                            <div class="carousel-item {{$loop->first ? 'active':''}}">
-                                                <img class="d-block w-100 property-image"
-                                                     src="{{$image->url_medium}}"
-                                                     alt="First slide">
+                                        @foreach ($gallery->images as $image)
+                                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                                <img class="d-block w-100 property-image" src="{{ $image->url_medium }}"
+                                                    alt="First slide">
                                             </div>
                                         @endforeach
                                     </div>
-                                    <a class="carousel-control-prev"
-                                       href="#carouselExampleControls-{{$gallery->id}}"
-                                       role="button"
-                                       data-slide="prev">
+                                    <a class="carousel-control-prev" href="#carouselExampleControls-{{ $gallery->id }}"
+                                        role="button" data-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Previous</span>
                                     </a>
-                                    <a class="carousel-control-next"
-                                       href="#carouselExampleControls-{{$gallery->id}}"
-                                       role="button"
-                                       data-slide="next">
+                                    <a class="carousel-control-next" href="#carouselExampleControls-{{ $gallery->id }}"
+                                        role="button" data-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
                                 </div>
-                                <p class="my-2 text-center position relative">{{$gallery->title}}</p>
+                                <p class="my-2 text-center position relative">{{ $gallery->title }}</p>
                             </div>
                         </a>
                     </div>
                 @endforeach
-                @if($galleries)
-                    <a href="{{route('events.galleries.index')}}" class="btn btn-luxe text-center d-block mt-3 mx-auto">View
+                @if ($galleries)
+                    <a href="{{ route('events.galleries.index') }}"
+                        class="btn btn-luxe text-center d-block mt-3 mx-auto">View
                         All Events</a>
                 @endif
             </div>
@@ -249,8 +244,8 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title">Create New Event</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                        aria-hidden="true">&times;</span></button>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
                         </div>
                         <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -260,21 +255,20 @@
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="title" name="title" class="w-100 form-control"
-                                               required>
+                                            required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="start">{{ __('Location') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="location" name="location" class="w-100 form-control"
-                                               required>
+                                            required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="start">{{ __('Description') }}</label>
                                     <div class='input-group date'>
-                                        <textarea name="description" id="description" class="w-100 form-control"
-                                                  style="font-family: gothicregular"></textarea>
+                                        <textarea name="description" id="description" class="w-100 form-control" style="font-family: gothicregular"></textarea>
                                     </div>
                                 </div>
                                 <div class="d-flex">
@@ -282,13 +276,14 @@
                                         <label for="start">{{ __('Start Time') }}</label>
                                         <div class='input-group date'>
                                             <input type="time" id="start_time" name="start_time"
-                                                   class="w-100 form-control">
+                                                class="w-100 form-control">
                                         </div>
                                     </div>
                                     <div class="form-group w-50 pl-1">
                                         <label for="end">{{ __('End Time') }}</label>
                                         <div class='input-group date'>
-                                            <input type="time" id="end_time" name="end_time" class="w-100 form-control">
+                                            <input type="time" id="end_time" name="end_time"
+                                                class="w-100 form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -336,13 +331,13 @@
                                     <label for="start">{{ __('Event Image') }}</label>
                                     <div class="custom-file">
                                         <input type="file" name="image" class="form-control" id="inputGroupFile01"
-                                               style="padding: 3px;">
+                                            style="padding: 3px;">
                                         {{-- <label class="custom-file-label" for="inputGroupFile01">Choose file</label> --}}
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-luxe" id="save-event">Save</button>
                             </div>
                         </form>
@@ -355,15 +350,15 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Event</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body mb-0 pb-0">
                         <a href="#" class="text-dark" target="_blank" id="show-more-link"
-                           style="text-decoration: underline; font-size:17px;">Show event details.</a>
+                            style="text-decoration: underline; font-size:17px;">Show event details.</a>
                         <div id="event_attend_form_wrapper">
                             <form id="event_attend_form" action="{{ route('events.attend') }}" method="POST"
-                                  class="m-0 p-0">
+                                class="m-0 p-0">
                                 @csrf
                                 <input type="hidden" name="event_id" id="event_id_attend">
                                 <input type="hidden" name="status" id="event_attend_status">
@@ -387,21 +382,20 @@
                                     <label for="start">{{ __('Title') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="title" name="title"
-                                               class="w-100 form-control update_field" disabled required>
+                                            class="w-100 form-control update_field" disabled required>
                                     </div>
                                 </div>
                                 <div class="mt-1">
                                     <label for="start">{{ __('Location') }}</label>
                                     <div class='input-group date'>
                                         <input type="text" id="location" name="location"
-                                               class="w-100 form-control update_field" disabled required>
+                                            class="w-100 form-control update_field" disabled required>
                                     </div>
                                 </div>
                                 <div class="mt-1 form-group">
                                     <label for="start">{{ __('Description') }}</label>
                                     <div class='input-group date'>
-                                        <textarea name="description" id="description" class="w-100 form-control"
-                                                  style="font-family: gothicregular"></textarea>
+                                        <textarea name="description" id="description" class="w-100 form-control" style="font-family: gothicregular"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -411,14 +405,14 @@
                                     <label for="start">{{ __('Start Time') }}</label>
                                     <div class='input-group date'>
                                         <input type="time" id="start_time" name="start_time"
-                                               class="w-100 form-control update_field" disabled required>
+                                            class="w-100 form-control update_field" disabled required>
                                     </div>
                                 </div>
                                 <div class="w-50 pl-1">
                                     <label for="end">{{ __('End Time') }}</label>
                                     <div class='input-group date'>
                                         <input type="time" id="end_time" name="end_time"
-                                               class="w-100 form-control update_field" disabled>
+                                            class="w-100 form-control update_field" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -427,10 +421,10 @@
                                     @if ($isAdmin)
                                         <label for="rsvp1">{{ __('RSVP') }}</label>
                                         <input type="url" name="rsvp" id="rsvp1"
-                                               class="w-100 form-control update_field" disabled>
+                                            class="w-100 form-control update_field" disabled>
                                     @endif
                                     <a id="rsvp" href="" target="_blank" rel="noopener noreferrer"
-                                       class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
+                                        class="btn btn-luxe w-100 mt-2">{{ __('OPEN RVSP') }}</a>
                                     {{-- <a id="add_to_calendar" href="" target="_blank" rel="noopener noreferrer"
                                         class="btn btn-luxe w-100 mt-2 " style="color: white !important;">
                                         ADD TO CALENDAR</a> --}}
@@ -441,10 +435,10 @@
                                     @if ($isAdmin)
                                         <label for="zoom1">{{ __('ZOOM') }}</label>
                                         <input type="url" name="zoom" id="zoom1"
-                                               class="w-100 form-control update_field" disabled>
+                                            class="w-100 form-control update_field" disabled>
                                     @endif
                                     <a id="zoom" href="" target="_blank" rel="noopener noreferrer"
-                                       class="btn btn-luxe w-100 mt-2" style="color: white !important;">
+                                        class="btn btn-luxe w-100 mt-2" style="color: white !important;">
                                         {{ __('OPEN ZOOM') }}</a>
                                 </div>
                             </div>
@@ -468,7 +462,7 @@
                                     </select>
                                 @else
                                     <input type="text" id="event_type" class="w-100 form-control text-capitalize"
-                                           disabled>
+                                        disabled>
                                 @endif
                             </div>
                             @if ($isAdmin)
@@ -483,7 +477,7 @@
                             <div class="form-group image_group d-none">
                                 <label for="image">{{ __('Event Image') }}</label>
                                 <input type="file" name="image" class="form-control update_field" disabled
-                                       style="padding: 3px">
+                                    style="padding: 3px">
                             </div>
                             <div class="form-group event-image">
                                 <div class="img-wrapper">
@@ -492,21 +486,21 @@
                             </div>
                         </div>
                         <div class="modal-footer"
-                             style="flex-direction:row-reverse;display: flex;justify-content: flex-start;">
+                            style="flex-direction:row-reverse;display: flex;justify-content: flex-start;">
                             @if ($isAdmin)
                                 <button type="submit" class="btn btn-luxe" id="update_event">Update</button>
-                        @endif
+                            @endif
                     </form>
                     <form action="{{ route('events.destroy', 1) }}" method="POST" enctype="multipart/form-data"
-                          class="m-0 w-50">
+                        class="m-0 w-50">
                         @csrf
                         @method('delete')
                         <input type="hidden" name="event_id" id="event_id">
                         @if ($isAdmin)
                             <button type="submit" class="btn btn-danger mr-2 w-100" id="delete_event"
-                                    onclick="return confirm('Are you sure you want to delete this event?');">Delete
+                                onclick="return confirm('Are you sure you want to delete this event?');">Delete
                             </button>
-                    @endif
+                        @endif
                 </div>
                 </form>
             </div>
@@ -515,37 +509,37 @@
     </div>
 @endsection
 <script>
-    function attend_event (status) {
+    function attend_event(status) {
         $('.single-event').find('#event_attend_status').val(status)
         $('#event_attend_form').submit()
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const data = @json($events);
         console.log(data)
         var calendarEl = document.getElementById('calendar')
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            select: function (start, end, allDay, jsEvent, view) {
+            select: function(start, end, allDay, jsEvent, view) {
                 $('.create-event').modal('show')
                 $('#date').val(start.startStr)
             },
-            eventClick: function (event) {
+            eventClick: function(event) {
                 console.log(event)
                 var event = event.event
                 $('.single-event').modal('show')
                 $('.single-event').find('#event_id').val(event._def.publicId)
                 $('.single-event').find('#show-more-link').attr('href', '/user/events/' + event._def
-                  .publicId)
+                    .publicId)
                 $('.single-event').find('#event_stats_link').attr('href', '/user/events/' + event
-                  ._def.publicId + '/attendance')
+                    ._def.publicId + '/attendance')
                 var startdt = event.extendedProps.fullDate + 'T' + event.extendedProps.start_time
                 var enddt = event.extendedProps.fullDate + 'T' + event.extendedProps.end_time
                 var location = event.extendedProps.location
                 var body = event.extendedProps.fullType
                 var calendar_link = 'https://outlook.office.com/calendar/0/deeplink/compose?body=' +
-                  body + '&enddt=' + enddt + '&location=' + location +
-                  '&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=' + startdt +
-                  '&subject=' + event.title
+                    body + '&enddt=' + enddt + '&location=' + location +
+                    '&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=' + startdt +
+                    '&subject=' + event.title
                 $('.single-event').find('#add_to_calendar').attr('href', calendar_link)
                 $('.single-event').find('#event_id_1').val(event._def.publicId)
                 $('.single-event').find('#event_id_attend').val(event._def.publicId)
@@ -586,7 +580,7 @@
                 if (event.extendedProps.image != null) {
                     $('.single-event').find('.event-image').css('display', 'block')
                     $('.single-event').find('#image-id').attr('src', '/storage/' + event
-                      .extendedProps.image)
+                        .extendedProps.image)
                 } else {
                     $('.single-event').find('.event-image').css('display', 'none')
                 }

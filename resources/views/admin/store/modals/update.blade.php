@@ -4,7 +4,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Category</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('admin.luxe_store.update') }}" method="POST" enctype="multipart/form-data">
@@ -18,17 +19,18 @@
                                 <input type="text" class="w-100 form-control" id="title" name="name" required>
                             </div>
                         </div>
-                       
+
                         <div class="form-group">
                             <label for="start">{{ __('Select File') }}</label>
                             <div class="custom-file">
-                                <input type="file" name="image" class="form-control" id="image" style="padding: 3px;">
+                                <input type="file" name="image" class="form-control" id="image"
+                                    style="padding: 3px;">
                             </div>
                         </div>
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-luxe" id="save-event">Update</button>
             </div>
             </form>

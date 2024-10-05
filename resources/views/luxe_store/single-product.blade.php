@@ -86,8 +86,8 @@
                 </div>
                 <div id="info-tabs">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#desc" class="active">Description</a></li>
-                        <li><a data-toggle="tab" href="#pricing">Pricing</a></li>
+                        <li class="active"><a data-bs-toggle="tab" href="#desc" class="active">Description</a></li>
+                        <li><a data-bs-toggle="tab" href="#pricing">Pricing</a></li>
                     </ul>
 
                     <div class="tab-content pt-2">

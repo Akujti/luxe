@@ -40,14 +40,15 @@
     @font-face {
         font-family: "gothicbold";
         src: local("gothicbold"),
-        url("{{ asset('fonts/index-page/gothicbold.ttf')}}") format("truetype");
+            url("{{ asset('fonts/index-page/gothicbold.ttf') }}") format("truetype");
     }
 
     @font-face {
         font-family: "gothicregular";
         src: local("gothicregular"),
-        url("{{ asset('fonts/index-page/gothicregular.ttf')}}") format("truetype");
+            url("{{ asset('fonts/index-page/gothicregular.ttf') }}") format("truetype");
     }
+
     #a-href-login {
         color: #262626;
         text-decoration: none;
@@ -61,9 +62,10 @@
                 <div class="container-fluid">
                     <nav class="navbar navbar-light light-blue lighten-4 d-flex d-lg-none d-xl-none">
 
-                        <a class="navbar-brand" href="#"><img src="images/logo.png" alt="" height="74px"></a>
+                        <a class="navbar-brand" href="#"><img src="images/logo.png" alt=""
+                                height="74px"></a>
                         <button class="navbar-toggler toggler-example text-white p-0 m-0" type="button"
-                            data-toggle="collapse" data-target="#navbarSupportedContent1"
+                            data-bs-toggle="collapse" data-target="#navbarSupportedContent1"
                             aria-controls="navbarSupportedContent1" aria-expanded="false"
                             aria-label="Toggle navigation">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30"
@@ -77,7 +79,7 @@
                             <div class="sidebar__item">
                                 <div class="mb-5">
                                     <button class="navbar-toggler toggler-example text-white p-0 m-0" type="button"
-                                        data-toggle="collapse" data-target="#navbarSupportedContent1"
+                                        data-bs-toggle="collapse" data-target="#navbarSupportedContent1"
                                         aria-controls="navbarSupportedContent1" aria-expanded="false"
                                         aria-label="Toggle navigation">
                                         <span class="close">&times;</span>
@@ -110,24 +112,24 @@
                                 </div>
 
                                 @auth
-                                <div class="sidebar__item-menu">
-                                    <a href="#">
-                                        <form action="{{route('logout')}}" method="post" class="">
-                                            @csrf
-                                            <button class="btn btn-link text-dark p-0"
-                                                style="font-size: 18px !important;">Log out</button>
-                                        </form>
-                                    </a>
-                                </div>
+                                    <div class="sidebar__item-menu">
+                                        <a href="#">
+                                            <form action="{{ route('logout') }}" method="post" class="">
+                                                @csrf
+                                                <button class="btn btn-link text-dark p-0"
+                                                    style="font-size: 18px !important;">Log out</button>
+                                            </form>
+                                        </a>
+                                    </div>
 
                                 @endauth
 
                                 @guest
-                                <div class="sidebar__item-menu">
-                                    <a href="{{ route('login') }}">
-                                        <span>Log in</span>
-                                    </a>
-                                </div>
+                                    <div class="sidebar__item-menu">
+                                        <a href="{{ route('login') }}">
+                                            <span>Log in</span>
+                                        </a>
+                                    </div>
                                 @endguest
                             </div>
                         </div>
@@ -159,14 +161,15 @@
                         </div>
                         <div class="col-12 col-lg-2 align-self-center text-center account-form">
                             @auth
-                            <form action="{{route('logout')}}" method="post" class="">
-                                @csrf
-                                <button class="btn button py-2" style="font-size: 16px !important;">Log out</button>
-                            </form>
+                                <form action="{{ route('logout') }}" method="post" class="">
+                                    @csrf
+                                    <button class="btn button py-2" style="font-size: 16px !important;">Log out</button>
+                                </form>
 
                             @endauth
                             @guest
-                            <button class="button py-2" style="font-size: 16px !important;"><a id="a-href-login" href="{{ route('login') }}">Log in</a></button>
+                                <button class="button py-2" style="font-size: 16px !important;"><a id="a-href-login"
+                                        href="{{ route('login') }}">Log in</a></button>
                             @endguest
                         </div>
                     </div>
@@ -220,20 +223,21 @@
             <div class="container p-0">
                 <ul class="nav nav-tabs row m-0 mx-2 mx-md-0 mx-lg-0 mx-xl-0" id="myTab" role="tablist">
                     <li class="nav-item col-6 col-md-3 m-0 p-0">
-                        <a class="nav-link mrsm active" id="social-media-tab" data-toggle="tab" href="#social-media"
-                            role="tab" aria-controls="social-media" aria-selected="true">Social Media Posts</a>
+                        <a class="nav-link mrsm active" id="social-media-tab" data-bs-toggle="tab"
+                            href="#social-media" role="tab" aria-controls="social-media"
+                            aria-selected="true">Social Media Posts</a>
                     </li>
                     <li class="nav-item col-6 col-md-3 m-0 p-0">
-                        <a class="nav-link" id="door-hangers-tab" data-toggle="tab" href="#door-hangers" role="tab"
-                            aria-controls="door-hangers" aria-selected="false">Door Hangers</a>
+                        <a class="nav-link" id="door-hangers-tab" data-bs-toggle="tab" href="#door-hangers"
+                            role="tab" aria-controls="door-hangers" aria-selected="false">Door Hangers</a>
                     </li>
                     <li class="nav-item col-6 col-md-3 m-0 p-0">
-                        <a class="nav-link mrsm" id="flyers-tab" data-toggle="tab" href="#flyers" role="tab"
+                        <a class="nav-link mrsm" id="flyers-tab" data-bs-toggle="tab" href="#flyers" role="tab"
                             aria-controls="flyers" aria-selected="false">Flyers</a>
                     </li>
                     <li class="nav-item col-6 col-md-3 m-0 p-0">
-                        <a class="nav-link" id="presentations-tab" data-toggle="tab" href="#presentations" role="tab"
-                            aria-controls="presentations" aria-selected="false">Presentations</a>
+                        <a class="nav-link" id="presentations-tab" data-bs-toggle="tab" href="#presentations"
+                            role="tab" aria-controls="presentations" aria-selected="false">Presentations</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -288,7 +292,8 @@
                             <h6>Denisse Uyema</h6>
                             <p class="p-luxe">Real Estate Professional, Luxe Properties Associate</p>
 
-                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978
+                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg"
+                                    alt=""> (305) 978
                                 - 6801</p>
 
                             <p class="our-team-text-email"><a href="#">Email Me</a></p>
@@ -302,7 +307,8 @@
                             <h6>Denisse Uyema</h6>
                             <p class="p-luxe">Real Estate Professional, Luxe Properties Associate</p>
 
-                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978
+                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg"
+                                    alt=""> (305) 978
                                 - 6801</p>
 
                             <p class="our-team-text-email"><a href="#">Email Me</a></p>
@@ -316,7 +322,8 @@
                             <h6>Denisse Uyema</h6>
                             <p class="p-luxe">Real Estate Professional, Luxe Properties Associate</p>
 
-                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978
+                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg"
+                                    alt=""> (305) 978
                                 - 6801</p>
 
                             <p class="our-team-text-email"><a href="#">Email Me</a></p>
@@ -330,7 +337,8 @@
                             <h6>Denisse Uyema</h6>
                             <p class="p-luxe">Real Estate Professional, Luxe Properties Associate</p>
 
-                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg" alt=""> (305) 978
+                            <p class="our-team-text-phone"><img src="images/index-page/phone-icon.svg"
+                                    alt=""> (305) 978
                                 - 6801</p>
 
                             <p class="our-team-text-email"><a href="#">Email Me</a></p>
@@ -449,7 +457,8 @@
                         <p class="p-luxe text-white m-0 col-12 col-md-8 d-flex align-items-center"><img
                                 src="images/index-page/location-icon.svg" class="mr-2"> 55 Merrick Way #402, Coral
                             Gables, FL 33134</p>
-                        <p class="p-luxe text-white m-0 mt-2 mt-md-0 mt-lg-0 col-12 col-md-3 d-flex align-items-center">
+                        <p
+                            class="p-luxe text-white m-0 mt-2 mt-md-0 mt-lg-0 col-12 col-md-3 d-flex align-items-center">
                             <img src="images/index-page/phone-icon-white.svg" class="mr-2"> (305) 809-7650
                         </p>
                     </div>
@@ -467,7 +476,7 @@
                     <div class="row m-0 copyrights justify-content-between">
                         <div>
                             <p>&copy;
-                                <?php echo date('Y') ?> Luxe Properties. All rights reserved.
+                                <?php echo date('Y'); ?> Luxe Properties. All rights reserved.
                             </p>
                         </div>
 
@@ -519,7 +528,6 @@
             mybutton.style.display = "none";
         }
     }
-
 </script>
 
 </html>

@@ -301,7 +301,8 @@
             <div class="grid grid-layout mb-5">
                 @foreach ($files as $file)
                     <div class="box-item box-item-padding">
-                        <a href="{{ '/storage/' . $file->file }}" download="{{ $file->title }}.{{ $file->type_file }}" target="_blank">
+                        <a href="{{ '/storage/' . $file->file }}" download="{{ $file->title }}.{{ $file->type_file }}"
+                            target="_blank">
                             <div>
                                 @if ($file->thumbnail)
                                     <img class="preview-img" src="{{ '/storage/' . $file->thumbnail }}"
@@ -346,7 +347,8 @@
                     <div class="box-file col-md-12 mb-4">
                         <div class="folder" style="min-height: 84px !important;">
                             <div class="row p-0 m-0 w-100 d-flex align-items-center">
-                                <a href="{{ '/storage/' . $file->file }}" download="{{ $file->title }}.{{ $file->type_file }}" target="_blank"
+                                <a href="{{ '/storage/' . $file->file }}"
+                                    download="{{ $file->title }}.{{ $file->type_file }}" target="_blank"
                                     class="row m-0 p-0 w-100">
                                     <div class="col d-flex align-items-center">
                                         <div class="mr-4">
@@ -399,7 +401,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Upload A File</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -447,7 +449,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-luxe" id="save-event">Submit</button>
                 </div>
                 </form>
@@ -459,7 +461,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Edit File</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -483,7 +485,7 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-luxe" id="save-event">Update</button>
                 </div>
                 </form>
