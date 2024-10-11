@@ -44,7 +44,7 @@ class CouponCodeController extends Controller
         $row->save();
         if ($req->delay) {
             $delay = Carbon::parse($req->delay)->endOfDay();
-            dispatch(new MarkCouponExpired($row))->delay(now()->addSeconds(10));
+            dispatch(new MarkCouponExpired($row))->delay($delay);
         }
         return back()->with('message', 'Created successfully');
     }
