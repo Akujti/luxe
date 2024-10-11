@@ -24,6 +24,13 @@
                                 <input type="text" class="w-100 form-control" name="price" required>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="start">Expiration Date</label>
+                            <div class='input-group'>
+                                <input type="date" class="w-100 form-control" name="delay" required>
+                            </div>
+                        </div>
                     </div>
             </div>
             <div class="modal-footer">

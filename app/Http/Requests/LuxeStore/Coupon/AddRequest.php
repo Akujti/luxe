@@ -25,7 +25,8 @@ class AddRequest extends FormRequest
     {
         return [
             'code' => 'required',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'delay' => 'nullable|date'
         ];
     }
 }

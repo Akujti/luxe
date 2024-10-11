@@ -9,6 +9,8 @@ use App\Models\LuxeStore\LuxeStoreCouponCode;
 use App\Http\Requests\LuxeStore\Coupon\AddRequest;
 use App\Http\Requests\LuxeStore\Coupon\DeleteRequest;
 use App\Http\Requests\LuxeStore\Coupon\UpdateRequest;
+use App\Jobs\MarkCouponExpired;
+use Carbon\Carbon;
 
 class CouponCodeController extends Controller
 {
@@ -21,8 +23,10 @@ class CouponCodeController extends Controller
     public function apply_coupon(Request $req)
     {
         $row = LuxeStoreCouponCode::where('code', $req->code)->first();
-
         if ($row && $row->count() && $row->expired == 0 && $row->price <= $req->sub_total) {
+            if ($req->user()->orders()->where('coupon_code', $row->code)->count()) {
+                return back()->with('error', 'You have already used this coupon code');
+            }
             Session::put('coupon_code', ['code' => $row->code, 'price' => $row->price]);
 
             return back()->with('message', 'You have successfully earned a coupon code');
@@ -38,7 +42,10 @@ class CouponCodeController extends Controller
         $row->code = $req->code;
         $row->price = $req->price;
         $row->save();
-
+        if ($req->delay) {
+            $delay = Carbon::parse($req->delay)->endOfDay();
+            dispatch(new MarkCouponExpired($row))->delay(now()->addSeconds(10));
+        }
         return back()->with('message', 'Created successfully');
     }
 

@@ -216,9 +216,6 @@ class OrderController extends Controller
         return redirect()->route('my_orders.show', $row->id)->with('message', 'Successfully Updated!');
     }
 
-    /**
-     * @throws \Throwable
-     */
     public function create(AddOrderRequest $req)
     {
         DB::beginTransaction();
@@ -332,8 +329,9 @@ class OrderController extends Controller
                 $coupon_code = Session::get('coupon_code');
                 $total_price -= $coupon_code['price'];
                 $couponDb = LuxeStoreCouponCode::where('code', $coupon_code['code'])->firstOrFail();
-                $couponDb->expired = 1;
-                $couponDb->save();
+                $row->update([
+                    'coupon_code' => $couponDb ? $couponDb->code : null,
+                ]);
             }
 
             $row->payment()->create([
@@ -364,7 +362,7 @@ class OrderController extends Controller
             $emails = [];
             $bcc = [];
 
-//            $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
+            //            $emails = ['operations@luxeknows.com', 'email@luxeknows.com'];
             $notification = Notification::where('title', 'Coupon Used')->first();
             if ($notification) {
                 $emails = $notification->getEmails();
@@ -391,7 +389,7 @@ class OrderController extends Controller
                         $emails = $notification->getEmails();
                         $bcc = $notification->getBccEmails();
                     }
-//                    $emails[] = 'designs@luxeknows.com';
+                    //                    $emails[] = 'designs@luxeknows.com';
                 } else {
                     $notification = Notification::where('title', 'Order Created')->first();
                     if ($notification) {
@@ -399,10 +397,9 @@ class OrderController extends Controller
                         $bcc = $notification->getBccEmails();
                     }
 
-
                     $emails = array_merge($notification_emails, $notify_emails);
 
-//                    $emails[] = 'support@luxeknows.com';
+                    //                    $emails[] = 'support@luxeknows.com';
                 }
 
                 Mail::to($emails)->bcc($bcc)->send(new NewOrderCreated($row, null, 'LUXE Properties - New Order - Marketplace'));

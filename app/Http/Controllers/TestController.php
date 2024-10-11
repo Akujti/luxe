@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Jobs\MarkCouponExpired;
+use App\Models\LuxeStore\LuxeStoreCouponCode;
+use App\Models\Notification;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -12,17 +15,18 @@ class TestController extends Controller
 {
     public function index()
     {
+        $notification = Notification::where('title', 'Automatic Coupon Expiration')->first();
+        return $notification->getEmails();
+        // $coupon = LuxeStoreCouponCode::first();
+        // dispatch(new MarkCouponExpired($coupon))->delay(now()->addSeconds(5));
+        // return $coupon;
         if (App::environment('local')) {
             $a = Auth::loginUsingId(149);
             return redirect()->route('home');
         }
     }
 
-    public function update_vimeo()
-    {
-    }
+    public function update_vimeo() {}
 
-    public function submit(Request $request)
-    {
-    }
+    public function submit(Request $request) {}
 }
