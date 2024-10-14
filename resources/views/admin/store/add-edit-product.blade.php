@@ -119,7 +119,7 @@
                                 <input type="number" name="stock" class="form-control mb-3"
                                     value="{{ $product ? $product->stock : '' }}" required>
                                 <input type="number" name="min_stock" class="form-control"
-                                    value="{{ $product ? $product->min_stock : '' }}" placeholder="Low Stock Quantity">
+                                    value="{{ $product ? $product->min_stock : '' }}" placeholder="Min Stock">
                             </div>
                             <div class="form-group col-12 col-lg-2 col-md-4">
                                 <label for="">Notify Email</label>
