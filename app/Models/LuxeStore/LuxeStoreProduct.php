@@ -2,8 +2,11 @@
 
 namespace App\Models\LuxeStore;
 
+use App\Mail\LowStockMail;
+use App\Models\Notification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class LuxeStoreProduct extends Model
@@ -18,6 +21,7 @@ class LuxeStoreProduct extends Model
         'price',
         'sale_price',
         'stock',
+        'min_stock',
         'preview_image',
         'second_thumbnail',
         'verbiages_text',
@@ -25,6 +29,18 @@ class LuxeStoreProduct extends Model
     ];
 
     protected $with = ['images', 'variants'];
+
+    protected static function booted()
+    {
+        static::updated(function ($product) {
+            if ($product->stock <= $product->min_stock) {
+                $notification = Notification::where('title', 'Low Stock')->first();
+                $emails = $notification->getEmails();
+                $line = "The product " . $product->name . " is running low on stock.";
+                Mail::to($emails)->send(new LowStockMail($product,  $line));
+            }
+        });
+    }
 
     public function categories()
     {

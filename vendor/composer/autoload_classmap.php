@@ -161,6 +161,7 @@ return array(
     'App\\Mail\\DailyStoreReport' => $baseDir . '/app/Mail/DailyStoreReport.php',
     'App\\Mail\\FormMail' => $baseDir . '/app/Mail/FormMail.php',
     'App\\Mail\\GeneralMailTemplate' => $baseDir . '/app/Mail/GeneralMailTemplate.php',
+    'App\\Mail\\LowStockMail' => $baseDir . '/app/Mail/LowStockMail.php',
     'App\\Mail\\MarketingRequestMail' => $baseDir . '/app/Mail/MarketingRequestMail.php',
     'App\\Mail\\NewOrderCreated' => $baseDir . '/app/Mail/NewOrderCreated.php',
     'App\\Mail\\NotifyStatusNotCompleted' => $baseDir . '/app/Mail/NotifyStatusNotCompleted.php',

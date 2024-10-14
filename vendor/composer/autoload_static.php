@@ -808,6 +808,7 @@ class ComposerStaticInit714ebb60fd553448c7c778ea2773f128
         'App\\Mail\\DailyStoreReport' => __DIR__ . '/../..' . '/app/Mail/DailyStoreReport.php',
         'App\\Mail\\FormMail' => __DIR__ . '/../..' . '/app/Mail/FormMail.php',
         'App\\Mail\\GeneralMailTemplate' => __DIR__ . '/../..' . '/app/Mail/GeneralMailTemplate.php',
+        'App\\Mail\\LowStockMail' => __DIR__ . '/../..' . '/app/Mail/LowStockMail.php',
         'App\\Mail\\MarketingRequestMail' => __DIR__ . '/../..' . '/app/Mail/MarketingRequestMail.php',
         'App\\Mail\\NewOrderCreated' => __DIR__ . '/../..' . '/app/Mail/NewOrderCreated.php',
         'App\\Mail\\NotifyStatusNotCompleted' => __DIR__ . '/../..' . '/app/Mail/NotifyStatusNotCompleted.php',

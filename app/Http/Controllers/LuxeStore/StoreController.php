@@ -65,6 +65,7 @@ class StoreController extends Controller
         $row->sale_price = $req->sale_price;
         $row->stock = $req->stock;
         $row->notify_email = $req->notify_email;
+        $row->min_stock = $req->min_stock;
 
         if ($req->preview_image) {
             $name = time() . Str::random(10) . '.' . $req->preview_image->getClientOriginalExtension();
@@ -150,6 +151,7 @@ class StoreController extends Controller
         $row->sale_price = $req->sale_price;
         $row->stock = $req->stock;
         $row->notify_email = $req->notify_email;
+        $row->min_stock = $req->min_stock;
 
 
         if ($req->preview_image) {
