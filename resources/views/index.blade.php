@@ -65,7 +65,7 @@
                         <a class="navbar-brand" href="#"><img src="images/logo.png" alt=""
                                 height="74px"></a>
                         <button class="navbar-toggler toggler-example text-white p-0 m-0" type="button"
-                            data-bs-toggle="collapse" data-target="#navbarSupportedContent1"
+                            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1"
                             aria-controls="navbarSupportedContent1" aria-expanded="false"
                             aria-label="Toggle navigation">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30"
@@ -79,7 +79,7 @@
                             <div class="sidebar__item">
                                 <div class="mb-5">
                                     <button class="navbar-toggler toggler-example text-white p-0 m-0" type="button"
-                                        data-bs-toggle="collapse" data-target="#navbarSupportedContent1"
+                                        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1"
                                         aria-controls="navbarSupportedContent1" aria-expanded="false"
                                         aria-label="Toggle navigation">
                                         <span class="close">&times;</span>

@@ -20,9 +20,9 @@
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
-    <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- Fonts -->
@@ -500,8 +500,9 @@
                                         data-placement="top" title="Search"><img src="/images/search-icon.svg"
                                             alt=""></a>
                                     @auth
-                                        <a href="#" data-bs-toggle="modal" data-target="#suggestionModal"><img
-                                                src="/images/suggestion.svg" alt=""></a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#suggestionModal"><img
+                                                src="/images/suggestion.svg" alt=""
+                                                onclick="$('#suggestionModal').modal('show');"></a>
                                         <div class="modal fade modal-new" id="suggestionModal" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -559,7 +560,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="#" data-bs-toggle="modal" data-target="#reportModal"><img
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#reportModal"><img
                                                 src="/images/report.svg" alt="" width="32"></a>
                                         <div class="modal fade modal-new" id="reportModal" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">

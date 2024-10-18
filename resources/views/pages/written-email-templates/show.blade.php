@@ -61,7 +61,7 @@
         <div class="row my-4">
             @if ($isAdmin)
                 <div class="col-lg-4">
-                    <a href="" data-bs-toggle="modal" data-target="#createModal"
+                    <a href="" data-bs-toggle="modal" data-bs-target="#createModal"
                         class="btn btn-luxe w-100 show-btn m-2 d-flex align-items-center justify-content-center"
                         style="height: 70px">New Item</a>
                 </div>
@@ -69,7 +69,7 @@
             @if ($items->count())
                 @foreach ($items as $item)
                     <div class="col-lg-4">
-                        <a href="" data-bs-toggle="modal" data-target="#exampleModalCenter"
+                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"
                             data-id="{{ $item->id }}" data-title="{{ $item->title }}"
                             data-content="{{ $item->content }}" onclick="populateModal(this)"
                             class="btn btn-luxe w-100 show-btn m-2 d-flex align-items-center justify-content-center"

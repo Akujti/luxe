@@ -17,7 +17,7 @@
         <div class="row m-0 w-100 justify-content-center">
             <div class="position-relative w-100 text-center">
                 <h1 class="gothic-bold">Emails</h1>
-                <button class="btn btn-luxe position-absolute" data-bs-toggle="modal" data-target="#exampleModal"
+                <button class="btn btn-luxe position-absolute" data-bs-toggle="modal" data-bs-target="#exampleModal"
                     style="right: 0;top:0">New</button>
             </div>
             <div class="table-responsive">
@@ -35,7 +35,7 @@
                                 <td>{{ ++$loop->index }}</td>
                                 <td>{{ $email->email }}</td>
                                 <td class="d-flex"><button class="btn btn-primary mr-2" data-bs-toggle="modal"
-                                        data-target="#editModal{{ $email->id }}">Edit</button>
+                                        data-bs-target="#editModal{{ $email->id }}">Edit</button>
                                     <form action="{{ route('agent-emails.destroy', $email) }}" method="POST"
                                         onSubmit="return confirm('Are you sure you want to delete this email?');">
                                         @method('DELETE')

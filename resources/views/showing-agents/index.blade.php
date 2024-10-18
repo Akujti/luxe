@@ -102,7 +102,7 @@
                                 </div>
                             </div>
                             <button class="btn btn-luxe" data-bs-toggle="modal"
-                                data-target="#modal-{{ $agent->user->id }}">Request
+                                data-bs-target="#modal-{{ $agent->user->id }}">Request
                             </button>
                             <div class="modal modal-new fade" id="modal-{{ $agent->user->id }}">
                                 <div class="modal-dialog modal-dialog-centered" role="document">

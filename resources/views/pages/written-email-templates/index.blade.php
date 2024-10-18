@@ -14,7 +14,7 @@
         <div class="row my-4">
             @if (auth()->user()->isAdmin)
                 <div class="col-lg-4">
-                    <a href="" data-bs-toggle="modal" data-target="#createModal"
+                    <a href="" data-bs-toggle="modal" data-bs-target="#createModal"
                         class="btn btn-luxe w-100 show-btn m-2 d-flex align-items-center justify-content-center"
                         style="height: 70px">New Item</a>
                 </div>

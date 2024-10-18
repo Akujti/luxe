@@ -269,7 +269,7 @@
                             </div>
                             {{-- <div class="form-group form-footer col-12">
                                 <button type="button" class="btn-luxe w-100" data-bs-toggle="modal"
-                                    data-target="#exampleModal">Request</button>
+                                    data-bs-target="#exampleModal">Request</button>
                             </div> --}}
                         </div>
                     </div>

@@ -29,7 +29,7 @@
             </h3>
             @auth()
                 @if (Auth::user()->isAdmin)
-                    <button type="button" class="btn btn-luxe my-4" data-bs-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-luxe my-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Add Template
                     </button>
                 @endif

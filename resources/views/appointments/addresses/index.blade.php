@@ -17,7 +17,7 @@
         <div class="row m-0 w-100 justify-content-center">
             <div class="position-relative w-100 text-center">
                 <h1>Addresses</h1>
-                <button class="btn btn-luxe position-absolute" data-bs-toggle="modal" data-target="#exampleModal"
+                <button class="btn btn-luxe position-absolute" data-bs-toggle="modal" data-bs-target="#exampleModal"
                     style="right: 0;top:0">New
                 </button>
             </div>
@@ -40,7 +40,7 @@
                                 <td>
                                     <div class="d-flex">
                                         <button class="btn btn-luxe mr-2" data-bs-toggle="modal"
-                                            data-target="#editModal{{ $address->id }}">Edit
+                                            data-bs-target="#editModal{{ $address->id }}">Edit
                                         </button>
                                         <form action="{{ route('appointment-addresses.destroy', $address) }}" method="POST"
                                             onSubmit="return confirm('Are you sure you want to delete this address?');">
