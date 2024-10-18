@@ -115,9 +115,13 @@ class ListingController extends Controller
         throw new Exception("Address couldn\'t be located on Google Maps");
     }
 
-    public function show(Listing $listing)
+    public function show($listing)
     {
-        return view('listings.show', compact('listing'));
+        $listing = Listing::find($listing);
+        if ($listing)
+            return view('listings.show', compact('listing'));
+        else
+            return redirect()->route('listings.index')->with('warning', 'The listing you are trying to access is no longer available. It may have been removed or does not exist.');
     }
 
     public function edit(Request $request, Listing $listing)
