@@ -3,11 +3,15 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-
                 <form action="{{ route('general.email.post') }}" class="card form p-3" method="POST">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Refer An Agent</h1>
+                        <h5 class="text-center">We offer a $250 incentive to use on <a href="/">myluxehub.com</a> for
+                            any agent that refers
+                            someone to the brokerage, once the referred agent has closed their 1st deal. Once the agent has
+                            closed, in order to claim the incentive, you must fill out <a
+                                href="/general/form/agent_referrals/claim-your-agent-referral-incentive">this form</a></h5>
                     </div>
                     <input type="hidden" name="form_title" value="Refer An Agent">
                     <div class="card-body">
@@ -15,17 +19,17 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Full Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                       value="{{ auth()->user()->profile->fullname }}" required>
+                                    value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Number</label>
                                 <input type="text" name="number" class="form-control"
-                                       value="{{ auth()->user()->profile->phone }}" required>
+                                    value="{{ auth()->user()->profile->phone }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                       value="{{ auth()->user()->email }}" required>
+                                    value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">New Licensee</label>

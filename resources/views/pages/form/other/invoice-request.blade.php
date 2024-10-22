@@ -3,9 +3,9 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')"/>
+                <x-verbiage-form-text :formInfo=$formInfo :afterSubmit="session()->get('modal')" />
                 <form action="{{ route('general.email.post') }}" class="card form p-3" method="POST"
-                      enctype="multipart/form-data">
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Invoice Request</h1>
@@ -18,18 +18,18 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                       value="{{ auth()->user()->profile->fullname }}" required>
+                                    value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Number</label>
                                 <input type="text" name="agent_number" class="form-control"
-                                       value="{{ auth()->user()->profile->phone }}" required>
+                                    value="{{ auth()->user()->profile->phone }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Who should the invoice be addressed to (name of individual or
                                     corporation)</label>
                                 <input type="text" name="who_should_the_invoice_be_addressed_to" class="form-control"
-                                       required>
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Memo for Invoice</label>
@@ -38,6 +38,14 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Amount for Invoice ($)</label>
                                 <input type="text" name="amount_for_invoice" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Please specify property address for Invoice</label>
+                                <input type="text" name="property_address_for_invoice" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Please specify Unit Number for Invoice</label>
+                                <input type="text" name="unit_number_for_invoice" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Notes</label>

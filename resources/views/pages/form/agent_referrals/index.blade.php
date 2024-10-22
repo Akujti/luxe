@@ -32,7 +32,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="card-title text-center">
-            <h1>New Agents & Referrals - Select Form</h1>
+            <h1>New Agents & Referrals</h1>
         </div>
         <div class="grid grid-layout">
             <div class="box-item box-item-center">
