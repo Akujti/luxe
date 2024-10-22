@@ -65,8 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return DB::connection('wp-mysql')->create([
-            'user_email' => $data['name'],
+        return DB::create([
             'user_email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

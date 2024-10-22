@@ -42,7 +42,6 @@ return [
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
-
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
@@ -62,33 +61,6 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-
-        'wp-mysql' => [
-            'driver' => 'mysql',
-            // 'host' => env('WP_DB_HOST', '107.180.2.54'),
-            // 'port' => env('WP_DB_PORT', '3306'),
-            // 'database' => env('WP_DB_DATABASE', 'i7174985_wp3'),
-            // 'username' => env('WP_DB_USERNAME', 'i7174985_wp3'),
-            // 'password' => env('WP_DB_PASSWORD', 'D.0w3FS4De3k9dhWgaI47'),
-            // 'host' => env('WP_DB_HOST', '143.198.171.79'),
-            // // 'port' => env('WP_DB_PORT', '3306'),
-            // 'database' => env('WP_DB_DATABASE', 'xryjtkraut'),
-            // 'username' => env('WP_DB_USERNAME', 'xryjtkraut'),
-            // 'password' => env('WP_DB_PASSWORD', 'wyC4FHdXCW'),
-            'host' => env('WP_DB_HOST', '107.180.0.222'),
-            'port' => env('WP_DB_PORT', '3306'),
-            'database' => env('WP_DB_DATABASE', 'myluxehub_main'),
-            'username' => env('WP_DB_USERNAME', 'myluxehub_main'),
-            'password' => env('WP_DB_PASSWORD', 'aDz~o&DX[iR='),
-            'unix_socket' => env('WP_DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => 'luxe_',
-            'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
-        ],
-
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
@@ -103,7 +75,6 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),
