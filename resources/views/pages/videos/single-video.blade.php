@@ -182,46 +182,47 @@
                         <div class="singleproject__item-title pb-3" style="border: none;">
                             <h2 class="m-0 p-0">{{ $video->vimeo_details['name'] }}</h2>
                         </div>
-                        <form action="{{ route('video.toggle.favorite',$video) }}" method="POST"
-                              class="row p-0 m-0 mb-3">
+                        <form action="{{ route('video.toggle.favorite', $video) }}" method="POST" class="row p-0 m-0 mb-3">
                             @csrf
                             <button class="btn btn-luxe d-flex align-items-center">
-                                @if($video->is_favorite)
+                                @if ($video->is_favorite)
                                     Unfavorite
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                         class="bi bi-heart-fill ml-2" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-heart-fill ml-2" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
-                                              d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
                                     </svg>
                                 @else
                                     Favorite
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                         class="bi bi-heart ml-2" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-heart ml-2" viewBox="0 0 16 16">
                                         <path
-                                            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
                                     </svg>
                                 @endif
                             </button>
                         </form>
                         <div class="singleproject__item-img">
                             <iframe src="{{ $video->vimeo_details['embed_url'] }}" width="100%" frameborder="0"
-                                    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
                     </div>
                     <div class="col-12 col-md-12 col-lg-5">
                         <div class="singleproject__item-title" style="border-bottom: none">
-                            @if($video->files->count())
+                            @if ($video->files->count())
                                 <div class="w-100 mb-2">
                                     <a href="{{ $video->files->first()->file_url }}" download=""
-                                       class="btn btn-luxe mt-2">Download Presentation</a>
+                                        class="btn btn-luxe mt-2">Download Presentation</a>
                                 </div>
                             @endif
                             <div class="w-100 d-flex justify-content-between mt-2">
-                                <p class="bold"> @if($video->presenter_name)
-                                        Speaker: {{ $video->presenter_name}}
-                                    @endif</p>
-                                <p class="time">{{ $video->date}}</p>
+                                <p class="bold">
+                                    @if ($video->presenter_name)
+                                        Speaker: {{ $video->presenter_name }}
+                                    @endif
+                                </p>
+                                <p class="time">{{ $video->date }}</p>
                             </div>
                             <p class="time">{{ $video->vimeo_details['description'] }}</p>
                             <div class="singleproject__item-title-logo row p-0 m-0">
@@ -246,19 +247,19 @@
                                 </p>
                                 <p class="m-0 p-0 d-flex align-items-center">
                                     @php $rating = $video->reviews->avg('stars'); @endphp
-                                    @foreach(range(1,5) as $i)
+                                    @foreach (range(1, 5) as $i)
                                         <span class="fa-stack" style="width:1em">
-                                    <i class="far fa-star fa-stack-1x"></i>
+                                            <i class="far fa-star fa-stack-1x"></i>
 
-                                    @if($rating > 0)
-                                                @if($rating > 0.5)
+                                            @if ($rating > 0)
+                                                @if ($rating > 0.5)
                                                     <i class="fas fa-star fa-stack-1x"></i>
                                                 @else
                                                     <i class="fas fa-star-half fa-stack-1x"></i>
                                                 @endif
                                             @endif
                                             @php $rating--; @endphp
-                                </span>
+                                        </span>
                                     @endforeach
                                 </p>
                                 <p class="m-0 p-0 d-flex align-items-center">({{ $video->reviews->count() }}
@@ -270,7 +271,7 @@
                         </div>
                         <div class="w-100 my-4 review-box d-none">
                             <form action="{{ route('video.create_review') }}" method="POST"
-                                  class="row p-0 m-0 col-md-12 col-12">
+                                class="row p-0 m-0 col-md-12 col-12">
                                 @csrf
                                 <input type="hidden" name="video_id" value="{{ $video->id }}">
                                 <input type="hidden" name="stars" value="0" id="stars-input">
@@ -280,38 +281,33 @@
                                         <div class="d-flex justify-content-center star-box">
                                             <button onclick="changeStarNum(1)" type="button">
                                                 <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-1"
-                                                     class="star-nfilled d-flex" alt="">
+                                                    class="star-nfilled d-flex" alt="">
                                                 <img src="/images/videos/star-icon.svg" id="star-1"
-                                                     class="star-filled d-none"
-                                                     alt="">
+                                                    class="star-filled d-none" alt="">
                                             </button>
                                             <button onclick="changeStarNum(2)" type="button">
                                                 <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-2"
-                                                     class="star-nfilled d-flex" alt="">
+                                                    class="star-nfilled d-flex" alt="">
                                                 <img src="/images/videos/star-icon.svg" id="star-2"
-                                                     class="star-filled d-none"
-                                                     alt="">
+                                                    class="star-filled d-none" alt="">
                                             </button>
                                             <button onclick="changeStarNum(3)" type="button">
                                                 <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-3"
-                                                     class="star-nfilled d-flex" alt="">
+                                                    class="star-nfilled d-flex" alt="">
                                                 <img src="/images/videos/star-icon.svg" id="star-3"
-                                                     class="star-filled d-none"
-                                                     alt="">
+                                                    class="star-filled d-none" alt="">
                                             </button>
                                             <button onclick="changeStarNum(4)" type="button">
                                                 <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-4"
-                                                     class="star-nfilled d-flex" alt="">
+                                                    class="star-nfilled d-flex" alt="">
                                                 <img src="/images/videos/star-icon.svg" id="star-4"
-                                                     class="star-filled d-none"
-                                                     alt="">
+                                                    class="star-filled d-none" alt="">
                                             </button>
                                             <button onclick="changeStarNum(5)" type="button">
                                                 <img src="/images/videos/star-not-filled-icon.svg" id="star-nfilled-5"
-                                                     class="star-nfilled d-flex" alt="">
+                                                    class="star-nfilled d-flex" alt="">
                                                 <img src="/images/videos/star-icon.svg" id="star-5"
-                                                     class="star-filled d-none"
-                                                     alt="">
+                                                    class="star-filled d-none" alt="">
                                             </button>
                                         </div>
                                     </div>
@@ -319,8 +315,7 @@
                                 <div class="form-group col-12 mt-4 p-0">
                                     <label for="">Text</label>
                                     <div class="input-group">
-                                        <textarea name="comment" class="form-control" id="" cols="30"
-                                                  rows="3"></textarea>
+                                        <textarea name="comment" class="form-control" id="" cols="30" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 p-0">
@@ -333,13 +328,13 @@
                                 <div class="singleproject__comments">
                                     <div class="singleproject__comments-profile">
                                         <div class="singleproject__comment-profile-item">
-                                            <img src="{{ $review->user->avatar }}" alt="">
-                                            <p class="p-0 m-0">{{ $review->user->profile->fullname }}</p>
+                                            <img src="{{ $review->user?->avatar }}" alt="">
+                                            <p class="p-0 m-0">{{ $review->user?->profile->fullname }}</p>
                                         </div>
                                         <div class="singleproject__comment-profile-item-star d-flex align-items-center">
                                             <p class="p-0 m-0"><b>{{ $review->stars }}</b></p>
                                             <p class="p-0 m-0 d-flex align-items-center">
-                                                @for($i = 0; $i < $review->stars; $i++)
+                                                @for ($i = 0; $i < $review->stars; $i++)
                                                     <img src="/images/videos/star-icon.svg" alt="">
                                                 @endfor
                                             </p>
@@ -368,14 +363,13 @@
                         </div>
                         <div class="w-100 my-4 comment-box d-none">
                             <form action="{{ route('video.create_comment') }}" method="POST"
-                                  class="row p-0 m-0 col-md-12 col-12">
+                                class="row p-0 m-0 col-md-12 col-12">
                                 @csrf
                                 <input type="hidden" name="video_id" value="{{ $video->id }}">
                                 <div class="form-group col-12 mt-4 p-0">
                                     <label for="">Comment</label>
                                     <div class="input-group">
-                                        <textarea name="comment" class="form-control" id="" cols="30"
-                                                  rows="3"></textarea>
+                                        <textarea name="comment" class="form-control" id="" cols="30" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 p-0">
@@ -414,28 +408,28 @@
         var player = new Vimeo.Player(iframe);
 
         var [played, startPlay, durationVideo] = [0, false, 0];
-        player.getDuration().then(function (duration) {
+        player.getDuration().then(function(duration) {
             durationVideo = Math.floor(duration)
         })
-        player.on('play', function () {
+        player.on('play', function() {
             if (!startPlay) {
                 startPlay = true;
                 counter();
             }
         });
-        player.on('pause', function () {
+        player.on('pause', function() {
             if (startPlay) {
                 startPlay = false;
                 clearInterval(counter.timer);
             }
         });
-        player.on('seeking', function () {
+        player.on('seeking', function() {
             if (startPlay) {
                 startPlay = false;
                 clearInterval(counter.timer);
             }
         });
-        player.on('seeked', function () {
+        player.on('seeked', function() {
             if (!startPlay) {
                 startPlay = true;
                 counter();
@@ -446,7 +440,7 @@
             if (typeof counter.timer == 'undefined') {
                 counter.timer = 0;
             }
-            counter.timer = setInterval(function () {
+            counter.timer = setInterval(function() {
                 played++;
                 if (Math.floor(durationVideo / 2) == played) {
                     var data = {
@@ -460,8 +454,7 @@
                         headers: {
                             "X-CSRF-Token": $('[name="_token"]').val(),
                         },
-                        success: function (output) {
-                        },
+                        success: function(output) {},
                     });
                 }
             }, 1000);
