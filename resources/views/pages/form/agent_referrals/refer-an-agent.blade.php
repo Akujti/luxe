@@ -7,10 +7,10 @@
                     @csrf
                     <div class="card-header">
                         <h1 class="text-center my-4">Refer An Agent</h1>
-                        <h5 class="text-center">We offer a $250 incentive to use on <a href="/">myluxehub.com</a> for
-                            any agent that refers
-                            someone to the brokerage, once the referred agent has closed their 1st deal. Once the agent has
-                            closed, in order to claim the incentive, you must fill out <a
+                        <h5 class="text-center"> Effective November 1, 2024 we will be offering a $250 incentive to use on<a
+                                href="/">myluxehub.com</a> for any agent that refers someone to the brokerage, once the
+                            referred agent has closed their 1st sales transaction. Once the agent has closed, in order to
+                            claim the incentive, you must fill out <a
                                 href="/general/form/agent_referrals/claim-your-agent-referral-incentive">this form</a></h5>
                     </div>
                     <input type="hidden" name="form_title" value="Refer An Agent">
