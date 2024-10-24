@@ -411,11 +411,6 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['auth', 'staff', 'admin']],
-    function () {}
-);
-
-Route::group(
     ['middleware' => ['auth']],
     function () {
         Route::get('photographers', [PhotographerController::class, 'indexUser'])->name('photographers.index');

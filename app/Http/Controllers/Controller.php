@@ -37,19 +37,19 @@ class Controller extends BaseController
         $today = Carbon::today()->format('Y-m-d');
         $upcoming_events = Event::whereDate('date', '>', $today)->orderBy('date')->take(5)->get();
 
-        $email_blasts = EmailBlastHomePage::orderBy('order', 'asc')->take(3)->get();
+        $email_blasts = EmailBlastHomePage::orderBy('order', 'asc')->get();
 
         $marketing_menu_category = LuxeStoreCategory::whereName('Marketing Menu')->first();
 
-//        $orders = auth()->user()->load(['orders' => function ($q) use ($marketing_menu_category) {
-//            $q->where('created_at', '>=', now()->subDays(31))->whereHas('products', function ($q) use ($marketing_menu_category) {
-//                $q->whereHas('product', function ($q) use ($marketing_menu_category) {
-//                    $q->whereHas('categories', function ($q) use ($marketing_menu_category) {
-//                        $q->where('luxe_store_categories.id', '!=', $marketing_menu_category->id);
-//                    });
-//                });
-//            });
-//        }])->orders->take(3);
+        //        $orders = auth()->user()->load(['orders' => function ($q) use ($marketing_menu_category) {
+        //            $q->where('created_at', '>=', now()->subDays(31))->whereHas('products', function ($q) use ($marketing_menu_category) {
+        //                $q->whereHas('product', function ($q) use ($marketing_menu_category) {
+        //                    $q->whereHas('categories', function ($q) use ($marketing_menu_category) {
+        //                        $q->where('luxe_store_categories.id', '!=', $marketing_menu_category->id);
+        //                    });
+        //                });
+        //            });
+        //        }])->orders->take(3);
 
         $marketing_orders = auth()->user()->load(['orders' => function ($q) use ($marketing_menu_category) {
             $q->where('created_at', '>=', now()->subDays(31))->whereHas('products', function ($q) use ($marketing_menu_category) {
@@ -120,7 +120,8 @@ class Controller extends BaseController
                 'name' => 'LUXVT',
                 'icon' => 'luxvt.png',
                 'url' => 'https://luxvt.com/register?registration_code=luxe',
-            ], [
+            ],
+            [
                 'name' => 'Zillow Showcase',
                 'icon' => 'zillow.png',
                 'url' => 'https://app.showingtimeplus.com',
