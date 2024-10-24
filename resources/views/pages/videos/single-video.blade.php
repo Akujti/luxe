@@ -328,8 +328,10 @@
                                 <div class="singleproject__comments">
                                     <div class="singleproject__comments-profile">
                                         <div class="singleproject__comment-profile-item">
-                                            <img src="{{ $review->user?->avatar }}" alt="">
-                                            <p class="p-0 m-0">{{ $review->user?->profile->fullname }}</p>
+                                            @if ($review->user)
+                                                <img src="{{ $review->user->avatar }}" alt="">
+                                                <p class="p-0 m-0">{{ $review->user->profile->fullname }}</p>
+                                            @endif
                                         </div>
                                         <div class="singleproject__comment-profile-item-star d-flex align-items-center">
                                             <p class="p-0 m-0"><b>{{ $review->stars }}</b></p>
