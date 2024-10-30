@@ -89,8 +89,15 @@
 
             <p>Created Time: <b class="bold-text">{{ $details->created_at }}</b></p>
             <hr>
+            @php
+                $user = App\Models\User::withTrashed()->find($details->user_id);
+                $fullname = '';
+                if($user && $user->profile) {
+                    $fullname = $user->profile->fullname;
+                }
+            @endphp
             <p>Order By: <b
-                    class="bold-text">{{ App\Models\User::withTrashed()->find($details->user_id)->profile->fullname }}</b>
+                    class="bold-text">{{ $fullname }}</b>
             </p>
             <hr>
             <p>Request Info Note: <b class="bold-text">{{ $details->request_info ?? 'N/A' }}</b></p>

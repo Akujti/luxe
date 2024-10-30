@@ -149,19 +149,50 @@
             </div>
         </div>
 
-        <!-- Requirements -->
-        <h4 class="section-title mt-4">Requirements:</h4>
-        <ul>
-            <li>Minimum 5% gross commission (2.5% on listing side)</li>
-            <li>Residential properties only</li>
-            <li>Vacant or Staged Property</li>
-            <li>No cars in front of property</li>
-            <li>No high grass</li>
-            <li>No clutter - clean kitchen & bathroom countertops</li>
-            <li>5 pictures of the home must be submitted for review</li>
-        </ul>
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="section-title mt-4">Requirements:</h4>
+                <ul>
+                    <li>Minimum 5% gross commission (2.5% on listing side)</li>
+                    <li>Residential properties only</li>
+                    <li>Vacant or Staged Property</li>
+                    <li>No cars in front of property</li>
+                    <li>No high grass</li>
+                    <li>No clutter - clean kitchen & bathroom countertops</li>
+                    <li>5 pictures of the home must be submitted for review</li>
+                </ul>
+            </div>
+            <div class="col-md-6 d-md-flex justify-content-end">
+                <button class="btn btn-luxe d-flex align-items-center gap-2" style="height: fit-content;"
+                    onclick="window.location.href='/general/form/other/request-your-luxury-listing-package'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="mr-2">
+                        <g id="vuesax_linear_save-add" data-name="vuesax/linear/save-add" transform="translate(-620 -188)">
+                            <g id="save-add">
+                                <path id="Vector"
+                                    d="M14,3.11V14.47c0,1.45-1.04,2.06-2.31,1.36L7.76,13.64a1.76,1.76,0,0,0-1.52,0L2.31,15.83c-1.27.7-2.31.09-2.31-1.36V3.11A3.12,3.12,0,0,1,3.11,0h7.78A3.12,3.12,0,0,1,14,3.11Z"
+                                    transform="translate(622 193.88)" fill="none" stroke="#fff" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5" />
+                                <path id="Vector-2" data-name="Vector"
+                                    d="M14,3.11V14.47c0,1.45-1.04,2.06-2.31,1.36L8,13.77V6.99A3.12,3.12,0,0,0,4.89,3.88H0V3.11A3.12,3.12,0,0,1,3.11,0h7.78A3.12,3.12,0,0,1,14,3.11Z"
+                                    transform="translate(628 190)" fill="none" stroke="#fff" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5" />
+                                <path id="Vector-3" data-name="Vector" d="M0,0H4" transform="translate(627 200)"
+                                    fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" />
+                                <path id="Vector-4" data-name="Vector" d="M0,4V0" transform="translate(629 198)"
+                                    fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" />
+                                <path id="Vector-5" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(620 188)"
+                                    fill="none" opacity="0" />
+                            </g>
+                        </g>
+                    </svg>
+                    Request Your Luxury Listing Package
+                </button>
+            </div>
+        </div>
 
-        <!-- Disclaimers -->
         <h4 class="section-title mt-4">Disclaimers:</h4>
         <ul>
             <li>If property does not sell, you will be charged $300 for the listing package on your next closing.</li>
