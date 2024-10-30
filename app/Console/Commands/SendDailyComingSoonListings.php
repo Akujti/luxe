@@ -7,6 +7,7 @@ use App\Models\Listing;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class SendDailyComingSoonListings extends Command
@@ -26,9 +27,14 @@ class SendDailyComingSoonListings extends Command
         if (count($listings)) {
             User::where('coming_soon_notifications', true)
                 ->select('email')
-                ->chunk(500, function ($users) use ($listings) {
+                ->chunk(50, function ($users) use ($listings) {
                     $emails = $users->pluck('email')->toArray();
-                    Mail::to('sales@luxeknows.com')->bcc($emails)->send(new DailyComingSoonListingsMail($listings));
+                    try {
+                        Mail::to('sales@luxeknows.com')->bcc($emails)->send(new DailyComingSoonListingsMail($listings));
+                    } catch (\Throwable $throwable) {
+                        Log::error('Error on sending daily coming soon listings!');
+                        Log::error($throwable->getMessage());
+                    }
                 });
             $this->info('Daily notifications have been sent.');
         } else
