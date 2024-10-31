@@ -12,6 +12,25 @@
                             Please review all available packages, requirements & disclaimers <a
                                 href="/luxury-listing-incentives">here</a>
                         </h5>
+                        <ul class="text-center" style="list-style: inside;">
+                            <li>If property does not sell, you will be charged $300 for the listing package on your next
+                                closing.</li>
+                            <li>Yearly Top Producers whose photos are covered cannot claim two sets of photos; either their
+                                Platinum
+                                photo status is applied or the Luxury Packages below.
+                            </li>
+                            <li>"LUXE Photoshoots" are to be performed by LUXE approved photographers only. You cannot book
+                                your own
+                                photographer.
+                            </li>
+                            <li>If the property is not approved based on the photos submitted:
+                                <ul>
+                                    <li>You can resubmit photos once the property has been cleaned and is up to par.</li>
+                                    <li>You can purchase the items below a la carte to be done with the property conditions
+                                        as-is.</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                     <input type="hidden" name="form_title" value="Request Your Luxury Listing Package">
                     <div class="card-body">
