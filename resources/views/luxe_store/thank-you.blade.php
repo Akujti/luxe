@@ -33,7 +33,6 @@
             margin: 10px auto 0px;
             padding: 15px 20px 15px;
         }
-
     </style>
 @endsection
 @section('content')
@@ -44,8 +43,7 @@
                     <div class="login-process">
                         <div class="login-main-container">
                             <div class="thankyou-wrapper">
-                                <h1><img src="http://montco.happeningmag.com/wp-content/uploads/2014/11/thankyou.png"
-                                        alt="thanks" width="100%" /></h1>
+                                <h1><img src="/images/thanks.png" alt="Thank you" width="100%" /></h1>
                                 <a class="btn btn-luxe" href="{{ url('/home') }}">Back to Home</a>
                                 <div class="clr"></div>
                             </div>
