@@ -12,7 +12,7 @@
                             Please review all available packages, requirements & disclaimers <a
                                 href="/luxury-listing-incentives">here</a>
                         </h5>
-                        <ul class="text-center" style="list-style: inside;">
+                        <ul class="">
                             <li>If property does not sell, you will be charged $300 for the listing package on your next
                                 closing.</li>
                             <li>Yearly Top Producers whose photos are covered cannot claim two sets of photos; either their
