@@ -36,6 +36,17 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     {{-- @toastr_css --}}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7LHJ91B1Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-Q7LHJ91B1Q');
+    </script>
     <script>
         (function(d) {
             var s = d.createElement('script')

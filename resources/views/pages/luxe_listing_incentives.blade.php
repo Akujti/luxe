@@ -150,19 +150,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-                <h4 class="section-title mt-4">Requirements:</h4>
-                <ul>
-                    <li>Minimum 5% gross commission (2.5% on listing side)</li>
-                    <li>Residential properties only</li>
-                    <li>Vacant or Staged Property</li>
-                    <li>No cars in front of property</li>
-                    <li>No high grass</li>
-                    <li>No clutter - clean kitchen & bathroom countertops</li>
-                    <li>5 pictures of the home must be submitted for review</li>
-                </ul>
-            </div>
-            <div class="col-md-6 d-md-flex justify-content-end">
+            <div class="col-md-12 d-md-flex justify-content-center">
                 <button class="btn btn-luxe d-flex align-items-center gap-2" style="height: fit-content;"
                     onclick="window.location.href='/general/form/other/request-your-luxury-listing-package'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -191,6 +179,19 @@
                     Request Your Luxury Listing Package
                 </button>
             </div>
+        </div>
+
+        <div class="col-md-6">
+            <h4 class="section-title mt-4">Requirements:</h4>
+            <ul>
+                <li>Minimum 5% gross commission (2.5% on listing side)</li>
+                <li>Residential properties only</li>
+                <li>Vacant or Staged Property</li>
+                <li>No cars in front of property</li>
+                <li>No high grass</li>
+                <li>No clutter - clean kitchen & bathroom countertops</li>
+                <li>5 pictures of the home must be submitted for review</li>
+            </ul>
         </div>
 
         <h4 class="section-title mt-4">Disclaimers:</h4>
