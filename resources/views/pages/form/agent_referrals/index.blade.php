@@ -34,7 +34,7 @@
         <div class="card-title text-center">
             <h1>New Agents & Referrals</h1>
         </div>
-        <div class="grid grid-layout">
+        <div class="grid grid-layout-three">
             {{-- <div class="box-item box-item-center">
                 <a href="{{ route('general.email.index', ['folder' => 'agent_referrals', 'form' => 'agent-form']) }}">Agent
                     Form</a>
