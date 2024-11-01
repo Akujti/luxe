@@ -9,11 +9,13 @@ class CollectionController extends Controller
 {
     public function index()
     {
+        return redirect()->back();
         return view('collections.index');
     }
 
     public function show()
     {
+        return redirect()->back();
         return view('collections.show');
     }
 }
