@@ -35,13 +35,18 @@
             <h1>New Agents & Referrals</h1>
         </div>
         <div class="grid grid-layout">
-            <div class="box-item box-item-center">
+            {{-- <div class="box-item box-item-center">
                 <a href="{{ route('general.email.index', ['folder' => 'agent_referrals', 'form' => 'agent-form']) }}">Agent
                     Form</a>
+            </div> --}}
+            <div class="box-item box-item-center">
+                <a href="{{ route('general.email.index', ['folder' => 'agent_referrals', 'form' => 'refer-an-agent']) }}">
+                    Refer An Agent</a>
             </div>
             <div class="box-item box-item-center">
-                <a href="{{ route('general.email.index', ['folder' => 'agent_referrals', 'form' => 'refer-an-agent']) }}">Refer
-                    An Agent</a>
+                <a
+                    href="{{ route('general.email.index', ['folder' => 'agent_referrals', 'form' => 'claim-your-agent-referral-incentive']) }}">
+                    Claim Your Agent Referral Incentive</a>
             </div>
             {{-- <div class="box-item box-item-center">
                 <a href="{{ route('general.email.index', ['folder' => 'agent_referrals', 'form' => 'flex-agent-form']) }}">Flex
