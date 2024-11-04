@@ -128,10 +128,6 @@
                             <div class="form-group ">
                                 <p class="location">Stuart</p>
                                 <p class="address">759 SW Federal Hwy, Suite 217, Stuart, FL 34994</p>
-                                <button class="btn"
-                                    onclick="toggleModal('Lockbox 5557','Wi-Fi name - Luxe Properties Dadeland','Password - Luxeknows$123','Parking Options:','Open parking around building')">
-                                    Access, Parking, & Wifi Information
-                                </button>
                             </div>
                             <div class="form-group ">
                                 <p class="location">South Miami -- Relocating</p>
