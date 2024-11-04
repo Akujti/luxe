@@ -20,7 +20,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'wp_id', 'role', 'optin', 'showing_agent', 'app_link', 'coming_soon_notifications'
+        'email',
+        'password',
+        'wp_id',
+        'role',
+        'optin',
+        'showing_agent',
+        'app_link',
+        'coming_soon_notifications'
     ];
 
     protected $appends = ['avatar'];
@@ -31,7 +38,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -128,5 +136,10 @@ class User extends Authenticatable
     public function favoriteVideos(): BelongsToMany
     {
         return $this->belongsToMany(Video::class, 'favorite_videos');
+    }
+
+    public function collections()
+    {
+        return $this->hasMany(Collection::class);
     }
 }

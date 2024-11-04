@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Collection extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'email', 'user_id'];
+
+    public function listings()
+    {
+        return $this->hasMany(CollectionListing::class);
+    }
 }

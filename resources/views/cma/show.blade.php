@@ -92,7 +92,7 @@
                     <div class="table-box w-100 px-2">
                         <div class="table-box-header d-flex align-items-center justify-content-between w-100">
                             <h5>Market Analysis <small>(by price)</small></h5>
-                            <a href="{{ route('cma.index') }}" class="">View Market Data</a>
+                            <a href="{{ route('cma.index') }}" class="text-dark">View Market Data</a>
                         </div>
 
                         <div class="table-box-body">
@@ -138,8 +138,8 @@
                                                             aria-expanded="false">
                                                             <i class="fa-solid fa-bars"></i>
                                                         </button>
-                                                        <div class="dropdown-menu dropdown-search-filter" id="drop-filter"
-                                                            onclick="event.stopPropagation()"
+                                                        <div class="dropdown-menu dropdown-search-filter p-4"
+                                                            id="drop-filter" onclick="event.stopPropagation()"
                                                             aria-labelledby="dropdownMenuButton">
                                                             <form class="row" id="form">
                                                                 <div class="col-12">
@@ -359,9 +359,9 @@
                     </div>
                     <div class="table-box-footer w-100">
                         <div class="d-flex align-items-center justify-content-between">
-                            <a href="{{ route('cma.search') }}" class="btn-action"><i
+                            <a href="{{ route('cma.search') }}" class="btn-action text-dark"><i
                                     class="fa-solid fa-chevron-left"></i> Previous</a>
-                            <a href="#0" id="next-btn" onclick="nextPage()" class="btn-action">Next<i
+                            <a href="#0" id="next-btn" onclick="nextPage()" class="btn-action text-dark">Next<i
                                     class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>

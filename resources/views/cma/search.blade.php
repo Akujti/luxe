@@ -40,8 +40,7 @@
                             </select>
                         </div>
                         <div class="table-box-body">
-                            <div class="table-action d-flex justify-content-center my-3"
-                                 style="column-gap: 15px;">
+                            <div class="table-action d-flex justify-content-center my-3" style="column-gap: 15px;">
                                 <div class="form-group mb-0">
                                     <label for="">Closing Date</label>
                                     <input type="date" class="form-control" id="date-search">
@@ -50,17 +49,17 @@
                                 <div class="form-group filter-search position-relative mb-0">
                                     <label for="">Address</label>
                                     <input id="search-input1" class="form-control" type="text"
-                                           placeholder="Search by address">
+                                        placeholder="Search by address">
                                     <div id="search-spinner" class="d-none spinner position-absolute"
-                                         style="top: 41px;right: 30px;"></div>
+                                        style="top: 41px;right: 30px;"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="table-box-footer w-100">
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="{{ route('cma.index') }}" class="btn-action"><i
+                                <a href="{{ route('cma.index') }}" class="btn-action text-dark"><i
                                         class="fa-solid fa-chevron-left"></i> Previous</a>
-                                <a href="{{ route('cma.show') }}" class="btn-action d-none" id="next-btn">Next<i
+                                <a href="{{ route('cma.show') }}" class="btn-action d-none text-dark" id="next-btn">Next<i
                                         class="fa-solid fa-angle-right"></i></a>
                             </div>
                         </div>
@@ -69,35 +68,35 @@
             </div>
         </div>
     </div>
-
 @endsection
 @section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#search-input1').autocomplete({
                 minLength: 0,
-                source: function (request, response) {
+                source: function(request, response) {
                     var options = $(this.element).data('autocomplete-options')
                     response(options || [])
                 },
-                select: function (event, ui) {
+                select: function(event, ui) {
                     event.preventDefault()
                     $(this).val(ui.item.label)
                     var nextBtn = $('#next-btn')
                     var dateSearch = $('#date-search').val()
                     var nextBtnHref = "{{ route('cma.show') }}"
-                    nextBtn.attr('href', nextBtnHref + '?listingId=' + ui.item.value + '&dateSearch=' + dateSearch)
+                    nextBtn.attr('href', nextBtnHref + '?listingId=' + ui.item.value + '&dateSearch=' +
+                        dateSearch)
                     nextBtn.removeClass('d-none')
                 },
-                focus: function (event, ui) {
+                focus: function(event, ui) {
                     event.preventDefault()
                     $(this).val(ui.item.label)
                 },
             })
 
-            $('#search-input1').on('input', debounce(async function () {
+            $('#search-input1').on('input', debounce(async function() {
                 $('#search-spinner').toggleClass('d-none')
                 let search_input = $('#search-input1').val()
                 var filterSearch = $('#filter-search').val()
@@ -110,7 +109,10 @@
 
                 if (response.data) {
                     const options = response.data.bundle.map(item => {
-                        return { label: item.UnparsedAddress, value: item.ListingId }
+                        return {
+                            label: item.UnparsedAddress,
+                            value: item.ListingId
+                        }
                     })
                     $('#search-input1').data('autocomplete-options', options)
                     $('#search-input1').autocomplete('search', $('#search-input1').val())
@@ -118,12 +120,13 @@
                 $('#search-spinner').toggleClass('d-none')
             }, 500))
 
-            function debounce (func, wait) {
+            function debounce(func, wait) {
                 let timeout
-                return function () {
-                    const context = this, args = arguments
+                return function() {
+                    const context = this,
+                        args = arguments
                     clearTimeout(timeout)
-                    timeout = setTimeout(function () {
+                    timeout = setTimeout(function() {
                         func.apply(context, args)
                     }, wait)
                 }
