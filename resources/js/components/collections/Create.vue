@@ -190,10 +190,10 @@ export default {
             search: {
                 zip: '',
                 street: '',
-                price_min: null,
-                price_max: null,
-                beds: null,
-                baths: null,
+                price_min: '',
+                price_max: '',
+                beds: '',
+                baths: '',
             },
             selected: [],
             loading: false,
@@ -238,12 +238,13 @@ export default {
             this.showSearchFilters = false
         },
         getComingSoonListings() {
-            axios.get('/listings')
+            const params = new URLSearchParams(this.search).toString();
+            axios.get('/listings?' + params)
                 .then(async response => {
                     const { Marker } = await google.maps.importLibrary("marker");
-                    this.comingSoonListings = response.data.data
+                    this.comingSoonListings = response.data.data;
                     this.comingSoonListings.forEach(location => {
-                        location.source = 'luxe'
+                        location.source = 'luxe';
                         if (location.lat && location.lng) {
                             this.addLocationMarker(location, Marker);
                         }

@@ -30,7 +30,6 @@ class ListingController extends Controller
                 $query->where('price', '>=', $filters['price_min']);
             if ($filters['price_max'])
                 $query->where('price', '<=', $filters['price_max']);
-
             if ($filters['price'])
                 $query->where('price', $filters['price']);
             if ($filters['street'])
@@ -40,9 +39,11 @@ class ListingController extends Controller
             if ($filters['type'])
                 $query->where('type', $filters['type']);
         })->with('user', 'user.profile')->latest()->paginate(20);
-        $listings_all = Listing::with('user', 'user.profile')->get();
+
         if ($request->expectsJson())
             return response()->json($listings);
+
+        $listings_all = Listing::with('user', 'user.profile')->get();
         return view('listings.index', compact('listings', 'listings_all'));
     }
 
