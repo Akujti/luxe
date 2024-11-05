@@ -25,13 +25,17 @@ class FolderController extends Controller
         $filters = [
             'id' => $request->get('id'),
         ];
-        $folders = Folder::with(['files', 'children'])->where('title', '!=', 'XNV34gFFFa')->where('title', '!=', 'XNvgkxNbjU')->where('title', '!=', '5KK08TSWXF')->where(function ($query) use ($filters) {
-            if ($filters['id']) {
-                $query->where('parent_id', $filters['id']);
-            } else {
-                $query->whereNull('parent_id');
-            }
-        })->orderBy('title', $request->input('sort', 'asc'))->get();
+        $folders = Folder::with(['files', 'children'])
+            ->where('title', '!=', 'XNV34gFFFa')
+            ->where('title', '!=', 'XNvgkxNbjU')
+            ->where('title', '!=', '5KK08TSWXF')
+            ->where(function ($query) use ($filters) {
+                if ($filters['id']) {
+                    $query->where('parent_id', $filters['id']);
+                } else {
+                    $query->whereNull('parent_id');
+                }
+            })->orderBy('title', $request->input('sort', 'asc'))->get();
         $files = File::where(function ($query) use ($filters) {
             if ($filters['id']) {
                 $query->where('folder_id', $filters['id']);

@@ -39,7 +39,7 @@
                                 <button class="btn btn-luxe" v-if="item.editable" @click="edit(item)">
                                     Update
                                 </button>
-                                <button class="btn btn-danger" v-if="item.editable">
+                                <button class="btn btn-danger" v-if="item.editable" @click="makeEditable(item)">
                                     Cancel
                                 </button>
                                 <button class="btn btn-danger" v-if="!item.editable" @click="remove(item)">
