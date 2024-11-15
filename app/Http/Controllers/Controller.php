@@ -87,8 +87,8 @@ class Controller extends BaseController
                 'url' => 'https://app.depositlink.com/login',
             ],
             [
-                'name' => 'kvCORE',
-                'icon' => 'kvcore.png',
+                'name' => 'BoldTrail',
+                'icon' => 'boldtrail.png',
                 'url' => 'https://kvcore.com/',
             ],
             [
