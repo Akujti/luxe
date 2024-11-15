@@ -20,7 +20,8 @@
                         <th scope="row">{{ index + 1 }}</th>
                         <td>
                             <div>
-                                <div v-if="!item.editable">{{ item.name }}</div>
+                                <div v-if="!item.editable"><a class="text-dark" :href="'/collections/' + item.id">{{
+                                    item.name }}</a></div>
                                 <input v-else type="text" v-model="item.name" class="form-control">
                             </div>
                         </td>
