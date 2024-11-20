@@ -35,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <th>On Market</th>
-                                    <td>{{ item.listing_date ?? 'N/A' }} Days</td>
+                                    <td>{{ item.days_on_market ?? 'N/A' }} Days</td>
                                 </tr>
                                 <tr>
                                     <th>Garage(s)</th>
@@ -61,48 +61,40 @@
             Whether you're looking for a cozy apartment or a spacious family home, we have options to match your needs.
             Browse through our listings and contact us to schedule a viewing today.</p>
         <div class="row">
-            <div class="col-md-4">
-                <img src="/images/collections/second.jpg" alt="" class="cover-img" height="810px">
-            </div>
-            <div class="col-md-8">
-                <div class="row">
-                    <div v-for="item in collection.listings" :key="item.id" class="col-md-6 mb-3"
-                        v-if="item.source == 'luxe'">
-                        <div class="listing">
-                            <div class="position-relative">
-                                <img :src="item.main_image_url" class="image">
-                                <div class="data p-2">
-                                    <p>${{ item.price?.toLocaleString() }} | {{
-                                        item.address.split(',')[0] }}
-                                    </p>
-                                    <p>
-                                        Beds {{ item.beds }}
-                                        | Baths {{ item.baths }}
-                                        | {{ item.living_area ? (item.living_area).toLocaleString() :
-                                            '-'
-                                        }} SqFt
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="p-2">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <th>Prop Type </th>
-                                            <td>{{ item.type ?? 'N/A' }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Lot size</th>
-                                            <td>{{ item.lot_size?.toLocaleString() ?? 'N/A' }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>On Market</th>
-                                            <td>{{ item.list_date ?? 'N/A' }} Days</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+            <div v-for="item in collection.listings" :key="item.id" class="col-md-4 mb-3" v-if="item.source == 'luxe'">
+                <div class="listing">
+                    <div class="position-relative">
+                        <img :src="item.main_image_url" class="image">
+                        <div class="data p-2">
+                            <p>${{ item.price?.toLocaleString() ?? '-' }} | {{
+                                item.address.split(',')[0] }}
+                            </p>
+                            <p>
+                                Beds {{ item.beds }}
+                                | Baths {{ item.baths }}
+                                | {{ item.living_area ? (item.living_area).toLocaleString() :
+                                    '-'
+                                }} SqFt
+                            </p>
                         </div>
+                    </div>
+                    <div class="p-2">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Prop Type </th>
+                                    <td>{{ item.type ?? 'N/A' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Lot size</th>
+                                    <td>{{ item.lot_size?.toLocaleString() ?? 'N/A' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>On Market</th>
+                                    <td>{{ item.days_on_market ?? 'N/A' }} Days</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -115,7 +107,7 @@ export default {
     data() {
         return {
         }
-    },
+    }
 }
 </script>
 <style scoped>

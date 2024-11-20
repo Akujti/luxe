@@ -131,7 +131,7 @@
                                             </tr>
                                             <tr>
                                                 <th>On Market</th>
-                                                <td>{{ item.list_date ?? 'N/A' }} Days</td>
+                                                <td>{{ daysFromToday(item.list_date) ?? 'N/A' }} Days</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -144,14 +144,16 @@
                     </div>
                     <div class="d-flex mb-3" v-if="step == 3">
                         <div class="w-100">
-                            <div class="form-group">
-                                <label for="">Collection Name</label>
-                                <input type="text" class="form-control" v-model="collection.name">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Recipient Email</label>
-                                <input type="email" class="form-control" v-model="collection.email">
-                            </div>
+                            <form ref="collectionForm">
+                                <div class="form-group">
+                                    <label for="">Collection Name</label>
+                                    <input type="text" class="form-control" v-model="collection.name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Recipient Email</label>
+                                    <input type="email" class="form-control" v-model="collection.email">
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="d-flex mb-3" v-if="step == 4">
@@ -224,6 +226,11 @@ export default {
             this.step += step
         },
         async storeCollection() {
+            const form = this.$refs.collectionForm;
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
             let data = {
                 name: this.collection.name,
                 email: this.collection.email,
@@ -365,6 +372,15 @@ export default {
             });
 
         },
+        daysFromToday(date) {
+            if (date) {
+                const givenDate = new Date(date);
+                const today = new Date();
+                // Calculate the difference in time and convert to days
+                const diffInTime = today - givenDate;
+                return Math.floor(diffInTime / (1000 * 60 * 60 * 24));
+            }
+        }
     }
 }
 </script>

@@ -23,3 +23,6 @@ composer.json
 public/Generated.zip
 *.ttf
 *.ufm
+public/mix-manifest.json
+public/js/app.js.LICENSE.txt
+public/js/app.js
