@@ -311,9 +311,7 @@
 }
 
 .dropdown-search-filter {
-    top: 35px !important;
-    left: -40rem !important;
-    width: 683px;
+    margin-top: 10px;
     will-change: unset !important;
     transform: unset !important;
     padding: 20px;

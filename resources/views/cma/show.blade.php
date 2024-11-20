@@ -101,6 +101,7 @@
                                     <style>
                                         #map {
                                             height: 100%;
+                                            max-height: 600px;
                                         }
 
                                         #search-map-btn {
@@ -134,49 +135,61 @@
                                                 <div class="d-inline-block">
                                                     <div class="dropdown" id="search-dropdown">
                                                         <button type="button" id="dropdownMenuButton"
-                                                            data-bs-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
+                                                            onclick="toggleFilters()">
                                                             <i class="fa-solid fa-bars"></i>
                                                         </button>
-                                                        <div class="dropdown-menu dropdown-search-filter p-4"
-                                                            id="drop-filter" onclick="event.stopPropagation()"
-                                                            aria-labelledby="dropdownMenuButton">
-                                                            <form class="row" id="form">
-                                                                <div class="col-12">
-                                                                    <h5 class="h5-title text-center">Search Filter
-                                                                        Form</h5>
-                                                                </div>
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Pool</label>
-                                                                        <select class="form-control" id="pool">
-                                                                            <option value="">--</option>
-                                                                            <option value="Yes">Yes</option>
-                                                                            <option value="No">No</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Waterfront</label>
-                                                                        <select class="form-control" id="waterfront">
-                                                                            <option value="">--</option>
-                                                                            <option value="Yes">Yes</option>
-                                                                            <option value="No">No</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                                                <div class="col-12 col-xl-6 d-none">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">MLS #</label>
-                                                                        <select class="form-control" id="mls">
-                                                                            <option value="">--</option>
-                                                                            <option value="mls">mls</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                {{-- <div class="col-12 col-xl-6">
+                                    <div class="dropdown-search-filter p-4 d-none" id="drop-filter"
+                                        onclick="event.stopPropagation()" aria-labelledby="dropdownMenuButton">
+                                        <form class="row" id="form">
+                                            <div class="col-12">
+                                                <h5 class="h5-title text-center">Search Filter
+                                                    Form</h5>
+                                            </div>
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Closing Date</label>
+                                                    <div class="">
+                                                        <input type="date" class="form-control" id="date-search">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Pool</label>
+                                                    <select class="form-control" id="pool">
+                                                        <option value="">--</option>
+                                                        <option value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Waterfront</label>
+                                                    <select class="form-control" id="waterfront">
+                                                        <option value="">--</option>
+                                                        <option value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-xl-6 d-none">
+                                                <div class="form-group mb-1">
+                                                    <label for="">MLS #</label>
+                                                    <select class="form-control" id="mls">
+                                                        <option value="">--</option>
+                                                        <option value="mls">mls</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            {{-- <div class="col-12 col-xl-6">
                                                                     <div class="form-group mb-1">
                                                                         <label for="">Lotsize</label>
                                                                         <div class="form-min-max">
@@ -191,165 +204,152 @@
                                                                         </div>
                                                                     </div>
                                                                 </div> --}}
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Property SqFt</label>
-                                                                        <div class="form-min-max">
-                                                                            <input id="lot-size-min" type="text"
-                                                                                class="form-control m-0"
-                                                                                placeholder="Min">
-                                                                            <div>
-                                                                                -
-                                                                            </div>
-                                                                            <input id="lot-size-max" type="text"
-                                                                                class="form-control m-0"
-                                                                                placeholder="Max">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Living SqFt</label>
-                                                                        <div class="form-min-max">
-                                                                            <input id="living-area-min" type="text"
-                                                                                class="form-control m-0"
-                                                                                placeholder="Min">
-                                                                            <div>
-                                                                                -
-                                                                            </div>
-                                                                            <input id="living-area-max" type="text"
-                                                                                class="form-control m-0"
-                                                                                placeholder="Max">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Bedrooms</label>
-                                                                        <div class="">
-                                                                            <input type="number" id="bed-room-min"
-                                                                                class="form-control m-0" placeholder="">
-                                                                            {{-- <div>
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Property SqFt</label>
+                                                    <div class="form-min-max">
+                                                        <input id="lot-size-min" type="text" class="form-control m-0"
+                                                            placeholder="Min">
+                                                        <div>
+                                                            -
+                                                        </div>
+                                                        <input id="lot-size-max" type="text" class="form-control m-0"
+                                                            placeholder="Max">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Living SqFt</label>
+                                                    <div class="form-min-max">
+                                                        <input id="living-area-min" type="text"
+                                                            class="form-control m-0" placeholder="Min">
+                                                        <div>
+                                                            -
+                                                        </div>
+                                                        <input id="living-area-max" type="text"
+                                                            class="form-control m-0" placeholder="Max">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Bedrooms</label>
+                                                    <div class="">
+                                                        <input type="number" id="bed-room-min" class="form-control m-0"
+                                                            placeholder="">
+                                                        {{-- <div>
                                                                                 -
                                                                             </div>
                                                                             <input type="text" id="bed-room-max"
                                                                                 class="form-control m-0"
                                                                                 placeholder="Max"> --}}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Full Baths</label>
-                                                                        <div class="">
-                                                                            <input type="number" id="full-bath-min"
-                                                                                class="form-control m-0" placeholder="">
-                                                                            {{-- <div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Full Baths</label>
+                                                    <div class="">
+                                                        <input type="number" id="full-bath-min" class="form-control m-0"
+                                                            placeholder="">
+                                                        {{-- <div>
                                                                                 -
                                                                             </div>
                                                                             <input type="text" id="full-bath-max"
                                                                                 class="form-control m-0"
                                                                                 placeholder="Max"> --}}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Half Baths</label>
-                                                                        <div class="">
-                                                                            <input type="number" id="half-bath-min"
-                                                                                class="form-control m-0" placeholder="">
-                                                                            {{-- <div>
-                                                                                -
-                                                                            </div>
-                                                                            <input type="text" id="half-bath-max"
-                                                                                class="form-control m-0"
-                                                                                placeholder="Max"> --}}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Garage Spaces</label>
-                                                                        <div class="">
-                                                                            <input type="number" id="garage-spaces-min"
-                                                                                class="form-control m-0" placeholder="">
-                                                                            {{-- <div>
-                                                                                -
-                                                                            </div>
-                                                                            <input type="text" id="half-bath-max"
-                                                                                class="form-control m-0"
-                                                                                placeholder="Max"> --}}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Year Built</label>
-                                                                        <div class="form-min-max">
-                                                                            <input type="text" id="year-built-min"
-                                                                                class="form-control m-0"
-                                                                                placeholder="Min">
-                                                                            <div>
-                                                                                -
-                                                                            </div>
-                                                                            <input type="text" id="year-built-max"
-                                                                                class="form-control m-0"
-                                                                                placeholder="Max">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-12 col-xl-6">
-                                                                    <div class="form-group mb-1">
-                                                                        <label for="">Property Type</label>
-                                                                        <div class="">
-                                                                            <select id="property-type"
-                                                                                class="form-control" name="property_type"
-                                                                                id="">
-                                                                                <option value>
-                                                                                    Select Property Type
-                                                                                </option>
-                                                                                <option value="Residential">
-                                                                                    Residential
-                                                                                </option>
-                                                                                <option value="Residential Lease">
-                                                                                    Residential Lease
-                                                                                </option>
-                                                                                <option value="Lease">Lease</option>
-                                                                                <option value="Land">Land</option>
-                                                                                <option value="Mobile">Mobile</option>
-                                                                                <option value="Commercial Sale">
-                                                                                    Commercial Sale
-                                                                                </option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-12 text-center pt-4">
-                                                                    <a class="btn-luxe" style="cursor:pointer;"
-                                                                        onclick="filterSearch()">
-                                                                        <span>
-                                                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                                                        </span>
-                                                                        Search
-                                                                    </a>
-                                                                </div>
-                                                            </form>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Half Baths</label>
+                                                    <div class="">
+                                                        <input type="number" id="half-bath-min" class="form-control m-0"
+                                                            placeholder="">
+                                                        {{-- <div>
+                                                                                -
+                                                                            </div>
+                                                                            <input type="text" id="half-bath-max"
+                                                                                class="form-control m-0"
+                                                                                placeholder="Max"> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Garage Spaces</label>
+                                                    <div class="">
+                                                        <input type="number" id="garage-spaces-min"
+                                                            class="form-control m-0" placeholder="">
+                                                        {{-- <div>
+                                                                                -
+                                                                            </div>
+                                                                            <input type="text" id="half-bath-max"
+                                                                                class="form-control m-0"
+                                                                                placeholder="Max"> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Year Built</label>
+                                                    <div class="form-min-max">
+                                                        <input type="text" id="year-built-min"
+                                                            class="form-control m-0" placeholder="Min">
+                                                        <div>
+                                                            -
+                                                        </div>
+                                                        <input type="text" id="year-built-max"
+                                                            class="form-control m-0" placeholder="Max">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-xl-6">
+                                                <div class="form-group mb-1">
+                                                    <label for="">Property Type</label>
+                                                    <div class="">
+                                                        <select id="property-type" class="form-control"
+                                                            name="property_type" id="">
+                                                            <option value>
+                                                                Select Property Type
+                                                            </option>
+                                                            <option value="Residential">
+                                                                Residential
+                                                            </option>
+                                                            <option value="Residential Lease">
+                                                                Residential Lease
+                                                            </option>
+                                                            <option value="Lease">Lease</option>
+                                                            <option value="Land">Land</option>
+                                                            <option value="Mobile">Mobile</option>
+                                                            <option value="Commercial Sale">
+                                                                Commercial Sale
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 text-center pt-4">
+                                                <a class="btn-luxe" style="cursor:pointer;" onclick="filterSearch()">
+                                                    <span>
+                                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                                    </span>
+                                                    Search
+                                                </a>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="market-analysis-rows">
+                                    <div class="market-analysis-rows" id="listing-results">
                                         <div></div>
                                         <button class="mt-2 w-100 btn-luxe d-none" id="view-more"
-                                            onclick="filterSearch(limit = limit + 50)">View more
+                                            onclick="filterSearch(limit = limit + 20)">View more
                                         </button>
                                     </div>
 
@@ -374,17 +374,20 @@
 @section('js')
     <script src="{{ asset('js/moment.min.js') }}"></script>
     <script>
+        var showFilters = true
         var statusGl = 'Closed'
         var showByIdRow = null,
             showRows = null,
             checkedIds = []
+
         $(document).ready(async function() {
             loadingDiv(1)
             await mounted()
-            $('#dropdownMenuButton').dropdown('toggle')
+            // $('#dropdownMenuButton').dropdown('toggle')
             $('#results-status').html(statusGl)
             loadingDiv(0)
             initMap()
+            toggleFilters()
         })
 
         function loadingDiv(status) {
@@ -397,10 +400,15 @@
             }
         }
 
-        var limit = 50
+        function toggleFilters() {
+            $('#drop-filter').toggleClass('d-none')
+            $('#listing-results').toggleClass('d-none')
+        }
+
+        var limit = 20
 
         async function nextPage() {
-            limit = 50
+            limit = 20
             if (statusGl == 'Closed')
                 statusGl = 'Active'
             else if (statusGl == 'Active')
@@ -413,8 +421,9 @@
         }
 
         async function filterSearch(limit) {
+            $('#drop-filter').addClass('d-none')
+            $('#listing-results').removeClass('d-none')
             const urlParams = new URLSearchParams(window.location.search)
-            const dateSearch = urlParams.get('dateSearch')
             loadingDiv(1)
             var pool = $('#pool').val()
             var waterfront = $('#waterfront').val()
@@ -433,8 +442,10 @@
             var yearbuiltMin = $('#year-built-min').val()
             var yearbuiltMax = $('#year-built-max').val()
             var propertyType = $('#property-type').val()
+            var dateSearch = $('#date-search').val()
 
             var data = []
+
             if (yearbuiltMax && yearbuiltMin) {
                 data['YearBuilt.gte'] = yearbuiltMin
                 data['YearBuilt.lte'] = yearbuiltMax
@@ -470,17 +481,14 @@
                 // data['BathroomsHalf.lte'] = halfbathMax
             }
 
-            if (pool) {
+            if (pool)
                 data['PoolPrivateYN'] = pool
-            }
 
-            if (waterfront) {
+            if (waterfront)
                 data['WaterfrontYN'] = waterfront
-            }
 
-            if (mls) {
+            if (mls)
                 data['MlsStatus'] = mls
-            }
 
             if (propertyType)
                 data['PropertyType.eq'] = propertyType
@@ -513,14 +521,14 @@
                 showByIdRow = data
                 const validate = validateString
 
-                Object.keys(data).forEach((el) => {
-                    let row = data[el]
-                    if (typeof row === 'boolean')
-                        $('#' + el).html(row ? 'Yes' : 'No')
-                    else
-                        $('#' + el).html(validate(row))
-                })
-
+                $('#UnparsedAddress').html(validate(data['UnparsedAddress']))
+                $('#BuyerAgentFullName').html(validate(data['BuyerAgentFullName']))
+                $('#BedroomsTotal').html(validate(data['BedroomsTotal']))
+                $('#BathroomsTotalInteger').html(validate(data['BathroomsTotalInteger']))
+                $('#YearBuilt').html(validate(data['YearBuilt']))
+                $('#LivingArea').html(validate(data['LivingArea']))
+                $('#GarageYN').html(data['GarageYN'] ? 'Yes' : 'No')
+                $('#MIAMIRE_PoolYN').html(data['MIAMIRE_PoolYN'] ? 'Yes' : 'No')
             }
         }
 
@@ -585,7 +593,6 @@
             mergeData['limit'] = limit
             mergeData['box'] = box
             var response = await axiosInc('listings', 'get', mergeData)
-
             if (response.data) {
                 if (response.data.total > limit) {
                     $('#view-more').removeClass('d-none')
@@ -611,7 +618,7 @@
                                 <div>
                                     <p class="sqft-price">
 <!--                                        <i class="fa-solid fa-star"></i>-->
-                                        <b>$${validateString(item.ListPrice)} | $${validateString(item.MIAMIRE_RATIO_CurrentPrice_By_SQFT)} Sq.Ft</b>
+                                        <b>$${validateString(item.ClosePrice)} | $${validateString(item.MIAMIRE_RATIO_CurrentPrice_By_SQFT)}/Sq.Ft</b>
                                     </p>
                                     <p class="sqft-price">
                                         ${validateString(item.UnparsedAddress.split(',')[0])}
@@ -746,7 +753,6 @@
                 </div>`
                     return html
                 })
-
                 $('.market-analysis-rows div').html(resForHtml.toString().replaceAll(',', '\n'))
 
                 $('.market-analysis-row div').scrollTop(0)
@@ -769,7 +775,7 @@
 
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 20,
+                zoom: 17,
                 center: new google.maps.LatLng(coordinates[1], coordinates[0]),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             })

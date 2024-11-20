@@ -1,7 +1,7 @@
 <template>
     <div class="mt-5">
         <div class="mb-3">
-            <h1 class="title">Collections</h1>
+            <h1 class="title">Client Saved Searches</h1>
             <form @submit.prevent="searchListings()" v-if="showSearchFilters">
                 <label for="">Search Listings</label>
                 <div class="row mb-2">
@@ -63,8 +63,11 @@
                                             {{ item.LivingAreaUnits == 'Square Feet' ? 'SqFt' : '' }}
                                         </p>
                                     </div>
+                                    <div class="position-absolute" style="top:10px;right:20px">
+                                        <input type="checkbox" :checked="isSelected(item)" class="checkbox">
+                                    </div>
                                 </div>
-                                <div class="p-2">
+                                <div class=" p-2">
                                     <table>
                                         <tbody>
                                             <tr>
@@ -117,6 +120,9 @@
                                             }} SqFt
                                         </p>
                                     </div>
+                                    <div class="position-absolute" style="top:10px;right:20px">
+                                        <input type="checkbox" :checked="isSelected(item)" class="checkbox">
+                                    </div>
                                 </div>
                                 <div class="p-2">
                                     <table>
@@ -147,7 +153,7 @@
                             <form ref="collectionForm">
                                 <div class="form-group">
                                     <label for="">Collection Name</label>
-                                    <input type="text" class="form-control" v-model="collection.name">
+                                    <input type="text" class="form-control" v-model="collection.name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Recipient Email</label>
@@ -157,7 +163,8 @@
                         </div>
                     </div>
                     <div class="d-flex mb-3" v-if="step == 4">
-                        <p> We have sent an email to <a :href="'mailto:' + collection.email">{{ collection.email }}</a>.
+                        <p> We have sent an email to <a :href="'mailto:' + collection.email">{{ collection.email
+                                }}</a>.
                             Here is the public link to share with your client <a
                                 :href="'/collections/' + collection.id">Collection
                                 Link</a></p>
@@ -166,7 +173,7 @@
                         <button class="step-btn" :disabled="step <= 1" @click="changeStep(-1)">Previous</button>
                         <button class="step-btn" :disabled="step >= 3" @click="changeStep(1)"
                             v-if="step < 3">Next</button>
-                        <button class="step-btn" @click="changeStep(1)" v-if="step == 3">Submit</button>
+                        <button class="step-btn" @click="storeCollection()" v-if="step == 3">Submit</button>
                     </div>
                 </div>
             </div>
@@ -221,12 +228,11 @@ export default {
     methods: {
         async changeStep(step) {
             window.scrollTo(0, 0);
-            if (this.step == 3)
-                await this.storeCollection()
             this.step += step
         },
-        async storeCollection() {
+        async storeCollection(step) {
             const form = this.$refs.collectionForm;
+            console.log(form.checkValidity());
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
@@ -238,6 +244,7 @@ export default {
             }
             const res = await axios.post('/user/collections', data)
             this.collection.id = res.data.id
+            this.changeStep(1)
         },
         searchListings() {
             this.getBridgeDataListings()
@@ -480,6 +487,36 @@ h1.title {
     outline: 2px solid black;
     cursor: pointer;
 }
+
+.listing .checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid #000;
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.listing .checkbox:checked {
+    background-color: black;
+    /* Keep background black */
+    border-color: black;
+    /* Optional: Add border color when checked */
+}
+
+.listing .checkbox:checked::after {
+    content: '✓';
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: -1px;
+    left: 4px;
+}
+
 
 #loading {
     display: inline-block;

@@ -40,12 +40,12 @@
                             </select>
                         </div>
                         <div class="table-box-body">
-                            <div class="table-action d-flex justify-content-center my-3" style="column-gap: 15px;">
-                                <div class="form-group mb-0">
+                            <div class="d-flex justify-content-center my-3">
+                                {{-- <div class="form-group mb-0">
                                     <label for="">Closing Date</label>
                                     <input type="date" class="form-control" id="date-search">
                                     <small><i>Includes All Dates Up To Today</i></small>
-                                </div>
+                                </div> --}}
                                 <div class="form-group filter-search position-relative mb-0">
                                     <label for="">Address</label>
                                     <input id="search-input1" class="form-control" type="text"
@@ -68,8 +68,6 @@
             </div>
         </div>
     </div>
-@endsection
-@section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
@@ -84,10 +82,8 @@
                     event.preventDefault()
                     $(this).val(ui.item.label)
                     var nextBtn = $('#next-btn')
-                    var dateSearch = $('#date-search').val()
                     var nextBtnHref = "{{ route('cma.show') }}"
-                    nextBtn.attr('href', nextBtnHref + '?listingId=' + ui.item.value + '&dateSearch=' +
-                        dateSearch)
+                    nextBtn.attr('href', nextBtnHref + '?listingId=' + ui.item.value)
                     nextBtn.removeClass('d-none')
                 },
                 focus: function(event, ui) {
@@ -97,20 +93,19 @@
             })
 
             $('#search-input1').on('input', debounce(async function() {
+                console.log(123);
+
                 $('#search-spinner').toggleClass('d-none')
                 let search_input = $('#search-input1').val()
                 var filterSearch = $('#filter-search').val()
-                var dateSearch = $('#date-search').val()
                 var data = {}
                 data[filterSearch + '.in'] = search_input
-                if (dateSearch)
-                    data['CloseDate.gte'] = dateSearch
                 var response = await axiosInc('listings', 'get', data)
 
                 if (response.data) {
                     const options = response.data.bundle.map(item => {
                         return {
-                            label: item.UnparsedAddress,
+                            label: item.UnparsedAddress + ' - ' + item.CloseDate,
                             value: item.ListingId
                         }
                     })

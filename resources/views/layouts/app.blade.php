@@ -473,7 +473,7 @@
 <body>
     <div id="app">
         <div id="loading" class="d-none">
-            <section class="paytm-loader"></section>
+            <div class="spinner"></div>
         </div>
         <header>
             <div class="header">

@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <div class="mb-3 d-flex justify-content-between align-items-center">
-            <h1 class="title">My Collections</h1>
+            <h1 class="title">Client Saved Searches</h1>
             <a href="/user/collections/create" class="btn btn-luxe ">Create</a>
         </div>
         <div class="row">

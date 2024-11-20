@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div class="text-center mb-3">
+            <img src="/images/logo-black.png" alt="" height="100px" class="m-auto">
+            <hr>
+        </div>
         <h1 class="mb-3 text-center">{{ collection.name }}</h1>
         <img src="/images/collections/main.jpg" alt="" class="cover-img" height="200px">
         <p class="text-center my-3">Welcome to our real estate listings page, where you'll find a curated selection of
@@ -56,7 +60,7 @@
             </div>
         </div>
         <hr>
-        <h2 class="mb-3 text-center">LUXE Listings</h2>
+        <h2 class="mb-3 text-center">LUXE Coming Soon Listings</h2>
         <p class="text-center my-3">Explore our exclusive real estate listings featuring properties in prime locations.
             Whether you're looking for a cozy apartment or a spacious family home, we have options to match your needs.
             Browse through our listings and contact us to schedule a viewing today.</p>
