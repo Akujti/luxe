@@ -618,7 +618,7 @@
                                 <div>
                                     <p class="sqft-price">
 <!--                                        <i class="fa-solid fa-star"></i>-->
-                                        <b>$${validateString(item.ClosePrice)} | $${validateString(item.MIAMIRE_RATIO_CurrentPrice_By_SQFT)}/Sq.Ft</b>
+                                        <b>$${validateString(item.ClosePrice).toLocaleString()} | $${validateString(item.MIAMIRE_RATIO_CurrentPrice_By_SQFT)}/Sq.Ft</b>
                                     </p>
                                     <p class="sqft-price">
                                         ${validateString(item.UnparsedAddress.split(',')[0])}
@@ -721,7 +721,7 @@
                                     <td>
                                         <div class="flex">
                                             <p>Listing Price</p>
-                                            <p>$${item.ListPrice}</p>
+                                            <p>$${(item.ListPrice??'').toLocaleString()}</p>
                                         </div>
                                     </td>
                                 </tr>
