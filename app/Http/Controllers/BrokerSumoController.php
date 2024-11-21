@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imports\AgentImport;
 use App\Models\AgentTransaction;
 use App\Models\BrokersumoAgent;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
@@ -88,7 +89,8 @@ class BrokerSumoController extends Controller
             'yearly_sales_volumes',
             'DESC'
         )->paginate(50);
-        return view('pages.brokersumo.sales', compact('results'));
+        $latest_upload = Carbon::parse(BrokersumoAgent::max('updated_at'))->format('Y-m-d');
+        return view('pages.brokersumo.sales', compact('results', 'latest_upload'));
     }
 
     public function leaderboard_units()

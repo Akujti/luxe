@@ -35,8 +35,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="row m-0">
-            <div class="w-100 d-flex justify-content-between align-items-center">
+            <div>
                 <h5 class="h5-luxe">Leaderboard - Yearly Sales Volumes</h5>
+                <p>Last Updated At: {{ $latest_upload }}</p>
             </div>
             <div class="table-responsive">
                 <table class="table">
