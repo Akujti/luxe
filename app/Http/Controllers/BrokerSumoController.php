@@ -89,7 +89,7 @@ class BrokerSumoController extends Controller
             'yearly_sales_volumes',
             'DESC'
         )->paginate(50);
-        $latest_upload = Carbon::parse(BrokersumoAgent::max('updated_at') ?? now())->format('Y-m-d');
+        $latest_upload = Carbon::parse(BrokersumoAgent::max('updated_at'))->format('Y-m-d');
         return view('pages.brokersumo.sales', compact('results', 'latest_upload'));
     }
 
