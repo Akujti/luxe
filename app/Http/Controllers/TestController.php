@@ -24,11 +24,6 @@ class TestController extends Controller
 {
     public function index()
     {
-        Config::set('mail.mailers.smtp.host', 'smtp.office365.com');
-        Config::set('mail.mailers.smtp.port', 587);
-        Config::set('mail.mailers.smtp.username', 'noreply@luxeknows.com');
-        Config::set('mail.mailers.smtp.password', 'zpqhszrxplbjhhbc');
-        Config::set('mail.mailers.smtp.encryption', 'tls');
         $listings = Listing::whereDate('created_at', Carbon::yesterday())->get();
         Mail::to('art@ajroni.com')->send(new DailyComingSoonListingsMail($listings));
         return 123;
