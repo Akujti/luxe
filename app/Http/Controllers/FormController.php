@@ -133,10 +133,10 @@ class FormController extends Controller
                         $details[strtolower($key)] = $val;
                 } else
                     if (is_array($val)) {
-                        if (!$request->hasFile($key))
-                            $details[strtolower($key)] = implode(", ", $val);
-                    } else
-                        $details[strtolower($key)] = $val;
+                    if (!$request->hasFile($key))
+                        $details[strtolower($key)] = implode(", ", $val);
+                } else
+                    $details[strtolower($key)] = $val;
             }
         } catch (Exception $e) {
             if ($request->wantsJson()) {
@@ -217,7 +217,12 @@ class FormController extends Controller
         if (in_array($request->form_title, $formItemsVerbiageModal))
             session()->flash('modal', 'Success');
         try {
-            if ($request->form_title == "Photoshoots For Listings" || $request->form_title == "Submit A Zillow Listing Agreement") {
+            if (
+                $request->form_title == "Photoshoots For Listings"
+                || $request->form_title == "Submit A Zillow Listing Agreement"
+                || $request->form_title == "Request Your Luxury Listing Package"
+                || $request->form_title_value == "CLOSING COORDINATORS"
+            ) {
                 Listing::create(
                     [
                         'user_id' => auth()->id(),

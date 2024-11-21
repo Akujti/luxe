@@ -772,9 +772,8 @@
 
                         @forelse($social_media_posts as $post)
                             <div class="box-guide col-6">
-                                <a href="/storage/{{ $post->file }}"
-                                    download="{{ $post->title }}.{{ $post->type_file }}" target="_blank"
-                                    class="text-dark" style="flex-direction:column;">
+                                <a href="{{ route('files.download', $post) }}" target="_blank" class="text-dark"
+                                    style="flex-direction:column;">
                                     <img src="/storage/{{ $post->thumbnail ? $post->thumbnail : $post->file }}"
                                         alt="" style="width: 100px;height:100px;">
                                     <p>{{ $post->title }}</p>
@@ -801,9 +800,8 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-6">
-                                <a href="{{ '/storage/' . $guide->file }}"
-                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
-                                    class="text-dark" style="flex-direction:column;">
+                                <a href="{{ route('files.download', $guide) }}" target="_blank" class="text-dark"
+                                    style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
                                         style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
@@ -815,9 +813,8 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-6">
-                                <a href="{{ '/storage/' . $guide->file }}"
-                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
-                                    class="text-dark" style="flex-direction:column;">
+                                <a href="{{ route('files.download', $guide) }}" target="_blank" class="text-dark"
+                                    style="flex-direction:column;">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
                                         style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
@@ -829,7 +826,7 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-6">
-                                <a href="{{ '/storage/' . $guide->file }}"
+                                <a href="{{ route('files.download', $guide) }}" target="_blank"
                                     download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
                                     class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
@@ -845,9 +842,7 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-6">
-                                <a href="{{ '/storage/' . $guide->file }}"
-                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
-                                    class="text-dark">
+                                <a href="{{ route('files.download', $guide) }}" target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
                                         style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
@@ -859,9 +854,7 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-6">
-                                <a href="{{ '/storage/' . $guide->file }}"
-                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
-                                    class="text-dark">
+                                <a href="{{ route('files.download', $guide) }}" target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
                                         style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
@@ -873,9 +866,7 @@
                         @endphp
                         @if ($guide)
                             <div class="box-guide col-6">
-                                <a href="{{ '/storage/' . $guide->file }}"
-                                    download="{{ $guide->title }}.{{ $guide->type_file }}" target="_blank"
-                                    class="text-dark">
+                                <a href="{{ route('files.download', $guide) }}" target="_blank" class="text-dark">
                                     <img src="{{ '/storage/' . $guide->thumbnail }}" alt=""
                                         style="width: 100px;height:100px;">
                                     <p>{{ $guide->title }}</p>
@@ -903,9 +894,8 @@
                         </h3>
                         @forelse($unbranded_media_posts as $post)
                             <div class="box-guide col-6">
-                                <a href="/storage/{{ $post->file }}"
-                                    download="{{ $post->title }}.{{ $post->type_file }}" target="_blank"
-                                    class="text-dark" style="flex-direction:column;">
+                                <a href="{{ route('files.download', $post) }}" target="_blank" class="text-dark"
+                                    style="flex-direction:column;">
                                     <img src="/storage/{{ $post->thumbnail ? $post->thumbnail : $post->file }}"
                                         alt="" style="width: 100px;height:100px;">
                                     <p>{{ $post->title }}</p>
@@ -924,56 +914,53 @@
 
         <div class="row p-0 m-0 w-100 mb-3 mt-4" style="border-bottom: 3px solid #00000014;"></div>
         <!-- <div class="box-guides">
-                                                                                                                                                                                                                                <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4 ">
-                                                                                                                                                                                                                                    <span>Most popular marketing templates</span>
-                                                                                                                                                                                                                                    <a href="{{ route('canva.marketing.requests') }}" class="text-luxe text-bold" style="font-size:16px">See
-                                                                                                                                                                                                                                        more</a>
-                                                                                                                                                                                                                                </h3>
-                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                            <div class="row w-100 my-4 px-4">
-                                                                                                                                                                                                                                <style>
-                                                                                                                                                                                                                                    .canva-img {
-                                                                                                                                                                                                                                        height: 160px;
-                                                                                                                                                                                                                                        object-fit: cover;
-                                                                                                                                                                                                                                        object-position: top;
-                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                </style>
-                                                                                                                                                                                                                                @foreach ($featured_categories as $diy)
+                                                                                                                                                                                                                                                <h3 class="row m-0 p-0 w-100 justify-content-between mt-4 mb-4 px-4 ">
+                                                                                                                                                                                                                                                    <span>Most popular marketing templates</span>
+                                                                                                                                                                                                                                                    <a href="{{ route('canva.marketing.requests') }}" class="text-luxe text-bold" style="font-size:16px">See
+                                                                                                                                                                                                                                                        more</a>
+                                                                                                                                                                                                                                                </h3>
+                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                            <div class="row w-100 my-4 px-4">
+                                                                                                                                                                                                                                                <style>
+                                                                                                                                                                                                                                                    .canva-img {
+                                                                                                                                                                                                                                                        height: 160px;
+                                                                                                                                                                                                                                                        object-fit: cover;
+                                                                                                                                                                                                                                                        object-position: top;
+                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                </style>
+                                                                                                                                                                                                                                                @foreach ($featured_categories as $diy)
     @if ($diy->title !== 'Business Cards' && $diy->title !== 'Postcards')
     <div class="col-md-6">
-                                                                                                                                                                                                                                                        <p><b>{{ $diy->title }}</b></p>
-                                                                                                                                                                                                                                            <div class="row">
-                                                                                                                                                                                                                                                @foreach ($diy->featured_templates as $item)
+                                                                                                                                                                                                                                                                        <p><b>{{ $diy->title }}</b></p>
+                                                                                                                                                                                                                                                            <div class="row">
+                                                                                                                                                                                                                                                                @foreach ($diy->featured_templates as $item)
     <div class="col-md-4 mb-3">
-                                                                                                                                                                                                                                                                        <a class="text-dark" href="{{ $item->url }}">
-                                                                                                                                                                                                                                                            <img src="{{ $item->image_url }}" style="border-radius: 10px;"
-                                                                                                                                                                                                                                                                class="w-100 canva-img">
-                                                                                                                                                                                                                                                            <p class="ml-2 mt-2">{{ $item->title }}</p>
-                                                                                                                                                                                                                                                        </a>
-                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                        <a class="text-dark" href="{{ $item->url }}">
+                                                                                                                                                                                                                                                                            <img src="{{ $item->image_url }}" style="border-radius: 10px;"
+                                                                                                                                                                                                                                                                                class="w-100 canva-img">
+                                                                                                                                                                                                                                                                            <p class="ml-2 mt-2">{{ $item->title }}</p>
+                                                                                                                                                                                                                                                                        </a>
+                                                                                                                                                                                                                                                                    </div>
     @endforeach
-                    </div>
+                                    </div>
 
-                    <div class="row">
-    @foreach ($diy->categories as $category)
+                                    <div class="row">
+                    @foreach ($diy->categories as $category)
     @foreach ($category->featured_templates as $item)
     <div class="col-md-4 mb-3">
-                                                                                                                                                                                                                                                                                <a class="text-dark" href="{{ $item->url }}">
-                                                                                                                                                                                                                                                                <img src="{{ $item->image_url }}" style="border-radius: 10px;"
-                                                                                                                                                                                                                                                                    class="w-100 canva-img">
-                                                                                                                                                                                                                                                                <p class="ml-2 mt-2">{{ $item->title }}</p>
-                                                                                                                                                                                                                                                            </a>
-                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                <a class="text-dark" href="{{ $item->url }}">
+                                                                                                                                                                                                                                                                                <img src="{{ $item->image_url }}" style="border-radius: 10px;"
+                                                                                                                                                                                                                                                                                    class="w-100 canva-img">
+                                                                                                                                                                                                                                                                                <p class="ml-2 mt-2">{{ $item->title }}</p>
+                                                                                                                                                                                                                                                                            </a>
+                                                                                                                                                                                                                                                                        </div>
     @endforeach
     @endforeach
-                    </div>
-    {{-- <p class="text-dark w-100">
-                                    <img src="{{ asset('storage/' . $diy->image) }}" alt="">
-                                </p> --}}
-                    </div>
+                                    </div
+                                    </div>
     @endif
     @endforeach
-            </div> -->
+                            </div> -->
         {{-- <div class="col-md-6">
                 <div class="box-item align-items-start box-guides row p-0 m-0 bg-transparent"
                     style="height: 470px !important;">

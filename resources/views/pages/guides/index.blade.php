@@ -301,8 +301,7 @@
             <div class="grid grid-layout mb-5">
                 @foreach ($files as $file)
                     <div class="box-item box-item-padding">
-                        <a href="{{ '/storage/' . $file->file }}" download="{{ $file->title }}.{{ $file->type_file }}"
-                            target="_blank">
+                        <a href="{{ route('files.download', $file) }}" target="_blank">
                             <div>
                                 @if ($file->thumbnail)
                                     <img class="preview-img" src="{{ '/storage/' . $file->thumbnail }}"
@@ -347,9 +346,7 @@
                     <div class="box-file col-md-12 mb-4">
                         <div class="folder" style="min-height: 84px !important;">
                             <div class="row p-0 m-0 w-100 d-flex align-items-center">
-                                <a href="{{ '/storage/' . $file->file }}"
-                                    download="{{ $file->title }}.{{ $file->type_file }}" target="_blank"
-                                    class="row m-0 p-0 w-100">
+                                <a href="{{ route('files.download', $file) }}" target="_blank" class="row m-0 p-0 w-100">
                                     <div class="col d-flex align-items-center">
                                         <div class="mr-4">
                                             @if ($file->thumbnail)

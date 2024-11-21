@@ -41,4 +41,9 @@ class File extends Model
     {
         return asset('storage/' . $this->thumbnail);
     }
+
+    public function downloads()
+    {
+        return $this->hasMany(FileDownload::class);
+    }
 }

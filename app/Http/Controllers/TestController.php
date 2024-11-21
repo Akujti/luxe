@@ -14,17 +14,12 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Storage;
 use PDF;
 
 class TestController extends Controller
 {
-    public function index()
-    {
-        if (App::environment('local')) {
-            $a = Auth::loginUsingId(149);
-            return redirect()->route('home');
-        }
-    }
+    public function index() {}
 
     public function update_vimeo() {}
 

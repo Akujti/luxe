@@ -75,7 +75,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Date Expected to Go Live on MLS</label>
-                                <input type="date" name="date_expected_to_go_live_on_mls" class="form-control" required>
+                                <input type="date" name="listing_date" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Total Commission For Listing</label>

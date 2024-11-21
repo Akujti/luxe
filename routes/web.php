@@ -22,6 +22,7 @@ use App\Http\Controllers\EmailBlastHomePageController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventGalleryController;
 use App\Http\Controllers\EventGalleryImageController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FormSubmitController;
@@ -78,6 +79,7 @@ Route::get('general/form/file/download/', [FormController::class, 'file_download
 Route::view('office-locations', 'office-locations')->name('office.locations')->middleware('auth');
 Route::view('maps', 'maps');
 Route::get('home', [Controller::class, 'home'])->middleware('auth');
+Route::get('files/download/{file}', [FileController::class, 'download'])->name('files.download');
 Route::redirect('/', 'home');
 
 Route::group(['prefix' => 'store', 'as' => 'luxe_store.'], function () {
@@ -489,6 +491,8 @@ Route::group(['prefix' => 'marketing-canva', 'as' => 'canva.', 'middleware' => [
 // End Canva Marketing
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('downloads', [FileController::class, 'admin_index'])->name('downloads.index');
+
     Route::get('photographers/{photographer}/properties', [PhotographerPropertyController::class, 'index'])->name('photographers.properties.index');
     Route::post('photographers/properties', [PhotographerPropertyController::class, 'store'])->name('photographers.properties.store');
     Route::put('photographers/properties', [PhotographerPropertyController::class, 'update'])->name('photographers.properties.update');

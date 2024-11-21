@@ -326,6 +326,7 @@
                                         <a href="{{ route('admin.photographers.index') }}">Photographers</a>
                                         <a href="{{ route('admin.referral-partners.categories.index') }}">Referral
                                             Partners</a>
+                                        <a href="{{ route('admin.downloads.index') }}">Downloads</a>
                                     </div>
                                 </div>
                             </nav>
