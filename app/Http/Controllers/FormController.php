@@ -221,7 +221,7 @@ class FormController extends Controller
                 $request->form_title == "Photoshoots For Listings"
                 || $request->form_title == "Submit A Zillow Listing Agreement"
                 || $request->form_title == "Request Your Luxury Listing Package"
-                || $request->form_title_value == "CLOSING COORDINATORS"
+                || $request->form_title_value == "LISTING COORDINATORS"
             ) {
                 Listing::create(
                     [

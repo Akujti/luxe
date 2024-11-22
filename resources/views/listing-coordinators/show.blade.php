@@ -8,10 +8,6 @@
             position: relative;
             z-index: 0;
         }
-
-        /* #paypal-button-container:hover {
-                                                                                                background: #F2BA36
-                                                                                            } */
     </style>
     <div class="container-fluid">
         <div class="row justify-content-center mb-4">
@@ -45,8 +41,8 @@
                                     value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Address for Listing</label>
-                                <input type="text" name="address_for_listing" class="form-control map" required
+                                <label for="name">Property Address</label>
+                                <input type="text" name="property_address" class="form-control map" required
                                     placeholder="">
                             </div>
                             <div class="form-group col-md-6">
@@ -65,8 +61,12 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">List Date to go on MLS</label>
-                                <input type="date" name="list_date_to_go_to_mls" class="form-control" required>
+                                <label for="name">Listing Date</label>
+                                <input type="date" name="listing_date" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">List Date to go live on MLS</label>
+                                <input type="date" name="list_date_to_go_live_on_mls" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Anything that differs from tax records?</label>

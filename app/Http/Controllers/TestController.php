@@ -24,9 +24,8 @@ class TestController extends Controller
 {
     public function index()
     {
-        $listings = Listing::whereDate('created_at', Carbon::yesterday())->get();
-        Mail::to('art@ajroni.com')->send(new DailyComingSoonListingsMail($listings));
-        return 123;
+        Auth::loginUsingId(149);
+        return;
     }
 
     public function update_vimeo() {}

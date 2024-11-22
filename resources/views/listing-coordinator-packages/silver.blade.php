@@ -20,11 +20,10 @@
                     <div class="card-header">
                         <h1 class="text-center my-4">Listing Coordinator - {{ $type->coordinator->name }}</h1>
                         <h6 id="agent-text" class="text-center" style="font-size: 21px;">LISTING INPUT ONLY
-                            ${{$type->price}}</h6>
+                            ${{ $type->price }}</h6>
                         <h5 class="text-center">Coordinator Will Reach Out Within 1 Business Day</h5>
                     </div>
-                    <input type="hidden" name="form_title"
-                           value="LISTING COORDINATORS - {{ $type->coordinator->name }}">
+                    <input type="hidden" name="form_title" value="LISTING COORDINATORS - {{ $type->coordinator->name }}">
                     <input type="hidden" name="form_title_value" value="LISTING COORDINATORS">
                     <input type="hidden" name="special" value="Coordinator Will Reach Out Within 1 Business Day">
                     <input type="hidden" name="to_email[]" value="{{ $type->coordinator->email }}">
@@ -34,22 +33,22 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                       value="{{ auth()->user()->profile->fullname }}" required>
+                                    value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Phone Number</label>
                                 <input type="text" name="agent_number" class="form-control"
-                                       value="{{ auth()->user()->profile->phone }}" required>
+                                    value="{{ auth()->user()->profile->phone }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                       value="{{ auth()->user()->email }}" required>
+                                    value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Address for Listing</label>
-                                <input type="text" name="address_for_listing" class="form-control map" required
-                                       placeholder="">
+                                <label for="name">Property Address</label>
+                                <input type="text" name="property_address" class="form-control map" required
+                                    placeholder="">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Property Type</label>
@@ -67,13 +66,16 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">List Date to go on MLS</label>
-                                <input type="date" name="list_date_to_go_to_mls" class="form-control" required>
+                                <label for="name">Listing Date</label>
+                                <input type="date" name="listing_date" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">List Date to go live on MLS</label>
+                                <input type="date" name="list_date_to_go_live_on_mls" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Anything that differs from tax records?</label>
-                                <textarea name="anything_that_differs_from_tax_records" class="form-control" rows="3"
-                                          required></textarea>
+                                <textarea name="anything_that_differs_from_tax_records" class="form-control" rows="3" required></textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Please list any upgrades or special features ex - impact windows,
@@ -90,13 +92,12 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Any coagents or special instructions for broker remarks?</label>
-                                <textarea name="coagents_or_special_instructions" class="form-control" rows="3"
-                                          required></textarea>
+                                <textarea name="coagents_or_special_instructions" class="form-control" rows="3" required></textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Do you want us to make the description?</label>
                                 <select name="do_you_want_us_to_make_the_description" class="form-control"
-                                        onchange="toggleDescription(this)">
+                                    onchange="toggleDescription(this)">
                                     <option value="-">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -105,7 +106,7 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Do you want us to upload pictures?</label>
                                 <select id="upload_pic" name="do_you_want_us_to_upload_pictures" class="form-control"
-                                        onchange="toggleUploadImage(this)">
+                                    onchange="toggleUploadImage(this)">
                                     <option value="-">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -121,8 +122,7 @@
                                 <div id="pictures_desc" class="d-none">
                                     <label for="name">Link to pictures or instructions to access (if in podio please
                                         specify)</label>
-                                    <textarea name="link_to_pictures_or_instructions" rows="3"
-                                              class="form-control"></textarea>
+                                    <textarea name="link_to_pictures_or_instructions" rows="3" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group col-12 mt-3">
@@ -138,7 +138,7 @@
     </div>
 
     <script>
-        function toggleDescription (select) {
+        function toggleDescription(select) {
             if (select.value == 'No') {
                 document.getElementById('listing_desc').classList.remove('d-none')
             } else {
@@ -146,7 +146,7 @@
             }
         }
 
-        function toggleUploadImage (select) {
+        function toggleUploadImage(select) {
             if (select.value == 'Yes') {
                 document.getElementById('pictures_desc').classList.remove('d-none')
             } else {
@@ -167,16 +167,16 @@
                 tagline: 'false',
                 color: 'black'
             },
-            createOrder: function (data, actions) {
+            createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value:<?php echo json_encode($type->price); ?>
+                            value: <?php echo json_encode($type->price); ?>
                         }
                     }]
                 })
             },
-            onClick: function () {
+            onClick: function() {
                 const form = document.getElementById('form')
                 if (form.checkValidity()) {
                     return true
@@ -185,8 +185,8 @@
                     return false
                 }
             },
-            onApprove: function (data, actions) {
-                return actions.order.capture().then(function (details) {
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
                     document.getElementById('form').submit()
                 })
             }

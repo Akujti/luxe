@@ -165,9 +165,9 @@
                     <div class="d-flex mb-3" v-if="step == 4">
                         <p> We have sent an email to <a :href="'mailto:' + collection.email">{{ collection.email
                                 }}</a>.
-                            Here is the public link to share with your client <a
-                                :href="'/collections/' + collection.id">Collection
-                                Link</a></p>
+                            Here is the public link to share with your client<a
+                                :href="'/collections/' + collection.id">,
+                                saved searches Link</a></p>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <button class="step-btn" :disabled="step <= 1" @click="changeStep(-1)">Previous</button>

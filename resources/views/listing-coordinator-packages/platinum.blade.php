@@ -20,11 +20,10 @@
                     <div class="card-header">
                         <h1 class="text-center my-4">Listing Coordinator - {{ $type->coordinator->name }}</h1>
                         <h6 id="agent-text" class="text-center" style="font-size: 21px;">PLATINUM PACKAGE
-                            ${{$type->price}}</h6>
+                            ${{ $type->price }}</h6>
                         <h5 class="text-center">Coordinator Will Reach Out Within 1 Business Day</h5>
                     </div>
-                    <input type="hidden" name="form_title"
-                           value="LISTING COORDINATORS - {{ $type->coordinator->name }}">
+                    <input type="hidden" name="form_title" value="LISTING COORDINATORS - {{ $type->coordinator->name }}">
                     <input type="hidden" name="form_title_value" value="LISTING COORDINATORS">
                     <input type="hidden" name="special" value="Coordinator Will Reach Out Within 1 Business Day">
                     <input type="hidden" name="to_email[]" value="{{ $type->coordinator->email }}">
@@ -34,22 +33,22 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Name</label>
                                 <input type="text" name="agent_full_name" class="form-control"
-                                       value="{{ auth()->user()->profile->fullname }}" required>
+                                    value="{{ auth()->user()->profile->fullname }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Phone Number</label>
                                 <input type="text" name="agent_number" class="form-control"
-                                       value="{{ auth()->user()->profile->phone }}" required>
+                                    value="{{ auth()->user()->profile->phone }}" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Agent Email</label>
                                 <input type="text" name="agent_email" class="form-control"
-                                       value="{{ auth()->user()->email }}" required>
+                                    value="{{ auth()->user()->email }}" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Address for Listing</label>
-                                <input type="text" name="address_for_listing" class="form-control map" required
-                                       placeholder="">
+                                <label for="name">Property Address</label>
+                                <input type="text" name="property_address" class="form-control map" required
+                                    placeholder="">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Property Type</label>
@@ -67,8 +66,12 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">List Date to go on MLS</label>
-                                <input type="date" name="list_date_to_go_to_mls" class="form-control" required>
+                                <label for="name">Listing Date</label>
+                                <input type="date" name="listing_date" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">List Date to go live on MLS</label>
+                                <input type="date" name="list_date_to_go_live_on_mls" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">What is list price?</label>
@@ -78,38 +81,37 @@
                                 <label for="name">Terms Considered - Select all that apply</label>
                                 <div class="">
                                     @php
-                                        $terms = ['FHA','Conventional','VA','Cash','Cash Only'];
+                                        $terms = ['FHA', 'Conventional', 'VA', 'Cash', 'Cash Only'];
                                     @endphp
-                                    @foreach($terms as $key => $term)
+                                    @foreach ($terms as $key => $term)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{$term}}"
-                                                   id="terms-{{$key}}"
-                                                   name="terms_considered[]">
-                                            <label class="form-check-label" for="terms-{{$key}}">
-                                                {{ $term}}
+                                            <input class="form-check-input" type="checkbox" value="{{ $term }}"
+                                                id="terms-{{ $key }}" name="terms_considered[]">
+                                            <label class="form-check-label" for="terms-{{ $key }}">
+                                                {{ $term }}
                                             </label>
                                         </div>
                                     @endforeach
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="customOption"
-                                               onclick="toggleCustomInput('customInput')">
+                                            onclick="toggleCustomInput('customInput')">
                                         <label class="form-check-label" for="customOption">
                                             Other
                                         </label>
                                         <input type="text" class="form-control mt-2" id="customInput"
-                                               name="terms_considered[]" style="display:none;"
-                                               placeholder="Type here">
+                                            name="terms_considered[]" style="display:none;" placeholder="Type here">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Please upload executed listing agreement</label>
-                                <input type="file" name="executed_listing_agreement" class="form-control p-1" required>
+                                <input type="file" name="executed_listing_agreement" class="form-control p-1"
+                                    required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Is there an HOA or Condo Association?</label>
                                 <select name="is_there_an_hoa_or_condo_association" class="form-control"
-                                        onchange="toggleDescription(this)" required>
+                                    onchange="toggleDescription(this)" required>
                                     <option value="-">-</option>
                                     <option value="HOA">HOA</option>
                                     <option value="Condo Association">Condo Association</option>
@@ -121,7 +123,7 @@
                                 <label for="name">Contact Information for HOA/Condo Association - Phone Number &
                                     Email</label>
                                 <input type="text" name="contact_information_for_hoa_condo_association"
-                                       class="form-control"/>
+                                    class="form-control" />
                             </div>
                             <div class="d-none form-group col-md-6">
                                 <label for="name">Do you need us to get association application & put it in the
@@ -136,27 +138,33 @@
                                 <label for="name">Floors Description - Select all that apply</label>
                                 <div class="">
                                     @php
-                                        $floors = ['Tile','Hard Wood','Engineered Wood','Laminate','Porcelain','Marble','Carpet'];
+                                        $floors = [
+                                            'Tile',
+                                            'Hard Wood',
+                                            'Engineered Wood',
+                                            'Laminate',
+                                            'Porcelain',
+                                            'Marble',
+                                            'Carpet',
+                                        ];
                                     @endphp
-                                    @foreach($floors as $key => $floor)
+                                    @foreach ($floors as $key => $floor)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{$floor}}"
-                                                   id="floors-{{$key}}"
-                                                   name="floors[]">
-                                            <label class="form-check-label" for="floors-{{$key}}">
-                                                {{ $floor}}
+                                            <input class="form-check-input" type="checkbox" value="{{ $floor }}"
+                                                id="floors-{{ $key }}" name="floors[]">
+                                            <label class="form-check-label" for="floors-{{ $key }}">
+                                                {{ $floor }}
                                             </label>
                                         </div>
                                     @endforeach
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="customOption"
-                                               onclick="toggleCustomInput('customInputFloors')">
+                                            onclick="toggleCustomInput('customInputFloors')">
                                         <label class="form-check-label" for="customOption">
                                             Other
                                         </label>
                                         <input type="text" class="form-control mt-2" id="customInputFloors"
-                                               name="floors[]" style="display:none;"
-                                               placeholder="Type here">
+                                            name="floors[]" style="display:none;" placeholder="Type here">
                                     </div>
                                 </div>
                             </div>
@@ -164,28 +172,34 @@
                                 <label for="name">Construction Type - Select all that apply</label>
                                 <div class="">
                                     @php
-                                        $types = ['Concrete Block','Aluminum Siding','Brick Exterior','CBS','Stucco Exterior','New Construction','Under Construction'];
+                                        $types = [
+                                            'Concrete Block',
+                                            'Aluminum Siding',
+                                            'Brick Exterior',
+                                            'CBS',
+                                            'Stucco Exterior',
+                                            'New Construction',
+                                            'Under Construction',
+                                        ];
                                     @endphp
-                                    @foreach($types as $key => $floor)
+                                    @foreach ($types as $key => $floor)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{$floor}}"
-                                                   id="construction-types-{{$key}}"
-                                                   name="construction_types[]">
-                                            <label class="form-check-label" for="construction-types-{{$key}}">
-                                                {{ $floor}}
+                                            <input class="form-check-input" type="checkbox" value="{{ $floor }}"
+                                                id="construction-types-{{ $key }}" name="construction_types[]">
+                                            <label class="form-check-label" for="construction-types-{{ $key }}">
+                                                {{ $floor }}
                                             </label>
                                         </div>
                                     @endforeach
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox"
-                                               id="customOptionConstructionOption"
-                                               onclick="toggleCustomInput('customOptionConstruction')">
+                                            id="customOptionConstructionOption"
+                                            onclick="toggleCustomInput('customOptionConstruction')">
                                         <label class="form-check-label" for="customOptionConstruction">
                                             Other
                                         </label>
                                         <input type="text" class="form-control mt-2" id="customOptionConstruction"
-                                               name="construction_types[]" style="display:none;"
-                                               placeholder="Type here">
+                                            name="construction_types[]" style="display:none;" placeholder="Type here">
                                     </div>
                                 </div>
                             </div>
@@ -193,19 +207,19 @@
                                 <label for="name">Roof Description</label>
                                 <div class="">
                                     @php
-                                        $roofs = ['Barrel','Shingle','Flat Tile','Aluminum','Metal','Concrete'];
+                                        $roofs = ['Barrel', 'Shingle', 'Flat Tile', 'Aluminum', 'Metal', 'Concrete'];
                                     @endphp
                                     <select name="roof_description" class="form-control mt-2">
                                         <option value="-">-</option>
-                                        @foreach($roofs as $key => $item)
-                                            <option value="{{$item}}">{{$item}}</option>
+                                        @foreach ($roofs as $key => $item)
+                                            <option value="{{ $item }}">{{ $item }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="listing-desc form-group col-md-6">
                                 <label class="form-check-label">Number of A/C Units</label>
-                                <input type="number" class="form-control mt-2" name="number_of_ac_units"/>
+                                <input type="number" class="form-control mt-2" name="number_of_ac_units" />
                             </div>
                             <div class="listing-desc form-group col-md-6">
                                 <label class="form-check-label">Are pets allowed</label>
@@ -218,8 +232,7 @@
                             <div class="form-group col-md-6">
                                 <div>
                                     <label for="name">Anything that differs from tax records?</label>
-                                    <textarea name="anything_that_differs_from_tax_records" rows="3"
-                                              class="form-control"></textarea>
+                                    <textarea name="anything_that_differs_from_tax_records" rows="3" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -227,29 +240,47 @@
                                     below. Please select as many as apply.</label>
                                 <div class="">
                                     @php
-                                        $upgrades= ['Impact Windows','Impact Doors','Generator','Guest House','Sauna','Jacuzzi','Covered Terrace','Gazebo','Shed'
-                                        ,'Smart-house','Sound System','Security System','Alarm System','Tankless Water Heater','Solar Panels','Zero-Threshold Showers',
-                                        'Quartz Countertops','Automatic Blinds','Zebra Blinds','Outdoor Kitchen','Automatic Gate'];
+                                        $upgrades = [
+                                            'Impact Windows',
+                                            'Impact Doors',
+                                            'Generator',
+                                            'Guest House',
+                                            'Sauna',
+                                            'Jacuzzi',
+                                            'Covered Terrace',
+                                            'Gazebo',
+                                            'Shed',
+                                            'Smart-house',
+                                            'Sound System',
+                                            'Security System',
+                                            'Alarm System',
+                                            'Tankless Water Heater',
+                                            'Solar Panels',
+                                            'Zero-Threshold Showers',
+                                            'Quartz Countertops',
+                                            'Automatic Blinds',
+                                            'Zebra Blinds',
+                                            'Outdoor Kitchen',
+                                            'Automatic Gate',
+                                        ];
                                     @endphp
-                                    @foreach($upgrades as $key => $term)
+                                    @foreach ($upgrades as $key => $term)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{$term}}"
-                                                   id="terms-{{$key}}"
-                                                   name="property_upgrades[]">
-                                            <label class="form-check-label" for="terms-{{$key}}">
-                                                {{ $term}}
+                                            <input class="form-check-input" type="checkbox" value="{{ $term }}"
+                                                id="terms-{{ $key }}" name="property_upgrades[]">
+                                            <label class="form-check-label" for="terms-{{ $key }}">
+                                                {{ $term }}
                                             </label>
                                         </div>
                                     @endforeach
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="customOption"
-                                               onclick="toggleCustomInput('customInput2')">
+                                            onclick="toggleCustomInput('customInput2')">
                                         <label class="form-check-label" for="customOption">
                                             Other
                                         </label>
                                         <input type="text" class="form-control mt-2" id="customInput2"
-                                               name="property_upgrades[]" style="display:none;"
-                                               placeholder="Type here">
+                                            name="property_upgrades[]" style="display:none;" placeholder="Type here">
                                     </div>
                                 </div>
                             </div>
@@ -270,12 +301,12 @@
                                 <label class="form-check-label">Any coagents or special instructions for broker
                                     remarks?</label>
                                 <input type="text" class="form-control mt-2" name="coagents_or_special_instructions"
-                                       required/>
+                                    required />
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Do you want us to make the property description?</label>
                                 <select class="form-control mt-2" required
-                                        name="do_you_want_us_to_make_the_property_description">
+                                    name="do_you_want_us_to_make_the_property_description">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -286,8 +317,8 @@
                                     behalf? **This would be for the seller property disclosure and scheduling on photos
                                     or open houses. </label>
                                 <select class="form-control mt-2"
-                                        name="would_you_like_for_us_to_reach_out_to_the_owner_on_your_behalf"
-                                        onchange="toggleHiddenClass(this,'reach-owner')">
+                                    name="would_you_like_for_us_to_reach_out_to_the_owner_on_your_behalf"
+                                    onchange="toggleHiddenClass(this,'reach-owner')">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -301,7 +332,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Do you have a seller property disclosure?</label>
                                 <select class="form-control mt-2" required
-                                        name="do_you_have_a_seller_property_disclosure">
+                                    name="do_you_have_a_seller_property_disclosure">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No, I will get one">No, I will get one</option>
@@ -313,7 +344,7 @@
                                 <label class="form-check-label">Would you like for us to order a sign post? **There is a
                                     cost for the post. </label>
                                 <select class="form-control mt-2" required
-                                        name="would_you_like_for_us_to_order_a_sign_post">
+                                    name="would_you_like_for_us_to_order_a_sign_post">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -321,8 +352,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Do you have a for sale sign to hang?</label>
-                                <select class="form-control mt-2" required
-                                        name="do_you_have_a_for_sale_sign_to_hang">
+                                <select class="form-control mt-2" required name="do_you_have_a_for_sale_sign_to_hang">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -331,9 +361,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Do you have an open house scheduled?</label>
-                                <select class="form-control mt-2" required
-                                        name="do_you_have_an_open_house_scheduled"
-                                        onchange="toggleHiddenClass(this,'open-house')">
+                                <select class="form-control mt-2" required name="do_you_have_an_open_house_scheduled"
+                                    onchange="toggleHiddenClass(this,'open-house')">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -342,12 +371,11 @@
                             <div class="open-house d-none form-group col-md-6">
                                 <label class="form-check-label">Please provide date & time of open house.</label>
                                 <input type="datetime-local" class="form-control mt-2"
-                                       name="date_and_time_of_open_house"/>
+                                    name="date_and_time_of_open_house" />
                             </div>
                             <div class="open-house d-none form-group col-md-6">
                                 <label class="form-check-label">Do you need an email blast for the open house?</label>
-                                <select class="form-control mt-2"
-                                        name="do_you_need_an_email_blast_for_the_open_house">
+                                <select class="form-control mt-2" name="do_you_need_an_email_blast_for_the_open_house">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -355,9 +383,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Do you have a broker's open scheduled?</label>
-                                <select class="form-control mt-2"
-                                        onchange="toggleHiddenClass(this,'broker-scheduled')"
-                                        name="do_you_have_a_brokers_open_scheduled">
+                                <select class="form-control mt-2" onchange="toggleHiddenClass(this,'broker-scheduled')"
+                                    name="do_you_have_a_brokers_open_scheduled">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -366,13 +393,12 @@
                             <div class="broker-scheduled d-none form-group col-md-6">
                                 <label class="form-check-label">Please provide date & time of broker's open.</label>
                                 <input type="datetime-local" class="form-control mt-2"
-                                       name="date_and_time_of_broker's_open"/>
+                                    name="date_and_time_of_broker's_open" />
                             </div>
                             <div class="broker-scheduled d-none form-group col-md-6">
                                 <label class="form-check-label">Do you need an email blast for the broker's
                                     open?</label>
-                                <select class="form-control mt-2"
-                                        name="do_you_need_an_email_blast_for_the_broker's_open">
+                                <select class="form-control mt-2" name="do_you_need_an_email_blast_for_the_broker's_open">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -380,8 +406,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Would you like a property spec sheet?</label>
-                                <select class="form-control mt-2"
-                                        name="would_you_like_a_property_spec_sheet">
+                                <select class="form-control mt-2" name="would_you_like_a_property_spec_sheet">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -390,8 +415,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Would you like property brochures? **There is a printing
                                     cost, approximately $100. </label>
-                                <select class="form-control mt-2"
-                                        name="would_you_like_property_brochures">
+                                <select class="form-control mt-2" name="would_you_like_property_brochures">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -400,8 +424,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Would you like property mailers (EDDM)? **There is a
                                     cost for printing & postage.</label>
-                                <select class="form-control mt-2"
-                                        name="would_you_like_property_mailers">
+                                <select class="form-control mt-2" name="would_you_like_property_mailers">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -410,7 +433,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Would you like a custom social media post?</label>
                                 <select class="form-control mt-2" required
-                                        name="would_you_like_a_custom_social_media_post">
+                                    name="would_you_like_a_custom_social_media_post">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -419,8 +442,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-check-label">Would you like a custom email blast? **This may have
                                     extra cost.</label>
-                                <select class="form-control mt-2" required
-                                        name="would_you_like_a_custom_email_blast">
+                                <select class="form-control mt-2" required name="would_you_like_a_custom_email_blast">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -431,7 +453,7 @@
                                 <label class="form-check-label">Would you like a custom property website? **This may
                                     have extra cost.</label>
                                 <select class="form-control mt-2" required
-                                        name="would_you_like_a_custom_property_website">
+                                    name="would_you_like_a_custom_property_website">
                                     <option value="">-</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -451,7 +473,7 @@
     </div>
 
     <script>
-        function toggleCustomInput (input) {
+        function toggleCustomInput(input) {
             const customInput = document.getElementById(input)
             if (customInput.style.display === 'none' || customInput.style.display === '') {
                 customInput.style.display = 'block'
@@ -460,7 +482,7 @@
             }
         }
 
-        function toggleDescription (select) {
+        function toggleDescription(select) {
             if (select.value == 'HOA' || select.value == 'Condo Association' || select.value == 'Both') {
                 $('.listing-desc').removeClass('d-none')
             } else {
@@ -468,7 +490,7 @@
             }
         }
 
-        function toggleHiddenClass (select, itemToShowHide) {
+        function toggleHiddenClass(select, itemToShowHide) {
             if (select.value == 'Yes') {
                 $('.' + itemToShowHide).removeClass('d-none')
             } else {
@@ -476,7 +498,7 @@
             }
         }
 
-        function toggleUploadImage (select) {
+        function toggleUploadImage(select) {
             if (select.value == 'Yes') {
                 document.getElementById('pictures_desc').classList.remove('d-none')
             } else {
@@ -497,16 +519,16 @@
                 tagline: 'false',
                 color: 'black'
             },
-            createOrder: function (data, actions) {
+            createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value:<?php echo json_encode($type->price); ?>
+                            value: <?php echo json_encode($type->price); ?>
                         }
                     }]
                 })
             },
-            onClick: function () {
+            onClick: function() {
                 const form = document.getElementById('form')
                 if (form.checkValidity()) {
                     return true
@@ -515,8 +537,8 @@
                     return false
                 }
             },
-            onApprove: function (data, actions) {
-                return actions.order.capture().then(function (details) {
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
                     document.getElementById('form').submit()
                 })
             }

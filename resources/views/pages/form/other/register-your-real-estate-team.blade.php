@@ -51,6 +51,41 @@
                                 <label for="name">Upload Team Member's Signed Team Agreement</label>
                                 <input type="file" name="team_signed_agreement" class="form-control p-1" required>
                             </div>
+                            <div class="col-12">
+                                <p>When registering a team - all sales volume will be registered under team leader. Please
+                                    be as
+                                    specific as possible with any other changes on the DA's from standard team agreement
+                                    amounts
+                                    below: </p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">What portion of team leader's commission will go to the team member on
+                                    team member leads/deals?</label>
+                                <textarea type="file" name="what_portion_of_team_leader_commission_will_go_to_the_team_member_on_team_member_leads"
+                                    class="form-control p-1" required>
+                                </textarea>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">What portion of team leader's commission will go to the team member on
+                                    team lead leads/deals?</label>
+                                <textarea type="file" name="what_portion_of_team_leader_commission_will_go_to_the_team_member_on_team_lead_leads"
+                                    class="form-control p-1" required>
+                                </textarea>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Any other special notes for accounting to be aware of?</label>
+                                <textarea type="file" name="any_other_special_notes_for_accounting_to_be_aware_of" class="form-control p-1"
+                                    rows="5">
+                                </textarea>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name">Will the team member use the luxeknows.com email or a team
+                                    email?</label>
+                                <select name="team_member_email" class="form-control">
+                                    <option value="luxeknows.com">luxeknows.com email</option>
+                                    <option value="Team email">Team email</option>
+                                </select>
+                            </div>
                             <div class="form-group form-footer col-12">
                                 <input type="submit" class="btn btn-luxe w-100" value="SUBMIT">
                             </div>
