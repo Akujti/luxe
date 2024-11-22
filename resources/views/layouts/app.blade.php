@@ -1102,6 +1102,10 @@
                                         class="row m-0 {{ Request()->route()->getPrefix() == 'user/cma-report' ? 'active selected' : '' }}">
                                         <a href="{{ route('cma.index') }}">Seller CMA </a>
                                     </li>
+                                    <li
+                                        class="{{ isset($subactive) && $subactive == 'collections' ? 'active_submenu' : '' }}">
+                                        <a href="{{ route('collections.index') }}">Client Saved Searches</a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="sidebar-details">
