@@ -93,11 +93,14 @@
             </div>
             <div class="col-md-6">
                 <h2 class="under-contract my-5 text-center">LEGACY INCENTIVES</h2>
+                <p class="text-center mb-4">Any rewards will be paid out in the proceeding quarter, after you hit the
+                    required sales volume. It will
+                    not be paid in the same quarter.</p>
                 <div class="row text-center align-items-end">
                     <h4 class="col-12">$10 Million Dollar Club</h4>
                     <div class="col-md-6">
-                        <img src="/images/incentives/capital.png" alt="" class="incentive-img" height="120px">
-                        <p>Dinner at Capital Grille</p>
+                        <img src="/images/incentives/ruth-christ.jpg" alt="" class="incentive-img" height="120px">
+                        <p>Dinner at Ruth's Chris Steak House</p>
                     </div>
                     <div class="col-md-6">
                         <img src="/images/incentives/miami.png" alt="" class="incentive-img" height="160px">
@@ -108,8 +111,8 @@
                 <div class="row text-center justify-content-center">
                     <div class="col-md-6">
                         <h4 class="col-12">$25 Million Dollar Club</h4>
-                        <img src="/images/incentives/macbook.jpg" alt="" class="incentive-img shadow-img">
-                        <p>Macbook Pro</p>
+                        <img src="/images/incentives/macbook-air.png" alt="" class="incentive-img shadow-img">
+                        <p>Macbook Air</p>
                     </div>
                     <div class="col-md-6">
                         <h4 class="col-12">$50 Million Dollar Club</h4>
