@@ -78,7 +78,8 @@
                             <div class="form-group col-md-6">
                                 <label for="name">Will the team member use the luxeknows.com email or a team
                                     email?</label>
-                                <select name="team_member_email" class="form-control">
+                                <select name="team_member_email" class="form-control" required>
+                                    <option value>-</option>
                                     <option value="luxeknows.com">luxeknows.com email</option>
                                     <option value="Team email">Team email</option>
                                 </select>
