@@ -374,9 +374,7 @@ class CMAController extends Controller
             ],
             "options" => [
                 "annotation" => [
-                    "annotations" => [
-
-                    ],
+                    "annotations" => [],
                 ],
                 "scales" => [
                     "xAxes" => [
@@ -728,7 +726,7 @@ class CMAController extends Controller
             'avg_price_active' => number_format($avg_price_active),
             'avg_price_per_sqft_active' => number_format($avg_price_per_sqft_active),
             'mapImage' =>
-                'https://maps.googleapis.com/maps/api/staticmap?' .
+            'https://maps.googleapis.com/maps/api/staticmap?' .
                 '&markers=size:mid%7Ccolor:0xC6A467|' . urlencode($result) .
                 '&format=jpg&size=1000x400&scale=2' .
                 '&style=feature:poi|element:labels|visibility:off' .
@@ -736,7 +734,8 @@ class CMAController extends Controller
                 '&style=feature:landscape|element:labels|visibility:off' .
                 '&style=feature:transit|element:labels|visibility:off' .
                 '&style=feature:water|element:labels|visibility:off' .
-                '&style=saturation:-100&key=AIzaSyCbvYCR-b_MzBtqFgpY_OJU5oCxrQWwrSI'];
+                '&style=saturation:-100&key=AIzaSyCbvYCR-b_MzBtqFgpY_OJU5oCxrQWwrSI'
+        ];
 
         $chart->setConfig(json_encode($config));
         $imageUrl = $chart->getUrl();
@@ -744,9 +743,12 @@ class CMAController extends Controller
         $imageUrl_2 = $chart->getUrl();
         $savePath = public_path('images');
 
-        file_put_contents($savePath . '/cma/google_map.jpg', file_get_contents($data['mapImage']));
-        file_put_contents($savePath . '/cma/chart.png', file_get_contents($imageUrl));
-        file_put_contents($savePath . '/cma/chart_2.png', file_get_contents($imageUrl_2));
+        try {
+            file_put_contents($savePath . '/cma/google_map.jpg', file_get_contents($data['mapImage']));
+            file_put_contents($savePath . '/cma/chart.png', file_get_contents($imageUrl));
+            file_put_contents($savePath . '/cma/chart_2.png', file_get_contents($imageUrl_2));
+        } catch (\Throwable $th) {
+        }
 
         $pdf = PDF::loadView('cma.pdf.luxe-cma', $data);
         $pdfContent = $pdf->output();

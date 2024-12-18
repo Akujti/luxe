@@ -413,6 +413,9 @@
                 statusGl = 'Active'
             else if (statusGl == 'Active')
                 statusGl = 'Pending'
+            if (statusGl != 'Closed') {
+                $('#date-search').val(null)
+            }
             locations = []
             $('#results-status').html(statusGl)
             $('#results-scan').html('0/20')
@@ -605,20 +608,18 @@
                     locations.push([item.BuyerAgentFullName, item.Latitude, item.Longitude])
                     let html = `<div class="market-analysis-row">
                     <div class="position-relative">
-
                         <div class="image-checkbox">
                             <div class="form-check">
                                 <input class="form-check-input checkbox-check" type="checkbox" value="${item.ListingId}" id="flexCheckDefault">
                             </div>
                         </div>
                         <img src="${(item.Media && item.Media.length) ? item.Media[0].MediaURL : ''}">
-
                         <div class="image-overlay">
                             <div class="image-overlay-div">
                                 <div>
                                     <p class="sqft-price">
 <!--                                        <i class="fa-solid fa-star"></i>-->
-                                        <b>$${validateString(item.ClosePrice).toLocaleString()} | $${validateString(item.MIAMIRE_RATIO_CurrentPrice_By_SQFT)}/Sq.Ft</b>
+                                        <b>$${validateString(status === 'Closed'  ? item.ClosePrice :item.ListPrice).toLocaleString()} | $${validateString(item.MIAMIRE_RATIO_CurrentPrice_By_SQFT)}/Sq.Ft</b>
                                     </p>
                                     <p class="sqft-price">
                                         ${validateString(item.UnparsedAddress.split(',')[0])}
@@ -645,115 +646,104 @@
                         </div>
                     </div>
                     <div class="div-table-market-analysis">
-                        <table class="table-market-analysis table-striped">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="flex">
-                                            <p>MLS</p>
-                                            <p>${item.ListAgentMlsId}</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Year Built</p>
-                                            <p>${item.YearBuilt}</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Pool</p>
-                                            <p>${item.PoolPrivateYN ? 'Yes' : 'No'}</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Lot Size</p>
-                                            <p>${item.LotSizeDimensions ? validateString(item.LotSizeDimensions) : '-'}</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Living Sq.Ft.</p>
-                                            <p>${item.LivingArea}</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="flex">
-                                            <p>On Market</p>
-                                            <p>${item.DaysOnMarket ? item.DaysOnMarket + ' Days' : 'No'}</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Sold</p>
-                                            <p>${item.CloseDate ? moment().diff(moment(item.CloseDate, 'YYYY-MM-DD'), 'days') + ' Days ago' : 'Not Yet'}</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Status</p>
-                                            <p>${item.StandardStatus}</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <div class="flex">
-                                            <p>Prop. Type</p>
-                                            <p>${item.PropertyType}</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Water Front</p>
-                                            <p>${item.WaterfrontYN ? 'Yes' : 'No'}</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Listing Price</p>
-                                            <p>$${(item.ListPrice??'').toLocaleString()}</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Agent</p>
-                                            <p>${item.BuyerAgentFullName}</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="flex">
-                                            <p>Phone</p>
-                                            <p>${item.BuyerAgentDirectPhone}</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <div class="flex">
-                                            <p>Company</p>
-                                            <p>${item.BuyerOfficeName}</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 striped">
+                                    <div class="d-flex justify-content-between">
+                                        <p>MLS</p>
+                                        <p>${item.ListAgentMlsId}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 striped">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Year Built</p>
+                                        <p>${item.YearBuilt}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Pool</p>
+                                        <p>${item.PoolPrivateYN ? 'Yes' : 'No'}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Lot Size</p>
+                                        <p>${item.LotSizeDimensions ? validateString(item.LotSizeDimensions) : '-'}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 striped">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Living Sq.Ft.</p>
+                                        <p>${item.LivingArea}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 striped">
+                                    <div class="d-flex justify-content-between">
+                                        <p>On Market</p>
+                                        <p>${item.DaysOnMarket ? item.DaysOnMarket + ' Days' : 'No'}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Sold</p>
+                                        <p>${item.CloseDate ? moment().diff(moment(item.CloseDate, 'YYYY-MM-DD'), 'days') + ' Days ago' : 'Not Yet'}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Status</p>
+                                        <p>${item.StandardStatus}</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 striped">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Prop. Type</p>
+                                        <p>${item.PropertyType}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Water Front</p>
+                                        <p>${item.WaterfrontYN ? 'Yes' : 'No'}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Listing Price</p>
+                                        <p>$${(item.ListPrice ?? '').toLocaleString()}</p>
+                                    </div>
+                                    ${statusGl === 'Closed' ? `
+                                                            <div class="d-flex justify-content-between">
+                                                                <p>Sale Price</p>
+                                                                <p>$${(item.ClosePrice ?? '').toLocaleString()}</p>
+                                                            </div>` : ''}
+                                </div>
+                                <div class="col-md-6 striped">
+                                    <div class="d-flex justify-content-between">
+                                        <p>${status === 'Closed' ? 'Agent' : 'Listing Agent'}</p>
+                                        <p>${status === 'Closed' ? item.BuyerAgentFullName : item.ListAgentFullName}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 striped">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Phone</p>
+                                        <p>${status === 'Closed' ? item.BuyerAgentDirectPhone : item.ListAgentDirectPhone}</p>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Company</p>
+                                        <p>${status === 'Closed' ? item.BuyerOfficeName : item.ListOfficeName}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>`
                     return html
                 })
-                $('.market-analysis-rows div').html(resForHtml.toString().replaceAll(',', '\n'))
+                $('.market-analysis-rows div').html(resForHtml)
 
                 $('.market-analysis-row div').scrollTop(0)
 

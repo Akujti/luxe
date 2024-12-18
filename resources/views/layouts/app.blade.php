@@ -1103,8 +1103,9 @@
                                         <a href="{{ route('cma.index') }}">Seller CMA </a>
                                     </li>
                                     <li
-                                        class="{{ isset($subactive) && $subactive == 'collections' ? 'active_submenu' : '' }}">
-                                        <a href="{{ route('collections.index') }}">Client Saved Searches</a>
+                                        class="{{ isset($active) && $active == 'collections' ? 'active selected' : '' }}">
+                                        <a href="{{ route('collections.create') }}">Client
+                                            Saved Searches</a>
                                     </li>
                                 </ul>
                             </div>

@@ -163,7 +163,7 @@
 .market-analysis-rows .market-analysis-row {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 .market-analysis-rows .market-analysis-row img {
@@ -236,14 +236,18 @@
     background-color: white;
 }
 
-.market-analysis-row .table-market-analysis td p {
+.market-analysis-row .container p {
     font-size: 14px;
     margin: 0px;
     padding: 0px;
     font-weight: 500;
     color: #939293;
+    padding: 3px 0;
 }
 
+.market-analysis-row .container .striped {
+    background-color: #f8f9fa; /* Light gray */
+}
 .market-analysis-row .table-market-analysis td .flex {
     display: flex;
     justify-content: space-between;

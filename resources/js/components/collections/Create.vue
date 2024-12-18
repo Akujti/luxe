@@ -1,7 +1,10 @@
 <template>
     <div class="mt-5">
         <div class="mb-3">
-            <h1 class="title">Client Saved Searches</h1>
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+                <h1 class="title">Client Saved Searches</h1>
+                <a href="/user/collections" class="btn btn-luxe ">My Searches</a>
+            </div>
             <form @submit.prevent="searchListings()" v-if="showSearchFilters">
                 <label for="">Search Listings</label>
                 <div class="row mb-2">

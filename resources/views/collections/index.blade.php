@@ -1,4 +1,4 @@
-@extends('layouts.app', ['subactive' => 'collections'])
+@extends('layouts.app', ['active' => 'collections'])
 @section('vue')
     <div class="container-fluid">
         <Index :collections="{{ $collections }}" />
